@@ -1,0 +1,7 @@
+{
+  "name": "GulpBox",
+  "version": "0.0.1",
+  "devDependencies": {
+    "jquery": "~2.2.0"
+  }
+}
