@@ -74,7 +74,6 @@
                             <a class="food" href="#">Европейская</a>
                             <a class="food" href="#">Японская</a>
                             <a class="food" href="#">Китайская</a>
-                            <a class="food" href="#">Итальянская</a>
                         </div>
                         <div class="line delivery">
                             <i class="icon icon-rocket"></i>
@@ -242,55 +241,55 @@
                                     </div>
 
                                 </div>
-                            <div class="col-lg-3 mobile sidebar">
-                                <button class="button">
-                                <div class="form-group label-floating is-empty">
-                                    <label for="i5" class="control-label">Поиск</label>
-                                    <input type="search" class="form-control" id="i5">
-                                    <span class="help-block"></span>
-                                    <span class="material-input"></span>
-                                </div>
-                                <ul class="menu">
-                                    <li class="has-child active">
-                                        <a href="#" class="parent"><i class="icon"></i> Япреская кухня</a>
-                                        <ul class="child">
-                                            <a href="#"><i class="icon"></i> Готовые роллы</a>
-                                            <a href="#"><i class="icon"></i> Горячие наборы</a>
-                                            <a href="#"><i class="icon"></i> Закрытые суши</a>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="parent"><i class="icon"></i> Американская кухня</a>
-                                        <ul class="child">
-                                            <a href="#"><i class="icon"></i> Готовые роллы</a>
-                                            <a href="#"><i class="icon"></i> Горячие наборы</a>
-                                            <a href="#"><i class="icon"></i> Закрытые суши</a>
-                                        </ul>
-                                    </li>
-                                <ul>
+                        <div class="col-lg-3 mobile sidebar" id="sidebar">
+                            <a class="button-close" id="menu-close" href="#menu-close"><i class="icon icon-dislike"></i></a>
+                            <button class="button btn-toggle" id="menu-toggle"></button>
+                            <div class="form-group label-floating is-empty">
+                                <label for="i5" class="control-label">Поиск</label>
+                                <input type="search" class="form-control" id="i5">
+                                <span class="help-block"></span>
+                                <span class="material-input"></span>
+                            </div>
+                            <ul class="menu">
+                                <li class="has-child active">
+                                    <a href="#" class="parent"><i class="icon"></i> Япреская кухня</a>
+                                    <ul class="child">
+                                        <a href="#"><i class="icon"></i> Готовые роллы</a>
+                                        <a href="#"><i class="icon"></i> Горячие наборы</a>
+                                        <a href="#"><i class="icon"></i> Закрытые суши</a>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="parent"><i class="icon"></i> Американская кухня</a>
+                                    <ul class="child">
+                                        <a href="#"><i class="icon"></i> Готовые роллы</a>
+                                        <a href="#"><i class="icon"></i> Горячие наборы</a>
+                                        <a href="#"><i class="icon"></i> Закрытые суши</a>
+                                    </ul>
+                                </li>
+                            <ul>
 
-                                <div class="controls">
-                                    <div class="filter">
-                                        <h3>Сумма среднего чека</h3>
-
-                                        <div id="control-price" class="slider shor"></div>
-                                        <div class="form-group is-empty" style="width:43%; float: left;">
-                                            <label for="filter-price-min" class="control-label">Минимум</label>
-                                            <input type="search" class="form-control" id="filter-price-min">
-                                            <span class="help-block"></span>
-                                            <span class="material-input"></span>
-                                        </div>
-                                        <div id="price-maximum" class="form-group is-empty" style="width:43%; float: right;">
-                                            <label for="filter-price-min" class="control-label">Максимум</label>
-                                            <input type="search" class="form-control" id="filter-price-max">
-                                            <span class="help-block"></span>
-                                            <span class="material-input"></span>
-                                        </div>
+                            <div class="controls">
+                                <div class="filter">
+                                    <h3>Сумма среднего чека</h3>
+                                    <div id="control-price" class="slider shor"></div>
+                                    <div class="form-group is-empty" style="width:43%; float: left;">
+                                        <label for="filter-price-min" class="control-label">Минимум</label>
+                                        <input type="search" class="form-control" id="filter-price-min">
+                                        <span class="help-block"></span>
+                                        <span class="material-input"></span>
+                                    </div>
+                                    <div id="price-maximum" class="form-group is-empty" style="width:43%; float: right;">
+                                        <label for="filter-price-min" class="control-label">Максимум</label>
+                                        <input type="search" class="form-control" id="filter-price-max">
+                                        <span class="help-block"></span>
+                                        <span class="material-input"></span>
                                     </div>
                                 </div>
-
+                            </div>
                         </div>
                     </section>
+
                     <script src="app/scripts.js"></script>
 
                     <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>

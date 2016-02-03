@@ -1,4 +1,6 @@
-function initSlideRange(obj, units, range, bindMin, bindMax){
+/* q */
+
+function initSlideRange(obj, units, range, bindMin, bindMax) {
     $(obj).noUiSlider({
         start: units,
         step: 10,
@@ -7,10 +9,11 @@ function initSlideRange(obj, units, range, bindMin, bindMax){
         range: range
     });
 
-    var min = $(bindMin), max = $(bindMax);
+    var min = $(bindMin),
+        max = $(bindMax);
     min.val(parseInt(units[0]));
     max.val(parseInt(units[1]));
-    $(obj).on('change', function(){
+    $(obj).on('change', function() {
         var value = $(this).val();
         min.val(parseInt(value[0]));
         max.val(parseInt(value[1]));
@@ -20,5 +23,18 @@ function initSlideRange(obj, units, range, bindMin, bindMax){
 
 $(function() {
     $.material.init();
-    initSlideRange('#control-price', [400, 1500], { 'min': 300, 'max': 2000 }, '#filter-price-min', '#filter-price-max');
+
+    initSlideRange('#control-price', [400, 1500], {
+        'min': 300,
+        'max': 2000
+    }, '#filter-price-min', '#filter-price-max');
+    $('#sidebar').click(function(){
+        $(this).removeClass('mobile');
+        console.log('lalds');
+    })
+
+    $('#menu-close').click( function() {
+        console.log('666');
+        $('#sidebar').addClass('mobile');
+    });
 });
