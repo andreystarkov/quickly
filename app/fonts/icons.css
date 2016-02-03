@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'quickly-icons';
+  src: url('../fonts/icons/quickly-icons.eot?52315731'); src: url('../fonts/icons/quickly-icons.eot?52315731#iefix') format('embedded-opentype'),
+       url('../fonts/icons/quickly-icons.woff?52315731') format('woff'),
+       url('../fonts/icons/quickly-icons.ttf?52315731') format('truetype'),
+       url('../fonts/icons/quickly-icons.svg?52315731#quickly-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'quickly-icons';
+    src: url('../fonts/icons/quickly-icons.svg?52315731#quickly-icons') format('svg');
+  }
+}
+*/
+ 
+ [class^="icn-"]:before, [class*=" icn-"]:before {
+  font-family: "quickly-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icn-cancel:before { content: '\e800'; } /* '' */
+.icn-food:before { content: '\e801'; } /* '' */
+.icn-food-1:before { content: '\e802'; } /* '' */
+.icn-heart:before { content: '\e803'; } /* '' */
+.icn-th-large:before { content: '\e804'; } /* '' */
+.icn-th-list:before { content: '\e805'; } /* '' */
+.icn-paper-plane:before { content: '\e806'; } /* '' */
+.icn-comment:before { content: '\e807'; } /* '' */
+.icn-pencil:before { content: '\e808'; } /* '' */
+.icn-thumbs-up:before { content: '\e809'; } /* '' */
+.icn-tag:before { content: '\e80a'; } /* '' */
+.icn-eye:before { content: '\e80b'; } /* '' */
+.icn-truck:before { content: '\e80c'; } /* '' */
+.icn-wallet:before { content: '\e80d'; } /* '' */
+.icn-search:before { content: '\e80e'; } /* '' */
+.icn-camera:before { content: '\e80f'; } /* '' */
+.icn-money:before { content: '\e810'; } /* '' */
+.icn-trash:before { content: '\e811'; } /* '' */
+.icn-location:before { content: '\e812'; } /* '' */
+.icn-instagram:before { content: '\e813'; } /* '' */
+.icn-vkontakte-rect:before { content: '\e814'; } /* '' */
+.icn-instagram-filled:before { content: '\e815'; } /* '' */
+.icn-odnoklassniki-rect:before { content: '\e816'; } /* '' */
+.icn-tumblr-rect:before { content: '\e817'; } /* '' */
+.icn-facebook-rect:before { content: '\e818'; } /* '' */
+.icn-visa:before { content: '\e819'; } /* '' */
+.icn-mastercard:before { content: '\e81a'; } /* '' */
+.icn-credit-card:before { content: '\e81b'; } /* '' */
+.icn-right-open-big:before { content: '\e81c'; } /* '' */
+.icn-left-open-big:before { content: '\e81d'; } /* '' */
+.icn-phone:before { content: '\e81e'; } /* '' */
+.icn-menu:before { content: '\e81f'; } /* '' */
+.icn-basket:before { content: '\e820'; } /* '' */
+.icn-cart:before { content: '\e821'; } /* '' */
+.icn-menu-1:before { content: '\e822'; } /* '' */
+.icn-cab:before { content: '\e823'; } /* '' */
+.icn-credit-card-1:before { content: '\e824'; } /* '' */
+.icn-vcard:before { content: '\e825'; } /* '' */
+.icn-credit-card-2:before { content: '\e826'; } /* '' */
+.icn-spoon:before { content: '\e827'; } /* '' */
+.icn-anchor:before { content: '\e828'; } /* '' */
+.icn-rouble:before { content: '\e829'; } /* '' */
+.icn-credit-card-3:before { content: '\e82a'; } /* '' */
+.icn-cc-visa:before { content: '\e82b'; } /* '' */
+.icn-cc-mastercard:before { content: '\e82c'; } /* '' */
+.icn-apple:before { content: '\e82d'; } /* '' */
+.icn-android:before { content: '\e82e'; } /* '' */
+.icn-rocket:before { content: '\e82f'; } /* '' */
+.icn-heart-1:before { content: '\e830'; } /* '' */
+.icn-heart-filled:before { content: '\e831'; } /* '' */
+.icn-th-large-outline:before { content: '\e832'; } /* '' */
+.icn-th-large-1:before { content: '\e833'; } /* '' */
+.icn-th-list-outline:before { content: '\e834'; } /* '' */
+.icn-th-list-1:before { content: '\e835'; } /* '' */
+.icn-th:before { content: '\e836'; } /* '' */
+.icn-th-outline:before { content: '\e837'; } /* '' */
+.icn-restaurant:before { content: '\e838'; } /* '' */
+.icn-clock:before { content: '\e839'; } /* '' */
+.icn-calendar:before { content: '\e83a'; } /* '' */
+.icn-key:before { content: '\e83b'; } /* '' */
+.icn-user:before { content: '\e83c'; } /* '' */

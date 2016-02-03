@@ -12,8 +12,10 @@ var gulp    = require('gulp'),
      'app/libs/jquery/dist/jquery.min.js',
      'app/libs/bootstrap-material-design/scripts/material.js',
      'app/libs/bootstrap-material-design/scripts/ripples.js',
+     'app/scripts/etc/*.js',
      'app/scripts/*.js'
     ];
+
     gulp.task('scripts', function() {
       return gulp.src(theLibs)
         .pipe(plugins.uglify())
