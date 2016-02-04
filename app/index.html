@@ -18,7 +18,7 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <div class="overlay"></div>
-    <header class="top" id="top">
+    <header class="top" id="top" style="display:none">
         <div class="container">
             <div class="logo">
                 <svg id="circle" height="85" width="85" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -28,10 +28,10 @@
                 </svg>
             </div>
             <div class="right">
-                <div class="phone">
+<!--                 <div class="phone">
                     <span>+7 (3532) 28-50-12</span>
                     <i class="icon-phone"></i>
-                </div>
+                </div> -->
                 <div class="buttons">
                     <a href="#" class="button small">
                         <i class="icon icon-login"></i>
@@ -45,9 +45,16 @@
             </div>
         </div>
     </header>
-    <div class="breadcrumb">
+    <div class="top-line">
         <div class="container">
-            <a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a>
+            <div class="logo">
+                <svg id="circle" height="40" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g>
+                        <image x="0" y="0" height="40" width="40" xlink:href="svg/logo.svg" />
+                    </g>
+                </svg>
+            </div>
+            <div class="paths"><a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a></div>
         </div>
     </div>
     <section class="company-about gray">
@@ -56,18 +63,18 @@
                 <div class="col-lg-2 text-center">
                     <div class="logo round" style="background-image:url(images/logos/delmaro.png)">
                     </div>
-                    <div class="likes">
+                    <div class="title">
+                        <h2>Del Maro</h2>
+                        <span>служба доставки</span>
+                    </div>
+<!--                     <div class="likes">
                         <a href="#" class="like-up">
                             <i class="icon icon-like"></i>
                             <span>23</span>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="col-lg-10">
-                    <div class="title">
-                        <h2>Служба доставки Del Maro</h2>
-                        <span>Доставка и бронирование</span>
-                    </div>
+                <div class="col-lg-10 the-info">
                     <div class="line types">
                         <i class="icon icon-tag"></i>
                         <a class="food" href="#">Европейская</a>
