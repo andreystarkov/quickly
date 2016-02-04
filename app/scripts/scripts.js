@@ -24,19 +24,31 @@ function initSlideRange(obj, units, range, bindMin, bindMax) {
 $(function() {
     $.material.init();
 
+    $('.control-minus').click(function(){
+        var curr = $('input', $(this).parent());
+        if( !(curr.val() <= 1) ){
+         curr.val( parseInt(curr.val())-1 );
+        }
+    });
+
+    $('.control-plus').click(function(){
+        var curr = $('input', $(this).parent());
+        curr.val( parseInt(curr.val())+1 );
+    });
+
     initSlideRange('#control-price', [400, 1500], {
         'min': 300,
         'max': 2000
     }, '#filter-price-min', '#filter-price-max');
-    $('#sidebar').click(function(){
-        $(this).removeClass('mobile');
-        console.log('lalds');
-    })
 
-    $('#menu-close').click( function() {
-        console.log('666');
-        $('#sidebar').addClass('mobile');
+    $('.button-open').click(function(){
+        $(this).parent().removeClass('mobile');
     });
+
+    $('.button-close').click( function() {
+        $(this).parent().addClass('mobile');
+    });
+
 });
 
 /* checkout */
@@ -44,7 +56,8 @@ $(function() {
 (function() {
     [].slice.call( document.querySelectorAll( '.checkout' ) ).forEach( function( el ) {
         var openCtrl = el.querySelector( '.checkout-button' ),
-            closeCtrl = el.querySelector( '.checkout-cancel' );
+            closeCtrl = el.querySelector( '.checkout-cancel' ),
+            closeMenuCtrl = el.querySelector( '.button-close' );
 
         openCtrl.addEventListener( 'click', function(ev) {
             ev.preventDefault();
