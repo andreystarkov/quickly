@@ -12,6 +12,8 @@ var gulp    = require('gulp'),
      'app/libs/jquery/dist/jquery.min.js',
      'app/libs/bootstrap-material-design/scripts/material.js',
      'app/libs/bootstrap-material-design/scripts/ripples.js',
+     'app/libs/nouislider/distribute/nouislider.min.js',
+     'app/libs/snabbt.js/snabbt.min.js',
      'app/scripts/etc/*.js',
      'app/scripts/*.js'
     ];
@@ -24,7 +26,7 @@ var gulp    = require('gulp'),
     });
 
     gulp.task('styles', function() {
-        return gulp.src('app/styles/styles.less')
+        return gulp.src(['app/styles/styles.less'])
             .pipe(plugins.plumber())
             .pipe(plugins.less())
             .on('error', function (err) {

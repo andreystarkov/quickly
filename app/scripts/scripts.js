@@ -21,8 +21,54 @@ function initSlideRange(obj, units, range, bindMin, bindMax) {
     return $(obj);
 }
 
+function initTabs(){
+    $('ul.tabs li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+
+        $('ul.tabs li').removeClass('current');
+        $('.tab-content').removeClass('current');
+
+        $(this).addClass('current');
+        $("#"+tab_id).addClass('current');
+    });
+}
+
+function removeHoverCSSRule() {
+  if ('createTouch' in document) {
+    try {
+      var ignore = /:hover/;
+      for (var i = 0; i < document.styleSheets.length; i++) {
+        var sheet = document.styleSheets[i];
+        if (!sheet.cssRules) {
+          continue;
+        }
+        for (var j = sheet.cssRules.length - 1; j >= 0; j--) {
+          var rule = sheet.cssRules[j];
+          if (rule.type === CSSRule.STYLE_RULE && ignore.test(rule.selectorText)) {
+            sheet.deleteRule(j);
+          }
+        }
+      }
+    }
+    catch(e) {
+    }
+  }
+}
+
 $(function() {
     $.material.init();
+
+    removeHoverCSSRule();
+    initTabs();
+
+    $('.tab-toggle').click(function(event){
+        var aniInClass = "fadeOutRight animated";
+        var aniOutClass = "slideOutLeft animated";
+        event.preventDefault();
+        $('.tab-active').removeClass('tab-active');
+        var theTab = $(this).attr('href');
+        $(theTab).addClass('tab-active');
+    });
 
     $('.control-minus').click(function(){
         var curr = $('input', $(this).parent());
@@ -48,7 +94,6 @@ $(function() {
     $('.button-close').click( function() {
         $(this).parent().addClass('mobile');
     });
-
 });
 
 /* checkout */

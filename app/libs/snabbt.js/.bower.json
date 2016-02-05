@@ -9,7 +9,6 @@
     "commit": "392c05c3938614cea73db488210429e3419ba6bb"
   },
   "_source": "git://github.com/daniel-lundin/snabbt.js.git",
-  "_target": "~0.6.4",
-  "_originalSource": "snabbt.js",
-  "_direct": true
+  "_target": "^0.6.4",
+  "_originalSource": "snabbt.js"
 }
