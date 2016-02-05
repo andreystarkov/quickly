@@ -27,6 +27,11 @@
 
 @easingDefault: cubic-bezier(0.7, 0, 0.3, 1);
 
+@viewport {
+    zoom: 1.0;
+    width: device-width;
+}
+
 body {
     padding-bottom:100px;
     background-color:@colorWhite;
@@ -381,7 +386,7 @@ section.company-about {
 
     .types {
         .icon {
-            margin-right:15px;
+            margin-right:20px;
         }
         .food {
             font-weight:300;
@@ -404,7 +409,7 @@ section.company-about {
         .icon {
             float:left;
             line-height:40px;
-            margin-right:15px;
+            margin-right:20px;
             color:fade(@colorBlack,70%);
         }
         .types {
@@ -413,8 +418,8 @@ section.company-about {
         .box {
             border-radius:3px;
             float:left;
-            margin-left:12px;
-            margin-right:12px;
+            margin-left:0px;
+            margin-right:20px;
             span {
                 display:inline-block;
                 font-size:11px;
@@ -585,7 +590,15 @@ section.company-about {
         bottom: auto;
         right: 0;
         left: auto;
-        padding: 20px;
+        padding: 0px;
+
+        .sidebar-wrap {
+            overflow-y:scroll;
+            padding:25px;
+            padding-bottom:50px;
+            height:100%;
+            width:100%;
+        }
         .button-open { display: none; }
         .button-close { display: block; }
         .button-close, .button-open {
