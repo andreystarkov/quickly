@@ -64,10 +64,12 @@ $(function() {
     $('.tab-toggle').click(function(event){
         var aniInClass = "fadeOutRight animated";
         var aniOutClass = "slideOutLeft animated";
+        $('.buttons-tabs .button').removeClass('active');
+        $(this).addClass('active');
         event.preventDefault();
         $('.tab-active').removeClass('tab-active');
         var theTab = $(this).attr('href');
-        $(theTab).addClass('tab-active');
+        $(theTab).addClass('tab-active bounceInRight animated');
     });
 
     $('.control-minus').click(function(){
