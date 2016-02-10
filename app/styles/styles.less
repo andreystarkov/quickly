@@ -506,9 +506,13 @@ section.company-about {
                     font-size:1em;
                     font-weight:400;
                 }
+                &:active {
+                    border-left:0px;
+                    border-right:0px;
+                }
                 &.active {
-                    border-left:1px solid darken(@colorGrayLight,5%);
-                    border-right:1px solid darken(@colorGrayLight,5%);
+                    border-right:0px;
+                    border-left:0px;
                     background: lighten(@colorGrayLight,15%);
                     border-bottom-color: darken(@colorGrayLight,12%);
                     z-index:2;
