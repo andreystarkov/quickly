@@ -14,6 +14,8 @@ var gulp    = require('gulp'),
      'app/libs/bootstrap-material-design/scripts/ripples.js',
      'app/libs/nouislider/distribute/nouislider.min.js',
      'app/libs/snabbt.js/snabbt.min.js',
+     'app/libs/moment/min/moment-with-locales.min.js',
+   //  'app/libs/datepicker/build/js/bootstrap-datetimepicker.min.js',
      'app/scripts/etc/*.js',
      'app/scripts/*.js'
     ];

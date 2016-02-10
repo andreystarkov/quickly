@@ -51,8 +51,15 @@ function removeHoverCSSRule() {
       }
     }
     catch(e) {
+        console.log(e);
     }
   }
+}
+
+function appendEach(obj, what){
+    $(obj).each(function(){
+        $(this).append(what);
+    });
 }
 
 $(function() {
@@ -61,6 +68,30 @@ $(function() {
     removeHoverCSSRule();
     initTabs();
 
+    $('#reservation-datetime').datetimepicker({
+        inline: true,
+        locale: moment.locale('ru'),
+        icons: {
+            time: 'picker-time glyphicon glyphicon-time',
+            date: 'glyphicon glyphicon-calendar',
+            up: 'glyphicon glyphicon-chevron-up',
+            down: 'glyphicon glyphicon-chevron-down',
+            previous: 'glyphicon glyphicon-chevron-left',
+            next: 'glyphicon glyphicon-chevron-right',
+            today: 'glyphicon glyphicon-screenshot',
+            clear: 'glyphicon glyphicon-trash',
+            close: 'glyphicon glyphicon-remove'
+        }
+    });
+
+    appendEach('.the-room .point.free', '<i class="icon-anchor"></i>');
+    $('.picker-time').append('<i>Выбрать время</i>');
+
+    $('.the-room .point.free').click(function(){
+        $(this).toggleClass('mine');
+    });
+
+    // $('.bootstrap-datetimepicker-widget a[data-action]').append('Выбрать время');
     $('.tab-toggle').click(function(event){
         var aniInClass = "fadeOutRight animated";
         var aniOutClass = "slideOutLeft animated";

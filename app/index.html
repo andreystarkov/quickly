@@ -116,10 +116,10 @@
                     <a class="button tab-toggle light"data-tab="tab-comments" href="#tab-comments">
                         <span>Отзывы</span>
                     </a>
-                    <a class="button tab-toggle light active" data-tab="tab-food" href="#tab-food">
+                    <a class="button tab-toggle light" data-tab="tёab-food" href="#tab-food">
                         <span>Доставка</span>
                     </a>
-                    <a class="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
+                    <a class="button tab-toggle light active" data-tab="tab-reservation" href="#tab-reservation">
                         <span>Бронирование</span>
                     </a>
                 </div>
@@ -149,7 +149,7 @@
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+1            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -159,37 +159,50 @@
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaeёcat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </section>
-    <section class="the-tab tab-reservation" id="tab-reservation">
+    <section class="the-tab tab-reservation tab-active" id="tab-reservation">
         <div class="container">
-            <h2>Бронирование столов</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="the-room">
+                        <img src="images/rooms/1.png">
+                        <div class="point reserved" id="point-1" style="left:75px; top:65px;"></div>
+                        <div class="point free" style="left:180px; top: 65px;" id="point-2"></div>
+                        <div class="point free" id="point-3" style="left:285px; top: 65px;" ></div>
+                        <div class="point disabled" id="point-3" style="left:390px; top: 65px;" ></div>
+                        <div class="point free" id="point-3" style="left:495px; top: 65px;" ></div>
+                        <div class="point disabled" id="point-3" style="left:602px; top: 65px;" ></div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div style="overflow:hidden;">
+                        <div class="form-group">
+                         <div id="reservation-datetime"></div>
+                        </div>
+                        <div class="form-group label-floating is-empty" style="margin-top:20px">
+                            <label for="reservation-name" class="control-label">Ваше имя</label>
+                            <input type="search" class="form-control" id="reservation-name">
+                            <span class="help-block"></span>
+                            <span class="material-input"></span>
+                        </div>
+                        <div class="form-group label-floating is-empty">
+                            <label for="reservation-phone" class="control-label">Ваш телефон</label>
+                            <input type="search" class="form-control" id="reservation-phone">
+                            <span class="help-block"></span>
+                            <span class="material-input"></span>
+                        </div>
+                        <div class="button main center round">Забронировать стол</div>
+                    </div>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </section>
-    <section class="the-tab tab-active food-category food-grid" id="tab-food">
+    <section class="the-tab food-category food-grid" id="tab-food">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
@@ -332,24 +345,24 @@
                                 </ul>
                             </li>
                             <ul>
-                                <div class="controls">
-                                    <div class="filter">
-                                        <h3>Сумма среднего чека</h3>
-                                        <div id="control-price" class="slider shor"></div>
-                                        <div class="form-group is-empty" style="width:43%; float: left;">
-                                            <label for="filter-price-min" class="control-label">Минимум</label>
-                                            <input type="search" class="form-control" id="filter-price-min">
-                                            <span class="help-block"></span>
-                                            <span class="material-input"></span>
-                                        </div>
-                                        <div id="price-maximum" class="form-group is-empty" style="width:43%; float: right;">
-                                            <label for="filter-price-min" class="control-label">Максимум</label>
-                                            <input type="search" class="form-control" id="filter-price-max">
-                                            <span class="help-block"></span>
-                                            <span class="material-input"></span>
-                                        </div>
+                            <div class="controls">
+                                <div class="filter">
+                                    <h3>Сумма среднего чека</h3>
+                                    <div id="control-price" class="slider shor"></div>
+                                    <div class="form-group is-empty" style="width:43%; float: left;">
+                                        <label for="filter-price-min" class="control-label">Минимум</label>
+                                        <input type="search" class="form-control" id="filter-price-min">
+                                        <span class="help-block"></span>
+                                        <span class="material-input"></span>
+                                    </div>
+                                    <div id="price-maximum" class="form-group is-empty" style="width:43%; float: right;">
+                                        <label for="filter-price-min" class="control-label">Максимум</label>
+                                        <input type="search" class="form-control" id="filter-price-max">
+                                        <span class="help-block"></span>
+                                        <span class="material-input"></span>
                                     </div>
                                 </div>
+                            </div>
                     </div>
                 </div>
     </section>
@@ -458,6 +471,7 @@
         <div class="checkout-count">3</div>
     </div>
     <script src="app/scripts.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
 </body>
 
