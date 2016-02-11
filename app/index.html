@@ -113,13 +113,13 @@
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-6 buttons-tabs">
-                    <a class="button tab-toggle light"data-tab="tab-comments" href="#tab-comments">
+                    <a class="button tab-toggle light active" data-tab="tab-comments" href="#tab-comments">
                         <span>Отзывы</span>
                     </a>
                     <a class="button tab-toggle light" data-tab="tёab-food" href="#tab-food">
                         <span>Доставка</span>
                     </a>
-                    <a class="button tab-toggle light active" data-tab="tab-reservation" href="#tab-reservation">
+                    <a class="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
                         <span>Бронирование</span>
                     </a>
                 </div>
@@ -137,33 +137,36 @@
         <!-- container -->
     </section>
 
-    <section class="the-tab tab-comments" id="tab-comments">
+    <section class="the-tab tab-comments tab-active" id="tab-comments">
         <div class="container">
             <h2>Комментарии</h2>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-1            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaeёcat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="the-comments">
+                <div class="comment row">
+                        <div class="avatar col-lg-1">
+                            <img src="images/samples/ava-1.jpg" alt="...">
+                        </div>
+                        <div class="text col-lg-9">
+                            <b>Илья Имбильданов</b>
+                            <p>Отличный сервис! Заказывал копченое карпаччо с кутикулами австрийских пауков,
+                            терпко, но по-нежному насыщенно. В подарок шеф-повар порадовал мрачным холодцом.
+                            Первый раз в этом ресторане, ждём новое меню!</p>
+                            <div class="answer row">
+                                <div class="avatar col-lg-1">
+                                    <img src="images/samples/ava-2.jpg" alt="...">
+                                </div>
+                                <div class="text col-lg-9">
+                                    <b>Служба достави &laquo;Вилы и копьё&raquo;</b>
+                                    <p>Спасибо, Илья! Скоро в нашем ассортименте ужасные подметки, моченые в жире коня,
+                                    квантовый борщ с усами мужика и суп из трупа. Ждём снова!</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="the-tab tab-reservation tab-active" id="tab-reservation">
+    <section class="the-tab tab-reservation" id="tab-reservation">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -196,7 +199,6 @@
                         </div>
                         <div class="button main center round">Забронировать стол</div>
                     </div>
-
                 </div>
             </div>
 
