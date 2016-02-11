@@ -1,0 +1,153 @@
+
+body {
+    .noUi-handle {
+        z-index:1;
+    }
+    .slider .noUi-handle, .slider.slider-default .noUi-handle {
+        background-color:@colorYellow;
+        border-color:darken(@colorGray,55%);
+        border-width:3px;
+        width:15px;
+        height:15px;
+        top:-7px;
+        cursor:pointer;
+        &:hover {
+            transform:scale(1.5);
+        }
+    }
+    .noUi-horizontal, .noUi-origin {
+        height:3px;
+        border-radius:3px;
+    }
+    .form-control, output {
+        font-weight:300;
+    }
+    .slider.noUi-connect, .slider.slider-default.noUi-connect {
+        background-color:darken(@colorGray,35%);
+    }
+    .noUI-origin {
+        background-color:darken(@colorGray,1%);
+    }
+}
+
+.controls {
+    padding:15px;
+    text-align:left;
+    h3 {
+        font-family:@fontDefault;
+        font-weight:300px;
+        text-align:left;
+        font-size:1.2em;
+        margin-bottom:2.2em;
+        margin-top:2.2em;
+    }
+}
+
+
+// buttons
+
+.button {
+    cursor:pointer;
+    text-transform:uppercase;
+    color:@colorBlack;
+    text-decoration:none;
+    padding:8px 12px;
+    transition:0.6s ease-in-out all;
+    font-weight:500;
+    font-family:@fontButton;
+    font-size:0.9em;
+    i.icon {
+        font-size: 1em;
+        margin-right: 5px;
+        vertical-align: middle
+    }
+    &.gray {
+        background-color:lighten(@colorGrayLight,2%);
+        border-bottom: 3px solid darken(@colorGrayLight,3%);
+    }
+    &.small {
+        .icon {
+                font-size: 1.4em;
+                margin-right: 5px;
+                vertical-align: middle
+        }
+        font-size:12px;
+        padding:6px 12px;
+        border-radius:3px;
+        border-bottom: 2px solid rgba(255,255,255,0);
+        line-height:11px;
+    }
+    &.main {
+        background:@colorYellow;
+        border-bottom: 3px solid darken(@colorYellow,12%);
+        &:hover {
+            background:lighten(@colorYellow,12%);
+            border-bottom: 3px solid darken(@colorYellow,12%);
+        }
+    }
+    &.center {
+        text-align:center;
+    }
+    &.round {
+        border-radius:3px;
+    }
+    &.light {
+        background: lighten(@colorGrayLight,3%);
+        border-bottom: 3px solid darken(@colorGrayLight,3%);
+        &:hover {
+            background: lighten(@colorGrayLight,8%);
+            border-bottom: 3px solid darken(@colorGrayLight,12%);
+        }
+    }
+}
+
+
+.bootstrap-datetimepicker-widget .picker-switch td span {
+    transition:0.4s @easingDefault all;
+    height:2.7em;
+    &:hover {
+        background-color:lighten(@colorGrayLight,1%);
+        border-bottom: 3px solid darken(@colorGrayLight,2%);
+    }
+}
+
+.the-time-select {
+    transition:0.4s @easingDefault all;
+    height:2.7em;
+    background-color:lighten(@colorGrayLight,2%);
+    border-bottom: 3px solid darken(@colorGrayLight,3%);
+    i {
+        font-weight:500;
+        text-align:left;
+        font-size:16px;
+        text-transform:uppercase;
+        font-family: @fontDefault;
+        font-style:normal;
+        font-size:14px;
+        margin-left:10px;
+        display:inline-block;
+    }
+    &:hover {
+        background-color:lighten(@colorYellow,15%);
+    }
+}
+
+body .form-control {
+    width:100%;
+    padding:0;
+}
+
+body .form-group {
+    text-align:left;
+}
+
+.btn-toggle {
+    display:none;
+}
+
+.the-form {
+    .button {
+        display:inline-block;
+        margin-top:30px;
+    }
+}

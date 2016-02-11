@@ -1,0 +1,171 @@
+
+// about company personal card
+
+section.company-about {
+    background: fade(#f4f2ed,80%);
+    padding-top:20px;
+
+    .logo {
+        background-size:70%;
+        display:inline-block;
+        margin-top:0px;
+        background-color:#fff;
+        border-radius:100px;
+        background-position:center center;
+        background-repeat:no-repeat;
+        border:4px solid darken(@colorGrayLight,5%);
+        height:80px;
+        width:80px;
+    }
+
+    section.company-about .title * {
+        text-align:center;
+    }
+    .likes {
+        margin-top:15px;
+        a {
+            font-weight:400;
+            &.like-down {
+                i { color:red; text-shadow:0 0 2px fade(mix(red,#111,50%),70%); }
+                margin-right:8px;
+            }
+            &.like-up {
+                i { color:green; text-shadow:0 0 2px fade(mix(green,#111,50%),70%);  }
+                margin-left:8px;
+
+            }
+        }
+    }
+
+    .the-info {
+        padding-top:5px;
+    }
+    .title {
+        text-align:center;
+        h2 {
+            font-weight:300;
+            font-family:@fontDefault;
+            font-size:16px;
+            margin-top:5px;
+            margin-bottom:0px;
+        }
+        span {
+            font-size:12px;
+            font-weight:200;
+            font-family:@fontDefault;
+
+        }
+        margin-bottom:10px;
+    }
+
+    // food categories
+
+    .line {
+        padding-top:10px;
+        padding-bottom:10px;
+        overflow:hidden;
+    }
+
+    .types {
+        .icon {
+            margin-right:20px;
+        }
+        .food {
+            font-weight:300;
+            padding:6px 25px;
+            font-size:0.9em;
+            transition:0.4s linear all;
+            background:fade(#fff,35%);
+            border-radius:3px;
+            border-bottom: 2px solid darken(@colorGrayLight,2%);
+            &:hover {
+                background: lighten(@colorGrayLight,8%);
+                border-bottom: 2px solid darken(@colorGrayLight,12%);
+            }
+        }
+    }
+
+    // delivery information
+
+    .delivery {
+        .icon {
+            float:left;
+            line-height:40px;
+            margin-right:20px;
+            color:fade(@colorBlack,70%);
+        }
+        .types {
+
+        }
+        .box {
+            border-radius:3px;
+            float:left;
+            margin-left:0px;
+            margin-right:20px;
+            span {
+                display:inline-block;
+                font-size:11px;
+            }
+            p {
+                font-size:14px;
+                line-height:14px;
+            }
+            &.min {
+
+            }
+            &.pay {
+                span {
+                    padding-top:8px;
+                    line-height:12px;
+                }
+            }
+            .cards {
+                margin-top:8px;
+                float: left;
+                margin-right:5px;
+            }
+            .card-icon {
+                background:transparent;
+                display:inline-block;
+                float:left;
+            }
+
+        }
+
+    }
+
+    // bottom buttons line
+
+    .buttons-line {
+        padding-bottom:10px;
+        padding-top:0px;
+
+        .buttons-tabs {
+            .button {
+
+                padding-left:30px;
+                padding-right:30px;
+                z-index:1;
+
+                span {
+                    font-size:1em;
+                    font-weight:400;
+                }
+                &:active {
+                    border-left:0px;
+                    border-right:0px;
+                }
+                &.active {
+                    border-right:0px;
+                    border-left:0px;
+                    background: lighten(@colorGrayLight,15%);
+                    border-bottom-color: darken(@colorGrayLight,12%);
+                    z-index:2;
+                }
+            }
+        }
+        .buttons-reserv {
+            text-align:center;
+        }
+    }
+}

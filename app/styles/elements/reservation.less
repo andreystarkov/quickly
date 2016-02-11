@@ -1,0 +1,63 @@
+
+.tab-reservation {
+    padding-top:30px;
+}
+.the-room {
+    display:inline-block;
+    position:relative;
+    .point {
+        text-align:center;
+        padding:10px;
+        display:inline-block;
+        position:absolute;
+        width:40px;
+        height:40px;
+        border-radius:50px;
+        background:@colorBlack;
+        transition:0.5s ease-in-out all;
+        i {
+            opacity:0;
+            transition:0.4s @easingDefault all;
+            color:#fff;
+            text-shadow:0 1px 3px fade(#000,50%);
+        }
+        &.disabled {
+            cursor:not-allowed;
+            background:gray;
+        }
+        &.reserved {
+            cursor:not-allowed;
+            background:darken(#DD1C1A,5%);
+            &:hover {
+                background:lighten(#DD1C1A,5%);
+            }
+        }
+        &.free {
+            &.mine {
+                background:@colorYellow;
+                border-bottom:3px solid darken(@colorYellow,16%);
+                i {
+                    color:@colorBlack;
+                    opacity:1;
+                    text-shadow:0 0 0 fade(#000,0%);
+                }
+                &:hover {
+                    background:darken(#32936F,5%);
+                    border-bottom:3px solid darken(#32936F,16%);
+                    i {
+                        opacity:0.4;
+                        color:@colorWhite;
+                    }
+                }
+            }
+            cursor:pointer;
+            background:darken(#32936F,5%);
+            &:hover {
+                i {
+                    opacity:1;
+                }
+                background:lighten(#32936F,5%);
+            }
+        }
+    }
+}

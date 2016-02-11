@@ -1,0 +1,265 @@
+@media all and (max-width:500px) {
+    section.company-about .title * {
+        text-align:center;
+    }
+    section.company-about .line {
+        text-align:center;
+    }
+    section {
+        padding-bottom:25px;
+    }
+
+    section.company-about {
+        padding-bottom:20px;
+        .cards {
+        margin-left:3px;
+        margin-right:0;
+        }
+        .line {
+            padding-top:3px;
+            padding-bottom:3px;
+        }
+        .types {
+            margin-bottom:0;
+        }
+        .buttons-line {
+            margin-top:15px;
+            margin-bottom:15px;
+        }
+    }
+    #top .right {
+        position: absolute;
+        right: -20px;
+        top: 30px;
+        text-align: right;
+        transform: scale(0.8);
+    }
+    .buttons-line {
+        position:relative;
+    }
+    .sidebar {
+        position: fixed;
+        transition:0.4s ease-in-out all;
+        z-index: 99999;
+        background-color: #fff;
+        height: 100%;
+        overflow:hidden;
+        width: 100%;
+        top: 0;
+        bottom: auto;
+        right: 0;
+        left: auto;
+        padding: 0px;
+
+        .sidebar-wrap {
+            overflow-y:scroll;
+            padding:25px;
+            padding-bottom:50px;
+            height:100%;
+            width:100%;
+        }
+        .button-open { display: none; }
+        .button-close { display: block; }
+        .button-close, .button-open {
+            transition: 0.8s @easingDefault all;
+            width:55px;
+            height:55px;
+            position:absolute;
+            right:15px;
+            top:15px;
+            cursor: pointer;
+            i {
+                font-size:30px;
+            }
+            z-index:54;
+        }
+        &.mobile {
+            transition:0.4s ease-in-out all;
+            top:auto;
+            .button-close {
+                display:none;
+            }
+            .button-open {
+                display:block;
+            }
+            top:0;
+            right:0;
+            left:auto;
+            width:70px;
+            height:70px;
+            background:fade(@colorBlack,0%);
+            div,ul {
+                display:none;
+            }
+        }
+    }
+    .button {
+        margin-right:4px;
+        margin-left:4px;
+        i.icon {
+            font-size:1em;
+        }
+    }
+
+    .buttons-tabs {
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        padding-left: 5px;
+        padding-right: 8px;
+        backround:#f4f2ed;
+        display: block;
+        text-align: center;
+        display: block;
+    }
+
+    .top-line .container {
+        text-align:center;
+        font-size:12px;
+    }
+
+    section.company-about .delivery .box.pay span {
+        display:none;
+    }
+    section.food-category {
+        padding-top:65px;
+    }
+    section.company-about .types .food {
+        padding: 6px 14px;
+        display: inline-block;
+        font-size:10px;
+        margin-top:5px;
+        text-transform:uppercase;
+        font-weight:300;
+    }
+    section.food-category {
+        .food-item {
+            margin-bottom:15px;
+            padding-left:3px;
+            padding-right:3px;
+            a {
+                margin-bottom:0px;
+            }
+            b {
+                font-weight:400;
+                font-size:10px;
+            }
+        }
+        .food-item a .overlay .price {
+            display: inline-block;
+            padding: 3px 6px;
+            bottom: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: rgba(248,246,243,1);
+            font-size: 13px;
+            font-weight: 300;
+            position: absolute;
+        }
+    }
+    section.company-about .delivery .box {
+        margin-left:0px;
+        display:inline-block;
+        position:relative;
+        float:none;
+        margin-right:2px;
+    }
+    section.company-about .title {
+        text-align:center;
+    }
+    section.company-about .delivery .box span {
+        display: inline-block;
+        font-size: 9px;
+        font-weight: 300;
+    }
+    section.company-about .types .icon,section.company-about .delivery .icon {
+        margin-right: 15px;
+        display: none;
+        margin-top:10px;
+    }
+    section.company-about .delivery .box p {
+        font-size: 10px;
+        font-weight: 300;
+        line-height: 14px;
+        text-transform: uppercase;
+    }
+    section.company-about .title h2 {
+        font-size:20px;
+    }
+    section.company-about .buttons-line .buttons-tabs .button {
+        width: 33.33%;
+        display: block;
+        float: left;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left:10px;
+        padding-right:10px;
+        text-align:center;
+        font-size:12px;
+    }
+}
+
+@media screen and (max-width:26em) {
+    .top-line {
+        display:none;
+    }
+    body .bottom-panel {
+        z-index:999999999;
+        padding:0;
+        height:44px;
+    }
+    .checkout-count, .checkout-icon {
+        top:0.6em;
+    }
+    .checkout-active {
+        -webkit-transform: translate3d(0, 15px, 0);
+        transform: translate3d(0, 15px, 0);
+    }
+
+    .checkout-summary {
+        width:100%;
+        float:none;
+        display:block;
+    }
+    .checkout {
+        .button {
+            width:100%;
+            margin-left:0;
+            margin-right:0;
+            margin-top:1.2em;
+        }
+    }
+
+    .checkout-form {
+        width:100%;
+        display:block;
+        float:none;
+    }
+    .checkout-order::before {
+        border-radius: 0
+    }
+
+    .checkout-summary {
+        thead th {
+            font-size:0.7em;
+        }
+        tbody td {
+            font-size:0.8em;
+        }
+        margin-top: 2em;
+    }
+
+    .checkout-order-inner {
+        padding: 1em 1.75em
+    }
+
+    .checkout-order {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .checkout-summary th:last-child,
+    .checkout-summary td:last-child {
+        padding-left: 10px
+    }
+}

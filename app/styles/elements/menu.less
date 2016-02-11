@@ -1,0 +1,78 @@
+
+.menu {
+    list-style:none;
+    list-style-type:none;
+    padding-left:0;
+
+    ul {
+        display:block;
+        padding-left:0;
+    }
+    li {
+        padding: 0;
+        display:block;
+        width:100%;
+        text-align:left;
+
+        &.has-child {
+            margin-bottom:25px;
+            a.parent {
+                .icon { transform: scale(1); }
+            }
+            a .icon {
+                opacity:0.4;
+                transform: scale(0.8);
+                border:2px solid fade(@colorBlack, 30%);
+            }
+            a {
+                opacity:1;
+            }
+        }
+        &.active .parent .icon {
+            background:@colorYellow;
+        }
+        a {
+            opacity:0.8;
+            transition:0.3s cubic-bezier(.17,.67,.27,.01) all;
+            border-bottom: 2px solid @colorGrayLight;
+
+            &.parent {
+                font-weight:300;
+                .icon {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+            &:hover {
+                opacity:1;
+                .icon {
+                    background: @colorWhite;
+                    border:2px solid fade(@colorBlack, 35%);
+                    opacity:1;
+                    transform: scale(1);
+                }
+                border-bottom: 2px solid fade(mix(@colorGrayLight,@colorBlack,90%),80%);
+            }
+            .icon {
+                transform: scale(0.8);
+                transition:0.3s cubic-bezier(.17,.67,.27,.01) all;
+                width:12px;
+                display:block;
+                height:12px;
+                background: fade(#edd200,10%);
+                border:2px solid fade(@colorBlack, 15%);
+                opacity:0.4;
+                border-radius:15px;
+                float:left;
+                margin-top:6px;
+                margin-right:14px;
+
+            }
+            padding:8px 15px;
+            font-size:15px;
+            font-weight:300;
+            display:block;
+            width:100%;
+        }
+    }
+}
