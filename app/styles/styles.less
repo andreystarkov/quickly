@@ -11,15 +11,6 @@
 @import (inline) "../libs/datepicker/build/css/bootstrap-datetimepicker-standalone.css";
 // @import (inline) "../fonts/outlined.css";
 
-@import "bootstrap/bootstrap";
-@import "bootstrap/mixins";
-@import "material/bootstrap-material-design.less";
-@import "material/ripples";
-@import "elements/typebase";
-@import "elements/checkout";
-
-// page header
-
 @colorGrayLight: #eeece3;
 @colorGray: #E2E0D3; // #eae5dd
 @colorWhite: #f8f6f3;
@@ -30,6 +21,21 @@
 @fontButton: @fontDefault;
 
 @easingDefault: cubic-bezier(0.7, 0, 0.3, 1);
+
+@import "bootstrap/bootstrap";
+@import "bootstrap/mixins";
+@import "material/bootstrap-material-design.less";
+@import "material/ripples";
+@import "elements/typebase";
+@import "elements/checkout";
+@import "elements/common";
+@import "elements/controls";
+@import "elements/reservation";
+@import "elements/responsive";
+@import "elements/comments";
+
+// page header
+
 
 .bootstrap-datetimepicker-widget .picker-switch td span {
     transition:0.4s @easingDefault all;
