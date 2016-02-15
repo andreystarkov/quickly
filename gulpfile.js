@@ -15,7 +15,7 @@ var gulp    = require('gulp'),
      'app/libs/nouislider/distribute/nouislider.min.js',
      'app/libs/snabbt.js/snabbt.min.js',
      'app/libs/moment/min/moment-with-locales.min.js',
-   //  'app/libs/datepicker/build/js/bootstrap-datetimepicker.min.js',
+     'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',
      'app/scripts/etc/*.js',
      'app/scripts/*.js'
     ];

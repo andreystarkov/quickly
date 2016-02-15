@@ -85,6 +85,11 @@ $(function() {
     });
 
     appendEach('.the-room .point.free', '<i class="icon-anchor"></i>');
+
+    $('#choose').barrating({
+        theme: 'fontawesome-stars'
+    });
+
     $('.picker-time').append('<i>Выбрать время</i>');
 
     $('.the-room .point.free').click(function(){

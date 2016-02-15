@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,cyrillic);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700&subset=latin,cyrillic);
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+@import url("//cdnjs.cloudflare.com/ajax/libs/rateYo/2.0.1/jquery.rateyo.min.css");
 
 @import (inline) "../fonts/robotodraft.css";
 @import (inline) "../fonts/rouble.css";
@@ -8,12 +10,17 @@
 @import (inline) "../libs/animate.css/animate.css";
 @import (inline) "../libs/datepicker/build/css/bootstrap-datetimepicker.css";
 @import (inline) "../libs/datepicker/build/css/bootstrap-datetimepicker-standalone.css";
+@import (inline) "../libs/jquery-bar-rating/dist/themes/fontawesome-stars.css";
+@import (inline) "../libs/jquery-bar-rating/dist/themes/css-stars.css";
+
 
 @colorGrayLight: #eeece3;
 @colorGray: #E2E0D3; // #eae5dd
 @colorWhite: #f8f6f3;
 @colorBlack: #21201f;
 @colorYellow: #fff036;
+@colorRed: #E00909;
+@colorGreen: #109634;
 
 @fontDefault: RobotoDraft;
 @fontButton: @fontDefault;
@@ -34,3 +41,8 @@
 @import "elements/products";
 @import "elements/menu";
 @import "elements/company";
+
+
+.br-theme-fontawesome-stars .br-widget a.br-active:after, .br-theme-fontawesome-stars .br-widget a.br-selected:after {
+    color: @colorRed !important;
+}

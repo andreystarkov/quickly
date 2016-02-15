@@ -145,9 +145,22 @@
                                 <div class="avatar">
                                     <img src="images/samples/ava-1.jpg" alt="...">
                                 </div>
+                                <div class="likes">
+                                    <a href="#" class="like">
+                                    <i class="fa-thumbs-o-up fa"></i> <span class="count">12</span>
+                                    </a>
+                                </div>
                             </div>
                             <div class="text col-lg-10">
-                                <b>Илья Имбильданов</b>
+                                <b>Илья Имбильданов
+                                    <span class="stars">
+                                        <i class="star yes fa fa-star"></i>
+                                        <i class="star yes fa fa-star"></i>
+                                        <i class="star yes fa fa-star"></i>
+                                        <i class="star yes fa fa-star"></i>
+                                        <i class="star yes fa fa-star"></i>
+                                    </span>
+                                </b>
                                 <p>Отличный сервис! Заказывал копченое карпаччо с кутикулами австрийских пауков, терпко, но по-нежному насыщенно. В подарок шеф-повар порадовал мрачным холодцом. Первый раз в этом ресторане, ждём новое меню!</p>
                                 <div class="answer row">
                                     <div class="border-left align-right col-lg-2">
@@ -163,16 +176,29 @@
                             </div>
                         </div>
                         <div class="comment row">
-                            <div class="col-lg-2 align-right">
+                            <div class="col-lg-2 align-center">
                                 <div class="avatar">
                                     <img src="images/samples/ava-2.jpg" alt="...">
                                 </div>
+                                <div class="likes">
+                                    <a href="#" class="like">
+                                    <i class="fa-thumbs-o-up fa"></i> <span class="count">12</span>
+                                    </a>
+                                </div>
                             </div>
                             <div class="text col-lg-10">
-                                <b>Илья Имбильданов</b>
+                                <b>Илья Имбильданов
+                                    <span class="stars">
+                                        <i class="star yes fa fa-star"></i>
+                                        <i class="star yes fa fa-star"></i>
+                                        <i class="star no fa fa-star"></i>
+                                        <i class="star no fa fa-star"></i>
+                                        <i class="star no fa fa-star"></i>
+                                    </span>
+                                </b>
                                 <p>Отличный сервис! Заказывал копченое карпаччо с кутикулами австрийских пауков, терпко, но по-нежному насыщенно. В подарок шеф-повар порадовал мрачным холодцом. Первый раз в этом ресторане, ждём новое меню!</p>
                                 <div class="answer row">
-                                    <div class="border-left align-center col-lg-2">
+                                    <div class="border-left align-right col-lg-2">
                                         <div class="avatar">
                                             <img src="images/logos/delmaro.png" alt="...">
                                         </div>
@@ -186,6 +212,9 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
+                        <div class="tab-header">
+                            <h2>Ваш комментарий</h2>
+                        </div>
                         <div class="the-form">
                             <div class="form-group label-floating is-empty">
                                 <label for="comment-name" class="control-label">Ваше имя</label>
@@ -199,7 +228,24 @@
                                 <span class="help-block"></span>
                                 <span class="material-input"></span>
                             </div>
-                            <a href="#" class="button main"><i class="icon icn-comment"></i> Отправить комментарий</a>
+                            <div class="stars">
+                                <span>Ваша оценка</span>
+<!--                                 <div class="choose">
+                                    <i class="one fa fa-star"></i>
+                                    <i class="two fa fa-star"></i>
+                                    <i class="three fa fa-star"></i>
+                                    <i class="four fa fa-star"></i>
+                                    <i class="five fa fa-star"></i>
+                                </div> -->
+                                <select id="choose" class="choose-stars">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
+                            </div>
+                            <a href="#" class="button main"><i class="icon icn-comment"></i> <span>Отправить комментарий</span></a>
                         </div>
                     </div>
                 </div>

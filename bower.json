@@ -13,6 +13,8 @@
     "nouislider": "^8.2.1",
     "moment": "^2.11.2",
     "react-router": "^2.0.0",
-    "reflux": "^0.3.0"
+    "reflux": "^0.3.0",
+    "rateYo": "rateyo#^2.0.1",
+    "jquery-bar-rating": "^1.1.3"
   }
 }
