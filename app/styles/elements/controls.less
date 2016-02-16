@@ -56,11 +56,32 @@ body {
     font-weight:500;
     font-family:@fontButton;
     font-size:0.9em;
+    position:relative;
+    &:active, &:visited {
+        text-decoration:none;
+    }
     i.icon {
         font-size: 1em;
         margin-right: 5px;
         vertical-align: middle
     }
+    .count {
+        width:20px;
+        height:20px;
+        z-index:9;
+        position:absolute;
+        top:-8px;
+        right:-8px;
+        transition:all 0.5s ease-in-out 0.4s;
+        background:@colorGreen;
+        border-radius:30px;
+        padding:3px 4px;
+        font-size:10px;
+        color:#fff;
+        box-shadow: 0 2px 3px fade(@colorBlack, 20%);
+        text-shadow:1px 1px 0px fade(#000,50%);
+    }
+
     &.gray {
         background-color:lighten(@colorGrayLight,2%);
         border-bottom: 3px solid darken(@colorGrayLight,3%);
@@ -151,4 +172,8 @@ body .form-group {
         display:inline-block;
         margin-top:15px;
     }
+}
+
+.br-theme-fontawesome-stars .br-widget a.br-active:after, .br-theme-fontawesome-stars .br-widget a.br-selected:after {
+    color: @colorRed !important;
 }

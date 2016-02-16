@@ -1,5 +1,9 @@
 /* q */
 
+function getRandom(min, max){
+    return Math.random() * (max - min) + min;
+}
+
 function initSlideRange(obj, units, range, bindMin, bindMax) {
     $(obj).noUiSlider({
         start: units,
@@ -90,6 +94,12 @@ $(function() {
     });
 
     if(isMobile) $('#sidebar').appendTo(document.body);
+
+/*    $('#profile-address-add').click(function(){
+        $('#profile-addresses').append(
+        '<i class="icon icon-location-pin"></i><div class="box"><div class="form-group label-placeholder is-empty">'+'<input type="text" class="form-control" id="profile-address-'+getRandom(1,10000)+'" placeholder="Введите адрес"><span class="material-input"></span></div></div>'
+        );
+    });*/
 
     $('#choose').barrating({
         theme: 'fontawesome-stars'
