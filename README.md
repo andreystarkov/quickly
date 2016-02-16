@@ -7,4 +7,5 @@
 ```
 npm install
 npm install -g gulp (optional)
+gulp
 ```
