@@ -22,7 +22,7 @@ var gulp    = require('gulp'),
 
     gulp.task('scripts', function() {
       return gulp.src(theLibs)
-        .pipe(plugins.uglify())
+     //   .pipe(plugins.uglify())
         .pipe(plugins.concat('scripts.js'))
         .pipe(gulp.dest('app/app'));
     });
@@ -35,7 +35,7 @@ var gulp    = require('gulp'),
                 gutil.log(err);
                 this.emit('end');
             })
-            .pipe(plugins.autoprefixer(
+        /*    .pipe(plugins.autoprefixer(
                 {
                     browsers: [
                         '> 1%',
@@ -51,7 +51,7 @@ var gulp    = require('gulp'),
                     cascade: false
                 }
             ))
-            .pipe(plugins.cssmin())
+            .pipe(plugins.cssmin()) */
             .pipe(gulp.dest('app/app')).on('error', gutil.log);
     });
 

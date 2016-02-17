@@ -5,7 +5,7 @@ function getRandom(min, max){
 }
 
 function initSlideRange(obj, units, range, bindMin, bindMax) {
-    $(obj).noUiSlider({
+    if ( $(obj).length > 0 ) $(obj).noUiSlider({
         start: units,
         step: 10,
         margin: 20,

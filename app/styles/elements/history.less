@@ -1,0 +1,150 @@
+.history-item {
+    transition:0.5s @easingDefault all;
+    padding-top:25px;
+    padding-bottom:5px;
+    &:nth-child(even){
+        background: fade(@colorBlack,3%);
+    }
+    &:nth-child(odd){
+        background: fade(@colorBlack,1%);
+    }
+    &:hover {
+        background: fade(#fff,45%);
+    }
+}
+
+.thumb-round {
+    display:inline-block;
+    vertical-align: middle;
+    text-align:center;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 100px;
+    height: 65px;
+    width: 65px;
+    border: 4px solid fade(@colorBlack,15%);
+    overflow: hidden;
+    img {
+        width:100%;
+    }
+}
+
+.float-left {
+    display:inline-block;
+    float:left;
+}
+
+.margin-right {
+    margin-right:10px;
+}
+
+.actions {
+    span.title {
+        display:block;
+        font-size:13px;
+        font-weight:300;
+        margin-bottom:3px;
+    }
+}
+
+.button-history-repeat {
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.social-share {
+    a {
+        display:inline-block;
+        &+a {
+            margin-left:3px;
+            margin-right:3px;
+        }
+        &:hover {
+            i {
+                color:@colorBlack;
+            }
+        }
+        i {
+            transition:0.4s @easingDefault all;
+            font-size:22px;
+            color:fade(@colorBlack,50%);
+        }
+    }
+}
+
+.thumb-tiny {
+    display: block;
+    margin: 0px auto;
+    background-color: #fff;
+    border-radius: 100px;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    text-align:center;
+    img {
+        height:100%;
+    }
+}
+
+.order-items {
+    overflow:hidden;
+    .item {
+        clear:left;
+        overflow:hidden;
+        width:220px;
+        margin-right:5px;
+        min-height:65px;
+        vertical-align: middle;
+        display:inline-block;
+        .text {
+            padding-left:0px;
+            b {
+                display:inline-block;
+                font-weight:400;
+                line-height:16px;
+                font-size:13px;
+            }
+            .price {
+                display:block;
+            }
+        }
+    }
+}
+
+.order-history {
+        .total {
+            span {
+                display:block;
+                font-size:13px;
+                font-weight:300;
+            }
+            b {
+                display:block;
+                font-size:16px;
+                font-weight:500;
+            }
+        }
+        .bonus {
+            margin-top:10px;
+            span {
+                display:block;
+                font-size:13px;
+                font-weight:300;
+            }
+            b {
+                display:block;
+                font-size:16px;
+                color:darken(@colorGreen,8%);
+                font-weight:500;
+            }
+        }
+}
+
+.box-company {
+    text-align:center;
+    .title {
+        margin-top:20px;
+        display:inline-block;
+        font-family:@fontNarrow;
+    }
+}
