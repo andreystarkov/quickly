@@ -1,4 +1,17 @@
-/* q */
+/*
+      ___           ___                       ___           ___           ___       ___
+     /\  \         /\__\          ___        /\  \         /\__\         /\__\     |\__\
+    /::\  \       /:/  /         /\  \      /::\  \       /:/  /        /:/  /     |:|  |
+   /:/\:\  \     /:/  /          \:\  \    /:/\:\  \     /:/__/        /:/  /      |:|  |
+   \:\~\:\  \   /:/  /  ___      /::\__\  /:/  \:\  \   /::\__\____   /:/  /       |:|__|__
+    \:\ \:\__\ /:/__/  /\__\  __/:/\/__/ /:/__/ \:\__\ /:/\:::::\__\ /:/__/        /::::\__\
+     \:\/:/  / \:\  \ /:/  / /\/:/  /    \:\  \  \/__/ \/_|:|~~|~    \:\  \       /:/~~/~
+      \::/  /   \:\  /:/  /  \::/__/      \:\  \          |:|  |      \:\  \     /:/  /
+      /:/  /     \:\/:/  /    \:\__\       \:\  \         |:|  |       \:\  \    \/__/
+     /:/  /       \::/  /      \/__/        \:\__\        |:|  |        \:\__\
+     \/__/         \/__/                     \/__/         \|__|         \/__/
+
+*/
 
 function getRandom(min, max){
     return Math.random() * (max - min) + min;
@@ -66,6 +79,13 @@ function appendEach(obj, what){
     });
 }
 
+function aniMagic(obj, aniClass){
+    $(obj).addClass('magictime '+aniClass);
+}
+
+function animateThis(obj, aniClass){
+    $(obj).addClass('animated '+aniClass)
+}
 $(function() {
     $.material.init();
 
@@ -95,12 +115,6 @@ $(function() {
 
     if(isMobile) $('#sidebar').appendTo(document.body);
 
-/*    $('#profile-address-add').click(function(){
-        $('#profile-addresses').append(
-        '<i class="icon icon-location-pin"></i><div class="box"><div class="form-group label-placeholder is-empty">'+'<input type="text" class="form-control" id="profile-address-'+getRandom(1,10000)+'" placeholder="Введите адрес"><span class="material-input"></span></div></div>'
-        );
-    });*/
-
     $('#choose').barrating({
         theme: 'fontawesome-stars'
     });
@@ -111,7 +125,6 @@ $(function() {
         $(this).toggleClass('mine');
     });
 
-    // $('.bootstrap-datetimepicker-widget a[data-action]').append('Выбрать время');
     $('.tab-toggle').click(function(event){
         var aniInClass = "fadeOutRight animated";
         var aniOutClass = "slideOutLeft animated";
@@ -120,7 +133,7 @@ $(function() {
         event.preventDefault();
         $('.tab-active').removeClass('tab-active');
         var theTab = $(this).attr('href');
-        $(theTab).addClass('tab-active bounceInRight animated');
+        $(theTab).addClass('tab-active animated fadeInRight');
     });
 
     $('.control-minus').click(function(){

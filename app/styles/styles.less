@@ -1,6 +1,22 @@
+/*
+      ___           ___                       ___           ___           ___       ___
+     /\  \         /\__\          ___        /\  \         /\__\         /\__\     |\__\
+    /::\  \       /:/  /         /\  \      /::\  \       /:/  /        /:/  /     |:|  |
+   /:/\:\  \     /:/  /          \:\  \    /:/\:\  \     /:/__/        /:/  /      |:|  |
+   \:\~\:\  \   /:/  /  ___      /::\__\  /:/  \:\  \   /::\__\____   /:/  /       |:|__|__
+    \:\ \:\__\ /:/__/  /\__\  __/:/\/__/ /:/__/ \:\__\ /:/\:::::\__\ /:/__/        /::::\__\
+     \:\/:/  / \:\  \ /:/  / /\/:/  /    \:\  \  \/__/ \/_|:|~~|~    \:\  \       /:/~~/~
+      \::/  /   \:\  /:/  /  \::/__/      \:\  \          |:|  |      \:\  \     /:/  /
+      /:/  /     \:\/:/  /    \:\__\       \:\  \         |:|  |       \:\  \    \/__/
+     /:/  /       \::/  /      \/__/        \:\__\        |:|  |        \:\__\
+     \/__/         \/__/                     \/__/         \|__|         \/__/
+
+*/
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,cyrillic);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700&subset=latin,cyrillic);
 // @import url(http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300,300italic,400italic,500,500italic,700,700italic&subset=latin,cyrillic);
 
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
@@ -9,7 +25,6 @@
 @import (inline) "../fonts/robotodraft.css";
 @import (inline) "../fonts/rouble.css";
 @import (inline) "../fonts/icons.css";
-@import (inline) "../libs/animate.css/animate.css";
 @import (inline) "../libs/datepicker/build/css/bootstrap-datetimepicker.css";
 @import (inline) "../libs/datepicker/build/css/bootstrap-datetimepicker-standalone.css";
 @import (inline) "../libs/jquery-bar-rating/dist/themes/fontawesome-stars.css";
@@ -22,10 +37,12 @@
 @colorYellow: #fff036;
 @colorRed: #E00909;
 @colorGreen: #109634;
+@colorOrange: #F0C801;
 
 @fontDefault: RobotoDraft;
 @fontButton: @fontDefault;
 @fontNarrow: "Roboto Condensed";
+
 
 @easingDefault: cubic-bezier(0.7, 0, 0.3, 1);
 
@@ -33,6 +50,9 @@
 @import "bootstrap/mixins";
 @import "material/bootstrap-material-design.less";
 @import "material/ripples";
+
+@import "../libs/ZoomSlider/styles/slider.less";
+
 @import "elements/typebase";
 @import "elements/checkout";
 @import "elements/common";
@@ -45,3 +65,11 @@
 @import "elements/company";
 @import "elements/profile";
 @import "elements/history";
+@import "elements/main-page";
+
+@import "animation/animate";
+@import "animation/magic";
+
+div.top-box {
+    overflow-y:hidden;
+}

@@ -1,4 +1,3 @@
-
 body {
     .noUi-handle {
         z-index:1;
@@ -43,10 +42,16 @@ body {
     }
 }
 
+.main-tabs {
+    text-align:center;
+    a {
+        display:inline-block;
+    }
+}
 
 // buttons
 
-.button {
+.button, button {
     cursor:pointer;
     text-transform:uppercase;
     color:@colorBlack;
@@ -57,6 +62,11 @@ body {
     font-family:@fontButton;
     font-size:0.9em;
     position:relative;
+
+    border-right:0;
+    border-left:0;
+    border-top:0;
+
     &:active, &:visited {
         text-decoration:none;
     }
@@ -81,7 +91,42 @@ body {
         box-shadow: 0 2px 3px fade(@colorBlack, 20%);
         text-shadow:1px 1px 0px fade(#000,50%);
     }
+    &.app {
+        text-decoration: none;
+        text-transform:none;
+        padding:12px 25px;
+        border-radius:4px;
+        transition:0.5s ease-in-out all;
+        box-shadow:0 1px 3px fade(#000,5%);
+        span {
+            font-family:RobotoDraft;
+            font-size:1.4em;
+            color: mix(@colorBlack, @colorGrayLight, 80%);
+            font-weight:500;
+            vertical-align:middle;
+        }
 
+        i.icon {
+            margin-right:15px;
+            transition:0.3s ease-in-out all;
+            color: fade(mix(@colorBlack, @colorGrayLight, 70%),70%);
+            font-size:1.5em;
+        }
+        &:hover {
+            span {
+                color: @colorBlack;
+            }
+            box-shadow:0 3px 6px fade(#000,25%);
+            i.icon {
+                color: @colorBlack;
+            }
+
+        }
+    }
+    &.clean {
+        background:transparent;
+        border-bottom: 3px solid transparent;
+    }
     &.gray {
         background-color:lighten(@colorGrayLight,2%);
         border-bottom: 3px solid darken(@colorGrayLight,3%);
@@ -100,10 +145,18 @@ body {
     }
     &.main {
         background:@colorYellow;
-        border-bottom: 3px solid darken(@colorYellow,12%);
+        border-bottom: 3px solid darken(@colorYellow,14%);
         &:hover {
             background:lighten(@colorYellow,12%);
             border-bottom: 3px solid darken(@colorYellow,12%);
+        }
+    }
+    &.orange {
+        background:@colorOrange;
+        border-bottom: 3px solid darken(@colorOrange,6%);
+        &:hover {
+            background:lighten(@colorOrange,12%);
+            border-bottom: 3px solid darken(@colorOrange,3%);
         }
     }
     &.center {
@@ -129,7 +182,6 @@ body {
         }
     }
 }
-
 
 .bootstrap-datetimepicker-widget .picker-switch td span {
     transition:0.4s @easingDefault all;

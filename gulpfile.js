@@ -13,6 +13,9 @@ var gulp    = require('gulp'),
      'app/libs/bootstrap-material-design/scripts/material.js',
      'app/libs/bootstrap-material-design/scripts/ripples.js',
      'app/libs/nouislider/distribute/nouislider.min.js',
+     'app/libs/ZoomSlider/js/dynamics.min.js',
+     'app/libs/ZoomSlider/js/classie.min.js',
+     'app/libs/ZoomSlider/js/main.js',
      'app/libs/snabbt.js/snabbt.min.js',
      'app/libs/moment/min/moment-with-locales.min.js',
      'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',
@@ -72,6 +75,7 @@ var gulp    = require('gulp'),
 
     gulp.task('watch', function() {
         gulp.watch('app/libs/**/*.js', ['scripts']);
+        gulp.watch('app/libs/**/*.less', ['styles']);
         gulp.watch('app/scripts/*.js', ['scripts']);
         gulp.watch('app/styles/**/*.less', ['styles']);
     });
