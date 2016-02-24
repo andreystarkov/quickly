@@ -317,7 +317,6 @@
 
 	init();
 }
-
-// initSlider('.slider-one');
-// initSlider('.slider-two');
+	initSlider('.slider-one');
+	initSlider('.slider-two');
 })(window);
