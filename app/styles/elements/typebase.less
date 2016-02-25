@@ -2,7 +2,7 @@
 
 
 // Typesetting variables. Edit these!
-@baseFontSize: 22; // in pixels. This would result in 22px on desktop
+@baseFontSize: 18; // in pixels. This would result in 22px on desktop
 @baseLineHeight: 1.5; // how large the line height is as a multiple of font size
 @leading: @baseLineHeight * 1rem;
 
@@ -28,7 +28,11 @@ html {
 
 /* Copy & Lists */
 .box-content {
+    p,h2,h3,h4,h1,h5 {
+      font-family:'Fira Sans';
+    }
     p {
+      font-size:@baseFontSize / 16 * 100%;
     line-height: @leading;
     margin-top: @leading;
     margin-bottom: 0;

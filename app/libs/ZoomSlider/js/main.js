@@ -12,6 +12,7 @@
 
 	'use strict';
 	function initSlider(obj){
+	if( $(obj).length > 0 ){
 	var bodyEl = document.body,
 		docElem = window.document.documentElement,
 		support = { transitions: Modernizr.csstransitions },
@@ -316,6 +317,7 @@
 	}
 
 	init();
+}
 }
 	initSlider('.slider-one');
 	initSlider('.slider-two');

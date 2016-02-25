@@ -74,8 +74,8 @@ var gulp    = require('gulp'),
     });
 
     gulp.task('watch', function() {
-        gulp.watch('app/libs/**/*.js', ['scripts']);
-        gulp.watch('app/libs/**/*.less', ['styles']);
-        gulp.watch('app/scripts/*.js', ['scripts']);
-        gulp.watch('app/styles/**/*.less', ['styles']);
+        gulp.watch('app/libs/**/*.js', { interval: 800 }, ['scripts']);
+        gulp.watch('app/libs/**/*.less', { interval: 800 }, ['styles']);
+        gulp.watch('app/scripts/*.js', { interval: 800 }, ['scripts']);
+        gulp.watch('app/styles/**/*.less', { interval: 800 }, ['styles']);
     });
