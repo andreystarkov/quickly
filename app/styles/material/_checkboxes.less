@@ -32,7 +32,7 @@
       position: absolute;
       left: 0;
       content: "";
-      background-color: rgba(0,0,0,.84);
+      background-color: fade(@colorBlack, 15%);
       height: @mdb-checkbox-size;
       width: @mdb-checkbox-size;
       border-radius: 100%;
@@ -87,7 +87,7 @@
       }
 
       & + .checkbox-material .check:before {
-        color: @mdb-checkbox-checked-color;
+        color: @colorYellow;
         box-shadow: 0 0 0 10px,
           10px -10px 0 10px,
         32px 0 0 20px,
@@ -128,7 +128,7 @@
     opacity: 0.5;
   }
   input[type=checkbox][disabled] + .checkbox-material .check:after {
-    background-color: @mdb-text-color-primary;
+    background-color: #fff;
     transform: rotate(-45deg);
   }
 }

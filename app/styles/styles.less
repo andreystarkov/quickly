@@ -70,3 +70,22 @@
 @import "animation/animate";
 @import "animation/magic";
 
+.control-item {
+  margin-bottom:15px;
+  label .toggle, label input[type=checkbox][disabled] + .toggle {
+    background-color: fade(@colorBlack,20%);
+  }
+}
+
+body {
+  // check V
+  .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+      background: mix(@colorBlack, @colorGray, 70%);
+  }
+  .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
+    color: @colorYellow;
+  }
+  .checkbox label, .radio label, label {
+     color: mix(@colorBlack, @colorGray, 80%);
+  }
+}
