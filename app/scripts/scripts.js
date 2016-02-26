@@ -30,8 +30,8 @@ function initSlideRange(obj, units, range, bindMin, bindMax) {
         max = $(bindMax);
     min.val(parseInt(units[0]));
     max.val(parseInt(units[1]));
+
     $(obj).on('change', function() {
-        var value = $(this).val();
         min.val(parseInt(value[0]));
         max.val(parseInt(value[1]));
     });
@@ -118,6 +118,17 @@ $(function() {
     $('#choose').barrating({
         theme: 'fontawesome-stars'
     });
+
+    $('.tip').tooltip({
+        animation:true,
+    });
+
+    var tipAniIn = "fadeInDown", tipAniOut = "fadeOutUp";
+
+/*    $('.tip').on('shown.bs.tooltip', function () {
+        $('.tooltip').addClass('magictime puffIn');
+    })*/
+
 
     $('.picker-time').append('<i>Выбрать время</i>');
 

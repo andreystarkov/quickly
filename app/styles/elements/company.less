@@ -1,10 +1,77 @@
 
 // about company personal card
 
+section.company-list {
+    section.company-about {
+        .logo {
+            border:3px solid fade(@colorMainBackground,10%);
+            height:60px;
+            width:60px;
+        }
+        .title {
+            h2 {
+                font-size:14px;
+                font-family:@fontAlt;
+            }
+            span {
+                font-size:10px;
+            }
+        }
+        .logo, .logo-round, .logo-tiny {
+            transition: all 0.4s cubic-bezier(.55,.33,.27,.74);
+        }
+
+        .line {
+            .box {
+                float:none;
+                padding:0;
+                margin-right:0;
+                margin-left:0;
+                margin-bottom:0;
+                margbin-top:0;
+                span {
+                    font-weight:200;
+                }
+                &.pay {
+                    span {
+                        font-size:9px;
+                    }
+                }
+                &.ctrl {
+                    padding-top:7px;
+                }
+            }
+        }
+        transform-origin:top center;
+        transform-style:preserve-3d;
+
+        border-bottom:4px solid fade(@colorMainBackground,20%);
+        &:nth-child(odd){
+            background: mix(@colorMainBackground,@colorWhite,10%);
+        }
+        &:nth-child(even){
+            background: mix(@colorMainBackground,@colorWhite,40%);
+        }
+        &:hover {
+            background: mix(@colorMainBackground, #fff, 35%);
+             border-bottom:4px solid @colorMainBackground;
+            transform:rotateX(7deg) perspective(250px);
+
+            .thumb-tiny, .logo {
+                opacity:1;
+                border:3px solid @colorMainBackground;
+            }
+            .thumb-round {
+                transform:scale(1.04);
+                border: 4px solid fade(@colorBlack,36%);
+            }
+        }
+    }
+}
+
 section.company-about {
     background: fade(#f4f2ed,80%);
     padding-top:20px;
-
     .logo {
         background-size:70%;
         display:inline-block;
@@ -32,7 +99,6 @@ section.company-about {
             &.like-up {
                 i { color:green; text-shadow:0 0 2px fade(mix(green,#111,50%),70%);  }
                 margin-left:8px;
-
             }
         }
     }
@@ -168,4 +234,5 @@ section.company-about {
             text-align:center;
         }
     }
+
 }

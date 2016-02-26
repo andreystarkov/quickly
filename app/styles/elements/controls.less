@@ -27,6 +27,56 @@ body {
     .noUI-origin {
         background-color:darken(@colorGray,1%);
     }
+    .checkbox label, .radio label, label {
+        font-size:14px;
+        font-weight:400;
+    }
+
+    .checkbox .checkbox-material .check {
+        border:2px solid fade(@colorBlack,30%);
+        transition: all 0.3s @easingSlowMid;
+    }
+
+    .checkbox {
+        &:hover {
+            .checkbox-material .check {
+                border:2px solid fade(@colorBlack,90%);
+            }
+        }
+    }
+
+    .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+      background: mix(@colorBlack, @colorGray, 70%);
+    }
+    .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
+    color: @colorYellow;
+    }
+    .checkbox label, .radio label, label {
+     color: mix(@colorBlack, @colorGray, 80%);
+    }
+    .filter-name {
+        display:inline-block;
+        margin-left:7px;
+    }
+}
+
+.sidebar-list {
+    padding-top:30px;
+    .controls {
+        padding:0;
+    }
+}
+
+.control-item {
+  margin-bottom:15px;
+  label .toggle, label input[type=checkbox][disabled] + .toggle {
+    background-color: fade(@colorBlack,20%);
+  }
+}
+
+
+body {
+
 }
 
 .controls {
@@ -62,7 +112,11 @@ body {
     font-family:@fontButton;
     font-size:0.9em;
     position:relative;
-
+    text-decoration:none;
+    &:hover, &:active, &:visited {
+        * { text-decoration:none; }
+        text-decoration:none;
+    }
     border-right:0;
     border-left:0;
     border-top:0;
@@ -74,6 +128,12 @@ body {
         font-size: 1em;
         margin-right: 5px;
         vertical-align: middle
+    }
+    &.small {
+        padding:6px 8px;
+        span {
+            font-size:0.8em;
+        }
     }
     .count {
         width:20px;
@@ -128,7 +188,7 @@ body {
         border-bottom: 3px solid transparent;
     }
     &.gray {
-        background-color:lighten(@colorGrayLight,2%);
+        background-color:darken(@colorDefaultBackground,5%);
         border-bottom: 3px solid darken(@colorGrayLight,3%);
     }
     &.small {

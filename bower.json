@@ -20,6 +20,7 @@
     "ramjet": "^0.5.0",
     "magic": "^1.1.0",
     "ZoomSlider": "https://github.com/andreystarkov/ZoomSlider.git",
-    "modernizr": "^3.3.1"
+    "modernizr": "^3.3.1",
+    "eonasdan-bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker.git#~4.17.37"
   }
 }

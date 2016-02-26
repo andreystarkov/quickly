@@ -10,9 +10,12 @@ var gulp    = require('gulp'),
 
     var theLibs = [
      'app/libs/jquery/dist/jquery.min.js',
+     'app/libs/react/react.min.js',
+     'app/libs/reflux/dist/reflux.min.js',
+     'app/libs/bootstrap/dist/js/bootstrap.min.js',
+   //  'app/libs/nouislider/distribute/nouislider.min.js',
      'app/libs/bootstrap-material-design/scripts/material.js',
      'app/libs/bootstrap-material-design/scripts/ripples.js',
-     'app/libs/nouislider/distribute/nouislider.min.js',
      'app/libs/ZoomSlider/js/dynamics.min.js',
      'app/libs/ZoomSlider/js/classie.min.js',
      'app/libs/ZoomSlider/js/main.js',

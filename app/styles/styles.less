@@ -13,22 +13,6 @@
 
 */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,cyrillic);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700&subset=latin,cyrillic);
-// @import url(http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic);
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300,300italic,400italic,500,500italic,700,700italic&subset=latin,cyrillic);
-
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-@import url("//cdnjs.cloudflare.com/ajax/libs/rateYo/2.0.1/jquery.rateyo.min.css");
-
-@import (inline) "../fonts/robotodraft.css";
-@import (inline) "../fonts/rouble.css";
-@import (inline) "../fonts/icons.css";
-@import (inline) "../libs/datepicker/build/css/bootstrap-datetimepicker.css";
-@import (inline) "../libs/datepicker/build/css/bootstrap-datetimepicker-standalone.css";
-@import (inline) "../libs/jquery-bar-rating/dist/themes/fontawesome-stars.css";
-@import (inline) "../libs/jquery-bar-rating/dist/themes/css-stars.css";
 
 @colorGrayLight: #eeece3;
 @colorGray: #E2E0D3; // #eae5dd
@@ -39,53 +23,30 @@
 @colorGreen: #109634;
 @colorOrange: #F0C801;
 
+@colorMainBackground:mix(@colorGrayLight, #333, 98.5%);
+@colorDefaultBackground:mix(@colorMainBackground,@colorWhite, 20%);
+
 @fontDefault: RobotoDraft;
 @fontButton: @fontDefault;
-@fontNarrow: "Roboto Condensed";
-
+@fontNarrow: 'Fira Sans';
+@fontAlt: 'Fira Sans';
 
 @easingDefault: cubic-bezier(0.7, 0, 0.3, 1);
+@easingSlowMid: cubic-bezier(.17,.67,.39,.24);
+@easingSlowEnd: cubic-bezier(.68, .20, .12, .10);
 
-@import "bootstrap/bootstrap";
-@import "bootstrap/mixins";
-@import "material/bootstrap-material-design.less";
-@import "material/ripples";
-
-@import "../libs/ZoomSlider/styles/slider.less";
-
-@import "elements/typebase";
-@import "elements/checkout";
-@import "elements/common";
-@import "elements/controls";
-@import "elements/reservation";
-@import "elements/responsive";
-@import "elements/comments";
-@import "elements/products";
-@import "elements/menu";
-@import "elements/company";
-@import "elements/profile";
-@import "elements/history";
-@import "elements/main-page";
-
-@import "animation/animate";
-@import "animation/magic";
-
-.control-item {
-  margin-bottom:15px;
-  label .toggle, label input[type=checkbox][disabled] + .toggle {
-    background-color: fade(@colorBlack,20%);
-  }
-}
+@import "_imports";
 
 body {
-  // check V
-  .checkbox input[type=checkbox]:checked + .checkbox-material .check {
-      background: mix(@colorBlack, @colorGray, 70%);
+  a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
   }
-  .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
-    color: @colorYellow;
-  }
-  .checkbox label, .radio label, label {
-     color: mix(@colorBlack, @colorGray, 80%);
+  .align-right { text-align:right; }
+  .no-padding-right { padding-right:0; }
+}
+
+section {
+  &.gray {
+     background: mix(#EBE9E0,#fff,70%);
   }
 }
