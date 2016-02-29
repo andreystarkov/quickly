@@ -15,6 +15,8 @@
     &:nth-child(odd){
         background: fade(@colorBlack,1%);
     }
+
+
     &:hover {
         background: mix(@colorMainBackground, #fff, 25%);
         border-bottom:5px solid fade(@colorBlack,13%);
@@ -40,11 +42,11 @@
     &:hover {
         background: mix(@colorMainBackground, #fff, 25%);
         // border-bottom:5px solid fade(@colorBlack,13%);
-        transform:rotateX(7deg) perspective(250px);
-        .button {
+       // transform:rotateX(5deg) perspective(250px);
+/*        .button {
             background:@colorYellow;
             border-bottom: 2px solid darken(@colorYellow,12%);
-        }
+        }*/
         .thumb-tiny {
             opacity:1;
         }
@@ -54,6 +56,7 @@
         }
     }
 }
+
 .thumb-round {
     display:inline-block;
     vertical-align: middle;

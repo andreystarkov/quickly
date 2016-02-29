@@ -8,14 +8,18 @@
   position: absolute;
   z-index: @zindex-tooltip;
   display: block;
+  transition: opacity 0.3s linear, transform 0.3s ease-in-out;
   // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
   // So reset our font and text properties to avoid inheriting weird values.
   .reset-text();
   font-size: @font-size-small;
 
   .opacity(0);
+  transform: translateY(-20px);
 
-  &.in     { .opacity(@tooltip-opacity); }
+  &.in     { .opacity(@tooltip-opacity);
+    transform: translateY(-8px);
+  }
   &.top    { margin-top:  -3px; padding: @tooltip-arrow-width 0; }
   &.right  { margin-left:  3px; padding: 0 @tooltip-arrow-width; }
   &.bottom { margin-top:   3px; padding: @tooltip-arrow-width 0; }

@@ -1,26 +1,47 @@
 
-// about company personal card
-
 section.company-list {
     section.company-about {
+        .control-group {
+            .el {
+                display:inline-block;
+                padding: 8px 12px;
+                &.el-tour{
+                    float:right;
+                    width:120px;
+                }
+                b, span {
+                    display:block;
+                    text-align:center;
+                }
+                b {
+                    font-weight:500;
+                    font-size:18px;
+                }
+
+            }
+        }
+        padding-top:20px;
+        padding-bottom:20px;
         .logo {
             border:3px solid fade(@colorMainBackground,10%);
-            height:60px;
-            width:60px;
+            height:80px;
+            width:80px;
         }
         .title {
             h2 {
-                font-size:14px;
-                font-family:@fontAlt;
+                font-size:16px;
+                font-weight:400;
             }
             span {
-                font-size:10px;
+                font-size:16px;
             }
         }
         .logo, .logo-round, .logo-tiny {
             transition: all 0.4s cubic-bezier(.55,.33,.27,.74);
         }
-
+        .the-stars {
+            margin-top:5px;
+        }
         .line {
             .box {
                 float:none;
@@ -29,6 +50,10 @@ section.company-list {
                 margin-left:0;
                 margin-bottom:0;
                 margbin-top:0;
+                p {
+                    font-size:17px;
+                    font-weight:400;
+                }
                 span {
                     font-weight:200;
                 }
@@ -45,25 +70,24 @@ section.company-list {
         transform-origin:top center;
         transform-style:preserve-3d;
 
-        border-bottom:4px solid fade(@colorMainBackground,20%);
+        border-bottom:4px solid fade(@colorMainBackground,90%);
         &:nth-child(odd){
             background: mix(@colorMainBackground,@colorWhite,10%);
         }
         &:nth-child(even){
-            background: mix(@colorMainBackground,@colorWhite,40%);
+            background: mix(@colorMainBackground,@colorWhite,60%);
         }
         &:hover {
             background: mix(@colorMainBackground, #fff, 35%);
-             border-bottom:4px solid @colorMainBackground;
-            transform:rotateX(7deg) perspective(250px);
-
+            border-bottom:4px solid mix(@colorMainBackground, @colorBlack,95%);
+        //    transform:rotateX(9deg) perspective(250px);
             .thumb-tiny, .logo {
                 opacity:1;
                 border:3px solid @colorMainBackground;
             }
             .thumb-round {
                 transform:scale(1.04);
-                border: 4px solid fade(@colorBlack,36%);
+                border: 4px solid fade(@colorBlack,45%);
             }
         }
     }
@@ -129,7 +153,6 @@ section.company-about {
     .line {
         padding-top:10px;
         padding-bottom:10px;
-        overflow:hidden;
     }
 
     .types {

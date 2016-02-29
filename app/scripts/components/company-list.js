@@ -5,25 +5,23 @@ var RestBox = React.createClass({
     console.log('well..');
     $.ajax({
         url: this.props.url,
-        data: {
-            "restaurantType": 3
-        },
         cache: false,
         dataType: 'json',
         type: "GET",
         success: function(data) {
           this.setState({data: data});
+          console.log(data);
         }.bind(this),
         error: function(xhr, status, err) {
           console.error(this.props.url, status, err.toString());
         }.bind(this)
     });
   },
-  getInitialState: function() {
+  getInitialState: function(){
     return {data: []};
     console.log('it gets');
   },
-  componentDidMount: function() {
+  componentDidMount: function(){
     console.log('it mounts');
     this.loadRestList();
     setInterval(this.loadRestList, this.props.pollInterval);
@@ -40,6 +38,6 @@ var RestBox = React.createClass({
 });
 
 ReactDOM.render(
-  <CommenRestBox url="http://quickly.su/api/v2/restaurants/get" pollInterval={2000} />,
+  <CommenRestBox url="http://176.112.201.81/api/v2/restaurants/get?restaurantType=3" pollInterval={3000} />,
   document.getElementById('hellOnEarth')
 );
