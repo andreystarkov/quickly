@@ -112,10 +112,10 @@
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-6 buttons-tabs">
-                    <a class="button tab-toggle light active" data-tab="tab-comments" href="#tab-comments">
+                    <a class="button tab-toggle light" data-tab="tab-comments" href="#tab-comments">
                         <span>Отзывы</span>
                     </a>
-                    <a class="button tab-toggle light" data-tab="tёab-food" href="#tab-food">
+                    <a class="button tab-toggle light active" data-tab="tab-food" href="#tab-food">
                         <span>Доставка</span>
                     </a>
                     <a class="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
@@ -137,7 +137,7 @@
         </div>
         <!-- container -->
     </section>
-    <section class="the-tab tab-comments tab-active" id="tab-comments">
+    <section class="the-tab tab-comments" id="tab-comments">
         <div class="container">
             <div class="tab-header">
                 <h2>текущие отзывы</h2>
@@ -329,12 +329,13 @@
             </div>
         </div>
     </section>
-    <section class="the-tab food-category food-grid" id="tab-food">
+    <section class="the-tab food-category food-grid tab-active" id="tab-food">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="row">
-                        <div class="col-lg-4 col-xs-6 food-item">
+                    <div class="row" id="foodItems">
+
+<!--                         <div class="col-lg-4 col-xs-6 food-item">
                             <a href="#">
                                 <img src="images/samples/2.png" alt="..." />
                                 <div class="overlay">
@@ -345,103 +346,8 @@
                                 </div>
                             </a>
                             <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/3.png" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/1.png" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/8-tiny.jpg" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/7-tiny.jpg" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/5-tiny.jpg" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/3-tiny.jpg" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/2-tiny.jpg" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
-                        <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/1-tiny.jpg" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div>
+                        </div> -->
+
                     </div>
                 </div>
                 <div class="col-lg-3 mobile sidebar" id="sidebar">
@@ -454,8 +360,11 @@
                             <span class="help-block"></span>
                             <span class="material-input"></span>
                         </div>
-                        <ul class="menu">
-                            <li class="has-child active">
+
+                        <ul class="menu" id="theMenu">
+                        </ul>
+
+<!--                             <li class="has-child active">
                                 <a href="#" class="parent"><i class="icon"></i> Япреская кухня</a>
                                 <ul class="child">
                                     <a href="#"><i class="icon"></i> Готовые роллы</a>
@@ -470,8 +379,8 @@
                                     <a href="#"><i class="icon"></i> Горячие наборы</a>
                                     <a href="#"><i class="icon"></i> Закрытые суши</a>
                                 </ul>
-                            </li>
-                            <ul>
+                            </li> -->
+
                                 <div class="controls">
                                     <div class="filter">
                                         <h3>Сумма среднего чека</h3>
