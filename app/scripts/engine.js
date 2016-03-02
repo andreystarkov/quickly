@@ -142,6 +142,12 @@ $(function() {
         });
     }
 
+    function getRestDetails(restId){
+        $.getJSON('http://176.112.201.81/api/v2/restaurants/get/'+restId, function(data){
+            console.log(data);
+        });
+    }
+
     function registerUser(phone){
         console.log('hey');
         $.ajax({
@@ -162,6 +168,7 @@ $(function() {
     pasteCategories(1);
     pasteMenu(1);
     pasteComments(1);
+    getRestDetails(1);
 
     $(document).on('click', '.category-toggle', function(event) {
         event.preventDefault();
