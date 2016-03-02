@@ -44,26 +44,40 @@
     <div class="overlay"></div>
     <div class="top-line">
         <div class="container">
-            <div class="logo">
-                <svg id="circle" height="40" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g>
-                        <image x="0" y="0" height="40" width="40" xlink:href="svg/logo.svg" />
-                    </g>
-                </svg>
-            </div>
-            <div class="paths"><a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a></div>
-            <!--             <div class="right">
-                <div class="buttons">
-                    <a href="#" class="button small">
-                        <i class="icon icon-login"></i>
-                        <span>Личный кабинет</span>
-                    </a>
-                    <a href="#" class="button small main">
-                        <i class="icon icon-user-follow"></i>
-                        <span>Регистрация</span>
-                    </a>
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="logo">
+                        <svg id="circle" height="40" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g>
+                                <image x="0" y="0" height="40" width="40" xlink:href="svg/logo.svg" />
+                            </g>
+                        </svg>
+                    </div>
                 </div>
-            </div> -->
+                <div class="col-lg-6">
+                        <div class="paths"><a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a></div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="row">
+                    <div class="col-lg-7">
+                    <div class="form-group label-floating is-empty">
+                        <label for="registration-phone" class="control-label">Ваш номер телефона</label>
+                        <input type="text" class="form-control" id="registration-phone">
+                        <span class="help-block"></span>
+                        <span class="material-input"></span>
+                    </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="#" style="display:inline-block" id="buttonRegister" class="btn btn-padding btn-raised">
+                        Зарегистрироваться
+                        </a>
+                    </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
         </div>
     </div>
     <section class="company-about gray">
@@ -144,113 +158,9 @@
             </div>
             <div class="the-comments">
                 <div class="row">
-                    <div class="col-lg-9">
-                        <div class="comment row">
-                            <div class="col-lg-2 col-xs-2 align-center">
-                                <div class="avatar">
-                                    <img src="images/samples/ava-1.jpg" alt="...">
-                                </div>
-                                <div class="likes">
-                                    <a href="#" class="like">
-                                    <i class="fa-thumbs-o-up fa"></i> <span class="count">12</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="text col-lg-10 col-xs-10">
-                                <b>Илья Имбильданов
-                                    <span class="stars">
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                    </span>
-                                </b>
-                                <p>Отличный сервис! Заказывал копченое карпаччо с кутикулами австрийских пауков, терпко, но по-нежному насыщенно. В подарок шеф-повар порадовал мрачным холодцом. Первый раз в этом ресторане, ждём новое меню!</p>
-                                <div class="answer row">
-                                    <div class="border-left align-right col-lg-2 col-xs-2">
-                                        <div class="avatar">
-                                            <img src="images/logos/delmaro.png" alt="...">
-                                        </div>
-                                    </div>
-                                    <div class="text col-lg-10 col-xs-10">
-                                        <b>Служба достави &laquo;Вилы и копьё&raquo;</b>
-                                        <p>Спасибо, Илья! Скоро в нашем ассортименте ужасные подметки, моченые в жире коня, квантовый борщ с усами мужика и суп из трупа. Ждём снова!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment row">
-                            <div class="col-lg-2 col-xs-2 align-center">
-                                <div class="avatar">
-                                    <img src="images/samples/ava-1.jpg" alt="...">
-                                </div>
-                                <div class="likes">
-                                    <a href="#" class="like">
-                                    <i class="fa-thumbs-o-up fa"></i> <span class="count">12</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="text col-lg-10 col-xs-10">
-                                <b>Илья Имбильданов
-                                    <span class="stars">
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                    </span>
-                                </b>
-                                <p>Отличный сервис! Заказывал копченое карпаччо с кутикулами австрийских пауков, терпко, но по-нежному насыщенно. В подарок шеф-повар порадовал мрачным холодцом. Первый раз в этом ресторане, ждём новое меню!</p>
-                                <div class="answer row">
-                                    <div class="border-left align-right col-lg-2 col-xs-2">
-                                        <div class="avatar">
-                                            <img src="images/logos/delmaro.png" alt="...">
-                                        </div>
-                                    </div>
-                                    <div class="text col-lg-10 col-xs-10">
-                                        <b>Служба достави &laquo;Вилы и копьё&raquo;</b>
-                                        <p>Спасибо, Илья! Скоро в нашем ассортименте ужасные подметки, моченые в жире коня, квантовый борщ с усами мужика и суп из трупа. Ждём снова!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment row">
-                            <div class="col-lg-2 col-xs-2 align-center">
-                                <div class="avatar">
-                                    <img src="images/samples/ava-1.jpg" alt="...">
-                                </div>
-                                <div class="likes">
-                                    <a href="#" class="like">
-                                    <i class="fa-thumbs-o-up fa"></i> <span class="count">12</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="text col-lg-10 col-xs-10">
-                                <b>Илья Имбильданов
-                                    <span class="stars">
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                        <i class="star yes fa fa-star"></i>
-                                    </span>
-                                </b>
-                                <p>Отличный сервис! Заказывал копченое карпаччо с кутикулами австрийских пауков, терпко, но по-нежному насыщенно. В подарок шеф-повар порадовал мрачным холодцом. Первый раз в этом ресторане, ждём новое меню!</p>
-                                <div class="answer row">
-                                    <div class="border-left align-right col-lg-2 col-xs-2">
-                                        <div class="avatar">
-                                            <img src="images/logos/delmaro.png" alt="...">
-                                        </div>
-                                    </div>
-                                    <div class="text col-lg-10 col-xs-10">
-                                        <b>Служба достави &laquo;Вилы и копьё&raquo;</b>
-                                        <p>Спасибо, Илья! Скоро в нашем ассортименте ужасные подметки, моченые в жире коня, квантовый борщ с усами мужика и суп из трупа. Ждём снова!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    <div class="col-lg-9" id="theComments"></div>
+
                     <div class="col-lg-3">
                         <div class="tab-header">
                             <h2>Ваш комментарий</h2>

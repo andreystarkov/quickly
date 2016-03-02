@@ -43,6 +43,28 @@
                     opacity: 1;
                 }
             }
+            &.active {
+                opacity:1;
+                background: fade(@colorGrayLight, 50%);
+                .icon {
+                    background: @colorYellow;
+                    border:2px solid fade(@colorBlack, 75%);
+                    opacity:1;
+                    transform: scale(1);
+                }
+                border-bottom: 2px solid fade(mix(@colorGrayLight,@colorBlack,90%),80%);
+                &:hover {
+                    opacity:1;
+                    background: fade(@colorGrayLight, 50%);
+                    .icon {
+                        background: @colorYellow;
+                        border:2px solid fade(@colorBlack, 75%);
+                        opacity:1;
+                        transform: scale(1);
+                    }
+                    border-bottom: 2px solid fade(mix(@colorGrayLight,@colorBlack,90%),80%);
+                }
+            }
             &:hover {
                 opacity:1;
                 .icon {
