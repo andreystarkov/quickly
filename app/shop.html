@@ -54,28 +54,52 @@
                         </svg>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                         <div class="paths"><a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a></div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="row">
-                    <div class="col-lg-7">
-                    <div class="form-group label-floating is-empty">
-                        <label for="registration-phone" class="control-label">Ваш номер телефона</label>
-                        <input type="text" class="form-control" id="registration-phone">
-                        <span class="help-block"></span>
-                        <span class="material-input"></span>
+                <div class="col-lg-5">
+                    <div class="form-register" style="display:none">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group label-floating is-empty">
+                                    <label for="registration-phone" class="control-label">Ваш номер телефона</label>
+                                    <input type="text" class="form-control" id="registration-phone">
+                                    <span class="help-block"></span>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="#" style="display:inline-block" id="buttonRegister" class="btn btn-padding btn-raised">
+                                    Зарегистрироваться
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="form-code" style="display:none">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group label-floating is-empty">
+                                    <label for="registration-code" class="control-label">Введите код, полученный по смс</label>
+                                    <input type="text" class="form-control" id="registration-code">
+                                    <span class="help-block"></span>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="#" style="display:inline-block" id="buttonRegister" class="btn btn-padding btn-raised">
+                                    Отправить
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-5">
-                        <a href="#" style="display:inline-block" id="buttonRegister" class="btn btn-padding btn-raised">
-                        Зарегистрироваться
-                        </a>
-                    </div>
+
+                    <div class="user-top">
+                        <b class="user-name" id="userNameTop"></b>
+                        <img src="" class="user-picture" id="userPictureTop">
                     </div>
                 </div>
-
                 </div>
             </div>
         </div>

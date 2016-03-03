@@ -118,14 +118,15 @@ $(function() {
         });
     }
 
+    function pasteRestHeader(restId){
+
+    }
+
     function pasteMenu(categoryId){
 
         $.getJSON('http://176.112.201.81/api/v2/menu-items/get/'+categoryId, function(data){
-         //   $('#foodItems').removeClass('animated fadeInLeft').addClass('animated fadeOutLeft');
-            console.log(data);
             $('#foodItems').html('');
             $.each(data.result.menuItems, function(key, item){
-           //     console.log(item);
                 if( item.menu_item_image == ""){
                     item.menu_item_image = "images/samples/9-tiny.jpg";
                 } else item.menu_item_image = "http://176.112.201.81/static/cdn/"+item.menu_item_image;
@@ -135,10 +136,8 @@ $(function() {
                 '<div class="overlay"><div class="price"><i class="icon icon-basket"></i>'+
                 '<span>'+item.menu_item_price+' <i class="rouble">a</i></span></div></div></a>'+
                 '<b>'+item.menu_item_name+'</b></div>';
-           //     console.log(output);
                 $('#foodItems').append(output);
             });
-        //    $('#foodItems').removeClass('animated fadeOutLeft').addCLass('animated fadeInLeft');
         });
     }
 
@@ -149,21 +148,106 @@ $(function() {
     }
 
     function registerUser(phone){
-        console.log('hey');
+        console.log('phone = '+phone);
         $.ajax({
           type: "POST",
-          url: "http://176.112.201.81/api/v2/user/auth",
+          url: "http://176.112.201.81/api/v2/user/register",
           data: {
             "phone": phone
           },
           success: function(data){
-            console.log('success');
+            Cookies.set('phone', phone);
+            console.log('registerUser: success');
             console.log(data);
           }
         });
     }
 
-    var theCuisines;
+    function sendSMSCode(phone, code){
+        console.log('SendSMSCode: phone = '+phone);
+        console.log('SendSMSCode: code = '+code);
+        $.ajax({
+          type: "POST",
+          url: "http://176.112.201.81/api/v2/user/auth",
+          data: {
+            "phone": phone,
+            "code": code
+          },
+          success: function(data){
+            Cookies.set('token', data.result.userToken);
+            console.log('SendSMSCode: success');
+            console.log(data);
+          }
+        });
+    }
+
+    function getUserProfile(token){
+
+        console.log('getUserProfile: token = '+token);
+        var result = $.ajax({
+          type: "POST",
+          async: "false",
+          dataType: "json",
+          url: "http://176.112.201.81/api/v2/user/profile/get",
+          data: {
+            "userToken": token
+          },
+          success: function(data){
+            console.log('getUserProfile: success');
+         //   console.log(data);
+         //   console.log(result);
+          }
+        });
+   //     console.log(result);
+        return result;
+    }
+
+    /*
+    jQuery.extend({
+        getValues: function(url) {
+            var result = null;
+            $.ajax({
+                url: url,
+                type: 'get',
+                dataType: 'xml',
+                async: false,
+                success: function(data) {
+                    result = data;
+                }
+            });
+           return result;
+        }
+    });
+    */
+
+    function editUserProfile(userToken, cityId, birthdate, name, surname, email, avatar){
+        console.log('editUserProfile: start');
+
+        $.ajax({
+          type: "POST",
+          url: "http://176.112.201.81/api/v2/user/profile/edit",
+          data: {
+            "userToken": userToken,
+            "cityId": cityId,
+            "birthdate": birthdate,
+            "name": name,
+            "surname": surname,
+            "email": email,
+            "avatar": avatar
+          },
+          success: function(data){
+            console.log('editUserProfile: success');
+            console.log(data);
+          }
+        });
+    }
+
+    var isAuth = "0";
+    var userSMSCode = Cookies.get('code');
+    var userToken = Cookies.get('token');
+    var userInfo = getUserProfile(userToken);
+
+    console.log(userInfo);
 
     pasteCategories(1);
     pasteMenu(1);
@@ -186,8 +270,7 @@ $(function() {
 
     $(document).on('click', '#buttonRegister', function(event) {
         event.preventDefault();
-        console.log($('registration-phone').val());
-        registerUser($('registration-phone').val());
+        registerUser($('#registration-phone').val());
     });
 
     $.getJSON('http://176.112.201.81/api/v2/cuisines/get', function(data) {
@@ -201,8 +284,18 @@ $(function() {
         });
     });
 
-    console.log(theCuisines);
+    function registrationStageCode(){
+       $('.form-code').show();
+       $('.form-register').hide();
+       $('.user-top').hide();
+    }
 
-
+    if(userToken.length > 0){
+        $('.form-code').hide();
+        $('.form-register').hide();
+        $('.user-top').show();
+    //    console.log(userInfo.userName);
+    //    $('.user-top .user-name').html(userInfo.userName);
+    }
 
 });
