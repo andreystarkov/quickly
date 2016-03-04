@@ -42,7 +42,7 @@ var gulp    = require('gulp'),
     ];
 
     var theES6 = [
-     'app/scripts/es6/test.js'
+     'app/scripts/es6/engine.js'
     ]
 
     var sourcemaps = require('gulp-sourcemaps');

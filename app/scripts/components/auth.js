@@ -28,6 +28,18 @@ function sendSMSCode(phone, code, callback) {
           if (data.err === undefined || data.err  === null) {
             console.log('SendSMSCode: success');
             Cookies.set('token', data.result.userToken);
+
+            getUserProfile(data.result.userToken, function(data){
+                userInfo = data;
+                $('#userBadgeTop').html(
+                  '<div class="user-text">'+
+                    '<b class="user-name">'+data.userName+' '+data.userSurname+'</b>'+
+                    '<a class="r-bonus"><b>20</b> <span class="fa fa-rouble"></span>-бонусов</a>'+
+                  '</div>'+
+                  '<div class="user-avatar" style="background-image:url('+data.userAvatarUrl+')"></div>'
+                );
+            });
+
             callback(data);
           } else {
             console.log('SendSMSCode: error');

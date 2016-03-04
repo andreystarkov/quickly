@@ -51,8 +51,8 @@ function createProfileEditor(profile){
                    <i class="icon icon-location-pin"></i>
                    <div class="box">
                       <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">
-                         <input type="text" class="form-control" id="profile-address-1" value="">
-                         <span class="help-block">Вы можете добавить несколько адресов</span>
+                         <input type="text" class="form-control" id="profile-address-1">
+
                       </div>
                    </div>
                 </div>
@@ -78,6 +78,9 @@ function createProfileEditor(profile){
                 </a>
                 <a data-tab="tab-comments-history" href="#tab-comments-history" class="tab-toggle btn button light">
                 <span>Оставленные отзывы</span>
+                </a>
+                <a id="saveProfile" href="#" class="btn button main">
+                <span>Вернуться к ресторану</span>
                 </a>
              </div>
           </div>

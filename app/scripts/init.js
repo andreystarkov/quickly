@@ -109,5 +109,10 @@ $(function() {
         userAuthorized();
     }
 
+    $(document).on('click', '#saveProfile', function(event) {
+        easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
+            easyVelocity('#pageCompany', 'transition.flipXIn');
+        });
+    });
 
 });
