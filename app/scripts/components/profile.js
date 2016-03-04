@@ -1,20 +1,23 @@
+  function getUserProfile(token, callback) {
 
-  function getUserProfile(token) {
       console.log('getUserProfile: token = ' + token);
-      var result = $.ajax({
+      var remote = serverUrl + '/api/v2/user/profile/get';
+      var result = {};
+      $.ajax({
           type: 'POST',
           async: 'false',
           dataType: 'json',
-          url: serverUrl + '/api/v2/user/profile/get',
+          url: remote,
           data: {
               'userToken': token
           },
           success: function(data) {
               console.log('getUserProfile: success');
-              console.log(data);
+              console.log(data.result.profile);
+              result = data.result.profile;
+              callback(result);
           }
       });
-      return result;
   }
 
   function editUserProfile(userToken, cityId, birthdate, name, surname, email, avatar) {
@@ -40,5 +43,16 @@
   }
 
   $(function() {
+
+    getUserProfile(userToken, function(data){
+        userInfo = data;
+        $('#userBadgeTop').append(
+          '<div class="user-text">'+
+            '<b class="user-name">'+data.userName+' '+data.userSurname+'</b>'+
+            '<a class="r-bonus"><b>20</b> <span class="fa fa-rouble"></span>-бонусов</a>'+
+          '</div>'+
+          '<div class="user-avatar" style="background-image:url('+data.userAvatarUrl+')"></div>'
+        );
+    });
 
   });

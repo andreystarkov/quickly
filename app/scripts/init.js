@@ -15,7 +15,17 @@
 
 $(function() {
 
-    var userInfo = getUserProfile(userToken);
+    var userInfo = {};
+    var profile = {};
+
+    setTimeout(function(){
+        console.log(userInfo);
+        profile = userInfo;
+    },0);
+
+    getCuisinesList(function(data){
+        console.log(data.result.cuisines);
+    });
 
     $.material.init();
 
@@ -70,23 +80,6 @@ $(function() {
 
     // testing
 
-    function userAuthorized(){
-        $('.form-code').hide();
-        $('.form-register').hide();
-        $('.user-top').show();
-    }
-
-    function notAuthorized(){
-        $('.form-code').hide();
-        $('.form-register').show();
-        $('.user-top').hide();
-    }
-
-    function waitingForCode(){
-        $('.form-code').show();
-        $('.form-register').hide();
-        $('.user-top').hide();
-    }
 
     pasteCategories(1);
     pasteMenu(1);

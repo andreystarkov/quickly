@@ -1,3 +1,101 @@
+.user-top {
+    vertical-align: middle;
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        display:inline-block;
+        background-position:center center;
+        background-size:40px 40px;
+        margin-left:10px;
+        border-radius:150px;
+        float:right;
+        overflow:hidden;
+    }
+    .user-name {
+        display:block;
+        height:20px;
+    }
+    .user-text {
+        height:40px;
+        display:inline-block;
+    }
+    .r-bonus {
+        font-size:12px;
+        b {
+            font-size:14px;
+            color:darken(@colorGreen,6%);
+        }
+        .fa {
+            font-size:13px;
+        }
+    }
+}
+
+@colorMenuBg: mix(#fff,@colorWhite,50%);
+@menuEasing: @easingSlowEnd;
+@menuHoverColor: @colorYellow;
+
+.auth-box {
+    z-index:9;
+    // padding:10px;
+    text-align:right;
+    height:40px;
+    position:absolute;
+    right:0;
+    top:0;
+    line-height:25px;
+    transition: all 0.3s @menuEasing;
+    .dropdown-nice {
+        transition: all 0.3s @menuEasing 0.3s;
+        max-width:300px;
+        .user-top {
+            transition: all 0.4s @menuEasing;
+            padding:15px;
+            transform-origin:top;
+        }
+        display:inline-block;
+        border-radius:5px;
+        .menu-box {
+            border-bottom: 3px solid fade(darken(@colorMenuBg,0%),0%);
+            transition:all 0.4s @menuEasing;
+            transform: scale(1,0);
+            visibility: hidden;
+            transform-origin: top center;
+
+           // background: @colorMenuBg;
+            a {
+                transition:all 0.25s @easingSlowMid;
+                display:block;
+                padding:5px 9px;
+                font-size:13px;
+                border-top:2px solid fade(@colorBlack,2%);
+                text-align:center;
+                &:nth-child(even){
+                    background:fade(@colorBlack,1%);
+                }
+                &:hover {
+                    background-color: mix(@colorOrange,@colorWhite,20%);
+                }
+            }
+        }
+    }
+    &:hover {
+        .dropdown-nice {
+            .user-top {
+                background-color: @colorMenuBg;
+                box-shadow: 0 -2px 10px fade(@colorBlack,6%);
+            }
+
+            .menu-box {
+                border-bottom: 3px solid darken(@colorMenuBg,10%);
+                background-color: @colorMenuBg;
+                transform: scale(1,1);
+                visibility: visible;
+                box-shadow: 0px 4px 6px fade(@colorBlack,12%);
+            }
+        }
+    }
+}
 
 section.user-profile {
     background: fade(#f4f2ed,80%);

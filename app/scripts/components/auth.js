@@ -51,12 +51,9 @@ $(document).on('click', '#buttonRegisterPhone', function(event) {
     registerUser( $('#inputRegisterPhone').val(), function(data){
       console.log('registerPhone: callback');
       if (data.err === undefined || data.err  === null) {
-        $('#formRegisterPhone').velocity("transition.flipXOut", {
-            duration: 300,
-            complete: function() {
-                console.log('callback');
-                easyVelocity('#formRegisterSMSCode', 'transition.flipXIn');
-            }
+        easyVelocity('#formRegisterPhone', 'transition.flipXOut', function(){
+            console.log('callback');
+            easyVelocity('#formRegisterSMSCode', 'transition.flipXIn');
         });
       } else {
         console.log('registerPhone: error');
@@ -85,6 +82,32 @@ $(document).on('click', '#buttonRegisterSMSCode', function(event) {
         });
       }
    });
+});
+
+
+function userAuthorized(){
+    $('.form-code').hide();
+    $('.form-register').hide();
+    $('.mini-profile').show();
+    $('.user-top').show();
+}
+
+function notAuthorized(){
+    $('.form-code').hide();
+    $('.form-register').show();
+    $('.mini-profile').hide();
+}
+
+function waitingForCode(){
+    $('.form-code').show();
+    $('.form-register').hide();
+    $('.mini-profile').hide();
+}
+
+$(document).on('click', '.control-logout', function(event) {
+    event.preventDefault();
+    Cookies.remove('token');
+    Cookies.remove('phone');
 });
 
 

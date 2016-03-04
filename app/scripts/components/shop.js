@@ -1,4 +1,14 @@
 
+    function getCuisinesList(callback){
+      var result = null;
+      console.log('getCuisines: init');
+      $.getJSON(serverUrl+'/api/v2/cuisines/get', function(data){
+        cuisinesList = data;
+        console.log(data);
+        callback(data);
+      });
+    }
+
     function pasteMenu(categoryId){
         $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
             $('#foodItems').html('');
