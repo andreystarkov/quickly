@@ -1,23 +1,28 @@
   function getUserProfile(token, callback) {
-
       console.log('getUserProfile: token = ' + token);
+
       var remote = serverUrl + '/api/v2/user/profile/get';
       var result = {};
-      $.ajax({
-          type: 'POST',
-          async: 'false',
-          dataType: 'json',
-          url: remote,
-          data: {
-              'userToken': token
-          },
-          success: function(data) {
-              console.log('getUserProfile: success');
-              console.log(data.result.profile);
-              result = data.result.profile;
-              callback(result);
-          }
-      });
+
+      if (token === undefined || token === null){
+        console.log('getUserProfile: no token');
+      } else {
+        $.ajax({
+            type: 'POST',
+            async: 'false',
+            dataType: 'json',
+            url: remote,
+            data: {
+                'userToken': token
+            },
+            success: function(data) {
+                console.log('getUserProfile: success');
+                console.log(data.result.profile);
+                result = data.result.profile;
+                callback(result);
+            }
+        });
+      }
   }
 
   function editUserProfile(userToken, cityId, birthdate, name, surname, email, avatar) {
@@ -56,3 +61,7 @@
     });
 
   });
+
+  function pasteProfileEditor(){
+        var output = "";
+  }

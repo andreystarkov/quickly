@@ -1,156 +1,88 @@
-<!doctype html>
-<html class="no-js" lang="ru">
-<head>
-    <!--
+// OMG THIS IS ES6 FIRST BLOOD
 
-      ___           ___                       ___           ___           ___       ___
-     /\  \         /\__\          ___        /\  \         /\__\         /\__\     |\__\
-    /::\  \       /:/  /         /\  \      /::\  \       /:/  /        /:/  /     |:|  |
-   /:/\:\  \     /:/  /          \:\  \    /:/\:\  \     /:/__/        /:/  /      |:|  |
-   \:\~\:\  \   /:/  /  ___      /::\__\  /:/  \:\  \   /::\__\____   /:/  /       |:|__|__
-    \:\ \:\__\ /:/__/  /\__\  __/:/\/__/ /:/__/ \:\__\ /:/\:::::\__\ /:/__/        /::::\__\
-     \:\/:/  / \:\  \ /:/  / /\/:/  /    \:\  \  \/__/ \/_|:|~~|~    \:\  \       /:/~~/~
-      \::/  /   \:\  /:/  /  \::/__/      \:\  \          |:|  |      \:\  \     /:/  /
-      /:/  /     \:\/:/  /    \:\__\       \:\  \         |:|  |       \:\  \    \/__/
-     /:/  /       \::/  /      \/__/        \:\__\        |:|  |        \:\__\
-     \/__/         \/__/                     \/__/         \|__|         \/__/
+function createProfileEditor(profile){
 
+    var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
 
-     -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Quickly &mdash; Профиль</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-title" content="Quickly">
-    <link rel="apple-touch-icon" href="images/logo.png" />
-    <link rel="icon" type="image/png" href="images/logo.png" />
-    <link rel="stylesheet" href="app/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.3/css/simple-line-icons.css">
-</head>
-
-<body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <div class="overlay"></div>
-    <div class="top-line">
-        <div class="container">
-            <div class="logo">
-                <svg id="circle" height="40" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g>
-                        <image x="0" y="0" height="40" width="40" xlink:href="svg/logo.svg" />
-                    </g>
-                </svg>
-            </div>
-            <div class="paths"><a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a></div>
-            <!--             <div class="right">
-                    <div class="buttons">
-                        <a href="#" class="button small">
-                            <i class="icon icon-login"></i>
-                            <span>Личный кабинет</span>
-                        </a>
-                        <a href="#" class="button small main">
-                            <i class="icon icon-user-follow"></i>
-                            <span>Регистрация</span>
-                        </a>
-                    </div>
-                </div> -->
-        </div>
+    var htmlTemplate =
+    `<div class="container">
+       <div class="row">
+          <div class="col-lg-2 text-center">
+             <div class="avatar round">
+                <img src="${profile.userAvatarUrl}" alt="...">
+             </div>
+             <div class="title user-name-edit">
+                <div class="form-group label-placeholder is-empty">
+                   <input type="email" class="form-control" id="profile-name" value="${profile.userName} ${profile.userSurname}">
+                   <span class="help-block">Изменить имя пользователя</span>
+                   <span class="material-input"></span>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-10 the-info">
+             <div class="line delivery">
+                <i class="icon icon-envelope"></i>
+                <div class="box">
+                   <div class="form-group is-empty tip" title="Ваш адрес электронной почты">
+                      <input type="email" class="form-control" id="profile-email" value="${profile.userEmail}">
+                   </div>
+                </div>
+                <i class="icon icon-phone"></i>
+                <div class="box">
+                   <div class="form-group label-placeholder is-empty">
+                      <input type="tel" class="form-control tip" title="Дата вашего рождения" id="profile-phone" value="${profile.userPhone}">
+                   </div>
+                </div>
+                <i class="icon icon-calendar"></i>
+                <div class="box">
+                   <div class="form-group label-placeholder is-empty tip" title="Tooltip on top">
+                      <input type="date" class="form-control" id="profile-birth" value="${birthDate}">
+                   </div>
+                </div>
+                <i class="icon fa fa-building-o"></i>
+                <div class="box">
+                   <div class="form-group label-placeholder is-empty">
+                      <input type="text" class="form-control" id="profile-city" value="Оренбург">
+                   </div>
+                </div>
+             </div>
+             <div class="line delivery">
+                <div id="profile-addresses" class="inline-block float-left">
+                   <i class="icon icon-location-pin"></i>
+                   <div class="box">
+                      <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">
+                         <input type="text" class="form-control" id="profile-address-1" value="">
+                         <span class="help-block">Вы можете добавить несколько адресов</span>
+                      </div>
+                   </div>
+                </div>
+                <div class="box">
+                   <a href="#" class="button button-plus tip" id="profile-address-add">
+                   <i class="icon fa fa-plus-square-o"></i>
+                   <span>Добавить адрес</span>
+                   </a>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="row buttons-line">
+          <div class="col-lg-2">
+          </div>
+          <div class="col-lg-10 buttons-tabs">
+             <div class="btn-group btn-group-justified">
+                <a data-tab="tab-order-history" href="#tab-order-history" class="tab-toggle btn button light" >
+                <span>История заказов</span>
+                </a>
+                <a data-tab="tab-reservation-history" href="#tab-reservation-history" class="tab-toggle btn button light">
+                <span>История бронирования</span>
+                </a>
+                <a data-tab="tab-comments-history" href="#tab-comments-history" class="tab-toggle btn button light">
+                <span>Оставленные отзывы</span>
+                </a>
+             </div>
+          </div>
+       </div>
     </div>
-    <section class="user-profile gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2 text-center">
-                    <div class="avatar round">
-                        <img src="images/samples/ava-1.jpg" alt="...">
-                    </div>
-                    <div class="title user-name-edit">
-                        <div class="form-group label-placeholder is-empty">
-                            <input type="email" class="form-control" id="profile-name" value="Илья Емельянов">
-                            <span class="help-block">Изменить имя пользователя</span>
-                            <span class="material-input"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-10 the-info">
-                    <div class="line delivery">
-                            <i class="icon icon-envelope"></i>
-                            <div class="box">
-                                <div class="form-group is-empty tip" title="Ваш адрес электронной почты">
-                                    <input type="email" class="form-control"  id="profile-email" value="root@webscapes.ru">
-                                </div>
-                            </div>
-                            <i class="icon icon-phone"></i>
-                            <div class="box">
-                                <div class="form-group label-placeholder is-empty">
-                                    <input type="tel" class="form-control tip" title="Дата вашего рождения" id="profile-phone" value="+79619471234">
-                                </div>
-                            </div>
-                            <i class="icon icon-calendar"></i>
-                            <div class="box">
-                                <div class="form-group label-placeholder is-empty tip" title="Tooltip on top">
-                                    <input type="date" class="form-control" id="profile-birth" value="1990-10-02">
-                                </div>
-                            </div>
-                            <i class="icon fa fa-building-o"></i>
-                             <div class="box">
-                                <div class="form-group label-placeholder is-empty">
-                                    <input type="text" class="form-control" id="profile-city" value="Оренбург">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="line delivery">
-
-                            <div id="profile-addresses" class="inline-block float-left">
-                                <i class="icon icon-location-pin"></i>
-                                 <div class="box">
-                                    <div class="form-group label-placeholder is-empty">
-                                        <input type="text" class="form-control" id="profile-address-1" value="ул. Спартаковская 90">
-
-                                    </div>
-                                </div>
-                                <i class="icon icon-location-pin"></i>
-                                 <div class="box">
-                                    <div class="form-group label-placeholder is-empty">
-                                        <input type="text" class="form-control" id="profile-address-2" value="ул. Джангильдина 3/3">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <a href="#" class="button button-plus tip" id="profile-address-add">
-                                    <i class="icon fa fa-plus-square-o"></i>
-                                    <span>Добавить адрес</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="row buttons-line">
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-10 buttons-tabs">
-                    <div class="btn-group btn-group-justified">
-                      <a data-tab="tab-order-history" href="#tab-order-history" class="tab-toggle btn button light" >
-                        <span>История заказов</span>
-                      </a>
-                      <a data-tab="tab-reservation-history" href="#tab-reservation-history" class="tab-toggle btn button light">
-                        <span>История бронирования</span>
-                      </a>
-                      <a data-tab="tab-comments-history" href="#tab-comments-history" class="tab-toggle btn button light">
-                          <span>Оставленные отзывы</span>
-                      </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- container -->
-    </section>
     <section class="the-tab tab-comments the-history" id="tab-comments-history">
         <div class="container">
         <div class="history-item row">
@@ -1166,10 +1098,16 @@
                 </div>
             </div> <!-- history-item -->
         </div> <!-- container -->
-    </section>
+    </section>`;
+    $('#editUserProfile').append(htmlTemplate);
+}
 
-    <script src="app/scripts.js"></script>
-    <script src="app/engine.js"></script>
-</body>
+getUserProfile(userToken, function(data){
+    console.log('wee-haa!!');
+    console.log(data);
+    createProfileEditor(data);
+});
 
-</html>
+jQuery(document).ready(function($) {
+
+});

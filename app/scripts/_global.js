@@ -1,5 +1,3 @@
-/* global variables */
-
 var cuisinesList;
 var isAuth;
 

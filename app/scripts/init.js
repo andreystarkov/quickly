@@ -80,10 +80,17 @@ $(function() {
 
     // testing
 
-
     pasteCategories(1);
     pasteMenu(1);
     pasteComments(1);
+    $('#pageProfile').hide();
+
+    $('#buttonEditProfile').click(function(){
+        console.log('click');
+        easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
+            easyVelocity('#pageProfile', 'transition.flipXIn');
+        });
+    });
 
     getCompanyDetails(1, function(data){
         console.log(data.result);

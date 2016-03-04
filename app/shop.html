@@ -57,10 +57,7 @@
                 <div class="col-lg-5">
                         <div class="paths"><a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a></div>
                 </div>
-
                 <div class="col-lg-5">
-
-
                     <div class="form-auth form-register pop" id="formRegisterPhone">
                         <div class="row">
                             <div class="col-lg-6">
@@ -77,7 +74,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-auth form-code pop" id="formRegisterSMSCode">
                         <div class="row">
                             <div class="col-lg-7">
@@ -94,11 +90,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="auth-box mini-profile">
+                    <div class="auth-box mini-profile" id="userAuthorizedTop">
                         <div class="dropdown-nice">
                            <div class="user-top" id="userBadgeTop"></div>
                            <div class="menu-box">
-                                <a href="#">Редактировать профиль</a>
+                                <a href="#" class="buttonEditProfile" id="buttonEditProfile">Редактировать профиль</a>
                                 <a href="#">История заказов</a>
                                 <a href="#" class="control-logout" id="buttonLogOutTop">Выйти</a>
                            </div>
@@ -110,274 +106,283 @@
         </div>
     </div>
 
-    <section class="company-about gray" id="companyDetails"></section>
+    <div class="page-wrapper" id="pageProfile">
+        <section class="user-profile gray" id="editUserProfile">
+        </section>
+    </div>
 
-    <section class="the-tab tab-comments" id="tab-comments">
-        <div class="container">
-            <div class="tab-header">
-                <h2>текущие отзывы</h2>
+    <div class="page-wrapper" id="pageCompany">
+        <section class="company-about gray" id="companyDetails"></section>
+
+        <section class="the-tab tab-comments" id="tab-comments">
+            <div class="container">
+                <div class="tab-header">
+                    <h2>текущие отзывы</h2>
+                </div>
+                <div class="the-comments">
+                    <div class="row">
+
+                        <div class="col-lg-9" id="theComments"></div>
+
+                        <div class="col-lg-3">
+                            <div class="tab-header">
+                                <h2>Ваш комментарий</h2>
+                            </div>
+                            <div class="the-form">
+                                <div class="form-group label-floating is-empty">
+                                    <label for="comment-name" class="control-label">Ваше имя</label>
+                                    <input type="text" class="form-control" id="comment-name">
+                                    <span class="help-block"></span>
+                                    <span class="material-input"></span>
+                                </div>
+                                <div class="form-group label-floating is-empty">
+                                    <label for="comment-text" class="control-label">Текст комментария</label>
+                                    <input type="text" class="form-control" id="comment-text">
+                                    <span class="help-block"></span>
+                                    <span class="material-input"></span>
+                                </div>
+                                <div class="stars">
+                                    <span>Ваша оценка</span>
+    <!--                                 <div class="choose">
+                                        <i class="one fa fa-star"></i>
+                                        <i class="two fa fa-star"></i>
+                                        <i class="three fa fa-star"></i>
+                                        <i class="four fa fa-star"></i>
+                                        <i class="five fa fa-star"></i>
+                                    </div> -->
+                                    <select id="choose" class="choose-stars">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <a href="#" class="button main"><i class="icon icn-comment"></i> <span>Отправить комментарий</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="the-comments">
+        </section>
+        <section class="the-tab tab-reservation" id="tab-reservation">
+            <div class="container">
                 <div class="row">
-
-                    <div class="col-lg-9" id="theComments"></div>
-
+                    <div class="col-lg-8">
+                        <div class="the-room">
+                            <img src="images/rooms/1.png">
+                            <div class="point reserved" id="point-1" style="left:75px; top:65px;"></div>
+                            <div class="point free" style="left:180px; top: 65px;" id="point-2"></div>
+                            <div class="point free" id="point-3" style="left:285px; top: 65px;"></div>
+                            <div class="point disabled" id="point-3" style="left:390px; top: 65px;"></div>
+                            <div class="point free" id="point-3" style="left:495px; top: 65px;"></div>
+                            <div class="point disabled" id="point-3" style="left:602px; top: 65px;"></div>
+                        </div>
+                    </div>
                     <div class="col-lg-3">
-                        <div class="tab-header">
-                            <h2>Ваш комментарий</h2>
-                        </div>
-                        <div class="the-form">
-                            <div class="form-group label-floating is-empty">
-                                <label for="comment-name" class="control-label">Ваше имя</label>
-                                <input type="text" class="form-control" id="comment-name">
+                        <div style="overflow:hidden;">
+                            <div class="form-group">
+                                <div id="reservation-datetime"></div>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="margin-top:20px">
+                                <label for="reservation-name" class="control-label">Ваше имя</label>
+                                <input type="search" class="form-control" id="reservation-name">
                                 <span class="help-block"></span>
                                 <span class="material-input"></span>
                             </div>
                             <div class="form-group label-floating is-empty">
-                                <label for="comment-text" class="control-label">Текст комментария</label>
-                                <input type="text" class="form-control" id="comment-text">
+                                <label for="reservation-phone" class="control-label">Ваш телефон</label>
+                                <input type="search" class="form-control" id="reservation-phone">
                                 <span class="help-block"></span>
                                 <span class="material-input"></span>
                             </div>
-                            <div class="stars">
-                                <span>Ваша оценка</span>
-<!--                                 <div class="choose">
-                                    <i class="one fa fa-star"></i>
-                                    <i class="two fa fa-star"></i>
-                                    <i class="three fa fa-star"></i>
-                                    <i class="four fa fa-star"></i>
-                                    <i class="five fa fa-star"></i>
-                                </div> -->
-                                <select id="choose" class="choose-stars">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                </select>
+                            <div class="button main center round">Забронировать стол</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="the-tab food-category food-grid tab-active" id="tab-food">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="row" id="foodItems">
+
+    <!--                         <div class="col-lg-4 col-xs-6 food-item">
+                                <a href="#">
+                                    <img src="images/samples/2.png" alt="..." />
+                                    <div class="overlay">
+                                        <div class="price">
+                                            <i class="icon icon-basket"></i>
+                                            <span>250 <i class="rouble">a</i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <b>Салат из медузы в картоне</b>
+                            </div> -->
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mobile sidebar" id="sidebar">
+                        <div class="button-close" id="menu-close"><i class="icn-cancel"></i></div>
+                        <div class="button-open" id="menu-open"><i class="icn-menu"></i></div>
+                        <div class="sidebar-wrap">
+                            <div class="form-group label-floating is-empty">
+                                <label for="i5" class="control-label">Поиск</label>
+                                <input type="search" class="form-control" id="i5">
+                                <span class="help-block"></span>
+                                <span class="material-input"></span>
                             </div>
-                            <a href="#" class="button main"><i class="icon icn-comment"></i> <span>Отправить комментарий</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="the-tab tab-reservation" id="tab-reservation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="the-room">
-                        <img src="images/rooms/1.png">
-                        <div class="point reserved" id="point-1" style="left:75px; top:65px;"></div>
-                        <div class="point free" style="left:180px; top: 65px;" id="point-2"></div>
-                        <div class="point free" id="point-3" style="left:285px; top: 65px;"></div>
-                        <div class="point disabled" id="point-3" style="left:390px; top: 65px;"></div>
-                        <div class="point free" id="point-3" style="left:495px; top: 65px;"></div>
-                        <div class="point disabled" id="point-3" style="left:602px; top: 65px;"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div style="overflow:hidden;">
-                        <div class="form-group">
-                            <div id="reservation-datetime"></div>
-                        </div>
-                        <div class="form-group label-floating is-empty" style="margin-top:20px">
-                            <label for="reservation-name" class="control-label">Ваше имя</label>
-                            <input type="search" class="form-control" id="reservation-name">
-                            <span class="help-block"></span>
-                            <span class="material-input"></span>
-                        </div>
-                        <div class="form-group label-floating is-empty">
-                            <label for="reservation-phone" class="control-label">Ваш телефон</label>
-                            <input type="search" class="form-control" id="reservation-phone">
-                            <span class="help-block"></span>
-                            <span class="material-input"></span>
-                        </div>
-                        <div class="button main center round">Забронировать стол</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="the-tab food-category food-grid tab-active" id="tab-food">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="row" id="foodItems">
 
-<!--                         <div class="col-lg-4 col-xs-6 food-item">
-                            <a href="#">
-                                <img src="images/samples/2.png" alt="..." />
-                                <div class="overlay">
-                                    <div class="price">
-                                        <i class="icon icon-basket"></i>
-                                        <span>250 <i class="rouble">a</i></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <b>Салат из медузы в картоне</b>
-                        </div> -->
+                            <ul class="menu" id="theMenu">
+                            </ul>
 
-                    </div>
-                </div>
-                <div class="col-lg-3 mobile sidebar" id="sidebar">
-                    <div class="button-close" id="menu-close"><i class="icn-cancel"></i></div>
-                    <div class="button-open" id="menu-open"><i class="icn-menu"></i></div>
-                    <div class="sidebar-wrap">
-                        <div class="form-group label-floating is-empty">
-                            <label for="i5" class="control-label">Поиск</label>
-                            <input type="search" class="form-control" id="i5">
-                            <span class="help-block"></span>
-                            <span class="material-input"></span>
-                        </div>
+    <!--                             <li class="has-child active">
+                                    <a href="#" class="parent"><i class="icon"></i> Япреская кухня</a>
+                                    <ul class="child">
+                                        <a href="#"><i class="icon"></i> Готовые роллы</a>
+                                        <a href="#"><i class="icon"></i> Горячие наборы</a>
+                                        <a href="#"><i class="icon"></i> Закрытые суши</a>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="parent"><i class="icon"></i> Американская кухня</a>
+                                    <ul class="child">
+                                        <a href="#"><i class="icon"></i> Готовые роллы</a>
+                                        <a href="#"><i class="icon"></i> Горячие наборы</a>
+                                        <a href="#"><i class="icon"></i> Закрытые суши</a>
+                                    </ul>
+                                </li> -->
 
-                        <ul class="menu" id="theMenu">
-                        </ul>
-
-<!--                             <li class="has-child active">
-                                <a href="#" class="parent"><i class="icon"></i> Япреская кухня</a>
-                                <ul class="child">
-                                    <a href="#"><i class="icon"></i> Готовые роллы</a>
-                                    <a href="#"><i class="icon"></i> Горячие наборы</a>
-                                    <a href="#"><i class="icon"></i> Закрытые суши</a>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="parent"><i class="icon"></i> Американская кухня</a>
-                                <ul class="child">
-                                    <a href="#"><i class="icon"></i> Готовые роллы</a>
-                                    <a href="#"><i class="icon"></i> Горячие наборы</a>
-                                    <a href="#"><i class="icon"></i> Закрытые суши</a>
-                                </ul>
-                            </li> -->
-
-                                <div class="controls">
-                                    <div class="filter">
-                                        <h3>Сумма среднего чека</h3>
-                                        <div id="control-price" class="slider shor"></div>
-                                        <div class="form-group is-empty" style="width:43%; float: left;">
-                                            <label for="filter-price-min" class="control-label">Минимум</label>
-                                            <input type="search" class="form-control" id="filter-price-min">
-                                            <span class="help-block"></span>
-                                            <span class="material-input"></span>
-                                        </div>
-                                        <div id="price-maximum" class="form-group is-empty" style="width:43%; float: right;">
-                                            <label for="filter-price-min" class="control-label">Максимум</label>
-                                            <input type="search" class="form-control" id="filter-price-max">
-                                            <span class="help-block"></span>
-                                            <span class="material-input"></span>
+                                    <div class="controls">
+                                        <div class="filter">
+                                            <h3>Сумма среднего чека</h3>
+                                            <div id="control-price" class="slider shor"></div>
+                                            <div class="form-group is-empty" style="width:43%; float: left;">
+                                                <label for="filter-price-min" class="control-label">Минимум</label>
+                                                <input type="search" class="form-control" id="filter-price-min">
+                                                <span class="help-block"></span>
+                                                <span class="material-input"></span>
+                                            </div>
+                                            <div id="price-maximum" class="form-group is-empty" style="width:43%; float: right;">
+                                                <label for="filter-price-min" class="control-label">Максимум</label>
+                                                <input type="search" class="form-control" id="filter-price-max">
+                                                <span class="help-block"></span>
+                                                <span class="material-input"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                        </div>
                     </div>
-                </div>
-    </section>
-    <div class="bottom-panel">
-        <svg class="checkout-icon" width="30px" height="30px" viewBox="0 0 35 35">
-            <path d="M33.623,8.004c-0.185-0.268-0.486-0.434-0.812-0.447L12.573,6.685c-0.581-0.025-1.066,0.423-1.091,1.001 c-0.025,0.578,0.423,1.065,1.001,1.091L31.35,9.589l-3.709,11.575H11.131L8.149,4.924c-0.065-0.355-0.31-0.652-0.646-0.785 L2.618,2.22C2.079,2.01,1.472,2.274,1.26,2.812s0.053,1.146 0.591,1.357l4.343,1.706L9.23,22.4c0.092,0.497,0.524,0.857,1.03,0.857 h0.504l-1.15,3.193c-0.096,0.268-0.057,0.565,0.108,0.798c0.163,0.232,0.429,0.37,0.713,0.37h0.807 c-0.5,0.556-0.807,1.288-0.807,2.093c0,1.732,1.409,3.141,3.14,3.141c1.732,0,3.141-1.408,3.141-3.141c0-0.805-0.307-1.537-0.807-2.093h6.847c-0.5,0.556-0.806,1.288-0.806,2.093c0,1.732,1.407,3.141,3.14,3.141 c1.731,0,3.14-1.408,3.14-3.141c0-0.805-0.307-1.537-0.806-2.093h0.98c0.482,0,0.872-0.391,0.872-0.872s-0.39-0.873-0.872-0.873 H11.675l0.942-2.617h15.786c0.455,0,0.857-0.294,0.996-0.727l4.362-13.608C33.862,8.612,33.811,8.272,33.623,8.004z M13.574,31.108c-0.769,0-1.395-0.626-1.395-1.396s0.626-1.396,1.395-1.396c0.77,0,1.396,0.626,1.396,1.396S14.344,31.108,13.574,31.108z M25.089,31.108c-0.771,0-1.396 0.626-1.396-1.396s0.626-1.396,1.396-1.396c0.77,0,1.396,0.626,1.396,1.396 S25.858,31.108,25.089,31.108z" />
-        </svg>
-        <div class="checkout">
-            <a class="checkout-button button button-main" href="#">
-                <span class="checkout-text">
-                <span class="button button-main">Корзина</span>
-                <span class="checkout-text-inner checkout-final-text">1050 Р. <i class="fa fa-fw fa-shopping-cart"></i></span>
-                </span>
-            </a>
-            <div class="checkout-order">
-                <div class="checkout-order-inner">
-                    <table class="checkout-summary">
-                        <thead>
-                            <tr>
-                                <th>Товар</th>
-                                <th>Цена</th>
-                                <th>Кол-во</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Булочки с повидлом</td>
-                                <td>300 р.</td>
-                                <td>
-                                    <div class="form-group label-placeholder is-empty">
-                                        <label for="i5p" class="control-label"></label>
-                                        <span class="control-minus">-</span>
-                                        <input type="text" value="1" class="form-control" id="i5p">
-                                        <span class="help-block"></span>
-                                        <span class="material-input"></span>
-                                        <span class="control-plus">+</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button class="checkout-action"><i class="icon icn-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Булочки с повидлом</td>
-                                <td>300 р.</td>
-                                <td>
-                                    <div class="form-group label-placeholder is-empty">
-                                        <label for="i5p" class="control-label"></label>
-                                        <span class="control-minus">-</span>
-                                        <input type="text" value="2" class="form-control" id="i5p">
-                                        <span class="help-block"></span>
-                                        <span class="material-input"></span>
-                                        <span class="control-plus">+</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button class="checkout-action"><i class="icon icn-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Булочки с повидлом</td>
-                                <td>300 р.</td>
-                                <td>
-                                    <div class="form-group label-placeholder is-empty">
-                                        <label for="i5p" class="control-label"></label>
-                                        <span class="control-minus">-</span>
-                                        <input type="text" class="form-control" value="1" id="i5p">
-                                        <span class="help-block"></span>
-                                        <span class="material-input"></span>
-                                        <span class="control-plus">+</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button class="checkout-action"><i class="icon icn-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="checkout-form">
-                        <div class="form-group label-floating is-empty">
-                            <label for="checkout-name" class="control-label">Ваше имя</label>
-                            <input type="text" class="form-control" id="checkout-name">
-                            <span class="help-block"></span>
-                            <span class="material-input"></span>
+        </section>
+        <div class="bottom-panel">
+            <svg class="checkout-icon" width="30px" height="30px" viewBox="0 0 35 35">
+                <path d="M33.623,8.004c-0.185-0.268-0.486-0.434-0.812-0.447L12.573,6.685c-0.581-0.025-1.066,0.423-1.091,1.001 c-0.025,0.578,0.423,1.065,1.001,1.091L31.35,9.589l-3.709,11.575H11.131L8.149,4.924c-0.065-0.355-0.31-0.652-0.646-0.785 L2.618,2.22C2.079,2.01,1.472,2.274,1.26,2.812s0.053,1.146 0.591,1.357l4.343,1.706L9.23,22.4c0.092,0.497,0.524,0.857,1.03,0.857 h0.504l-1.15,3.193c-0.096,0.268-0.057,0.565,0.108,0.798c0.163,0.232,0.429,0.37,0.713,0.37h0.807 c-0.5,0.556-0.807,1.288-0.807,2.093c0,1.732,1.409,3.141,3.14,3.141c1.732,0,3.141-1.408,3.141-3.141c0-0.805-0.307-1.537-0.807-2.093h6.847c-0.5,0.556-0.806,1.288-0.806,2.093c0,1.732,1.407,3.141,3.14,3.141 c1.731,0,3.14-1.408,3.14-3.141c0-0.805-0.307-1.537-0.806-2.093h0.98c0.482,0,0.872-0.391,0.872-0.872s-0.39-0.873-0.872-0.873 H11.675l0.942-2.617h15.786c0.455,0,0.857-0.294,0.996-0.727l4.362-13.608C33.862,8.612,33.811,8.272,33.623,8.004z M13.574,31.108c-0.769,0-1.395-0.626-1.395-1.396s0.626-1.396,1.395-1.396c0.77,0,1.396,0.626,1.396,1.396S14.344,31.108,13.574,31.108z M25.089,31.108c-0.771,0-1.396 0.626-1.396-1.396s0.626-1.396,1.396-1.396c0.77,0,1.396,0.626,1.396,1.396 S25.858,31.108,25.089,31.108z" />
+            </svg>
+            <div class="checkout">
+                <a class="checkout-button button button-main" href="#">
+                    <span class="checkout-text">
+                    <span class="button button-main">Корзина</span>
+                    <span class="checkout-text-inner checkout-final-text">1050 Р. <i class="fa fa-fw fa-shopping-cart"></i></span>
+                    </span>
+                </a>
+                <div class="checkout-order">
+                    <div class="checkout-order-inner">
+                        <table class="checkout-summary">
+                            <thead>
+                                <tr>
+                                    <th>Товар</th>
+                                    <th>Цена</th>
+                                    <th>Кол-во</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Булочки с повидлом</td>
+                                    <td>300 р.</td>
+                                    <td>
+                                        <div class="form-group label-placeholder is-empty">
+                                            <label for="i5p" class="control-label"></label>
+                                            <span class="control-minus">-</span>
+                                            <input type="text" value="1" class="form-control" id="i5p">
+                                            <span class="help-block"></span>
+                                            <span class="material-input"></span>
+                                            <span class="control-plus">+</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="checkout-action"><i class="icon icn-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Булочки с повидлом</td>
+                                    <td>300 р.</td>
+                                    <td>
+                                        <div class="form-group label-placeholder is-empty">
+                                            <label for="i5p" class="control-label"></label>
+                                            <span class="control-minus">-</span>
+                                            <input type="text" value="2" class="form-control" id="i5p">
+                                            <span class="help-block"></span>
+                                            <span class="material-input"></span>
+                                            <span class="control-plus">+</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="checkout-action"><i class="icon icn-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Булочки с повидлом</td>
+                                    <td>300 р.</td>
+                                    <td>
+                                        <div class="form-group label-placeholder is-empty">
+                                            <label for="i5p" class="control-label"></label>
+                                            <span class="control-minus">-</span>
+                                            <input type="text" class="form-control" value="1" id="i5p">
+                                            <span class="help-block"></span>
+                                            <span class="material-input"></span>
+                                            <span class="control-plus">+</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="checkout-action"><i class="icon icn-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="checkout-form">
+                            <div class="form-group label-floating is-empty">
+                                <label for="checkout-name" class="control-label">Ваше имя</label>
+                                <input type="text" class="form-control" id="checkout-name">
+                                <span class="help-block"></span>
+                                <span class="material-input"></span>
+                            </div>
+                            <div class="form-group label-floating is-empty">
+                                <label for="checkout-phone" class="control-label">Телефон</label>
+                                <input type="text" class="form-control" id="checkout-phone">
+                                <span class="help-block"></span>
+                                <span class="material-input"></span>
+                            </div>
+                            <div class="form-group label-floating is-empty" style="margin-top:30px">
+                                <label for="checkout-comment" class="control-label">Комментарий</label>
+                                <input type="search" class="form-control" id="checkout-comment">
+                                <span class="help-block"></span>
+                                <span class="material-input"></span>
+                            </div>
+                            <div class="button main">Оформление заказа</div>
                         </div>
-                        <div class="form-group label-floating is-empty">
-                            <label for="checkout-phone" class="control-label">Телефон</label>
-                            <input type="text" class="form-control" id="checkout-phone">
-                            <span class="help-block"></span>
-                            <span class="material-input"></span>
-                        </div>
-                        <div class="form-group label-floating is-empty" style="margin-top:30px">
-                            <label for="checkout-comment" class="control-label">Комментарий</label>
-                            <input type="search" class="form-control" id="checkout-comment">
-                            <span class="help-block"></span>
-                            <span class="material-input"></span>
-                        </div>
-                        <div class="button main">Оформление заказа</div>
+                        <button class="checkout-close checkout-cancel"><i class="icon icn-cancel"></i></button>
                     </div>
-                    <button class="checkout-close checkout-cancel"><i class="icon icn-cancel"></i></button>
                 </div>
             </div>
+            <div class="checkout-count">3</div>
         </div>
-        <div class="checkout-count">3</div>
+
     </div>
 
     <script src="app/scripts.js"></script>
+    <script src="app/engine.js"></script>
 
 </body>
 

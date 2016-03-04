@@ -6,34 +6,82 @@ var gulp    = require('gulp'),
     gutil   = require('gulp-util');
     plugins = require('gulp-load-plugins')();
 
-    gulp.task('default', ['scripts', 'styles', 'watch']);
+    gulp.task('default', ['scripts', 'styles', 'js', 'watch']);
 
     var theLibs = [
      'app/libs/jquery/dist/jquery.min.js',
-/*     'app/libs/react/react.min.js',
+     'app/libs/react/react.min.js',
      'app/libs/react/react-dom.min.js',
-     'app/libs/reflux/dist/reflux.min.js',*/
+     'app/libs/reflux/dist/reflux.min.js',
      'app/libs/bootstrap/dist/js/bootstrap.min.js',
      'app/libs/js-cookie/src/js.cookie.js',
 
+     'app/scripts/_global.js',
+
      'app/libs/velocity/velocity.min.js',
      'app/libs/velocity/velocity.ui.min.js',
-
      'app/libs/bootstrap-material-design/scripts/material.js',
      'app/libs/bootstrap-material-design/scripts/ripples.js',
      'app/libs/ZoomSlider/js/dynamics.min.js',
-     'app/libs/ZoomSlider/js/classie.min.js',
+     'app/libs/ZoomSlider/js/classie.js',
      'app/libs/ZoomSlider/js/main.js',
      'app/libs/moment/min/moment-with-locales.min.js',
      'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',
      'app/scripts/etc/datetimepicker.js',
      'app/scripts/etc/jquery.nouislider.min.js',
 
-     'app/scripts/_global.js',
-
-     'app/scripts/components/*.js',
+     'app/scripts/components/common.js',
+     'app/scripts/components/auth.js',
+     'app/scripts/components/checkout.js',
+     'app/scripts/components/company.js',
+     'app/scripts/components/controls.js',
+     'app/scripts/components/profile.js',
+     'app/scripts/components/shop.js',
+     'app/scripts/components/tabs.js',
      'app/scripts/init.js'
     ];
+
+    var theES6 = [
+     'app/scripts/es6/test.js'
+    ]
+
+    var sourcemaps = require('gulp-sourcemaps');
+    var source = require('vinyl-source-stream');
+    var buffer = require('vinyl-buffer');
+    var browserify = require('browserify');
+    var watchify = require('watchify');
+    var babel = require('babelify');
+
+    function compile(watch) {
+      var bundler = watchify(browserify(theES6, { debug: true }).transform(babel));
+
+      function rebundle() {
+        bundler.bundle()
+          .on('error', function(err) { console.error(err); this.emit('end'); })
+          .pipe(source('engine.js'))
+          .pipe(buffer())
+      //    .pipe(sourcemaps.init({ loadMaps: true }))
+      //    .pipe(sourcemaps.write('./'))
+          .pipe(gulp.dest('./app/app'));
+      }
+
+      if (watch) {
+        bundler.on('update', function() {
+          console.log('-> bundling...');
+          rebundle();
+        });
+      }
+
+      rebundle();
+    }
+
+    function watch() {
+      return compile(true);
+    };
+
+    gulp.task('js', function() {
+        return compile();
+    });
 
     gulp.task('scripts', function() {
       return gulp.src(theLibs)
@@ -86,8 +134,9 @@ var gulp    = require('gulp'),
     });
 
     gulp.task('watch', function() {
-        gulp.watch('app/libs/**/*.js', { interval: 800 }, ['scripts']);
+      //  watch();
+        gulp.watch('app/libs/**/*.js', { interval: 800 }, ['scripts', 'js']);
         gulp.watch('app/libs/**/*.less', { interval: 800 }, ['styles']);
-        gulp.watch('app/scripts/**/*.js', { interval: 800 }, ['scripts']);
+        gulp.watch('app/scripts/**/*.js', { interval: 800 }, ['scripts', 'js']);
         gulp.watch('app/styles/**/*.less', { interval: 800 }, ['styles']);
     });
