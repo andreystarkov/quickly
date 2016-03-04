@@ -59,43 +59,43 @@
                 </div>
 
                 <div class="col-lg-5">
-                    <div class="form-register" style="display:none">
+                    <div class="form-auth form-register pop" id="formRegisterPhone">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group label-floating is-empty">
-                                    <label for="registration-phone" class="control-label">Ваш номер телефона</label>
-                                    <input type="text" class="form-control" id="registration-phone">
+                                    <label for="inputRegisterPhone" class="control-label">Ваш номер телефона</label>
+                                    <input type="text" class="form-control pop" id="inputRegisterPhone">
                                     <span class="help-block"></span>
                                     <span class="material-input"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <a href="#" style="display:inline-block" id="buttonRegister" class="btn btn-padding btn-raised">
+                                <a href="#" id="buttonRegisterPhone" class="btn btn-padding btn-raised">
                                     Зарегистрироваться
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-code" style="display:none">
+                    <div class="form-auth form-code pop" id="formRegisterSMSCode">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group label-floating is-empty">
-                                    <label for="registration-code" class="control-label">Введите код, полученный по смс</label>
-                                    <input type="text" class="form-control" id="registration-code">
+                                    <label for="inputRegisterSMSCode" class="control-label pop">Введите код, полученный по смс</label>
+                                    <input type="text" class="form-control" id="inputRegisterSMSCode">
                                     <span class="help-block"></span>
                                     <span class="material-input"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <a href="#" style="display:inline-block" id="buttonRegister" class="btn btn-padding btn-raised">
+                                <a href="#" id="buttonRegisterSMSCode" class="btn btn-clean btn-padding btn-raised">
                                     Отправить
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="user-top">
+                    <div class="user-top" id="userBadgeTop">
                         <b class="user-name" id="userNameTop"></b>
                         <img src="" class="user-picture" id="userPictureTop">
                     </div>
@@ -104,77 +104,9 @@
             </div>
         </div>
     </div>
-    <section class="company-about gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2 text-center">
-                    <div class="logo round" style="background-image:url(images/logos/delmaro.png)">
-                    </div>
-                    <div class="title">
-                        <h2>Awesome Food</h2>
-                        <span>служба доставки</span>
-                    </div>
-                </div>
-                <div class="col-lg-10 the-info">
-                    <div class="line types">
-                        <i class="icon icn-restaurant"></i>
-                        <a class="food" href="#">Европейская</a>
-                        <a class="food" href="#">Японская</a>
-                        <a class="food" href="#">Китайская</a>
-                    </div>
-                    <div class="line delivery">
-                        <i class="icon icn-cab"></i>
-                        <div class="box cost">
-                            <span>стоимость</span>
-                            <p>бесплатно</p>
-                        </div>
-                        <div class="box time">
-                            <span>среднее время</span>
-                            <p>60 минут</p>
-                        </div>
-                        <div class="box min">
-                            <span>мин. сумма</span>
-                            <p>1000 <i class="rouble">Р.</i></p>
-                        </div>
-                        <div class="box pay">
-                            <div class="cards">
-                                <div class="card-icon mastercard"><img src="images/cards/mastercard.png"></div>
-                                <div class="card-icon visa"><img src="images/cards/visa.png"></div>
-                            </div>
-                            <span>оплата курьеру<br>оплата онлайн</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row buttons-line">
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-6 buttons-tabs">
-                    <a class="button tab-toggle light" data-tab="tab-comments" href="#tab-comments">
-                        <span>Отзывы</span>
-                    </a>
-                    <a class="button tab-toggle light active" data-tab="tab-food" href="#tab-food">
-                        <span>Доставка</span>
-                    </a>
-                    <a class="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
-                        <span>Бронирование</span>
-                    </a>
-                </div>
-                <div class="col-lg-4 buttons-reserv">
-                    <a class="button light" href="#">
-                        <i class="icon icon-eye"></i>
-                        <span>3D тур</span>
-                    </a>
-                    <a class="button main" href="#">
-                        <i class="icon icon-anchor"></i>
-                        <span>Забронировать стол</span>
-                    </a>
 
-                </div>
-            </div>
-        </div>
-        <!-- container -->
-    </section>
+    <section class="company-about gray" id="companyDetails"></section>
+
     <section class="the-tab tab-comments" id="tab-comments">
         <div class="container">
             <div class="tab-header">
@@ -441,6 +373,7 @@
     </div>
 
     <script src="app/scripts.js"></script>
+
 </body>
 
 </html>
