@@ -1037,19 +1037,20 @@ function createHistory(){
         if (callback) callback();
     }
 
-  function pasteUserProfile(userToken){
-    getUserProfile(userToken, function(data){
-      //  var userBonuses = getUserBonuses(userToken);
+  function emptyProfile(){
+    var token = userToken;
+    getUserProfile(token, function(data){
+        userBonus = getUserBonus(userToken);
         userInfo = data;
         $('#userBadgeTop').html(`
-          <div class="user-text">
-            <b class="user-name">${data.userName} ${data.userSurname}</b>
-            <a class="r-bonus"><b>20</b> <span class="fa fa-rouble"></span>-бонусов</a>
+          <div class="user-text" id="buttonEmptyProfile">
+            <b class="user-name">Добро пожаловать!</b>
+            <a class="r-bonus">У вас <b>${userBonus}</b> <span class="fa fa-rouble"></span>-бонусов</a>
           </div>
-          <div class="user-avatar" style="background-image:url(${data.userAvatarUrl})"></div>
-          `);
+        `);
     });
   }
+
 
   function refreshUserProfile(){
     var token = userToken;

@@ -64,3 +64,19 @@ function aniMagic(obj, aniClass){
 function animateThis(obj, aniClass){
     $(obj).addClass('animated '+aniClass)
 }
+
+
+function showProfile(){
+    easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
+        easyVelocity('#pageProfile', 'transition.flipXIn', function(){
+          // boring here
+        });
+    });
+}
+
+function showShop(){
+    $('.tab-active').removeClass('animated fadeInRight');
+    easyVelocity('.page-wrapper', 'transition.fadeOut', function(){
+
+    });
+}

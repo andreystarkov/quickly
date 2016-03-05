@@ -18,6 +18,9 @@ $(function() {
     var userInfo = {};
     var profile = {};
 
+    $('body').css({'min-height': '100%'});
+    $('html').css({'height': '100%'});
+
     setTimeout(function(){
         console.log(userInfo);
         profile = userInfo;
@@ -87,12 +90,7 @@ $(function() {
     $('#pageProfile').hide();
 
     $('#buttonEditProfile').click(function(){
-        console.log('click');
-        easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
-            easyVelocity('#pageProfile', 'transition.flipXIn', function(){
-               selectTab('#tab-order-history');
-            });
-        });
+        showProfile();
     });
 
     getCompanyDetails(1, function(data){
@@ -113,9 +111,7 @@ $(function() {
     }
 
     $(document).on('click', '#buttonReturnShop', function(event) {
-        easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
-            easyVelocity('#pageCompany', 'transition.flipXIn');
-        });
+        showShop();
     });
 
 });
