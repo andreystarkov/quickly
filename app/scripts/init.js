@@ -83,6 +83,7 @@ $(function() {
     pasteCategories(1);
     pasteMenu(1);
     pasteComments(1);
+
     $('#pageProfile').hide();
 
     $('#buttonEditProfile').click(function(){
