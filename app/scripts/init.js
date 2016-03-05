@@ -115,7 +115,6 @@ $(function() {
     $(document).on('click', '#buttonReturnShop', function(event) {
         easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
             easyVelocity('#pageCompany', 'transition.flipXIn');
-            selectTab('#tab-food');
         });
     });
 

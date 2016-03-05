@@ -52,7 +52,7 @@
             '<div class="row buttons-line">'+
                 '<div class="col-lg-2">'+
                 '</div>'+
-                '<div class="col-lg-6 buttons-tabs">'+
+                '<div class="col-lg-6 buttons-tabs" data-tabs="tabs-shop">'+
                     '<a class="button tab-toggle light" data-tab="tab-comments" href="#tab-comments">'+
                         '<span>Отзывы</span>'+
                     '</a>'+

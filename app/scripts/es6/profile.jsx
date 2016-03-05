@@ -1,7 +1,7 @@
 
 function createHistory(){
  var output = `
-    <section class="the-tab tab-comments the-history" id="tab-comments-history">
+    <section class="the-tab tab-comments the-history tabs-profile" id="tab-comments-history">
         <div class="container">
         <div class="history-item row">
             <div class="col-lg-2">
@@ -104,7 +104,7 @@ function createHistory(){
     </section>
 
 
-    <section class="the-tab tab-active order-history" id="tab-order-history">
+    <section class="the-tab tab-active order-history tabs-profile" id="tab-order-history">
         <div class="container">
 
         <div class="history-item row">
@@ -512,7 +512,7 @@ function createHistory(){
 
             </div>
     </section>
-    <section class="the-tab the-history" id="tab-reservation-history">
+    <section class="the-tab the-history tabs-profile" id="tab-reservation-history">
         <div class="container">
             <div class="history-item row">
                 <div class="col-lg-2">
@@ -1015,14 +1015,14 @@ function createHistory(){
               <div class="col-lg-2">
               </div>
               <div class="col-lg-10 buttons-tabs">
-                 <div class="btn-group btn-group-justified">
-                    <a data-group="tabs-profile" href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">
+                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">
+                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">
                     <span>История заказов</span>
                     </a>
-                    <a data-group="tabs-profile" href="#tab-reservation-history" class="tab-toggle btn button light">
+                    <a href="#tab-reservation-history" class="tab-toggle btn button light">
                     <span>История бронирования</span>
                     </a>
-                    <a data-group="tabs-profile" href="#tab-comments-history" class="tab-toggle btn button light">
+                    <a href="#tab-comments-history" class="tab-toggle btn button light">
                     <span>Оставленные отзывы</span>
                     </a>
                     <a id="buttonReturnShop" href="#" class="btn button main">
