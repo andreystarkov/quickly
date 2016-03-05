@@ -32,8 +32,13 @@ body {
     .float-left {
         float:left;
     }
+    input::webkit-input-placeholder {
+        font-size:13px;
+    }
 }
-
+::-webkit-input-placeholder {
+    font-size:13px !important;
+}
 a {
     text-decoration:none;
     color: @colorBlack;

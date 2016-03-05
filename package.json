@@ -8,8 +8,11 @@
   "author": "Andrey Starkov",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^5.0.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
+    "eslint": "^2.3.0",
+    "eslint-plugin-babel": "^3.1.0",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-babel": "^6.1.2",
@@ -32,5 +35,9 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "eslint-plugin-react": "^4.1.0",
+    "react": "^0.14.7"
   }
 }

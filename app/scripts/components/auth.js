@@ -44,6 +44,7 @@ function sendSMSCode(phone, code, callback) {
           } else {
             console.log('SendSMSCode: error');
             console.log(data);
+            callback(data);
           }
         }
     });
@@ -84,7 +85,6 @@ $(document).on('click', '#buttonRegisterPhone', function(event) {
 });
 
 $(document).on('click', '#buttonRegisterSMSCode', function(event) {
-
     event.preventDefault();
 
     var userPhone = Cookies.get('phone'),
@@ -96,6 +96,8 @@ $(document).on('click', '#buttonRegisterSMSCode', function(event) {
       if (data.err === undefined || data.err  === null) {
         console.log('sendSMSCode: fine');
         registrationStepThree();
+      } else {
+        createNotice('#buttonRegisterSMSCode', 'Ошибка', 'СМС-код неверен. Посмотрите внимательней!');
       }
 
    });

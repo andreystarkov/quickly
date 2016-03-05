@@ -10,9 +10,9 @@ var gulp    = require('gulp'),
 
     var theLibs = [
      'app/libs/jquery/dist/jquery.min.js',
-     'app/libs/react/react.min.js',
-     'app/libs/react/react-dom.min.js',
-     'app/libs/reflux/dist/reflux.min.js',
+     //'app/libs/react/react.min.js',
+     //'app/libs/react/react-dom.min.js',
+     //'app/libs/reflux/dist/reflux.min.js',
      'app/libs/bootstrap/dist/js/bootstrap.min.js',
      'app/libs/js-cookie/src/js.cookie.js',
 
@@ -42,7 +42,10 @@ var gulp    = require('gulp'),
     ];
 
     var theES6 = [
-     'app/scripts/es6/engine.js'
+     'app/scripts/es6/_global.jsx',
+     'app/scripts/es6/profile.jsx',
+     'app/scripts/es6/engine.jsx',
+     'app/scripts/es6/init.jsx'
     ]
 
     var sourcemaps = require('gulp-sourcemaps');
@@ -137,6 +140,7 @@ var gulp    = require('gulp'),
       //  watch();
         gulp.watch('app/libs/**/*.js', { interval: 800 }, ['scripts', 'js']);
         gulp.watch('app/libs/**/*.less', { interval: 800 }, ['styles']);
+        gulp.watch('app/scripts/**/*.jsx', { interval: 800 }, ['js']);
         gulp.watch('app/scripts/**/*.js', { interval: 800 }, ['scripts', 'js']);
         gulp.watch('app/styles/**/*.less', { interval: 800 }, ['styles']);
     });

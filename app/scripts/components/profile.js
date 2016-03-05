@@ -49,19 +49,5 @@
 
   $(function() {
 
-    getUserProfile(userToken, function(data){
-        userInfo = data;
-        $('#userBadgeTop').html(
-          '<div class="user-text">'+
-            '<b class="user-name">'+data.userName+' '+data.userSurname+'</b>'+
-            '<a class="r-bonus"><b>20</b> <span class="fa fa-rouble"></span>-бонусов</a>'+
-          '</div>'+
-          '<div class="user-avatar" style="background-image:url('+data.userAvatarUrl+')"></div>'
-        );
-    });
 
   });
-
-  function pasteProfileEditor(){
-        var output = "";
-  }

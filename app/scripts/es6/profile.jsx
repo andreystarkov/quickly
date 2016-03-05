@@ -1,91 +1,6 @@
-// OMG THIS IS ES6 FIRST BLOOD
 
-function createProfileEditor(profile){
-
-    var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
-
-    var htmlTemplate =
-    `<div class="container">
-       <div class="row">
-          <div class="col-lg-2 text-center">
-             <div class="avatar round">
-                <img src="${profile.userAvatarUrl}" alt="...">
-             </div>
-             <div class="title user-name-edit">
-                <div class="form-group label-placeholder is-empty">
-                   <input type="email" class="form-control" id="profile-name" value="${profile.userName} ${profile.userSurname}">
-                   <span class="help-block">Изменить имя пользователя</span>
-                   <span class="material-input"></span>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-10 the-info">
-             <div class="line delivery">
-                <i class="icon icon-envelope"></i>
-                <div class="box">
-                   <div class="form-group is-empty tip" title="Ваш адрес электронной почты">
-                      <input type="email" class="form-control" id="profile-email" value="${profile.userEmail}">
-                   </div>
-                </div>
-                <i class="icon icon-phone"></i>
-                <div class="box">
-                   <div class="form-group label-placeholder is-empty">
-                      <input type="tel" class="form-control tip" title="Дата вашего рождения" id="profile-phone" value="${profile.userPhone}">
-                   </div>
-                </div>
-                <i class="icon icon-calendar"></i>
-                <div class="box">
-                   <div class="form-group label-placeholder is-empty tip" title="Tooltip on top">
-                      <input type="date" class="form-control" id="profile-birth" value="${birthDate}">
-                   </div>
-                </div>
-                <i class="icon fa fa-building-o"></i>
-                <div class="box">
-                   <div class="form-group label-placeholder is-empty">
-                      <input type="text" class="form-control" id="profile-city" value="Оренбург">
-                   </div>
-                </div>
-             </div>
-             <div class="line delivery">
-                <div id="profile-addresses" class="inline-block float-left">
-                   <i class="icon icon-location-pin"></i>
-                   <div class="box">
-                      <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">
-                         <input type="text" class="form-control" id="profile-address-1">
-
-                      </div>
-                   </div>
-                </div>
-                <div class="box">
-                   <a href="#" class="button button-plus tip" id="profile-address-add">
-                   <i class="icon fa fa-plus-square-o"></i>
-                   <span>Добавить адрес</span>
-                   </a>
-                </div>
-             </div>
-          </div>
-       </div>
-       <div class="row buttons-line">
-          <div class="col-lg-2">
-          </div>
-          <div class="col-lg-10 buttons-tabs">
-             <div class="btn-group btn-group-justified">
-                <a data-tab="tab-order-history" href="#tab-order-history" class="tab-toggle btn button light" >
-                <span>История заказов</span>
-                </a>
-                <a data-tab="tab-reservation-history" href="#tab-reservation-history" class="tab-toggle btn button light">
-                <span>История бронирования</span>
-                </a>
-                <a data-tab="tab-comments-history" href="#tab-comments-history" class="tab-toggle btn button light">
-                <span>Оставленные отзывы</span>
-                </a>
-                <a id="saveProfile" href="#" class="btn button main">
-                <span>Вернуться к ресторану</span>
-                </a>
-             </div>
-          </div>
-       </div>
-    </div>
+function createHistory(){
+ var output = `
     <section class="the-tab tab-comments the-history" id="tab-comments-history">
         <div class="container">
         <div class="history-item row">
@@ -135,99 +50,7 @@ function createProfileEditor(profile){
             </div>
         </div> <!-- history-item -->
 
-        <div class="history-item row">
-            <div class="col-lg-2">
-                <div class="box-company medium">
-                    <div class="thumb-round">
-                        <img src="images/logos/delmaro.png" alt="...">
-                    </div>
-                    <span class="title">Зеленая горчица</span>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="history-items">
-                    <div class="item comment-item">
-                        <div class="row">
-                            <div class="col-lg-2 no-padding-right align-right">
-                                <div class="thumb-tiny table-number">
-                                    <span><i class="icon-speech"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="text">
-                                    <b>Всё очень грустно!</b>
-                                    <p>В общем-то, научное сообщество было уверено в том, что они существуют, и обнаружить их — дело времени. Халсу и Тейлору присудили Нобелевскую
-                                    премию за фактическое открытие гравитационных волн. ЧРаз они крутятся, то излучают гравитационные волны.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="col-lg-2 summary">
-                <div class="bonus">
-                    <span><i class="fa fa-rub"></i>-бонусов</span>
-                    <b>+ 40</b>
-                </div>
-            </div>
-            <div class="col-lg-3 actions">
-                <span class="title">поделится:</span>
-                <div class="social-share">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-vk"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-odnoklassniki"></i></a>
-                </div>
-            </div>
-        </div> <!-- history-item -->
-
-        <div class="history-item row">
-            <div class="col-lg-2">
-                <div class="box-company medium">
-                    <div class="thumb-round">
-                        <img src="images/logos/delmaro.png" alt="...">
-                    </div>
-                    <span class="title">Зеленая горчица</span>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="history-items">
-                    <div class="item comment-item">
-                        <div class="row">
-                            <div class="col-lg-2 no-padding-right align-right">
-                                <div class="thumb-tiny table-number">
-                                    <span><i class="icon-speech"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="text">
-                                    <b>Всё очень грустно!</b>
-                                    <p>В общем-то, научное сообщество было уверено в том, что они существуют, и обнаружить их — дело времени. Халсу и Тейлору присудили Нобелевскую
-                                    премию за фактическое открытие гравитационных волн. ЧРаз они крутятся, то излучают гравитационные волны.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-lg-2 summary">
-                <div class="bonus">
-                    <span><i class="fa fa-rub"></i>-бонусов</span>
-                    <b>+ 40</b>
-                </div>
-            </div>
-            <div class="col-lg-3 actions">
-                <span class="title">поделится:</span>
-                <div class="social-share">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-vk"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-odnoklassniki"></i></a>
-                </div>
-            </div>
-        </div> <!-- history-item -->
 
         <div class="history-item row">
             <div class="col-lg-2">
@@ -1102,15 +925,232 @@ function createProfileEditor(profile){
             </div> <!-- history-item -->
         </div> <!-- container -->
     </section>`;
-    $('#editUserProfile').append(htmlTemplate);
+    return output;
+
 }
 
-getUserProfile(userToken, function(data){
-    console.log('wee-haa!!');
-    console.log(data);
-    createProfileEditor(data);
-});
+    function createProfileEditor(profile){
 
-jQuery(document).ready(function($) {
+        var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
 
-});
+        var htmlTemplate =
+        `<div class="user-editor container">
+           <div class="row">
+              <div class="col-lg-2 text-center">
+                 <div class="avatar round">
+                    <img src="${profile.userAvatarUrl}" alt="...">
+                 </div>
+                 <div class="title user-name-edit">
+                    <div class="form-group" style="width:48%; display: inline-block">
+                      <label class="control-label" for="userName">Имя</label>
+                      <input type="text" class="form-control" id="userName" value="${profile.userName}">
+                    </div>
+                    <div class="form-group" style="width:48%; display: inline-block">
+                      <label class="control-label" for="userSurname">Фамилия</label>
+                      <input type="text" class="form-control" id="userSurname" value="${profile.userSurname}">
+                    </div>
+                 </div>
+              </div>
+              <div class="col-lg-10 the-info">
+                 <div class="row delivery">
+                    <div class="col-lg-3">
+                       <div class="form-group">
+                          <label class="control-label" for="userEmail">Электронная почта</label>
+                          <input type="email" class="form-control" id="userEmail" value="${profile.userEmail}">
+                       </div>
+                    </div>
+                    <div class="col-lg-3">
+                       <div class="form-group">
+                          <label class="control-label" for="userPhone">Номер телефона</label>
+                          <input type="tel" class="form-control" id="userPhone" value="${profile.userPhone}">
+                       </div>
+                    </div>
+                    <div class="col-lg-3">
+                       <div class="form-group">
+                          <label class="control-label" for="userBirth">Дата рождения</label>
+                          <input type="date" class="form-control" id="userBirth" value="${profile.userPhone}">
+                       </div>
+                    </div>
+                    <div class="col-lg-3">
+                       <div class="form-group">
+                          <label class="control-label" for="userCity">Город</label>
+                          <input type="text" class="form-control" id="userCity" value="Оренбург">
+                       </div>
+                    </div>
+                 </div>
+                 <div class="line delivery" style="padding-top:20px">
+                    <div id="profile-addresses" data-id="1" class="inline-block float-left">
+                       <i class="icon icon-location-pin"></i>
+                       <div class="box">
+                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">
+                             <input type="text" class="form-control" id="profile-address-1">
+                          </div>
+                       </div>
+                    </div>
+                    <div class="box">
+                       <a href="#" class="button button-plus tip" id="profile-address-add">
+                       <i class="icon fa fa-plus-square-o"></i>
+                       <span>Добавить адрес</span>
+                       </a>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="row buttons-line">
+              <div class="col-lg-2">
+              </div>
+              <div class="col-lg-10 buttons-tabs">
+                 <div class="btn-group btn-group-justified">
+                    <a data-tab="tab-order-history" href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">
+                    <span>История заказов</span>
+                    </a>
+                    <a data-tab="tab-reservation-history" href="#tab-reservation-history" class="tab-toggle btn button light">
+                    <span>История бронирования</span>
+                    </a>
+                    <a data-tab="tab-comments-history" href="#tab-comments-history" class="tab-toggle btn button light">
+                    <span>Оставленные отзывы</span>
+                    </a>
+                    <a id="buttonReturnShop" href="#" class="btn button main">
+                    <span>Вернуться к ресторану</span>
+                    </a>
+                 </div>
+              </div>
+           </div>
+        </div>`;
+        var historyItems = createHistory();
+        $('#editUserProfile').append(htmlTemplate+historyItems);
+    }
+
+  function pasteUserProfile(userToken){
+    getUserProfile(userToken, function(data){
+      //  var userBonuses = getUserBonuses(userToken);
+        userInfo = data;
+        $('#userBadgeTop').html(`
+          <div class="user-text">
+            <b class="user-name">${data.userName} ${data.userSurname}</b>
+            <a class="r-bonus"><b>20</b> <span class="fa fa-rouble"></span>-бонусов</a>
+          </div>
+          <div class="user-avatar" style="background-image:url(${data.userAvatarUrl})"></div>
+          `);
+    });
+  }
+
+  function refreshUserProfile(){
+    var token = userToken;
+    getUserProfile(token, function(data){
+        userBonus = getUserBonus(userToken);
+        userInfo = data;
+        $('#userBadgeTop').html(`
+          <div class="user-text">
+            <b class="user-name">${data.userName} ${data.userSurname}</b>
+            <a class="r-bonus"><b>${userBonus}</b> <span class="fa fa-rouble"></span>-бонусов</a>
+          </div>
+          <div class="user-avatar" style="background-image:url(${data.userAvatarUrl})"></div>'
+        `);
+    });
+  }
+
+  function getUserBonus(userToken){
+      var bonus;
+      $.ajax({
+        url: serverUrl+'/api/v2/user/bonus/'+userToken,
+        async: false,
+        dataType: 'json',
+        success: function (data) {
+          bonus = data.result.userBonus;
+        }
+      });
+      return bonus;
+  }
+
+/*
+
+      Изменение информации профиля:
+      POST-запрос на /api/v2/user/profile/edit
+      Параметры:
+        -*userToken – токен, полученный после авторизации
+        -*cityId – пока только Оренбург – 3
+        -birthdate – дата рождения unix timestamp
+        -name – имя юзера
+        -surname – фамилия юзера
+        -email – email юзера
+        -avatar – base64 изображение
+
+*/
+  function editUserField(fieldId){
+    var theOptions = {};
+
+    console.log('editUserField: init');
+
+    theOptions['userToken'] = userToken;
+    theOptions['cityId'] = cityId;
+    theOptions[fieldId] = $('#'+fieldId).val();
+
+    console.log(theOptions);
+    console.log('editUserField: fieldId = '+fieldId);
+    $.ajax({
+        url: serverUrl+'/api/v2/user/profile/edit',
+        dataType: 'json',
+        type: 'POST',
+        data: theOptions,
+        success: function(data){
+            console.log('editUserField: success');
+            console.log(data);
+            $('#'+fieldId).parent().addClass('has-success');
+            refreshUserProfile();
+        }
+      });
+  }
+
+  function editUserName(userName){
+    var token = userToken;
+    var city = cityId;
+    $.ajax({
+        url: serverUrl+'/api/v2/user/profile/edit', dataType: 'json', type: 'POST', data: {
+          userToken: token, cityId: city, name: userName
+        },
+        success: function(data){
+            refreshUserProfile();
+        }
+      });
+  }
+
+  $(function() {
+    getUserProfile(userToken, function(data){
+        console.log('wee-haa!!');
+        console.log(data);
+        createProfileEditor(data);
+    });
+
+    $('.tip-ok').tooltip({
+        title: 'Имя изменено',
+        trigger: 'hover'
+    })
+//    editProfile('Жопа', 'Аналовна', 'Картинка', 'im@andreystarkov.ru', '07-06-1987');
+
+    $(document).on('click', '#buttonReturnShop', function(event) {
+        easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
+            easyVelocity('#pageCompany', 'transition.flipXIn');
+            selectTab('#tab-food');
+        });
+    });
+/*
+    $(document).on('focusout', '#inputProfileName', function(event) {
+        console.log('#inputProfileName: focusout');
+        var name = $('#inputProfileName').val();
+        editUserName(name);
+      //  $('#inputProfileName').css({'background-image': 'linear-gradient(#109634,#109634)'});
+    });*/
+
+    refreshUserProfile();
+    $(document).on('focusout',".user-editor input", function() {
+
+        var fieldId = $(this).attr('id');
+        console.log('Editing: '+fieldId);
+        editUserField(fieldId);
+    });
+
+
+
+  });
+

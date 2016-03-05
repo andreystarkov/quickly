@@ -23,9 +23,9 @@ $(function() {
         profile = userInfo;
     },0);
 
-    getCuisinesList(function(data){
+/*    getCuisinesList(function(data){
         console.log(data.result.cuisines);
-    });
+    });*/
 
     $.material.init();
 
@@ -89,7 +89,9 @@ $(function() {
     $('#buttonEditProfile').click(function(){
         console.log('click');
         easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
-            easyVelocity('#pageProfile', 'transition.flipXIn');
+            easyVelocity('#pageProfile', 'transition.flipXIn', function(){
+               selectTab('#tab-order-history');
+            });
         });
     });
 
@@ -110,9 +112,10 @@ $(function() {
         userAuthorized();
     }
 
-    $(document).on('click', '#saveProfile', function(event) {
+    $(document).on('click', '#buttonReturnShop', function(event) {
         easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
             easyVelocity('#pageCompany', 'transition.flipXIn');
+            selectTab('#tab-food');
         });
     });
 
