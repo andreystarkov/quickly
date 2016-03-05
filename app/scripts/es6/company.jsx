@@ -44,13 +44,13 @@
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-6 buttons-tabs">
-                    <a class="button tab-toggle light" data-tab="tab-comments" href="#tab-comments">
+                    <a class="button tab-toggle light" data-group="tabs-shop" href="#tab-comments">
                         <span>Отзывы</span>
                     </a>
-                    <a class="button tab-toggle light active" data-tab="tab-food" href="#tab-food">
+                    <a class="button tab-toggle light active" data-group="tabs-shop" href="#tab-food">
                         <span>Доставка</span>
                     </a>
-                    <a class="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
+                    <a class="button tab-toggle light" data-grou="tabs-shop" href="#tab-reservation">
                         <span>Бронирование</span>
                     </a>
                 </div>

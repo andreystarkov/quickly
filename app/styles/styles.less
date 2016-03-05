@@ -57,6 +57,28 @@ body {
    .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label {
     font-size:12px;
   }
+  .form-group {
+    label.control-label {
+        font-size:10px;
+        text-transform:uppercase;
+        i {
+            display: inline-block;
+            margin-left: 6px;
+            opacity:0;
+            &.icon-check {
+                color:@colorGreen;
+            }
+        }
+    }
+    .status-icon {
+        transition:all 0.6s @easingSlowEnd;
+    }
+    &.has-success {
+        .status-icon {
+            opacity:1;
+        }
+    }
+  }
 }
 
 section {

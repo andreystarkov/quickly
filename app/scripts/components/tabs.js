@@ -21,9 +21,9 @@ $(document).on('click', '.tab-toggle', function(event) {
 });
 
 function selectTab(tabId, callback){
-    $("a[href='"+tabId+"']").click();
+    $("a[href='"+tabId+"'].active").click();
     if (callback) callback();
-     $('a[href="'+tabId+'"]').click();
+   //  $('a[href="'+tabId+'"]').click();
 
 /*    var aniInClass = "fadeOutRight animated";
     var aniOutClass = "slideOutLeft animated";

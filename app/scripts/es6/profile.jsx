@@ -929,7 +929,22 @@ function createHistory(){
 
 }
 
-    function createProfileEditor(profile){
+/*
+
+      Изменение информации профиля:
+      POST-запрос на /api/v2/user/profile/edit
+      Параметры:
+        -*userToken – токен, полученный после авторизации
+        -*cityId – пока только Оренбург – 3
+        -birthdate – дата рождения unix timestamp
+        -name – имя юзера
+        -surname – фамилия юзера
+        -email – email юзера
+        -avatar – base64 изображение
+
+*/
+
+    function createProfileEditor(profile, callback){
 
         var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
 
@@ -943,11 +958,11 @@ function createHistory(){
                  <div class="title user-name-edit">
                     <div class="form-group" style="width:48%; display: inline-block">
                       <label class="control-label" for="userName">Имя</label>
-                      <input type="text" class="form-control" id="userName" value="${profile.userName}">
+                      <input type="text" class="form-control focus-out" data-id="name" id="userName" value="${profile.userName}">
                     </div>
                     <div class="form-group" style="width:48%; display: inline-block">
                       <label class="control-label" for="userSurname">Фамилия</label>
-                      <input type="text" class="form-control" id="userSurname" value="${profile.userSurname}">
+                      <input type="text" class="form-control focus-out" data-id="surname" id="userSurname" value="${profile.userSurname}">
                     </div>
                  </div>
               </div>
@@ -956,19 +971,19 @@ function createHistory(){
                     <div class="col-lg-3">
                        <div class="form-group">
                           <label class="control-label" for="userEmail">Электронная почта</label>
-                          <input type="email" class="form-control" id="userEmail" value="${profile.userEmail}">
+                          <input type="email" class="form-control focus-out" data-id="email" id="userEmail" value="${profile.userEmail}">
                        </div>
                     </div>
                     <div class="col-lg-3">
                        <div class="form-group">
                           <label class="control-label" for="userPhone">Номер телефона</label>
-                          <input type="tel" class="form-control" id="userPhone" value="${profile.userPhone}">
+                          <input type="tel" class="form-control focus-out" id="userPhone" value="${profile.userPhone}">
                        </div>
                     </div>
                     <div class="col-lg-3">
                        <div class="form-group">
                           <label class="control-label" for="userBirth">Дата рождения</label>
-                          <input type="date" class="form-control" id="userBirth" value="${profile.userPhone}">
+                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="${profile.userPhone}">
                        </div>
                     </div>
                     <div class="col-lg-3">
@@ -1001,13 +1016,13 @@ function createHistory(){
               </div>
               <div class="col-lg-10 buttons-tabs">
                  <div class="btn-group btn-group-justified">
-                    <a data-tab="tab-order-history" href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">
+                    <a data-group="tabs-profile" href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">
                     <span>История заказов</span>
                     </a>
-                    <a data-tab="tab-reservation-history" href="#tab-reservation-history" class="tab-toggle btn button light">
+                    <a data-group="tabs-profile" href="#tab-reservation-history" class="tab-toggle btn button light">
                     <span>История бронирования</span>
                     </a>
-                    <a data-tab="tab-comments-history" href="#tab-comments-history" class="tab-toggle btn button light">
+                    <a data-group="tabs-profile" href="#tab-comments-history" class="tab-toggle btn button light">
                     <span>Оставленные отзывы</span>
                     </a>
                     <a id="buttonReturnShop" href="#" class="btn button main">
@@ -1019,6 +1034,7 @@ function createHistory(){
         </div>`;
         var historyItems = createHistory();
         $('#editUserProfile').append(htmlTemplate+historyItems);
+        if (callback) callback();
     }
 
   function pasteUserProfile(userToken){
@@ -1063,31 +1079,16 @@ function createHistory(){
       return bonus;
   }
 
-/*
-
-      Изменение информации профиля:
-      POST-запрос на /api/v2/user/profile/edit
-      Параметры:
-        -*userToken – токен, полученный после авторизации
-        -*cityId – пока только Оренбург – 3
-        -birthdate – дата рождения unix timestamp
-        -name – имя юзера
-        -surname – фамилия юзера
-        -email – email юзера
-        -avatar – base64 изображение
-
-*/
-  function editUserField(fieldId){
+  function editUserField(fieldId, callback){
     var theOptions = {};
-
+    var theParameter = $('#'+fieldId).data('id');
     console.log('editUserField: init');
 
     theOptions['userToken'] = userToken;
     theOptions['cityId'] = cityId;
-    theOptions[fieldId] = $('#'+fieldId).val();
+    theOptions[theParameter] = $('#'+fieldId).val();
 
-    console.log(theOptions);
-    console.log('editUserField: fieldId = '+fieldId);
+    console.log('editUserField: AJAX: '+theParameter+' = '+fieldId);
     $.ajax({
         url: serverUrl+'/api/v2/user/profile/edit',
         dataType: 'json',
@@ -1098,55 +1099,40 @@ function createHistory(){
             console.log(data);
             $('#'+fieldId).parent().addClass('has-success');
             refreshUserProfile();
-        }
-      });
-  }
-
-  function editUserName(userName){
-    var token = userToken;
-    var city = cityId;
-    $.ajax({
-        url: serverUrl+'/api/v2/user/profile/edit', dataType: 'json', type: 'POST', data: {
-          userToken: token, cityId: city, name: userName
-        },
-        success: function(data){
-            refreshUserProfile();
+            if(callback) callback(data);
         }
       });
   }
 
   $(function() {
+
     getUserProfile(userToken, function(data){
         console.log('wee-haa!!');
         console.log(data);
-        createProfileEditor(data);
+        createProfileEditor(data, function(){
+            $('.user-editor .control-label').each(function(){
+                $(this).append('<i class="status-icon its-ok icon-check"></i>');
+            });
+        });
     });
 
     $('.tip-ok').tooltip({
         title: 'Имя изменено',
         trigger: 'hover'
     })
-//    editProfile('Жопа', 'Аналовна', 'Картинка', 'im@andreystarkov.ru', '07-06-1987');
 
     $(document).on('click', '#buttonReturnShop', function(event) {
         easyVelocity('.page-wrapper', 'transition.flipXOut', function(){
             easyVelocity('#pageCompany', 'transition.flipXIn');
-            selectTab('#tab-food');
+           // selectTab('#tab-food');
         });
     });
-/*
-    $(document).on('focusout', '#inputProfileName', function(event) {
-        console.log('#inputProfileName: focusout');
-        var name = $('#inputProfileName').val();
-        editUserName(name);
-      //  $('#inputProfileName').css({'background-image': 'linear-gradient(#109634,#109634)'});
-    });*/
 
     refreshUserProfile();
-    $(document).on('focusout',".user-editor input", function() {
 
+    $(document).on('focusout',".user-editor input", function() {
         var fieldId = $(this).attr('id');
-        console.log('Editing: '+fieldId);
+        console.log('Editing: #'+fieldId+', data-id='+$(this).data('id'));
         editUserField(fieldId);
     });
 
