@@ -35,6 +35,16 @@
 @easingSlowMid: cubic-bezier(.17,.67,.39,.24);
 @easingSlowEnd: cubic-bezier(.68, .20, .12, .10);
 
+.the-room {
+  position:relative;
+  display:inline-block;
+  .table {
+    position:absolute;
+    padding:10px 20px;
+    border-radius:30px;
+    background:green;
+  }
+}
 body .top-line .form-register a.btn-clean, body a.btn, body .input-group-btn a.btn {
     display: inline-block !important;
     text-transform: uppercase;
@@ -46,7 +56,6 @@ body .top-line .form-register a.btn-clean, body a.btn, body .input-group-btn a.b
 }
 
 @import "_imports";
-
 
 body {
   a:hover, a:visited, a:link, a:active {

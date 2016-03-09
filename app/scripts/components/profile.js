@@ -17,6 +17,7 @@
             },
             success: function(data) {
                 console.log('getUserProfile: success');
+                console.log(data);
                 console.log(data.result.profile);
                 result = data.result.profile;
                 callback(result);

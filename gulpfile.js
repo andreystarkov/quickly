@@ -45,6 +45,7 @@ var gulp    = require('gulp'),
      'app/scripts/es6/_global.jsx',
      'app/scripts/es6/profile.jsx',
      'app/scripts/es6/engine.jsx',
+     'app/scripts/es6/reservation.jsx',
      'app/scripts/es6/init.jsx'
     ]
 
