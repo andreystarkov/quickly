@@ -8,7 +8,7 @@ function registerUser(phone, callback) {
         },
         success: function(data) {
             Cookies.set('phone', phone);
-            console.log('registerUser: success');
+            console.log('registerUser: ', data);
             callback(data);
         }
     });
@@ -88,7 +88,7 @@ $(document).on('click', '#buttonRegisterPhone', function(event) {
 
 $(document).on('click', '#buttonRegisterSMSCode', function(event) {
     event.preventDefault();
-
+    console.log('testsets');
     var userPhone = Cookies.get('phone'),
         userCode = $('#inputRegisterSMSCode').val();
 

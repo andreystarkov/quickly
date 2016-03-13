@@ -48,10 +48,3 @@
             });
         });
     }
-
-    $(document).on('click', '.category-toggle', function(event) {
-        event.preventDefault();
-        $('.category-line a').removeClass('active');
-        $(this).addClass('active');
-        pasteMenu($(this).attr('data-category'));
-    });

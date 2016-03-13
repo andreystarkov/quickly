@@ -63,19 +63,16 @@ function getStorage(itemName){
     return out;
 }
 
-function pasteCartElement(cartElement){
+function pasteCartElement(cartElement, elementCount){
 var el = `
 <tr>
     <td>${cartElement.name}</td>
     <td>${cartElement.price} р.</td>
     <td>
-        <div class="form-group label-placeholder is-empty">
-            <label for="i5p" class="control-label"></label>
-            <span class="control-minus">-</span>
-            <input type="text" value="1" class="form-control" id="i5p">
-            <span class="help-block"></span>
-            <span class="material-input"></span>
-            <span class="control-plus">+</span>
+        <div class="form-group label-placeholder is-empty" data-id="${cartElement.id}" data-name="${cartElement.name}" data-price="${cartElement.price}">
+            <span class="control-minus" data-id="cartItem-${cartElement.id}">-</span>
+            <input type="text" value="${elementCount}" class="form-control" id="cartItem-${cartElement.id}">
+            <span class="control-plus" data-id="cartItem-${cartElement.id}">+</span>
         </div>
     </td>
     <td>
@@ -97,16 +94,22 @@ function refreshCart(){
             cartPanel.removeClass('cart-empty');
             cartPanel.velocity('transition.slideUpBigIn', { duration: 600 });
         }
+        var uniqueCount = _.countBy(cartContents, "id");
+        var uniqueList = _.uniq(cartContents, "id");
 
-        $.each(cartContents, function(key, value){
-            $('.checkout-contents').append(pasteCartElement(value));
+        var cartTable = null;
+
+        $.each(uniqueList, function(key, value){
+            cartTable += pasteCartElement(value,uniqueCount[value.id]);
             console.log(value);
         });
-    } else console.log('CART empty');
+
+        $('.checkout-contents').html(cartTable);
+
+    } else console.log('refreshCart: Cart is empty');
 }
 
 $(function() {
-
 
     if (localStorage.getItem('theCart') === null) {
         console.log('localStorage: no cart stored');
@@ -127,10 +130,35 @@ $(function() {
         refreshCart();
     });
 
+    $(document).on('click', '.checkout .control-plus', function(event) {
+        jsonObj = {};
+        jsonObj['id'] = $(this).parent().data('id');
+        jsonObj['name'] = $(this).parent().data('name');
+        jsonObj['price'] = $(this).parent().data('price');
+        theCart.contents.push(jsonObj);
+        setStorage('theCart', theCart.contents);
+        refreshCart();
+    });
+
+    $(document).on('click', '.checkout .control-minus', function(event) {
+        var cart = theCart.contents;
+        var id = $(this).parent().data('id');
+        //var index = theCart.contents.indexOf(id);
+        var inThe = _.without(cart,id);
+        console.log('INTHE', inThe, id);
+    });
+
     $(document).on('click', '.checkout-icon', function(event){
         localStorage.removeItem('theCart');
         theCart.contents = [];
         refreshCart();
+    });
+
+    $(document).on('click', '.category-toggle', function(event) {
+        event.preventDefault();
+        $('.category-line a').removeClass('active');
+        $(this).addClass('active');
+        pasteMenu($(this).attr('data-category'));
     });
 
     refreshCart();

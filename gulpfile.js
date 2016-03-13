@@ -13,6 +13,7 @@ var gulp    = require('gulp'),
      //'app/libs/react/react.min.js',
      //'app/libs/react/react-dom.min.js',
      //'app/libs/reflux/dist/reflux.min.js',
+     'app/libs/underscore/underscore-min.js',
      'app/libs/bootstrap/dist/js/bootstrap.min.js',
      'app/libs/js-cookie/src/js.cookie.js',
 
