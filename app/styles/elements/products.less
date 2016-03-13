@@ -75,11 +75,12 @@
 
         .product-controls {
             position:absolute;
-            bottom:20%;
+            bottom:10%;
             width:100%;
             right:0;
             opacity:0;
             visibility:hidden;
+            transform:translateY(50px) scale(0.5);
         }
 
         .product-name {
@@ -104,8 +105,9 @@
             width:100%;
             text-align:left;
             visibility:hidden;
-            transform:scale(1,0);
+            transform:rotateX(-90deg) perspective(100px);
             padding:8px 12px;
+            transform-origin:top;
             background:mix(@colorWhite,@colorYellow,80%);
             box-shadow:0 2px 2px fade(@colorBlack,10%);
             span {
@@ -128,13 +130,16 @@
         &:hover {
             .product-description {
                 visibility:visible;
-                transform:scale(1,1);
+                transform:scale(1,1) rotateX(0) perspective(250px);
             }
             .product-info {
                 background:#fff;
             }
             img {
                 transform:scale(1.2);
+            }
+            .product-price {
+                background:fade(@colorBlack,3%);
             }
             .overlay .price {
                 background:fade(@colorBlack,55%);
@@ -144,6 +149,7 @@
             }
             .product-controls {
                 opacity:1;
+                transform: translateY(0px) scale(1);
                 visibility:visible;
             }
         }

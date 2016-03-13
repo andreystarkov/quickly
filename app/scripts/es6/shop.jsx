@@ -89,6 +89,7 @@ function refreshCart(){
     var cartContents = theCart.contents;
     if( !isEmpty(cartContents) ){
         $('.checkout-count').html(cartContents.length);
+        $('.checkout-total').html(cartContents.length);
         // transition.perspectiveUpIn
         if(cartPanel.hasClass('cart-empty')){
             cartPanel.removeClass('cart-empty');
@@ -101,7 +102,7 @@ function refreshCart(){
 
         $.each(uniqueList, function(key, value){
             cartTable += pasteCartElement(value,uniqueCount[value.id]);
-            console.log(value);
+            // console.log(value);
         });
 
         $('.checkout-contents').html(cartTable);

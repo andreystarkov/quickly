@@ -27,7 +27,7 @@ function sendSMSCode(phone, code, callback) {
         success: function(data) {
           if (data.err === undefined || data.err  === null) {
             console.log('SendSMSCode: success');
-            Cookies.set('token', data.result.userToken);
+            Cookies.set('token', data.result.userToken, { expires: 77777 });
 
             getUserProfile(data.result.userToken, function(data){
                 userInfo = data;
