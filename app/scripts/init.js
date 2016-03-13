@@ -84,7 +84,7 @@ $(function() {
     // testing
 
     pasteCategories(1);
-    pasteMenu(1);
+
     pasteComments(1);
 
     $('#pageProfile').hide();

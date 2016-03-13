@@ -78,6 +78,26 @@ body {
     }
 }
 
+.control-group {
+  .button {
+     color:#fff;
+     font-size:14px;
+     text-shadow: 1px 1px 0px fade(#000,55%);
+     &.green {
+        background: @colorGreen;
+     }
+     &.light-green {
+        background: mix(@colorGreen, @colorWhite, 70%);
+     }
+  }
+}
+
+.the-stars {
+  i {
+    color:@colorRed;
+  }
+}
+
 .control-item {
   margin-bottom:15px;
   label .toggle, label input[type=checkbox][disabled] + .toggle {

@@ -43,6 +43,14 @@
     padding-bottom: 0;
     background: @colorGray;
     text-align: center;
+    .checkout-order-inner {
+        transition: all 0.3s ease-in-out;
+    }
+    &.checkout-hidden * {
+        .checkout-order-inner {
+            visibility:hidden;
+        }
+    }
 }
 
 /* Related demos */
@@ -288,21 +296,26 @@ a.checkout-button:focus {
 
 
 .checkout-form {
-    width: 34%;
+    width: 100%;
     opacity:0;
     transition:0.8s ease-out all;
     padding-top:10px;
-    float:left;
+
     .form-group {
         margin-bottom:5px;
     }
 }
 
+.box-summary {
+    max-height:400px;
+    overflow-y:scroll;
+}
+
 .checkout-summary {
     margin: 0.5em 0 0.75em;
-    width: 60%;
+    width:100%;
     margin-right:3%;
-    float:left;
+
     color: @colorBlack;
     text-align: center;
     font-size: 1.15em;

@@ -14,10 +14,8 @@ GET-запрос на /api/v2/reservation/scheme/{hallId}/{date}
 */
 
 function getHallsList(restaurantId, callback){
-    console.log('getHallsList: init');
     $.getJSON(serverUrl+'/api/v2/reservation/halls/'+restaurantId, function(data){
-        console.log('getHallsList: complete')
-        console.log(data);
+        console.log('getHallsList: ', data)
         callback(data);
     });
 }
@@ -34,7 +32,7 @@ function getReservationScheme(hallId, theDate){
 
 function getReservationPointsList(hallId, theDate){
     $.getJSON(serverUrl+'/api/v2/reservation/tables/'+hallId+'/'+theDate, function(data){
-        console.log(data);
+        console.log('getReservationPointsList: ', data);
         $('#roomBox').append(`
             <div class="the-room">
             <img src="http://176.112.201.81/static/hallsCdn/${data.params.hall.hall_image}"></div>`);

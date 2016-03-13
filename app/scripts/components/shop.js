@@ -9,24 +9,6 @@
       });
     }
 
-    function pasteMenu(categoryId){
-        $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
-            $('#foodItems').html('');
-            $.each(data.result.menuItems, function(key, item){
-                if( item.menu_item_image == ""){
-                    item.menu_item_image = "images/samples/9-tiny.jpg";
-                } else item.menu_item_image = "http://176.112.201.81/static/cdn/"+item.menu_item_image;
-
-                var output = '<div class="col-lg-4 col-xs-6 food-item"><a href="#">'+
-                '<img src="'+item.menu_item_image+'" alt="..." />'+
-                '<div class="overlay"><div class="price"><i class="icon icon-basket"></i>'+
-                '<span>'+item.menu_item_price+' <i class="rouble">a</i></span></div></div></a>'+
-                '<b>'+item.menu_item_name+'</b></div>';
-                $('#foodItems').append(output);
-            });
-        });
-    }
-
     function pasteCategories(restId){
         $.getJSON(serverUrl+'/api/v2/categories/get/'+restId, function(data){
             $.each(data.result.categories, function(key, item) {

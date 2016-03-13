@@ -43,7 +43,10 @@ var gulp    = require('gulp'),
 
     var theES6 = [
      'app/scripts/es6/_global.jsx',
+     'app/scripts/es6/shop.jsx',
+     'app/scripts/es6/history.jsx',
      'app/scripts/es6/profile.jsx',
+     'app/scripts/es6/cart.jsx',
      'app/scripts/es6/engine.jsx',
      'app/scripts/es6/reservation.jsx',
      'app/scripts/es6/init.jsx'

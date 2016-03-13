@@ -8,11 +8,13 @@
             ev.preventDefault();
             classie.add( el, 'checkout-active' );
             $('.overlay').addClass('visible');
+            $('#cartBottomPanel').removeClass('checkout-hidden');
         });
 
         closeCtrl.addEventListener( 'click', function() {
             classie.remove( el, 'checkout-active' );
             $('.overlay').removeClass('visible');
+            $('#cartBottomPanel').addClass('checkout-hidden');
         });
     });
 })();

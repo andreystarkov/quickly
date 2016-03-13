@@ -11,20 +11,20 @@
             width:100%;
             display:inline-block;
             position:relative;
-            overflow:hidden;
             border-radius:3px;
-            &:hover {
-                img {
-                    transform:scale(1.2);
-                }
-                .overlay .price {
-                    background:fade(@colorBlack,55%);
-                }
-                .overlay .price span, .overlay .price i {
-                    color: @colorWhite;
-                }
+            .product-image {
+                display:block;
+                left:0;
+                top:0;
+                bottom:0;
+                right:0;
+                width:100%;
+                height:100%;
+                z-index:1;
+                overflow:hidden;
             }
             .overlay {
+                z-index:2;
                 display:block;
                 left:0;
                 top:0;
@@ -32,30 +32,121 @@
                 right:0;
                 width:100%; height:100%;
                 position:absolute;
-                .price {
-                    .icon {
-                        display:inline-block;
-                        margin-right:3px;
-                        font-size:1em;
-                    }
+                .name {
                     display:inline-block;
-                    padding:6px 10px;
+                    padding:4px 8px;
+                    bottom:0;
+                    left:0;
+                    background:fade(@colorBlack,45%);
+                    color: @colorWhite;
+                    font-size:14px;
+                    position:absolute;
+                    b {
+                        font-weight:400;
+                        font-size:13px;
+                    }
+                    i {
+                        font-size:16px;
+                    }
+                }
+                .description {
+                    display:none;
+                    background:#fff;
+                    position:absolute;
+                    top:100%;
+                }
+                .price {
+                    visibility: hidden;
+                    display:inline-block;
+                    padding:4px 8px;
                     bottom:0;
                     right:0;
-                    background:fade(@colorBlack,25%);
-                    color: fade(@colorWhite,70%);
-                    font-size:15px;
+                    background:fade(@colorBlack,45%);
+                    color: @colorWhite;
+                    font-size:16px;
                     position:absolute;
+                    i {
+                        font-size:16px;
+                    }
                 }
             }
             margin-bottom:6px;
         }
-        b {
-            font-weight:400;
-            font-size:13px;
-            text-transform:uppercase;
+
+        .product-controls {
+            position:absolute;
+            bottom:20%;
+            width:100%;
+            right:0;
+            opacity:0;
+            visibility:hidden;
         }
 
+        .product-name {
+            padding:8px 10px;
+            float:left;
+            text-align:left;
+            b {
+                font-weight:400;
+                font-size:12px;
+                text-transform: uppercase;
+            }
+        }
+
+        .product-info {
+            .major {
+                overflow:hidden;
+            }
+        }
+
+        .product-description {
+            position:absolute;
+            width:100%;
+            text-align:left;
+            visibility:hidden;
+            transform:scale(1,0);
+            padding:8px 12px;
+            background:mix(@colorWhite,@colorYellow,80%);
+            box-shadow:0 2px 2px fade(@colorBlack,10%);
+            span {
+                font-size:11px;
+                text-align:left;
+            }
+        }
+
+        .product-price {
+            display:inline-block;
+            padding:8px 10px;
+            float:right;
+            color: @colorBlack;
+            font-size:14px;
+            i {
+                font-size:14px;
+            }
+        }
+
+        &:hover {
+            .product-description {
+                visibility:visible;
+                transform:scale(1,1);
+            }
+            .product-info {
+                background:#fff;
+            }
+            img {
+                transform:scale(1.2);
+            }
+            .overlay .price {
+                background:fade(@colorBlack,55%);
+            }
+            .overlay .price span, .overlay .price i {
+                color: @colorWhite;
+            }
+            .product-controls {
+                opacity:1;
+                visibility:visible;
+            }
+        }
         img {
             transition:0.2s cubic-bezier(.17,.67,.73,.57) all;
             width:100%;

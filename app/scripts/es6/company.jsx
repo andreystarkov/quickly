@@ -15,7 +15,7 @@
                     <div class="line delivery">
                         <i class="icon icn-cab"></i>
                         <div class="box cost">
-                           ' <span>стоимость</span>
+                            <span>стоимость</span>
                             <p>${company.restaurant_delivery_cost}</p>
                         </div>
                         <div class="box time">
