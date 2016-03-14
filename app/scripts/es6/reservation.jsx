@@ -45,31 +45,32 @@ function getReservationPointsList(hallId, theDate){
 
     });
 }
-/*                    <div class="point reserved" id="point-1" style="left:75px; top:65px;"></div>
-                    <div class="point free" style="left:180px; top: 65px;" id="point-2"></div>
-                    <div class="point free" id="point-3" style="left:285px; top: 65px;"></div>
-                    <div class="point disabled" id="point-3" style="left:390px; top: 65px;"></div>
-                    <div class="point free" id="point-3" style="left:495px; top: 65px;"></div>
-                    <div class="point disabled" id="point-3" style="left:602px; top: 65px;"></div>*/
+
 $(function() {
+
+
+    $('#reservationTimePicker').datetimepicker({
+        format: 'LT',
+        locale: 'ru',
+        defaultDate: moment().valueOf()
+    });
+
+    $('#reservationDatePicker').datetimepicker({
+        format: 'DD-MM-YYYY',
+        locale: 'ru',
+        defaultDate: moment().valueOf()
+    });
+
+    $(document).on('dp.change', function(e) {
+        var dateTime = e.date.format('DD-MM-YY')+' '+e.date.format('HH-MM');
+        var theTime = $('#reservationTimePicker').val();
+       // var theDateTime = moment(theTime).unix();
+        var dateTime = $('#reservationDatePicker').val()+' '+$('#reservationTimePicker').val();
+        var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
+
+        console.log('Unix = ', unixTime, 'WTF = ', unixTime*300*1000);
+    });
+
     getReservationPointsList(1, 1457611949);
-/*    getHallsList(1, function(data){
-        var halls = data.result.halls;
-        var imageBase = data.result.imagesBaseUrl;
-        var roomClass = "the-room active";
-        $.each(halls, function(index,value){
-            if(index > 0){
-                roomClass = "the-room";
-            }
-            var out = `
-                <div class="${roomClass}">
-                    <img src="${imageBase+value.hall_image}">
-                </div>
-            `;
-            getReservationPointsList(1, 1457611949);
-            $('#roomBox').append(out);
-            console.log(value);
-            console.log(out)
-        });
-    });*/
+
 });

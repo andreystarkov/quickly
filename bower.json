@@ -21,11 +21,12 @@
     "magic": "^1.1.0",
     "ZoomSlider": "https://github.com/andreystarkov/ZoomSlider.git",
     "modernizr": "^3.3.1",
-    "eonasdan-bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker.git#~4.17.37",
+    "eonasdan-bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker.git#^4.17.37",
     "jquery-cookie": "https://github.com/carhartl/jquery-cookie",
     "js-cookie": "https://github.com/js-cookie/js-cookie.git#^2.1.0",
     "velocity": "~1.2.3",
     "multiline": "~1.0.2",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "Ripple.js": "ripplejs#^1.2.1"
   }
 }

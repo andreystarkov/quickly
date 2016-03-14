@@ -31,6 +31,7 @@ $(function() {
     });*/
 
     $.material.init();
+   // $.material.ripples(".button");
 
     removeHoverCSSRule();
     initTabs();
@@ -110,8 +111,23 @@ $(function() {
         userAuthorized();
     }
 
+
     $(document).on('click', '#buttonReturnShop', function(event) {
         showShop();
     });
+
+    $.ripple(".rip, .button", {
+        debug: true,
+        on: 'mousedown',
+        opacity: 0.2,
+        color: "auto",
+        multi: true,
+        duration: 0.3,
+        rate: function(pxPerSecond) {
+            return pxPerSecond;
+        },
+        easing: 'ease-in-out'
+    });
+
 
 });

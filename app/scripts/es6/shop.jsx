@@ -1,3 +1,4 @@
+var taskTree = require('gulp/lib/taskTree');
 
 var theCart = {
     contents: []
@@ -88,7 +89,6 @@ function refreshCart(){
     var cartPanel = $('#cartBottomPanel');
     var cartContents = theCart.contents;
     if( !isEmpty(cartContents) ){
-        $('.checkout-count').html(cartContents.length);
         $('.checkout-total').html(cartContents.length);
         // transition.perspectiveUpIn
         if(cartPanel.hasClass('cart-empty')){
@@ -146,7 +146,7 @@ $(function() {
         var id = $(this).parent().data('id');
         //var index = theCart.contents.indexOf(id);
         var inThe = _.without(cart,id);
-        console.log('INTHE', inThe, id);
+        //console.log('INTHE', inThe, id);
     });
 
     $(document).on('click', '.checkout-icon', function(event){
