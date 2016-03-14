@@ -1,8 +1,3 @@
-var taskTree = require('gulp/lib/taskTree');
-
-var theCart = {
-    contents: []
-};
 
 function pasteMenu(categoryId){
     $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
@@ -46,27 +41,9 @@ function pasteMenu(categoryId){
     });
 }
 
-
-function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-}
-
-function setStorage(itemName, theJSON){
-    localStorage.setItem(itemName, JSON.stringify(theJSON));
-    console.log('setStorage: theJSON = ', theJSON);
-    console.log('setStorage: stringify = ', JSON.stringify(theJSON));
-    console.log('resSet = '+itemName, localStorage.getItem(itemName));
-}
-
-function getStorage(itemName){
-    var out = JSON.parse(localStorage.getItem(itemName));
-    console.log('getStorage: ', out)
-    return out;
-}
-
 function pasteCartElement(cartElement, elementCount){
 var el = `
-<tr>
+<tr class="reservation-${cartElement.type}">
     <td>${cartElement.name}</td>
     <td>${cartElement.price} р.</td>
     <td>
@@ -85,6 +62,34 @@ var el = `
 return el;
 }
 
+function pasteCheckoutFormUnregistered(){
+    var out = `
+    <div class="checkout-form">
+        <div class="form-group label-floating is-empty">
+            <label for="checkout-name" class="control-label">Ваше имя</label>
+            <input type="text" class="form-control" id="checkout-name">
+        </div>
+        <div class="form-group label-floating is-empty">
+            <label for="checkout-phone" class="control-label">Телефон</label>
+            <input type="text" class="form-control" id="checkout-phone">
+        </div>
+        <div class="form-group label-floating is-empty" style="margin-top:30px">
+            <label for="checkout-comment" class="control-label">Комментарий</label>
+            <input type="search" class="form-control" id="checkout-comment">
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="button main">Оформить доставку</div>
+            </div>
+            <div class="col-lg-6">
+                <div class="button main">В счет бронирования</div>
+            </div>
+        </div>
+    </div>
+    `;
+    return out;
+}
+
 function refreshCart(){
     var cartPanel = $('#cartBottomPanel');
     var cartContents = theCart.contents;
@@ -96,8 +101,8 @@ function refreshCart(){
             cartPanel.velocity('transition.slideUpBigIn', { duration: 600 });
         }
         var uniqueCount = _.countBy(cartContents, "id");
-        var uniqueList = _.uniq(cartContents, "id");
-
+     //   var uniqueList = _.uniq(cartContents, "id");
+        uniqueList = cartContents;
         var cartTable = null;
 
         $.each(uniqueList, function(key, value){
@@ -110,6 +115,7 @@ function refreshCart(){
     } else console.log('refreshCart: Cart is empty');
 }
 
+
 $(function() {
 
     if (localStorage.getItem('theCart') === null) {
@@ -119,15 +125,18 @@ $(function() {
         theCart.contents = getStorage('theCart');
     }
     pasteMenu(1);
-
+    $('#checkoutForm').html(pasteCheckoutFormUnregistered());
     $(document).on('click', '.add-to-cart', function(event) {
         jsonObj = {};
         jsonObj['id'] = $(this).data('id');
         jsonObj['name'] = $(this).data('name');
         jsonObj['price'] = $(this).data('price');
+        jsonObj['type'] = 'food';
         theCart.contents.push(jsonObj);
         console.log('addToCart: theCart = ', theCart);
         setStorage('theCart', theCart.contents);
+
+        flyToCart($(this).parent().parent().find("img").eq(0));
         refreshCart();
     });
 
@@ -136,6 +145,7 @@ $(function() {
         jsonObj['id'] = $(this).parent().data('id');
         jsonObj['name'] = $(this).parent().data('name');
         jsonObj['price'] = $(this).parent().data('price');
+        jsonObj['type'] = 'food';
         theCart.contents.push(jsonObj);
         setStorage('theCart', theCart.contents);
         refreshCart();

@@ -37,6 +37,10 @@
 
 @import "_imports";
 
+.checkout-summary tbody tr.reservation-table {
+  background:mix(@colorOrange,@colorWhite,10%);
+}
+
 body .top-line .form-register a.btn-clean, body a.btn, body .input-group-btn a.btn {
     display: inline-block !important;
     text-transform: uppercase;
@@ -45,6 +49,14 @@ body .top-line .form-register a.btn-clean, body a.btn, body .input-group-btn a.b
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.14),
                 0 2px 1px -2px rgba(0, 0, 0, 0.2),
                 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
 }
 
 body {

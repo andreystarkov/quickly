@@ -7,8 +7,90 @@ var userPhone = Cookies.get('phone');
 var serverUrl = 'http://176.112.201.81';
 var imageBaseUrl = 'http://176.112.201.81/static/cdn';
 
+var theCart = {
+    contents: []
+};
+
 var cityId = 3;
 
-if( userToken !== undefined ){
+if (userToken !== undefined) {
     isAuth = 1;
+}
+
+
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+function setStorage(itemName, theJSON) {
+    localStorage.setItem(itemName, JSON.stringify(theJSON));
+    console.log('setStorage: theJSON = ', theJSON);
+    console.log('setStorage: stringify = ', JSON.stringify(theJSON));
+    console.log('resSet = ' + itemName, localStorage.getItem(itemName));
+}
+
+function getStorage(itemName) {
+    var out = JSON.parse(localStorage.getItem(itemName));
+    console.log('getStorage: ', out)
+    return out;
+}
+
+function flyToCart(what) {
+    var cart = $('.checkout');
+    var panel = $('.bottom-panel');
+    var dropTo = $('.checkout-total');
+    var imgtodrag = what;
+    if (imgtodrag) {
+
+        var imgclone = imgtodrag.clone()
+        .addClass('notransition')
+        .offset({
+            top: imgtodrag.offset().top,
+            left: imgtodrag.offset().left
+        })
+        .css({
+            'opacity': '0.6',
+            'position': 'absolute',
+            'height': imgtodrag.outerHeight(),
+            'width': imgtodrag.outerWidth(),
+            'z-index': '8'
+        })
+        .appendTo($('body'))
+        .velocity({
+            'top': cart.offset().top + 10,
+            'left': cart.offset().left + 10,
+            'width': 75,
+            'height': 75,
+        }, 300, "easeOutSine", function() {
+
+        });
+
+        // scale(1.1) translateY(-4px)
+
+        setTimeout(function() {
+	        panel.velocity({
+	        	translateY: 10
+	        }, 100, function(el){
+	        	panel.velocity({ translateY: 0 }, 350, function(){
+			        dropTo.velocity({
+			        	scale: 1.2,
+			        	rotate: 10
+			        }, function(el){
+			        //	$('.checkout-order::before').velocity({ backgroundColor: #fff });
+			        	dropTo.velocity({ scale: 0.8, rotate: -5}, 150, function(el){
+			        		dropTo.velocity({ scale: 1, rotate: 0});
+			        	});
+			        });
+	        	});
+	        });
+        }, 180);
+
+        imgclone.animate({
+            'width': 0,
+            'height': 0
+        }, function() {
+            $(this).detach()
+        });
+    }
+
 }

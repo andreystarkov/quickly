@@ -117,7 +117,7 @@ $(function() {
     });
 
     $.ripple(".rip, .button", {
-        debug: true,
+        debug: false,
         on: 'mousedown',
         opacity: 0.2,
         color: "auto",

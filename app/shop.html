@@ -174,6 +174,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
+                    <h3 style="margin-bottom:25px;">Бронирование стола</h3>
                     <div class="form-group">
                         <label for="reservationTimePicker" class="control-label">Время бронирования</label>
                         <input type='text' class="form-control" id='reservationTimePicker' />
@@ -183,6 +184,10 @@
                         <label for="reservationDatePicker" class="control-label">Дата бронирования</label>
                         <input type='text' class="form-control" id='reservationDatePicker' />
                     </div>
+
+                    <button class="button main center round" style="display:block; width:100%;" id="buttonReserve">
+                        <i class="icon icon-anchor"></i> Забронировать
+                    </button>
 <!--                         <div style="overflow:hidden;">
                             <div class="form-group">
                                 <div id="reservation-datetime"></div>
@@ -237,25 +242,7 @@
                                 <span class="material-input"></span>
                             </div>
 
-                            <ul class="menu" id="theMenu">
-                            </ul>
-
-    <!--                             <li class="has-child active">
-                                    <a href="#" class="parent"><i class="icon"></i> Япреская кухня</a>
-                                    <ul class="child">
-                                        <a href="#"><i class="icon"></i> Готовые роллы</a>
-                                        <a href="#"><i class="icon"></i> Горячие наборы</a>
-                                        <a href="#"><i class="icon"></i> Закрытые суши</a>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="parent"><i class="icon"></i> Американская кухня</a>
-                                    <ul class="child">
-                                        <a href="#"><i class="icon"></i> Готовые роллы</a>
-                                        <a href="#"><i class="icon"></i> Горячие наборы</a>
-                                        <a href="#"><i class="icon"></i> Закрытые суши</a>
-                                    </ul>
-                                </li> -->
+                            <ul class="menu" id="theMenu"></ul>
 
                                 <div class="controls">
                                     <div class="filter">
@@ -308,15 +295,11 @@
                                                     <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="checkout-contents">
-
-                                            </tbody>
+                                            <tbody class="checkout-contents" id="cartContentTable"></tbody>
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 checkout-box" id="checkoutForm">
-
-                                </div>
+                                <div class="col-lg-4 checkout-box" id="checkoutForm"></div>
                             </div>
                         </div>
                     </div>
