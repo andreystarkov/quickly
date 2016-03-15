@@ -61,7 +61,7 @@ function flyToCart(what) {
             'left': cart.offset().left + 10,
             'width': 75,
             'height': 75,
-        }, 300, "easeOutSine", function() {
+        }, 400, "easeOutSine", function() {
 
         });
 
@@ -70,7 +70,7 @@ function flyToCart(what) {
         setTimeout(function() {
 	        panel.velocity({
 	        	translateY: 10
-	        }, 100, function(el){
+	        }, 200, function(el){
 	        	panel.velocity({ translateY: 0 }, 350, function(){
 			        dropTo.velocity({
 			        	scale: 1.2,
@@ -83,7 +83,7 @@ function flyToCart(what) {
 			        });
 	        	});
 	        });
-        }, 180);
+        }, 280);
 
         imgclone.animate({
             'width': 0,

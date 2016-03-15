@@ -50,6 +50,25 @@ function createNotice(targetObject, noticeTitle, noticeText){
   return obj;
 }
 
+function createPopover(targetObject, noticeTitle, noticeText){
+  var obj = targetObject;
+  obj.popover({
+    trigger: 'manual',
+    placement: 'bottom',
+    html: true,
+    content: noticeText,
+    title: noticeTitle,
+    show: function(){
+      $(this).css({'visibility': 'hidden', scale: 0});
+      $(this).velocity({'visibility': 'visible', scale: 1});
+    }
+  });
+
+
+  obj.popover('show');
+  return obj;
+}
+
 
 function appendEach(obj, what){
     $(obj).each(function(){
@@ -80,3 +99,22 @@ function showShop(){
 
     });
 }
+
+(function () {
+
+    var orig = $.fn.popover,
+        proto = $.extend({}, $.fn.popover.Constructor.prototype);
+
+    $.fn.popover = function (options) {
+        return this.each(function () {
+            orig.call($(this), options);
+            if (typeof options.show == 'function') {
+                $(this).data('bs.popover').show = function () {
+                    options.show.call(this.$tip, this);
+                    proto.show.call(this);
+                };
+            }
+        });
+    }
+
+})();

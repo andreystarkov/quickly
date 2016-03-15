@@ -11,6 +11,34 @@ GET-запрос на /api/v2/reservation/scheme/{hallId}/{date}
     -*date - дата (timestamp)
 При тапе на столик, нужно подменить js-функцию sendTableData своей. В ней передается JSON-объект с данными по столику.
 Типы столиков: 0 - бесплатный, 1 - платный, 2 - депозитный
+
+Создание заказа:
+POST-запрос на /api/v2/orders/create
+Параметры:
+    -*token – токен, полученный при авторизации
+    -*restaurantId – id ресторана
+    -*menuItems – массив объектов блюд, вида:
+        {menu_item_id: id, menu_item_price: price, count: count}
+    -*usedBonus – количество использованных при заказе бонусов
+    -*street – улица
+    -*building – дом
+    -porch – подъезд
+    -floor – этаж
+    -apartment – квартира
+    -*payment_type – тип платежа (0-наличные, 1-картой курьеру)
+    -cash – наличные (со скольки потребуется сдача)
+    -*persons_count – количество персон
+    - comment – комментарий к заказу
+//
+Создание брони:
+POST-запрос на /api/v2/reservation/create
+Параметры:
+    -*token – токен, полученный при авторизации
+    -*restaurantId – id ресторана
+    -*hallId – id зала
+    -*tableId – id столика
+    -*date – дата бронирования (timestamp)
+
 */
 
 var currentCompany = 1;
@@ -118,6 +146,7 @@ function showReservationMap(halls){
     });
 }
 
+
 function getReservationPointsList(hallId, theDate){
     $.getJSON(serverUrl+'/api/v2/reservation/tables/'+hallId+'/'+theDate, function(data){
         console.log('getReservationPointsList: Using Timestamp = ', theDate);
@@ -126,16 +155,84 @@ function getReservationPointsList(hallId, theDate){
             <div class="the-room">
             <img src="${hallsUrl}${data.params.hall.hall_image}"></div>`);
             $.each(data.params.tables, function(index,value){
+
+                if( value.table_type == 0 ) tableType = `
+                    <div class="type">Беплатный</div>
+                    `;
+
+                if( value.table_type == 1 ) tableType = `
+                    <div class="type">Платный</div>
+                    <div class="price">Стоимость заказа: <b></b></div>>
+                    `;
+
+                if( value.table_type == 2 ) tableType = `
+                    <div class="type">Депозитный</dive>
+                    <div class="price">Стоимость депозита: <b>${table_deposit}</b></div>;
+                    `;
+
+                var theOptions;
+                for(i = 1; i <= value.table_seats_count; i++){
+                    theOptions += '<option>'+i+'</option>';
+                }
+
                 $('#roomBox .the-room').append(`
-                    <div class="table" id="table-${value.table_id}" data-id="${value.table_id}" data-reserved="${data.params.reservations[value.table_id]}" data-seats="${value.table_seats_count}" data-deposit="${value.table_deposit}" data-price="${value.table_price}" data-restaurant="${value.restaurant_id}" data-hall="${value.hall_id}" style="left:${value.table_coord_x-20}px; top:${value.table_coord_y-20}px">
-                        <span>${value.table_number}</span>
+
+                    <div class="table" id="table-${value.table_id}" data-id="${value.table_id}" data-reserved="${data.params.reservations[value.table_id]}" data-seats="${value.table_seats_count}" data-deposit="${value.table_deposit}" data-price="${value.table_price}" data-restaurant="${value.restaurant_id}" data-hall="${value.hall_id}" style="left:${value.table_coord_x-10}px; top:${value.table_coord_y-20}px">
+                        <div class="table-number">${value.table_number}</div>
+                            <div class="table-everything">
+                                <div class="table-desc">
+                                    ${tableType}
+                                    <span>Мест: ${value.table_seats_count}</span>
+                                </div>
+                                <div class="form-group label-static" style="margin-top:35px">
+                                    <label for="tableOption-${value.table_id}" class="control-label">На сколько человек?</label>
+                                    <select id="tableOption-${value.table_id}" data-object="table-${value.table_id}" class="form-control">
+                                      ${theOptions}
+                                    </select>
+                                    <button class="button main round" style="width:100%; margin-top:10px;">Забронировать</button>
+                                </div>
+                            </div>
                     </div>
                 `);
+
+
+/*                $('#table-'+value.table_id).popover({
+                    trigger: 'manual',
+                    placement: 'bottom',
+                    animate:false,
+                    html: true,
+                    content: `
+                        <select id="tableOption-${value.table_id}" data-object="table-${value.table_id}" class="form-control">
+                          ${theOptions}
+                        </select>
+                        <button class=""></button>
+                    `,
+                    title: 'Выберите количество',
+                    show: function(){
+
+                        $(this).animate({opacity:1});
+                    }
+                }).on("mouseenter", function () {
+                    var _this = this;
+                    $(this).popover("show");
+                    $(".popover").on("mouseleave", function () {
+                        $(_this).popover('hide');
+                    });
+                }).on("mouseleave", function () {
+                    var _this = this;
+                    setTimeout(function () {
+                        if (!$(".popover:hover").length) {
+                            $(_this).popover("hide");
+                        }
+                    }, 300);
+                });*/
             });
     });
 }
 
 $(function() {
+
+
 
     $('#reservationTimePicker').datetimepicker({
         format: 'LT',
@@ -149,13 +246,25 @@ $(function() {
         defaultDate: moment().valueOf()
     });
 
-    $(document).on('click', '.the-room .table', function(event) {
-        $(this).addClass('reserved');
+    $(document).on('click', '.the-room .table .table-number', function(event) {
+        $(this).parent().toggleClass('reserved');
+
+        // $( '.table-everything', $(this).parent() ).velocity({translateX:0, translateY:0, scale:1, opacity:1});
+/*        createPopover($(this), 'Выберите количество мест', `
+         <select id="select111" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        `);*/
     });
 
-    $(document).on('click', '#buttonReserve', function(event) {
+    $(document).on('click', '.reserved .button', function(event) {
         console.log('#buttonReserve clicked');
-        flyToCart($('#buttonReserve'));
+        flyToCart( $(this) );
+        // unction createNotice(targetObject, noticeTitle, noticeText)
         $('.the-room .table.reserved').each(function(){
             jsonObj = {};
             jsonObj['id'] = $(this).data('id');
@@ -166,9 +275,10 @@ $(function() {
             console.log('addToCart: Table = ', jsonObj);
             console.log('addToCart: theCart = ', theCart);
             setStorage('theCart', theCart.contents);
-
             refreshCart();
         });
+
+        $('.reserved').removeClass('reserved');
     })
 
     $(document).on('dp.change', function(e) {
