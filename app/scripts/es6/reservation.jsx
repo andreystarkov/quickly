@@ -11,6 +11,14 @@ GET-запрос на /api/v2/reservation/scheme/{hallId}/{date}
     -*date - дата (timestamp)
 При тапе на столик, нужно подменить js-функцию sendTableData своей. В ней передается JSON-объект с данными по столику.
 Типы столиков: 0 - бесплатный, 1 - платный, 2 - депозитный
+Создание брони:
+POST-запрос на /api/v2/reservation/create
+Параметры:
+    -*token – токен, полученный при авторизации
+    -*restaurantId – id ресторана
+    -*hallId – id зала
+    -*tableId – id столика
+    -*date – дата бронирования (timestamp)
 
 Создание заказа:
 POST-запрос на /api/v2/orders/create
@@ -30,19 +38,41 @@ POST-запрос на /api/v2/orders/create
     -*persons_count – количество персон
     - comment – комментарий к заказу
 //
-Создание брони:
-POST-запрос на /api/v2/reservation/create
-Параметры:
-    -*token – токен, полученный при авторизации
-    -*restaurantId – id ресторана
-    -*hallId – id зала
-    -*tableId – id столика
-    -*date – дата бронирования (timestamp)
 
 */
 
 var currentCompany = 1;
 var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
+
+function createOrder(token, restaurauntId, menuItems, usedBonus, street, usedBonus, street, building, paymentType. cash, person_count, comment){
+    $.ajax({
+        type: 'POST',
+        url: serverUrl + '/api/v2/user/register',
+        data: {
+            token: token,
+            restaurauntId: restaurauntId, menuItems: menuItems, usedBonus: usedBonus, street: street, usedBonus: usedBonus, street: street, building: building, paymentType: paymentType, cash: cash, person_count: person_count, comment: comment
+        },
+        success: function(data) {
+            console.log('createOrder: ', data);
+        }
+    });
+}
+function createReservation(hallId, tableId, dateTime){
+    $.ajax({
+        type: 'POST',
+        url: serverUrl + '/api/v2/user/register',
+        data: {
+            token: userToken,
+            restaurantId: currentCompany,
+            hallId: hallId,
+            tableId: tableId,
+            date: dateTime
+        },
+        success: function(data) {
+            console.log('createReservation: ', data);
+        }
+    });
+}
 
 function pasteMenu(categoryId){
     $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
