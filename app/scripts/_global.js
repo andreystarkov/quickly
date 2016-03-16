@@ -8,7 +8,8 @@ var serverUrl = 'http://176.112.201.81';
 var imageBaseUrl = 'http://176.112.201.81/static/cdn';
 
 var theCart = {
-    contents: []
+    contents: [],
+    summary: []
 };
 
 var cityId = 3;
@@ -16,7 +17,6 @@ var cityId = 3;
 if (userToken !== undefined) {
     isAuth = 1;
 }
-
 
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;

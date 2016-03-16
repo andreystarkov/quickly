@@ -44,13 +44,43 @@ POST-запрос на /api/v2/orders/create
 var currentCompany = 1;
 var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
 
-function createOrder(token, restaurauntId, menuItems, usedBonus, street, usedBonus, street, building, paymentType. cash, person_count, comment){
+function createOrder(/*token, restaurauntId, menuItems, usedBonus, street, building, paymentType, cash, person_count, comment*/){
+    //{menu_item_id: id, menu_item_price: price, count: count}
+    var cartContents = getStorage('theCart');
+    var uniqueList = _.uniq(cartContents, "id");
+    console.log('uniqueList = ', uniqueList);
+    console.log('cartContents = ', cartContents);
+    var uniqueCount = _.countBy(cartContents, "id");
+    console.log('uniqueCount = ', uniqueCount);
+    var summary = {};
+    for(i = 0; i < uniqueList.length; i++){
+        var row = {
+            menu_item_id: uniqueList[i].id,
+            menu_item_price: uniqueList[i].price,
+            count: uniqueCount[uniqueList[i].id]
+        };
+        theCart.summary.push(row);
+    }
+
+    console.log('createOrder: summary = ', theCart.summary);
+
+    var paymentType = 1, street = 'ул. Дружбы', building = '3', usedBonus = 0, cash = 0, comment = "yuuhu", phone = "79619479228";
+
     $.ajax({
         type: 'POST',
         url: serverUrl + '/api/v2/user/register',
         data: {
-            token: token,
-            restaurauntId: restaurauntId, menuItems: menuItems, usedBonus: usedBonus, street: street, usedBonus: usedBonus, street: street, building: building, paymentType: paymentType, cash: cash, person_count: person_count, comment: comment
+            token: userToken,
+            restaurauntId: 1,
+            menuItems: theCart.summary,
+            street: street,
+            usedBonus: usedBonus,
+            street: street,
+            building: building,
+            paymentType: paymentType,
+            cash: cash,
+            person_count: 3,
+            comment: comment
         },
         success: function(data) {
             console.log('createOrder: ', data);
@@ -262,7 +292,7 @@ function getReservationPointsList(hallId, theDate){
 
 $(function() {
 
-
+    createOrder();
 
     $('#reservationTimePicker').datetimepicker({
         format: 'LT',
