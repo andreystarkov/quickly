@@ -1,3 +1,6 @@
+function closeCheckout(){
+
+}
 (function() {
     [].slice.call( document.querySelectorAll( '.checkout' ) ).forEach( function( el ) {
         var openCtrl = el.querySelector( '.checkout-button' ),

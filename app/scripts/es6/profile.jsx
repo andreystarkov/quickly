@@ -1043,8 +1043,8 @@ function createHistory(){
   function emptyProfile(){
     var token = userToken;
     getUserProfile(token, function(data){
-        userBonus = getUserBonus(userToken);
-        userInfo = data;
+        var userBonus = getUserBonus(userToken);
+        var userInfo = data;
         $('#userBadgeTop').html(`
           <div class="user-text" id="buttonEmptyProfile">
             <b class="user-name">Добро пожаловать!</b>
@@ -1058,8 +1058,8 @@ function createHistory(){
   function refreshUserProfile(){
     var token = userToken;
     getUserProfile(token, function(data){
-        userBonus = getUserBonus(userToken);
-        userInfo = data;
+        var userBonus = getUserBonus(userToken);
+        var userInfo = data;
         $('#userBadgeTop').html(`
           <div class="user-text">
             <b class="user-name">${data.userName} ${data.userSurname}</b>

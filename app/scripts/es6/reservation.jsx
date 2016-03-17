@@ -1,3 +1,4 @@
+import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
 
 function json2array(json){
     var result = [];
@@ -9,7 +10,6 @@ function json2array(json){
 }
 
 function createOrder(){
-
     var cartContents = getStorage('theCart');
     var uniqueList = _.uniq(cartContents, "id");
     var uniqueCount = _.countBy(cartContents, "id");
@@ -71,7 +71,9 @@ function createOrder(){
         data: JSON.stringify(params),
         success: function(data) {
             if(!data.err){
-                alert('Спасибо за покупку! Менеджер ресторана свяжется с вами, для уточнения деталей');
+                $('.checkout-cancel').click();
+                swal("Спасибо за покупку! Менеджер ресторана свяжется с вами, для уточнения деталей");
+                clearCart();
             } else {
                 console.log('createOrder: ERROR: ', data.err);
             }
@@ -159,7 +161,7 @@ function pasteCartElement(cartElement, elementCount){
     return el;
 }
 
-function refreshCart(){
+/*function refreshCart(){
     var cartPanel = $('#cartBottomPanel');
     var cartContents = theCart.contents;
     if( !isEmpty(cartContents) ){
@@ -183,7 +185,7 @@ function refreshCart(){
 
     } else console.log('refreshCart: Cart is empty');
 }
-
+*/
 
 function getHallsList(restaurantId, callback){
     $.getJSON(serverUrl+'/api/v2/reservation/halls/'+restaurantId, function(data){
@@ -203,6 +205,7 @@ function getReservationPointsList(hallId, theDate){
     $.getJSON(serverUrl+'/api/v2/reservation/tables/'+hallId+'/'+theDate, function(data){
         console.log('getReservationPointsList: Using Timestamp = ', theDate);
         console.log('getReservationPointsList: ', data);
+        var tableType = 0;
         $('#roomBox').append(`
             <div class="the-room">
             <img src="${hallsUrl}${data.params.hall.hall_image}"></div>`);
@@ -319,7 +322,7 @@ $(function() {
         flyToCart( $(this) );
         // unction createNotice(targetObject, noticeTitle, noticeText)
         $('.the-room .table.reserved').each(function(){
-            jsonObj = {};
+            var jsonObj = {};
             jsonObj['id'] = $(this).data('id');
             jsonObj['name'] = $('section.company-about .title h2').html()+', Стол #'+$('span', this).html();
             jsonObj['price'] = $(this).data('price');

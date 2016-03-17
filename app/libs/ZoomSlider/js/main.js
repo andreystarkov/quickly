@@ -8,317 +8,423 @@
  * Copyright 2015, Codrops
  * http://www.codrops.com
  */
-;(function(window) {
+;
+(function(window) {
 
-	'use strict';
-	function initSlider(obj){
-	if( $(obj).length > 0 ){
-	var bodyEl = document.body,
-		docElem = window.document.documentElement,
-		support = { transitions: Modernizr.csstransitions },
-		// transition end event name
-		transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		onEndTransition = function( el, callback ) {
-			var onEndCallbackFn = function( ev ) {
-				if( support.transitions ) {
-					if( ev.target != this ) return;
-					this.removeEventListener( transEndEventName, onEndCallbackFn );
-				}
-				if( callback && typeof callback === 'function' ) { callback.call(this); }
-			};
-			if( support.transitions ) {
-				el.addEventListener( transEndEventName, onEndCallbackFn );
-			}
-			else {
-				onEndCallbackFn();
-			}
-		},
-		// window sizes
-		win = {width: window.innerWidth, height: window.innerHeight},
-		// some helper vars to disallow scrolling
-		lockScroll = false, xscroll, yscroll,
-		scrollContainer = document.querySelector('.container'),
-		// the main slider and its items
-		sliderEl = document.querySelector(obj),
-		items = [].slice.call(sliderEl.querySelectorAll('.slide')),
-		// total number of items
-		itemsTotal = items.length,
-		// navigation controls/arrows
-		navRightCtrl = sliderEl.querySelector('.button-nav-next'),
-		navLeftCtrl = sliderEl.querySelector('.button-nav-prev'),
-		zoomCtrl = sliderEl.querySelector('.button-zoom'),
-		// the main content element
-		contentEl = document.querySelector('.content'),
-		// close content control
-		closeContentCtrl = contentEl.querySelector('button.button-close'),
-		// index of current item
-		current = 0,
-		// check if an item is "open"
-		isOpen = false,
-		isFirefox = typeof InstallTrigger !== 'undefined',
-		// scale body when zooming into the items, if not Firefox (the performance in Firefox is not very good)
-		bodyScale = isFirefox ? false : 3;
+    'use strict';
 
-	// some helper functions:
-	function scrollX() { return window.pageXOffset || docElem.scrollLeft; }
-	function scrollY() { return window.pageYOffset || docElem.scrollTop; }
-	// from http://www.sberry.me/articles/javascript-event-throttling-debouncing
-	function throttle(fn, delay) {
-		var allowSample = true;
+    function initSlider(obj) {
+        if ($(obj).length > 0) {
+            var bodyEl = document.body,
+                docElem = window.document.documentElement,
+                support = {
+                    transitions: Modernizr.csstransitions
+                },
+                // transition end event name
+                transEndEventNames = {
+                    'WebkitTransition': 'webkitTransitionEnd',
+                    'MozTransition': 'transitionend',
+                    'OTransition': 'oTransitionEnd',
+                    'msTransition': 'MSTransitionEnd',
+                    'transition': 'transitionend'
+                },
+                transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+                onEndTransition = function(el, callback) {
+                    var onEndCallbackFn = function(ev) {
+                        if (support.transitions) {
+                            if (ev.target != this) return;
+                            this.removeEventListener(transEndEventName, onEndCallbackFn);
+                        }
+                        if (callback && typeof callback === 'function') {
+                            callback.call(this);
+                        }
+                    };
+                    if (support.transitions) {
+                        el.addEventListener(transEndEventName, onEndCallbackFn);
+                    } else {
+                        onEndCallbackFn();
+                    }
+                },
+                // window sizes
+                win = {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                },
+                // some helper vars to disallow scrolling
+                lockScroll = false,
+                xscroll, yscroll,
+                scrollContainer = document.querySelector('.container'),
+                // the main slider and its items
+                sliderEl = document.querySelector(obj),
+                items = [].slice.call(sliderEl.querySelectorAll('.slide')),
+                // total number of items
+                itemsTotal = items.length,
+                // navigation controls/arrows
+                navRightCtrl = sliderEl.querySelector('.button-nav-next'),
+                navLeftCtrl = sliderEl.querySelector('.button-nav-prev'),
+                zoomCtrl = sliderEl.querySelector('.button-zoom'),
+                // the main content element
+                contentEl = document.querySelector('.content'),
+                // close content control
+                closeContentCtrl = contentEl.querySelector('button.button-close'),
+                // index of current item
+                current = 0,
+                // check if an item is "open"
+                isOpen = false,
+                isFirefox = typeof InstallTrigger !== 'undefined',
+                // scale body when zooming into the items, if not Firefox (the performance in Firefox is not very good)
+                bodyScale = isFirefox ? false : 3;
 
-		return function(e) {
-			if (allowSample) {
-				allowSample = false;
-				setTimeout(function() { allowSample = true; }, delay);
-				fn(e);
-			}
-		};
-	}
+            // some helper functions:
+            function scrollX() {
+                return window.pageXOffset || docElem.scrollLeft;
+            }
 
-	function init() {
-		initEvents();
-	}
+            function scrollY() {
+                return window.pageYOffset || docElem.scrollTop;
+            }
+            // from http://www.sberry.me/articles/javascript-event-throttling-debouncing
+            function throttle(fn, delay) {
+                var allowSample = true;
 
-	// event binding
-	function initEvents() {
-		// open items
-		zoomCtrl.addEventListener('click', function() {
-			$('.slide-title').animate({opacity:0}, 200);
-			openItem(items[current]);
-		});
+                return function(e) {
+                    if (allowSample) {
+                        allowSample = false;
+                        setTimeout(function() {
+                            allowSample = true;
+                        }, delay);
+                        fn(e);
+                    }
+                };
+            }
 
-		// close content
-		closeContentCtrl.addEventListener('click', closeContent);
+            function init() {
+                initEvents();
+            }
 
-		// navigation
-		navRightCtrl.addEventListener('click', function() { navigate('right'); });
-		navLeftCtrl.addEventListener('click', function() { navigate('left'); });
+            // event binding
+            function initEvents() {
+                // open items
+                zoomCtrl.addEventListener('click', function() {
+                    $('.slide-title').animate({
+                        opacity: 0
+                    }, 200);
+                    openItem(items[current]);
+                });
 
-		// window resize
-		window.addEventListener('resize', throttle(function(ev) {
-			// reset window sizes
-			win = {width: window.innerWidth, height: window.innerHeight};
+                // close content
+                closeContentCtrl.addEventListener('click', closeContent);
 
-			// reset transforms for the items (slider items)
-			items.forEach(function(item, pos) {
-				if( pos === current ) return;
-				var el = item.querySelector('.slide-mover');
-				dynamics.css(el, { translateX: el.offsetWidth });
-			});
-		}, 10));
+                // navigation
+                navRightCtrl.addEventListener('click', function() {
+                    navigate('right');
+                });
+                navLeftCtrl.addEventListener('click', function() {
+                    navigate('left');
+                });
 
-		// keyboard navigation events
-		document.addEventListener( 'keydown', function( ev ) {
-			if( isOpen ) return;
-			var keyCode = ev.keyCode || ev.which;
-			switch (keyCode) {
-				case 37:
-					navigate('left');
-					break;
-				case 39:
-					navigate('right');
-					break;
-			}
-		} );
-	}
+                // window resize
+                window.addEventListener('resize', throttle(function(ev) {
+                    // reset window sizes
+                    win = {
+                        width: window.innerWidth,
+                        height: window.innerHeight
+                    };
 
-	// opens one item
-	function openItem(item) {
-		if( isOpen ) return;
-		isOpen = true;
+                    // reset transforms for the items (slider items)
+                    items.forEach(function(item, pos) {
+                        if (pos === current) return;
+                        var el = item.querySelector('.slide-mover');
+                        dynamics.css(el, {
+                            translateX: el.offsetWidth
+                        });
+                    });
+                }, 10));
 
-		// the element that will be transformed
-		var zoomer = item.querySelector('.zoomer');
+                // keyboard navigation events
+                document.addEventListener('keydown', function(ev) {
+                    if (isOpen) return;
+                    var keyCode = ev.keyCode || ev.which;
+                    switch (keyCode) {
+                        case 37:
+                            navigate('left');
+                            break;
+                        case 39:
+                            navigate('right');
+                            break;
+                    }
+                });
+            }
 
+            // opens one item
+            function openItem(item) {
+                if (isOpen) return;
+                isOpen = true;
 
-		$('.slider-title').animate({opacity:0}, 200, function(){
-			console.log('all');
-		});
-
-		// slide screen preview
-		classie.add(zoomer, 'zoomer-active');
-		// disallow scroll
-		scrollContainer.addEventListener('scroll', noscroll);
-		// apply transforms
-		applyTransforms(zoomer);
-		// also scale the body so it looks the camera moves to the item.
-		if( bodyScale ) {
-			dynamics.animate(bodyEl, { scale: bodyScale }, { type: dynamics.easeInOut, duration: 500 });
-		}
-		// after the transition is finished:
-		onEndTransition(zoomer, function() {
-			// reset body transform
-			if( bodyScale ) {
-				dynamics.stop(bodyEl);
-				dynamics.css(bodyEl, { scale: 1 });
-
-				// fix for safari (allowing fixed children to keep position)
-				bodyEl.style.WebkitTransform = 'none';
-				bodyEl.style.transform = 'none';
-			}
-			// no scrolling
-			classie.add(bodyEl, 'noscroll');
-			classie.add(contentEl, 'content-open');
-			var contentItem = document.getElementById(item.getAttribute('data-content'))
-			classie.add(contentItem, 'content-item-current');
-			classie.add(contentItem, 'content-item-reset');
+                // the element that will be transformed
+                var zoomer = item.querySelector('.zoomer');
 
 
-			// reset zoomer transform - back to its original position/transform without a transition
-			classie.add(zoomer, 'zoomer-notrans');
-			zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
-		});
-	}
+                $('.slider-title').animate({
+                    opacity: 0
+                }, 200, function() {
+                    console.log('all');
+                });
 
-	// closes the item/content
-	function closeContent() {
-		var contentItem = contentEl.querySelector('.content-item-current'),
-			zoomer = items[current].querySelector('.zoomer');
-		$('.slide-title').animate({opacity:1});
-		classie.remove(contentEl, 'content-open');
-		classie.remove(contentItem, 'content-item-current');
-		classie.remove(bodyEl, 'noscroll');
+                // slide screen preview
+                classie.add(zoomer, 'zoomer-active');
+                // disallow scroll
+                scrollContainer.addEventListener('scroll', noscroll);
+                // apply transforms
+                applyTransforms(zoomer);
+                // also scale the body so it looks the camera moves to the item.
+                if (bodyScale) {
+                    dynamics.animate(bodyEl, {
+                        scale: bodyScale
+                    }, {
+                        type: dynamics.easeInOut,
+                        duration: 500
+                    });
+                }
+                // after the transition is finished:
+                onEndTransition(zoomer, function() {
+                    // reset body transform
+                    if (bodyScale) {
+                        dynamics.stop(bodyEl);
+                        dynamics.css(bodyEl, {
+                            scale: 1
+                        });
 
-		if( bodyScale ) {
-			// reset fix for safari (allowing fixed children to keep position)
-			bodyEl.style.WebkitTransform = '';
-			bodyEl.style.transform = '';
-		}
+                        // fix for safari (allowing fixed children to keep position)
+                        bodyEl.style.WebkitTransform = 'none';
+                        bodyEl.style.transform = 'none';
+                    }
+                    // no scrolling
+                    classie.add(bodyEl, 'noscroll');
+                    classie.add(contentEl, 'content-open');
+                    var contentItem = document.getElementById(item.getAttribute('data-content'))
+                    classie.add(contentItem, 'content-item-current');
+                    classie.add(contentItem, 'content-item-reset');
 
-		/* fix for safari flickering */
-		var nobodyscale = true;
-		applyTransforms(zoomer, nobodyscale);
-		/* fix for safari flickering */
 
-		// wait for the inner content to finish the transition
-		onEndTransition(contentItem, function(ev) {
-			classie.remove(this, 'content-item-reset');
+                    // reset zoomer transform - back to its original position/transform without a transition
+                    classie.add(zoomer, 'zoomer-notrans');
+                    zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
+                    zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
+                });
+            }
 
-			// reset scrolling permission
-			lockScroll = false;
-			scrollContainer.removeEventListener('scroll', noscroll);
+            // closes the item/content
+            function closeContent() {
+                var contentItem = contentEl.querySelector('.content-item-current'),
+                    zoomer = items[current].querySelector('.zoomer');
+                $('.slide-title').animate({
+                    opacity: 1
+                });
+                classie.remove(contentEl, 'content-open');
+                classie.remove(contentItem, 'content-item-current');
+                classie.remove(bodyEl, 'noscroll');
 
-			/* fix for safari flickering */
-			zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			/* fix for safari flickering */
+                if (bodyScale) {
+                    // reset fix for safari (allowing fixed children to keep position)
+                    bodyEl.style.WebkitTransform = '';
+                    bodyEl.style.transform = '';
+                }
 
-			// scale up - behind the scenes - the item again (without transition)
-			applyTransforms(zoomer);
+                /* fix for safari flickering */
+                var nobodyscale = true;
+                applyTransforms(zoomer, nobodyscale);
+                /* fix for safari flickering */
 
-			// animate/scale down the item
-			setTimeout(function() {
-				classie.remove(zoomer, 'zoomer-notrans');
-				classie.remove(zoomer, 'zoomer-active');
-				zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
-				zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			}, 25);
+                // wait for the inner content to finish the transition
+                onEndTransition(contentItem, function(ev) {
+                    classie.remove(this, 'content-item-reset');
 
-			if( bodyScale ) {
-				dynamics.css(bodyEl, { scale: bodyScale });
-				dynamics.animate(bodyEl, { scale: 1 }, {
-					type: dynamics.easeInOut,
-					duration: 500
-				});
-			}
+                    // reset scrolling permission
+                    lockScroll = false;
+                    scrollContainer.removeEventListener('scroll', noscroll);
 
-			isOpen = false;
-		});
-	}
+                    /* fix for safari flickering */
+                    zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
+                    zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
+                    /* fix for safari flickering */
 
-	// applies the necessary transform value to scale the item up
-	function applyTransforms(el, nobodyscale) {
-		// zoomer area and scale value
-		var zoomerArea = el.querySelector('.zoomer-area'),
-			zoomerAreaSize = {width: zoomerArea.offsetWidth, height: zoomerArea.offsetHeight},
-			zoomerOffset = zoomerArea.getBoundingClientRect(),
-			scaleVal = zoomerAreaSize.width/zoomerAreaSize.height < win.width/win.height ? win.width/zoomerAreaSize.width : win.height/zoomerAreaSize.height;
+                    // scale up - behind the scenes - the item again (without transition)
+                    applyTransforms(zoomer);
 
-		if( bodyScale && !nobodyscale ) {
-			scaleVal /= bodyScale;
-		}
+                    // animate/scale down the item
+                    setTimeout(function() {
+                        classie.remove(zoomer, 'zoomer-notrans');
+                        classie.remove(zoomer, 'zoomer-active');
+                        zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
+                        zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
+                    }, 25);
 
-		// apply transform
-		el.style.WebkitTransform = 'translate3d(' + Number(win.width/2 - (zoomerOffset.left+zoomerAreaSize.width/2)) + 'px,' + Number(win.height/2 - (zoomerOffset.top+zoomerAreaSize.height/2)) + 'px,0) scale3d(' + scaleVal + ',' + scaleVal + ',1)';
-		el.style.transform = 'translate3d(' + Number(win.width/2 - (zoomerOffset.left+zoomerAreaSize.width/2)) + 'px,' + Number(win.height/2 - (zoomerOffset.top+zoomerAreaSize.height/2)) + 'px,0) scale3d(' + scaleVal + ',' + scaleVal + ',1)';
-	}
+                    if (bodyScale) {
+                        dynamics.css(bodyEl, {
+                            scale: bodyScale
+                        });
+                        dynamics.animate(bodyEl, {
+                            scale: 1
+                        }, {
+                            type: dynamics.easeInOut,
+                            duration: 500
+                        });
+                    }
 
-	// navigate the slider
-	function navigate(dir) {
-		var itemCurrent = items[current],
-			currentEl = itemCurrent.querySelector('.slide-mover'),
-			currentTitleEl = itemCurrent.querySelector('.slide-title');
+                    isOpen = false;
+                });
+            }
 
-		// update new current value
-		if( dir === 'right' ) {
-			current = current < itemsTotal-1 ? current + 1 : 0;
-		}
-		else {
-			current = current > 0 ? current - 1 : itemsTotal-1;
-		}
+            // applies the necessary transform value to scale the item up
+            function applyTransforms(el, nobodyscale) {
+                // zoomer area and scale value
+                var zoomerArea = el.querySelector('.zoomer-area'),
+                    zoomerAreaSize = {
+                        width: zoomerArea.offsetWidth,
+                        height: zoomerArea.offsetHeight
+                    },
+                    zoomerOffset = zoomerArea.getBoundingClientRect(),
+                    scaleVal = zoomerAreaSize.width / zoomerAreaSize.height < win.width / win.height ? win.width / zoomerAreaSize.width : win.height / zoomerAreaSize.height;
 
-		var itemNext = items[current],
-			nextEl = itemNext.querySelector('.slide-mover'),
-			nextTitleEl = itemNext.querySelector('.slide-title');
+                if (bodyScale && !nobodyscale) {
+                    scaleVal /= bodyScale;
+                }
 
-		// animate the current element out
-		dynamics.animate(currentEl, { opacity: 0, translateX: dir === 'right' ? -1*currentEl.offsetWidth/2 : currentEl.offsetWidth/2, rotateZ: dir === 'right' ? -10 : 10 }, {
-			type: dynamics.spring,
-			duration: 2000,
-			friction: 600,
-			complete: function() {
-				dynamics.css(itemCurrent, { opacity: 0, visibility: 'hidden' });
-			}
-		});
+                // apply transform
+                el.style.WebkitTransform = 'translate3d(' + Number(win.width / 2 - (zoomerOffset.left + zoomerAreaSize.width / 2)) + 'px,' + Number(win.height / 2 - (zoomerOffset.top + zoomerAreaSize.height / 2)) + 'px,0) scale3d(' + scaleVal + ',' + scaleVal + ',1)';
+                el.style.transform = 'translate3d(' + Number(win.width / 2 - (zoomerOffset.left + zoomerAreaSize.width / 2)) + 'px,' + Number(win.height / 2 - (zoomerOffset.top + zoomerAreaSize.height / 2)) + 'px,0) scale3d(' + scaleVal + ',' + scaleVal + ',1)';
+            }
 
-		// animate the current title out
-		dynamics.animate(currentTitleEl, { translateX: dir === 'right' ? -250 : 250, opacity: 0 }, {
-			type: dynamics.bezier,
-			points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}],
-			duration: 450
-		});
+            // navigate the slider
+            function navigate(dir) {
+                var itemCurrent = items[current],
+                    currentEl = itemCurrent.querySelector('.slide-mover'),
+                    currentTitleEl = itemCurrent.querySelector('.slide-title');
 
-		// set the right properties for the next element to come in
-		dynamics.css(itemNext, { opacity: 1, visibility: 'visible' });
-		dynamics.css(nextEl, { opacity: 0, translateX: dir === 'right' ? nextEl.offsetWidth/2 : -1*nextEl.offsetWidth/2, rotateZ: dir === 'right' ? 10 : -10 });
+                // update new current value
+                if (dir === 'right') {
+                    current = current < itemsTotal - 1 ? current + 1 : 0;
+                } else {
+                    current = current > 0 ? current - 1 : itemsTotal - 1;
+                }
 
-		// animate the next element in
-		dynamics.animate(nextEl, { opacity: 1, translateX: 0 }, {
-			type: dynamics.spring,
-			duration: 2000,
-			friction: 600,
-			complete: function() {
-				items.forEach(function(item) { classie.remove(item, 'slide-current'); });
-				classie.add(itemNext, 'slide-current');
-			}
-		});
+                var itemNext = items[current],
+                    nextEl = itemNext.querySelector('.slide-mover'),
+                    nextTitleEl = itemNext.querySelector('.slide-title');
 
-		// set the right properties for the next title to come in
-		dynamics.css(nextTitleEl, { translateX: dir === 'right' ? 250 : -250, opacity: 0 });
-		// animate the next title in
-		dynamics.animate(nextTitleEl, { translateX: 0, opacity: 1 }, {
-			type: dynamics.bezier,
-			points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}],
-			duration: 650
-		});
-	}
+                // animate the current element out
+                dynamics.animate(currentEl, {
+                    opacity: 0,
+                    translateX: dir === 'right' ? -1 * currentEl.offsetWidth / 2 : currentEl.offsetWidth / 2,
+                    rotateZ: dir === 'right' ? -10 : 10
+                }, {
+                    type: dynamics.spring,
+                    duration: 2000,
+                    friction: 600,
+                    complete: function() {
+                        dynamics.css(itemCurrent, {
+                            opacity: 0,
+                            visibility: 'hidden'
+                        });
+                    }
+                });
 
-	// disallow scrolling (on the scrollContainer)
-	function noscroll() {
-		if(!lockScroll) {
-			lockScroll = true;
-			xscroll = scrollContainer.scrollLeft;
-			yscroll = scrollContainer.scrollTop;
-		}
-		scrollContainer.scrollTop = yscroll;
-		scrollContainer.scrollLeft = xscroll;
-	}
+                // animate the current title out
+                dynamics.animate(currentTitleEl, {
+                    translateX: dir === 'right' ? -250 : 250,
+                    opacity: 0
+                }, {
+                    type: dynamics.bezier,
+                    points: [{
+                        "x": 0,
+                        "y": 0,
+                        "cp": [{
+                            "x": 0.2,
+                            "y": 1
+                        }]
+                    }, {
+                        "x": 1,
+                        "y": 1,
+                        "cp": [{
+                            "x": 0.3,
+                            "y": 1
+                        }]
+                    }],
+                    duration: 450
+                });
 
-	init();
-}
-}
-	initSlider('.slider-one');
-	initSlider('.slider-two');
+                // set the right properties for the next element to come in
+                dynamics.css(itemNext, {
+                    opacity: 1,
+                    visibility: 'visible'
+                });
+                dynamics.css(nextEl, {
+                    opacity: 0,
+                    translateX: dir === 'right' ? nextEl.offsetWidth / 2 : -1 * nextEl.offsetWidth / 2,
+                    rotateZ: dir === 'right' ? 10 : -10
+                });
+
+                // animate the next element in
+                dynamics.animate(nextEl, {
+                    opacity: 1,
+                    translateX: 0
+                }, {
+                    type: dynamics.spring,
+                    duration: 2000,
+                    friction: 600,
+                    complete: function() {
+                        items.forEach(function(item) {
+                            classie.remove(item, 'slide-current');
+                        });
+                        classie.add(itemNext, 'slide-current');
+                    }
+                });
+
+                // set the right properties for the next title to come in
+                dynamics.css(nextTitleEl, {
+                    translateX: dir === 'right' ? 250 : -250,
+                    opacity: 0
+                });
+                // animate the next title in
+                dynamics.animate(nextTitleEl, {
+                    translateX: 0,
+                    opacity: 1
+                }, {
+                    type: dynamics.bezier,
+                    points: [{
+                        "x": 0,
+                        "y": 0,
+                        "cp": [{
+                            "x": 0.2,
+                            "y": 1
+                        }]
+                    }, {
+                        "x": 1,
+                        "y": 1,
+                        "cp": [{
+                            "x": 0.3,
+                            "y": 1
+                        }]
+                    }],
+                    duration: 650
+                });
+            }
+
+            // disallow scrolling (on the scrollContainer)
+            function noscroll() {
+                if (!lockScroll) {
+                    lockScroll = true;
+                    xscroll = scrollContainer.scrollLeft;
+                    yscroll = scrollContainer.scrollTop;
+                }
+                scrollContainer.scrollTop = yscroll;
+                scrollContainer.scrollLeft = xscroll;
+            }
+
+            init();
+        }
+    }
+    initSlider('.slider-one');
+    initSlider('.slider-two');
 })(window);

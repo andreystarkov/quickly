@@ -1,3 +1,4 @@
+import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
 
 function pasteMenu(categoryId){
     $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
@@ -192,31 +193,6 @@ function pasteCheckoutFormUnregistered(){
     return out;
 }
 
-function refreshCart(){
-    var cartPanel = $('#cartBottomPanel');
-    var cartContents = theCart.contents;
-    if( !isEmpty(cartContents) ){
-        $('.checkout-total').html(cartContents.length);
-        // transition.perspectiveUpIn
-        if(cartPanel.hasClass('cart-empty')){
-            cartPanel.removeClass('cart-empty');
-            cartPanel.velocity('transition.slideUpBigIn', { duration: 600 });
-        }
-        var uniqueCount = _.countBy(cartContents, "id");
-     //   var uniqueList = _.uniq(cartContents, "id");
-        uniqueList = cartContents;
-        var cartTable = null;
-
-        $.each(uniqueList, function(key, value){
-            cartTable += pasteCartElement(value,uniqueCount[value.id]);
-            // console.log(value);
-        });
-
-        $('.checkout-contents').html(cartTable);
-
-    } else console.log('refreshCart: Cart is empty');
-}
-
 
 $(function() {
 
@@ -226,10 +202,13 @@ $(function() {
         console.log('Getting Cart Contents..');
         theCart.contents = getStorage('theCart');
     }
+
     pasteMenu(1);
+
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
+
     $(document).on('click', '.add-to-cart', function(event) {
-        jsonObj = {};
+        var jsonObj = {};
         jsonObj['id'] = $(this).data('id');
         jsonObj['name'] = $(this).data('name');
         jsonObj['price'] = $(this).data('price');
@@ -237,13 +216,12 @@ $(function() {
         theCart.contents.push(jsonObj);
         console.log('addToCart: theCart = ', theCart);
         setStorage('theCart', theCart.contents);
-
         flyToCart($(this).parent().parent().find("img").eq(0));
         refreshCart();
     });
 
     $(document).on('click', '.checkout .control-plus', function(event) {
-        jsonObj = {};
+        var jsonObj = {};
         jsonObj['id'] = $(this).parent().data('id');
         jsonObj['name'] = $(this).parent().data('name');
         jsonObj['price'] = $(this).parent().data('price');
@@ -262,9 +240,7 @@ $(function() {
     });
 
     $(document).on('click', '.checkout-icon', function(event){
-        localStorage.removeItem('theCart');
-        theCart.contents = [];
-        refreshCart();
+        clearCart();
     });
 
     $(document).on('click', '.category-toggle', function(event) {

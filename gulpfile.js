@@ -28,12 +28,12 @@ var gulp    = require('gulp'),
      'app/libs/ZoomSlider/js/classie.js',
      'app/libs/ZoomSlider/js/main.js',
      'app/libs/moment/min/moment-with-locales.min.js',
-    // 'app/libs/moment-timezone/moment-timezone.js',
      'app/libs/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
- //    'app/libs/moment/min/moment-with-locales.min.js',
      'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',
-  //   'app/scripts/etc/datetimepicker.js',
      'app/scripts/etc/jquery.nouislider.min.js',
+
+     'app/scripts/etc/sweetalert-dev.js',
+     'app/scripts/toastr/toastr.js',
 
      'app/scripts/components/common.js',
      'app/scripts/components/auth.js',
@@ -65,7 +65,7 @@ var gulp    = require('gulp'),
     var babel = require('babelify');
 
     function compile(watch) {
-      var bundler = watchify(browserify(theES6, { debug: true }).transform(babel));
+      var bundler = watchify(browserify(theES6, { debug: true }).transform(babel, {presets: ["es2015"]}));
 
       function rebundle() {
         bundler.bundle()
