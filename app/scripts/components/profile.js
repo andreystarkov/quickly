@@ -1,5 +1,4 @@
   function getUserProfile(token, callback) {
-      console.log('getUserProfile: token = ' + token);
 
       var remote = serverUrl + '/api/v2/user/profile/get';
       var result = {};
@@ -7,6 +6,7 @@
       if (token === undefined || token === null){
         console.log('getUserProfile: no token');
       } else {
+        console.log('getUserProfile: token = ' + token);
         $.ajax({
             type: 'POST',
             async: 'false',
@@ -16,10 +16,9 @@
                 'userToken': token
             },
             success: function(data) {
-                console.log('getUserProfile: success');
-                console.log(data);
-                console.log(data.result.profile);
+                console.log('getUserProfile: ', data.result.profile);
                 result = data.result.profile;
+                setStorage('profile', data.result.profile);
                 callback(result);
             }
         });
@@ -27,8 +26,6 @@
   }
 
   function editUserProfile(userToken, cityId, birthdate, name, surname, email, avatar) {
-      console.log('editUserProfile: start');
-
       $.ajax({
           type: 'POST',
           url: serverUrl + '/api/v2/user/profile/edit',
@@ -42,8 +39,7 @@
               'avatar': avatar
           },
           success: function(data) {
-              console.log('editUserProfile: success');
-              console.log(data);
+              console.log('editUserProfile: ', data);
           }
       });
   }

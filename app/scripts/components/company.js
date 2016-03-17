@@ -1,9 +1,7 @@
 
     function getCompanyDetails(restId, callback){
-        console.log('getCompanyDetails: init');
         $.getJSON(serverUrl+'/api/v2/restaurants/get/'+restId, function(data){
-            console.log('getCompanyDetails: success');
-            console.log(data);
+            console.log('getCompanyDetails: ',data);
             callback(data);
         });
     }

@@ -22,9 +22,11 @@ $(function() {
     $('html').css({'height': '100%'});
 
     setTimeout(function(){
-        console.log(userInfo);
+     //   console.log(userInfo);
         profile = userInfo;
+        setStorage('user', profile);
     },0);
+
 
 /*    getCuisinesList(function(data){
         console.log(data.result.cuisines);

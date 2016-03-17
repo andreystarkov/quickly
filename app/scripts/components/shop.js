@@ -1,10 +1,10 @@
 
     function getCuisinesList(callback){
       var result = null;
-      console.log('getCuisines: init');
+
       $.getJSON(serverUrl+'/api/v2/cuisines/get', function(data){
         cuisinesList = data;
-        console.log(data);
+        console.log('getCuisines: ', data);
         callback(data);
       });
     }
@@ -12,10 +12,10 @@
     function pasteCategories(restId){
         $.getJSON(serverUrl+'/api/v2/categories/get/'+restId, function(data){
             $.each(data.result.categories, function(key, item) {
-             //   console.log(item);
+
                 var kal = '<li class="category-line"><a href="#'+item.category_id+'" class="category-toggle" data-category="'+item.category_id+'">'
                 +'<i class="icon"></i>'+item.category_name+'</a></li>';
-          //      console.log(kal);
+
                 $('#theMenu').append(kal);
             });
         });
@@ -24,7 +24,6 @@
     function pasteComments(restId){
         $.getJSON(serverUrl+'/api/v2/comments/get/'+restId, function(data){
             var imageUrl = data.imagesBaseUrl;
-        //    console.log(data);
             $.each(data.result.comments, function(key, item){
               var stars = "";
               for(i = 0; i < item.comment_rating; i++){

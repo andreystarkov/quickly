@@ -1,11 +1,15 @@
 var cuisinesList;
 var isAuth;
 
+var currentCompany = 1;
+
 var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
+
 var serverUrl = 'http://176.112.201.81';
 var imageBaseUrl = 'http://176.112.201.81/static/cdn';
+var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
 
 var theCart = {
     contents: [],

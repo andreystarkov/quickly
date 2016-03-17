@@ -1,5 +1,5 @@
 function registerUser(phone, callback) {
-    console.log('phone = ' + phone);
+    console.log('registerUser: phone = ' + phone);
     $.ajax({
         type: 'POST',
         url: serverUrl + '/api/v2/user/register',
@@ -26,7 +26,7 @@ function sendSMSCode(phone, code, callback) {
         },
         success: function(data) {
           if (data.err === undefined || data.err  === null) {
-            console.log('SendSMSCode: success');
+            console.log('SendSMSCode: success', data);
             Cookies.set('token', data.result.userToken, { expires: 77777 });
 
             getUserProfile(data.result.userToken, function(data){
@@ -42,8 +42,7 @@ function sendSMSCode(phone, code, callback) {
 
             callback(data);
           } else {
-            console.log('SendSMSCode: error');
-            console.log(data);
+            console.log('SendSMSCode: error', data);
             callback(data);
           }
         }
@@ -78,7 +77,7 @@ $(document).on('click', '#buttonRegisterPhone', function(event) {
       if (data.err === undefined || data.err  === null) {
             registrationStepTwo();
       } else {
-        console.log('registerPhone: error'); console.log(data);
+        console.log('registerPhone: error', data);
         createNotice('#formRegisterPhone', 'Ошибка', 'Введите корректный номер телефона в формате 79619478823');
       }
 
@@ -88,7 +87,7 @@ $(document).on('click', '#buttonRegisterPhone', function(event) {
 
 $(document).on('click', '#buttonRegisterSMSCode', function(event) {
     event.preventDefault();
-    console.log('testsets');
+
     var userPhone = Cookies.get('phone'),
         userCode = $('#inputRegisterSMSCode').val();
 
@@ -96,7 +95,7 @@ $(document).on('click', '#buttonRegisterSMSCode', function(event) {
       console.log('sendSMSCode: callback');
 
       if (data.err === undefined || data.err  === null) {
-        console.log('sendSMSCode: fine');
+        console.log('sendSMSCode: fine', data);
         registrationStepThree();
       } else {
         createNotice('#buttonRegisterSMSCode', 'Ошибка', 'СМС-код неверен. Посмотрите внимательней!');

@@ -15,13 +15,11 @@ $(document).on('click', '.tab-toggle', function(event) {
 
     event.preventDefault();
 
-    console.log('Tabs: Toggling');
-
     $('.button', $(this).parent()).removeClass('active');
 
     $(this).addClass('active');
 
-    console.log('Tabs: Group = '+groupClass);
+    console.log('Tabs: Toggling Group = '+groupClass);
 
     $(groupClass).removeClass('tab-active');
 

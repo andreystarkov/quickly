@@ -1,92 +1,84 @@
-/*
-Получение списка залов ресторана:
-GET-запрос на /api/v2/reservation/halls/{restaurantId}
-Параметры:
-    -*restaurantId – id ресторана
 
-Получение страницы со схемой зала:
-GET-запрос на /api/v2/reservation/scheme/{hallId}/{date}
-Параметры:
-    -*hallId – id зала
-    -*date - дата (timestamp)
-При тапе на столик, нужно подменить js-функцию sendTableData своей. В ней передается JSON-объект с данными по столику.
-Типы столиков: 0 - бесплатный, 1 - платный, 2 - депозитный
-Создание брони:
-POST-запрос на /api/v2/reservation/create
-Параметры:
-    -*token – токен, полученный при авторизации
-    -*restaurantId – id ресторана
-    -*hallId – id зала
-    -*tableId – id столика
-    -*date – дата бронирования (timestamp)
+function json2array(json){
+    var result = [];
+    var keys = Object.keys(json);
+    keys.forEach(function(key){
+        result.push(json[key]);
+    });
+    return result;
+}
 
-Создание заказа:
-POST-запрос на /api/v2/orders/create
-Параметры:
-    -*token – токен, полученный при авторизации
-    -*restaurantId – id ресторана
-    -*menuItems – массив объектов блюд, вида:
-        {menu_item_id: id, menu_item_price: price, count: count}
-    -*usedBonus – количество использованных при заказе бонусов
-    -*street – улица
-    -*building – дом
-    -porch – подъезд
-    -floor – этаж
-    -apartment – квартира
-    -*payment_type – тип платежа (0-наличные, 1-картой курьеру)
-    -cash – наличные (со скольки потребуется сдача)
-    -*persons_count – количество персон
-    - comment – комментарий к заказу
-//
+function createOrder(){
 
-*/
-
-var currentCompany = 1;
-var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
-
-function createOrder(/*token, restaurauntId, menuItems, usedBonus, street, building, paymentType, cash, person_count, comment*/){
-    //{menu_item_id: id, menu_item_price: price, count: count}
     var cartContents = getStorage('theCart');
     var uniqueList = _.uniq(cartContents, "id");
-    console.log('uniqueList = ', uniqueList);
-    console.log('cartContents = ', cartContents);
     var uniqueCount = _.countBy(cartContents, "id");
-    console.log('uniqueCount = ', uniqueCount);
-    var summary = {};
+    var userProfile = getStorage('profile');
+
+    var paymentType = $('.checkout-payment-type').val(),
+        personsCount = $('#checkout-persons').val(),
+        street = $('#checkout-street').val(),
+        building = $('#checkout-building').val(),
+        usedBonus = $('#checkout-bonus').val(),
+        cash = $('#checkout-cash').val(),
+        comment = $('#checkout-comment').val(),
+        phone = $('#checkout-phone').val(),
+        porch = $('#checkout-porch').val(),
+        floor = $('#checkout-floor').val(),
+        apartment = $('#checkout-apartment').val(),
+        restaurauntId = currentCompany;
+
+    console.log('createOrder: uniqueList = ', uniqueList);
+    console.log('createOrder: uniqueCount = ', uniqueCount);
+    console.log('createOrder: userProfile = ', userProfile);
+
+    var summary = [];
+
     for(i = 0; i < uniqueList.length; i++){
-        var row = {
-            menu_item_id: uniqueList[i].id,
-            menu_item_price: uniqueList[i].price,
-            count: uniqueCount[uniqueList[i].id]
-        };
-        theCart.summary.push(row);
+        var row = {};
+
+        row['menu_item_id'] = uniqueList[i].id,
+        row['menu_item_price'] = uniqueList[i].price,
+        row['count'] = uniqueCount[uniqueList[i].id];
+        summary.push(row);
     }
 
-    console.log('createOrder: summary = ', theCart.summary);
+    console.log('createOrder: summary = ', summary);
 
-    var paymentType = 1, street = 'ул. Дружбы', building = '3', usedBonus = 0, cash = 0, comment = "yuuhu", phone = "79619479228";
+    var params = {
+        token: userToken,
+        restaurantId: currentCompany,
+        menuItems: summary,
+        street: street,
+        usedBonus: usedBonus,
+        porch: porch,
+        floor: floor,
+        apartment: apartment,
+        building: building,
+        payment_type: paymentType,
+        cash: cash,
+        persons_count: parseInt(personsCount),
+        comment: comment
+    };
+
+    console.log('createOrder: params = ', params);
 
     $.ajax({
         type: 'POST',
-        url: serverUrl + '/api/v2/user/register',
-        data: {
-            token: userToken,
-            restaurauntId: 1,
-            menuItems: theCart.summary,
-            street: street,
-            usedBonus: usedBonus,
-            street: street,
-            building: building,
-            paymentType: paymentType,
-            cash: cash,
-            person_count: 3,
-            comment: comment
-        },
+        dataType: 'json',
+        contentType: "application/json",
+        url: serverUrl + '/api/v3/orders/create',
+        data: JSON.stringify(params),
         success: function(data) {
-            console.log('createOrder: ', data);
+            if(!data.err){
+                alert('Спасибо за покупку! Менеджер ресторана свяжется с вами, для уточнения деталей');
+            } else {
+                console.log('createOrder: ERROR: ', data.err);
+            }
         }
     });
 }
+
 function createReservation(hallId, tableId, dateTime){
     $.ajax({
         type: 'POST',
@@ -147,24 +139,24 @@ function pasteMenu(categoryId){
 }
 
 function pasteCartElement(cartElement, elementCount){
-var el = `
-<tr class="reservation-${cartElement.type}">
-    <td>${cartElement.name}</td>
-    <td>${cartElement.price} р.</td>
-    <td>
-        <div class="form-group label-placeholder is-empty" data-id="${cartElement.id}" data-name="${cartElement.name}" data-price="${cartElement.price}">
-            <span class="control-minus" data-id="cartItem-${cartElement.id}">-</span>
-            <input type="text" value="${elementCount}" class="form-control" id="cartItem-${cartElement.id}">
-            <span class="control-plus" data-id="cartItem-${cartElement.id}">+</span>
-        </div>
-    </td>
-    <td>
-        <button class="checkout-action"><i class="icon icn-trash"></i></button>
-    </td>
-</tr>
-`;
+    var el = `
+    <tr class="reservation-${cartElement.type}">
+        <td>${cartElement.name}</td>
+        <td>${cartElement.price} р.</td>
+        <td>
+            <div class="form-group label-placeholder is-empty" data-id="${cartElement.id}" data-name="${cartElement.name}" data-price="${cartElement.price}">
+                <span class="control-minus" data-id="cartItem-${cartElement.id}">-</span>
+                <input type="text" value="${elementCount}" class="form-control" id="cartItem-${cartElement.id}">
+                <span class="control-plus" data-id="cartItem-${cartElement.id}">+</span>
+            </div>
+        </td>
+        <td>
+            <button class="checkout-action"><i class="icon icn-trash"></i></button>
+        </td>
+    </tr>
+    `;
 
-return el;
+    return el;
 }
 
 function refreshCart(){
@@ -236,22 +228,21 @@ function getReservationPointsList(hallId, theDate){
                 }
 
                 $('#roomBox .the-room').append(`
-
                     <div class="table" id="table-${value.table_id}" data-id="${value.table_id}" data-reserved="${data.params.reservations[value.table_id]}" data-seats="${value.table_seats_count}" data-deposit="${value.table_deposit}" data-price="${value.table_price}" data-restaurant="${value.restaurant_id}" data-hall="${value.hall_id}" style="left:${value.table_coord_x-10}px; top:${value.table_coord_y-20}px">
                         <div class="table-number">${value.table_number}</div>
-                            <div class="table-everything">
-                                <div class="table-desc">
-                                    ${tableType}
-                                    <span>Мест: ${value.table_seats_count}</span>
-                                </div>
-                                <div class="form-group label-static" style="margin-top:35px">
-                                    <label for="tableOption-${value.table_id}" class="control-label">На сколько человек?</label>
-                                    <select id="tableOption-${value.table_id}" data-object="table-${value.table_id}" class="form-control">
-                                      ${theOptions}
-                                    </select>
-                                    <button class="button main round" style="width:100%; margin-top:10px;">Забронировать</button>
-                                </div>
+                        <div class="table-everything">
+                            <div class="table-desc">
+                                ${tableType}
+                                <span>Мест: ${value.table_seats_count}</span>
                             </div>
+                            <div class="form-group label-static" style="margin-top:35px">
+                                <label for="tableOption-${value.table_id}" class="control-label">На сколько человек?</label>
+                                <select id="tableOption-${value.table_id}" data-object="table-${value.table_id}" class="form-control">
+                                  ${theOptions}
+                                </select>
+                                <button class="button main round" style="width:100%; margin-top:10px;">Забронировать</button>
+                            </div>
+                        </div>
                     </div>
                 `);
 
@@ -292,8 +283,6 @@ function getReservationPointsList(hallId, theDate){
 
 $(function() {
 
-    createOrder();
-
     $('#reservationTimePicker').datetimepicker({
         format: 'LT',
         locale: 'ru',
@@ -319,6 +308,10 @@ $(function() {
           <option>5</option>
         </select>
         `);*/
+    });
+
+    $(document).on('click', '#buttonCheckoutDelivery', function(event){
+        createOrder();
     });
 
     $(document).on('click', '.reserved .button', function(event) {
