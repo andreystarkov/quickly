@@ -220,7 +220,7 @@ $(function() {
         setStorage('theCart', theCart.contents);
 
         flyToCart($(this).parent().parent().find("img").eq(0));
-        toastr.success(`${jsonObj.name}, ${jsonObj.price}) р.`);
+        toastr.success(`${jsonObj.name}, ${jsonObj.price} р.`);
         refreshCart();
     });
 

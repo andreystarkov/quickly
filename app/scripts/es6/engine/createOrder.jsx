@@ -1,6 +1,6 @@
 import {clearCart} from './checkout.func.jsx';
 
-function orderSuccess(){
+function orderSuccess(data){
     swal({
       title:'Ваш заказ обработан! ',
       text:`В течении нескольких минут вам перезвонит сотрудник ресторана для подтверждения заказа.`,
@@ -9,6 +9,8 @@ function orderSuccess(){
       cancelButtonText: 'Закрыть окно',
       confirmButtonColor: '#fff036',
       animation:'slide-from-top'
+    }, function(){
+        toastr.success('Посмотреть статус заказа можно в разделе "История"','Заказ принят!');
     });
 }
 
