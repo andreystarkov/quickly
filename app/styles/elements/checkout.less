@@ -5,6 +5,7 @@
 @colorCartBackground: desaturate(lighten(@colorGray,11%),2%);
 @colorCartHighlight: darken(#e48895,2%);
 
+
 .overlay {
     position:fixed;
     top:0;
@@ -67,6 +68,11 @@
     }
 }
 
+.cart-empty {
+    visibility:hidden;
+    opacity:0;
+    height:0;
+}
 /* Related demos */
 .content--related {
     padding-bottom: 10em;
@@ -161,6 +167,7 @@
     transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
     .button {
         text-align:center;
     }
@@ -173,6 +180,13 @@
     .radio {
         margin-bottom:8px;
     }
+
+
+}
+
+.box-summary {
+    width:95%;
+    margin: 0 auto;
 }
 
 .checkout-active {
@@ -240,7 +254,7 @@ a.checkout-button:focus {
     max-width: 800px;
     width: 95vw;
     // height: 60vh;
-    padding-bottom:3em;
+    padding-bottom:0em;
     text-align: right;
     pointer-events: none;
 }
@@ -277,7 +291,8 @@ a.checkout-button:focus {
 
 .checkout-order-inner {
     position: relative;
-    padding: 4em 2em;
+    padding-top:4em;
+    padding: 3.4em 2em;
 }
 
 .checkout-close {
@@ -338,16 +353,32 @@ a.checkout-button:focus {
     }
 }
 
+.price-total {
+    margin-top:30px;
+    text-align:left;
+    font-size:20px;
+    b {
+        font-weight:400;
+    }
+    font-weight:300;
+    span {
+        color:darken(@colorGreen,15%);
+        font-weight:500;
+    }
+}
 .box-summary {
-    max-height:400px;
-    overflow-y:scroll;
+    height: 390px;
+    background: darken(@colorCartBackground,2%);
+    border-bottom:3px solid darken(@colorCartBackground,5%);
+    overflow-y: auto;
+
 }
 
 .checkout-summary {
     margin: 0.5em 0 0.75em;
     width:100%;
     margin-right:3%;
-
+    border-left:1px solid darken(@colorCartBackground,6%);
     color: @colorBlack;
     text-align: center;
     font-size: 1.15em;
@@ -366,7 +397,10 @@ a.checkout-button:focus {
         }
         tr {
            &.reservation-table {
-              background:mix(@colorOrange,@colorWhite,10%);
+            background-color:#fff !important;
+            td {
+                font-weight:400;
+            }
             }
         }
     }
@@ -385,7 +419,7 @@ a.checkout-button:focus {
             opacity:0.85;
             width:25px;
             display: block;
-            color:@colorBlack;
+            color: @colorBlack;
             &:hover i {
               transform:rotate(180deg);
               opacity:1;
@@ -417,11 +451,13 @@ a.checkout-button:focus {
 .checkout-summary tr:nth-child(1) {
     -webkit-transform: translate3d(0, 120px, 0);
     transform: translate3d(0, 120px, 0);
+
 }
 
 .checkout-summary tr:nth-child(2) {
     -webkit-transform: translate3d(0, 140px, 0);
     transform: translate3d(0, 140px, 0);
+
 }
 
 .checkout-summary tr:nth-child(3) {
@@ -488,17 +524,17 @@ a.checkout-button:focus {
 }
 
 .checkout-summary tbody tr:nth-child(even) {
-    background:darken(@colorCartBackground,2%);
+    background:fade(#fff,35%);
 }
 
 .checkout-summary tbody tr:nth-child(odd) {
-    background:darken(@colorCartBackground, 1%);
+    background:fade(#fff,65%);
 }
 
 .checkout-summary thead {
 }
 .checkout-summary thead th {
-    color: @colorCartHighlight;
+    color: mix(@colorRed, @colorWhite,50%);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;

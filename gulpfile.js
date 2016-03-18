@@ -19,6 +19,9 @@ var gulp    = require('gulp'),
 
      'app/scripts/_global.js',
 
+     'app/libs/jquery-validation/dist/jquery.validate.js',
+     'app/libs/validate/validate.min.js',
+
      'app/libs/velocity/velocity.min.js',
      'app/libs/velocity/velocity.ui.min.js',
      'app/libs/bootstrap-material-design/scripts/material.js',
@@ -33,7 +36,7 @@ var gulp    = require('gulp'),
      'app/scripts/etc/jquery.nouislider.min.js',
 
      'app/scripts/etc/sweetalert-dev.js',
-     'app/scripts/toastr/toastr.js',
+     'app/libs/toastr/toastr.min.js',
 
      'app/scripts/components/common.js',
      'app/scripts/components/auth.js',

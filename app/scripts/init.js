@@ -16,7 +16,7 @@
 $(function() {
 
     var userInfo = {};
-    var profile = {};
+    var      profile = {};
 
     $('body').css({'min-height': '100%'});
     $('html').css({'height': '100%'});
@@ -51,6 +51,24 @@ $(function() {
             close: 'glyphicon glyphicon-remove'
         }
     });
+
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": true,
+      "positionClass": "toast-bottom-center",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "340",
+      "hideDuration": "400",
+      "timeOut": "3000",
+      "extendedTimeOut": "3000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    };
 
     if(isMobile) $('#sidebar').appendTo(document.body);
 

@@ -1,11 +1,31 @@
-var test = 'wehha';
+
+function templateCartFooter(){
+    var totalPrice = 0;
+    var totalCount = 0;
+    $.each(theCart.contents, function(index, value){
+        totalPrice += value.price;
+        totalCount++;
+    });
+
+    var out = `
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="price-total">
+                    <b>Итого</b>: <span>${totalCount}</span> товаров на сумму <span>${totalPrice} <i class="fa fa-rouble"></i></span>
+                </div>
+            </div>
+        </div>
+    `;
+
+    return out;
+}
 
 export function clearCart(){
     localStorage.removeItem('theCart');
     theCart.contents = [];
     console.log('clearCart: cleared');
-   $('#cartBottomPanel').addClass('cart-empty');
-    $('#cartBottomPanel').velocity('transition.flipYOut', { duration: 600 })
+    $('#cartBottomPanel').addClass('cart-empty');
+    $('#cartBottomPanel').velocity('transition.flipYOut', { duration: 600 });
     refreshCart();
 }
 
@@ -14,24 +34,29 @@ export function refreshCart(){
     var cartContents = theCart.contents;
     if( !isEmpty(cartContents) ){
         $('.checkout-total').html(cartContents.length);
-        // transition.perspectiveUpIn
+
         if(cartPanel.hasClass('cart-empty')){
             cartPanel.removeClass('cart-empty');
-            cartPanel.velocity('transition.slideUpBigIn', { duration: 600 });
+            cartPanel.css({'visibility': 'visible', 'height': '40px'}).velocity('transition.slideUpBigIn', { duration: 600 });
         }
         var uniqueList;
         var uniqueCount = _.countBy(cartContents, "id");
-     //   var uniqueList = _.uniq(cartContents, "id");
-        uniqueList = cartContents;
+        var uniqueList = _.uniq(cartContents, "id");
+     //   uniqueList = cartContents;
         var cartTable = null;
 
+            var tables = 0;
+            var foodList = 0;
         $.each(uniqueList, function(key, value){
-            cartTable += pasteCartElement(value,uniqueCount[value.id]);
-            // console.log(value);
+
+            if ( value.type == "table" ) tables += pasteCartElement(value,uniqueCount[value.id])
+                else foodList += pasteCartElement(value,uniqueCount[value.id]);
+                console.log('tablesList = ', tables);
+                console.log('foodList = ', foodList);
         });
 
-        $('.checkout-contents').html(cartTable);
-
+        $('.checkout-contents').html(tables+foodList);
+        $('.checkout-footer').html(templateCartFooter());
     } else console.log('refreshCart: Cart is empty');
 }
 

@@ -109,9 +109,3 @@ function createCart(){
             <div class="checkout-count">3</div>
             `;
 }
-
-$(document).ready(function() {
-    if(!theCart){
-        $('#cartBottomPanel').hide();
-    }
-});

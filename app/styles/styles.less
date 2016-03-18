@@ -23,6 +23,19 @@
 @colorOrange: #F0C801;
 @colorBlue: #1620E0;
 
+
+
+/*@colorGrayLight: #eeece3;
+@colorGray: #E2E0D3; // #eae5dd
+@colorWhite: #f8f6f3;
+@colorBlack: #21201f;
+@colorYellow: lighten(mix(#F7D954, #fff036,20%),2%); // #fff036;
+@colorRed: mix(#AF3B3B,#E00909, 50%);// #E00909;
+@colorGreen: mix(#83AF4D,#109634,40%); // #109634; 83AF4D
+@colorOrange: #F0C801;
+@colorBlue: #355A82; // #1620E0;*/
+
+
 @colorMainBackground:mix(@colorGrayLight, #333, 98.5%);
 @colorDefaultBackground:mix(@colorMainBackground,@colorWhite, 20%);
 
@@ -89,6 +102,20 @@ body {
             opacity:1;
         }
     }
+  }
+  #toast-container.toast-left-top {
+    padding-left: 60px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    .toast-progress {
+        top:0;
+        bottom:auto;
+    }
+  }
+  #toast-container.toast-left-top > div {
+    //padding:4px 15px 8px 50px;
+    padding:15px 15px 15px 50px;
+    margin-right:8%;
   }
 }
 

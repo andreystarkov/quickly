@@ -40,6 +40,9 @@
           },
           success: function(data) {
               console.log('editUserProfile: ', data);
+                if (data.err === undefined || data.err  === null) {
+                    toastr.success('Данные профиля сохранены');
+                }
           }
       });
   }

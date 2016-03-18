@@ -1,4 +1,5 @@
 import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
+import {createOrder} from "./engine/createOrder.jsx";
 
 function json2array(json){
     var result = [];
@@ -7,78 +8,6 @@ function json2array(json){
         result.push(json[key]);
     });
     return result;
-}
-
-function createOrder(){
-    var cartContents = getStorage('theCart');
-    var uniqueList = _.uniq(cartContents, "id");
-    var uniqueCount = _.countBy(cartContents, "id");
-    var userProfile = getStorage('profile');
-
-    var paymentType = $('.checkout-payment-type').val(),
-        personsCount = $('#checkout-persons').val(),
-        street = $('#checkout-street').val(),
-        building = $('#checkout-building').val(),
-        usedBonus = $('#checkout-bonus').val(),
-        cash = $('#checkout-cash').val(),
-        comment = $('#checkout-comment').val(),
-        phone = $('#checkout-phone').val(),
-        porch = $('#checkout-porch').val(),
-        floor = $('#checkout-floor').val(),
-        apartment = $('#checkout-apartment').val(),
-        restaurauntId = currentCompany;
-
-    console.log('createOrder: uniqueList = ', uniqueList);
-    console.log('createOrder: uniqueCount = ', uniqueCount);
-    console.log('createOrder: userProfile = ', userProfile);
-
-    var summary = [];
-
-    for(i = 0; i < uniqueList.length; i++){
-        var row = {};
-
-        row['menu_item_id'] = uniqueList[i].id,
-        row['menu_item_price'] = uniqueList[i].price,
-        row['count'] = uniqueCount[uniqueList[i].id];
-        summary.push(row);
-    }
-
-    console.log('createOrder: summary = ', summary);
-
-    var params = {
-        token: userToken,
-        restaurantId: currentCompany,
-        menuItems: summary,
-        street: street,
-        usedBonus: usedBonus,
-        porch: porch,
-        floor: floor,
-        apartment: apartment,
-        building: building,
-        payment_type: paymentType,
-        cash: cash,
-        persons_count: parseInt(personsCount),
-        comment: comment
-    };
-
-    console.log('createOrder: params = ', params);
-
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        contentType: "application/json",
-        url: serverUrl + '/api/v3/orders/create',
-        data: JSON.stringify(params),
-        success: function(data) {
-            if(!data.err){
-                $('.checkout-cancel').click();
-                swal("Спасибо за покупку! Менеджер ресторана свяжется с вами, для уточнения деталей");
-                clearCart();
-            } else {
-                console.log('createOrder: ERROR: ', data.err);
-            }
-        }
-    });
 }
 
 function createReservation(hallId, tableId, dateTime){
@@ -161,31 +90,6 @@ function pasteCartElement(cartElement, elementCount){
     return el;
 }
 
-/*function refreshCart(){
-    var cartPanel = $('#cartBottomPanel');
-    var cartContents = theCart.contents;
-    if( !isEmpty(cartContents) ){
-        $('.checkout-total').html(cartContents.length);
-        // transition.perspectiveUpIn
-        if(cartPanel.hasClass('cart-empty')){
-            cartPanel.removeClass('cart-empty');
-            cartPanel.velocity('transition.slideUpBigIn', { duration: 600 });
-        }
-        var uniqueCount = _.countBy(cartContents, "id");
-       // var uniqueList = _.uniq(cartContents, "id");
-        uniqueList = cartContents;
-        var cartTable = null;
-
-        $.each(uniqueList, function(key, value){
-            cartTable += pasteCartElement(value,uniqueCount[value.id]);
-            // console.log(value);
-        });
-
-        $('.checkout-contents').html(cartTable);
-
-    } else console.log('refreshCart: Cart is empty');
-}
-*/
 
 function getHallsList(restaurantId, callback){
     $.getJSON(serverUrl+'/api/v2/reservation/halls/'+restaurantId, function(data){
@@ -248,38 +152,6 @@ function getReservationPointsList(hallId, theDate){
                         </div>
                     </div>
                 `);
-
-
-/*                $('#table-'+value.table_id).popover({
-                    trigger: 'manual',
-                    placement: 'bottom',
-                    animate:false,
-                    html: true,
-                    content: `
-                        <select id="tableOption-${value.table_id}" data-object="table-${value.table_id}" class="form-control">
-                          ${theOptions}
-                        </select>
-                        <button class=""></button>
-                    `,
-                    title: 'Выберите количество',
-                    show: function(){
-
-                        $(this).animate({opacity:1});
-                    }
-                }).on("mouseenter", function () {
-                    var _this = this;
-                    $(this).popover("show");
-                    $(".popover").on("mouseleave", function () {
-                        $(_this).popover('hide');
-                    });
-                }).on("mouseleave", function () {
-                    var _this = this;
-                    setTimeout(function () {
-                        if (!$(".popover:hover").length) {
-                            $(_this).popover("hide");
-                        }
-                    }, 300);
-                });*/
             });
     });
 }
@@ -298,29 +170,28 @@ $(function() {
         defaultDate: moment().valueOf()
     });
 
-    $(document).on('click', '.the-room .table .table-number', function(event) {
-        $(this).parent().toggleClass('reserved');
+/*    $(document).on('click', '.the-room .table .table-number', function(event) {
 
-        // $( '.table-everything', $(this).parent() ).velocity({translateX:0, translateY:0, scale:1, opacity:1});
-/*        createPopover($(this), 'Выберите количество мест', `
-         <select id="select111" class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        `);*/
-    });
+    });*/
 
     $(document).on('click', '#buttonCheckoutDelivery', function(event){
         createOrder();
     });
 
+    $(document).on({
+        mouseenter: function () {
+            $('.the-room .table').removeClass('reserved');
+            $(this).parent().addClass('reserved');
+        },
+    }, '.the-room .table .table-number');
+
+    $(document).on('mouseleave', '.the-room .table .table-everything', function(event){
+        $(this).parent().removeClass('reserved');
+    });
+
     $(document).on('click', '.reserved .button', function(event) {
         console.log('#buttonReserve clicked');
         flyToCart( $(this) );
-        // unction createNotice(targetObject, noticeTitle, noticeText)
         $('.the-room .table.reserved').each(function(){
             var jsonObj = {};
             jsonObj['id'] = $(this).data('id');
@@ -331,6 +202,9 @@ $(function() {
             console.log('addToCart: Table = ', jsonObj);
             console.log('addToCart: theCart = ', theCart);
             setStorage('theCart', theCart.contents);
+
+            toastr.success('Заявка на резервацвацию в вашей корзине');
+
             refreshCart();
         });
 

@@ -5,32 +5,58 @@
 .table-number {
     text-align: center;
     /* height: 100px; */
-    width: 50px;
-    height: 50px;
+
     border-radius: 100px;
-    padding: 6px;
+    padding: 4px;
+    display:inline-block;
     color: #fff;
-    text-shadow:0px 1px 3px fade(@colorBlack,25%);
-    font-size: 26px;
+    text-shadow:0px 1px 3px fade(@colorBlack,45%);
+    font-size: 22px;
+    width:40px;
+    height:40px;
     z-index:2;
+    transition: all 0.4s ease;
     background: @colorGreen;
     position: absolute;
     border-bottom:3px solid darken(@colorGreen,5%);
-    left: -20px;
+    left: -10px;
     top: -5px;
-}
+    &:hover {
+        border-bottom:3px solid darken(@colorGreen,3%);
+        background: lighten(@colorGreen,10%);
+        box-shadow: 0 2px 6px fade(@colorBlack,80%);
+    }
+}8
 
+.reserved {
+    &.table-number {
+
+    }
+}
 .table-everything {
-    background:lighten(#E2E0D3,5%);
-    border-bottom:2px solid darken(#E2E0D3,12%);
+    position:absolute;
+    left: -70px;
+    top: 10px;
+    padding-top: 40px;
+    width:160px;
+    .button.round {
+        width:100%;
+    }
+    background:mix(@colorOrange,mix(@colorWhite,#fff,50%),2%);
+    color:#000;
+    border-bottom:2px solid darken(mix(@colorYellow,@colorGrayLight,5%),10%);
     border-radius:2px;
+    border-left: 1px solid darken(mix(@colorYellow,@colorGrayLight,5%),8%);
     padding:8px 15px;
-    box-shadow: 0px 4px 8px fade(@colorBlack,30%);
-    transform: scale(0.1) translate(-100px, -190px);
-    transition: all 0.4s ease-in-out;
-    opacity:0;
+    padding-bottom:15px;
+    transform-origin: top;
+    box-shadow: 0px 2px 8px fade(@colorBlack,10%);
+    transform: translate(0, -10px) scale(0);
+    transition: all 0.3s cubic-bezier(1,.87,0,.19);
+    opacity:0.5;
   //  visibility:hidden;
 }
+
 
 .the-room {
   position:relative;
@@ -39,20 +65,21 @@
     z-index:3;
     .table-desc {
         font-size: 14px;
-        margin-left: 25px;
+        margin:34px auto;
+        text-align:center;
         .type {
-            font-size:12px;
+            font-size:16px;
         }
     }
 
     &.reserved {
-        max-width:160px;
+        max-width:170px;
         z-index:10;
         .table-nubmer {
-            box-shadow: 0px 3px 6px fade(@colorBlack,35%);
+            box-shadow: 0px 4px 12px fade(@colorBlack,45%);
         }
         .table-everything {
-            transform: scale(1) translate(0,0);
+            transform: translate(0,0) scale(1);
             opacity:1;
          }
 
@@ -64,25 +91,12 @@
 
     position:absolute;
 
-  //  border-radius:40px;
-   // background:@colorGreen;
-   // background: darken(mix(@colorWhite, @colorOrange, 90%),10%);
-
     color:#000;
     transition: all 0.3s linear;
     font-size:16px;
     cursor:pointer;
     text-shadow: 1px 1px 2px fade(@colorBlack,30%);
-/*    &:hover {
-        background:lighten(@colorGreen,8%);
-        border-bottom: 2px solid @colorGreen;
-    }*/
-/*    &.reserved {
-        background:lighten(@colorOrange,5%);
-        border-bottom: 2px solid darken(@colorOrange,3%);
-        color:@colorBlack;
-        text-shadow: 0 0 0 rgba(0,0,0,0);
-    }*/
+
   }
     .point {
         text-align:center;

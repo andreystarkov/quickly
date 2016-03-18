@@ -144,13 +144,6 @@
                                 </div>
                                 <div class="stars">
                                     <span>Ваша оценка</span>
-    <!--                                 <div class="choose">
-                                        <i class="one fa fa-star"></i>
-                                        <i class="two fa fa-star"></i>
-                                        <i class="three fa fa-star"></i>
-                                        <i class="four fa fa-star"></i>
-                                        <i class="five fa fa-star"></i>
-                                    </div> -->
                                     <select id="choose" class="choose-stars">
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -174,38 +167,16 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                    <h3 style="margin-bottom:25px;">Бронирование стола</h3>
-                    <div class="form-group">
-                        <label for="reservationTimePicker" class="control-label">Время бронирования</label>
-                        <input type='text' class="form-control" id='reservationTimePicker' />
-                    </div>
+                        <h3 style="margin-bottom:25px;">Бронирование стола</h3>
+                        <div class="form-group">
+                            <label for="reservationTimePicker" class="control-label">Время бронирования</label>
+                            <input type='text' class="form-control" id='reservationTimePicker' />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="reservationDatePicker" class="control-label">Дата бронирования</label>
-                        <input type='text' class="form-control" id='reservationDatePicker' />
-                    </div>
-
-<!--                     <button class="button main center round" style="display:block; width:100%;" id="buttonReserve">
-                        <i class="icon icon-anchor"></i> Забронировать
-                    </button> -->
-<!--                         <div style="overflow:hidden;">
-                            <div class="form-group">
-                                <div id="reservation-datetime"></div>
-                            </div>
-                            <div class="form-group label-floating is-empty" style="margin-top:20px">
-                                <label for="reservation-name" class="control-label">Ваше имя</label>
-                                <input type="search" class="form-control" id="reservation-name">
-                                <span class="help-block"></span>
-                                <span class="material-input"></span>
-                            </div>
-                            <div class="form-group label-floating is-empty">
-                                <label for="reservation-phone" class="control-label">Ваш телефон</label>
-                                <input type="search" class="form-control" id="reservation-phone">
-                                <span class="help-block"></span>
-                                <span class="material-input"></span>
-                            </div>
-                            <div class="button main center round">Забронировать стол</div>
-                        </div> -->
+                        <div class="form-group">
+                            <label for="reservationDatePicker" class="control-label">Дата бронирования</label>
+                            <input type='text' class="form-control" id='reservationDatePicker' />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -297,6 +268,8 @@
                                             </thead>
                                             <tbody class="checkout-contents" id="cartContentTable"></tbody>
                                         </table>
+                                    </div>
+                                    <div class="checkout-footer" id="cartFooter">
                                     </div>
                                 </div>
                                 <div class="col-lg-5 checkout-box" id="checkoutForm"></div>

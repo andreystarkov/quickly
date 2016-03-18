@@ -1054,7 +1054,6 @@ function createHistory(){
     });
   }
 
-
   function refreshUserProfile(){
     var token = userToken;
     getUserProfile(token, function(data){
@@ -1099,7 +1098,9 @@ function createHistory(){
         data: theOptions,
         success: function(data){
             console.log('editUserField: ', data);
-
+            if (data.err === undefined || data.err  === null) {
+                toastr.success('Данные профиля сохранены');
+            }
             $('#'+fieldId).parent().addClass('has-success');
             refreshUserProfile();
             if(callback) callback(data);

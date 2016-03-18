@@ -71,13 +71,13 @@ function pasteCheckoutFormUnregistered(){
         <div class="control-group">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="form-group label-floating">
+                    <div class="form-group label-floating required">
                         <label for="checkout-name" class="control-label">Ваше имя</label>
                         <input type="text" class="form-control" id="checkout-name" value=${profile.userName}>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="form-group label-floating">
+                    <div class="form-group label-floating required">
                         <label for="checkout-phone" class="control-label">Телефон</label>
                         <input type="text" class="form-control" id="checkout-phone" value="${profile.userPhone}">
                     </div>
@@ -85,19 +85,19 @@ function pasteCheckoutFormUnregistered(){
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="form-group label-floating">
+                    <div class="form-group label-floating required">
                         <label for="checkout-street" class="control-label">Улица</label>
                         <input type="text" class="form-control" id="checkout-street">
                     </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="form-group label-floating">
+                    <div class="form-group label-floating required">
                         <label for="checkout-building" class="control-label">Дом</label>
                         <input type="text" class="form-control" id="checkout-building">
                     </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="form-group label-floating">
+                    <div class="form-group label-floating required">
                         <label for="checkout-apartment" class="control-label">Квартира</label>
                         <input type="text" class="form-control" id="checkout-apartment">
                     </div>
@@ -117,12 +117,12 @@ function pasteCheckoutFormUnregistered(){
             </div>
         </div>
         <div class="control-group">
-            <div class="row">
+            <div class="row radio-box">
                 <div class="col-lg-6">
                     <div class="the-label">
                         <span>Способ оплаты</span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group radio-group">
                         <div class="radio radio-primary">
                             <label>
                               <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked>
@@ -164,7 +164,7 @@ function pasteCheckoutFormUnregistered(){
         <div class="control-group">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="form-group label-floating" style="margin-top:30px">
+                    <div class="form-group label-floating required" style="margin-top:30px">
                         <label for="checkout-persons" class="control-label" value="1">Количество персон</label>
                         <input type="search" class="form-control" id="checkout-persons">
                     </div>
@@ -203,9 +203,11 @@ $(function() {
         theCart.contents = getStorage('theCart');
     }
 
-    pasteMenu(1);
+    pasteMenu(currentCompany);
 
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
+
+    $('.required input').validate();
 
     $(document).on('click', '.add-to-cart', function(event) {
         var jsonObj = {};
@@ -216,7 +218,9 @@ $(function() {
         theCart.contents.push(jsonObj);
         console.log('addToCart: theCart = ', theCart);
         setStorage('theCart', theCart.contents);
+
         flyToCart($(this).parent().parent().find("img").eq(0));
+        toastr.success(`${jsonObj.name}, ${jsonObj.price}) р.`);
         refreshCart();
     });
 
