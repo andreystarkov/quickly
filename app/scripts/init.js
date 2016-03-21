@@ -16,7 +16,7 @@
 $(function() {
 
     var userInfo = {};
-    var      profile = {};
+    var profile = {};
 
     $('body').css({'min-height': '100%'});
     $('html').css({'height': '100%'});
@@ -69,7 +69,14 @@ $(function() {
       "showMethod": "fadeIn",
       "hideMethod": "fadeOut"
     };
-
+    swal.setDefaults({
+        customClass: 'the-window',
+        animation: true,
+        buttonStyling: false,
+        confirmButtonClass: 'modal-button-confirm',
+        cancelButtonClass: 'modal-button-cancel',
+        padding: 25
+    });
     if(isMobile) $('#sidebar').appendTo(document.body);
 
     $('#choose').barrating({theme: 'fontawesome-stars' });
@@ -105,13 +112,6 @@ $(function() {
 
     $('#buttonEditProfile').click(function(){
         showProfile();
-    });
-
-    getCompanyDetails(1, function(data){
-        console.log(data.result);
-        pasteCompanyDetails(data.result.restaurant, function(output){
-            $('#companyDetails').append(output);
-        });
     });
 
     console.log('userToken = '+userToken);

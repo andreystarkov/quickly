@@ -1,4 +1,5 @@
 import {clearCart} from './checkout.func.jsx';
+import {createReservation} from './createReservation.jsx';
 
 function orderSuccess(data){
     swal({
@@ -6,8 +7,7 @@ function orderSuccess(data){
       text:`В течении нескольких минут вам перезвонит сотрудник ресторана для подтверждения заказа.`,
       type:'success',
       confirmButtonText: 'Продолжить',
-      cancelButtonText: 'Закрыть окно',
-      confirmButtonColor: '#fff036',
+      buttonsStyling: 'false',
       animation:'slide-from-top'
     }, function(){
         toastr.success('Посмотреть статус заказа можно в разделе "История"','Заказ принят!');
@@ -38,6 +38,7 @@ export function createOrder(callback){
     console.log('createOrder: userProfile = ', userProfile);
 
     var summary = [];
+    var tables = [];
 
     for(i = 0; i < uniqueList.length; i++){
         var row = {};
@@ -47,6 +48,11 @@ export function createOrder(callback){
             row['menu_item_price'] = uniqueList[i].price,
             row['count'] = uniqueCount[uniqueList[i].id];
             summary.push(row);
+        } else {
+            row['menu_item_id'] = uniqueList[i].id,
+            row['menu_item_price'] = uniqueList[i].price,
+            row['count'] = uniqueCount[uniqueList[i].id];
+            tables.push(row);
         }
     }
 

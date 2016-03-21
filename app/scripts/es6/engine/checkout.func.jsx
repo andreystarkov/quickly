@@ -51,8 +51,8 @@ export function refreshCart(){
 
             if ( value.type == "table" ) tables += pasteCartElement(value,uniqueCount[value.id])
                 else foodList += pasteCartElement(value,uniqueCount[value.id]);
-                console.log('tablesList = ', tables);
-                console.log('foodList = ', foodList);
+               // console.log('tablesList = ', tables);
+              //  console.log('foodList = ', foodList);
         });
 
         $('.checkout-contents').html(tables+foodList);

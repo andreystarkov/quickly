@@ -25,6 +25,10 @@ section.company-list {
             border:3px solid fade(@colorMainBackground,10%);
             height:80px;
             width:80px;
+            overflow:hidden;
+            img {
+                height:100%;
+            }
         }
         .title {
             h2 {
@@ -106,6 +110,10 @@ section.company-about {
         border:4px solid darken(@colorGrayLight,5%);
         height:80px;
         width:80px;
+        overflow:hidden;
+        img {
+            height:100%;
+        }
     }
 
     section.company-about .title * {
@@ -190,13 +198,15 @@ section.company-about {
             float:left;
             margin-left:0px;
             margin-right:20px;
-            span {
+            .detail-title {
                 display:inline-block;
-                font-size:11px;
+                font-size:12px;
             }
-            p {
+            b {
                 font-size:14px;
                 line-height:14px;
+                font-weight:400;
+                display:block;
             }
             &.min {
 

@@ -29,13 +29,13 @@ function isEmpty(obj) {
 function setStorage(itemName, theJSON) {
     localStorage.setItem(itemName, JSON.stringify(theJSON));
     console.log('setStorage: theJSON = ', theJSON);
-    console.log('setStorage: stringify = ', JSON.stringify(theJSON));
-    console.log('resSet = ' + itemName, localStorage.getItem(itemName));
+   // console.log('setStorage: stringify = ', JSON.stringify(theJSON));
+  //  console.log('resSet = ' + itemName, localStorage.getItem(itemName));
 }
 
 function getStorage(itemName) {
     var out = JSON.parse(localStorage.getItem(itemName));
-    console.log('getStorage: ', out)
+  //  console.log('getStorage: ', out)
     return out;
 }
 

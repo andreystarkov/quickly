@@ -1,8 +1,8 @@
 
 function createHistory(){
  var output = `
-    <section class="the-tab tab-comments the-history tabs-profile" id="tab-comments-history">
-        <div class="container">
+    <section class="the-tab tab-comments the-history tabs-profile ttt" id="tab-comments-history">
+        <div class="container" id="ordersHistory">
         <div class="history-item row">
             <div class="col-lg-2">
                 <div class="box-company medium">
@@ -1036,6 +1036,7 @@ function createHistory(){
            </div>
         </div>`;
         var historyItems = createHistory();
+
         $('#editUserProfile').append(htmlTemplate+historyItems);
         if (callback) callback();
     }

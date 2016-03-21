@@ -66,6 +66,11 @@ return el;
 function pasteCheckoutFormUnregistered(){
     var profile = getStorage('profile');
     var bonusCount = '100';
+    var userName = '', userPhone = '';
+    if(profile){
+        if(profile.userName) userName = profile.userName;
+        if(profile.userPhone) userPhone = profile.userPhone;
+    }
     var out = `
     <div class="checkout-form">
         <div class="control-group">
@@ -73,13 +78,13 @@ function pasteCheckoutFormUnregistered(){
                 <div class="col-lg-6">
                     <div class="form-group label-floating required">
                         <label for="checkout-name" class="control-label">Ваше имя</label>
-                        <input type="text" class="form-control" id="checkout-name" value=${profile.userName}>
+                        <input type="text" class="form-control" id="checkout-name" value=${userName}>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group label-floating required">
                         <label for="checkout-phone" class="control-label">Телефон</label>
-                        <input type="text" class="form-control" id="checkout-phone" value="${profile.userPhone}">
+                        <input type="text" class="form-control" id="checkout-phone" value="${userPhone}">
                     </div>
                 </div>
             </div>

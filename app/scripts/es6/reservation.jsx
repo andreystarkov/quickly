@@ -1,5 +1,6 @@
 import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
 import {createOrder} from "./engine/createOrder.jsx";
+import {createReservation, reservationAdded} from "./engine/createReservation.jsx";
 
 function json2array(json){
     var result = [];
@@ -8,23 +9,6 @@ function json2array(json){
         result.push(json[key]);
     });
     return result;
-}
-
-function createReservation(hallId, tableId, dateTime){
-    $.ajax({
-        type: 'POST',
-        url: serverUrl + '/api/v2/user/register',
-        data: {
-            token: userToken,
-            restaurantId: currentCompany,
-            hallId: hallId,
-            tableId: tableId,
-            date: dateTime
-        },
-        success: function(data) {
-            console.log('createReservation: ', data);
-        }
-    });
 }
 
 function pasteMenu(categoryId){
@@ -170,9 +154,6 @@ $(function() {
         defaultDate: moment().valueOf()
     });
 
-/*    $(document).on('click', '.the-room .table .table-number', function(event) {
-
-    });*/
 
     $(document).on('click', '#buttonCheckoutDelivery', function(event){
         createOrder();
@@ -195,14 +176,15 @@ $(function() {
         $('.the-room .table.reserved').each(function(){
             var jsonObj = {};
             jsonObj['id'] = $(this).data('id');
-            jsonObj['name'] = $('section.company-about .title h2').html()+', Стол #'+$('span', this).html();
+            jsonObj['name'] = $('section.company-about .title h2').html()+', Стол #'+$(this).data('id');
+            jsonObj['count'] = $('select', $(this).parent()).val();
             jsonObj['price'] = $(this).data('price');
             jsonObj['type'] = 'table';
             theCart.contents.push(jsonObj);
             console.log('addToCart: Table = ', jsonObj);
             console.log('addToCart: theCart = ', theCart);
             setStorage('theCart', theCart.contents);
-
+            reservationAdded();
             toastr.success('Заявка на резервацвацию в вашей корзине');
 
             refreshCart();

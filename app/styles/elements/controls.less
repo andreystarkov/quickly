@@ -3,15 +3,17 @@ body {
         font-family:RobotoDraft;
         font-weight:200;
     }
+
+    @colorV2Green: mix(#83AF4D,#109634,60%);
     .sweet-alert {
-        button, .button {
+        button, .button, .button.styled {
             background-color:@colorYellow;
             border-raidus:3px;
             padding: 8px 30px;
             color:#000;
             border-bottom:3px solid mix(rgb(255, 240, 54), #333,90%);
             display: inline-block;
-            box-shadow: rgba(255, 240, 54, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset;
+            box-shadow: fade(@colorBlack,10%) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset;
             background-color: rgb(255, 240, 54);
             font-family: RobotoDraft;
             font-weight: 300;
@@ -19,6 +21,29 @@ body {
             border-radius: 3px;
             &:hover {
                 background-color: lighten(rgb(255, 240, 54),10%);
+            }
+             &.sweet-cancel {
+
+            }
+            &.modal-button-confirm {
+                background-color:@colorV2Green;
+                color:#fff;
+                font-weight:400;
+                text-shadow: 1px 1px 1px fade(@colorBlack,70%);
+                border-bottom:3px solid darken(@colorV2Green,10%);
+                &:hover {
+                  background-color: lighten(@colorV2Green,10%);
+                  border-bottom: 3px solid darken(@colorV2Green,4%);
+                }
+            }
+            &.modal-button-cancel,.sweet-cancel {
+              color:fade(@colorBlack,90%);
+              background-color:mix(@colorDefaultBackground,@colorWhite,60%);
+              border-bottom: 3px solid darken(mix(@colorDefaultBackground,@colorWhite,60%),10%);
+              &:hover {
+                  background-color: mix(@colorWhite,#fff,30%);
+                  border-bottom: 3px solid darken(mix(@colorDefaultBackground,@colorWhite,60%),5%);
+              }
             }
         }
         h2 {
