@@ -255,6 +255,50 @@
 }
 
 @media screen and (max-width:26em) {
+    body {
+        .checkout .checkout-order {
+            overflow-y:scroll;
+        }
+
+        .checkout-active .checkout-order {
+            background:@colorDefaultBackground;
+        }
+        .checkout-active .checkout-order::before {
+        //    background:@colorDefaultBackground;
+            border-bottom: 0px solid fade(#fff,0%);
+        }
+        .sweet-alert {
+            .modal-button-cancel, .modal-button-confirm {
+                    padding: 6px 15px;
+                    font-size: 14px;
+            }
+            p {
+                font-size:14px;
+            }
+            h2 {
+                font-size:22px;
+            }
+        }
+    }
+    body .food-category .food-item {
+        a {
+            height:155px;
+            margin-bottom:0;
+        }
+        a .product-image {
+            max-height:120px;
+            overflow:hidden;
+        }
+        .product-name {
+            padding: 3px 6px;
+            b, span, i { font-size:11px; }
+        }
+
+        .product-price {
+            padding:0;
+            font-size:12px;
+        }
+    }
     .top-line {
         display:none;
     }
