@@ -11,9 +11,15 @@ var serverUrl = 'http://176.112.201.81';
 var imageBaseUrl = 'http://176.112.201.81/static/cdn';
 var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
 
+var currentReservationTime;
+
 var theCart = {
     contents: [],
     summary: []
+};
+
+var theReservation = {
+    contents: []
 };
 
 var cityId = 3;
@@ -23,7 +29,7 @@ if (userToken !== undefined) {
 }
 
 function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
+    if (obj) return Object.keys(obj).length === 0;
 }
 
 function setStorage(itemName, theJSON) {
@@ -40,6 +46,7 @@ function getStorage(itemName) {
 }
 
 function flyToCart(what) {
+    $('#cartBottomPanel').css({'display':'block'});
     var cart = $('.checkout');
     var panel = $('.bottom-panel');
     var dropTo = $('.checkout-total');

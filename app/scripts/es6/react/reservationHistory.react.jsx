@@ -1,25 +1,32 @@
-var SingleReservationItem = React.createClass({
-    render: function(){
-        var single = this.props.item;
-        return (
-        <div className="item" key={this.props.key}>
-            <div className="row">
-                <div className="col-lg-3 no-padding-right align-right">
-                    <div className="thumb-tiny">
-                        <img src="images/samples/logo.jpg" />
-                    </div>
-                </div>
-                <div className="col-lg-9">
-                    <div className="text">
-                        <b>{single.menu_item_name} <span className="count">{single.count} шт.</span></b>
-                        <span className="price">{single.menu_item_price} <i className="rouble">o</i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        );
+var ButtonMore = require('./components/buttonMore.js');
+
+var ReservationHistoryActions = Reflux.createActions([
+    'fetchList', 'updateData'
+]);
+
+var ReservationHistoryStore = Reflux.createStore({
+    listenables: [ReservationHistoryActions],
+    historyList: [],
+    sourceUrl: serverUrl+'/api/v3/history/reservations/'+userToken,
+    init: function() {
+        this.fetchList();
+    },
+    updateData: function(){
+        console.log('ReservationHistoryStore updateData()');
+        this.fetchList();
+    },
+    fetchList: function() {
+      var some = this;
+      $.getJSON(this.sourceUrl, function (data) {
+        some.historyList = data.result.reservations;
+        some.trigger(some.historyList);
+        console.log('REFLUX: ReservationHistoryStore fetchList', some.historyList);
+      });
     }
 });
+
+module.exports = ReservationHistoryStore;
+
 
 var SingleReservation = React.createClass({
     render: function(){
@@ -29,6 +36,7 @@ var SingleReservation = React.createClass({
 
         return(
         <div className="history-item row" key={this.props.key}>
+             <div className="date-time">{moment.unix(data.reservation_date).format("DD MMMM YYYY HH:mm")}</div>
             <div className="col-lg-2">
                 <div className="box-company medium">
                     <div className="thumb-round">
@@ -39,22 +47,35 @@ var SingleReservation = React.createClass({
             </div>
             <div className="col-lg-5">
                 <div className="history-items">
-
+                    <div className="item item-table">
+                        <div className="row">
+                            <div className="col-lg-3 no-padding-right align-right">
+                                <div className="icon-reservation">
+                                    <i className="icon-anchor"></i>
+                                </div>
+                            </div>
+                            <div className="col-lg-9">
+                                <div className="text">
+                                    <div className="table-num">Столик №<b>{data.table_number}</b></div>
+                                    <div className="hall">Зал: <span className="hall-name">{data.hall_name}</span></div>
+                                    <div className="reservation-date">{moment.unix(data.reservation_date).format("DD MMMM YYYY HH:mm")}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div className="col-lg-2 summary">
                 <div className="total">
-                    <span>итого:</span>
+                    <span className="total-title">итого:</span>
                     <b className="sum-total">{total} <i className="rouble">o</i></b>
                 </div>
 
                 <div className="bonus">
-                    <span><i className="fa fa-rub"></i>-бонусов</span>
+                    <span className="total-title"><i className="r fa fa-rub"></i>-бонусов</span>
                     <b className="sum-bonus">+ {data.bonus}</b>
                 </div>
             </div>
-
             <div className="col-lg-3 actions">
                 <span className="title">поделится:</span>
                 <div className="social-share">
@@ -66,6 +87,7 @@ var SingleReservation = React.createClass({
                 <a href="#" className="button light round button-history-repeat" id="button-history-repeat">
                     <span>Повторить заказ</span>
                 </a>
+
             </div>
         </div>
         );
@@ -73,26 +95,35 @@ var SingleReservation = React.createClass({
 })
 
 var OrdersReservation = React.createClass({
+    mixins: [Reflux.connect(ReservationHistoryStore, 'historyData')],
+    limit: 5,
     getInitialState: function() {
       return {
-        data: []
+        data: [],
+        historyData: []
       };
     },
     componentDidMount: function() {
-      console.log('REACT: ordersReservation: componentDidMount');
-      this.serverRequest = $.getJSON(serverUrl+'/api/v2/history/reservations/'+userToken, function (data) {
-        console.log('REACT: ordersReservation: componentDidMount: getJSON', data);
-        this.setState({data: data.result.reservations});
-      }.bind(this));
+     //   OrdersHistoryActions.updateData();
+    },
+    loadMore: function(){
+        this.limit += 5;
+        ReservationHistoryActions.updateData();
     },
     render: function() {
-        var data = this.state.data;
+     //   OrdersHistoryActions.updateData();
+        var theData = this.state.historyData;
         var total = 0;
-        var messages = this.state.data.map(function(the, i) {
+        var sorted = _.first(_.sortBy(theData, 'order_id').reverse(), this.limit);
+        var messages = sorted.map(function(the, i) {
             return <SingleReservation list={the} key={i} />
         });
         return (
-            <div>{messages}</div>
+            <div>{messages}
+                <div className="full-width align-center">
+                    <ButtonMore onClick={this.loadMore} />
+                </div>
+            </div>
         )
     }
 });

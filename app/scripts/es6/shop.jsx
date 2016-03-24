@@ -198,6 +198,15 @@ function pasteCheckoutFormUnregistered(){
     return out;
 }
 
+function removeItemById(itemId){
+    var cart = getStorage('theCart');
+    console.log('removeItemById: before = ',cart);
+    cart = _.without(cart, _.findWhere(cart, {id: itemId}));
+    console.log('removeItemById: after = ',cart);
+    setStorage('theCart', cart);
+    theCart.contents = cart;
+    refreshCart();
+}
 
 $(function() {
 
@@ -208,7 +217,7 @@ $(function() {
         theCart.contents = getStorage('theCart');
     }
 
-    pasteMenu(currentCompany);
+  //  pasteMenu(currentCompany);
 
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
 
@@ -229,6 +238,17 @@ $(function() {
         refreshCart();
     });
 
+    $(document).on('click', '.reservation-food .checkout-action', function(e){
+        var theItem = $(this).parent().parent();
+        var theId = theItem.data('id');
+        removeItemById(theId);
+        theItem.velocity({opacity:0}, 500, function(){
+            setTimeout(function(){
+               $('.reservation-table').remove();
+            },500)
+        });
+    });
+
     $(document).on('click', '.checkout .control-plus', function(event) {
         var jsonObj = {};
         jsonObj['id'] = $(this).parent().data('id');
@@ -241,11 +261,8 @@ $(function() {
     });
 
     $(document).on('click', '.checkout .control-minus', function(event) {
-        var cart = theCart.contents;
-        var id = $(this).parent().data('id');
-        //var index = theCart.contents.indexOf(id);
-        var inThe = _.without(cart,id);
-        //console.log('INTHE', inThe, id);
+        var theId = $(this).parents('tr:first').data('id');
+        removeItemById(theId);
     });
 
     $(document).on('click', '.checkout-icon', function(event){

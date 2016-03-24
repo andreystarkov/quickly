@@ -18,13 +18,15 @@ $(function() {
     var userInfo = {};
     var profile = {};
 
-    $('body').css({'min-height': '100%'});
+    $('body').css({'min-height': '100vh'});
     $('html').css({'height': '100%'});
 
     setTimeout(function(){
         profile = userInfo;
         setStorage('user', profile);
     },0);
+
+    theReservation.contents = getStorage('theReservation');
 
     $.material.init();
 

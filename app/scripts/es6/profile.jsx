@@ -945,13 +945,15 @@ function createHistory(){
     function createProfileEditor(profile, callback){
 
         var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
+        var userAvatar =  imageBaseUrl+profile.userAvatarUrl;
+        if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) { userAvatar = 'images/samples/user.png'; }
 
         var htmlTemplate =
         `<div class="user-editor container">
            <div class="row">
               <div class="col-lg-2 text-center">
                  <div class="avatar round">
-                    <img src="${profile.userAvatarUrl}" alt="...">
+                    <img src="${userAvatar}" alt="...">
                  </div>
                  <div class="btn-group">
                     <a class="button light small">Изменить аватар</a>
@@ -1060,12 +1062,14 @@ function createHistory(){
     getUserProfile(token, function(data){
         var userBonus = getUserBonus(userToken);
         var userInfo = data;
+        var userAvatar =  imageBaseUrl+data.userAvatarUrl;
+        if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) { userAvatar = 'images/samples/user.png'; }
         $('#userBadgeTop').html(`
           <div class="user-text">
             <b class="user-name">${data.userName} ${data.userSurname}</b>
             <a class="r-bonus"><b>${userBonus}</b> <span class="fa fa-rouble"></span>-бонусов</a>
           </div>
-          <div class="user-avatar" style="background-image:url(${data.userAvatarUrl})"></div>
+          <div class="user-avatar" style="background-image:url(${userAvatar})"></div>
         `);
     });
   }

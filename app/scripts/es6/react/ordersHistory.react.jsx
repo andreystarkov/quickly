@@ -1,18 +1,50 @@
+var ButtonMore = require('./components/buttonMore.js');
+import {addToCart, repeatOrder} from '../engine/addToCart.js';
+
+var OrdersHistoryActions = Reflux.createActions([
+    'fetchList', 'updateData'
+]);
+
+var OrdersHistoryStore = Reflux.createStore({
+    listenables: [OrdersHistoryActions],
+    historyList: [],
+    sourceUrl: serverUrl+'/api/v2/history/orders/'+userToken,
+    init: function() {
+        this.fetchList();
+    },
+    updateData: function(){
+        console.log('OrdersHistoryStore updateData()');
+        this.fetchList();
+    },
+    fetchList: function() {
+      var some = this;
+      $.getJSON(this.sourceUrl, function (data) {
+        some.historyList = data.result.orders;
+        some.trigger(some.historyList);
+        console.log('REFLUX: OrdersHistoryStore fetchList', some.historyList);
+      });
+    }
+});
+
+module.exports = OrdersHistoryStore;
+
 var SingleOrderItem = React.createClass({
     render: function(){
-        var single = this.props.item;
+        var single = this.props.item, thumb = 'http://fakeimg.pl/37x37/ddd/';
+        if( single.menu_item_image !== '' ) thumb = imageBaseUrl+single.menu_item_image;
+        var idAttr = "singleItem-"+single.menu_item_id;
         return (
-        <div className="item" key={this.props.key}>
+        <div className="item" id={idAttr} >
             <div className="row">
                 <div className="col-lg-3 no-padding-right align-right">
                     <div className="thumb-tiny">
-                        <img src="images/samples/logo.jpg" />
+                        <img src={thumb} />
                     </div>
                 </div>
-                <div className="col-lg-9">
+                <div className="col-lg-9 no-padding-left">
                     <div className="text">
-                        <b>{single.menu_item_name} <span className="count">{single.count} шт.</span></b>
-                        <span className="price">{single.menu_item_price} <i className="rouble">o</i></span>
+                        <b>{single.menu_item_name}</b>
+                        <span className="price">{single.menu_item_price*single.count} <i className="rouble">o</i>,  <span className="count">{single.count} шт.</span></span>
                     </div>
                 </div>
             </div>
@@ -22,21 +54,24 @@ var SingleOrderItem = React.createClass({
 });
 
 var SingleOrder = React.createClass({
+    repeatThis: function(){
+        repeatOrder(this.props.list.order_menu_items);
+    },
     render: function(){
         var total = 0;
         var data = this.props.list;
         console.log('DATA signle: ', data);
 
         var items = data.order_menu_items.map(function(the, i) {
-            total += the.menu_item_price
-            console.log('key = '+i);
-            return(
+            total += (the.menu_item_price*the.count);
+            return (
                 <SingleOrderItem item={the} key={i} />
             )
         });
 
         return(
         <div className="history-item row" key={this.props.key}>
+            <div className="date-time">{moment.unix(data.created_at).format("DD MMMM YYYY HH:mm")}</div>
             <div className="col-lg-2">
                 <div className="box-company medium">
                     <div className="thumb-round">
@@ -50,19 +85,17 @@ var SingleOrder = React.createClass({
                     {items}
                 </div>
             </div>
-
             <div className="col-lg-2 summary">
                 <div className="total">
-                    <span>итого:</span>
+                    <span className="total-title">итого:</span>
                     <b className="sum-total">{total} <i className="rouble">o</i></b>
                 </div>
 
                 <div className="bonus">
-                    <span><i className="fa fa-rub"></i>-бонусов</span>
+                    <span className="total-title"><i className="r fa fa-rub"></i>-бонусов</span>
                     <b className="sum-bonus">+ {data.bonus}</b>
                 </div>
             </div>
-
             <div className="col-lg-3 actions">
                 <span className="title">поделится:</span>
                 <div className="social-share">
@@ -71,9 +104,10 @@ var SingleOrder = React.createClass({
                     <a href="#"><i className="fa fa-twitter"></i></a>
                     <a href="#"><i className="fa fa-odnoklassniki"></i></a>
                 </div>
-                <a href="#" className="button light round button-history-repeat" id="button-history-repeat">
-                    <span>Повторить заказ</span>
-                </a>
+                <button onClick={this.repeatThis} className="button light round button-history-repeat" id="button-history-repeat">
+                    <i className="icon-refresh"></i><span>Повторить заказ</span>
+                </button>
+
             </div>
         </div>
         );
@@ -81,27 +115,35 @@ var SingleOrder = React.createClass({
 })
 
 var OrdersHistory = React.createClass({
+    mixins: [Reflux.connect(OrdersHistoryStore, 'historyData')],
+    limit: 5,
     getInitialState: function() {
       return {
-        data: []
+        data: [],
+        historyData: []
       };
     },
     componentDidMount: function() {
-      console.log('REACT: ordersHistory: componentDidMount');
-      this.serverRequest = $.getJSON(serverUrl+'/api/v2/history/orders/'+userToken, function (data) {
-        console.log('REACT: ordersHistory: componentDidMount: getJSON', data);
-        this.setState({data: data.result.orders});
-      }.bind(this));
+     //   OrdersHistoryActions.updateData();
     },
-
+    loadMore: function(){
+        this.limit += 5;
+        OrdersHistoryActions.updateData();
+    },
     render: function() {
-        var data = this.state.data;
+     //   OrdersHistoryActions.updateData();
+        var theData = this.state.historyData;
         var total = 0;
-        var messages = this.state.data.map(function(the, i) {
+        var sorted = _.first(_.sortBy(theData, 'order_id').reverse(), this.limit);
+        var messages = sorted.map(function(the, i) {
             return <SingleOrder list={the} key={i} />
         });
         return (
-            <div>{messages}</div>
+            <div>{messages}
+                <div className="full-width align-center">
+                    <ButtonMore onClick={this.loadMore} />
+                </div>
+            </div>
         )
     }
 });

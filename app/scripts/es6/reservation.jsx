@@ -1,6 +1,6 @@
 import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
-import {createOrder, createReservation} from "./engine/createOrder.jsx";
-import {reservationAdded} from "./engine/createReservation.jsx";
+import {createOrder} from "./engine/createOrder.jsx";
+import {reservationAdded, createReservation} from "./engine/createReservation.jsx";
 
 function json2array(json){
     var result = [];
@@ -114,7 +114,7 @@ function getReservationPointsList(hallId, theDate){
                     `;
 
                 var theOptions;
-                for(i = 1; i <= value.table_seats_count; i++){
+                for(var i = 1; i <= value.table_seats_count; i++){
                     theOptions += '<option>'+i+'</option>';
                 }
 
@@ -140,10 +140,20 @@ function getReservationPointsList(hallId, theDate){
     });
 }
 
+function getReservationUnixTime(e){
+    var theTime = $('#reservationTimePicker').val();
+    var dateTime = $('#reservationDatePicker').val()+' '+$('#reservationTimePicker').val();
+    var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
+
+    console.log('getReservationUnixTime: dateTime = ',dateTime);
+    console.log('getReservationUnixTime: UNIX Timestamp = ', unixTime);
+    return unixTime;
+}
 $(function() {
 
     $('#reservationTimePicker').datetimepicker({
         format: 'LT',
+        format: 'HH:mm',
         locale: 'ru',
         defaultDate: moment().valueOf()
     });
@@ -178,38 +188,70 @@ $(function() {
     $(document).on('click', '.reserved .button', function(event) {
         console.log('#buttonReserve clicked');
         flyToCart( $(this) );
-        console.log('currentReservationTime: ', currentReservationTime);
+        console.log('currentReservationTime: ', getReservationUnixTime());
 
         $('.the-room .table.reserved').each(function(){
             var jsonObj = {};
+            var reservation = getStorage('theReservation');
+
             jsonObj['id'] = $(this).data('id');
             jsonObj['name'] = $('section.company-about .title h2').html()+', Стол #'+$(this).data('id');
             jsonObj['count'] = $('select', $(this).parent()).val();
             jsonObj['price'] = $(this).data('price');
             jsonObj['hall'] = $(this).data('hall');
-            jsonObj['date'] = currentReservationTime;
-            jsonObj['type'] = 'table';
-            theCart.contents.push(jsonObj);
-            console.log('addToCart: Table = ', jsonObj);
-            console.log('addToCart: theCart = ', theCart);
-            // setStorage('theCart', theCart.contents);
-            setStorage('theReservation', theCart.contents);
-            reservationAdded();
-            toastr.success('Заявка на резервацвацию в вашей корзине');
 
-            refreshCart();
+            jsonObj['date'] = getReservationUnixTime();
+            jsonObj['type'] = 'table';
+
+            console.log('RES = ', isEmpty(reservation));
+
+            if(isEmpty(reservation) === false){
+                swal({
+                  title: 'В корзине уже есть один стол.',
+                  text: "Одновременно в корзине может быть только один стол на резервацию! Отменить прошлый заказ и добавить этот?",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Да, заменить!',
+                  cancelButtonText: 'Нет, оставить тот',
+                  closeOnConfirm: true
+                },
+                function(isConfirm) {
+                  if (isConfirm) {
+                    setStorage('theReservation', jsonObj);
+                    toastr.warning('Предидущий заказ стола отменён', 'Внимание!');
+                    reservationAdded();
+                    refreshCart();
+                  } else {
+                    toastr.warning('Завершите предидущий заказ', 'Стол не добавлен!');
+                  }
+                });
+
+            } else {
+                setStorage('theReservation', jsonObj);
+                reservationAdded();
+
+                refreshCart();
+            }
+
         });
 
         $('.reserved').removeClass('reserved').addClass('yours');
-    })
+    });
+
+    $(document).on('click', '.reservation-table .checkout-action', function(e){
+        $(this).parent().parent().velocity({opacity:0}, 500, function(){
+            setTimeout(function(){
+               $('.reservation-table').remove();
+               localStorage.removeItem('theReservation');
+               refreshCart();
+            },500)
+        });
+    });
+
 
     $(document).on('dp.change', function(e) {
-        var dateTime = e.date.format('DD-MM-YY')+' '+e.date.format('HH-MM');
-        var theTime = $('#reservationTimePicker').val();
-        var dateTime = $('#reservationDatePicker').val()+' '+$('#reservationTimePicker').val();
-        var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
-        currentReservationTime = unixTime;
-        getReservationPointsList(currentCompany, unixTime);
+        currentReservationTime = getReservationUnixTime();
+        getReservationPointsList(currentCompany, getReservationUnixTime());
     });
 
     var currentTime = moment().add(30, 'm').unix();

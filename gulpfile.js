@@ -12,6 +12,7 @@ var theLibs = [
     'app/libs/jquery/dist/jquery.min.js',
     'app/libs/react/react.js',
     'app/libs/react/react-dom.js',
+    'app/libs/reflux/dist/reflux.js',
 
     'app/libs/underscore/underscore-min.js',
     'app/libs/bootstrap/dist/js/bootstrap.min.js',
@@ -56,13 +57,13 @@ var theES6 = [
     'app/scripts/es6/history.jsx',
     'app/scripts/es6/profile.jsx',
     'app/scripts/es6/cart.jsx',
-    'app/scripts/es6/engine.jsx',
     'app/scripts/es6/reservation.jsx',
     'app/scripts/es6/company.jsx',
-
+    'app/scripts/es6/checkout.jsx',
     'app/scripts/es6/react/companyDetails.react.jsx',
     'app/scripts/es6/react/ordersHistory.react.jsx',
-    'app/scripts/es6/react/reservationHistory.react.jsx'
+    'app/scripts/es6/react/reservationHistory.react.jsx',
+    'app/scripts/es6/react/menuItems.react.jsx'
 ]
 
 var sourcemaps = require('gulp-sourcemaps');

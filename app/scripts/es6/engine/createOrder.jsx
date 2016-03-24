@@ -58,6 +58,8 @@ export function createOrder(callback){
 
     console.log('createOrder: summary = ', summary);
 
+    var reservation = getStorage('theReservation');
+
     var params = {
         token: userToken,
         restaurantId: currentCompany,
@@ -73,6 +75,7 @@ export function createOrder(callback){
         persons_count: parseInt(personsCount),
         comment: comment
     };
+
 
     $.ajax({
         type: 'POST',
