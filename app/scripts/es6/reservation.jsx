@@ -1,6 +1,6 @@
 import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
-import {createOrder} from "./engine/createOrder.jsx";
-import {createReservation, reservationAdded} from "./engine/createReservation.jsx";
+import {createOrder, createReservation} from "./engine/createOrder.jsx";
+import {reservationAdded} from "./engine/createReservation.jsx";
 
 function json2array(json){
     var result = [];
@@ -105,7 +105,7 @@ function getReservationPointsList(hallId, theDate){
 
                 if( value.table_type == 1 ) tableType = `
                     <div class="type">Платный</div>
-                    <div class="price">Стоимость заказа: <b></b></div>>
+                    <div class="price">Стоимость заказа: <b></b></div>
                     `;
 
                 if( value.table_type == 2 ) tableType = `
@@ -119,7 +119,7 @@ function getReservationPointsList(hallId, theDate){
                 }
 
                 $('#roomBox .the-room').append(`
-                    <div class="table" id="table-${value.table_id}" data-id="${value.table_id}" data-reserved="${data.params.reservations[value.table_id]}" data-seats="${value.table_seats_count}" data-deposit="${value.table_deposit}" data-price="${value.table_price}" data-restaurant="${value.restaurant_id}" data-hall="${value.hall_id}" style="left:${value.table_coord_x-10}px; top:${value.table_coord_y-20}px">
+                    <div class="table" data-hall="${value.hall_id}" id="table-${value.table_id}" data-id="${value.table_id}" data-reserved="${data.params.reservations[value.table_id]}" data-seats="${value.table_seats_count}" data-deposit="${value.table_deposit}" data-price="${value.table_price}" data-restaurant="${value.restaurant_id}" data-hall="${value.hall_id}" style="left:${value.table_coord_x-10}px; top:${value.table_coord_y-20}px">
                         <div class="table-number">${value.table_number}</div>
                         <div class="table-everything">
                             <div class="table-desc">
@@ -154,7 +154,6 @@ $(function() {
         defaultDate: moment().valueOf()
     });
 
-
     $(document).on('click', '#buttonCheckoutDelivery', function(event){
         createOrder();
     });
@@ -170,27 +169,38 @@ $(function() {
         $(this).parent().removeClass('reserved');
     });
 
+    $(document).on('click', '#buttonCheckoutReservation', function(event){
+        createReservation();
+    });
+
+    var currentReservationTime;
+
     $(document).on('click', '.reserved .button', function(event) {
         console.log('#buttonReserve clicked');
         flyToCart( $(this) );
+        console.log('currentReservationTime: ', currentReservationTime);
+
         $('.the-room .table.reserved').each(function(){
             var jsonObj = {};
             jsonObj['id'] = $(this).data('id');
             jsonObj['name'] = $('section.company-about .title h2').html()+', Стол #'+$(this).data('id');
             jsonObj['count'] = $('select', $(this).parent()).val();
             jsonObj['price'] = $(this).data('price');
+            jsonObj['hall'] = $(this).data('hall');
+            jsonObj['date'] = currentReservationTime;
             jsonObj['type'] = 'table';
             theCart.contents.push(jsonObj);
             console.log('addToCart: Table = ', jsonObj);
             console.log('addToCart: theCart = ', theCart);
-            setStorage('theCart', theCart.contents);
+            // setStorage('theCart', theCart.contents);
+            setStorage('theReservation', theCart.contents);
             reservationAdded();
             toastr.success('Заявка на резервацвацию в вашей корзине');
 
             refreshCart();
         });
 
-        $('.reserved').removeClass('reserved');
+        $('.reserved').removeClass('reserved').addClass('yours');
     })
 
     $(document).on('dp.change', function(e) {
@@ -198,6 +208,7 @@ $(function() {
         var theTime = $('#reservationTimePicker').val();
         var dateTime = $('#reservationDatePicker').val()+' '+$('#reservationTimePicker').val();
         var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
+        currentReservationTime = unixTime;
         getReservationPointsList(currentCompany, unixTime);
     });
 

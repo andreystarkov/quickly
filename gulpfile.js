@@ -61,7 +61,8 @@ var theES6 = [
     'app/scripts/es6/company.jsx',
 
     'app/scripts/es6/react/companyDetails.react.jsx',
-    'app/scripts/es6/react/ordersHistory.react.jsx'
+    'app/scripts/es6/react/ordersHistory.react.jsx',
+    'app/scripts/es6/react/reservationHistory.react.jsx'
 ]
 
 var sourcemaps = require('gulp-sourcemaps');

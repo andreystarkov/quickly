@@ -1,5 +1,4 @@
 import {clearCart} from './checkout.func.jsx';
-import {createReservation} from './createReservation.jsx';
 
 function orderSuccess(data){
     swal({
@@ -49,9 +48,10 @@ export function createOrder(callback){
             row['count'] = uniqueCount[uniqueList[i].id];
             summary.push(row);
         } else {
-            row['menu_item_id'] = uniqueList[i].id,
-            row['menu_item_price'] = uniqueList[i].price,
-            row['count'] = uniqueCount[uniqueList[i].id];
+            row['id'] = uniqueList[i].id,
+            row['price'] = uniqueList[i].price,
+            row['count'] = uniqueList[i].count,
+            row['hall'] = uniqueList[i].hall
             tables.push(row);
         }
     }
@@ -74,8 +74,6 @@ export function createOrder(callback){
         comment: comment
     };
 
-    console.log('createOrder: params = ', params);
-
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -86,6 +84,7 @@ export function createOrder(callback){
             if(!data.err){
                 $('.checkout-cancel').click();
                 clearCart();
+                console.log('createOrder: success: ', data);
                 orderSuccess(data);
                 if (callback) callback(data);
             } else {

@@ -1037,7 +1037,7 @@ function createHistory(){
         </div>`;
         var historyItems = createHistory();
 
-        $('#editUserProfile').append(htmlTemplate+historyItems);
+        $('#editUserProfile').prepend(htmlTemplate);
         if (callback) callback();
     }
 

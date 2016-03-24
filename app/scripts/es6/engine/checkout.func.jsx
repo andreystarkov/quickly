@@ -32,8 +32,10 @@ export function clearCart(){
 export function refreshCart(){
     var cartPanel = $('#cartBottomPanel');
     var cartContents = theCart.contents;
-    if( !isEmpty(cartContents) ){
-        $('.checkout-total').html(cartContents.length);
+    var tables = getStorage('theReservation');
+    if( !isEmpty(cartContents) && !isEmpty(tables) ){
+        console.log('refreshCart: call');
+        $('.checkout-total').html(cartContents.length+tables.length);
 
         if(cartPanel.hasClass('cart-empty')){
             cartPanel.removeClass('cart-empty');
@@ -42,11 +44,19 @@ export function refreshCart(){
         var uniqueList;
         var uniqueCount = _.countBy(cartContents, "id");
         var uniqueList = _.uniq(cartContents, "id");
-     //   uniqueList = cartContents;
+        var tablesList = _.uniq(tables, "id");
+
         var cartTable = null;
 
-            var tables = 0;
-            var foodList = 0;
+        var tablesList, foodList;
+
+        console.log('refreshCart: tables = ', tables);
+
+        $.each(tables, function(key, value){
+            console.log('refreshCart: table = ', value);
+            tablesList += pasteCartTable(value);
+        });
+
         $.each(uniqueList, function(key, value){
 
             if ( value.type == "table" ) tables += pasteCartElement(value,uniqueCount[value.id])
@@ -55,9 +65,28 @@ export function refreshCart(){
               //  console.log('foodList = ', foodList);
         });
 
-        $('.checkout-contents').html(tables+foodList);
+        $('.checkout-contents').html(tablesList+foodList);
         $('.checkout-footer').html(templateCartFooter());
     } else console.log('refreshCart: Cart is empty');
+}
+
+function pasteCartTable(cartElement, elementCount){
+var el = `
+<tr class="reservation-${cartElement.type}">
+    <td>${cartElement.name}</td>
+    <td>${cartElement.price} р.</td>
+    <td>
+        <div class="form-group label-placeholder is-empty" data-id="${cartElement.id}" data-name="${cartElement.name}" data-price="${cartElement.price}">
+            <input type="text" value="${cartElement.count}" class="form-control" id="cartItem-${cartElement.id}">
+        </div>
+    </td>
+    <td>
+        <button class="checkout-action"><i class="icon icn-trash"></i></button>
+    </td>
+</tr>
+`;
+
+return el;
 }
 
 function pasteCartElement(cartElement, elementCount){
