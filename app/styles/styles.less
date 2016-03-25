@@ -57,6 +57,12 @@
   background:mix(@colorOrange,@colorWhite,10%);
 }
 
+.button-return {
+  margin-bottom:30px;
+  .button {
+    width:100%;
+  }
+}
 .the-screen {
   display:none;
 }
@@ -73,6 +79,25 @@ footer.page-footer {
 
 .no-padding-left {
     padding-left:0 !important;
+}
+
+.payment-type {
+  .pay-icon {
+    display:block;
+    float:left;
+    font-size:26px;
+  }
+  .desc {
+    display:block;
+    float:left;
+    margin-left:8px;
+    font-size:10px;
+  }
+  .desc i {
+    display:block;
+    font-size:10px;
+    font-style:normal;
+  }
 }
 
 body .top-line .form-register a.btn-clean, body a.btn, body .input-group-btn a.btn {
@@ -140,8 +165,32 @@ body {
   }
 }
 
-.as-u-wish {
-  background:#fff;
+.company-toggle {
+  cursor:pointer;
+}
+
+.company-item {
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color:#fff;
+    .btm-line {
+      transition: all 0.3s ease-in-out;
+      background:fade(@colorBlack,8%);
+    }
+  }
+  .button-cuisine {
+    font-weight: 400;
+    text-transform: none;
+    margin-right:4px;
+    padding: 6px 16px;
+    font-size: 0.9em;
+    -webkit-transition: 0.4s linear all;
+    -moz-transition: 0.4s linear all;
+    transition: 0.4s linear all;
+    background: mix(@colorGrayLight,#fff,50%);
+    border-radius: 3px;
+  }
+  background:fade(#fff,60%);
   border-radius:8px;
   overflow:hidden;
   margin-top:30px;
@@ -157,7 +206,7 @@ body {
   }
   h2 {
     font-size: 22px;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .bt-line {
@@ -170,17 +219,22 @@ body {
     display:inline-block;
 
     text-align:left;
-    b { display: block; text-align:left; font-size: 16px; font-weight: 600; text-transform: uppercase;
-      font-family:'Fira Sans';
+    b {
+      display: block;
+      text-align:left;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family:RobotoDraft;
     }
   }
   .image-thumb {
+    margin-bottom:20px;
     padding: 10px 30px;
     margin-left: 25px;
-    width: 240px;
-    height: 165px;
+    width: 200px;
     border-radius:5px;
-    border: 3px solid #dadada;
+  //  border: 3px solid #dadada;
     margin-top: 20px;
     background: #fff;
     text-align:center;
@@ -188,10 +242,10 @@ body {
   }
   .payment-ccards {
     display:inline-block;
-    padding:6px;
-    border-radius:6px;
+    padding:3px 5px;
+    border-radius:2px;
     margin-top:10px;
-    border: 1px solid mix(@colorGreen,@colorWhite,90%);
+    border: 1px solid mix(@colorGreen,@colorWhite,40%);
   }
     .ttexts {
       float:left;
@@ -213,9 +267,10 @@ body {
 
 
 .btm-line {
+    margin-top:15px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background: fade(@colorBlue,5%);
+    background: fade(@colorBlack,5%);
 }
 
 .pay-cards {

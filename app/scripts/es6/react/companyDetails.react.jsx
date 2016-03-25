@@ -129,7 +129,3 @@ ReactDOM.render(
   <CompanyDetails companyId="1"/>,
   document.getElementById('companyDetails')
 );
-
-$(function() {
-
-});

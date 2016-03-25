@@ -32,7 +32,7 @@ var SingleReservation = React.createClass({
     render: function(){
         var total = 0;
         var data = this.props.list;
-        console.log('SingleReservation: data = ', data);
+        // console.log('SingleReservation: data = ', data);
 
         return(
         <div className="history-item row" key={this.props.key}>

@@ -110,7 +110,6 @@ $(function() {
 
     pasteComments(1);
 
-    $('#pageProfile').hide();
 
     $('#buttonEditProfile').click(function(){
         showProfile();
@@ -143,5 +142,9 @@ $(function() {
         easing: 'ease-in-out'
     });
 
+    $.getJSON(serverUrl+'/api/v2/cuisines/get', function(data){
+      console.log('Getting Cuisines: ', data.result.cuisines);
+      setStorage('cuisines', data.result.cuisines);
+    });
 
 });

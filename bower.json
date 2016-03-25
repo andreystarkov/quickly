@@ -34,6 +34,7 @@
     "jquery.formance": "https://github.com/omarshammas/jquery.formance.git#~1.0.1",
     "jquery.payment": "https://github.com/stripe/jquery.payment.git#~1.3.2",
     "validate": "validate.js#~0.9.0",
-    "sweetalert2": "~0.4.4"
+    "sweetalert2": "~0.4.4",
+    "payment-webfont": "^0.9.5"
   }
 }

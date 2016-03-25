@@ -1,11 +1,12 @@
 var ButtonMore = require('./components/buttonMore.js');
+var CuisinesList = require('./cuisinesList.react.jsx');
 
-var CompanyActions = Reflux.createActions([
-    'fetchList', 'updateData'
+var CompanyListActions = Reflux.createActions([
+    'fetchList', 'updateData', 'filterData'
 ]);
 
-var CompanyStore = Reflux.createStore({
-    listenables: [CompanyActions],
+var CompanyListStore = Reflux.createStore({
+    listenables: [CompanyListActions],
     companyList: [],
     sourceUrl: serverUrl+'/api/v2/restaurants/get?restaurantType=3',
     init: function() {
@@ -15,26 +16,66 @@ var CompanyStore = Reflux.createStore({
         console.log('CompanyStore updateData()');
         this.fetchList();
     },
+    filterData: function(type){
+        var data = this.companyList;
+        var filtered;
+
+        console.log('filterData: type = '+type);
+
+        if (type == 3) filtered = _.filter(data, function(element){
+            return element.restaurant_payment_type == 1;
+        });
+
+        if (type == 0) { this.fetchList(); } else {
+            this.companyList = filtered;
+            this.trigger(this.companyList);
+            console.log('filterData: ', filtered);
+        }
+        return filtered;
+    },
     fetchList: function() {
       var some = this;
+
       $.getJSON(this.sourceUrl, function (data) {
+
+        console.log('CompanyListStore fetchList', data);
         some.companyList = data.result.restaurants;
         some.trigger(some.companyList);
-        console.log('REFLUX: CompanyStore fetchList', some.companyList);
+
       });
     }
 });
 
-module.exports = CompanyStore;
+module.exports = CompanyListStore;
+
+var PaymentTypes = React.createClass({
+    render: function(){
+        console.log('payment: ', this.props.type);
+        if (this.props.type == 0) return (
+            <div className="payment-type">
+            <span><i className="pay-icon fa fa-money"></i></span>
+            <span className="desc">только наличные</span>
+            </div>
+        );
+        if (this.props.type == 1) return (
+            <div className="payment-type">
+            <span><i className="pay-icon fa fa-cc-visa" /></span>
+            <span className="desc"><i>наличными</i><i>картой курьеру</i></span>
+            </div>
+        );
+    }
+});
 
 var SingleCompany = React.createClass({
     render: function(){
         var total = 0;
         var that = this.props.company;
+        var paymentType;
+
         var imageUrl = imageBaseUrl+that.restaurant_main_image;
-        console.log('SingleCompany: data = ', that);
+        console.log('SingleCompany: ', this.props.company);
         return(
-        <section className="as-u-wish company-toggle" data-company={that.restaurant_id}>
+        <section className="company-item company-toggle" data-company={that.restaurant_id}>
             <div className="row">
                 <div className="col-lg-4">
                     <div className="image-thumb">
@@ -42,23 +83,21 @@ var SingleCompany = React.createClass({
                     </div>
                 </div>
                 <div className="col-lg-8">
-                    <h2>{that.restaurant_name} <a href="#" className="like-me"><i className="fa fa-heart"></i></a></h2>
-                    <span className="text-line">
-                        <i>Расстояние:</i> <span>4,4 км</span>
-                    </span>
+                    <h2>{that.restaurant_name}</h2>
+
+                    <div className="text-line cuisines-list">
                         <span className="text-line">
-                        <i>Кухня:</i> <span>Итальянская / Европейская, Японская / Китайская</span>
-                    </span>
+                            <CuisinesList cuisines={that.restaurant_cuisines} />
+                        </span>
+                    </div>
                    <div className="row bt-line">
                         <div className="col-lg-8">
                             <div className="payment-ccards">
-                                <img src="images/samples/cc.png" />
+                                <PaymentTypes type={that.restaurant_payment_type} />
                             </div>
                         </div>
                         <div className="col-lg-4 likes">
-                            <a href="#" className="like">
-                                <i className="fa fa-thumbs-up"></i>
-                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -96,29 +135,36 @@ var SingleCompany = React.createClass({
 });
 
 var CompanyListSidebar = React.createClass({
+    filterCardCourier: function(e){
+        console.log(e.target.value);
+        if ( e.target.value == 'on' ){
+            CompanyListActions.filterData(3);
+        }
+    },
     render: function(){
         return(
         <div className="sidebar-wrap">
+
             <div className="checkbox control-item">
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Бесплатная доставка</span></label>
             </div>
             <div className="checkbox control-item">
-              <label><input type="checkbox" checked name="somename" /> <span className="filter-name">Есть акции</span></label>
+              <label><input type="checkbox" name="somename" /> <span className="filter-name">Есть акции</span></label>
             </div>
             <div className="checkbox control-item">
-              <label><input type="checkbox" checked name="somename" /> <span className="filter-name">Оплата картой курьеру</span></label>
+              <label><input type="checkbox" onChange={this.filterCardCourier} name="somename" /> <span className="filter-name">Оплата картой курьеру</span></label>
             </div>
             <div className="checkbox control-item">
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Онлайн оплата</span></label>
             </div>
             <div className="checkbox control-item">
-              <label><input type="checkbox" checked name="somename" /> <span className="filter-name">Еда за баллы</span></label>
+              <label><input type="checkbox" name="somename" /> <span className="filter-name">Еда за баллы</span></label>
             </div>
             <div className="checkbox control-item">
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Работает сейчас</span></label>
             </div>
             <div className="checkbox control-item">
-              <label><input type="checkbox" checked name="somename" /> <span className="filter-name">Рядом со мной</span></label>
+              <label><input type="checkbox" name="somename" /> <span className="filter-name">Рядом со мной</span></label>
             </div>
             <div className="checkbox control-item">
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Новые</span></label>
@@ -129,7 +175,7 @@ var CompanyListSidebar = React.createClass({
 });
 
 var CompanyList = React.createClass({
-    mixins: [Reflux.connect(CompanyStore, 'companyData')],
+    mixins: [Reflux.connect(CompanyListStore, 'companyData')],
     limit: 5,
     getInitialState: function() {
       return {
@@ -137,19 +183,18 @@ var CompanyList = React.createClass({
         companyData: []
       };
     },
-    componentDidMount: function() {
+    componentDidMount: function() {;
      //   OrdersActions.updateData();
     },
     loadMore: function(){
         this.limit += 5;
-        CompanyActions.updateData();
+        CompanyStore.updateData();
     },
     render: function() {
-     //   OrdersActions.updateData();
         var theData = this.state.companyData;
-    //    var total = 0;
-     //   var sorted = _.first(_.sortBy(theData, 'order_id').reverse(), this.limit);
-        var totalList = theData.map(function(the, i) {
+       console.log('ReactCompanyList: ', this.state.companyData);
+        var totalList = this.state.companyData.map(function(the, i) {
+            console.log('ReactCompanyList: = ',the);
             return <SingleCompany company={the} key={i} />
         });
         return (

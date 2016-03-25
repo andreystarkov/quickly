@@ -59,7 +59,7 @@ function registrationStepThree(){
    // refreshUserProfile();
     easyVelocity('#formRegisterSMSCode', 'transition.flipXOut', function(){
         easyVelocity('#userAuthorizedTop', 'transition.flipXIn');
-        showProfile();
+     //   refreshUserProfile();
     });
 }
 
