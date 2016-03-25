@@ -12,13 +12,17 @@ var MenuItemsActions = Reflux.createActions([
 var MenuItemsStore = Reflux.createStore({
     listenables: [MenuItemsActions],
     currentCategory:1,
+    companyId: currentCompany,
     menuItems: [],
     sourceUrl: serverUrl+'/api/v2/menu-items/get/'+currentCompany,
     init: function() {
+        this.companyId = currentCompany;
         this.fetchList();
     },
-    updateData: function(){
-        console.log('MenuItemsStore updateData()');
+    updateData: function(newId){
+        this.companyId = newId;
+        this.sourceUrl = serverUrl+'/api/v2/menu-items/get/'+newId;
+        console.log('CompanyDetailsStore: updateData() = ', this.sourceUrl);
         this.fetchList();
     },
     fetchList: function() {

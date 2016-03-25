@@ -60,11 +60,13 @@ var theES6 = [
     'app/scripts/es6/reservation.jsx',
     'app/scripts/es6/company.jsx',
     'app/scripts/es6/checkout.jsx',
+    'app/scripts/es6/screens.jsx',
     'app/scripts/es6/react/companyDetails.react.jsx',
     'app/scripts/es6/react/ordersHistory.react.jsx',
     'app/scripts/es6/react/reservationHistory.react.jsx',
     'app/scripts/es6/react/menuItems.react.jsx',
-    'app/scripts/es6/react/profileEditor.react.jsx'
+    'app/scripts/es6/react/profileEditor.react.jsx',
+    'app/scripts/es6/react/companyList.react.jsx'
 ]
 
 var sourcemaps = require('gulp-sourcemaps');

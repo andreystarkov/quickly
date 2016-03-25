@@ -42,6 +42,7 @@ $(document).on('click', '.tab-toggle', function(event) {
 
 });
 
+
 function selectTab(tabId, callback){
     $('a[href="'+tabId+'"]').click();
     if (callback) callback();

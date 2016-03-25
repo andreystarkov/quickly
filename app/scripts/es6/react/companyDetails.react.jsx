@@ -1,21 +1,55 @@
+var CompanyDetailsActions = Reflux.createActions([
+    'fetchList', 'updateData'
+]);
+
+var CompanyDetailsStore = Reflux.createStore({
+    listenables: [CompanyDetailsActions],
+    companyData: [],
+    companyId: currentCompany,
+    sourceUrl: serverUrl+'/api/v2/restaurants/get/'+currentCompany,
+    init: function() {
+        this.companyId = currentCompany;
+        this.fetchList();
+    },
+    updateData: function(newId){
+        console.log('CompanyDetailsStore updateData()');
+        this.companyId = newId;
+        this.sourceUrl = serverUrl+'/api/v2/restaurants/get/'+newId;
+        console.log('CompanyDetailsStore:', this.sourceUrl);
+        this.fetchList();
+    },
+    fetchList: function() {
+      var some = this;
+      $.getJSON(this.sourceUrl, function (data) {
+        some.companyData = data.result.restaurant;
+        console.log('REFLUX: CompanyDetailsStore fetchList', some.companyData);
+        some.trigger(some.companyData);
+      });
+    }
+});
+
+module.exports = CompanyDetailsStore;
 
 var CompanyDetails = React.createClass({
+    mixins: [Reflux.connect(CompanyDetailsStore, 'companyData')],
+    limit: 12,
     getInitialState: function() {
       return {
-        data: []
+        data: [],
+        companyData: []
       };
     },
 
     componentDidMount: function() {
-          this.serverRequest = $.getJSON(serverUrl+'/api/v2/restaurants/get/'+this.props.companyId, function (data) {
+/*          this.serverRequest = $.getJSON(serverUrl+'/api/v2/restaurants/get/'+this.props.companyId, function (data) {
           this.setState({
             data:data.result.restaurant
           });
-        }.bind(this));
+        }.bind(this));*/
     },
 
   render: function() {
-    var company = this.state.data;
+    var company = this.state.companyData;
     if(company.restaurant_main_image) var image = imageBaseUrl+company.restaurant_main_image;
 
     return (
@@ -80,10 +114,10 @@ var CompanyDetails = React.createClass({
                         <i className="icon icon-eye"></i>
                         <span>3D тур</span>
                     </a>
-                    <a className="button main" href="#">
-                        <i className="icon icon-anchor"></i>
-                        <span>Забронировать стол</span>
-                    </a>
+                    <button className="button main screen-toggle" data-screen="screen-company-list" id="buttonRestaurantList">
+                        <i className="icon icon-list"></i>
+                        <span>К списку ресторанов</span>
+                    </button>
                 </div>
             </div>
         </div>

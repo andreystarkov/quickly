@@ -70,6 +70,7 @@
     $.getJSON(serverUrl+'/api/v2/cuisines/get', function(data) {
         theCuisines = data.result.cuisines;
         $.getJSON(serverUrl+'/api/v2/restaurants/get?restaurantType=3', function(data) {
+            console.log(data);
             $.each(data, function(key, item) {
                $.each( item.restaurants, function( index, value ){
                     $('#hellOnEarth').append(pasteCompanyItem(value,theCuisines));
