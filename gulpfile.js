@@ -20,9 +20,6 @@ var theLibs = [
 
     'app/scripts/_global.js',
 
-    'app/libs/jquery-validation/dist/jquery.validate.js',
-    'app/libs/validate/validate.min.js',
-
     'app/libs/velocity/velocity.min.js',
     'app/libs/velocity/velocity.ui.min.js',
     'app/libs/bootstrap-material-design/scripts/material.js',
@@ -52,13 +49,10 @@ var theLibs = [
 ];
 
 var theES6 = [
-    'app/scripts/es6/_global.jsx',
     'app/scripts/es6/shop.jsx',
     'app/scripts/es6/history.jsx',
     'app/scripts/es6/profile.jsx',
-    'app/scripts/es6/cart.jsx',
     'app/scripts/es6/reservation.jsx',
-    'app/scripts/es6/company.jsx',
     'app/scripts/es6/checkout.jsx',
     'app/scripts/es6/screens.jsx',
     'app/scripts/es6/react/companyDetails.react.jsx',

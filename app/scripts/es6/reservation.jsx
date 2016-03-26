@@ -2,15 +2,6 @@ import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
 import {createOrder} from "./engine/createOrder.jsx";
 import {reservationAdded, createReservation} from "./engine/createReservation.jsx";
 
-function json2array(json){
-    var result = [];
-    var keys = Object.keys(json);
-    keys.forEach(function(key){
-        result.push(json[key]);
-    });
-    return result;
-}
-
 function pasteMenu(categoryId){
     $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
         $('#foodItems').html('');
@@ -73,7 +64,6 @@ function pasteCartElement(cartElement, elementCount){
 
     return el;
 }
-
 
 function getHallsList(restaurantId, callback){
     $.getJSON(serverUrl+'/api/v2/reservation/halls/'+restaurantId, function(data){
@@ -149,6 +139,7 @@ function getReservationUnixTime(e){
     console.log('getReservationUnixTime: UNIX Timestamp = ', unixTime);
     return unixTime;
 }
+
 $(function() {
 
     $('#reservationTimePicker').datetimepicker({
