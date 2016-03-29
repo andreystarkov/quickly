@@ -8,7 +8,7 @@ function initTabs() {
     });
 }
 
-function showTab(theTab, group = null){
+function showTab(theTab, group){
     var tabTrigger = $('a[href="'+theTab+'"]');
     var groupClass = tabTrigger.data('tabs');
 

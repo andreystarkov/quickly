@@ -1,4 +1,4 @@
-import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
+    import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
 
 function pasteMenu(categoryId){
     $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
@@ -75,13 +75,13 @@ function pasteCheckoutFormUnregistered(){
     <div class="checkout-form">
         <div class="control-group">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-xs-6">
                     <div class="form-group label-floating required">
                         <label for="checkout-name" class="control-label">Ваше имя</label>
                         <input type="text" class="form-control" id="checkout-name" value=${userName}>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-xs-6">
                     <div class="form-group label-floating required">
                         <label for="checkout-phone" class="control-label">Телефон</label>
                         <input type="text" class="form-control" id="checkout-phone" value="${userPhone}">
@@ -89,41 +89,47 @@ function pasteCheckoutFormUnregistered(){
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-xs-4">
                     <div class="form-group label-floating required">
                         <label for="checkout-street" class="control-label">Улица</label>
                         <input type="text" class="form-control" id="checkout-street">
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating required">
                         <label for="checkout-building" class="control-label">Дом</label>
                         <input type="text" class="form-control" id="checkout-building">
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating required">
                         <label for="checkout-apartment" class="control-label">Квартира</label>
                         <input type="text" class="form-control" id="checkout-apartment">
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating">
                         <label for="checkout-porch" class="control-label">Подьезд</label>
                         <input type="text" class="form-control" id="checkout-porch">
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating">
                         <label for="checkout-floor" class="control-label">Этаж</label>
                         <input type="text" class="form-control" id="checkout-floor">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    <div class="form-group label-floating required" style="margin-top:30px">
+                        <label for="checkout-persons" class="control-label" value="1">Количество персон</label>
+                        <input type="search" class="form-control" id="checkout-persons">
                     </div>
                 </div>
             </div>
         </div>
         <div class="control-group">
             <div class="row radio-box">
-                <div class="col-lg-6">
+                <div class="crk-lg-6">
                     <div class="the-label">
                         <span>Способ оплаты</span>
                     </div>
@@ -153,7 +159,7 @@ function pasteCheckoutFormUnregistered(){
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group label-floating">
-                        <label for="checkout-phone" class="control-label">Сколько у вас наличными?</label>
+                        <label for="checkout-phone" class="control-label">Сколько наличными?</label>
                         <input type="text" class="form-control" id="checkout-cash">
                     </div>
                     <div class="form-group label-floating">
@@ -168,12 +174,6 @@ function pasteCheckoutFormUnregistered(){
         </div>
         <div class="control-group">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="form-group label-floating required" style="margin-top:30px">
-                        <label for="checkout-persons" class="control-label" value="1">Количество персон</label>
-                        <input type="search" class="form-control" id="checkout-persons">
-                    </div>
-                </div>
                 <div class="col-lg-8">
                     <div class="form-group label-floating" style="margin-top:30px">
                         <label for="checkout-comment" class="control-label">Комментарий</label>
@@ -185,11 +185,11 @@ function pasteCheckoutFormUnregistered(){
         </div>
         <div class="checkout-buttons">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="button main" id="buttonCheckoutDelivery">Оформить доставку</div>
+                <div class="col-lg-6 col-xs-6">
+                    <div class="button main" id="buttonCheckoutDelivery">оформить доставку</div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="button main" id="buttonCheckoutReservation">В счет бронирования</div>
+                <div class="col-lg-6 col-xs-6">
+                    <div class="button main" id="buttonCheckoutReservation">Забронировать стол</div>
                 </div>
             </div>
         </div>

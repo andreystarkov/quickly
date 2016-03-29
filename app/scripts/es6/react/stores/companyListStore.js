@@ -2,12 +2,17 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:41:34
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 13:50:24
+* @Last Modified time: 2016-03-29 22:49:28
 */
+
 var CompanyListActions = require('../actions/companyListActions.js');
+var CuisinesActions = require('../actions/cuisinesActions.js');
+var CuisinesStore = require('./cuisinesStore.js');
 
 var CompanyListStore = Reflux.createStore({
     listenables: [CompanyListActions],
+    cuisine: [],
+    currentCuisine:0,
     companyList: [],
     sourceUrl: serverUrl+'/api/v2/restaurants/get',
     init: function() {
@@ -17,9 +22,18 @@ var CompanyListStore = Reflux.createStore({
         console.log('CompanyStore updateData()');
         this.fetchList();
     },
-    selectByCuisine:function(cuisine){
-        console.log('CompanyListStore: selectByCuisine, cuisine = '+cuisine);
-        this.fetchList(cuisine);
+    showAll: function(){
+        this.cuisine = 0;
+    },
+    selectByCuisine: function(cuisine){
+        console.log('CompanyListStore: selectByCuisine, cuisine = ', cuisine);
+        this.cuisine = cuisine;
+        this.currentCuisine = cuisine.cuisine_id;
+        this.fetchList(cuisine.cuisine_id);
+    },
+    getCurrentCuisine: function(){
+         console.log('CompanyListStore: getCurrentCuisine, CurrentCuisine = ', this.currentCuisine);
+         return this.currentCuisine;
     },
     filterData: function(cuisine, type){
         var data = this.companyList;
@@ -38,12 +52,18 @@ var CompanyListStore = Reflux.createStore({
         }
         return filtered;
     },
-    fetchList: function(cuisine) {
+    fetchList: function(cuisineId) {
       var some = this;
       var queryUrl = this.sourceUrl;
+
+      this.cuisine = CuisinesActions.getCuisineById(cuisineId);
+
+      console.log('CompanyListStore: fetchList: this.cuisine = '+this.cuisine);
+
       queryUrl += '?restaurantType=3';
-      if( cuisine ) {
-        queryUrl += '&cuisineId='+cuisine;
+
+      if( cuisineId ) {
+        queryUrl += '&cuisineId='+cuisineId;
       }
       console.log('CompanyListStore: queryUrl = ',queryUrl);
 

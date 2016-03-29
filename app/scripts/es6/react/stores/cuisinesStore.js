@@ -1,6 +1,4 @@
-var CuisinesActions = Reflux.createActions([
-    'fetchList'
-]);
+var CuisinesActions = require('../actions/cuisinesActions.js');
 
 var CuisinesStore = Reflux.createStore({
     listenables: [CuisinesActions],
@@ -9,9 +7,15 @@ var CuisinesStore = Reflux.createStore({
     init: function() {
         this.fetchList();
     },
+    getCuisineById: function(id){
+        var cuisine = _.where(this.cuisinesData,{cuisine_id:id});
+        console.log('CuisinesStore: getCuisineById('+id+'): ',cuisine);
+        return cuisine;
+    },
     fetchList: function() {
       var some = this;
       $.getJSON(this.sourceUrl, function (data) {
+        setStorage('cuisines', data.result.cuisines);
         some.cuisinesData = data.result.cuisines;
         some.trigger(some.cuisinesData);
         console.log('REFLUX: CuisinesStore fetchList', some.cuisinesData);

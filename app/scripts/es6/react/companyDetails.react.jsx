@@ -1,4 +1,5 @@
 var CompanyDetailsStore = require('./stores/companyDetailsStore.js');
+var CompanyListActions = require('./actions/companyListActions.js');
 
 var CompanyDetails = React.createClass({
     mixins: [Reflux.connect(CompanyDetailsStore, 'companyData')],
@@ -21,7 +22,7 @@ var CompanyDetails = React.createClass({
     return (
     <div className="container">
         <div className="row">
-            <div className="col-lg-2 text-center">
+            <div className="col-lg-2 col-xs-12 text-center">
                 <div className="logo round">
                     <img src={image} />
                 </div>
@@ -61,32 +62,32 @@ var CompanyDetails = React.createClass({
                 </div>
             </div>
         </div>
-            <div className="row buttons-line">
-                <div className="col-lg-2">
-                </div>
-                <div className="col-lg-6 buttons-tabs" data-tabs="tabs-shop">
-                    <a className="button tab-toggle light" data-tab="tab-comments" href="#tab-comments">
-                        <span>Отзывы</span>
-                    </a>
-                    <a className="button tab-toggle light active" data-tab="tab-food" href="#tab-food">
-                        <span>Доставка</span>
-                    </a>
-                    <a className="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
-                        <span>Бронирование</span>
-                    </a>
-                </div>
-                <div className="col-lg-4 buttons-reserv">
-                    <a className="button light" href="#">
-                        <i className="icon icon-eye"></i>
-                        <span>3D тур</span>
-                    </a>
-                    <button className="button main screen-toggle" data-screen="screen-company-list" id="buttonRestaurantList">
-                        <i className="icon icon-list"></i>
-                        <span>К списку ресторанов</span>
-                    </button>
-                </div>
+        <div className="row buttons-line">
+            <div className="col-lg-2">
+            </div>
+            <div className="col-lg-6 buttons-tabs" data-tabs="tabs-shop">
+                <a className="button tab-toggle light" data-tab="tab-comments" href="#tab-comments">
+                    <span>Отзывы</span>
+                </a>
+                <a className="button tab-toggle light active" data-tab="tab-food" href="#tab-food">
+                    <span>Доставка</span>
+                </a>
+                <a className="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
+                    <span>Бронирование</span>
+                </a>
+            </div>
+            <div className="col-lg-4 buttons-reserv">
+                <a className="button light" href="#">
+                    <i className="icon icon-eye"></i>
+                    <span>3D тур</span>
+                </a>
+                <button className="button main screen-toggle" data-screen="pageCompanyList" id="buttonRestaurantList">
+                    <i className="icon icon-list"></i>
+                    <span>К списку ресторанов</span>
+                </button>
             </div>
         </div>
+    </div>
     );
   }
 });

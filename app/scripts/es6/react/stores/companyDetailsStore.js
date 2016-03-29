@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:33:15
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 12:32:57
+* @Last Modified time: 2016-03-29 22:20:25
 */
 
 var CompanyDetailsActions = Reflux.createActions([

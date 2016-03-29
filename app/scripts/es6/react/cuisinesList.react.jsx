@@ -1,4 +1,4 @@
-var CuisinesStore = require('./stores/cuisinesStore.jsx');
+var CuisinesStore = require('./stores/cuisinesStore.js');
 
 var CuisinesList = React.createClass({
     mixins: [Reflux.connect(CuisinesStore, 'cuisinesData')],
