@@ -46,8 +46,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
-
-                    <div class="logo">
+                    <div class="logo screen-toggle" data-screen="pageMain">
                         <svg id="circle" height="40" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g>
                                 <image x="0" y="0" height="40" width="40" xlink:href="svg/logo.svg" />
@@ -108,8 +107,9 @@
         </div>
     </div>
 
-    <section class="the-screen page-wrapper" id="pageMain">
-
+    <section class="the-screen page-wrapper active" id="pageMain">
+        <div id="mainPageHeader"></div>
+        <div id="cuisinesSelectList"></div>
     </section>
 
     <section class="the-screen page-wrapper food-grid" id="screen-company-list">
@@ -133,7 +133,7 @@
         </div>
     </section>
 
-    <div class="page-wrapper" id="pageProfile">
+    <div class="the-screen page-wrapper" id="pageProfile">
         <section class="user-profile gray" id="editUserProfile">
             <div class="profile-editor" id="profileEditor">
             </div>
@@ -152,7 +152,7 @@
         </section>
     </div>
 
-    <div class="page-wrapper" id="pageCompany">
+    <div class="the-screen page-wrapper" id="pageCompany">
 
         <section class="company-about gray" id="companyDetails"></section>
 

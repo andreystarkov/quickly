@@ -34,14 +34,10 @@ function isEmpty(obj) {
 
 function setStorage(itemName, theJSON) {
     localStorage.setItem(itemName, JSON.stringify(theJSON));
-    console.log('setStorage: theJSON = ', theJSON);
-   // console.log('setStorage: stringify = ', JSON.stringify(theJSON));
-  //  console.log('resSet = ' + itemName, localStorage.getItem(itemName));
 }
 
 function getStorage(itemName) {
     var out = JSON.parse(localStorage.getItem(itemName));
-  //  console.log('getStorage: ', out)
     return out;
 }
 
@@ -52,7 +48,6 @@ function flyToCart(what) {
     var dropTo = $('.checkout-total');
     var imgtodrag = what;
     if (imgtodrag) {
-
         var imgclone = imgtodrag.clone()
         .addClass('notransition')
         .offset({
@@ -76,8 +71,6 @@ function flyToCart(what) {
 
         });
 
-        // scale(1.1) translateY(-4px)
-
         setTimeout(function() {
 	        panel.velocity({
 	        	translateY: 10
@@ -87,7 +80,6 @@ function flyToCart(what) {
 			        	scale: 1.2,
 			        	rotate: 10
 			        }, function(el){
-			        //	$('.checkout-order::before').velocity({ backgroundColor: #fff });
 			        	dropTo.velocity({ scale: 0.8, rotate: -5}, 150, function(el){
 			        		dropTo.velocity({ scale: 1, rotate: 0});
 			        	});

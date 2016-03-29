@@ -1,7 +1,7 @@
-var CompanyDetailsActions = require('./react/companyDetails.react.jsx');
-var MenuItemsActions = require('./react/menuItems.react.jsx');
+var CompanyDetailsActions = require('./react/stores/companyDetailsStore.js');
+var MenuItemsActions = require('./react/stores/menuItemsStore.js');
 
-function showScreen(screenId){
+export function showScreen(screenId){
     var aniOut = 'transition.flipXOut';
     var aniIn = 'transition.flipXIn';
 
@@ -23,6 +23,8 @@ function showScreen(screenId){
 }
 
 $(function() {
+
+    showScreen('pageMain');
 
     $(document).on('click', '.company-toggle', function(event) {
         var company = $(this).data('company');

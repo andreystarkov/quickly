@@ -95,8 +95,6 @@
               </div>
            </div>
         </div>`;
-        var historyItems = createHistory();
-
         $('#editUserProfile').prepend(htmlTemplate);
         if (callback) callback();
     }

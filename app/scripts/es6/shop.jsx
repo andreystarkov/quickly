@@ -221,8 +221,6 @@ $(function() {
 
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
 
-    $('.required input').validate();
-
     $(document).on('click', '.add-to-cart', function(event) {
         var jsonObj = {};
         jsonObj['id'] = $(this).data('id');

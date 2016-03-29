@@ -1,32 +1,6 @@
 var ButtonMore = require('./components/buttonMore.js');
 import {addToCart, repeatOrder} from '../engine/addToCart.js';
-
-var OrdersHistoryActions = Reflux.createActions([
-    'fetchList', 'updateData'
-]);
-
-var OrdersHistoryStore = Reflux.createStore({
-    listenables: [OrdersHistoryActions],
-    historyList: [],
-    sourceUrl: serverUrl+'/api/v2/history/orders/'+userToken,
-    init: function() {
-        this.fetchList();
-    },
-    updateData: function(){
-        console.log('OrdersHistoryStore updateData()');
-        this.fetchList();
-    },
-    fetchList: function() {
-      var some = this;
-      $.getJSON(this.sourceUrl, function (data) {
-        some.historyList = data.result.orders;
-        some.trigger(some.historyList);
-        console.log('REFLUX: OrdersHistoryStore fetchList', some.historyList);
-      });
-    }
-});
-
-module.exports = OrdersHistoryStore;
+var OrdersHistoryStore = require('./stores/ordersHistoryStore.js');
 
 var SingleOrderItem = React.createClass({
     render: function(){

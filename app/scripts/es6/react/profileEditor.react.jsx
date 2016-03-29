@@ -1,41 +1,5 @@
 var ButtonMore = require('./components/buttonMore.js');
-
-var ProfileEditorActions = Reflux.createActions([
-    'fetchList', 'updateData'
-]);
-
-var ProfileEditorStorage = Reflux.createStore({
-    listenables: [ProfileEditorActions],
-    profileData: [],
-    sourceUrl: serverUrl+'/api/v2/user/profile/get',
-    init: function() {
-        this.fetchList();
-    },
-    updateData: function(){
-        console.log('ProfileEditorStorage updateData()');
-        this.fetchList();
-    },
-    fetchList: function() {
-        var some = this;
-        $.ajax({
-            type: 'POST',
-            async: 'false',
-            dataType: 'json',
-            url: this.sourceUrl,
-            data: {
-                'userToken': userToken
-            },
-            success: function(data) {
-                some.profileData = data.result.profile;
-                some.trigger(some.profileData);
-                console.log('ProfileEditorStorage some.profileData = ', some.profileData);
-                setStorage('profile', data.result.profile);
-            }
-        });
-    }
-});
-
-module.exports = ProfileEditorStorage;
+var ProfileEditorStore = require('./stores/profileEditorStore.js');
 
 var ProfileEditorForm = React.createClass({
     render: function(){
@@ -140,7 +104,7 @@ var ProfileEditorForm = React.createClass({
 });
 
 var ProfileEditor = React.createClass({
-    mixins: [Reflux.connect(ProfileEditorStorage, 'profileData')],
+    mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
     limit: 5,
     getInitialState: function() {
       return {

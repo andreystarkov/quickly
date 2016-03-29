@@ -24,16 +24,16 @@ var theLibs = [
     'app/libs/velocity/velocity.ui.min.js',
     'app/libs/bootstrap-material-design/scripts/material.js',
     'app/libs/bootstrap-material-design/scripts/ripples.js',
-    'app/libs/Ripple.js/dist/ripple.js',
+
     'app/libs/ZoomSlider/js/dynamics.min.js',
     'app/libs/ZoomSlider/js/classie.js',
     'app/libs/ZoomSlider/js/main.js',
+
     'app/libs/moment/min/moment-with-locales.min.js',
     'app/libs/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
     'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',
     'app/scripts/etc/jquery.nouislider.min.js',
 
-    // 'app/scripts/etc/sweetalert-dev.js',
     'app/libs/sweetalert2/src/sweetalert2.js',
     'app/libs/toastr/toastr.min.js',
 
@@ -50,7 +50,6 @@ var theLibs = [
 
 var theES6 = [
     'app/scripts/es6/shop.jsx',
-    'app/scripts/es6/history.jsx',
     'app/scripts/es6/profile.jsx',
     'app/scripts/es6/reservation.jsx',
     'app/scripts/es6/checkout.jsx',
@@ -60,7 +59,8 @@ var theES6 = [
     'app/scripts/es6/react/reservationHistory.react.jsx',
     'app/scripts/es6/react/menuItems.react.jsx',
     'app/scripts/es6/react/profileEditor.react.jsx',
-    'app/scripts/es6/react/companyList.react.jsx'
+    'app/scripts/es6/react/companyList.react.jsx',
+    'app/scripts/es6/react/mainPage.react.jsx'
 ]
 
 var sourcemaps = require('gulp-sourcemaps');

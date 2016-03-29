@@ -71,6 +71,7 @@ $(function() {
       "showMethod": "fadeIn",
       "hideMethod": "fadeOut"
     };
+
     swal.setDefaults({
         customClass: 'the-window',
         animation: true,
@@ -79,6 +80,7 @@ $(function() {
         cancelButtonClass: 'modal-button-cancel',
         padding: 25
     });
+
     if(isMobile) $('#sidebar').appendTo(document.body);
 
     $('#choose').barrating({theme: 'fontawesome-stars' });
@@ -110,12 +112,9 @@ $(function() {
 
     pasteComments(1);
 
-
     $('#buttonEditProfile').click(function(){
         showProfile();
     });
-
-    console.log('userToken = '+userToken);
 
     if (userToken === undefined || userToken  === null) {
         if(userPhone){
@@ -127,24 +126,6 @@ $(function() {
 
     $(document).on('click', '#buttonReturnShop', function(event) {
         showShop();
-    });
-
-    $.ripple(".rip, .button", {
-        debug: false,
-        on: 'mousedown',
-        opacity: 0.2,
-        color: "auto",
-        multi: true,
-        duration: 0.3,
-        rate: function(pxPerSecond) {
-            return pxPerSecond;
-        },
-        easing: 'ease-in-out'
-    });
-
-    $.getJSON(serverUrl+'/api/v2/cuisines/get', function(data){
-      console.log('Getting Cuisines: ', data.result.cuisines);
-      setStorage('cuisines', data.result.cuisines);
     });
 
 });

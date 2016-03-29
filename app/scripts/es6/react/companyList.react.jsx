@@ -1,52 +1,6 @@
 var ButtonMore = require('./components/buttonMore.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
-
-var CompanyListActions = Reflux.createActions([
-    'fetchList', 'updateData', 'filterData'
-]);
-
-var CompanyListStore = Reflux.createStore({
-    listenables: [CompanyListActions],
-    companyList: [],
-    sourceUrl: serverUrl+'/api/v2/restaurants/get?restaurantType=3',
-    init: function() {
-        this.fetchList();
-    },
-    updateData: function(){
-        console.log('CompanyStore updateData()');
-        this.fetchList();
-    },
-    filterData: function(type){
-        var data = this.companyList;
-        var filtered;
-
-        console.log('filterData: type = '+type);
-
-        if (type == 3) filtered = _.filter(data, function(element){
-            return element.restaurant_payment_type == 1;
-        });
-
-        if (type == 0) { this.fetchList(); } else {
-            this.companyList = filtered;
-            this.trigger(this.companyList);
-            console.log('filterData: ', filtered);
-        }
-        return filtered;
-    },
-    fetchList: function() {
-      var some = this;
-
-      $.getJSON(this.sourceUrl, function (data) {
-
-        console.log('CompanyListStore fetchList', data);
-        some.companyList = data.result.restaurants;
-        some.trigger(some.companyList);
-
-      });
-    }
-});
-
-module.exports = CompanyListStore;
+var CompanyListStore = require('./stores/companyListStore.js');
 
 var PaymentTypes = React.createClass({
     render: function(){

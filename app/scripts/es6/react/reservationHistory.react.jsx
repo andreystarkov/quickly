@@ -1,32 +1,5 @@
 var ButtonMore = require('./components/buttonMore.js');
-
-var ReservationHistoryActions = Reflux.createActions([
-    'fetchList', 'updateData'
-]);
-
-var ReservationHistoryStore = Reflux.createStore({
-    listenables: [ReservationHistoryActions],
-    historyList: [],
-    sourceUrl: serverUrl+'/api/v3/history/reservations/'+userToken,
-    init: function() {
-        this.fetchList();
-    },
-    updateData: function(){
-        console.log('ReservationHistoryStore updateData()');
-        this.fetchList();
-    },
-    fetchList: function() {
-      var some = this;
-      $.getJSON(this.sourceUrl, function (data) {
-        some.historyList = data.result.reservations;
-        some.trigger(some.historyList);
-        console.log('REFLUX: ReservationHistoryStore fetchList', some.historyList);
-      });
-    }
-});
-
-module.exports = ReservationHistoryStore;
-
+var ReservationHistoryStore = require('./stores/reservationHistoryStore.js');
 
 var SingleReservation = React.createClass({
     render: function(){
