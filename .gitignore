@@ -1,4 +1,2 @@
 node_modules
-app/app/*
-build/images/*
 secrets.json
