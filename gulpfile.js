@@ -55,7 +55,7 @@ var theLibs = [
 
     'app/libs/ZoomSlider/js/dynamics.min.js',
     'app/libs/ZoomSlider/js/classie.js',
-    'app/libs/ZoomSlider/js/main.js',
+ //   'app/libs/ZoomSlider/js/main.js',
 
     'app/libs/moment/min/moment-with-locales.min.js',
     'app/libs/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
