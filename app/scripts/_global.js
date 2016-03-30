@@ -7,9 +7,17 @@ var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
-var serverUrl = 'http://176.112.201.81';
-var imageBaseUrl = 'http://176.112.201.81/static/cdn';
-var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
+var devMode = 0;
+
+if (devMode) {
+    var serverUrl = 'http://176.112.201.81';
+    var imageBaseUrl = 'http://176.112.201.81/static/cdn';
+    var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
+} else {
+    var serverUrl = 'http://quickly.su';
+    var imageBaseUrl = 'http://quickly.su/static/cdn';
+    var hallsUrl = 'http://quickly.su/static/hallsCdn/';
+}
 
 var currentReservationTime;
 

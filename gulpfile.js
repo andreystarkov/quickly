@@ -212,7 +212,8 @@ gulp.task('deploy', [], function (cb) {
         "port": secrets.port,
         "username": secrets.username,
         "password": secrets.password,
-        "path": secrets.path
+        "path": secrets.path,
+        "agent": process.env["SSH_AUTH_SOCK"]
     }, cb)
 });
 
