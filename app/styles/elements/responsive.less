@@ -257,9 +257,56 @@
 
 body {
     .company-item {
+        position:relative;
+        padding-bottom:80px;
         border: 0px;
+        .the-box {
+            z-index:1;
+            background:#fff;
+        }
+      .image-thumb {
+        margin:20px auto;
+        margin-right:0;
+        width:90%;
+      }
+      .the-footer {
+        padding-top:6px;
+        padding-bottom:6px;
+        position:absolute;
+        width:100%;
+        bottom:0;
+        left:0;
+      //  background:#fff;
+        right:0;
+        i {
+            font-size:26px;
+        }
+      }
+      .btm-line {
+        padding-top: 5px;
+        margin-top: 0;
+        background: rgba(255,255,255,.75);
+        padding-bottom: 5px;
+      }
+        position:relative;
+        .background-image {
+            overflow:hidden;
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            z-index:-1;
+            bottom:0;
+            width:100%;
+            height:100%;
+            img {
+                z-index:-1;
+                height:100%;
+            }
+        }
     }
 }
+
 @media screen and (max-width:26em) {
 
     body {
@@ -270,7 +317,7 @@ body {
         }
        }
        section.food-category div.food-item {
-        margin-bottom:0;
+            margin-bottom:0;
        }
         section.company-about .delivery .box span {
             font-size:18px;
@@ -336,17 +383,26 @@ body {
                 padding-left:0; padding-right:0;
             }
         }
+
         .company-item {
             border-radius:4px;
-
+            .button-cuisine {
+                padding: 3px 7px;
+                font-size:11px;
+            }
+            .company-description {
+                text-align:left;
+            }
             h2,h1 {
                 .icon-arrow-right {
+                    display:none;
                     font-size: 16px;
-                    margin-left: 15px;
+                    margin-left: 5px;
                     color:mix(@colorBlack,@colorWhite,50%);
                 }
-
-                margin-bottom:20px;
+                font-size:16px;
+                font-weight:400;
+                margin-bottom:10px;
             }
             .kal {
                 padding-left:0;
@@ -355,23 +411,21 @@ body {
                 margin-right:0;
                 text-align:center;
             }
-            background:fade(#fff,50%);
-            border-top:2px solid rgba(0,0,0,0.05);
+         //   border-top:2px solid rgba(0,0,0,0.05);
             border-bottom:4px solid rgba(0,0,0,0.12);
             margin-bottom:0px;
-            padding-bottom:0px;
             margin-top:0px;
             .fa {
                 font-size:15px;
             }
             .btm-line {
-                background:fade(@colorBlack,7%);
+               // background:fade(@colorBlack,7%);
             }
             .payment-type {
                 .desc {
                     font-size:12px;
                     i {
-                        font-size:12px;
+                        font-size:10px;
                     }
                 }
             }
@@ -379,7 +433,9 @@ body {
                 margin-top:0px;
                 border:0px;
                 .fa-cc-visa {
-                    font-size:30px;
+                    font-size: 28px;
+                    margin-top: 5px;
+                    display: inline-block;
                     color:#0057A0 !important;
                 }
                 .pay-icon {
@@ -407,8 +463,8 @@ body {
                 text-align:center;
             }
             .image-thumb {
-                 width:300px;
-                 margin-bottom:0px;
+                 height:auto;
+                 padding:0px;
                  padding-bottom:12px;
                  padding-top:12px;
                  border: 4px solid rgba(0,0,0,0.08);

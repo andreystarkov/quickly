@@ -59,3 +59,17 @@ $(function() {
     });
 
 });
+
+$(function() {
+
+    var hash = window.location.hash.replace("#", "");
+
+    if(hash !== ''){
+      console.log('Hash = '+hash);
+      showScreen(hash);
+    }
+
+    $(document).on('click', '#buttonReturnShop', function(event) {
+        showShop();
+    });
+});

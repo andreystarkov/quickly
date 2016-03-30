@@ -7,7 +7,7 @@ var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
-var devMode = 0;
+var devMode = true;
 
 if (devMode) {
     var serverUrl = 'http://176.112.201.81';
@@ -18,6 +18,12 @@ if (devMode) {
     var imageBaseUrl = 'http://quickly.su/static/cdn';
     var hallsUrl = 'http://quickly.su/static/hallsCdn/';
 }
+
+$(function() {
+    console.log('init: serverUrl = ', serverUrl);
+    console.log('init: imageBaseUrl = ', imageBaseUrl);
+    console.log('init: hallsUrl = ', hallsUrl);
+});
 
 var currentReservationTime;
 

@@ -8777,7 +8777,51 @@ body .form-group {
   }
 }
 body .company-item {
+  padding-bottom: 80px;
   border: 0px;
+  position: relative;
+}
+body .company-item .the-box {
+  z-index: 1;
+  background: #fff;
+}
+body .company-item .image-thumb {
+  margin: 20px auto;
+  margin-right: 0;
+  width: 90%;
+}
+body .company-item .the-footer {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+body .company-item .the-footer i {
+  font-size: 26px;
+}
+body .company-item .btm-line {
+  padding-top: 5px;
+  margin-top: 0;
+  background: rgba(255, 255, 255, 0.75);
+  padding-bottom: 5px;
+}
+body .company-item .background-image {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+body .company-item .background-image img {
+  z-index: -1;
+  height: 100%;
 }
 @media screen and (max-width: 26em) {
   body .detail-title .icon-clock {
@@ -8853,22 +8897,29 @@ body .company-item {
   }
   body .company-item {
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.5);
-    border-top: 2px solid rgba(0, 0, 0, 0.05);
     border-bottom: 4px solid rgba(0, 0, 0, 0.12);
     margin-bottom: 0px;
-    padding-bottom: 0px;
     margin-top: 0px;
     text-align: center;
   }
+  body .company-item .button-cuisine {
+    padding: 3px 7px;
+    font-size: 11px;
+  }
+  body .company-item .company-description {
+    text-align: left;
+  }
   body .company-item h2,
   body .company-item h1 {
-    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
   }
   body .company-item h2 .icon-arrow-right,
   body .company-item h1 .icon-arrow-right {
+    display: none;
     font-size: 16px;
-    margin-left: 15px;
+    margin-left: 5px;
     color: #8d8b89;
   }
   body .company-item .kal {
@@ -8881,21 +8932,20 @@ body .company-item {
   body .company-item .fa {
     font-size: 15px;
   }
-  body .company-item .btm-line {
-    background: rgba(33, 32, 31, 0.07);
-  }
   body .company-item .payment-type .desc {
     font-size: 12px;
   }
   body .company-item .payment-type .desc i {
-    font-size: 12px;
+    font-size: 10px;
   }
   body .company-item .payment-ccards {
     margin-top: 0px;
     border: 0px;
   }
   body .company-item .payment-ccards .fa-cc-visa {
-    font-size: 30px;
+    font-size: 28px;
+    margin-top: 5px;
+    display: inline-block;
     color: #0057A0 !important;
   }
   body .company-item .payment-ccards .pay-icon {
@@ -8922,8 +8972,8 @@ body .company-item {
     font-size: 20px;
   }
   body .company-item .image-thumb {
-    width: 300px;
-    margin-bottom: 0px;
+    height: auto;
+    padding: 0px;
     padding-bottom: 12px;
     padding-top: 12px;
     border: 4px solid rgba(0, 0, 0, 0.08);
@@ -19388,6 +19438,9 @@ body .input-group-btn a.btn {
   -moz-transition: none !important;
   transition: none !important;
 }
+.align-left {
+  text-align: left;
+}
 body a:hover,
 body a:visited,
 body a:link,
@@ -19439,26 +19492,28 @@ body #toast-container.toast-left-top > div {
 .company-toggle {
   cursor: pointer;
 }
+.company-toggle .icon-go {
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 12px;
+  margin-bottom: 3px;
+}
+.total-delivery {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+}
 .company-item {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  background-size: cover;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 8px;
   overflow: hidden;
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.company-item:hover {
-  background-color: #fff;
-}
-.company-item:hover .btm-line {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: rgba(33, 32, 31, 0.08);
-}
 .company-item .button-cuisine {
+  margin-left: 0;
+  margin-right: 2px;
   font-weight: 400;
   text-transform: none;
   margin-right: 4px;
@@ -19484,7 +19539,7 @@ body #toast-container.toast-left-top > div {
   font-weight: 400;
 }
 .company-item .bt-line {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .company-item .kal {
   text-align: center;
@@ -19496,8 +19551,8 @@ body #toast-container.toast-left-top > div {
 .company-item .box-info b {
   display: block;
   text-align: left;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   text-transform: uppercase;
   font-family: RobotoDraft;
 }

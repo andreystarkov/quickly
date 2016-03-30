@@ -124,8 +124,4 @@ $(function() {
         userAuthorized();
     }
 
-    $(document).on('click', '#buttonReturnShop', function(event) {
-        showShop();
-    });
-
 });

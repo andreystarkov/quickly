@@ -4,6 +4,7 @@
 * @Last Modified by:   Andrey Starkov
 * @Last Modified time: 2016-03-30 02:26:15
 */
+
 var CuisinesList = require('../cuisinesList.react.jsx');
 
 var PaymentTypes = React.createClass({
@@ -31,16 +32,22 @@ var SingleCompany = React.createClass({
         var paymentType;
 
         var imageUrl = imageBaseUrl+that.restaurant_main_image;
+        var bgImage = imageBaseUrl+that.restaurant_interior_image;
+
+        var style = {
+            background: 'url('+bgImage+') no-repeat center center',
+        }
+
         console.log('SingleCompany: ', this.props.company);
         return(
-        <section className="company-item company-toggle" data-company={that.restaurant_id}>
-            <div className="row">
-                <div className="col-lg-4 col-xs-12 col-sm-12">
+        <section style={style} className="company-item company-toggle" data-company={that.restaurant_id}>
+            <div className="the-box row">
+                <div className="company-logo col-lg-4 col-xs-4 col-sm-4">
                     <div className="image-thumb">
                         <img src={imageUrl} />
                     </div>
                 </div>
-                <div className="col-lg-8 col-xs-12 col-sm-12">
+                <div className="company-description col-lg-8 col-xs-8 col-sm-8">
                     <h2>{that.restaurant_name} <i className="icon-go icon-arrow-right"></i></h2>
 
                     <div className="text-line cuisines-list">
@@ -64,26 +71,37 @@ var SingleCompany = React.createClass({
                <div className="col-lg-3 col-xs-3 kal">
                     <div className="box-info">
                         <b className="value">{that.restaurant_min_order} <i className="fa fa-rouble"></i></b>
-                        <span className="description">мин.сумма</span>
+                        <span className="description">заказ от</span>
                     </div>
                 </div>
                 <div className="col-lg-3 col-xs-3 kal">
                     <div className="box-info">
                         <b className="value">{that.restaurant_delivery_cost} <i className="fa fa-rouble"></i></b>
-                        <span className="description">за доставку</span>
+                        <span className="description">доставка</span>
                     </div>
                 </div>
 
                 <div className="col-lg-3 col-xs-3 kal">
                     <div className="box-info">
                         <b className="value">{that.restaurant_delivery_time} <i className="icon icon-clock"></i></b>
-                        <span className="description">среднее время</span>
+                        <span className="description">время</span>
                     </div>
                 </div>
                 <div className="col-lg-3 col-xs-3 kal">
                     <div className="box-info">
-                        <b className="value">{that.restaurant_average_check}<i className="fa fa-rouble"></i></b>
+                        <b className="value">{that.restaurant_average_check} <i className="fa fa-rouble"></i></b>
                         <span className="description">средний чек</span>
+                    </div>
+                </div>
+            </div>
+
+            <div className="the-footer">
+                <div className="row">
+                    <div className="align-left col-xs-6 col-lg-6">
+                        <i className="icon-bubbles"></i>
+                    </div>
+                    <div className="align-right col-xs-6 col-lg-6">
+
                     </div>
                 </div>
             </div>

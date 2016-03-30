@@ -1124,6 +1124,7 @@ module.exports = QuicklyLogo;
 * @Last Modified by:   Andrey Starkov
 * @Last Modified time: 2016-03-30 02:26:15
 */
+
 var CuisinesList = require('../cuisinesList.react.jsx');
 
 var PaymentTypes = React.createClass({
@@ -1180,16 +1181,22 @@ var SingleCompany = React.createClass({
         var paymentType;
 
         var imageUrl = imageBaseUrl + that.restaurant_main_image;
+        var bgImage = imageBaseUrl + that.restaurant_interior_image;
+
+        var style = {
+            background: 'url(' + bgImage + ') no-repeat center center'
+        };
+
         console.log('SingleCompany: ', this.props.company);
         return React.createElement(
             'section',
-            { className: 'company-item company-toggle', 'data-company': that.restaurant_id },
+            { style: style, className: 'company-item company-toggle', 'data-company': that.restaurant_id },
             React.createElement(
                 'div',
-                { className: 'row' },
+                { className: 'the-box row' },
                 React.createElement(
                     'div',
-                    { className: 'col-lg-4 col-xs-12 col-sm-12' },
+                    { className: 'company-logo col-lg-4 col-xs-4 col-sm-4' },
                     React.createElement(
                         'div',
                         { className: 'image-thumb' },
@@ -1198,7 +1205,7 @@ var SingleCompany = React.createClass({
                 ),
                 React.createElement(
                     'div',
-                    { className: 'col-lg-8 col-xs-12 col-sm-12' },
+                    { className: 'company-description col-lg-8 col-xs-8 col-sm-8' },
                     React.createElement(
                         'h2',
                         null,
@@ -1250,7 +1257,7 @@ var SingleCompany = React.createClass({
                         React.createElement(
                             'span',
                             { className: 'description' },
-                            'мин.сумма'
+                            'заказ от'
                         )
                     )
                 ),
@@ -1270,7 +1277,7 @@ var SingleCompany = React.createClass({
                         React.createElement(
                             'span',
                             { className: 'description' },
-                            'за доставку'
+                            'доставка'
                         )
                     )
                 ),
@@ -1290,7 +1297,7 @@ var SingleCompany = React.createClass({
                         React.createElement(
                             'span',
                             { className: 'description' },
-                            'среднее время'
+                            'время'
                         )
                     )
                 ),
@@ -1304,6 +1311,7 @@ var SingleCompany = React.createClass({
                             'b',
                             { className: 'value' },
                             that.restaurant_average_check,
+                            ' ',
                             React.createElement('i', { className: 'fa fa-rouble' })
                         ),
                         React.createElement(
@@ -1312,6 +1320,20 @@ var SingleCompany = React.createClass({
                             'средний чек'
                         )
                     )
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'the-footer' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'align-left col-xs-6 col-lg-6' },
+                        React.createElement('i', { className: 'icon-bubbles' })
+                    ),
+                    React.createElement('div', { className: 'align-right col-xs-6 col-lg-6' })
                 )
             )
         );
@@ -1566,6 +1588,18 @@ ReactDOM.render(React.createElement(CuisinesSelectList, null), document.getEleme
 */
 
 var MenuItemsStore = require('./stores/menuItemsStore.js');
+
+// var MenuCategoriesList = React.createClass({
+//     render: function(){
+//         return (
+//             <li className="category-line">
+//                 <button className="category-toggle">
+//                     <i className="icon"></i>{item.category_name}</a>
+//                 </button>
+//             </li>
+//         )
+//     }
+// });
 
 var SingleMenuItem = React.createClass({
     displayName: 'SingleMenuItem',
@@ -2951,6 +2985,20 @@ $(function () {
         console.log('Screens: Toggling To = ' + screenId);
 
         $(screenId).addClass('screen-active');
+    });
+});
+
+$(function () {
+
+    var hash = window.location.hash.replace("#", "");
+
+    if (hash !== '') {
+        console.log('Hash = ' + hash);
+        showScreen(hash);
+    }
+
+    $(document).on('click', '#buttonReturnShop', function (event) {
+        showShop();
     });
 });
 

@@ -121,6 +121,9 @@ body .top-line .form-register a.btn-clean, body a.btn, body .input-group-btn a.b
   transition: none !important;
 }
 
+.align-left {
+  text-align:left;
+}
 body {
   a:hover, a:visited, a:link, a:active {
     text-decoration: none;
@@ -169,19 +172,27 @@ body {
 }
 
 .company-toggle {
+  .icon-go {
+    font-size:14px;
+    display:inline-block;
+    margin-left:12px;
+    margin-bottom:3px;
+  }
   cursor:pointer;
 }
 
+.total-delivery {
+  display:inline-block;
+  margin-left:3px;
+  margin-right:3px;
+}
+
 .company-item {
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color:#fff;
-    .btm-line {
-      transition: all 0.3s ease-in-out;
-      background:fade(@colorBlack,8%);
-    }
-  }
+  background-size:cover;
+
   .button-cuisine {
+    margin-left:0;
+    margin-right:2px;
     font-weight: 400;
     text-transform: none;
     margin-right:4px;
@@ -213,7 +224,7 @@ body {
   }
 
   .bt-line {
-    margin-top:20px;
+    margin-top:10px;
   }
   .kal {
     text-align:center;
@@ -225,8 +236,8 @@ body {
     b {
       display: block;
       text-align:left;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 400;
       text-transform: uppercase;
       font-family:RobotoDraft;
     }

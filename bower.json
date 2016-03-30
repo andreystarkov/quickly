@@ -2,7 +2,8 @@
   "name": "Quickly",
   "version": "0.0.2",
   "devDependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "ImageUpload": "https://github.com/Garik-/ImageUpload.js"
   },
   "dependencies": {
     "react": "^0.14.7",

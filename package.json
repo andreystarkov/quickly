@@ -29,6 +29,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.4",
     "gulp-rsync": "0.0.5",
+    "gulp-scp2": "^0.2.0",
     "gulp-sftp": "^0.1.5",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-ssh": "^0.5.5",

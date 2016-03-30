@@ -94,7 +94,7 @@ function compile(watch) {
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
             .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest('./app/app/build'));
+            .pipe(gulp.dest('./app/app/'));
     }
 
     if (watch) {
@@ -118,11 +118,11 @@ gulp.task('scripts-es6', function() {
 gulp.task('scripts', function() {
     return gulp.src(theLibs)
         .pipe(plugins.concat('libs.js'))
-        .pipe(gulp.dest('app/app/build'));
+        .pipe(gulp.dest('app/app/'));
 });
 
 gulp.task('scripts-concat', function(){
-    return gulp.src(['app/app/build/libs.js', 'app/app/build/es6.js'])
+    return gulp.src(['app/app/libs.js', 'app/app/es6.js'])
         .pipe(plugins.concat('scripts.js'))
         .pipe(uglify().on('error', gutil.log))
         .pipe(gulp.dest('app/app'));
@@ -204,10 +204,10 @@ gulp.task('production-copy-html', function() {
 });
 
 
-var scpClient = require('scp2');
+/* var scpClient = require('scp2');
 
 gulp.task('deploy', [], function (cb) {
-    scpClient.scp('./build/', {
+    scpClient.scp('./app/app/*', {
         "host": secrets.host,
         "port": secrets.port,
         "username": secrets.username,
@@ -215,6 +215,23 @@ gulp.task('deploy', [], function (cb) {
         "path": secrets.path,
         "agent": process.env["SSH_AUTH_SOCK"]
     }, cb)
+});
+
+*/
+
+var scp = require('gulp-scp2');
+
+gulp.task('deploy', function() {
+  return gulp.src('./app/app/**/*')
+  .pipe(scp({
+    host: secrets.host,
+    username: secrets.username,
+    password: secrets.password,
+    dest: secrets.path
+  }))
+  .on('error', function(err) {
+    console.log('Deploy error: ',err);
+  });
 });
 
 gulp.task('production', function(callback) {
@@ -230,22 +247,53 @@ gulp.task('production', function(callback) {
         callback)
 });
 
+gulp.task('scripts-deploy', function(callback) {
+    runSequence(
+        'js',
+        'deploy',
+        callback)
+});
+
+gulp.task('styles-deploy', function(callback) {
+    runSequence(
+        'styles',
+        'deploy',
+        callback)
+});
+
+gulp.task('watch-deploy', function(){
+    gulp.watch('app/libs/**/*.js', {
+        interval: 800
+    }, ['scripts-deploy']);
+    gulp.watch('app/libs/**/*.less', {
+        interval: 800
+    }, ['styles-deploy']);
+    gulp.watch('app/scripts/**/*.jsx', {
+        interval: 800
+    }, ['scripts-deploy']);
+    gulp.watch('app/scripts/**/*.js', {
+        interval: 800
+    }, ['js', 'deploy']);
+    gulp.watch('app/styles/**/*.less', {
+        interval: 800
+    }, ['styles-deploy']);
+});
 
 gulp.task('watch', function() {
     //  watch();
     gulp.watch('app/libs/**/*.js', {
         interval: 800
-    }, ['js']);
+    }, ['js','deploy']);
     gulp.watch('app/libs/**/*.less', {
         interval: 800
-    }, ['styles']);
+    }, ['styles', 'deploy']);
     gulp.watch('app/scripts/**/*.jsx', {
         interval: 800
-    }, ['js']);
+    }, ['js', 'deploy']);
     gulp.watch('app/scripts/**/*.js', {
         interval: 800
-    }, ['js']);
+    }, ['js', 'deploy']);
     gulp.watch('app/styles/**/*.less', {
         interval: 800
-    }, ['styles']);
+    }, ['styles', 'deploy']);
 });

@@ -7,6 +7,18 @@
 
 var MenuItemsStore = require('./stores/menuItemsStore.js');
 
+// var MenuCategoriesList = React.createClass({
+//     render: function(){
+//         return (
+//             <li className="category-line">
+//                 <button className="category-toggle">
+//                     <i className="icon"></i>{item.category_name}</a>
+//                 </button>
+//             </li>
+//         )
+//     }
+// });
+
 var SingleMenuItem = React.createClass({
     render: function(){
         var item = this.props.item;
