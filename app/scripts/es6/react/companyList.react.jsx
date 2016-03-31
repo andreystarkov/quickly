@@ -105,7 +105,10 @@ var CompanyList = React.createClass({
                 <div className="row">
                     <div className="no-padding col-lg-9">
                         <div className="company-list" id="companyList">
-                            <div>{totalList}
+                            <div>
+                                <div className="row">
+                                    {totalList}
+                                </div>
                                 <div className="full-width align-center">
                                     <ButtonMore onClick={this.loadMore} />
                                 </div>

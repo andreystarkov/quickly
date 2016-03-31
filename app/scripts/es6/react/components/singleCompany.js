@@ -26,7 +26,35 @@ var PaymentTypes = React.createClass({
         if (this.props.type == 1) return (
             <div className="payment-type">
                 <div className="payment-icons">
-                    <span><i className="pay-icon fi-payment-card" /></span>
+                    <span><i className="pay-icon fi-card-detail" /></span>
+                    <span><i className="pay-icon fi-payment-cash" /></span>
+                </div>
+                <div className="payment-text">
+                     <span>наличными</span>
+                     <span>картой курьеру</span>
+                </div>
+            </div>
+        );
+    }
+});
+
+var PaymentTypesCards = React.createClass({
+    render: function(){
+        console.log('payment: ', this.props.type);
+        if (this.props.type == 0) return (
+            <div className="payment-type">
+                <div className="payment-icons">
+                    <span><i className="pay-icon fi-payment-cash"></i></span>
+                </div>
+                <div className="payment-text">
+                     <span>только наличными</span>
+                </div>
+            </div>
+        );
+        if (this.props.type == 1) return (
+            <div className="payment-type">
+                <div className="payment-icons">
+                    <span><i className="pay-icon fi-card-detail" /></span>
                     <span><i className="pay-icon fi-payment-cash" /></span>
                 </div>
                 <div className="payment-text">
@@ -84,70 +112,67 @@ var SingleCompany = React.createClass({
         var rating = 4;
         if( that.restaurant_online_payment = 1 )
         console.log('SingleCompany: ', this.props.company);
+        // <PaymentTypes type={that.restaurant_payment_type} />
         return(
+        <div className="col-lg-6">
         <section style={style} className="company-item company-toggle" data-company={that.restaurant_id}>
             <div className="the-box row">
                 <div className="company-logo col-lg-3 col-xs-4 col-sm-4">
                     <div className="image-thumb">
                         <img src={imageUrl} />
                     </div>
+                    <div className="c-payment">
+                        <img src="images/cards/mastercard.png" alt="..." />
+                        <img src="images/cards/visa.png" alt="..." />
+                        <div className="is-online">
+                            онлайн оплата
+                        </div>
+                    </div>
                 </div>
                 <div className="company-description col-lg-9 col-xs-8 col-sm-8">
                     <h2>
                         {that.restaurant_name}
                         <div className="rating">
-                            <i className="fa yes fa-star"></i>
-                            <i className="fa yes fa-star"></i>
-                            <i className="fa yes fa-star"></i>
-                            <i className="fa yes fa-star"></i>
-                            <i className="fa no fa-star-o"></i>
+                            {rating}
                         </div>
                     </h2>
-
+                    <div className="address">
+                        <span>{that.restaurant_address}</span>
+                    </div>
                     <div className="text-line cuisines-list">
                         <span className="text-line">
                             <CuisinesList cuisines={that.restaurant_cuisines} />
                         </span>
                     </div>
-                   <div className="row bt-line">
-                        <div className="col-lg-8">
-                            <div className="payment-ccards">
-                                <PaymentTypes type={that.restaurant_payment_type} />
+                    <div className="row btm-line">
+                       <div className="col-lg-3 col-xs-3 kal">
+                            <div className="box-info">
+                                <b className="value">{that.restaurant_min_order} <i className="fa fa-rouble"></i></b>
+                                <span className="description">заказ от</span>
                             </div>
                         </div>
-                        <div className="col-lg-4 likes">
+                        <div className="col-lg-3 col-xs-3 kal">
+                            <div className="box-info">
+                                <b className="value">{that.restaurant_delivery_cost} <i className="fa fa-rouble"></i></b>
+                                <span className="description">доставка</span>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-3 col-xs-3 kal">
+                            <div className="box-info">
+                                <b className="value">{that.restaurant_delivery_time} <i className="icon icon-clock"></i></b>
+                                <span className="description">время</span>
+                            </div>
+                        </div>
+                        <div className="col-lg-3 col-xs-3 kal">
+                            <div className="box-info">
+                                <b className="value">{that.restaurant_average_check} <i className="fa fa-rouble"></i></b>
+                                <span className="description">средний чек</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="row btm-line">
-               <div className="col-lg-3 col-xs-3 kal">
-                    <div className="box-info">
-                        <b className="value">{that.restaurant_min_order} <i className="fa fa-rouble"></i></b>
-                        <span className="description">заказ от</span>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-xs-3 kal">
-                    <div className="box-info">
-                        <b className="value">{that.restaurant_delivery_cost} <i className="fa fa-rouble"></i></b>
-                        <span className="description">доставка</span>
-                    </div>
-                </div>
-
-                <div className="col-lg-3 col-xs-3 kal">
-                    <div className="box-info">
-                        <b className="value">{that.restaurant_delivery_time} <i className="icon icon-clock"></i></b>
-                        <span className="description">время</span>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-xs-3 kal">
-                    <div className="box-info">
-                        <b className="value">{that.restaurant_average_check} <i className="fa fa-rouble"></i></b>
-                        <span className="description">средний чек</span>
-                    </div>
-                </div>
-            </div>
-
             <div className="the-footer">
                 <div className="row">
                     <div className="align-left col-xs-6 col-lg-6">
@@ -169,6 +194,7 @@ var SingleCompany = React.createClass({
                 </div>
             </div>
         </section>
+        </div>
         );
     }
 });

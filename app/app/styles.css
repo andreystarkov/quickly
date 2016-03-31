@@ -8908,11 +8908,10 @@ body .company-item .the-box {
 }
 body .company-item .image-thumb {
   margin: 20px auto;
-  margin-right: 0;
   width: 90%;
 }
 body .company-item .cuisines-list {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 body .company-item .the-footer {
   border-bottom: 3px solid #e6e1d6;
@@ -8925,26 +8924,20 @@ body .company-item .the-footer {
   right: 0;
 }
 body .company-item .the-footer .right-icons {
-  position: absolute;
-  bottom: -20px;
-  right: 30px;
+  text-align: right;
 }
-body .company-item .the-footer .icon:before,
-body .company-item .the-footer .icon {
-  font-size: 26px;
+body .company-item .the-footer .fi-comment:before,
+body .company-item .the-footer .fi-comment {
+  font-size: 20px;
 }
 body .company-item .the-footer .bt-round {
   margin-left: 8px;
-  margin-right: 8px;
+  margin-right: 0px;
   display: inline-block;
-  height: 55px;
-  padding: 5px;
-  width: 55px;
+  padding: 0;
+  background: transparent;
+  border-bottom: 0;
   text-align: center;
-}
-body .company-item .the-footer .bt-round .icon,
-body .company-item .the-footer .bt-round .icon:before {
-  font-size: 27px;
 }
 body .company-item .the-footer .comments-count .icon,
 body .company-item .the-footer .comments-count .icon:before {
@@ -8956,9 +8949,9 @@ body .company-item .the-footer .comments-count .count {
   display: inline-block;
 }
 body .company-item .btm-line {
-  padding-top: 15px;
+  padding-top: 0px;
   margin-top: 0;
-  background: #fff;
+  margin-right: 0;
   padding-bottom: 15px;
 }
 body .company-item .background-image {
@@ -9065,7 +9058,7 @@ body .company-item .background-image img {
   body .company-item h2,
   body .company-item h1 {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 10px;
   }
   body .company-item h2 .icon-arrow-right,
@@ -9107,17 +9100,18 @@ body .company-item .background-image img {
   }
   body .company-item .value {
     font-size: 29px;
+    text-align: center;
     font-weight: 300;
   }
   body .company-item .value .icon {
     font-size: 16px;
     color: #6e6d67;
   }
-  body .company-item .description {
-    font-size: 11px;
-    content: '';
-  }
   body .company-item .box-info {
+    text-align: center;
+  }
+  body .company-item .box-info .description {
+    font-size: 10px;
     text-align: center;
   }
   body .company-item .box-info b {
@@ -19542,14 +19536,9 @@ div.top-box {
     transform: scale(1) translate(0%, 0%);
   }
 }
-.bt-round {
-  border-radius: 100px;
-  background-color: #fff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-}
 .bt-round .icon,
 .bt-round .icon:before {
-  color: #E00909;
+  color: #21201f;
 }
 .back-left {
   margin-left: 0px;
@@ -19606,7 +19595,7 @@ footer.page-footer {
 }
 .payment-type .pay-icon,
 .payment-type .pay-icon:before {
-  font-size: 35px;
+  font-size: 32px;
 }
 .payment-type .desc {
   display: inline-block;
@@ -19727,6 +19716,10 @@ body #toast-container.toast-left-top > div {
   display: inline-block;
   float: left;
 }
+.company-item .payment-type .payment-icons .fi-card-detail:before,
+.company-item .payment-type .payment-icons .fi-card-detail {
+  font-size: 28px;
+}
 .company-item .payment-type .payment-text {
   display: inline-block;
   float: left;
@@ -19737,8 +19730,13 @@ body #toast-container.toast-left-top > div {
   display: block;
 }
 .company-item .rating {
+  font-size: 16px;
+  padding: 4px 8px;
+  background: #109634;
+  color: #fff;
+  border-radius: 4px;
   float: right;
-  margin-right: 25px;
+  margin-right: 15px;
 }
 .company-item .rating i {
   font-size: 16px;
@@ -19753,8 +19751,8 @@ body #toast-container.toast-left-top > div {
   color: rgba(33, 32, 31, 0.5);
 }
 .company-item .the-footer {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px 15px;
+  background: #fff;
+  padding: 10px 5px;
 }
 .company-item .cuisines-list {
   margin-bottom: 10px;
@@ -19765,15 +19763,16 @@ body #toast-container.toast-left-top > div {
   font-weight: 400;
   text-transform: none;
   margin-right: 4px;
-  padding: 5px 8px;
-  font-size: 0.9em;
+  padding: 2px 3px;
+  font-size: 0.8em;
   -webkit-transition: 0.4s linear all;
   -moz-transition: 0.4s linear all;
   transition: 0.4s linear all;
-  background: #faf9f7;
+  background: transparent;
   border-radius: 3px;
 }
 .company-item .text-line {
+  height: 55px;
   display: block;
   color: #21201f;
   font-weight: 400;
@@ -19783,9 +19782,15 @@ body #toast-container.toast-left-top > div {
   color: #8d8b89;
 }
 .company-item h2 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   font-family: 'Fira Sans';
+  margin-bottom: 0;
+}
+.company-item .address {
+  font-size: 12px;
+  color: #8d8b89;
+  margin-bottom: 8px;
 }
 .company-item .bt-line {
   margin-top: 0px;
@@ -19793,25 +19798,31 @@ body #toast-container.toast-left-top > div {
 .company-item .kal {
   text-align: center;
 }
+.company-item .kal .description {
+  font-size: 10px;
+}
+.company-item .comments-count {
+  margin-top: 3px;
+}
 .company-item .box-info {
   display: inline-block;
-  text-align: left;
+  text-align: center;
 }
 .company-item .box-info b {
   display: block;
-  text-align: left;
-  font-size: 18px;
-  font-weight: 500;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
   text-transform: uppercase;
   font-family: RobotoDraft;
 }
 .company-item .box-info b .fa,
 .company-item .box-info b .icon {
-  font-size: 15px;
+  font-size: 14px;
 }
 .company-item .image-thumb {
   margin-bottom: 20px;
-  padding: 15px 30px;
+  padding: 0px;
   margin-left: 25px;
   width: 200px;
   border-radius: 5px;
@@ -19845,11 +19856,22 @@ body #toast-container.toast-left-top > div {
   display: inline-block;
   margin-left: 10px;
 }
+.c-payment {
+  text-align: center;
+}
+.c-payment img {
+  width: 28px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.is-online {
+  font-size: 9px;
+  margin-top: 4px;
+}
 .btm-line {
   margin-top: 15px;
   padding-top: 30px;
   padding-bottom: 30px;
-  background: rgba(33, 32, 31, 0.05);
 }
 .pay-cards .cards {
   float: left;

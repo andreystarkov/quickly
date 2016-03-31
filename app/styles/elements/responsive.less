@@ -283,18 +283,16 @@ body {
         }
         .image-thumb {
             margin:20px auto;
-            margin-right:0;
+
             width:90%;
         }
         .cuisines-list {
-            margin-bottom:10px;
+            margin-bottom:5px;
         }
         .the-footer {
             border-bottom:3px solid darken(@colorDefaultBackground,8%);
             .right-icons {
-                position:absolute;
-                bottom:-20px;
-                right:30px;
+                text-align:right;
             }
             padding-top:6px;
             padding-bottom:6px;
@@ -303,19 +301,20 @@ body {
             bottom:0;
             left:0;
             right:0;
-            .icon:before, .icon {
-                font-size:26px;
+            .fi-comment:before, .fi-comment {
+                font-size:20px;
             }
             .bt-round {
                 margin-left:8px;
-                margin-right:8px;
+                margin-right:0px;
                 display:inline-block;
-                height: 55px;
-                padding: 5px;
+                padding:0;
+                background:transparent;
+                border-bottom:0;
                 .icon, .icon:before {
-                    font-size:27px;
+
                 }
-                width: 55px;
+
                 text-align: center;
 
             }
@@ -331,9 +330,9 @@ body {
             }
         }
         .btm-line {
-            padding-top: 15px;
+            padding-top: 0px;
             margin-top: 0;
-            background: #fff;
+            margin-right:0;
             padding-bottom: 15px;
         }
         position:relative;
@@ -449,7 +448,7 @@ body {
                     color:mix(@colorBlack,@colorWhite,50%);
                 }
                 font-size:16px;
-                font-weight:400;
+                font-weight:300;
                 margin-bottom:10px;
             }
             .kal {
@@ -493,17 +492,18 @@ body {
             }
             .value {
                 font-size:29px;
+                text-align:center;
                 font-weight:300;
                 .icon {
                    font-size:16px;
                    color:mix(@colorBlack,@colorGray,60%);
                 }
             }
-            .description {
-                font-size:11px;
-                content:''
-            }
             .box-info {
+                .description {
+                    font-size:10px;
+                    text-align:center;
+                }
                 b {
                     text-align:center;
                     font-size:20px;

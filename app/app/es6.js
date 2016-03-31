@@ -874,7 +874,11 @@ var CompanyList = React.createClass({
                             React.createElement(
                                 'div',
                                 null,
-                                totalList,
+                                React.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    totalList
+                                ),
                                 React.createElement(
                                     'div',
                                     { className: 'full-width align-center' },
@@ -1314,7 +1318,69 @@ var PaymentTypes = React.createClass({
                 React.createElement(
                     'span',
                     null,
-                    React.createElement('i', { className: 'pay-icon fi-payment-card' })
+                    React.createElement('i', { className: 'pay-icon fi-card-detail' })
+                ),
+                React.createElement(
+                    'span',
+                    null,
+                    React.createElement('i', { className: 'pay-icon fi-payment-cash' })
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'payment-text' },
+                React.createElement(
+                    'span',
+                    null,
+                    'наличными'
+                ),
+                React.createElement(
+                    'span',
+                    null,
+                    'картой курьеру'
+                )
+            )
+        );
+    }
+});
+
+var PaymentTypesCards = React.createClass({
+    displayName: 'PaymentTypesCards',
+
+    render: function render() {
+        console.log('payment: ', this.props.type);
+        if (this.props.type == 0) return React.createElement(
+            'div',
+            { className: 'payment-type' },
+            React.createElement(
+                'div',
+                { className: 'payment-icons' },
+                React.createElement(
+                    'span',
+                    null,
+                    React.createElement('i', { className: 'pay-icon fi-payment-cash' })
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'payment-text' },
+                React.createElement(
+                    'span',
+                    null,
+                    'только наличными'
+                )
+            )
+        );
+        if (this.props.type == 1) return React.createElement(
+            'div',
+            { className: 'payment-type' },
+            React.createElement(
+                'div',
+                { className: 'payment-icons' },
+                React.createElement(
+                    'span',
+                    null,
+                    React.createElement('i', { className: 'pay-icon fi-card-detail' })
                 ),
                 React.createElement(
                     'span',
@@ -1389,182 +1455,189 @@ var SingleCompany = React.createClass({
         };
         var rating = 4;
         if (that.restaurant_online_payment = 1) console.log('SingleCompany: ', this.props.company);
+        // <PaymentTypes type={that.restaurant_payment_type} />
         return React.createElement(
-            'section',
-            { style: style, className: 'company-item company-toggle', 'data-company': that.restaurant_id },
+            'div',
+            { className: 'col-lg-6' },
             React.createElement(
-                'div',
-                { className: 'the-box row' },
+                'section',
+                { style: style, className: 'company-item company-toggle', 'data-company': that.restaurant_id },
                 React.createElement(
                     'div',
-                    { className: 'company-logo col-lg-3 col-xs-4 col-sm-4' },
+                    { className: 'the-box row' },
                     React.createElement(
                         'div',
-                        { className: 'image-thumb' },
-                        React.createElement('img', { src: imageUrl })
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'company-description col-lg-9 col-xs-8 col-sm-8' },
-                    React.createElement(
-                        'h2',
-                        null,
-                        that.restaurant_name,
+                        { className: 'company-logo col-lg-3 col-xs-4 col-sm-4' },
                         React.createElement(
                             'div',
-                            { className: 'rating' },
-                            React.createElement('i', { className: 'fa yes fa-star' }),
-                            React.createElement('i', { className: 'fa yes fa-star' }),
-                            React.createElement('i', { className: 'fa yes fa-star' }),
-                            React.createElement('i', { className: 'fa yes fa-star' }),
-                            React.createElement('i', { className: 'fa no fa-star-o' })
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'text-line cuisines-list' },
-                        React.createElement(
-                            'span',
-                            { className: 'text-line' },
-                            React.createElement(CuisinesList, { cuisines: that.restaurant_cuisines })
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'row bt-line' },
+                            { className: 'image-thumb' },
+                            React.createElement('img', { src: imageUrl })
+                        ),
                         React.createElement(
                             'div',
-                            { className: 'col-lg-8' },
+                            { className: 'c-payment' },
+                            React.createElement('img', { src: 'images/cards/mastercard.png', alt: '...' }),
+                            React.createElement('img', { src: 'images/cards/visa.png', alt: '...' }),
                             React.createElement(
                                 'div',
-                                { className: 'payment-ccards' },
-                                React.createElement(PaymentTypes, { type: that.restaurant_payment_type })
-                            )
-                        ),
-                        React.createElement('div', { className: 'col-lg-4 likes' })
-                    )
-                )
-            ),
-            React.createElement(
-                'div',
-                { className: 'row btm-line' },
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-3 col-xs-3 kal' },
-                    React.createElement(
-                        'div',
-                        { className: 'box-info' },
-                        React.createElement(
-                            'b',
-                            { className: 'value' },
-                            that.restaurant_min_order,
-                            ' ',
-                            React.createElement('i', { className: 'fa fa-rouble' })
-                        ),
-                        React.createElement(
-                            'span',
-                            { className: 'description' },
-                            'заказ от'
-                        )
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-3 col-xs-3 kal' },
-                    React.createElement(
-                        'div',
-                        { className: 'box-info' },
-                        React.createElement(
-                            'b',
-                            { className: 'value' },
-                            that.restaurant_delivery_cost,
-                            ' ',
-                            React.createElement('i', { className: 'fa fa-rouble' })
-                        ),
-                        React.createElement(
-                            'span',
-                            { className: 'description' },
-                            'доставка'
-                        )
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-3 col-xs-3 kal' },
-                    React.createElement(
-                        'div',
-                        { className: 'box-info' },
-                        React.createElement(
-                            'b',
-                            { className: 'value' },
-                            that.restaurant_delivery_time,
-                            ' ',
-                            React.createElement('i', { className: 'icon icon-clock' })
-                        ),
-                        React.createElement(
-                            'span',
-                            { className: 'description' },
-                            'время'
-                        )
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-3 col-xs-3 kal' },
-                    React.createElement(
-                        'div',
-                        { className: 'box-info' },
-                        React.createElement(
-                            'b',
-                            { className: 'value' },
-                            that.restaurant_average_check,
-                            ' ',
-                            React.createElement('i', { className: 'fa fa-rouble' })
-                        ),
-                        React.createElement(
-                            'span',
-                            { className: 'description' },
-                            'средний чек'
-                        )
-                    )
-                )
-            ),
-            React.createElement(
-                'div',
-                { className: 'the-footer' },
-                React.createElement(
-                    'div',
-                    { className: 'row' },
-                    React.createElement(
-                        'div',
-                        { className: 'align-left col-xs-6 col-lg-6' },
-                        React.createElement(
-                            'div',
-                            { className: 'comments-count' },
-                            React.createElement('i', { className: 'icon fi-comment' }),
-                            React.createElement(
-                                'span',
-                                { className: 'count' },
-                                that.restaurant_comments_count
+                                { className: 'is-online' },
+                                'онлайн оплата'
                             )
                         )
                     ),
                     React.createElement(
                         'div',
-                        { className: 'align-right col-xs-6 col-lg-6' },
+                        { className: 'company-description col-lg-9 col-xs-8 col-sm-8' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            that.restaurant_name,
+                            React.createElement(
+                                'div',
+                                { className: 'rating' },
+                                rating
+                            )
+                        ),
                         React.createElement(
                             'div',
-                            { className: 'right-icons' },
+                            { className: 'address' },
                             React.createElement(
-                                'button',
-                                { className: 'bt-round delivery' },
-                                React.createElement('i', { className: 'icon fi-dish' })
+                                'span',
+                                null,
+                                that.restaurant_address
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'text-line cuisines-list' },
+                            React.createElement(
+                                'span',
+                                { className: 'text-line' },
+                                React.createElement(CuisinesList, { cuisines: that.restaurant_cuisines })
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'row btm-line' },
+                            React.createElement(
+                                'div',
+                                { className: 'col-lg-3 col-xs-3 kal' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'box-info' },
+                                    React.createElement(
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_min_order,
+                                        ' ',
+                                        React.createElement('i', { className: 'fa fa-rouble' })
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'description' },
+                                        'заказ от'
+                                    )
+                                )
                             ),
                             React.createElement(
-                                'button',
-                                { className: 'bt-round reservation' },
-                                React.createElement('i', { className: 'icon fi-table' })
+                                'div',
+                                { className: 'col-lg-3 col-xs-3 kal' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'box-info' },
+                                    React.createElement(
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_delivery_cost,
+                                        ' ',
+                                        React.createElement('i', { className: 'fa fa-rouble' })
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'description' },
+                                        'доставка'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'col-lg-3 col-xs-3 kal' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'box-info' },
+                                    React.createElement(
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_delivery_time,
+                                        ' ',
+                                        React.createElement('i', { className: 'icon icon-clock' })
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'description' },
+                                        'время'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'col-lg-3 col-xs-3 kal' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'box-info' },
+                                    React.createElement(
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_average_check,
+                                        ' ',
+                                        React.createElement('i', { className: 'fa fa-rouble' })
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'description' },
+                                        'средний чек'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'the-footer' },
+                    React.createElement(
+                        'div',
+                        { className: 'row' },
+                        React.createElement(
+                            'div',
+                            { className: 'align-left col-xs-6 col-lg-6' },
+                            React.createElement(
+                                'div',
+                                { className: 'comments-count' },
+                                React.createElement('i', { className: 'icon fi-comment' }),
+                                React.createElement(
+                                    'span',
+                                    { className: 'count' },
+                                    that.restaurant_comments_count
+                                )
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'align-right col-xs-6 col-lg-6' },
+                            React.createElement(
+                                'div',
+                                { className: 'right-icons' },
+                                React.createElement(
+                                    'button',
+                                    { className: 'bt-round delivery' },
+                                    React.createElement('i', { className: 'icon fi-dish' })
+                                ),
+                                React.createElement(
+                                    'button',
+                                    { className: 'bt-round reservation' },
+                                    React.createElement('i', { className: 'icon fi-table' })
+                                )
                             )
                         )
                     )
