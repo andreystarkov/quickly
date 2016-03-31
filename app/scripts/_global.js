@@ -2,12 +2,14 @@ var cuisinesList;
 var isAuth;
 
 var currentCompany = 1;
+var currentCuisine;
 
 var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
 var devMode = true;
+var currentVersion = '0.1.2';
 
 if (devMode) {
     var serverUrl = 'http://176.112.201.81';
@@ -20,6 +22,8 @@ if (devMode) {
 }
 
 $(function() {
+    console.log('init: version = '+currentVersion);
+    console.log('init: devMode = '+devMode);
     console.log('init: serverUrl = ', serverUrl);
     console.log('init: imageBaseUrl = ', imageBaseUrl);
     console.log('init: hallsUrl = ', hallsUrl);
@@ -42,6 +46,9 @@ if (userToken !== undefined) {
     isAuth = 1;
 }
 
+function first(obj) {
+    for (var a in obj) return a;
+}
 function isEmpty(obj) {
     if (obj) return Object.keys(obj).length === 0;
 }
@@ -82,7 +89,7 @@ function flyToCart(what) {
             'width': 75,
             'height': 75,
         }, 400, "easeOutSine", function() {
-
+            // what?
         });
 
         setTimeout(function() {
@@ -109,5 +116,4 @@ function flyToCart(what) {
             $(this).detach()
         });
     }
-
 }

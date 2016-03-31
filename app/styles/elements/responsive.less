@@ -256,38 +256,86 @@
 }
 
 body {
+    .company-list-header {
+        .main-logo .text h1, .main-logo .text h2 {
+            margin-top:10px;
+        }
+    }
     .company-item {
+        &:hover {
+            .the-box {
+                background:#fff;
+            }
+            .the-footer {
+                background:#fff;
+            }
+        }
+        .rating {
+            float:right;
+        }
         position:relative;
-        padding-bottom:80px;
+        padding-bottom:140px;
         border: 0px;
         .the-box {
             z-index:1;
-            background:#fff;
+            background: #fff;
+            padding-bottom:6px;
         }
-      .image-thumb {
-        margin:20px auto;
-        margin-right:0;
-        width:90%;
-      }
-      .the-footer {
-        padding-top:6px;
-        padding-bottom:6px;
-        position:absolute;
-        width:100%;
-        bottom:0;
-        left:0;
-      //  background:#fff;
-        right:0;
-        i {
-            font-size:26px;
+        .image-thumb {
+            margin:20px auto;
+            margin-right:0;
+            width:90%;
         }
-      }
-      .btm-line {
-        padding-top: 5px;
-        margin-top: 0;
-        background: rgba(255,255,255,.75);
-        padding-bottom: 5px;
-      }
+        .cuisines-list {
+            margin-bottom:10px;
+        }
+        .the-footer {
+            border-bottom:3px solid darken(@colorDefaultBackground,8%);
+            .right-icons {
+                position:absolute;
+                bottom:-20px;
+                right:30px;
+            }
+            padding-top:6px;
+            padding-bottom:6px;
+            position:absolute;
+            width:100%;
+            bottom:0;
+            left:0;
+            right:0;
+            .icon:before, .icon {
+                font-size:26px;
+            }
+            .bt-round {
+                margin-left:8px;
+                margin-right:8px;
+                display:inline-block;
+                height: 55px;
+                padding: 5px;
+                .icon, .icon:before {
+                    font-size:27px;
+                }
+                width: 55px;
+                text-align: center;
+
+            }
+            .comments-count {
+                .icon, .icon:before {
+                    margin-top:3px;
+                }
+                .count {
+                    font-size:18px;
+                    font-weight:200;
+                    display:inline-block;
+                }
+            }
+        }
+        .btm-line {
+            padding-top: 15px;
+            margin-top: 0;
+            background: #fff;
+            padding-bottom: 15px;
+        }
         position:relative;
         .background-image {
             overflow:hidden;

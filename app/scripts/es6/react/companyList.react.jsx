@@ -6,52 +6,51 @@ var QuicklyLogo = require('./components/quicklyLogo.js');
 var CuisinesActions = require('./actions/cuisinesActions.js');
 var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
+var CuisinesList = require('./companyList.react.jsx');
+// CompanyListActions.selectByCuisine(this.props.cuisine);
 
 var CompanyListHeader = React.createClass({
     render: function(){
-        var overall;
         var cuisine = this.props.cuisine;
-
-        console.log('CompanyListHeader: cuisine = ', cuisine);
-
-        return (
-        <section className="main-header company-list-header">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6">
-                        <div className="row main-logo">
-                            <div className="col-lg-5">
-{/*                                <div className="cuisine-thumb">
-                                    <img src={cuisine.image} alt={this.props.title} />
-                                </div>*/}
-                            </div>
-                            <div className="col-lg-6 text">
-                                <h1>{this.props.title}</h1>
-                                <p></p>
+            return (
+            <section className="company-list-header">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-4">
+                            <div className="row main-logo">
+                                <div className="col-lg-6">
+                                    <div className="cuisine-thumb">
+                                        <img src={imageBaseUrl+cuisine.cuisine_image} alt={cuisine.cuisine_name} />
+                                    </div>
+                                </div>
+                                <div className="col-lg-6 text">
+                                    <h1>{cuisine.cuisine_name}</h1>
+                                    <p>Выберите ресторан из списка</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-lg-3">
-
-                    </div>
-                    <div className="col-lg-3">
-
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-8">
-                        <div className="back-to-home align-left back-left">
-                            <button className="button light screen-toggle" data-screen="pageMain" id="buttonPageMain">
-                                <i className="icon icon-arrow-left"></i><span> К списку кухонь</span>
-                            </button>
+                        <div className="col-lg-6 cuisine-select-row">
+                            <button className="cuisine-select">Пицца</button>
+                            <button className="cuisine-select">Роллы</button>
+                            <button className="cuisine-select">Русская кухня</button>
                         </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="row bottom-line">
+                        <div className="col-lg-8">
+                            <div className="back-to-home align-left back-left">
+                                <button className="button light screen-toggle" data-screen="pageMain" id="buttonPageMain">
+                                    <i className="icon icon-arrow-left"></i><span> К списку</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 align-right">
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        )
+            </section>
+            )
+
     }
 });
 
@@ -76,21 +75,31 @@ var CompanyList = React.createClass({
     render: function() {
         var cuisineId = CompanyListStore.getCurrentCuisine();
 
-    var theData = this.state.companyData;
+        var theData = this.state.companyData;
         console.log('CompanyList: companyData = ', this.state.companyData);
         var totalList = this.state.companyData.map(function(the, i) {
             return <SingleCompany company={the} key={i} />
         });
 
-        var cuisine = _.where(this.state.cuisines,{cuisine_id:cuisineId});
-
         console.log('CompanyList: this.state.cuisines = ', this.state.cuisines);
-        console.log('CompanyList: cuisine = ', cuisine);
+
+        var overall, single, cuisines, cuisine;
+
+        console.log('CompanyListHeader: cuisineId = ', cuisineId);
+        if (cuisineId > 0) {
+            cuisines = getStorage('cuisines');
+            single = _.where(cuisines,{cuisine_id:cuisineId});
+
+            single.forEach(function (val, index) {
+                cuisine = <CompanyListHeader cuisine={val} />;
+            });
+        }
+        console.log('CompanyListHeader: cuisine = ', cuisine);
 
         return (
         <div className="company-list-wrap">
-            <div className="gray">
-                <CompanyListHeader cuisine={cuisine} />
+            <div className="gray header-gray">
+                {cuisine}
             </div>
             <div className="container">
                 <div className="row">

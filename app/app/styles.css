@@ -322,6 +322,113 @@ w — ITC Studio Script
 .icn-calendar:before { content: '\e83a'; } /* '' */
 .icn-key:before { content: '\e83b'; } /* '' */
 .icn-user:before { content: '\e83c'; } /* '' */
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 31/03/2016 09:34
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/icons/Flaticon.eot");
+  src: url("../fonts/icons/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/icons/Flaticon.woff") format("woff"),
+       url("../fonts/icons/Flaticon.ttf") format("truetype"),
+       url("../fonts/icons/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/icons/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="fi-"]:before, [class*=" fi-"]:before,
+[class^="fi-"]:after, [class*=" fi-"]:after {
+  font-family: Flaticon;
+  font-size: 24px;
+  font-style: normal;
+  margin-left: 10px;
+  margin-right:10px;
+}
+
+.fi-add-cart:before { content: "\f100"; }
+.fi-barb:before { content: "\f101"; }
+.fi-basket:before { content: "\f102"; }
+.fi-burger:before { content: "\f103"; }
+.fi-burger-1:before { content: "\f104"; }
+.fi-burger-3:before { content: "\f105"; }
+.fi-burger-big:before { content: "\f106"; }
+.fi-burgers:before { content: "\f107"; }
+.fi-cake:before { content: "\f108"; }
+.fi-calendar:before { content: "\f109"; }
+.fi-card:before { content: "\f10a"; }
+.fi-card-detail:before { content: "\f10b"; }
+.fi-card-lock:before { content: "\f10c"; }
+.fi-card-ok:before { content: "\f10d"; }
+.fi-card-percent:before { content: "\f10e"; }
+.fi-card-secure:before { content: "\f10f"; }
+.fi-cart-fast:before { content: "\f110"; }
+.fi-cart-full:before { content: "\f111"; }
+.fi-cart-round:before { content: "\f112"; }
+.fi-cash:before { content: "\f113"; }
+.fi-clock:before { content: "\f114"; }
+.fi-clock-1:before { content: "\f115"; }
+.fi-clock-2:before { content: "\f116"; }
+.fi-coins:before { content: "\f117"; }
+.fi-comment:before { content: "\f118"; }
+.fi-compass:before { content: "\f119"; }
+.fi-delete-back:before { content: "\f11a"; }
+.fi-delivery:before { content: "\f11b"; }
+.fi-dish:before { content: "\f11c"; }
+.fi-dish-1:before { content: "\f11d"; }
+.fi-dish-hot:before { content: "\f11e"; }
+.fi-dishes:before { content: "\f11f"; }
+.fi-dishes-2:before { content: "\f120"; }
+.fi-drink:before { content: "\f121"; }
+.fi-envelope:before { content: "\f122"; }
+.fi-favourite:before { content: "\f123"; }
+.fi-food:before { content: "\f124"; }
+.fi-food-plate:before { content: "\f125"; }
+.fi-food-plate-1:before { content: "\f126"; }
+.fi-food-plate-2:before { content: "\f127"; }
+.fi-gastro:before { content: "\f128"; }
+.fi-gastro-alt:before { content: "\f129"; }
+.fi-japanese-food-table:before { content: "\f12a"; }
+.fi-map:before { content: "\f12b"; }
+.fi-money:before { content: "\f12c"; }
+.fi-pack:before { content: "\f12d"; }
+.fi-payment-card:before { content: "\f12e"; }
+.fi-payment-cash:before { content: "\f12f"; }
+.fi-phone:before { content: "\f130"; }
+.fi-pie:before { content: "\f131"; }
+.fi-pie-alt:before { content: "\f132"; }
+.fi-pie-round:before { content: "\f133"; }
+.fi-pizza:before { content: "\f134"; }
+.fi-pizza-cut:before { content: "\f135"; }
+.fi-pizza-full:before { content: "\f136"; }
+.fi-pizza-piece:before { content: "\f137"; }
+.fi-point:before { content: "\f138"; }
+.fi-point-cart:before { content: "\f139"; }
+.fi-profile:before { content: "\f13a"; }
+.fi-rotate:before { content: "\f13b"; }
+.fi-rouble:before { content: "\f13c"; }
+.fi-search:before { content: "\f13d"; }
+.fi-seconds:before { content: "\f13e"; }
+.fi-secundomer:before { content: "\f13f"; }
+.fi-sushi:before { content: "\f140"; }
+.fi-sushi-1:before { content: "\f141"; }
+.fi-table:before { content: "\f142"; }
+.fi-table-persons:before { content: "\f143"; }
+.fi-time:before { content: "\f144"; }
+.fi-time-1:before { content: "\f145"; }
+.fi-truck:before { content: "\f146"; }
+.fi-user-round:before { content: "\f147"; }
+.fi-wallet:before { content: "\f148"; }
+.fi-wok:before { content: "\f149"; }
+
 .br-theme-fontawesome-stars .br-widget {
   height: 28px;
   white-space: nowrap;
@@ -8776,21 +8883,39 @@ body .form-group {
     font-size: 12px;
   }
 }
+body .company-list-header .main-logo .text h1,
+body .company-list-header .main-logo .text h2 {
+  margin-top: 10px;
+}
 body .company-item {
-  padding-bottom: 80px;
+  padding-bottom: 140px;
   border: 0px;
   position: relative;
+}
+body .company-item:hover .the-box {
+  background: #fff;
+}
+body .company-item:hover .the-footer {
+  background: #fff;
+}
+body .company-item .rating {
+  float: right;
 }
 body .company-item .the-box {
   z-index: 1;
   background: #fff;
+  padding-bottom: 6px;
 }
 body .company-item .image-thumb {
   margin: 20px auto;
   margin-right: 0;
   width: 90%;
 }
+body .company-item .cuisines-list {
+  margin-bottom: 10px;
+}
 body .company-item .the-footer {
+  border-bottom: 3px solid #e6e1d6;
   padding-top: 6px;
   padding-bottom: 6px;
   position: absolute;
@@ -8799,14 +8924,42 @@ body .company-item .the-footer {
   left: 0;
   right: 0;
 }
-body .company-item .the-footer i {
+body .company-item .the-footer .right-icons {
+  position: absolute;
+  bottom: -20px;
+  right: 30px;
+}
+body .company-item .the-footer .icon:before,
+body .company-item .the-footer .icon {
   font-size: 26px;
 }
+body .company-item .the-footer .bt-round {
+  margin-left: 8px;
+  margin-right: 8px;
+  display: inline-block;
+  height: 55px;
+  padding: 5px;
+  width: 55px;
+  text-align: center;
+}
+body .company-item .the-footer .bt-round .icon,
+body .company-item .the-footer .bt-round .icon:before {
+  font-size: 27px;
+}
+body .company-item .the-footer .comments-count .icon,
+body .company-item .the-footer .comments-count .icon:before {
+  margin-top: 3px;
+}
+body .company-item .the-footer .comments-count .count {
+  font-size: 18px;
+  font-weight: 200;
+  display: inline-block;
+}
 body .company-item .btm-line {
-  padding-top: 5px;
+  padding-top: 15px;
   margin-top: 0;
-  background: rgba(255, 255, 255, 0.75);
-  padding-bottom: 5px;
+  background: #fff;
+  padding-bottom: 15px;
 }
 body .company-item .background-image {
   overflow: hidden;
@@ -10376,6 +10529,16 @@ section.user-profile .buttons-line .buttons-reserv {
 }
 .main-tabs {
   margin-top: 0px;
+}
+.company-list-header {
+  overflow-y: hidden;
+  padding-bottom: 0px;
+}
+.company-list-header .container {
+  overflow-y: hidden;
+}
+.company-list-header .bottom-line {
+  margin-top: 10px;
 }
 .main-header {
   overflow-y: hidden;
@@ -19379,6 +19542,15 @@ div.top-box {
     transform: scale(1) translate(0%, 0%);
   }
 }
+.bt-round {
+  border-radius: 100px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+}
+.bt-round .icon,
+.bt-round .icon:before {
+  color: #E00909;
+}
 .back-left {
   margin-left: 0px;
 }
@@ -19395,6 +19567,27 @@ div.top-box {
 .button-return .button {
   width: 100%;
 }
+.header-gray {
+  background: #f1f0ea;
+}
+.header-gray .cuisine-select-row {
+  padding-top: 50px;
+}
+.header-gray .cuisine-select-row .cuisine-select {
+  margin-right: 8px;
+  font-weight: normal;
+  text-transform: uppercase;
+  background: #f7f6f1;
+  border-bottom: 3px solid #e8e6d9;
+}
+.header-gray .container {
+  padding-left: 25px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.header-gray .back-to-home {
+  margin-left: 34px;
+}
 .the-screen {
   display: none;
 }
@@ -19409,18 +19602,19 @@ footer.page-footer {
   padding-left: 0 !important;
 }
 .payment-type .pay-icon {
-  display: block;
-  float: left;
-  font-size: 26px;
+  display: inline-block;
+}
+.payment-type .pay-icon,
+.payment-type .pay-icon:before {
+  font-size: 35px;
 }
 .payment-type .desc {
-  display: block;
-  float: left;
+  display: inline-block;
   margin-left: 8px;
   font-size: 10px;
 }
 .payment-type .desc i {
-  display: block;
+  display: inline-block;
   font-size: 10px;
   font-style: normal;
 }
@@ -19489,6 +19683,19 @@ body #toast-container.toast-left-top > div {
   padding: 15px 15px 15px 50px;
   margin-right: 8%;
 }
+.align-right {
+  text-align: right;
+}
+.cuisine-thumb {
+  border-radius: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+.cuisine-thumb img {
+  height: 100%;
+}
 .company-toggle {
   cursor: pointer;
 }
@@ -19505,11 +19712,52 @@ body #toast-container.toast-left-top > div {
 }
 .company-item {
   background-size: cover;
+  background-position-y: 400px;
+  border-bottom: 3px solid #E2E0D3;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 8px;
   overflow: hidden;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+.company-item .payment-type {
+  overflow: hidden;
+}
+.company-item .payment-type .payment-icons {
+  display: inline-block;
+  float: left;
+}
+.company-item .payment-type .payment-text {
+  display: inline-block;
+  float: left;
+  font-size: 10px;
+  padding: 10px;
+}
+.company-item .payment-type .payment-text span {
+  display: block;
+}
+.company-item .rating {
+  float: right;
+  margin-right: 25px;
+}
+.company-item .rating i {
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.company-item .rating .yes {
+  color: #E00909;
+}
+.company-item .rating .no {
+  color: rgba(33, 32, 31, 0.5);
+}
+.company-item .the-footer {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+}
+.company-item .cuisines-list {
+  margin-bottom: 10px;
 }
 .company-item .button-cuisine {
   margin-left: 0;
@@ -19517,12 +19765,12 @@ body #toast-container.toast-left-top > div {
   font-weight: 400;
   text-transform: none;
   margin-right: 4px;
-  padding: 6px 16px;
+  padding: 5px 8px;
   font-size: 0.9em;
   -webkit-transition: 0.4s linear all;
   -moz-transition: 0.4s linear all;
   transition: 0.4s linear all;
-  background: #f7f6f1;
+  background: #faf9f7;
   border-radius: 3px;
 }
 .company-item .text-line {
@@ -19537,9 +19785,10 @@ body #toast-container.toast-left-top > div {
 .company-item h2 {
   font-size: 22px;
   font-weight: 400;
+  font-family: 'Fira Sans';
 }
 .company-item .bt-line {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 .company-item .kal {
   text-align: center;
@@ -19551,14 +19800,18 @@ body #toast-container.toast-left-top > div {
 .company-item .box-info b {
   display: block;
   text-align: left;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
   text-transform: uppercase;
   font-family: RobotoDraft;
 }
+.company-item .box-info b .fa,
+.company-item .box-info b .icon {
+  font-size: 15px;
+}
 .company-item .image-thumb {
   margin-bottom: 20px;
-  padding: 10px 30px;
+  padding: 15px 30px;
   margin-left: 25px;
   width: 200px;
   border-radius: 5px;
@@ -19570,11 +19823,11 @@ body #toast-container.toast-left-top > div {
   width: 90%;
 }
 .company-item .payment-ccards {
+  margin-top: 8px;
+  background: rgba(16, 150, 52, 0.06);
   display: inline-block;
-  padding: 3px 5px;
   border-radius: 2px;
-  margin-top: 10px;
-  border: 1px solid #9bd0a7;
+  margin-top: 0px;
 }
 .company-item .ttexts {
   float: left;
@@ -19594,8 +19847,8 @@ body #toast-container.toast-left-top > div {
 }
 .btm-line {
   margin-top: 15px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   background: rgba(33, 32, 31, 0.05);
 }
 .pay-cards .cards {

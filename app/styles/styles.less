@@ -48,6 +48,15 @@
 
 @import "_imports";
 
+.bt-round {
+  border-radius:100px;
+  background-color:#fff;
+  box-shadow: 0px 1px 3px fade(#000,40%);
+  //border-bottom:3px solid darken(#f1f0ea,8%);
+  .icon, .icon:before {
+    color:@colorRed;
+  }
+}
 .back-left {
     margin-left:0px;
 }
@@ -64,6 +73,28 @@
   margin-bottom:30px;
   .button {
     width:100%;
+  }
+}
+
+.header-gray {
+  .cuisine-select-row {
+    padding-top:50px;
+    .cuisine-select {
+      margin-right:8px;
+      font-weight:normal;
+      text-transform:uppercase;
+      background: #f7f6f1;
+     border-bottom: 3px solid #e8e6d9;
+    }
+  }
+  background: #f1f0ea;
+  .container {
+    padding-left:25px;
+  padding-top:20px;
+  padding-right:20px;
+  }
+  .back-to-home {
+    margin-left:34px;
   }
 }
 .the-screen {
@@ -86,18 +117,18 @@ footer.page-footer {
 
 .payment-type {
   .pay-icon {
-    display:block;
-    float:left;
-    font-size:26px;
+    display:inline-block;
+  }
+  .pay-icon, .pay-icon:before {
+    font-size:35px;
   }
   .desc {
-    display:block;
-    float:left;
+    display:inline-block;
     margin-left:8px;
     font-size:10px;
   }
   .desc i {
-    display:block;
+    display:inline-block;
     font-size:10px;
     font-style:normal;
   }
@@ -164,13 +195,26 @@ body {
         bottom:auto;
     }
   }
+
   #toast-container.toast-left-top > div {
-    //padding:4px 15px 8px 50px;
     padding:15px 15px 15px 50px;
     margin-right:8%;
   }
 }
+.align-right {
+  text-align:right;
+}
 
+.cuisine-thumb {
+    border-radius: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    img {
+      height:100%;
+    }
+}
 .company-toggle {
   .icon-go {
     font-size:14px;
@@ -189,19 +233,62 @@ body {
 
 .company-item {
   background-size:cover;
+  background-position-y:400px;
+  border-bottom:3px solid @colorGray;
+  .payment-type {
+     overflow:hidden;
+    .payment-icons {
+      display:inline-block;
+      float:left;
+    }
+    .payment-text {
+      display:inline-block;
+      float:left;
+      font-size:10px;
+      padding:10px;
+      span {
+        display:block;
+      }
+    }
+  }
+  .rating {
+    float:right;
+    margin-right:25px;
+    i {
+      font-size:16px;
+      display: inline-block;
+      margin-left:2px;
+      margin-right:2px;
+    }
+    .yes {
+      color:@colorRed;
+    }
+    .no {
+      color:fade(@colorBlack,50%);
+    }
+  }
+  .the-footer {
+    background: fade(#fff,90%);
+    padding: 10px 15px;
+    .comments-count {
 
+    }
+  }
+  .cuisines-list {
+    margin-bottom:10px;
+  }
   .button-cuisine {
     margin-left:0;
     margin-right:2px;
     font-weight: 400;
     text-transform: none;
     margin-right:4px;
-    padding: 6px 16px;
+    padding: 5px 8px;
     font-size: 0.9em;
     -webkit-transition: 0.4s linear all;
     -moz-transition: 0.4s linear all;
     transition: 0.4s linear all;
-    background: mix(@colorGrayLight,#fff,50%);
+    background: mix(@colorGrayLight,#fff,30%);
     border-radius: 3px;
   }
   background:fade(#fff,60%);
@@ -221,30 +308,33 @@ body {
   h2 {
     font-size: 22px;
     font-weight: 400;
+    font-family: 'Fira Sans';
   }
 
   .bt-line {
-    margin-top:10px;
+    margin-top:0px;
   }
   .kal {
     text-align:center;
   }
   .box-info {
     display:inline-block;
-
     text-align:left;
     b {
       display: block;
       text-align:left;
-      font-size: 14px;
-      font-weight: 400;
+      font-size: 18px;
+      font-weight: 500;
       text-transform: uppercase;
       font-family:RobotoDraft;
+      .fa,.icon {
+        font-size:15px;
+      }
     }
   }
   .image-thumb {
     margin-bottom:20px;
-    padding: 10px 30px;
+    padding: 15px 30px;
     margin-left: 25px;
     width: 200px;
     border-radius:5px;
@@ -255,11 +345,12 @@ body {
     img { width:90%; }
   }
   .payment-ccards {
+    margin-top:8px;
+    background:fade(@colorGreen,6%);
     display:inline-block;
-    padding:3px 5px;
     border-radius:2px;
-    margin-top:10px;
-    border: 1px solid mix(@colorGreen,@colorWhite,40%);
+    margin-top:0px;
+  //  border: 1px solid mix(@colorGreen,@colorWhite,40%);
   }
     .ttexts {
       float:left;
@@ -278,12 +369,10 @@ body {
     margin-left:10px;
   }
 }
-
-
 .btm-line {
     margin-top:15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     background: fade(@colorBlack,5%);
 }
 

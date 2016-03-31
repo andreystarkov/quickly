@@ -699,7 +699,7 @@ var CompanyDetails = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyDetails, { companyId: '1' }), document.getElementById('companyDetails'));
 
-},{"./actions/companyListActions.js":7,"./stores/companyDetailsStore.js":22}],10:[function(require,module,exports){
+},{"./actions/companyListActions.js":7,"./stores/companyDetailsStore.js":23}],10:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -710,19 +710,17 @@ var QuicklyLogo = require('./components/quicklyLogo.js');
 var CuisinesActions = require('./actions/cuisinesActions.js');
 var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
+var CuisinesList = require('./companyList.react.jsx');
+// CompanyListActions.selectByCuisine(this.props.cuisine);
 
 var CompanyListHeader = React.createClass({
     displayName: 'CompanyListHeader',
 
     render: function render() {
-        var overall;
         var cuisine = this.props.cuisine;
-
-        console.log('CompanyListHeader: cuisine = ', cuisine);
-
         return React.createElement(
             'section',
-            { className: 'main-header company-list-header' },
+            { className: 'company-list-header' },
             React.createElement(
                 'div',
                 { className: 'container' },
@@ -731,29 +729,58 @@ var CompanyListHeader = React.createClass({
                     { className: 'row' },
                     React.createElement(
                         'div',
-                        { className: 'col-lg-6' },
+                        { className: 'col-lg-4' },
                         React.createElement(
                             'div',
                             { className: 'row main-logo' },
-                            React.createElement('div', { className: 'col-lg-5' }),
+                            React.createElement(
+                                'div',
+                                { className: 'col-lg-6' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'cuisine-thumb' },
+                                    React.createElement('img', { src: imageBaseUrl + cuisine.cuisine_image, alt: cuisine.cuisine_name })
+                                )
+                            ),
                             React.createElement(
                                 'div',
                                 { className: 'col-lg-6 text' },
                                 React.createElement(
                                     'h1',
                                     null,
-                                    this.props.title
+                                    cuisine.cuisine_name
                                 ),
-                                React.createElement('p', null)
+                                React.createElement(
+                                    'p',
+                                    null,
+                                    'Выберите ресторан из списка'
+                                )
                             )
                         )
                     ),
-                    React.createElement('div', { className: 'col-lg-3' }),
-                    React.createElement('div', { className: 'col-lg-3' })
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-6 cuisine-select-row' },
+                        React.createElement(
+                            'button',
+                            { className: 'cuisine-select' },
+                            'Пицца'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'cuisine-select' },
+                            'Роллы'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'cuisine-select' },
+                            'Русская кухня'
+                        )
+                    )
                 ),
                 React.createElement(
                     'div',
-                    { className: 'row' },
+                    { className: 'row bottom-line' },
                     React.createElement(
                         'div',
                         { className: 'col-lg-8' },
@@ -767,12 +794,12 @@ var CompanyListHeader = React.createClass({
                                 React.createElement(
                                     'span',
                                     null,
-                                    ' К списку кухонь'
+                                    ' К списку'
                                 )
                             )
                         )
                     ),
-                    React.createElement('div', { className: 'col-lg-4' })
+                    React.createElement('div', { className: 'col-lg-4 align-right' })
                 )
             )
         );
@@ -809,18 +836,28 @@ var CompanyList = React.createClass({
             return React.createElement(SingleCompany, { company: the, key: i });
         });
 
-        var cuisine = _.where(this.state.cuisines, { cuisine_id: cuisineId });
-
         console.log('CompanyList: this.state.cuisines = ', this.state.cuisines);
-        console.log('CompanyList: cuisine = ', cuisine);
+
+        var overall, single, cuisines, cuisine;
+
+        console.log('CompanyListHeader: cuisineId = ', cuisineId);
+        if (cuisineId > 0) {
+            cuisines = getStorage('cuisines');
+            single = _.where(cuisines, { cuisine_id: cuisineId });
+
+            single.forEach(function (val, index) {
+                cuisine = React.createElement(CompanyListHeader, { cuisine: val });
+            });
+        }
+        console.log('CompanyListHeader: cuisine = ', cuisine);
 
         return React.createElement(
             'div',
             { className: 'company-list-wrap' },
             React.createElement(
                 'div',
-                { className: 'gray' },
-                React.createElement(CompanyListHeader, { cuisine: cuisine })
+                { className: 'gray header-gray' },
+                cuisine
             ),
             React.createElement(
                 'div',
@@ -877,7 +914,7 @@ var CompanyList = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyList, null), document.getElementById('pageCompanyList'));
 
-},{"./actions/companyListActions.js":7,"./actions/cuisinesActions.js":8,"./components/buttonMore.js":12,"./components/companyListSidebar.js":13,"./components/quicklyLogo.js":14,"./components/singleCompany.js":15,"./cuisinesList.react.jsx":16,"./stores/companyListStore.js":23}],11:[function(require,module,exports){
+},{"./actions/companyListActions.js":7,"./actions/cuisinesActions.js":8,"./companyList.react.jsx":10,"./components/buttonMore.js":12,"./components/companyListSidebar.js":13,"./components/quicklyLogo.js":15,"./components/singleCompany.js":16,"./cuisinesList.react.jsx":17,"./stores/companyListStore.js":24}],11:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1076,6 +1113,117 @@ var CompanyListSidebar = React.createClass({
 module.exports = CompanyListSidebar;
 
 },{}],14:[function(require,module,exports){
+'use strict';
+
+var _screens = require('../../screens.jsx');
+
+var CuisinesStore = require('../stores/cuisinesStore.js');
+var CompanyListActions = require('../actions/companyListActions.js');
+
+var SingleCuisine = React.createClass({
+    displayName: 'SingleCuisine',
+
+    toggleCategory: function toggleCategory(cuisine) {
+        CompanyListActions.selectByCuisine(this.props.cuisine);
+        (0, _screens.showScreen)('pageCompanyList');
+    },
+    render: function render() {
+        return React.createElement(
+            'div',
+            { onClick: this.toggleCategory, className: 'cuisine-select-item col-lg-4 col-xs-6 category-item', 'data-id': this.props.cuisine.cuisine_id },
+            React.createElement(
+                'a',
+                { href: '#' },
+                React.createElement(
+                    'div',
+                    { className: 'image' },
+                    React.createElement('img', { src: imageBaseUrl + this.props.cuisine.cuisine_image, alt: '...' }),
+                    React.createElement('div', { className: 'overlay' })
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'food-type' },
+                    React.createElement(
+                        'b',
+                        null,
+                        this.props.cuisine.cuisine_name
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'information' },
+                        React.createElement(
+                            'span',
+                            { className: 'total total-delivery' },
+                            React.createElement(
+                                'span',
+                                null,
+                                'Доставка:'
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'sum' },
+                                ' ',
+                                this.props.cuisine.delivery_count
+                            )
+                        ),
+                        React.createElement(
+                            'span',
+                            { className: 'total total-delivery' },
+                            React.createElement(
+                                'span',
+                                null,
+                                'Бронь:'
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'sum' },
+                                ' ',
+                                this.props.cuisine.reservations_count
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
+});
+
+var CuisinesSelectList = React.createClass({
+    displayName: 'CuisinesSelectList',
+
+    mixins: [Reflux.connect(CuisinesStore, 'cuisinesData')],
+    limit: 5,
+    getInitialState: function getInitialState() {
+        return {
+            data: [],
+            cuisinesData: []
+        };
+    },
+    componentDidMount: function componentDidMount() {},
+    render: function render() {
+        var allCuisines = this.state.cuisinesData;
+        var list = allCuisines.map(function (the, key) {
+            if (key < 6) return React.createElement(SingleCuisine, { cuisine: the, key: key });
+        });
+        return React.createElement(
+            'section',
+            { className: 'the-tab tab-active main-categories types-grid' },
+            React.createElement(
+                'div',
+                { className: 'container' },
+                React.createElement(
+                    'div',
+                    { className: 'row', id: 'cuisinesList' },
+                    list
+                )
+            )
+        );
+    }
+});
+
+module.exports = CuisinesSelectList;
+
+},{"../../screens.jsx":31,"../actions/companyListActions.js":7,"../stores/cuisinesStore.js":25}],15:[function(require,module,exports){
 "use strict";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1115,7 +1263,7 @@ var QuicklyLogo = React.createClass({
 
 module.exports = QuicklyLogo;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1127,6 +1275,9 @@ module.exports = QuicklyLogo;
 
 var CuisinesList = require('../cuisinesList.react.jsx');
 
+//<span className="desc"><i>наличными</i><i>картой курьеру</i></span>
+//<span className="desc">только наличные</span>
+
 var PaymentTypes = React.createClass({
     displayName: 'PaymentTypes',
 
@@ -1136,38 +1287,88 @@ var PaymentTypes = React.createClass({
             'div',
             { className: 'payment-type' },
             React.createElement(
-                'span',
-                null,
-                React.createElement('i', { className: 'pay-icon fa fa-money' })
+                'div',
+                { className: 'payment-icons' },
+                React.createElement(
+                    'span',
+                    null,
+                    React.createElement('i', { className: 'pay-icon fi-payment-cash' })
+                )
             ),
             React.createElement(
-                'span',
-                { className: 'desc' },
-                'только наличные'
+                'div',
+                { className: 'payment-text' },
+                React.createElement(
+                    'span',
+                    null,
+                    'только наличными'
+                )
             )
         );
         if (this.props.type == 1) return React.createElement(
             'div',
             { className: 'payment-type' },
             React.createElement(
-                'span',
-                null,
-                React.createElement('i', { className: 'pay-icon fa fa-cc-visa' })
+                'div',
+                { className: 'payment-icons' },
+                React.createElement(
+                    'span',
+                    null,
+                    React.createElement('i', { className: 'pay-icon fi-payment-card' })
+                ),
+                React.createElement(
+                    'span',
+                    null,
+                    React.createElement('i', { className: 'pay-icon fi-payment-cash' })
+                )
             ),
             React.createElement(
-                'span',
-                { className: 'desc' },
+                'div',
+                { className: 'payment-text' },
                 React.createElement(
-                    'i',
+                    'span',
                     null,
                     'наличными'
                 ),
                 React.createElement(
-                    'i',
+                    'span',
                     null,
                     'картой курьеру'
                 )
             )
+        );
+    }
+});
+
+var StarYes = React.createClass({
+    displayName: 'StarYes',
+
+    render: function render() {
+        return React.createElement('i', { className: 'fa yes fa-star' });
+    }
+});
+
+var StarNo = React.createClass({
+    displayName: 'StarNo',
+
+    render: function render() {
+        return React.createElement('i', { className: 'fa yes fa-star-o' });
+    }
+});
+
+var RatingStars = React.createClass({
+    displayName: 'RatingStars',
+
+    render: function render() {
+        var count = this.props.count;
+        var stars = '';
+        for (var i = 0; i < count; i++) {
+            stars += '<i className="fa yes fa-star"></i>';
+        }
+        return React.createElement(
+            'div',
+            { className: 'rating' },
+            stars
         );
     }
 });
@@ -1184,10 +1385,10 @@ var SingleCompany = React.createClass({
         var bgImage = imageBaseUrl + that.restaurant_interior_image;
 
         var style = {
-            background: 'url(' + bgImage + ') no-repeat center center'
+            backgroundImage: 'url(' + bgImage + ')'
         };
-
-        console.log('SingleCompany: ', this.props.company);
+        var rating = 4;
+        if (that.restaurant_online_payment = 1) console.log('SingleCompany: ', this.props.company);
         return React.createElement(
             'section',
             { style: style, className: 'company-item company-toggle', 'data-company': that.restaurant_id },
@@ -1196,7 +1397,7 @@ var SingleCompany = React.createClass({
                 { className: 'the-box row' },
                 React.createElement(
                     'div',
-                    { className: 'company-logo col-lg-4 col-xs-4 col-sm-4' },
+                    { className: 'company-logo col-lg-3 col-xs-4 col-sm-4' },
                     React.createElement(
                         'div',
                         { className: 'image-thumb' },
@@ -1205,13 +1406,20 @@ var SingleCompany = React.createClass({
                 ),
                 React.createElement(
                     'div',
-                    { className: 'company-description col-lg-8 col-xs-8 col-sm-8' },
+                    { className: 'company-description col-lg-9 col-xs-8 col-sm-8' },
                     React.createElement(
                         'h2',
                         null,
                         that.restaurant_name,
-                        ' ',
-                        React.createElement('i', { className: 'icon-go icon-arrow-right' })
+                        React.createElement(
+                            'div',
+                            { className: 'rating' },
+                            React.createElement('i', { className: 'fa yes fa-star' }),
+                            React.createElement('i', { className: 'fa yes fa-star' }),
+                            React.createElement('i', { className: 'fa yes fa-star' }),
+                            React.createElement('i', { className: 'fa yes fa-star' }),
+                            React.createElement('i', { className: 'fa no fa-star-o' })
+                        )
                     ),
                     React.createElement(
                         'div',
@@ -1331,9 +1539,35 @@ var SingleCompany = React.createClass({
                     React.createElement(
                         'div',
                         { className: 'align-left col-xs-6 col-lg-6' },
-                        React.createElement('i', { className: 'icon-bubbles' })
+                        React.createElement(
+                            'div',
+                            { className: 'comments-count' },
+                            React.createElement('i', { className: 'icon fi-comment' }),
+                            React.createElement(
+                                'span',
+                                { className: 'count' },
+                                that.restaurant_comments_count
+                            )
+                        )
                     ),
-                    React.createElement('div', { className: 'align-right col-xs-6 col-lg-6' })
+                    React.createElement(
+                        'div',
+                        { className: 'align-right col-xs-6 col-lg-6' },
+                        React.createElement(
+                            'div',
+                            { className: 'right-icons' },
+                            React.createElement(
+                                'button',
+                                { className: 'bt-round delivery' },
+                                React.createElement('i', { className: 'icon fi-dish' })
+                            ),
+                            React.createElement(
+                                'button',
+                                { className: 'bt-round reservation' },
+                                React.createElement('i', { className: 'icon fi-table' })
+                            )
+                        )
+                    )
                 )
             )
         );
@@ -1342,7 +1576,7 @@ var SingleCompany = React.createClass({
 
 module.exports = SingleCompany;
 
-},{"../cuisinesList.react.jsx":16}],16:[function(require,module,exports){
+},{"../cuisinesList.react.jsx":17}],17:[function(require,module,exports){
 'use strict';
 
 var CuisinesStore = require('./stores/cuisinesStore.js');
@@ -1388,16 +1622,15 @@ var CuisinesList = React.createClass({
 
 module.exports = CuisinesList;
 
-},{"./stores/cuisinesStore.js":24}],17:[function(require,module,exports){
+},{"./stores/cuisinesStore.js":25}],18:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../screens.jsx');
 
 var CuisinesStore = require('./stores/cuisinesStore.js');
-var CompanyListStore = require('./stores/companyListStore.js');
-var CompanyListActions = require('./actions/companyListActions.js');
 var QuicklyLogo = require('./components/quicklyLogo.js');
 var ButtonBack = require('./components/buttonBack.js');
+var CuisinesSelectList = require('./components/cuisinesSelectList.js');
 
 var ButtonBackTop = React.createClass({
     displayName: 'ButtonBackTop',
@@ -1459,109 +1692,6 @@ var MainPageHeader = React.createClass({
     }
 });
 
-var SingleCuisine = React.createClass({
-    displayName: 'SingleCuisine',
-
-    toggleCategory: function toggleCategory(cuisine) {
-        CompanyListActions.selectByCuisine(this.props.cuisine);
-        (0, _screens.showScreen)('pageCompanyList');
-    },
-    render: function render() {
-        return React.createElement(
-            'div',
-            { onClick: this.toggleCategory, className: 'cuisine-select-item col-lg-4 col-xs-6 category-item', 'data-id': this.props.cuisine.cuisine_id },
-            React.createElement(
-                'a',
-                { href: '#' },
-                React.createElement(
-                    'div',
-                    { className: 'image' },
-                    React.createElement('img', { src: imageBaseUrl + this.props.cuisine.cuisine_image, alt: '...' }),
-                    React.createElement('div', { className: 'overlay' })
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'food-type' },
-                    React.createElement(
-                        'b',
-                        null,
-                        this.props.cuisine.cuisine_name
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'information' },
-                        React.createElement(
-                            'span',
-                            { className: 'total total-delivery' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'Доставка:'
-                            ),
-                            React.createElement(
-                                'span',
-                                { className: 'sum' },
-                                ' ',
-                                this.props.cuisine.delivery_count
-                            )
-                        ),
-                        React.createElement(
-                            'span',
-                            { className: 'total total-delivery' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'Бронь:'
-                            ),
-                            React.createElement(
-                                'span',
-                                { className: 'sum' },
-                                ' ',
-                                this.props.cuisine.reservations_count
-                            )
-                        )
-                    )
-                )
-            )
-        );
-    }
-});
-
-var CuisinesSelectList = React.createClass({
-    displayName: 'CuisinesSelectList',
-
-    mixins: [Reflux.connect(CuisinesStore, 'cuisinesData')],
-    limit: 5,
-    getInitialState: function getInitialState() {
-        return {
-            data: [],
-            cuisinesData: []
-        };
-    },
-    componentDidMount: function componentDidMount() {},
-    render: function render() {
-        var allCuisines = this.state.cuisinesData;
-        var list = allCuisines.map(function (the, key) {
-            if (key < 6) return React.createElement(SingleCuisine, { cuisine: the, key: key });
-        });
-        return React.createElement(
-            'section',
-            { className: 'the-tab tab-active main-categories types-grid' },
-            React.createElement(
-                'div',
-                { className: 'container' },
-                React.createElement(
-                    'div',
-                    { className: 'row', id: 'cuisinesList' },
-                    list
-                )
-            )
-        );
-    }
-});
-
-module.exports = CuisinesSelectList;
-
 var ButtonBack = React.createClass({
     displayName: 'ButtonBack',
 
@@ -1577,7 +1707,7 @@ var ButtonBack = React.createClass({
 ReactDOM.render(React.createElement(MainPageHeader, null), document.getElementById('mainPageHeader'));
 ReactDOM.render(React.createElement(CuisinesSelectList, null), document.getElementById('cuisinesSelectList'));
 
-},{"../screens.jsx":30,"./actions/companyListActions.js":7,"./components/buttonBack.js":11,"./components/quicklyLogo.js":14,"./stores/companyListStore.js":23,"./stores/cuisinesStore.js":24}],18:[function(require,module,exports){
+},{"../screens.jsx":31,"./components/buttonBack.js":11,"./components/cuisinesSelectList.js":14,"./components/quicklyLogo.js":15,"./stores/cuisinesStore.js":25}],19:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1711,7 +1841,7 @@ var MenuItems = React.createClass({
 
 ReactDOM.render(React.createElement(MenuItems, null), document.getElementById('menuItems'));
 
-},{"./stores/menuItemsStore.js":25}],19:[function(require,module,exports){
+},{"./stores/menuItemsStore.js":26}],20:[function(require,module,exports){
 'use strict';
 
 var _addToCart = require('../engine/addToCart.js');
@@ -1958,7 +2088,7 @@ var OrdersHistory = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersHistory, null), document.getElementById('ordersHistory'));
 
-},{"../engine/addToCart.js":2,"./components/buttonMore.js":12,"./stores/ordersHistoryStore.js":26}],20:[function(require,module,exports){
+},{"../engine/addToCart.js":2,"./components/buttonMore.js":12,"./stores/ordersHistoryStore.js":27}],21:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -2202,7 +2332,7 @@ var ProfileEditor = React.createClass({
 
 // ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
 
-},{"./components/buttonMore.js":12,"./stores/profileEditorStore.js":27}],21:[function(require,module,exports){
+},{"./components/buttonMore.js":12,"./stores/profileEditorStore.js":28}],22:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -2427,7 +2557,7 @@ var OrdersReservation = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersReservation, null), document.getElementById('reservationHistory'));
 
-},{"./components/buttonMore.js":12,"./stores/reservationHistoryStore.js":28}],22:[function(require,module,exports){
+},{"./components/buttonMore.js":12,"./stores/reservationHistoryStore.js":29}],23:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2467,7 +2597,7 @@ var CompanyDetailsStore = Reflux.createStore({
 
 module.exports = CompanyDetailsStore;
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2500,6 +2630,7 @@ var CompanyListStore = Reflux.createStore({
     selectByCuisine: function selectByCuisine(cuisine) {
         console.log('CompanyListStore: selectByCuisine, cuisine = ', cuisine);
         this.cuisine = cuisine;
+        currentCuisine = cuisine;
         this.currentCuisine = cuisine.cuisine_id;
         this.fetchList(cuisine.cuisine_id);
     },
@@ -2552,7 +2683,7 @@ var CompanyListStore = Reflux.createStore({
 
 module.exports = CompanyListStore;
 
-},{"../actions/companyListActions.js":7,"../actions/cuisinesActions.js":8,"./cuisinesStore.js":24}],24:[function(require,module,exports){
+},{"../actions/companyListActions.js":7,"../actions/cuisinesActions.js":8,"./cuisinesStore.js":25}],25:[function(require,module,exports){
 'use strict';
 
 var CuisinesActions = require('../actions/cuisinesActions.js');
@@ -2582,7 +2713,7 @@ var CuisinesStore = Reflux.createStore({
 
 module.exports = CuisinesStore;
 
-},{"../actions/cuisinesActions.js":8}],25:[function(require,module,exports){
+},{"../actions/cuisinesActions.js":8}],26:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2622,7 +2753,7 @@ var MenuItemsStore = Reflux.createStore({
 
 module.exports = MenuItemsStore;
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2657,7 +2788,7 @@ var OrdersHistoryStore = Reflux.createStore({
 
 module.exports = OrdersHistoryStore;
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2702,7 +2833,7 @@ var ProfileEditorStore = Reflux.createStore({
 
 module.exports = ProfileEditorStore;
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2737,7 +2868,7 @@ var ReservationHistoryStore = Reflux.createStore({
 
 module.exports = ReservationHistoryStore;
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 "use strict";
 
 var _checkoutFunc = require("./engine/checkout.func.jsx");
@@ -2920,7 +3051,7 @@ $(function () {
     getReservationPointsList(currentCompany, currentTime);
 });
 
-},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],30:[function(require,module,exports){
+},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2931,24 +3062,27 @@ var CompanyDetailsActions = require('./react/stores/companyDetailsStore.js');
 var MenuItemsActions = require('./react/stores/menuItemsStore.js');
 
 function showScreen(screenId) {
-    var aniOut = 'transition.flipXOut';
-    var aniIn = 'transition.flipXIn';
+    var aniOut = 'transition.slideRightOut';
+    var aniIn = 'transition.slideLeftBigIn'; // 'transition.flipXIn';
 
     var screenId = '#' + screenId;
 
-    $('.screen-toggle').removeClass('active');
+    if ($(screenId).length) {
 
-    easyVelocity('.page-wrapper', aniOut, function () {
-        easyVelocity(screenId, aniIn, function () {
-            // im done
+        $('.screen-toggle').removeClass('active');
+
+        console.log('showScreen: Screen = ' + screenId);
+
+        easyVelocity('.page-wrapper', aniOut, function () {
+            easyVelocity(screenId, aniIn, function () {
+                // im done
+            });
         });
-    });
 
-    $(this).addClass('active');
+        $(this).addClass('active');
 
-    console.log('showScreen: Toggling To = ' + screenId);
-
-    $(screenId).addClass('screen-active');
+        $(screenId).addClass('screen-active');
+    } else console.log('showScreen: Screen not exists. ID: ' + screenId);
 }
 
 $(function () {
@@ -2967,24 +3101,8 @@ $(function () {
 
     $(document).on('click', '.screen-toggle', function (event) {
         event.preventDefault();
-        var aniOut = 'transition.flipXOut';
-        var aniIn = 'transition.flipXIn';
-
-        var screenId = '#' + $(this).data('screen');
-
-        $('.screen-toggle').removeClass('active');
-
-        easyVelocity('.page-wrapper', aniOut, function () {
-            easyVelocity(screenId, aniIn, function () {
-                // im done
-            });
-        });
-
-        $(this).addClass('active');
-
-        console.log('Screens: Toggling To = ' + screenId);
-
-        $(screenId).addClass('screen-active');
+        var screenId = $(this).data('screen');
+        showScreen(screenId);
     });
 });
 
@@ -3002,7 +3120,7 @@ $(function () {
     });
 });
 
-},{"./react/stores/companyDetailsStore.js":22,"./react/stores/menuItemsStore.js":25}],31:[function(require,module,exports){
+},{"./react/stores/companyDetailsStore.js":23,"./react/stores/menuItemsStore.js":26}],32:[function(require,module,exports){
 'use strict';
 
 var _checkoutFunc = require('./engine/checkout.func.jsx');
@@ -3120,7 +3238,7 @@ $(function () {
     (0, _checkoutFunc.refreshCart)();
 });
 
-},{"./engine/checkout.func.jsx":3}]},{},[31,6,29,1,30,9,19,21,18,20,10,17])
+},{"./engine/checkout.func.jsx":3}]},{},[32,6,30,1,31,9,20,22,19,21,10,18])
 
 
 //# sourceMappingURL=es6.js.map

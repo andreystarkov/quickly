@@ -2,24 +2,27 @@ var CompanyDetailsActions = require('./react/stores/companyDetailsStore.js');
 var MenuItemsActions = require('./react/stores/menuItemsStore.js');
 
 export function showScreen(screenId){
-    var aniOut = 'transition.flipXOut';
-    var aniIn = 'transition.flipXIn';
+    var aniOut = 'transition.slideRightOut';
+    var aniIn = 'transition.slideLeftBigIn'; // 'transition.flipXIn';
 
     var screenId = '#'+screenId;
 
-    $('.screen-toggle').removeClass('active');
+    if( $(screenId).length ){
 
-    easyVelocity('.page-wrapper', aniOut, function(){
-        easyVelocity(screenId, aniIn, function(){
-          // im done
+        $('.screen-toggle').removeClass('active');
+
+        console.log('showScreen: Screen = '+screenId);
+
+        easyVelocity('.page-wrapper', aniOut, function(){
+            easyVelocity(screenId, aniIn, function(){
+              // im done
+            });
         });
-    });
 
-    $(this).addClass('active');
+        $(this).addClass('active');
 
-    console.log('showScreen: Toggling To = '+screenId);
-
-    $(screenId).addClass('screen-active');
+        $(screenId).addClass('screen-active');
+    } else console.log('showScreen: Screen not exists. ID: '+screenId);
 }
 
 $(function() {
@@ -38,24 +41,8 @@ $(function() {
 
     $(document).on('click', '.screen-toggle', function(event) {
         event.preventDefault();
-        var aniOut = 'transition.flipXOut';
-        var aniIn = 'transition.flipXIn';
-
-        var screenId = '#'+$(this).data('screen');
-
-        $('.screen-toggle').removeClass('active');
-
-        easyVelocity('.page-wrapper', aniOut, function(){
-            easyVelocity(screenId, aniIn, function(){
-              // im done
-            });
-        });
-
-        $(this).addClass('active');
-
-        console.log('Screens: Toggling To = '+screenId);
-
-        $(screenId).addClass('screen-active');
+        var screenId = $(this).data('screen');
+        showScreen(screenId);
     });
 
 });

@@ -13,72 +13,18 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var babel = require('babelify');
 var uglify = require('gulp-uglify');
+
 var runSequence = require('run-sequence').use(gulp);
+
+var theLibs = require('./config.libs.js');
+var theEngine = require('./config.engine.js');
 
 var secrets = require('./secrets.json');
 
 gulp.task('default', ['scripts', 'styles', 'js', 'watch']);
 
-var theES6 = [
-    'app/scripts/es6/shop.jsx',
-    'app/scripts/es6/profile.jsx',
-    'app/scripts/es6/reservation.jsx',
-    'app/scripts/es6/checkout.jsx',
-    'app/scripts/es6/screens.jsx',
-    'app/scripts/es6/react/companyDetails.react.jsx',
-    'app/scripts/es6/react/ordersHistory.react.jsx',
-    'app/scripts/es6/react/reservationHistory.react.jsx',
-    'app/scripts/es6/react/menuItems.react.jsx',
-    'app/scripts/es6/react/profileEditor.react.jsx',
-    'app/scripts/es6/react/companyList.react.jsx',
-    'app/scripts/es6/react/mainPage.react.jsx'
-];
-
-var theLibs = [
-    'app/libs/jquery/dist/jquery.min.js',
-
-    'app/libs/react/react.js',
-    'app/libs/react/react-dom.js',
-    'app/libs/reflux/dist/reflux.js',
-
-    'app/libs/underscore/underscore-min.js',
-    'app/libs/bootstrap/dist/js/bootstrap.min.js',
-    'app/libs/js-cookie/src/js.cookie.js',
-
-    'app/scripts/_global.js',
-
-    'app/libs/velocity/velocity.min.js',
-    'app/libs/velocity/velocity.ui.min.js',
-
-    'app/libs/bootstrap-material-design/scripts/material.js',
-    'app/libs/bootstrap-material-design/scripts/ripples.js',
-
-    'app/libs/ZoomSlider/js/dynamics.min.js',
-    'app/libs/ZoomSlider/js/classie.js',
- //   'app/libs/ZoomSlider/js/main.js',
-
-    'app/libs/moment/min/moment-with-locales.min.js',
-    'app/libs/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
-    'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',
-    'app/scripts/etc/jquery.nouislider.min.js',
-
-    'app/libs/sweetalert2/src/sweetalert2.js',
-    'app/libs/toastr/toastr.min.js',
-
-    'app/scripts/components/common.js',
-    'app/scripts/components/auth.js',
-    'app/scripts/components/checkout.js',
-    'app/scripts/components/company.js',
-    'app/scripts/components/controls.js',
-    'app/scripts/components/profile.js',
-    'app/scripts/components/shop.js',
-    'app/scripts/components/tabs.js',
-
-    'app/scripts/init.js'
-];
-
 function compile(watch) {
-    var bundler = watchify(browserify(theES6, {
+    var bundler = watchify(browserify(theEngine, {
         debug: true
     }).transform(babel, {
         presets: ["es2015", "react"]
@@ -203,26 +149,23 @@ gulp.task('production-copy-html', function() {
         .pipe(gulp.dest('build'))
 });
 
-
-/* var scpClient = require('scp2');
-
-gulp.task('deploy', [], function (cb) {
-    scpClient.scp('./app/app/*', {
-        "host": secrets.host,
-        "port": secrets.port,
-        "username": secrets.username,
-        "password": secrets.password,
-        "path": secrets.path,
-        "agent": process.env["SSH_AUTH_SOCK"]
-    }, cb)
-});
-
-*/
-
 var scp = require('gulp-scp2');
 
 gulp.task('deploy', function() {
   return gulp.src('./app/app/**/*')
+  .pipe(scp({
+    host: secrets.host,
+    username: secrets.username,
+    password: secrets.password,
+    dest: secrets.path+'app/'
+  }))
+  .on('error', function(err) {
+    console.log('Deploy error: ',err);
+  });
+});
+
+gulp.task('deploy-html', function() {
+  return gulp.src('./app/index.html')
   .pipe(scp({
     host: secrets.host,
     username: secrets.username,
@@ -277,6 +220,9 @@ gulp.task('watch-deploy', function(){
     gulp.watch('app/styles/**/*.less', {
         interval: 800
     }, ['styles-deploy']);
+    gulp.watch('app/*.html', {
+        interval: 800
+    }, ['html-deploy']);
 });
 
 gulp.task('watch', function() {

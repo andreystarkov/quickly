@@ -28,6 +28,7 @@ var CompanyListStore = Reflux.createStore({
     selectByCuisine: function(cuisine){
         console.log('CompanyListStore: selectByCuisine, cuisine = ', cuisine);
         this.cuisine = cuisine;
+        currentCuisine = cuisine;
         this.currentCuisine = cuisine.cuisine_id;
         this.fetchList(cuisine.cuisine_id);
     },
