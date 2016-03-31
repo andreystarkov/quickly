@@ -8,8 +8,8 @@ var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
-var devMode = true;
-var currentVersion = '0.1.2';
+var devMode = false;
+var currentVersion = '0.1.3';
 
 if (devMode) {
     var serverUrl = 'http://176.112.201.81';
