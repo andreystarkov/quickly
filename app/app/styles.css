@@ -8888,7 +8888,9 @@ body .company-list-header .main-logo .text h2 {
   margin-top: 10px;
 }
 body .company-item {
-  padding-bottom: 140px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  padding-bottom: 150px;
   border: 0px;
   position: relative;
 }
@@ -19700,6 +19702,8 @@ body #toast-container.toast-left-top > div {
   margin-right: 3px;
 }
 .company-item {
+  margin-top: 20px;
+  margin-bottom: 0px;
   background-size: cover;
   background-position-y: 400px;
   border-bottom: 3px solid #E2E0D3;
@@ -19870,8 +19874,8 @@ body #toast-container.toast-left-top > div {
 }
 .btm-line {
   margin-top: 15px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 0px;
+  padding-bottom: 5px;
 }
 .pay-cards .cards {
   float: left;
