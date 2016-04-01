@@ -336,103 +336,103 @@ function createReservation() {
 
 function createProfileEditor(profile, callback) {
 
-   var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
-   var userAvatar = imageBaseUrl + profile.userAvatarUrl;
-   if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-      userAvatar = 'images/samples/user.png';
-   }
+    var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
+    var userAvatar = imageBaseUrl + profile.userAvatarUrl;
+    if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+        userAvatar = 'images/samples/user.png';
+    }
 
-   var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
-   $('#editUserProfile').prepend(htmlTemplate);
-   if (callback) callback();
+    var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
+    $('#editUserProfile').prepend(htmlTemplate);
+    if (callback) callback();
 }
 
 function emptyProfile() {
-   var token = userToken;
-   getUserProfile(token, function (data) {
-      var userBonus = getUserBonus(userToken);
-      var userInfo = data;
-      $('#userBadgeTop').html('\n          <div class="user-text" id="buttonEmptyProfile">\n            <b class="user-name">Добро пожаловать!</b>\n            <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n        ');
-   });
+    var token = userToken;
+    getUserProfile(token, function (data) {
+        var userBonus = getUserBonus(userToken);
+        var userInfo = data;
+        $('#userBadgeTop').html('\n          <div class="user-text" id="buttonEmptyProfile">\n            <b class="user-name">Добро пожаловать!</b>\n            <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n        ');
+    });
 }
 
 function refreshUserProfile() {
-   var token = userToken;
-   getUserProfile(token, function (data) {
-      var userBonus = getUserBonus(userToken);
-      var userInfo = data;
-      var userAvatar = imageBaseUrl + data.userAvatarUrl;
-      if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
-         userAvatar = 'images/samples/user.png';
-      }
-      $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
-   });
+    var token = userToken;
+    getUserProfile(token, function (data) {
+        var userBonus = getUserBonus(userToken);
+        var userInfo = data;
+        var userAvatar = imageBaseUrl + data.userAvatarUrl;
+        if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
+            userAvatar = 'images/samples/user.png';
+        }
+        $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
+    });
 }
 
 function getUserBonus(userToken) {
-   var bonus;
-   $.ajax({
-      url: serverUrl + '/api/v2/user/bonus/' + userToken,
-      async: false,
-      dataType: 'json',
-      success: function success(data) {
-         bonus = data.result.userBonus;
-      }
-   });
-   return bonus;
+    var bonus;
+    $.ajax({
+        url: serverUrl + '/api/v2/user/bonus/' + userToken,
+        async: false,
+        dataType: 'json',
+        success: function success(data) {
+            bonus = data.result.userBonus;
+        }
+    });
+    return bonus;
 }
 
 function editUserField(fieldId, callback) {
-   var theOptions = {};
-   var theParameter = $('#' + fieldId).data('id');
+    var theOptions = {};
+    var theParameter = $('#' + fieldId).data('id');
 
-   theOptions['userToken'] = userToken;
-   theOptions['cityId'] = cityId;
-   theOptions[theParameter] = $('#' + fieldId).val();
+    theOptions['userToken'] = userToken;
+    theOptions['cityId'] = cityId;
+    theOptions[theParameter] = $('#' + fieldId).val();
 
-   console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-   $.ajax({
-      url: serverUrl + '/api/v2/user/profile/edit',
-      dataType: 'json',
-      type: 'POST',
-      data: theOptions,
-      success: function success(data) {
-         console.log('editUserField: ', data);
-         if (data.err === undefined || data.err === null) {
-            toastr.success('Данные профиля сохранены');
-         }
-         $('#' + fieldId).parent().addClass('has-success');
-         refreshUserProfile();
-         if (callback) callback(data);
-      }
-   });
+    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+    $.ajax({
+        url: serverUrl + '/api/v2/user/profile/edit',
+        dataType: 'json',
+        type: 'POST',
+        data: theOptions,
+        success: function success(data) {
+            console.log('editUserField: ', data);
+            if (data.err === undefined || data.err === null) {
+                toastr.success('Данные профиля сохранены');
+            }
+            $('#' + fieldId).parent().addClass('has-success');
+            refreshUserProfile();
+            if (callback) callback(data);
+        }
+    });
 }
 
 $(function () {
 
-   getUserProfile(userToken, function (data) {
+    getUserProfile(userToken, function (data) {
 
-      console.log('getUserProfile:', data);
-      createProfileEditor(data, function () {
-         $('.user-editor .control-label').each(function () {
-            $(this).append('<i class="status-icon its-ok icon-check"></i>');
-         });
-      });
-   });
+        console.log('getUserProfile:', data);
+        createProfileEditor(data, function () {
+            $('.user-editor .control-label').each(function () {
+                $(this).append('<i class="status-icon its-ok icon-check"></i>');
+            });
+        });
+    });
 
-   $(document).on('click', '#buttonReturnShop', function (event) {
-      easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
-         easyVelocity('#pageCompany', 'transition.flipXIn');
-      });
-   });
+    $(document).on('click', '#buttonReturnShop', function (event) {
+        easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
+            easyVelocity('#pageCompany', 'transition.flipXIn');
+        });
+    });
 
-   refreshUserProfile();
+    refreshUserProfile();
 
-   $(document).on('focusout', ".user-editor .autoupdate", function () {
-      var fieldId = $(this).attr('id');
-      console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
-      editUserField(fieldId);
-   });
+    $(document).on('focusout', ".user-editor .autoupdate", function () {
+        var fieldId = $(this).attr('id');
+        console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
+        editUserField(fieldId);
+    });
 });
 
 },{}],7:[function(require,module,exports){
@@ -756,25 +756,6 @@ var CompanyListHeader = React.createClass({
                                     'Выберите ресторан из списка'
                                 )
                             )
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'col-lg-6 cuisine-select-row' },
-                        React.createElement(
-                            'button',
-                            { className: 'cuisine-select' },
-                            'Пицца'
-                        ),
-                        React.createElement(
-                            'button',
-                            { className: 'cuisine-select' },
-                            'Роллы'
-                        ),
-                        React.createElement(
-                            'button',
-                            { className: 'cuisine-select' },
-                            'Русская кухня'
                         )
                     )
                 ),
@@ -1599,6 +1580,101 @@ var SingleCompany = React.createClass({
                                     )
                                 )
                             )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'c-payment mobile' },
+                            React.createElement('img', { src: 'images/cards/mastercard.png', alt: '...' }),
+                            React.createElement('img', { src: 'images/cards/visa.png', alt: '...' }),
+                            React.createElement(
+                                'div',
+                                { className: 'is-online' },
+                                'онлайн'
+                            )
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row btm-line mobile' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_min_order,
+                                ' ',
+                                React.createElement('i', { className: 'fa fa-rouble' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'заказ от'
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_delivery_cost,
+                                ' ',
+                                React.createElement('i', { className: 'fa fa-rouble' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'доставка'
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_delivery_time,
+                                ' ',
+                                React.createElement('i', { className: 'icon icon-clock' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'время'
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_average_check,
+                                ' ',
+                                React.createElement('i', { className: 'fa fa-rouble' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'средний чек'
+                            )
                         )
                     )
                 ),
@@ -1658,7 +1734,7 @@ var CuisinesList = React.createClass({
     displayName: 'CuisinesList',
 
     mixins: [Reflux.connect(CuisinesStore, 'cuisinesData')],
-    limit: 5,
+    limit: 3,
     getInitialState: function getInitialState() {
         return {
             data: [],
@@ -1668,7 +1744,7 @@ var CuisinesList = React.createClass({
     componentDidMount: function componentDidMount() {},
     render: function render() {
         var companyCuisines = JSON.parse(this.props.cuisines);
-
+        var limit = this.limit;
         var allCuisines = getStorage('cuisines');
 
         var sorted = _.sortBy(allCuisines, function (o) {
@@ -1677,14 +1753,15 @@ var CuisinesList = React.createClass({
 
         console.log('CuisinesList: sorted = ', sorted);
         var totalList = companyCuisines.map(function (the, key) {
-            var pick = sorted[key + 1];
-            return React.createElement(
-                'button',
-                { className: 'button light button-cuisine', key: key },
-                pick.cuisine_name
-            );
+            if (key < limit) {
+                var pick = sorted[key + 1];
+                return React.createElement(
+                    'button',
+                    { className: 'button light button-cuisine', key: key },
+                    pick.cuisine_name
+                );
+            }
         });
-
         return React.createElement(
             'div',
             { className: 'cuisinesList' },
@@ -1713,6 +1790,183 @@ var ButtonBackTop = React.createClass({
     }
 });
 
+var MainSlider = React.createClass({
+    displayName: 'MainSlider',
+
+    render: function render() {
+        return React.createElement(
+            'section',
+            { className: 'hero' },
+            React.createElement(
+                'ul',
+                { className: 'quickly-slider autoplay' },
+                React.createElement(
+                    'li',
+                    { className: 'selected' },
+                    React.createElement(
+                        'div',
+                        { className: 'half-width' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            'Сытые выходные с Квикли'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'Вторая мировая с ее сверхжестким регулированием массовыми разрушениями нанесла группировке серьезный удар. '
+                        ),
+                        React.createElement(
+                            'a',
+                            { href: '#0', className: 'button main' },
+                            'Подробнее об акции'
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'half-width img-container' },
+                        React.createElement('img', { src: 'images/samples/app-1.png', alt: '...' })
+                    )
+                ),
+                React.createElement(
+                    'li',
+                    null,
+                    React.createElement(
+                        'div',
+                        { className: 'half-width img-container' },
+                        React.createElement('img', { src: 'images/samples/pizza.png', alt: '...' })
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'half-width' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            'Супер-пицца в подарок'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'После смерти Таоки для клана Кенити Ямамото отбывал срок в тюрьме, где скоропостижно скончался полгода спустя'
+                        ),
+                        React.createElement(
+                            'a',
+                            { href: '#0', className: 'button' },
+                            'Что-то там'
+                        ),
+                        React.createElement(
+                            'a',
+                            { href: '#0', className: 'button main' },
+                            'Подробнее'
+                        )
+                    )
+                ),
+                React.createElement(
+                    'li',
+                    { className: 'bg-video' },
+                    React.createElement(
+                        'div',
+                        { className: 'full-width' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            'Ещё что-то интересное'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'Следующий, пятый оябун не просто восстановил влияние группировки, но и привел ее к невиданному процветанию. '
+                        ),
+                        React.createElement(
+                            'a',
+                            { href: '#0', className: 'button main' },
+                            'Узнать больше'
+                        )
+                    ),
+                    React.createElement('div', { className: 'bg-video-wrapper', 'data-video': 'assets/video/video' })
+                ),
+                React.createElement(
+                    'li',
+                    null,
+                    React.createElement(
+                        'div',
+                        { className: 'full-width' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            'Вваываывавы'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'Не просто восстановил влияние группировки смерти Таоки для клана Кенити Ямамото отбывал срок в тюрьме, где скоропостижно '
+                        ),
+                        React.createElement(
+                            'a',
+                            { href: '#0', className: 'button' },
+                            'Узнать больше'
+                        ),
+                        React.createElement(
+                            'a',
+                            { href: '#0', className: 'button main' },
+                            'Или ещё что-то'
+                        )
+                    )
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'slider-nav' },
+                React.createElement(
+                    'nav',
+                    null,
+                    React.createElement('span', { className: 'marker item-1' }),
+                    React.createElement(
+                        'ul',
+                        null,
+                        React.createElement(
+                            'li',
+                            { className: 'selected' },
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-dish' })
+                            )
+                        ),
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-table' })
+                            )
+                        ),
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-dish' })
+                            )
+                        ),
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-table' })
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
+});
+
 var MainPageHeader = React.createClass({
     displayName: 'MainPageHeader',
 
@@ -1720,47 +1974,7 @@ var MainPageHeader = React.createClass({
         return React.createElement(
             'section',
             { className: 'main-header' },
-            React.createElement(
-                'div',
-                { className: 'container' },
-                React.createElement(
-                    'div',
-                    { className: 'row' },
-                    React.createElement(
-                        'div',
-                        { className: 'col-lg-6' },
-                        React.createElement(
-                            'div',
-                            { className: 'row main-logo' },
-                            React.createElement(
-                                'div',
-                                { className: 'col-lg-5' },
-                                React.createElement(
-                                    'div',
-                                    { className: 'quickly-logo' },
-                                    React.createElement(QuicklyLogo, null)
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'col-lg-6 text' },
-                                React.createElement(
-                                    'h1',
-                                    null,
-                                    'Квикли'
-                                ),
-                                React.createElement(
-                                    'p',
-                                    null,
-                                    'Быстрая доставка еды на дом и бронь стола в любимом заведении.'
-                                )
-                            )
-                        )
-                    ),
-                    React.createElement('div', { className: 'col-lg-3' }),
-                    React.createElement('div', { className: 'col-lg-3' })
-                )
-            )
+            React.createElement(MainSlider, null)
         );
     }
 });

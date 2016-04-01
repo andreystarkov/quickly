@@ -20470,6 +20470,92 @@ module.exports = function(listenables){
 }));
 
 /*!
+ * classie v1.0.1
+ * class helper functions
+ * from bonzo https://github.com/ded/bonzo
+ * MIT license
+ * 
+ * classie.has( elem, 'my-class' ) -> true/false
+ * classie.add( elem, 'my-new-class' )
+ * classie.remove( elem, 'my-unwanted-class' )
+ * classie.toggle( elem, 'my-class' )
+ */
+
+/*jshint browser: true, strict: true, undef: true, unused: true */
+/*global define: false, module: false */
+
+( function( window ) {
+
+'use strict';
+
+// class helper functions from bonzo https://github.com/ded/bonzo
+
+function classReg( className ) {
+  return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+}
+
+// classList support for class management
+// altho to be fair, the api sucks because it won't accept multiple classes at once
+var hasClass, addClass, removeClass;
+
+if ( 'classList' in document.documentElement ) {
+  hasClass = function( elem, c ) {
+    return elem.classList.contains( c );
+  };
+  addClass = function( elem, c ) {
+    elem.classList.add( c );
+  };
+  removeClass = function( elem, c ) {
+    elem.classList.remove( c );
+  };
+}
+else {
+  hasClass = function( elem, c ) {
+    return classReg( c ).test( elem.className );
+  };
+  addClass = function( elem, c ) {
+    if ( !hasClass( elem, c ) ) {
+      elem.className = elem.className + ' ' + c;
+    }
+  };
+  removeClass = function( elem, c ) {
+    elem.className = elem.className.replace( classReg( c ), ' ' );
+  };
+}
+
+function toggleClass( elem, c ) {
+  var fn = hasClass( elem, c ) ? removeClass : addClass;
+  fn( elem, c );
+}
+
+var classie = {
+  // full names
+  hasClass: hasClass,
+  addClass: addClass,
+  removeClass: removeClass,
+  toggleClass: toggleClass,
+  // short names
+  has: hasClass,
+  add: addClass,
+  remove: removeClass,
+  toggle: toggleClass
+};
+
+// transport
+if ( typeof define === 'function' && define.amd ) {
+  // AMD
+  define( classie );
+} else if ( typeof exports === 'object' ) {
+  // CommonJS
+  module.exports = classie;
+} else {
+  // browser global
+  window.classie = classie;
+}
+
+})( window );
+
+/*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under the MIT license
@@ -21143,7 +21229,6 @@ d.parent(".dropdown-menu").length&&(d=d.closest("li.dropdown").addClass("active"
 
 var cuisinesList;
 var isAuth;
-
 var currentCompany = 1;
 var currentCuisine;
 
@@ -21151,8 +21236,8 @@ var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
-var devMode = true;
-var currentVersion = '0.1.2';
+var devMode = false;
+var currentVersion = '0.1.3';
 
 if (devMode) {
     var serverUrl = 'http://176.112.201.81';
@@ -21234,7 +21319,6 @@ function flyToCart(what) {
         }, 400, "easeOutSine", function() {
             // what?
         });
-
         setTimeout(function() {
 	        panel.velocity({
 	        	translateY: 10
@@ -24814,6 +24898,133 @@ a)}})(window.jQuery||window.Zepto);
 
 !function(e){e(["jquery"],function(e){return function(){function t(e,t,n){return g({type:O.error,iconClass:m().iconClasses.error,message:e,optionsOverride:n,title:t})}function n(t,n){return t||(t=m()),v=e("#"+t.containerId),v.length?v:(n&&(v=u(t)),v)}function i(e,t,n){return g({type:O.info,iconClass:m().iconClasses.info,message:e,optionsOverride:n,title:t})}function o(e){w=e}function s(e,t,n){return g({type:O.success,iconClass:m().iconClasses.success,message:e,optionsOverride:n,title:t})}function a(e,t,n){return g({type:O.warning,iconClass:m().iconClasses.warning,message:e,optionsOverride:n,title:t})}function r(e,t){var i=m();v||n(i),l(e,i,t)||d(i)}function c(t){var i=m();return v||n(i),t&&0===e(":focus",t).length?void h(t):void(v.children().length&&v.remove())}function d(t){for(var n=v.children(),i=n.length-1;i>=0;i--)l(e(n[i]),t)}function l(t,n,i){var o=i&&i.force?i.force:!1;return t&&(o||0===e(":focus",t).length)?(t[n.hideMethod]({duration:n.hideDuration,easing:n.hideEasing,complete:function(){h(t)}}),!0):!1}function u(t){return v=e("<div/>").attr("id",t.containerId).addClass(t.positionClass).attr("aria-live","polite").attr("role","alert"),v.appendTo(e(t.target)),v}function p(){return{tapToDismiss:!0,toastClass:"toast",containerId:"toast-container",debug:!1,showMethod:"fadeIn",showDuration:300,showEasing:"swing",onShown:void 0,hideMethod:"fadeOut",hideDuration:1e3,hideEasing:"swing",onHidden:void 0,closeMethod:!1,closeDuration:!1,closeEasing:!1,extendedTimeOut:1e3,iconClasses:{error:"toast-error",info:"toast-info",success:"toast-success",warning:"toast-warning"},iconClass:"toast-info",positionClass:"toast-top-right",timeOut:5e3,titleClass:"toast-title",messageClass:"toast-message",escapeHtml:!1,target:"body",closeHtml:'<button type="button">&times;</button>',newestOnTop:!0,preventDuplicates:!1,progressBar:!1}}function f(e){w&&w(e)}function g(t){function i(e){return null==e&&(e=""),new String(e).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/'/g,"&#39;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}function o(){r(),d(),l(),u(),p(),c()}function s(){y.hover(b,O),!x.onclick&&x.tapToDismiss&&y.click(w),x.closeButton&&k&&k.click(function(e){e.stopPropagation?e.stopPropagation():void 0!==e.cancelBubble&&e.cancelBubble!==!0&&(e.cancelBubble=!0),w(!0)}),x.onclick&&y.click(function(e){x.onclick(e),w()})}function a(){y.hide(),y[x.showMethod]({duration:x.showDuration,easing:x.showEasing,complete:x.onShown}),x.timeOut>0&&(H=setTimeout(w,x.timeOut),q.maxHideTime=parseFloat(x.timeOut),q.hideEta=(new Date).getTime()+q.maxHideTime,x.progressBar&&(q.intervalId=setInterval(D,10)))}function r(){t.iconClass&&y.addClass(x.toastClass).addClass(E)}function c(){x.newestOnTop?v.prepend(y):v.append(y)}function d(){t.title&&(I.append(x.escapeHtml?i(t.title):t.title).addClass(x.titleClass),y.append(I))}function l(){t.message&&(M.append(x.escapeHtml?i(t.message):t.message).addClass(x.messageClass),y.append(M))}function u(){x.closeButton&&(k.addClass("toast-close-button").attr("role","button"),y.prepend(k))}function p(){x.progressBar&&(B.addClass("toast-progress"),y.prepend(B))}function g(e,t){if(e.preventDuplicates){if(t.message===C)return!0;C=t.message}return!1}function w(t){var n=t&&x.closeMethod!==!1?x.closeMethod:x.hideMethod,i=t&&x.closeDuration!==!1?x.closeDuration:x.hideDuration,o=t&&x.closeEasing!==!1?x.closeEasing:x.hideEasing;return!e(":focus",y).length||t?(clearTimeout(q.intervalId),y[n]({duration:i,easing:o,complete:function(){h(y),x.onHidden&&"hidden"!==j.state&&x.onHidden(),j.state="hidden",j.endTime=new Date,f(j)}})):void 0}function O(){(x.timeOut>0||x.extendedTimeOut>0)&&(H=setTimeout(w,x.extendedTimeOut),q.maxHideTime=parseFloat(x.extendedTimeOut),q.hideEta=(new Date).getTime()+q.maxHideTime)}function b(){clearTimeout(H),q.hideEta=0,y.stop(!0,!0)[x.showMethod]({duration:x.showDuration,easing:x.showEasing})}function D(){var e=(q.hideEta-(new Date).getTime())/q.maxHideTime*100;B.width(e+"%")}var x=m(),E=t.iconClass||x.iconClass;if("undefined"!=typeof t.optionsOverride&&(x=e.extend(x,t.optionsOverride),E=t.optionsOverride.iconClass||E),!g(x,t)){T++,v=n(x,!0);var H=null,y=e("<div/>"),I=e("<div/>"),M=e("<div/>"),B=e("<div/>"),k=e(x.closeHtml),q={intervalId:null,hideEta:null,maxHideTime:null},j={toastId:T,state:"visible",startTime:new Date,options:x,map:t};return o(),a(),s(),f(j),x.debug&&console&&console.log(j),y}}function m(){return e.extend({},p(),b.options)}function h(e){v||(v=n()),e.is(":visible")||(e.remove(),e=null,0===v.children().length&&(v.remove(),C=void 0))}var v,w,C,T=0,O={error:"error",info:"info",success:"success",warning:"warning"},b={clear:r,remove:c,error:t,getContainer:n,info:i,options:{},subscribe:o,success:s,version:"2.1.2",warning:a};return b}()})}("function"==typeof define&&define.amd?define:function(e,t){"undefined"!=typeof module&&module.exports?module.exports=t(require("jquery")):window.toastr=t(window.jQuery)});
 //# sourceMappingURL=toastr.js.map
+jQuery(document).ready(function($){
+	var slidesWrapper = $('.quickly-slider');
+
+	if ( slidesWrapper.length > 0 ) {
+		var primaryNav = $('.primary-nav'),
+			sliderNav = $('.slider-nav'),
+			navigationMarker = $('.marker'),
+			slidesNumber = slidesWrapper.children('li').length,
+			visibleSlidePosition = 0,
+			autoPlayId,
+			autoPlayDelay = 6000;
+
+		uploadVideo(slidesWrapper);
+
+		setAutoplay(slidesWrapper, slidesNumber, autoPlayDelay);
+
+		primaryNav.on('click', function(event){
+			if($(event.target).is('.primary-nav')) $(this).children('ul').toggleClass('is-visible');
+		});
+
+		sliderNav.on('click', 'li', function(event){
+			event.preventDefault();
+			var selectedItem = $(this);
+			if(!selectedItem.hasClass('selected')) {
+
+				var selectedPosition = selectedItem.index(),
+					activePosition = slidesWrapper.find('li.selected').index();
+
+				if( activePosition < selectedPosition) {
+					nextSlide(slidesWrapper.find('.selected'), slidesWrapper, sliderNav, selectedPosition);
+				} else {
+					prevSlide(slidesWrapper.find('.selected'), slidesWrapper, sliderNav, selectedPosition);
+				}
+
+				// for the autoplay
+				visibleSlidePosition = selectedPosition;
+
+				updateSliderNavigation(sliderNav, selectedPosition);
+				updateNavigationMarker(navigationMarker, selectedPosition+1);
+				// reset autoplay
+				setAutoplay(slidesWrapper, slidesNumber, autoPlayDelay);
+			}
+		});
+	}
+
+	function nextSlide(visibleSlide, container, pagination, n){
+		visibleSlide.removeClass('selected from-left from-right').addClass('is-moving').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+			visibleSlide.removeClass('is-moving');
+		});
+
+		container.children('li').eq(n).addClass('selected from-right').prevAll().addClass('move-left');
+		checkVideo(visibleSlide, container, n);
+	}
+
+	function prevSlide(visibleSlide, container, pagination, n){
+		visibleSlide.removeClass('selected from-left from-right').addClass('is-moving').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+			visibleSlide.removeClass('is-moving');
+		});
+
+		container.children('li').eq(n).addClass('selected from-left').removeClass('move-left').nextAll().removeClass('move-left');
+		checkVideo(visibleSlide, container, n);
+	}
+
+	function updateSliderNavigation(pagination, n) {
+		var navigationDot = pagination.find('.selected');
+		navigationDot.removeClass('selected');
+		pagination.find('li').eq(n).addClass('selected');
+	}
+
+	function setAutoplay(wrapper, length, delay) {
+		if(wrapper.hasClass('autoplay')) {
+			clearInterval(autoPlayId);
+			autoPlayId = window.setInterval(function(){autoplaySlider(length)}, delay);
+		}
+	}
+
+	function autoplaySlider(length) {
+		if( visibleSlidePosition < length - 1) {
+			nextSlide(slidesWrapper.find('.selected'), slidesWrapper, sliderNav, visibleSlidePosition + 1);
+			visibleSlidePosition +=1;
+		} else {
+			prevSlide(slidesWrapper.find('.selected'), slidesWrapper, sliderNav, 0);
+			visibleSlidePosition = 0;
+		}
+		updateNavigationMarker(navigationMarker, visibleSlidePosition+1);
+		updateSliderNavigation(sliderNav, visibleSlidePosition);
+	}
+
+	function uploadVideo(container) {
+		container.find('.bg-video-wrapper').each(function(){
+			var videoWrapper = $(this);
+			if( videoWrapper.is(':visible') ) {
+				// if visible - we are not on a mobile device
+				var	videoUrl = videoWrapper.data('video'),
+					video = $('<video loop><source src="'+videoUrl+'.mp4" type="video/mp4" /><source src="'+videoUrl+'.webm" type="video/webm" /></video>');
+				video.appendTo(videoWrapper);
+				// play video if first
+				if(videoWrapper.parent('.bg-video.selected').length > 0) video.get(0).play();
+			}
+		});
+	}
+
+	function checkVideo(hiddenSlide, container, n) {
+		//check if a video outside the viewport is playing - if yes, pause it
+		var hiddenVideo = hiddenSlide.find('video');
+		if( hiddenVideo.length > 0 ) hiddenVideo.get(0).pause();
+
+		//check if the select slide contains a video element - if yes, play the video
+		var visibleVideo = container.children('li').eq(n).find('video');
+		if( visibleVideo.length > 0 ) visibleVideo.get(0).play();
+	}
+
+	function updateNavigationMarker(marker, n) {
+		marker.removeClassPrefix('item').addClass('item-'+n);
+	}
+
+	$.fn.removeClassPrefix = function(prefix) {
+	    this.each(function(i, el) {
+	        var classes = el.className.split(" ").filter(function(c) {
+	            return c.lastIndexOf(prefix, 0) !== 0;
+	        });
+	        el.className = $.trim(classes.join(" "));
+	    });
+	    return this;
+	};
+});
+
 function getRandom(min, max){
     return Math.random() * (max - min) + min;
 }

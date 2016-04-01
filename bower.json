@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "devDependencies": {
     "jquery": "~2.1.1",
-    "ImageUpload": "https://github.com/Garik-/ImageUpload.js"
+    "ImageUpload": "https://github.com/Garik-/ImageUpload.js",
+    "classie": "^1.0.1"
   },
   "dependencies": {
     "react": "^0.14.7",

@@ -9,6 +9,7 @@ var theLibs = [
 
     'app/libs/underscore/underscore-min.js',
     'app/libs/js-cookie/src/js.cookie.js',
+    'app/libs/classie/classie.js',
 
     'app/libs/bootstrap/dist/js/bootstrap.min.js',
     'app/libs/bootstrap-material-design/scripts/material.js',
@@ -30,6 +31,7 @@ var theLibs = [
     'app/scripts/etc/jquery.nouislider.min.js',
     'app/libs/sweetalert2/src/sweetalert2.js',
     'app/libs/toastr/toastr.min.js',
+    'app/scripts/components/slider.js',
 
     // core scripts
 
