@@ -1,13 +1,85 @@
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
+var ProfileEditorActions = require('./actions/profileEditorActions.js');
+
+function editUserField(obj, callback) {
+    var theOptions = {};
+    var theParameter = $('#' + fieldId).data('id');
+
+    theOptions['userToken'] = userToken;
+    theOptions['cityId'] = cityId;
+    theOptions[theParameter] = $('#' + fieldId).val();
+
+    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+    $.ajax({
+        url: serverUrl + '/api/v2/user/profile/edit',
+        dataType: 'json',
+        type: 'POST',
+        data: theOptions,
+        success: function(data) {
+            console.log('editUserField: ', data);
+            if (data.err === undefined || data.err === null) {
+                toastr.success('Данные профиля сохранены');
+            }
+            $('#' + fieldId).parent().addClass('has-success');
+            refreshUserProfile();
+            if (callback) callback(data);
+        }
+    });
+}
+
+var Field = React.createClass({
+  render: function () {
+      return (
+        <div className="form-group">
+          <label className="control-label" htmlFor="userName">{this.props.name}</label>
+          <input data-id={this.props.id} type="text" className="form-control" value={this.props.value} onChange={this.props.onChange} defaultValue={this.props.value} />
+        </div>
+      );
+  }
+});
+/*
+var AddressAddForm = React.createClass({
+    render: function () {
+        return (
+            <div id="profile-addresses" data-id="1" className="inline-block float-left">
+               <i className="icon icon-location-pin"></i>
+               <div className="box">
+                  <div className="form-group label-placeholder is-empty" title="Введите адреса для доставки">
+                     <input type="text" className="form-control" id="profile-address-1" />
+                  </div>
+               </div>
+            </div>
+            <div className="box">
+               <a href="#" className="button button-plus tip" id="profile-address-add">
+               <i className="icon fa fa-plus-square-o"></i>
+               <span>Добавить адрес</span>
+               </a>
+            </div>
+        )
+    }
+});*/
 
 var ProfileEditorForm = React.createClass({
+    getInitalState: function(){
+        return {
+            userAvatar: this.props.userAvatar,
+            userSurname: this.props.userSurname,
+            userBirth: this.props.userBirth,
+            userEmail: this.props.userEmail
+
+        }
+    },
+    onFieldChange: function(value){
+        console.log('ProfileEditorForm onFieldChange: value = ', event.target);
+    },
     render: function(){
         var total = 0;
         var profile = this.props.profile;
-
-        var userAvatar =  imageBaseUrl+profile.userAvatarUrl;
-        if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) { userAvatar = 'images/samples/user.png'; }
+        var userAvatar;
+        if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+            userAvatar = 'images/samples/user.png';
+        } else userAvatar = profile.userAvatarUrl;
 
         console.log('ProfileEditorForm: profile = ', profile);
         return (
@@ -23,58 +95,21 @@ var ProfileEditorForm = React.createClass({
               </div>
               <div className="col-lg-10 the-info">
                  <div className="row delivery">
-                    <div className="col-lg-4">
-                     <div className="title user-name-edit">
-                        <div className="form-group">
-                          <label className="control-label" for="userName">Имя</label>
-                          <input type="text" className="form-control focus-out autoupdate" data-id="name" id="userName" value={profile.userName} />
-                        </div>
-                        <div className="form-group">
-                          <label className="control-label" for="userSurname">Фамилия</label>
-                          <input type="text" className="form-control focus-out autoupdate" data-id="surname" id="userSurname" value={profile.userSurname} />
-                        </div>
-                     </div>
+                    <div className="col-lg-3">
+                        <Field name="Имя" id="userName" value={profile.userName} onChange={this.onFieldChange} />
                     </div>
                     <div className="col-lg-3">
-                       <div className="form-group">
-                          <label className="control-label" for="userEmail">Электронная почта</label>
-                          <input type="email" className="form-control focus-out autoupdate" data-id="email" id="userEmail" value={profile.userEmail} />
-                       </div>
+                        <Field name="Фамилия" id="userSurname" value={profile.userSurname} onChange={this.onFieldChange} />
                     </div>
                     <div className="col-lg-3">
-                       <div className="form-group">
-                          <label className="control-label" for="userPhone">Номер телефона</label>
-                          <input type="tel" className="form-control focus-out" id="userPhone" value={profile.userPhone} />
-                       </div>
+                        <Field name="Дата рождения" id="userBirth" value={profile.userBirth} onChange={this.onFieldChange} />
                     </div>
                     <div className="col-lg-3">
-                       <div className="form-group">
-                          <label className="control-label" for="userBirth">Дата рождения</label>
-                          <input type="date" className="form-control focus-out" data-id="birthdate" id="userBirth" value={profile.userBirthdate} />
-                       </div>
-                    </div>
-                    <div className="col-lg-3">
-                       <div className="form-group">
-                          <label className="control-label" for="userCity">Город</label>
-                          <input type="text" className="form-control" id="userCity" value="Оренбург" />
-                       </div>
+                        <Field name="E-Mail" id="userEmail" value={profile.userEmail} onChange={this.onFieldChange} />
                     </div>
                  </div>
                  <div className="line delivery">
-                    <div id="profile-addresses" data-id="1" className="inline-block float-left">
-                       <i className="icon icon-location-pin"></i>
-                       <div className="box">
-                          <div className="form-group label-placeholder is-empty" title="Введите адреса для доставки">
-                             <input type="text" className="form-control" id="profile-address-1" />
-                          </div>
-                       </div>
-                    </div>
-                    <div className="box">
-                       <a href="#" className="button button-plus tip" id="profile-address-add">
-                       <i className="icon fa fa-plus-square-o"></i>
-                       <span>Добавить адрес</span>
-                       </a>
-                    </div>
+
                  </div>
               </div>
            </div>
@@ -118,10 +153,11 @@ var ProfileEditor = React.createClass({
     render: function() {
      //   profileEditorActions.updateData();
         var theData = this.state.profileData;
+        console.log('ProfileEditor: theData = ',theData);
         return (
             <ProfileEditorForm profile={theData} />
         )
     }
 });
 
-// ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
+ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));

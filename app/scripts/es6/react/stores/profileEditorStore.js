@@ -2,12 +2,9 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:37:12
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:38:30
+* @Last Modified time: 2016-04-02 16:49:43
 */
-
-var ProfileEditorActions = Reflux.createActions([
-    'fetchList', 'updateData'
-]);
+var ProfileEditorActions = require('../actions/profileEditorActions.js');
 
 var ProfileEditorStore = Reflux.createStore({
     listenables: [ProfileEditorActions],

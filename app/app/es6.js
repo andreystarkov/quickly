@@ -336,103 +336,77 @@ function createReservation() {
 
 function createProfileEditor(profile, callback) {
 
-    var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
-    var userAvatar = imageBaseUrl + profile.userAvatarUrl;
-    if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-        userAvatar = 'images/samples/user.png';
-    }
+   var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
+   var userAvatar = imageBaseUrl + profile.userAvatarUrl;
+   if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+      userAvatar = 'images/samples/user.png';
+   }
 
-    var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
-    $('#editUserProfile').prepend(htmlTemplate);
-    if (callback) callback();
+   var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
+   $('#editUserProfile').prepend(htmlTemplate);
+   if (callback) callback();
 }
 
 function emptyProfile() {
-    var token = userToken;
-    getUserProfile(token, function (data) {
-        var userBonus = getUserBonus(userToken);
-        var userInfo = data;
-        $('#userBadgeTop').html('\n          <div class="user-text" id="buttonEmptyProfile">\n            <b class="user-name">Добро пожаловать!</b>\n            <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n        ');
-    });
+   var token = userToken;
+   getUserProfile(token, function (data) {
+      var userBonus = getUserBonus(userToken);
+      var userInfo = data;
+      $('#userBadgeTop').html('\n              <div class="user-text" id="buttonEmptyProfile">\n                <b class="user-name">Добро пожаловать!</b>\n                <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n              </div>\n            ');
+   });
 }
 
 function refreshUserProfile() {
-    var token = userToken;
-    getUserProfile(token, function (data) {
-        var userBonus = getUserBonus(userToken);
-        var userInfo = data;
-        var userAvatar = imageBaseUrl + data.userAvatarUrl;
-        if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
-            userAvatar = 'images/samples/user.png';
-        }
-        $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
-    });
+   var token = userToken;
+   getUserProfile(token, function (data) {
+      var userBonus = getUserBonus(userToken);
+      var userInfo = data;
+      var userAvatar = imageBaseUrl + data.userAvatarUrl;
+      if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
+         userAvatar = 'images/samples/user.png';
+      }
+      $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
+   });
 }
 
 function getUserBonus(userToken) {
-    var bonus;
-    $.ajax({
-        url: serverUrl + '/api/v2/user/bonus/' + userToken,
-        async: false,
-        dataType: 'json',
-        success: function success(data) {
-            bonus = data.result.userBonus;
-        }
-    });
-    return bonus;
-}
-
-function editUserField(fieldId, callback) {
-    var theOptions = {};
-    var theParameter = $('#' + fieldId).data('id');
-
-    theOptions['userToken'] = userToken;
-    theOptions['cityId'] = cityId;
-    theOptions[theParameter] = $('#' + fieldId).val();
-
-    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-    $.ajax({
-        url: serverUrl + '/api/v2/user/profile/edit',
-        dataType: 'json',
-        type: 'POST',
-        data: theOptions,
-        success: function success(data) {
-            console.log('editUserField: ', data);
-            if (data.err === undefined || data.err === null) {
-                toastr.success('Данные профиля сохранены');
-            }
-            $('#' + fieldId).parent().addClass('has-success');
-            refreshUserProfile();
-            if (callback) callback(data);
-        }
-    });
+   var bonus;
+   $.ajax({
+      url: serverUrl + '/api/v2/user/bonus/' + userToken,
+      async: false,
+      dataType: 'json',
+      success: function success(data) {
+         bonus = data.result.userBonus;
+      }
+   });
+   return bonus;
 }
 
 $(function () {
 
-    getUserProfile(userToken, function (data) {
+   /*        getUserProfile(userToken, function(data) {
+               console.log('getUserProfile:', data);
+               createProfileEditor(data, function() {
+                   $('.user-editor .control-label').each(function() {
+                       $(this).append('<i class="status-icon its-ok icon-check"></i>');
+                   });
+               });
+           });*/
 
-        console.log('getUserProfile:', data);
-        createProfileEditor(data, function () {
-            $('.user-editor .control-label').each(function () {
-                $(this).append('<i class="status-icon its-ok icon-check"></i>');
-            });
-        });
-    });
+   $(document).on('click', '#buttonReturnShop', function (event) {
+      easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
+         easyVelocity('#pageCompany', 'transition.flipXIn');
+      });
+   });
 
-    $(document).on('click', '#buttonReturnShop', function (event) {
-        easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
-            easyVelocity('#pageCompany', 'transition.flipXIn');
-        });
-    });
+   refreshUserProfile();
 
-    refreshUserProfile();
-
-    $(document).on('focusout', ".user-editor .autoupdate", function () {
-        var fieldId = $(this).attr('id');
-        console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
-        editUserField(fieldId);
-    });
+   /*        $(document).on('focusout', ".user-editor .autoupdate", function() {
+               var fieldId = $(this).attr('id');
+               console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
+               editUserField(fieldId);
+           });
+   */
 });
 
 },{}],7:[function(require,module,exports){
@@ -480,6 +454,20 @@ module.exports = CuisinesActions;
 },{}],10:[function(require,module,exports){
 'use strict';
 
+/*
+* @Author: Andrey Starkov
+* @Date:   2016-04-02 16:46:11
+* @Last Modified by:   Andrey Starkov
+* @Last Modified time: 2016-04-02 16:50:39
+*/
+
+var ProfileEditorActions = Reflux.createActions(['fetchList', 'updateData']);
+
+module.exports = ProfileEditorActions;
+
+},{}],11:[function(require,module,exports){
+'use strict';
+
 var CardsStore = require('./stores/cardsStore.js');
 var CardsActions = require('./actions/cardsActions.js');
 
@@ -508,7 +496,7 @@ var CardsList = React.createClass({
 
 ReactDOM.render(React.createElement(CardsList, null), document.getElementById('cardsList'));
 
-},{"./actions/cardsActions.js":7,"./stores/cardsStore.js":25}],11:[function(require,module,exports){
+},{"./actions/cardsActions.js":7,"./stores/cardsStore.js":26}],12:[function(require,module,exports){
 'use strict';
 
 var CompanyDetailsStore = require('./stores/companyDetailsStore.js');
@@ -744,7 +732,7 @@ var CompanyDetails = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyDetails, { companyId: '1' }), document.getElementById('companyDetails'));
 
-},{"./actions/companyListActions.js":8,"./stores/companyDetailsStore.js":26}],12:[function(require,module,exports){
+},{"./actions/companyListActions.js":8,"./stores/companyDetailsStore.js":27}],13:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -944,7 +932,7 @@ var CompanyList = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyList, null), document.getElementById('pageCompanyList'));
 
-},{"./actions/companyListActions.js":8,"./actions/cuisinesActions.js":9,"./companyList.react.jsx":12,"./components/buttonMore.js":14,"./components/companyListSidebar.js":15,"./components/quicklyLogo.js":17,"./components/singleCompany.js":18,"./cuisinesList.react.jsx":19,"./stores/companyListStore.js":27}],13:[function(require,module,exports){
+},{"./actions/companyListActions.js":8,"./actions/cuisinesActions.js":9,"./companyList.react.jsx":13,"./components/buttonMore.js":15,"./components/companyListSidebar.js":16,"./components/quicklyLogo.js":18,"./components/singleCompany.js":19,"./cuisinesList.react.jsx":20,"./stores/companyListStore.js":28}],14:[function(require,module,exports){
 "use strict";
 
 /*
@@ -968,7 +956,7 @@ var ButtonBack = React.createClass({
 
 module.exports = ButtonBack;
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 
 /*
@@ -993,7 +981,7 @@ var ButtonMore = React.createClass({
 
 module.exports = ButtonMore;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1142,7 +1130,7 @@ var CompanyListSidebar = React.createClass({
 
 module.exports = CompanyListSidebar;
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../../screens.jsx');
@@ -1253,7 +1241,7 @@ var CuisinesSelectList = React.createClass({
 
 module.exports = CuisinesSelectList;
 
-},{"../../screens.jsx":34,"../actions/companyListActions.js":8,"../stores/cuisinesStore.js":28}],17:[function(require,module,exports){
+},{"../../screens.jsx":35,"../actions/companyListActions.js":8,"../stores/cuisinesStore.js":29}],18:[function(require,module,exports){
 "use strict";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1293,7 +1281,7 @@ var QuicklyLogo = React.createClass({
 
 module.exports = QuicklyLogo;
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1770,7 +1758,7 @@ var SingleCompany = React.createClass({
 
 module.exports = SingleCompany;
 
-},{"../cuisinesList.react.jsx":19}],19:[function(require,module,exports){
+},{"../cuisinesList.react.jsx":20}],20:[function(require,module,exports){
 'use strict';
 
 var CuisinesStore = require('./stores/cuisinesStore.js');
@@ -1817,7 +1805,7 @@ var CuisinesList = React.createClass({
 
 module.exports = CuisinesList;
 
-},{"./stores/cuisinesStore.js":28}],20:[function(require,module,exports){
+},{"./stores/cuisinesStore.js":29}],21:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../screens.jsx');
@@ -2039,7 +2027,7 @@ var ButtonBack = React.createClass({
 ReactDOM.render(React.createElement(MainPageHeader, null), document.getElementById('mainPageHeader'));
 ReactDOM.render(React.createElement(CuisinesSelectList, null), document.getElementById('cuisinesSelectList'));
 
-},{"../screens.jsx":34,"./components/buttonBack.js":13,"./components/cuisinesSelectList.js":16,"./components/quicklyLogo.js":17,"./stores/cuisinesStore.js":28}],21:[function(require,module,exports){
+},{"../screens.jsx":35,"./components/buttonBack.js":14,"./components/cuisinesSelectList.js":17,"./components/quicklyLogo.js":18,"./stores/cuisinesStore.js":29}],22:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2161,7 +2149,7 @@ var MenuItems = React.createClass({
 
 ReactDOM.render(React.createElement(MenuItems, null), document.getElementById('menuItems'));
 
-},{"./stores/menuItemsStore.js":29}],22:[function(require,module,exports){
+},{"./stores/menuItemsStore.js":30}],23:[function(require,module,exports){
 'use strict';
 
 var _addToCart = require('../engine/addToCart.js');
@@ -2408,251 +2396,233 @@ var OrdersHistory = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersHistory, null), document.getElementById('ordersHistory'));
 
-},{"../engine/addToCart.js":2,"./components/buttonMore.js":14,"./stores/ordersHistoryStore.js":30}],23:[function(require,module,exports){
+},{"../engine/addToCart.js":2,"./components/buttonMore.js":15,"./stores/ordersHistoryStore.js":31}],24:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
+var ProfileEditorActions = require('./actions/profileEditorActions.js');
+
+function editUserField(obj, callback) {
+    var theOptions = {};
+    var theParameter = $('#' + fieldId).data('id');
+
+    theOptions['userToken'] = userToken;
+    theOptions['cityId'] = cityId;
+    theOptions[theParameter] = $('#' + fieldId).val();
+
+    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+    $.ajax({
+        url: serverUrl + '/api/v2/user/profile/edit',
+        dataType: 'json',
+        type: 'POST',
+        data: theOptions,
+        success: function success(data) {
+            console.log('editUserField: ', data);
+            if (data.err === undefined || data.err === null) {
+                toastr.success('Данные профиля сохранены');
+            }
+            $('#' + fieldId).parent().addClass('has-success');
+            refreshUserProfile();
+            if (callback) callback(data);
+        }
+    });
+}
+
+var Field = React.createClass({
+    displayName: 'Field',
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            { className: 'form-group' },
+            React.createElement(
+                'label',
+                { className: 'control-label', htmlFor: 'userName' },
+                this.props.name
+            ),
+            React.createElement('input', { 'data-id': this.props.id, type: 'text', className: 'form-control', value: this.props.value, onChange: this.props.onChange, defaultValue: this.props.value })
+        );
+    }
+});
+/*
+var AddressAddForm = React.createClass({
+    render: function () {
+        return (
+            <div id="profile-addresses" data-id="1" className="inline-block float-left">
+               <i className="icon icon-location-pin"></i>
+               <div className="box">
+                  <div className="form-group label-placeholder is-empty" title="Введите адреса для доставки">
+                     <input type="text" className="form-control" id="profile-address-1" />
+                  </div>
+               </div>
+            </div>
+            <div className="box">
+               <a href="#" className="button button-plus tip" id="profile-address-add">
+               <i className="icon fa fa-plus-square-o"></i>
+               <span>Добавить адрес</span>
+               </a>
+            </div>
+        )
+    }
+});*/
 
 var ProfileEditorForm = React.createClass({
-   displayName: 'ProfileEditorForm',
+    displayName: 'ProfileEditorForm',
 
-   render: function render() {
-      var total = 0;
-      var profile = this.props.profile;
+    getInitalState: function getInitalState() {
+        return {
+            userAvatar: this.props.userAvatar,
+            userSurname: this.props.userSurname,
+            userBirth: this.props.userBirth,
+            userEmail: this.props.userEmail
 
-      var userAvatar = imageBaseUrl + profile.userAvatarUrl;
-      if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-         userAvatar = 'images/samples/user.png';
-      }
+        };
+    },
+    onFieldChange: function onFieldChange(value) {
+        console.log('ProfileEditorForm onFieldChange: value = ', event.target);
+    },
+    render: function render() {
+        var total = 0;
+        var profile = this.props.profile;
+        var userAvatar;
+        if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+            userAvatar = 'images/samples/user.png';
+        } else userAvatar = profile.userAvatarUrl;
 
-      console.log('ProfileEditorForm: profile = ', profile);
-      return React.createElement(
-         'div',
-         { className: 'user-editor container' },
-         React.createElement(
+        console.log('ProfileEditorForm: profile = ', profile);
+        return React.createElement(
             'div',
-            { className: 'row' },
+            { className: 'user-editor container' },
             React.createElement(
-               'div',
-               { className: 'col-lg-2 text-center' },
-               React.createElement(
-                  'div',
-                  { className: 'avatar round' },
-                  React.createElement('img', { src: userAvatar, alt: '...' })
-               ),
-               React.createElement(
-                  'div',
-                  { className: 'btn-group' },
-                  React.createElement(
-                     'a',
-                     { className: 'button light small' },
-                     'Изменить аватар'
-                  )
-               )
+                'div',
+                { className: 'row' },
+                React.createElement(
+                    'div',
+                    { className: 'col-lg-2 text-center' },
+                    React.createElement(
+                        'div',
+                        { className: 'avatar round' },
+                        React.createElement('img', { src: userAvatar, alt: '...' })
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'btn-group' },
+                        React.createElement(
+                            'a',
+                            { className: 'button light small' },
+                            'Изменить аватар'
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'col-lg-10 the-info' },
+                    React.createElement(
+                        'div',
+                        { className: 'row delivery' },
+                        React.createElement(
+                            'div',
+                            { className: 'col-lg-3' },
+                            React.createElement(Field, { name: 'Имя', id: 'userName', value: profile.userName, onChange: this.onFieldChange })
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'col-lg-3' },
+                            React.createElement(Field, { name: 'Фамилия', id: 'userSurname', value: profile.userSurname, onChange: this.onFieldChange })
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'col-lg-3' },
+                            React.createElement(Field, { name: 'Дата рождения', id: 'userBirth', value: profile.userBirth, onChange: this.onFieldChange })
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'col-lg-3' },
+                            React.createElement(Field, { name: 'E-Mail', id: 'userEmail', value: profile.userEmail, onChange: this.onFieldChange })
+                        )
+                    ),
+                    React.createElement('div', { className: 'line delivery' })
+                )
             ),
             React.createElement(
-               'div',
-               { className: 'col-lg-10 the-info' },
-               React.createElement(
-                  'div',
-                  { className: 'row delivery' },
-                  React.createElement(
-                     'div',
-                     { className: 'col-lg-4' },
-                     React.createElement(
+                'div',
+                { className: 'row buttons-line' },
+                React.createElement('div', { className: 'col-lg-2' }),
+                React.createElement(
+                    'div',
+                    { className: 'col-lg-10 buttons-tabs' },
+                    React.createElement(
                         'div',
-                        { className: 'title user-name-edit' },
+                        { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
                         React.createElement(
-                           'div',
-                           { className: 'form-group' },
-                           React.createElement(
-                              'label',
-                              { className: 'control-label', 'for': 'userName' },
-                              'Имя'
-                           ),
-                           React.createElement('input', { type: 'text', className: 'form-control focus-out autoupdate', 'data-id': 'name', id: 'userName', value: profile.userName })
+                            'a',
+                            { href: '#tab-order-history', className: 'tab-toggle btn button light', id: 'tabOrderHistory' },
+                            React.createElement(
+                                'span',
+                                null,
+                                'История заказов'
+                            )
                         ),
                         React.createElement(
-                           'div',
-                           { className: 'form-group' },
-                           React.createElement(
-                              'label',
-                              { className: 'control-label', 'for': 'userSurname' },
-                              'Фамилия'
-                           ),
-                           React.createElement('input', { type: 'text', className: 'form-control focus-out autoupdate', 'data-id': 'surname', id: 'userSurname', value: profile.userSurname })
+                            'a',
+                            { href: '#tab-reservation-history', className: 'tab-toggle btn button light' },
+                            React.createElement(
+                                'span',
+                                null,
+                                'История бронирования'
+                            )
+                        ),
+                        React.createElement(
+                            'a',
+                            { href: '#tab-comments-history', className: 'tab-toggle btn button light' },
+                            React.createElement(
+                                'span',
+                                null,
+                                'Оставленные отзывы'
+                            )
+                        ),
+                        React.createElement(
+                            'a',
+                            { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
+                            React.createElement(
+                                'span',
+                                null,
+                                'Вернуться к ресторану'
+                            )
                         )
-                     )
-                  ),
-                  React.createElement(
-                     'div',
-                     { className: 'col-lg-3' },
-                     React.createElement(
-                        'div',
-                        { className: 'form-group' },
-                        React.createElement(
-                           'label',
-                           { className: 'control-label', 'for': 'userEmail' },
-                           'Электронная почта'
-                        ),
-                        React.createElement('input', { type: 'email', className: 'form-control focus-out autoupdate', 'data-id': 'email', id: 'userEmail', value: profile.userEmail })
-                     )
-                  ),
-                  React.createElement(
-                     'div',
-                     { className: 'col-lg-3' },
-                     React.createElement(
-                        'div',
-                        { className: 'form-group' },
-                        React.createElement(
-                           'label',
-                           { className: 'control-label', 'for': 'userPhone' },
-                           'Номер телефона'
-                        ),
-                        React.createElement('input', { type: 'tel', className: 'form-control focus-out', id: 'userPhone', value: profile.userPhone })
-                     )
-                  ),
-                  React.createElement(
-                     'div',
-                     { className: 'col-lg-3' },
-                     React.createElement(
-                        'div',
-                        { className: 'form-group' },
-                        React.createElement(
-                           'label',
-                           { className: 'control-label', 'for': 'userBirth' },
-                           'Дата рождения'
-                        ),
-                        React.createElement('input', { type: 'date', className: 'form-control focus-out', 'data-id': 'birthdate', id: 'userBirth', value: profile.userBirthdate })
-                     )
-                  ),
-                  React.createElement(
-                     'div',
-                     { className: 'col-lg-3' },
-                     React.createElement(
-                        'div',
-                        { className: 'form-group' },
-                        React.createElement(
-                           'label',
-                           { className: 'control-label', 'for': 'userCity' },
-                           'Город'
-                        ),
-                        React.createElement('input', { type: 'text', className: 'form-control', id: 'userCity', value: 'Оренбург' })
-                     )
-                  )
-               ),
-               React.createElement(
-                  'div',
-                  { className: 'line delivery' },
-                  React.createElement(
-                     'div',
-                     { id: 'profile-addresses', 'data-id': '1', className: 'inline-block float-left' },
-                     React.createElement('i', { className: 'icon icon-location-pin' }),
-                     React.createElement(
-                        'div',
-                        { className: 'box' },
-                        React.createElement(
-                           'div',
-                           { className: 'form-group label-placeholder is-empty', title: 'Введите адреса для доставки' },
-                           React.createElement('input', { type: 'text', className: 'form-control', id: 'profile-address-1' })
-                        )
-                     )
-                  ),
-                  React.createElement(
-                     'div',
-                     { className: 'box' },
-                     React.createElement(
-                        'a',
-                        { href: '#', className: 'button button-plus tip', id: 'profile-address-add' },
-                        React.createElement('i', { className: 'icon fa fa-plus-square-o' }),
-                        React.createElement(
-                           'span',
-                           null,
-                           'Добавить адрес'
-                        )
-                     )
-                  )
-               )
+                    )
+                )
             )
-         ),
-         React.createElement(
-            'div',
-            { className: 'row buttons-line' },
-            React.createElement('div', { className: 'col-lg-2' }),
-            React.createElement(
-               'div',
-               { className: 'col-lg-10 buttons-tabs' },
-               React.createElement(
-                  'div',
-                  { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
-                  React.createElement(
-                     'a',
-                     { href: '#tab-order-history', className: 'tab-toggle btn button light', id: 'tabOrderHistory' },
-                     React.createElement(
-                        'span',
-                        null,
-                        'История заказов'
-                     )
-                  ),
-                  React.createElement(
-                     'a',
-                     { href: '#tab-reservation-history', className: 'tab-toggle btn button light' },
-                     React.createElement(
-                        'span',
-                        null,
-                        'История бронирования'
-                     )
-                  ),
-                  React.createElement(
-                     'a',
-                     { href: '#tab-comments-history', className: 'tab-toggle btn button light' },
-                     React.createElement(
-                        'span',
-                        null,
-                        'Оставленные отзывы'
-                     )
-                  ),
-                  React.createElement(
-                     'a',
-                     { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
-                     React.createElement(
-                        'span',
-                        null,
-                        'Вернуться к ресторану'
-                     )
-                  )
-               )
-            )
-         )
-      );
-   }
+        );
+    }
 });
 
 var ProfileEditor = React.createClass({
-   displayName: 'ProfileEditor',
+    displayName: 'ProfileEditor',
 
-   mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
-   limit: 5,
-   getInitialState: function getInitialState() {
-      return {
-         data: [],
-         profileData: []
-      };
-   },
-   componentDidMount: function componentDidMount() {
-      ProfileEditorActions.updateData();
-   },
-   render: function render() {
-      //   profileEditorActions.updateData();
-      var theData = this.state.profileData;
-      return React.createElement(ProfileEditorForm, { profile: theData });
-   }
+    mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
+    limit: 5,
+    getInitialState: function getInitialState() {
+        return {
+            data: [],
+            profileData: []
+        };
+    },
+    componentDidMount: function componentDidMount() {
+        ProfileEditorActions.updateData();
+    },
+    render: function render() {
+        //   profileEditorActions.updateData();
+        var theData = this.state.profileData;
+        console.log('ProfileEditor: theData = ', theData);
+        return React.createElement(ProfileEditorForm, { profile: theData });
+    }
 });
 
-// ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
+ReactDOM.render(React.createElement(ProfileEditor, null), document.getElementById('profileEditor'));
 
-},{"./components/buttonMore.js":14,"./stores/profileEditorStore.js":31}],24:[function(require,module,exports){
+},{"./actions/profileEditorActions.js":10,"./components/buttonMore.js":15,"./stores/profileEditorStore.js":32}],25:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -2877,7 +2847,7 @@ var OrdersReservation = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersReservation, null), document.getElementById('reservationHistory'));
 
-},{"./components/buttonMore.js":14,"./stores/reservationHistoryStore.js":32}],25:[function(require,module,exports){
+},{"./components/buttonMore.js":15,"./stores/reservationHistoryStore.js":33}],26:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2912,7 +2882,7 @@ var CardsStore = Reflux.createStore({
 
 module.exports = CardsStore;
 
-},{"../actions/cardsActions.js":7}],26:[function(require,module,exports){
+},{"../actions/cardsActions.js":7}],27:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2952,7 +2922,7 @@ var CompanyDetailsStore = Reflux.createStore({
 
 module.exports = CompanyDetailsStore;
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3038,7 +3008,7 @@ var CompanyListStore = Reflux.createStore({
 
 module.exports = CompanyListStore;
 
-},{"../actions/companyListActions.js":8,"../actions/cuisinesActions.js":9,"./cuisinesStore.js":28}],28:[function(require,module,exports){
+},{"../actions/companyListActions.js":8,"../actions/cuisinesActions.js":9,"./cuisinesStore.js":29}],29:[function(require,module,exports){
 'use strict';
 
 var CuisinesActions = require('../actions/cuisinesActions.js');
@@ -3068,7 +3038,7 @@ var CuisinesStore = Reflux.createStore({
 
 module.exports = CuisinesStore;
 
-},{"../actions/cuisinesActions.js":9}],29:[function(require,module,exports){
+},{"../actions/cuisinesActions.js":9}],30:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3108,7 +3078,7 @@ var MenuItemsStore = Reflux.createStore({
 
 module.exports = MenuItemsStore;
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3143,17 +3113,16 @@ var OrdersHistoryStore = Reflux.createStore({
 
 module.exports = OrdersHistoryStore;
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 'use strict';
 
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:37:12
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:38:30
+* @Last Modified time: 2016-04-02 16:49:43
 */
-
-var ProfileEditorActions = Reflux.createActions(['fetchList', 'updateData']);
+var ProfileEditorActions = require('../actions/profileEditorActions.js');
 
 var ProfileEditorStore = Reflux.createStore({
     listenables: [ProfileEditorActions],
@@ -3188,7 +3157,7 @@ var ProfileEditorStore = Reflux.createStore({
 
 module.exports = ProfileEditorStore;
 
-},{}],32:[function(require,module,exports){
+},{"../actions/profileEditorActions.js":10}],33:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3223,7 +3192,7 @@ var ReservationHistoryStore = Reflux.createStore({
 
 module.exports = ReservationHistoryStore;
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 "use strict";
 
 var _checkoutFunc = require("./engine/checkout.func.jsx");
@@ -3406,7 +3375,7 @@ $(function () {
     getReservationPointsList(currentCompany, currentTime);
 });
 
-},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],34:[function(require,module,exports){
+},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3475,7 +3444,7 @@ $(function () {
     });
 });
 
-},{"./react/stores/companyDetailsStore.js":26,"./react/stores/menuItemsStore.js":29}],35:[function(require,module,exports){
+},{"./react/stores/companyDetailsStore.js":27,"./react/stores/menuItemsStore.js":30}],36:[function(require,module,exports){
 'use strict';
 
 var _checkoutFunc = require('./engine/checkout.func.jsx');
@@ -3593,7 +3562,7 @@ $(function () {
     (0, _checkoutFunc.refreshCart)();
 });
 
-},{"./engine/checkout.func.jsx":3}]},{},[35,6,33,1,34,11,22,24,21,23,12,20,10])
+},{"./engine/checkout.func.jsx":3}]},{},[36,6,34,1,35,12,23,25,22,24,13,21,11])
 
 
 //# sourceMappingURL=es6.js.map

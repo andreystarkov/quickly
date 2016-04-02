@@ -19889,9 +19889,6 @@ body #toast-container.toast-left-top > div {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.company-item .mobile {
-  display: none;
-}
 .company-item .payment-type {
   overflow: hidden;
 }

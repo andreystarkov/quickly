@@ -105,11 +105,11 @@
             var userBonus = getUserBonus(userToken);
             var userInfo = data;
             $('#userBadgeTop').html(`
-          <div class="user-text" id="buttonEmptyProfile">
-            <b class="user-name">Добро пожаловать!</b>
-            <a class="r-bonus">У вас <b>${userBonus}</b> <span class="fa fa-rouble"></span>-бонусов</a>
-          </div>
-        `);
+              <div class="user-text" id="buttonEmptyProfile">
+                <b class="user-name">Добро пожаловать!</b>
+                <a class="r-bonus">У вас <b>${userBonus}</b> <span class="fa fa-rouble"></span>-бонусов</a>
+              </div>
+            `);
         });
     }
 
@@ -145,43 +145,16 @@
         return bonus;
     }
 
-    function editUserField(fieldId, callback) {
-        var theOptions = {};
-        var theParameter = $('#' + fieldId).data('id');
-
-        theOptions['userToken'] = userToken;
-        theOptions['cityId'] = cityId;
-        theOptions[theParameter] = $('#' + fieldId).val();
-
-        console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-        $.ajax({
-            url: serverUrl + '/api/v2/user/profile/edit',
-            dataType: 'json',
-            type: 'POST',
-            data: theOptions,
-            success: function(data) {
-                console.log('editUserField: ', data);
-                if (data.err === undefined || data.err === null) {
-                    toastr.success('Данные профиля сохранены');
-                }
-                $('#' + fieldId).parent().addClass('has-success');
-                refreshUserProfile();
-                if (callback) callback(data);
-            }
-        });
-    }
-
     $(function() {
 
-        getUserProfile(userToken, function(data) {
-
+/*        getUserProfile(userToken, function(data) {
             console.log('getUserProfile:', data);
             createProfileEditor(data, function() {
                 $('.user-editor .control-label').each(function() {
                     $(this).append('<i class="status-icon its-ok icon-check"></i>');
                 });
             });
-        });
+        });*/
 
         $(document).on('click', '#buttonReturnShop', function(event) {
             easyVelocity('.page-wrapper', 'transition.flipXOut', function() {
@@ -191,10 +164,10 @@
 
         refreshUserProfile();
 
-        $(document).on('focusout', ".user-editor .autoupdate", function() {
+/*        $(document).on('focusout', ".user-editor .autoupdate", function() {
             var fieldId = $(this).attr('id');
             console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
             editUserField(fieldId);
         });
-
+*/
     });

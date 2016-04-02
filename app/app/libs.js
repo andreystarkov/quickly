@@ -20470,15 +20470,10 @@ module.exports = function(listenables){
 }));
 
 /*!
-<<<<<<< HEAD
- * classie - class helper functions
- * from bonzo https://github.com/ded/bonzo
-=======
  * classie v1.0.1
  * class helper functions
  * from bonzo https://github.com/ded/bonzo
  * MIT license
->>>>>>> 75b0c61b038a4a8cbc8326d794d15ab94adc5809
  * 
  * classie.has( elem, 'my-class' ) -> true/false
  * classie.add( elem, 'my-new-class' )
@@ -20486,13 +20481,8 @@ module.exports = function(listenables){
  * classie.toggle( elem, 'my-class' )
  */
 
-<<<<<<< HEAD
-/*jshint browser: true, strict: true, undef: true */
-/*global define: false */
-=======
 /*jshint browser: true, strict: true, undef: true, unused: true */
 /*global define: false, module: false */
->>>>>>> 75b0c61b038a4a8cbc8326d794d15ab94adc5809
 
 ( function( window ) {
 
@@ -20555,12 +20545,9 @@ var classie = {
 if ( typeof define === 'function' && define.amd ) {
   // AMD
   define( classie );
-<<<<<<< HEAD
-=======
 } else if ( typeof exports === 'object' ) {
   // CommonJS
   module.exports = classie;
->>>>>>> 75b0c61b038a4a8cbc8326d794d15ab94adc5809
 } else {
   // browser global
   window.classie = classie;
@@ -21249,11 +21236,7 @@ var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
-<<<<<<< HEAD
 var devMode = true;
-=======
-var devMode = false;
->>>>>>> 75b0c61b038a4a8cbc8326d794d15ab94adc5809
 var currentVersion = '0.1.3';
 
 if (devMode) {
