@@ -1,6 +1,5 @@
 var cuisinesList;
 var isAuth;
-
 var currentCompany = 1;
 var currentCuisine;
 
@@ -91,7 +90,6 @@ function flyToCart(what) {
         }, 400, "easeOutSine", function() {
             // what?
         });
-
         setTimeout(function() {
 	        panel.velocity({
 	        	translateY: 10

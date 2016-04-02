@@ -29,11 +29,6 @@ var CompanyListHeader = React.createClass({
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6 cuisine-select-row">
-                            <button className="cuisine-select">Пицца</button>
-                            <button className="cuisine-select">Роллы</button>
-                            <button className="cuisine-select">Русская кухня</button>
-                        </div>
                     </div>
                     <div className="row bottom-line">
                         <div className="col-lg-8">

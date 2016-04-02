@@ -171,8 +171,43 @@ var SingleCompany = React.createClass({
                             </div>
                         </div>
                     </div>
+
+                    <div className="c-payment mobile">
+                        <img src="images/cards/mastercard.png" alt="..." />
+                        <img src="images/cards/visa.png" alt="..." />
+                        <div className="is-online">
+                            онлайн
+                        </div>
+                    </div>
                 </div>
             </div>
+                <div className="row btm-line mobile">
+                   <div className="col-lg-3 col-xs-3 kal">
+                        <div className="box-info">
+                            <b className="value">{that.restaurant_min_order} <i className="fa fa-rouble"></i></b>
+                            <span className="description">заказ от</span>
+                        </div>
+                    </div>
+                    <div className="col-lg-3 col-xs-3 kal">
+                        <div className="box-info">
+                            <b className="value">{that.restaurant_delivery_cost} <i className="fa fa-rouble"></i></b>
+                            <span className="description">доставка</span>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-3 col-xs-3 kal">
+                        <div className="box-info">
+                            <b className="value">{that.restaurant_delivery_time} <i className="icon icon-clock"></i></b>
+                            <span className="description">время</span>
+                        </div>
+                    </div>
+                    <div className="col-lg-3 col-xs-3 kal">
+                        <div className="box-info">
+                            <b className="value">{that.restaurant_average_check} <i className="fa fa-rouble"></i></b>
+                            <span className="description">средний чек</span>
+                        </div>
+                    </div>
+                </div>
             <div className="the-footer">
                 <div className="row">
                     <div className="align-left col-xs-6 col-lg-6">

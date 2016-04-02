@@ -276,7 +276,7 @@ body {
             float:right;
         }
         position:relative;
-        padding-bottom:150px;
+        padding-bottom:120px;
         border: 0px;
         .the-box {
             z-index:1;
@@ -356,8 +356,41 @@ body {
 }
 
 @media screen and (max-width:26em) {
-
     body {
+        .main-logo .text h1 {
+            font-size:1.8em;
+        }
+        .cuisine-thumb {
+            width:70px;
+            height:70px;
+        }
+        .quickly-slider {
+            height:240px;
+            h2 {
+                font-size:22px;
+            }
+            p {
+                font-size:14px;
+            }
+            .half-width {
+                padding-top:60px;
+            }
+        }
+       .header-gray .back-to-home {
+            margin-left:0;
+            position: absolute;
+            left: 10px;
+            bottom: 90px;
+            .button {
+                i.icon {
+                font-size:2em;
+                }
+                span {
+                    display:none;
+                }
+            }
+
+       }
        .detail-title {
         .icon-clock {
             font-size:14px;
@@ -433,13 +466,59 @@ body {
         }
 
         .company-item {
+            .address {
+                font-size:10px;
+            }
+            .company-logo {
+                .c-payment {
+                    display:none;
+                }
+            }
+            .rating {
+                font-size: 14px;
+                padding: 3px 6px;
+                margin-right:10px;
+            }
+            .c-payment {
+                &.mobile {
+                    margin-top:3px;
+                    .is-online {
+                        margin-top:2px;
+                    }
+                    img {
+                        margin-top:0px;
+                        width: 20px;
+                        margin-left: 2px;
+                        margin-right: 2px;
+                    }
+                    display: inline-block;
+
+                }
+            }
             border-radius:4px;
             .button-cuisine {
-                padding: 3px 7px;
-                font-size:11px;
+                padding: 3px;
+                border-top-width:1px;
+                font-size: 11px;
             }
             .company-description {
                 text-align:left;
+                .btm-line {
+                    display:none;
+                }
+            }
+            .text-line {
+                height:auto;
+            }
+            .btm-line {
+                &.mobile {
+                    padding-top:10px;
+                    padding-bottom:10px;
+                    .value {
+                        font-size:16px;
+                    }
+                    background:fade(#fff,60%);
+                }
             }
             h2,h1 {
                 .icon-arrow-right {
@@ -449,8 +528,8 @@ body {
                     color:mix(@colorBlack,@colorWhite,50%);
                 }
                 font-size:16px;
-                font-weight:300;
-                margin-bottom:10px;
+                font-weight:400;
+                margin-bottom:4px;
             }
             .kal {
                 padding-left:0;
@@ -514,10 +593,13 @@ body {
             .image-thumb {
                  height:auto;
                  padding:0px;
-                 padding-bottom:12px;
-                 padding-top:12px;
+                 padding-bottom:0px;
+                 padding-top:0px;
                  border: 4px solid rgba(0,0,0,0.08);
                  box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
+                 img {
+                    width:100%;
+                 }
             }
             text-align:center;
         }
