@@ -229,17 +229,17 @@ gulp.task('watch', function() {
     //  watch();
     gulp.watch('app/libs/**/*.js', {
         interval: 800
-    }, ['js','deploy']);
+    }, ['js']);
     gulp.watch('app/libs/**/*.less', {
         interval: 800
-    }, ['styles', 'deploy']);
+    }, ['styles']);
     gulp.watch('app/scripts/**/*.jsx', {
         interval: 800
-    }, ['js', 'deploy']);
+    }, ['js']);
     gulp.watch('app/scripts/**/*.js', {
         interval: 800
-    }, ['js', 'deploy']);
+    }, ['js']);
     gulp.watch('app/styles/**/*.less', {
         interval: 800
-    }, ['styles', 'deploy']);
+    }, ['styles']);
 });

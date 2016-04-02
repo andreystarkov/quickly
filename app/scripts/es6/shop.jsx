@@ -129,7 +129,7 @@ function pasteCheckoutFormUnregistered(){
         </div>
         <div class="control-group">
             <div class="row radio-box">
-                <div class="crk-lg-6">
+                <div class="col-lg-6">
                     <div class="the-label">
                         <span>Способ оплаты</span>
                     </div>

@@ -8,7 +8,7 @@ var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
-var devMode = false;
+var devMode = true;
 var currentVersion = '0.1.3';
 
 if (devMode) {

@@ -9,6 +9,7 @@ var theLibs = [
 
     'app/libs/underscore/underscore-min.js',
     'app/libs/js-cookie/src/js.cookie.js',
+    'app/scripts/etc/classie.js',
 
     'app/libs/bootstrap/dist/js/bootstrap.min.js',
     'app/libs/bootstrap-material-design/scripts/material.js',

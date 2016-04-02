@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-24 17:32:25
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-24 17:44:08
+* @Last Modified time: 2016-04-02 13:26:04
 */
 
 var SingleMenuItem = React.createClass({

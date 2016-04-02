@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-24 15:45:19
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-24 17:07:04
+* @Last Modified time: 2016-04-02 13:26:10
 */
 
 var ButtonMore = React.createClass({

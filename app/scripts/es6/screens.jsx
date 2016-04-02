@@ -2,8 +2,8 @@ var CompanyDetailsActions = require('./react/stores/companyDetailsStore.js');
 var MenuItemsActions = require('./react/stores/menuItemsStore.js');
 
 export function showScreen(screenId){
-    var aniOut = 'transition.slideRightOut';
-    var aniIn = 'transition.slideLeftBigIn'; // 'transition.flipXIn';
+    var aniOut = 'transition.flipXOut';
+    var aniIn = 'transition.flipXIn'; // 'transition.flipXIn';
 
     var screenId = '#'+screenId;
 
@@ -15,7 +15,7 @@ export function showScreen(screenId){
 
         easyVelocity('.page-wrapper', aniOut, function(){
             easyVelocity(screenId, aniIn, function(){
-              // im done
+              // im done yo
             });
         });
 
