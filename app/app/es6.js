@@ -465,7 +465,7 @@ module.exports = CityActions;
 * @Last Modified time: 2016-03-29 22:30:31
 */
 
-var CompanyListActions = Reflux.createActions(['fetchList', 'updateData', 'filterData', 'selectByCuisine', 'getCurrentCuisine']);
+var CompanyListActions = Reflux.createActions(['fetchList', 'updateData', 'filterData', 'selectByCuisine', 'getCurrentCuisine', 'setCurrentCity']);
 
 module.exports = CompanyListActions;
 
@@ -531,6 +531,7 @@ var CardsList = React.createClass({
 
 var CityListActions = require('./actions/cityListActions.js');
 var CityListStore = require('./stores/cityListStore.js');
+var CompanyListActions = require('./actions/companyListActions.js');
 
 var Option = React.createClass({
   displayName: 'Option',
@@ -552,15 +553,24 @@ var CityList = React.createClass({
   getInitialState: function getInitialState() {
     return {
       data: [],
-      cityList: []
+      cityList: [],
+      selected: 0,
+      value: 3
     };
+  },
+  changeHandler: function changeHandler(e) {
+    console.log('CityList: change value = ' + e.target.value);
+    this.setState({
+      value: e.target.value
+    });
+    CompanyListActions.setCurrentCity(e.target.value);
   },
   componentDidMount: function componentDidMount() {},
   render: function render() {
     var totalList = this.state.cityList.map(function (the, i) {
       return React.createElement(Option, { name: the.city_name, value: the.city_id, key: i });
     });
-
+    CompanyListActions.setCurrentCity(this.state.value);
     return React.createElement(
       'div',
       { className: 'city-select' },
@@ -572,9 +582,11 @@ var CityList = React.createClass({
           null,
           'Ваш город'
         ),
+        ' ',
+        this.state.value,
         React.createElement(
           'select',
-          { id: 'cityListSelect', className: 'form-control' },
+          { id: 'cityListSelect', onChange: this.changeHandler, className: 'form-control' },
           totalList
         )
       )
@@ -586,7 +598,7 @@ module.exports = CityList;
 
 ReactDOM.render(React.createElement(CityList, null), document.getElementById('selectCityField'));
 
-},{"./actions/cityListActions.js":8,"./stores/cityListStore.js":29}],14:[function(require,module,exports){
+},{"./actions/cityListActions.js":8,"./actions/companyListActions.js":9,"./stores/cityListStore.js":29}],14:[function(require,module,exports){
 'use strict';
 
 var CompanyDetailsStore = require('./stores/companyDetailsStore.js');
@@ -3155,9 +3167,15 @@ var CompanyListStore = Reflux.createStore({
     listenables: [CompanyListActions],
     cuisine: [],
     currentCuisine: 0,
+    currentCity: 0,
     companyList: [],
     sourceUrl: serverUrl + '/api/v4/restaurants/get',
     init: function init() {
+        //  this.fetchList();
+    },
+    setCurrentCity: function setCurrentCity(cityId) {
+        console.log('CompanyListStore: setCurrentCity(' + cityId + ')');
+        this.currentCity = cityId;
         this.fetchList();
     },
     updateData: function updateData() {
@@ -3197,18 +3215,22 @@ var CompanyListStore = Reflux.createStore({
         }
         return filtered;
     },
+
     fetchList: function fetchList(cuisineId) {
         var some = this;
         var queryUrl = this.sourceUrl;
 
         this.cuisine = CuisinesActions.getCuisineById(cuisineId);
 
-        console.log('CompanyListStore: fetchList: this.cuisine = ' + this.cuisine);
+        console.log('CompanyListStore: fetchList: this.cuisine = ' + this.cuisine, 'this.currentCity', this.currentCity);
 
         queryUrl += '?restaurantType=3';
 
         if (cuisineId) {
             queryUrl += '&cuisineId=' + cuisineId;
+        }
+        if (this.currentCity > 0) {
+            queryUrl += '&cityId=' + this.currentCity;
         }
         console.log('CompanyListStore: queryUrl = ', queryUrl);
 

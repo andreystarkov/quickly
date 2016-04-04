@@ -6,7 +6,7 @@
 */
 
 var CompanyListActions = Reflux.createActions([
-    'fetchList', 'updateData', 'filterData', 'selectByCuisine', 'getCurrentCuisine'
+    'fetchList', 'updateData', 'filterData', 'selectByCuisine', 'getCurrentCuisine', 'setCurrentCity'
 ]);
 
 module.exports = CompanyListActions;

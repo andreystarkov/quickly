@@ -177,6 +177,19 @@ gulp.task('deploy-html', function() {
   });
 });
 
+gulp.task('deploy-fonts', function() {
+  return gulp.src('./app/fonts/**/*')
+  .pipe(scp({
+    host: secrets.host,
+    username: secrets.username,
+    password: secrets.password,
+    dest: secrets.path+'fonts/'
+  }))
+  .on('error', function(err) {
+    console.log('Deploy error: ',err);
+  });
+});
+
 gulp.task('production', function(callback) {
     runSequence(
         'js',
