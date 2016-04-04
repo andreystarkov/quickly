@@ -13,6 +13,7 @@ var CompanyListSidebar = React.createClass({
         }
     },
     render: function(){
+        console.log('CompanyListSidebar: init');
         return(
         <div className="sidebar-wrap company-list-sidebar">
             <div className="checkbox control-item">

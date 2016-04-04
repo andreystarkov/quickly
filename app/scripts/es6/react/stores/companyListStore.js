@@ -14,7 +14,7 @@ var CompanyListStore = Reflux.createStore({
     cuisine: [],
     currentCuisine:0,
     companyList: [],
-    sourceUrl: serverUrl+'/api/v2/restaurants/get',
+    sourceUrl: serverUrl+'/api/v4/restaurants/get',
     init: function() {
         this.fetchList();
     },

@@ -2,6 +2,7 @@ var CuisinesStore = require('./stores/cuisinesStore.js');
 var QuicklyLogo = require('./components/quicklyLogo.js');
 var ButtonBack = require('./components/buttonBack.js');
 var CuisinesSelectList = require('./components/cuisinesSelectList.js');
+var CityList = require('./cityList.react.jsx');
 
 import {showScreen} from '../screens.jsx';
 
@@ -14,7 +15,6 @@ var ButtonBackTop = React.createClass({
 var MainSlider = React.createClass({
     render: function(){
         return (
-
             <section className="hero">
             <ul className="quickly-slider autoplay">
                 <li className="selected">

@@ -4,7 +4,9 @@
   "devDependencies": {
     "jquery": "~2.1.1",
     "ImageUpload": "https://github.com/Garik-/ImageUpload.js",
-    "classie": "^1.0.1"
+    "classie": "^1.0.1",
+    "animsition": "https://github.com/blivesta/animsition.git#^4.0.1",
+    "guardian": "https://github.com/eisenbraun/guardian.git"
   },
   "dependencies": {
     "react": "^0.14.7",

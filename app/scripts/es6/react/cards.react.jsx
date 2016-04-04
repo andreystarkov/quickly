@@ -21,5 +21,3 @@ var CardsList = React.createClass({
         )
     }
 });
-
-ReactDOM.render(<CardsList />, document.getElementById('cardsList'));

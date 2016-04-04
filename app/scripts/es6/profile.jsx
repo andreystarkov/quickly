@@ -1,3 +1,30 @@
+
+  function editUserField(fieldId, callback) {
+      var theOptions = {};
+      var theParameter = $('#' + fieldId).data('id');
+
+      theOptions['userToken'] = userToken;
+      theOptions['cityId'] = cityId;
+      theOptions[theParameter] = $('#' + fieldId).val();
+
+      console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+      $.ajax({
+          url: serverUrl + '/api/v2/user/profile/edit',
+          dataType: 'json',
+          type: 'POST',
+          data: theOptions,
+          success: function(data) {
+              console.log('editUserField: ', data);
+              if (data.err === undefined || data.err === null) {
+                  toastr.success('Данные профиля сохранены');
+              }
+              $('#' + fieldId).parent().addClass('has-success');
+              refreshUserProfile();
+              if (callback) callback(data);
+          }
+      });
+  }
+
     function createProfileEditor(profile, callback) {
 
         var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
@@ -71,6 +98,8 @@
                        <span>Добавить адрес</span>
                        </a>
                     </div>
+                    <div class="box" id="addCards">
+                    </div>
                  </div>
               </div>
            </div>
@@ -95,7 +124,7 @@
               </div>
            </div>
         </div>`;
-        $('#editUserProfile').prepend(htmlTemplate);
+        $('#profileEditor').prepend(htmlTemplate);
         if (callback) callback();
     }
 
@@ -118,7 +147,7 @@
         getUserProfile(token, function(data) {
             var userBonus = getUserBonus(userToken);
             var userInfo = data;
-            var userAvatar = imageBaseUrl + data.userAvatarUrl;
+            var userAvatar = data.userAvatarUrl;
             if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
                 userAvatar = 'images/samples/user.png';
             }
@@ -147,7 +176,7 @@
 
     $(function() {
 
-/*        getUserProfile(userToken, function(data) {
+ /*       getUserProfile(userToken, function(data) {
             console.log('getUserProfile:', data);
             createProfileEditor(data, function() {
                 $('.user-editor .control-label').each(function() {
@@ -164,10 +193,10 @@
 
         refreshUserProfile();
 
-/*        $(document).on('focusout', ".user-editor .autoupdate", function() {
+        $(document).on('focusout', ".user-editor .autoupdate", function() {
             var fieldId = $(this).attr('id');
             console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
             editUserField(fieldId);
         });
-*/
+
     });

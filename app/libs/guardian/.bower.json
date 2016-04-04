@@ -1,0 +1,14 @@
+{
+  "name": "guardian",
+  "homepage": "https://github.com/eisenbraun/guardian",
+  "_release": "24ffb25cf1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "24ffb25cf18926c1efbbca04f4b27c57bd8e07d3"
+  },
+  "_source": "https://github.com/eisenbraun/guardian.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/eisenbraun/guardian.git",
+  "_direct": true
+}

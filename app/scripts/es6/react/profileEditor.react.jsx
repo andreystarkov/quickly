@@ -28,50 +28,62 @@ function editUserField(obj, callback) {
     });
 }
 
+
 var Field = React.createClass({
   render: function () {
       return (
         <div className="form-group">
-          <label className="control-label" htmlFor="userName">{this.props.name}</label>
-          <input data-id={this.props.id} type="text" className="form-control" value={this.props.value} onChange={this.props.onChange} defaultValue={this.props.value} />
+          <label className="control-label" htmlFor={this.props.id}>{this.props.name}</label>
+          <input type={this.props.type } ref={this.props.id} data-id={this.props.id} type="text" className="form-control" value={this.props.value} defaultValue={this.props.default} onChange={this.props.onChange} id={this.props.id} defaultValue={this.props.value} />
         </div>
       );
   }
 });
-/*
+
 var AddressAddForm = React.createClass({
     render: function () {
         return (
-            <div id="profile-addresses" data-id="1" className="inline-block float-left">
-               <i className="icon icon-location-pin"></i>
-               <div className="box">
-                  <div className="form-group label-placeholder is-empty" title="Введите адреса для доставки">
-                     <input type="text" className="form-control" id="profile-address-1" />
-                  </div>
-               </div>
-            </div>
-            <div className="box">
-               <a href="#" className="button button-plus tip" id="profile-address-add">
-               <i className="icon fa fa-plus-square-o"></i>
-               <span>Добавить адрес</span>
-               </a>
-            </div>
+          <div>
+           test
+          </div>
         )
     }
-});*/
+});
 
 var ProfileEditorForm = React.createClass({
     getInitalState: function(){
+        console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
         return {
-            userAvatar: this.props.userAvatar,
-            userSurname: this.props.userSurname,
-            userBirth: this.props.userBirth,
-            userEmail: this.props.userEmail
-
+          profile: {
+            userAvatarUrl: '',
+            userBirthdate: null,
+            userEmail: '',
+            userGender: 0,
+            userName: '',
+            userSurname: '',
+            userPhone: ''
+          }
         }
     },
     onFieldChange: function(value){
-        console.log('ProfileEditorForm onFieldChange: value = ', event.target);
+        console.log('ProfileEditorForm onFieldChange: value = ', value.target);
+    },
+    addCardForm: function(){
+      swal({
+        title: 'Введите номер карты',
+        html: '<input id="inputCardNumber" type="text" class="form-control">',
+        showCancelButton: true,
+        closeOnConfirm: false,
+        allowOutsideClick: false
+      },
+      function() {
+        swal({
+          html:
+            'Номер карты: <strong>' +
+            $('#inputCardNumber').val() +
+            '</strong>'
+        });
+      })
     },
     render: function(){
         var total = 0;
@@ -81,7 +93,7 @@ var ProfileEditorForm = React.createClass({
             userAvatar = 'images/samples/user.png';
         } else userAvatar = profile.userAvatarUrl;
 
-        console.log('ProfileEditorForm: profile = ', profile);
+        console.log('ProfileEditorForm: profile = ', this.state);
         return (
         <div className="user-editor container">
            <div className="row">
@@ -95,22 +107,25 @@ var ProfileEditorForm = React.createClass({
               </div>
               <div className="col-lg-10 the-info">
                  <div className="row delivery">
-                    <div className="col-lg-3">
-                        <Field name="Имя" id="userName" value={profile.userName} onChange={this.onFieldChange} />
+                    <div className="col-lg-2">
+                      <Field type="text" name="Имя" id="userName" default={profile.userName} />
+                    </div>
+                    <div className="col-lg-2">
+                      <Field type="text" name="Фамилия" id="userSurname" default={profile.userName} />
+                    </div>
+                    <div className="col-lg-2">
+                      <Field type="datetime" name="Дата рождения" id="userBirthdate" default={profile.userName} />
                     </div>
                     <div className="col-lg-3">
-                        <Field name="Фамилия" id="userSurname" value={profile.userSurname} onChange={this.onFieldChange} />
-                    </div>
-                    <div className="col-lg-3">
-                        <Field name="Дата рождения" id="userBirth" value={profile.userBirth} onChange={this.onFieldChange} />
-                    </div>
-                    <div className="col-lg-3">
-                        <Field name="E-Mail" id="userEmail" value={profile.userEmail} onChange={this.onFieldChange} />
-                    </div>
-                 </div>
-                 <div className="line delivery">
 
+                    </div>
                  </div>
+                  <div className="line row">
+                    <div className="col-lg-6">
+                      <b className="el-title">Привязка карты</b>
+                      <button className="button main" onClick={this.addCardForm}>Добавить карту</button>
+                    </div>
+                  </div>
               </div>
            </div>
            <div className="row buttons-line">
@@ -144,7 +159,15 @@ var ProfileEditor = React.createClass({
     getInitialState: function() {
       return {
         data: [],
-        profileData: []
+        profileData: {
+          userAvatarUrl: '',
+          userBirthdate: null,
+          userEmail: '',
+          userGender: 0,
+          userName: '',
+          userSurname: '',
+          userPhone: ''
+        }
       };
     },
     componentDidMount: function() {
@@ -161,3 +184,4 @@ var ProfileEditor = React.createClass({
 });
 
 ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
+

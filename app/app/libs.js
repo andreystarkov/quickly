@@ -21232,6 +21232,9 @@ var isAuth;
 var currentCompany = 1;
 var currentCuisine;
 
+var cities
+var currentCity;
+
 var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');

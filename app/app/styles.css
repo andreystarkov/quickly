@@ -19714,7 +19714,32 @@ Slider navigation
     transform: scale(1) translate(0%, 0%);
   }
 }
-.bt-round .icon,
+.top-line .container .paths {
+  display: none;
+}
+.page-city {
+  text-align: center;
+  padding: 4em;
+}
+.city-select {
+  margin: 0px auto;
+}
+.city-select b {
+  font-weight: normal;
+}
+.city-select .form-control {
+  display: inline-block;
+}
+.el-title {
+  display: block;
+  font-family: RobotoDraft;
+  margin-bottom: 3px;
+  font-weight: 400;
+}
+body .company-item .mobile {
+  display: none;
+}
+.bt-round 1 .icon,
 .bt-round .icon:before {
   color: #21201f;
 }

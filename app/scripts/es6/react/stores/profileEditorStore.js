@@ -11,7 +11,7 @@ var ProfileEditorStore = Reflux.createStore({
     profileData: [],
     sourceUrl: serverUrl+'/api/v2/user/profile/get',
     init: function() {
-        this.fetchList();
+      //  this.fetchList();
     },
     updateData: function(){
         console.log('ProfileEditorStore updateData()');
@@ -29,6 +29,7 @@ var ProfileEditorStore = Reflux.createStore({
             },
             success: function(data) {
                 some.profileData = data.result.profile;
+                console.log('profileEditorStore: AJAX result: ',data);
                 some.trigger(some.profileData);
                 console.log('ProfileEditorStore some.profileData = ', some.profileData);
                 setStorage('profile', data.result.profile);
