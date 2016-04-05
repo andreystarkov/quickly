@@ -6,7 +6,8 @@
     "ImageUpload": "https://github.com/Garik-/ImageUpload.js",
     "classie": "^1.0.1",
     "animsition": "https://github.com/blivesta/animsition.git#^4.0.1",
-    "guardian": "https://github.com/eisenbraun/guardian.git"
+    "guardian": "https://github.com/eisenbraun/guardian.git",
+    "loaders.css": "~0.1.2"
   },
   "dependencies": {
     "react": "^0.14.7",

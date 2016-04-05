@@ -21241,6 +21241,12 @@ var userPhone = Cookies.get('phone');
 
 var devMode = false;
 var currentVersion = '0.1.4';
+var serverHost = location.host.trim();
+
+console.log('Server: ', serverHost);
+
+if (serverHost == "quickly.box") devMode = true;
+if (serverHost == "quickly.su") devMode = false;
 
 if (devMode) {
     var serverUrl = 'http://176.112.201.81';

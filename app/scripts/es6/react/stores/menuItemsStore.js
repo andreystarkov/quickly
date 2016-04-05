@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:40:22
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:40:28
+* @Last Modified time: 2016-04-04 22:33:02
 */
 
 var MenuItemsActions = Reflux.createActions([
@@ -14,22 +14,22 @@ var MenuItemsStore = Reflux.createStore({
     currentCategory:1,
     companyId: currentCompany,
     menuItems: [],
-    sourceUrl: serverUrl+'/api/v2/menu-items/get/'+currentCompany,
+    sourceUrl: serverUrl+'/api/v2/menu-items/get/',
     init: function() {
-        this.companyId = currentCompany;
-        this.fetchList();
+//        this.fetchList();
     },
     updateData: function(newId){
         this.companyId = newId;
-        this.sourceUrl = serverUrl+'/api/v2/menu-items/get/'+newId;
-        console.log('CompanyDetailsStore: updateData() = ', this.sourceUrl);
+        console.log('MenuItemsStore: updateData() companyId = '+newId)
         this.fetchList();
     },
     fetchList: function() {
       var some = this;
-      $.getJSON(this.sourceUrl, function (data) {
-        some.menuItems = data.result.menuItems;
+      var url = this.sourceUrl+this.companyId;
+      console.log('MenuItemsStore: fetchList() url = ', url);
+      $.getJSON(url, function (data) {
         console.log('REFLUX: MenuItemsStore fetchList', some.menuItems);
+        some.menuItems = data.result.menuItems;
         some.trigger(some.menuItems);
       });
     }

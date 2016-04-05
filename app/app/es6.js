@@ -335,103 +335,103 @@ function createReservation() {
 'use strict';
 
 function editUserField(fieldId, callback) {
-    var theOptions = {};
-    var theParameter = $('#' + fieldId).data('id');
+   var theOptions = {};
+   var theParameter = $('#' + fieldId).data('id');
 
-    theOptions['userToken'] = userToken;
-    theOptions['cityId'] = cityId;
-    theOptions[theParameter] = $('#' + fieldId).val();
+   theOptions['userToken'] = userToken;
+   theOptions['cityId'] = cityId;
+   theOptions[theParameter] = $('#' + fieldId).val();
 
-    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-    $.ajax({
-        url: serverUrl + '/api/v2/user/profile/edit',
-        dataType: 'json',
-        type: 'POST',
-        data: theOptions,
-        success: function success(data) {
-            console.log('editUserField: ', data);
-            if (data.err === undefined || data.err === null) {
-                toastr.success('Данные профиля сохранены');
-            }
-            $('#' + fieldId).parent().addClass('has-success');
-            refreshUserProfile();
-            if (callback) callback(data);
-        }
-    });
+   console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+   $.ajax({
+      url: serverUrl + '/api/v2/user/profile/edit',
+      dataType: 'json',
+      type: 'POST',
+      data: theOptions,
+      success: function success(data) {
+         console.log('editUserField: ', data);
+         if (data.err === undefined || data.err === null) {
+            toastr.success('Данные профиля сохранены');
+         }
+         $('#' + fieldId).parent().addClass('has-success');
+         refreshUserProfile();
+         if (callback) callback(data);
+      }
+   });
 }
 
 function createProfileEditor(profile, callback) {
 
-    var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
-    var userAvatar = imageBaseUrl + profile.userAvatarUrl;
-    if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-        userAvatar = 'images/samples/user.png';
-    }
+   var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
+   var userAvatar = imageBaseUrl + profile.userAvatarUrl;
+   if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+      userAvatar = 'images/samples/user.png';
+   }
 
-    var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                    <div class="box" id="addCards">\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
-    $('#profileEditor').prepend(htmlTemplate);
-    if (callback) callback();
+   var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                    <div class="box" id="addCards">\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
+   $('#profileEditor').prepend(htmlTemplate);
+   if (callback) callback();
 }
 
 function emptyProfile() {
-    var token = userToken;
-    getUserProfile(token, function (data) {
-        var userBonus = getUserBonus(userToken);
-        var userInfo = data;
-        $('#userBadgeTop').html('\n              <div class="user-text" id="buttonEmptyProfile">\n                <b class="user-name">Добро пожаловать!</b>\n                <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n              </div>\n            ');
-    });
+   var token = userToken;
+   getUserProfile(token, function (data) {
+      var userBonus = getUserBonus(userToken);
+      var userInfo = data;
+      $('#userBadgeTop').html('\n              <div class="user-text" id="buttonEmptyProfile">\n                <b class="user-name">Добро пожаловать!</b>\n                <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n              </div>\n            ');
+   });
 }
 
 function refreshUserProfile() {
-    var token = userToken;
-    getUserProfile(token, function (data) {
-        var userBonus = getUserBonus(userToken);
-        var userInfo = data;
-        var userAvatar = data.userAvatarUrl;
-        if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
-            userAvatar = 'images/samples/user.png';
-        }
-        $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
-    });
+   var token = userToken;
+   getUserProfile(token, function (data) {
+      var userBonus = getUserBonus(userToken);
+      var userInfo = data;
+      var userAvatar = data.userAvatarUrl;
+      if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
+         userAvatar = 'images/samples/user.png';
+      }
+      $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
+   });
 }
 
 function getUserBonus(userToken) {
-    var bonus;
-    $.ajax({
-        url: serverUrl + '/api/v2/user/bonus/' + userToken,
-        async: false,
-        dataType: 'json',
-        success: function success(data) {
-            bonus = data.result.userBonus;
-        }
-    });
-    return bonus;
+   var bonus;
+   $.ajax({
+      url: serverUrl + '/api/v2/user/bonus/' + userToken,
+      async: false,
+      dataType: 'json',
+      success: function success(data) {
+         bonus = data.result.userBonus;
+      }
+   });
+   return bonus;
 }
 
 $(function () {
 
-    /*       getUserProfile(userToken, function(data) {
-               console.log('getUserProfile:', data);
-               createProfileEditor(data, function() {
-                   $('.user-editor .control-label').each(function() {
-                       $(this).append('<i class="status-icon its-ok icon-check"></i>');
-                   });
-               });
-           });*/
+   /*       getUserProfile(userToken, function(data) {
+              console.log('getUserProfile:', data);
+              createProfileEditor(data, function() {
+                  $('.user-editor .control-label').each(function() {
+                      $(this).append('<i class="status-icon its-ok icon-check"></i>');
+                  });
+              });
+          });*/
 
-    $(document).on('click', '#buttonReturnShop', function (event) {
-        easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
-            easyVelocity('#pageCompany', 'transition.flipXIn');
-        });
-    });
+   $(document).on('click', '#buttonReturnShop', function (event) {
+      easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
+         easyVelocity('#pageCompany', 'transition.flipXIn');
+      });
+   });
 
-    refreshUserProfile();
+   refreshUserProfile();
 
-    $(document).on('focusout', ".user-editor .autoupdate", function () {
-        var fieldId = $(this).attr('id');
-        console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
-        editUserField(fieldId);
-    });
+   $(document).on('focusout', ".user-editor .autoupdate", function () {
+      var fieldId = $(this).attr('id');
+      console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
+      editUserField(fieldId);
+   });
 });
 
 },{}],7:[function(require,module,exports){
@@ -2510,252 +2510,252 @@ var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
 
 function editUserField(obj, callback) {
-    var theOptions = {};
-    var theParameter = $('#' + fieldId).data('id');
+  var theOptions = {};
+  var theParameter = $('#' + fieldId).data('id');
 
-    theOptions['userToken'] = userToken;
-    theOptions['cityId'] = cityId;
-    theOptions[theParameter] = $('#' + fieldId).val();
+  theOptions['userToken'] = userToken;
+  theOptions['cityId'] = cityId;
+  theOptions[theParameter] = $('#' + fieldId).val();
 
-    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-    $.ajax({
-        url: serverUrl + '/api/v2/user/profile/edit',
-        dataType: 'json',
-        type: 'POST',
-        data: theOptions,
-        success: function success(data) {
-            console.log('editUserField: ', data);
-            if (data.err === undefined || data.err === null) {
-                toastr.success('Данные профиля сохранены');
-            }
-            $('#' + fieldId).parent().addClass('has-success');
-            refreshUserProfile();
-            if (callback) callback(data);
-        }
-    });
+  console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+  $.ajax({
+    url: serverUrl + '/api/v2/user/profile/edit',
+    dataType: 'json',
+    type: 'POST',
+    data: theOptions,
+    success: function success(data) {
+      console.log('editUserField: ', data);
+      if (data.err === undefined || data.err === null) {
+        toastr.success('Данные профиля сохранены');
+      }
+      $('#' + fieldId).parent().addClass('has-success');
+      refreshUserProfile();
+      if (callback) callback(data);
+    }
+  });
 }
 
 var Field = React.createClass({
-    displayName: 'Field',
+  displayName: 'Field',
 
-    render: function render() {
-        var _React$createElement;
+  render: function render() {
+    var _React$createElement;
 
-        return React.createElement(
-            'div',
-            { className: 'form-group' },
-            React.createElement(
-                'label',
-                { className: 'control-label', htmlFor: this.props.id },
-                this.props.name
-            ),
-            React.createElement('input', (_React$createElement = { type: this.props.type, ref: this.props.id, 'data-id': this.props.id }, _defineProperty(_React$createElement, 'type', 'text'), _defineProperty(_React$createElement, 'className', 'form-control'), _defineProperty(_React$createElement, 'value', this.props.value), _defineProperty(_React$createElement, 'defaultValue', this.props.default), _defineProperty(_React$createElement, 'onChange', this.props.onChange), _defineProperty(_React$createElement, 'id', this.props.id), _defineProperty(_React$createElement, 'defaultValue', this.props.value), _React$createElement))
-        );
-    }
+    return React.createElement(
+      'div',
+      { className: 'form-group' },
+      React.createElement(
+        'label',
+        { className: 'control-label', htmlFor: this.props.id },
+        this.props.name
+      ),
+      React.createElement('input', (_React$createElement = { type: this.props.type, ref: this.props.id, 'data-id': this.props.id }, _defineProperty(_React$createElement, 'type', 'text'), _defineProperty(_React$createElement, 'className', 'form-control'), _defineProperty(_React$createElement, 'value', this.props.value), _defineProperty(_React$createElement, 'defaultValue', this.props.default), _defineProperty(_React$createElement, 'onChange', this.props.onChange), _defineProperty(_React$createElement, 'id', this.props.id), _defineProperty(_React$createElement, 'defaultValue', this.props.value), _React$createElement))
+    );
+  }
 });
 
 var AddressAddForm = React.createClass({
-    displayName: 'AddressAddForm',
+  displayName: 'AddressAddForm',
 
-    render: function render() {
-        return React.createElement(
-            'div',
-            null,
-            'test'
-        );
-    }
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      'test'
+    );
+  }
 });
 
 var ProfileEditorForm = React.createClass({
-    displayName: 'ProfileEditorForm',
+  displayName: 'ProfileEditorForm',
 
-    getInitalState: function getInitalState() {
-        console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
-        return {
-            profile: {
-                userAvatarUrl: '',
-                userBirthdate: null,
-                userEmail: '',
-                userGender: 0,
-                userName: '',
-                userSurname: '',
-                userPhone: ''
-            }
-        };
-    },
-    onFieldChange: function onFieldChange(value) {
-        console.log('ProfileEditorForm onFieldChange: value = ', value.target);
-    },
-    addCardForm: function addCardForm() {
-        swal({
-            title: 'Введите номер карты',
-            html: '<input id="inputCardNumber" type="text" class="form-control">',
-            showCancelButton: true,
-            closeOnConfirm: false,
-            allowOutsideClick: false
-        }, function () {
-            swal({
-                html: 'Номер карты: <strong>' + $('#inputCardNumber').val() + '</strong>'
-            });
-        });
-    },
-    render: function render() {
-        var total = 0;
-        var profile = this.props.profile;
-        var userAvatar;
-        if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-            userAvatar = 'images/samples/user.png';
-        } else userAvatar = profile.userAvatarUrl;
+  getInitalState: function getInitalState() {
+    console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
+    return {
+      profile: {
+        userAvatarUrl: '',
+        userBirthdate: null,
+        userEmail: '',
+        userGender: 0,
+        userName: '',
+        userSurname: '',
+        userPhone: ''
+      }
+    };
+  },
+  onFieldChange: function onFieldChange(value) {
+    console.log('ProfileEditorForm onFieldChange: value = ', value.target);
+  },
+  addCardForm: function addCardForm() {
+    swal({
+      title: 'Введите номер карты',
+      html: '<input id="inputCardNumber" type="text" class="form-control">',
+      showCancelButton: true,
+      closeOnConfirm: false,
+      allowOutsideClick: false
+    }, function () {
+      swal({
+        html: 'Номер карты: <strong>' + $('#inputCardNumber').val() + '</strong>'
+      });
+    });
+  },
+  render: function render() {
+    var total = 0;
+    var profile = this.props.profile;
+    var userAvatar;
+    if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+      userAvatar = 'images/samples/user.png';
+    } else userAvatar = profile.userAvatarUrl;
 
-        console.log('ProfileEditorForm: profile = ', this.state);
-        return React.createElement(
+    console.log('ProfileEditorForm: profile = ', this.state);
+    return React.createElement(
+      'div',
+      { className: 'user-editor container' },
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-lg-2 text-center' },
+          React.createElement(
             'div',
-            { className: 'user-editor container' },
+            { className: 'avatar round' },
+            React.createElement('img', { src: userAvatar, alt: '...' })
+          ),
+          React.createElement(
+            'div',
+            { className: 'btn-group' },
             React.createElement(
-                'div',
-                { className: 'row' },
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-2 text-center' },
-                    React.createElement(
-                        'div',
-                        { className: 'avatar round' },
-                        React.createElement('img', { src: userAvatar, alt: '...' })
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'btn-group' },
-                        React.createElement(
-                            'a',
-                            { className: 'button light small' },
-                            'Изменить аватар'
-                        )
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-10 the-info' },
-                    React.createElement(
-                        'div',
-                        { className: 'row delivery' },
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-2' },
-                            React.createElement(Field, { type: 'text', name: 'Имя', id: 'userName', 'default': profile.userName })
-                        ),
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-2' },
-                            React.createElement(Field, { type: 'text', name: 'Фамилия', id: 'userSurname', 'default': profile.userName })
-                        ),
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-2' },
-                            React.createElement(Field, { type: 'datetime', name: 'Дата рождения', id: 'userBirthdate', 'default': profile.userName })
-                        ),
-                        React.createElement('div', { className: 'col-lg-3' })
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'line row' },
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-6' },
-                            React.createElement(
-                                'b',
-                                { className: 'el-title' },
-                                'Привязка карты'
-                            ),
-                            React.createElement(
-                                'button',
-                                { className: 'button main', onClick: this.addCardForm },
-                                'Добавить карту'
-                            )
-                        )
-                    )
-                )
+              'a',
+              { className: 'button light small' },
+              'Изменить аватар'
+            )
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-lg-10 the-info' },
+          React.createElement(
+            'div',
+            { className: 'row delivery' },
+            React.createElement(
+              'div',
+              { className: 'col-lg-2' },
+              React.createElement(Field, { type: 'text', name: 'Имя', id: 'userName', 'default': profile.userName })
             ),
             React.createElement(
-                'div',
-                { className: 'row buttons-line' },
-                React.createElement('div', { className: 'col-lg-2' }),
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-10 buttons-tabs' },
-                    React.createElement(
-                        'div',
-                        { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
-                        React.createElement(
-                            'a',
-                            { href: '#tab-order-history', className: 'tab-toggle btn button light', id: 'tabOrderHistory' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'История заказов'
-                            )
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#tab-reservation-history', className: 'tab-toggle btn button light' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'История бронирования'
-                            )
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#tab-comments-history', className: 'tab-toggle btn button light' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'Оставленные отзывы'
-                            )
-                        ),
-                        React.createElement(
-                            'a',
-                            { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'Вернуться к ресторану'
-                            )
-                        )
-                    )
-                )
+              'div',
+              { className: 'col-lg-2' },
+              React.createElement(Field, { type: 'text', name: 'Фамилия', id: 'userSurname', 'default': profile.userName })
+            ),
+            React.createElement(
+              'div',
+              { className: 'col-lg-2' },
+              React.createElement(Field, { type: 'datetime', name: 'Дата рождения', id: 'userBirthdate', 'default': profile.userName })
+            ),
+            React.createElement('div', { className: 'col-lg-3' })
+          ),
+          React.createElement(
+            'div',
+            { className: 'line row' },
+            React.createElement(
+              'div',
+              { className: 'col-lg-6' },
+              React.createElement(
+                'b',
+                { className: 'el-title' },
+                'Привязка карты'
+              ),
+              React.createElement(
+                'button',
+                { className: 'button main', onClick: this.addCardForm },
+                'Добавить карту'
+              )
             )
-        );
-    }
+          )
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'row buttons-line' },
+        React.createElement('div', { className: 'col-lg-2' }),
+        React.createElement(
+          'div',
+          { className: 'col-lg-10 buttons-tabs' },
+          React.createElement(
+            'div',
+            { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
+            React.createElement(
+              'a',
+              { href: '#tab-order-history', className: 'tab-toggle btn button light', id: 'tabOrderHistory' },
+              React.createElement(
+                'span',
+                null,
+                'История заказов'
+              )
+            ),
+            React.createElement(
+              'a',
+              { href: '#tab-reservation-history', className: 'tab-toggle btn button light' },
+              React.createElement(
+                'span',
+                null,
+                'История бронирования'
+              )
+            ),
+            React.createElement(
+              'a',
+              { href: '#tab-comments-history', className: 'tab-toggle btn button light' },
+              React.createElement(
+                'span',
+                null,
+                'Оставленные отзывы'
+              )
+            ),
+            React.createElement(
+              'a',
+              { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
+              React.createElement(
+                'span',
+                null,
+                'Вернуться к ресторану'
+              )
+            )
+          )
+        )
+      )
+    );
+  }
 });
 
 var ProfileEditor = React.createClass({
-    displayName: 'ProfileEditor',
+  displayName: 'ProfileEditor',
 
-    mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
-    limit: 5,
-    getInitialState: function getInitialState() {
-        return {
-            data: [],
-            profileData: {
-                userAvatarUrl: '',
-                userBirthdate: null,
-                userEmail: '',
-                userGender: 0,
-                userName: '',
-                userSurname: '',
-                userPhone: ''
-            }
-        };
-    },
-    componentDidMount: function componentDidMount() {
-        ProfileEditorActions.updateData();
-    },
-    render: function render() {
-        //   profileEditorActions.updateData();
-        var theData = this.state.profileData;
-        console.log('ProfileEditor: theData = ', theData);
-        return React.createElement(ProfileEditorForm, { profile: theData });
-    }
+  mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
+  limit: 5,
+  getInitialState: function getInitialState() {
+    return {
+      data: [],
+      profileData: {
+        userAvatarUrl: '',
+        userBirthdate: null,
+        userEmail: '',
+        userGender: 0,
+        userName: '',
+        userSurname: '',
+        userPhone: ''
+      }
+    };
+  },
+  componentDidMount: function componentDidMount() {
+    ProfileEditorActions.updateData();
+  },
+  render: function render() {
+    //   profileEditorActions.updateData();
+    var theData = this.state.profileData;
+    console.log('ProfileEditor: theData = ', theData);
+    return React.createElement(ProfileEditorForm, { profile: theData });
+  }
 });
 
 ReactDOM.render(React.createElement(ProfileEditor, null), document.getElementById('profileEditor'));
@@ -3282,7 +3282,7 @@ module.exports = CuisinesStore;
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:40:22
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:40:28
+* @Last Modified time: 2016-04-04 22:33:02
 */
 
 var MenuItemsActions = Reflux.createActions(['fetchList', 'updateData']);
@@ -3292,22 +3292,22 @@ var MenuItemsStore = Reflux.createStore({
     currentCategory: 1,
     companyId: currentCompany,
     menuItems: [],
-    sourceUrl: serverUrl + '/api/v2/menu-items/get/' + currentCompany,
+    sourceUrl: serverUrl + '/api/v2/menu-items/get/',
     init: function init() {
-        this.companyId = currentCompany;
-        this.fetchList();
+        //        this.fetchList();
     },
     updateData: function updateData(newId) {
         this.companyId = newId;
-        this.sourceUrl = serverUrl + '/api/v2/menu-items/get/' + newId;
-        console.log('CompanyDetailsStore: updateData() = ', this.sourceUrl);
+        console.log('MenuItemsStore: updateData() companyId = ' + newId);
         this.fetchList();
     },
     fetchList: function fetchList() {
         var some = this;
-        $.getJSON(this.sourceUrl, function (data) {
-            some.menuItems = data.result.menuItems;
+        var url = this.sourceUrl + this.companyId;
+        console.log('MenuItemsStore: fetchList() url = ', url);
+        $.getJSON(url, function (data) {
             console.log('REFLUX: MenuItemsStore fetchList', some.menuItems);
+            some.menuItems = data.result.menuItems;
             some.trigger(some.menuItems);
         });
     }
