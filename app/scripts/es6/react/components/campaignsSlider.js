@@ -24,7 +24,7 @@ var SliderItem = React.createClass({
 var CampaignsSlider = React.createClass({
     mixins: [
         Reflux.connect(CampaignsStore, 'campaignsData'),
-        Reflux.connect(CampaignsLimitedStore, 'CampaignsLimitedStore')
+        Reflux.connect(CampaignsLimitedStore, 'campaignsLimitedData')
     ],
     getInitialState: function() {
       return {
