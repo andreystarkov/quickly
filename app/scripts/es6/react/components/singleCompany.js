@@ -119,12 +119,21 @@ var SingleCompany = React.createClass({
         var imageUrl = imageBaseUrl+that.restaurant_main_image;
         var bgImage = imageBaseUrl+that.restaurant_interior_image;
 
-        var style = {
-            backgroundImage: 'url('+bgImage+')',
+        var style = { backgroundImage: 'url('+bgImage+')' }
+
+        var cardsPaymentStyle = { display: 'none' }
+
+        var rating = that.restaurant_rating;
+        var online;
+
+        if( that.restaurant_online_payment == 1 ){
+            online = "онлайн оплата";
         }
-        var rating = 4;
-        if( that.restaurant_online_payment = 1 )
-        // <PaymentTypes type={that.restaurant_payment_type} />
+
+        if( that.restaurant_payment_type == 0 ){
+            cardsPaymentStyle = { display: 'inline-block' }
+        }
+
         return(
         <div className="col-lg-6">
         <section style={style} onClick={this.toggleCompany} className="company-item company-toggle" data-company={that.restaurant_id}>
@@ -134,10 +143,10 @@ var SingleCompany = React.createClass({
                         <img src={imageUrl} />
                     </div>
                     <div className="c-payment">
-                        <img src="images/cards/mastercard.png" alt="..." />
-                        <img src="images/cards/visa.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="images/cards/mastercard.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="images/cards/visa.png" alt="..." />
                         <div className="is-online">
-                            онлайн оплата
+                            {online}
                         </div>
                     </div>
                 </div>
@@ -185,10 +194,10 @@ var SingleCompany = React.createClass({
                     </div>
 
                     <div className="c-payment mobile">
-                        <img src="images/cards/mastercard.png" alt="..." />
-                        <img src="images/cards/visa.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="images/cards/mastercard.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="images/cards/visa.png" alt="..." />
                         <div className="is-online">
-                            онлайн
+                            {online}
                         </div>
                     </div>
                 </div>

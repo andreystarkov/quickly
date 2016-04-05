@@ -9,4 +9,4 @@ var CardsActions = Reflux.createActions([
     'fetchList', 'updateData'
 ]);
 
-CardsActions.fetchList();
+module.exports = CardsActions;

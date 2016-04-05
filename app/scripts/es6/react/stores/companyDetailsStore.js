@@ -12,8 +12,8 @@ var CompanyDetailsStore = Reflux.createStore({
     companyId: 0,
     sourceUrl: serverUrl+'/api/v2/restaurants/get/',
     init: function() {
-        this.companyId = currentCompany;
-        this.fetchList();
+     //   this.companyId = currentCompany;
+     //   this.fetchList();
     },
     updateData: function(newId){
         console.log('CompanyDetailsStore updateData() newId = ', newId);

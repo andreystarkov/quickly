@@ -8856,7 +8856,7 @@ body .company-item .background-image img {
   -moz-transition: 0.2s cubic-bezier(0.27, 0.47, 0.53, 0.37) all;
   transition: 0.2s cubic-bezier(0.27, 0.47, 0.53, 0.37) all;
 }
-.food-category .food-item a {
+.food-category .food-item .inner {
   height: 220px;
   width: 100%;
   display: inline-block;
@@ -8864,7 +8864,7 @@ body .company-item .background-image img {
   border-radius: 3px;
   margin-bottom: 6px;
 }
-.food-category .food-item a .product-image {
+.food-category .food-item .inner .product-image {
   display: block;
   left: 0;
   top: 0;
@@ -8875,7 +8875,7 @@ body .company-item .background-image img {
   z-index: 1;
   overflow: hidden;
 }
-.food-category .food-item a .overlay {
+.food-category .food-item .inner .overlay {
   z-index: 2;
   display: block;
   left: 0;
@@ -8886,7 +8886,7 @@ body .company-item .background-image img {
   height: 100%;
   position: absolute;
 }
-.food-category .food-item a .overlay .name {
+.food-category .food-item .inner .overlay .name {
   display: inline-block;
   padding: 4px 8px;
   bottom: 0;
@@ -8896,20 +8896,20 @@ body .company-item .background-image img {
   font-size: 14px;
   position: absolute;
 }
-.food-category .food-item a .overlay .name b {
+.food-category .food-item .inner .overlay .name b {
   font-weight: 400;
   font-size: 13px;
 }
-.food-category .food-item a .overlay .name i {
+.food-category .food-item .inner .overlay .name i {
   font-size: 16px;
 }
-.food-category .food-item a .overlay .description {
+.food-category .food-item .inner .overlay .description {
   display: none;
   background: #fff;
   position: absolute;
   top: 100%;
 }
-.food-category .food-item a .overlay .price {
+.food-category .food-item .inner .overlay .price {
   visibility: hidden;
   display: inline-block;
   padding: 4px 8px;
@@ -8920,7 +8920,7 @@ body .company-item .background-image img {
   font-size: 16px;
   position: absolute;
 }
-.food-category .food-item a .overlay .price i {
+.food-category .food-item .inner .overlay .price i {
   font-size: 16px;
 }
 .food-category .food-item .product-controls {
@@ -8980,39 +8980,39 @@ body .company-item .background-image img {
   font-size: 14px;
 }
 .food-category .food-item:hover .product-description,
-.food-category .food-item .open .product-description {
+.food-category .food-item.open .product-description {
   visibility: visible;
   -webkit-transform: scale(1, 1) rotateX(0) perspective(250px);
   -moz-transform: scale(1, 1) rotateX(0) perspective(250px);
   transform: scale(1, 1) rotateX(0) perspective(250px);
 }
 .food-category .food-item:hover .product-info,
-.food-category .food-item .open .product-info {
+.food-category .food-item.open .product-info {
   background: #fff;
 }
 .food-category .food-item:hover img,
-.food-category .food-item .open img {
+.food-category .food-item.open img {
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
 .food-category .food-item:hover .product-price,
-.food-category .food-item .open .product-price {
+.food-category .food-item.open .product-price {
   background: rgba(33, 32, 31, 0.03);
 }
 .food-category .food-item:hover .overlay .price,
-.food-category .food-item .open .overlay .price {
+.food-category .food-item.open .overlay .price {
   background: rgba(33, 32, 31, 0.55);
 }
 .food-category .food-item:hover .overlay .price span,
-.food-category .food-item .open .overlay .price span,
+.food-category .food-item.open .overlay .price span,
 .food-category .food-item:hover .overlay .price i,
-.food-category .food-item .open .overlay .price i {
+.food-category .food-item.open .overlay .price i {
   color: #f8f6f3;
 }
 .food-category .food-item:hover .product-controls,
-.food-category .food-item .open .product-controls {
+.food-category .food-item.open .product-controls {
   opacity: 1;
   -webkit-transform: translateY(0px) scale(1);
   -moz-transform: translateY(0px) scale(1);
@@ -9252,6 +9252,13 @@ section.company-about {
   background: rgba(244, 242, 237, 0.8);
   padding-top: 20px;
 }
+section.company-about .box {
+  text-align: center;
+}
+section.company-about .button-cuisine {
+  font-weight: 400;
+  text-transform: none;
+}
 section.company-about .logo {
   background-size: 70%;
   display: inline-block;
@@ -9314,8 +9321,17 @@ section.company-about .line {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+section.company-about .line .rating {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  padding: 12px 6px;
+  background: #109634;
+  border-radius: 4px;
+}
 section.company-about .types .icon {
-  margin-right: 20px;
+  margin-right: 13px;
 }
 section.company-about .types .food {
   font-weight: 300;
@@ -9332,6 +9348,13 @@ section.company-about .types .food:hover {
   background: #fdfdfc;
   border-bottom: 2px solid #d7d2bd;
 }
+section.company-about [class^="fi-"],
+section.company-about [class^="fi-"]:before,
+section.company-about [class*=" fi-"]:before,
+section.company-about [class^="fi-"]:after,
+section.company-about [class*=" fi-"]:after {
+  font-size: 32px;
+}
 section.company-about .delivery .icon {
   float: left;
   line-height: 40px;
@@ -9346,11 +9369,12 @@ section.company-about .delivery .box {
 }
 section.company-about .delivery .box .detail-title {
   display: inline-block;
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 300;
 }
 section.company-about .delivery .box b {
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 15px;
+  line-height: 18px;
   font-weight: 400;
   display: block;
 }
@@ -19725,6 +19749,30 @@ Slider navigation
     -moz-transform: scale(1) translate(0%, 0%);
     transform: scale(1) translate(0%, 0%);
   }
+}
+.slideout-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+}
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+}
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+.slideout-open .slideout-menu {
+  display: block;
 }
 .top-line .container .paths {
   display: none;

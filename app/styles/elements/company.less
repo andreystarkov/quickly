@@ -99,6 +99,13 @@ section.company-list {
 section.company-about {
     background: fade(#f4f2ed,80%);
     padding-top:20px;
+    .box {
+        text-align:center;
+    }
+    .button-cuisine {
+        font-weight:400;
+        text-transform:none;
+    }
     .logo {
         background-size:70%;
         display:inline-block;
@@ -160,11 +167,20 @@ section.company-about {
     .line {
         padding-top:10px;
         padding-bottom:10px;
+        .rating {
+            position:absolute;
+            top:20px;
+            right:20px;
+            color:#fff;
+            padding:12px 6px;
+            background:@colorGreen;
+            border-radius:4px;
+        }
     }
 
     .types {
         .icon {
-            margin-right:20px;
+            margin-right:13px;
         }
         .food {
             font-weight:300;
@@ -183,6 +199,9 @@ section.company-about {
 
     // delivery information
 
+        [class^="fi-"], [class^="fi-"]:before, [class*=" fi-"]:before, [class^="fi-"]:after, [class*=" fi-"]:after {
+            font-size:32px;
+        }
     .delivery {
         .icon {
             float:left;
@@ -190,6 +209,8 @@ section.company-about {
             margin-right:20px;
             color:fade(@colorBlack,70%);
         }
+
+
         .types {
 
         }
@@ -200,11 +221,12 @@ section.company-about {
             margin-right:20px;
             .detail-title {
                 display:inline-block;
-                font-size:12px;
+                font-size:10px;
+                font-weight:300;
             }
             b {
-                font-size:14px;
-                line-height:14px;
+                font-size:15px;
+                line-height:18px;
                 font-weight:400;
                 display:block;
             }

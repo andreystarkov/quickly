@@ -8,7 +8,7 @@ jQuery(document).ready(function($){
 			slidesNumber = slidesWrapper.children('li').length,
 			visibleSlidePosition = 0,
 			autoPlayId,
-			autoPlayDelay = 6000;
+			autoPlayDelay = 226000;
 
 		uploadVideo(slidesWrapper);
 

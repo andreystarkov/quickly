@@ -7,7 +7,8 @@
     "classie": "^1.0.1",
     "animsition": "https://github.com/blivesta/animsition.git#^4.0.1",
     "guardian": "https://github.com/eisenbraun/guardian.git",
-    "loaders.css": "~0.1.2"
+    "loaders.css": "~0.1.2",
+    "slideout.js": "https://github.com/mango/slideout.git#^0.1.12"
   },
   "dependencies": {
     "react": "^0.14.7",

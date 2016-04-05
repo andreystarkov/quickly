@@ -16,7 +16,7 @@ var SingleMenuItem = React.createClass({
         if (item.menu_item_image === undefined || item.menu_item_image === null || item.menu_item_image == '') { itemImage = 'images/samples/2.png'; }
         return(
         <div className="col-lg-4 col-xs-6 food-item">
-            <a href="#">
+            <div className="inner">
                 <div className="product-image">
                     <img src={itemImage} />
                     <div className="product-controls">
@@ -40,7 +40,7 @@ var SingleMenuItem = React.createClass({
                         <span>{item.menu_item_full_description}</span>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
         );
     }

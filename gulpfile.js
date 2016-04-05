@@ -212,6 +212,14 @@ gulp.task('deploy-images', function() {
   });
 });
 
+gulp.task('build-deploy', function(callback) {
+    runSequence(
+        'js',
+        'styles',
+        'deploy',
+        callback)
+});
+
 gulp.task('production', function(callback) {
     runSequence(
         'js',
@@ -242,19 +250,19 @@ gulp.task('styles-deploy', function(callback) {
 gulp.task('watch-deploy', function(){
     gulp.watch('app/libs/**/*.js', {
         interval: 800
-    }, ['scripts-deploy']);
+    }, ['build-deploy']);
     gulp.watch('app/libs/**/*.less', {
         interval: 800
-    }, ['styles-deploy']);
+    }, ['build-deploy']);
     gulp.watch('app/scripts/**/*.jsx', {
         interval: 800
-    }, ['scripts-deploy']);
+    }, ['build-deploy']);
     gulp.watch('app/scripts/**/*.js', {
         interval: 800
     }, ['js', 'deploy']);
     gulp.watch('app/styles/**/*.less', {
         interval: 800
-    }, ['styles-deploy']);
+    }, ['build-deploy']);
     gulp.watch('app/*.html', {
         interval: 800
     }, ['deploy-html']);

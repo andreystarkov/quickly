@@ -7,7 +7,6 @@ var CuisinesActions = require('./actions/cuisinesActions.js');
 var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
-// CompanyListActions.selectByCuisine(this.props.cuisine);
 
 var CompanyListHeader = React.createClass({
     render: function(){

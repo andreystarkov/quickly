@@ -9,7 +9,7 @@ var theLibs = [
 
     'app/libs/underscore/underscore-min.js',
     'app/libs/js-cookie/src/js.cookie.js',
-    'app/libs/classie/classie.js', 
+    'app/libs/classie/classie.js',
 
     'app/libs/bootstrap/dist/js/bootstrap.min.js',
     'app/libs/bootstrap-material-design/scripts/material.js',
@@ -25,6 +25,7 @@ var theLibs = [
 
     // ui plugins
 
+    'app/libs/slideout.js/dist/slideout.js',
     'app/libs/moment/min/moment-with-locales.min.js',
     'app/libs/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
     'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',

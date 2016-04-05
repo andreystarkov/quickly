@@ -437,6 +437,13 @@ $(function () {
 },{}],7:[function(require,module,exports){
 'use strict';
 
+var CampaignsActions = Reflux.createActions(['fetchList', 'updateData']);
+
+module.exports = CampaignsActions;
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-04-02 14:06:53
@@ -446,30 +453,30 @@ $(function () {
 
 var CardsActions = Reflux.createActions(['fetchList', 'updateData']);
 
-CardsActions.fetchList();
+module.exports = CardsActions;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 var CategoriesListActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = CategoriesListActions;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 var CityActions = Reflux.createActions(['fetchList']);
 
 module.exports = CityActions;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var CompanyDetailsActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = CompanyDetailsActions;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 /*
@@ -483,7 +490,7 @@ var CompanyListActions = Reflux.createActions(['fetchList', 'updateData', 'filte
 
 module.exports = CompanyListActions;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 /*
@@ -497,7 +504,7 @@ var CuisinesActions = Reflux.createActions(['fetchList', 'getCuisineById']);
 
 module.exports = CuisinesActions;
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 /*
@@ -511,7 +518,7 @@ var MenuItemsActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = MenuItemsActions;
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 /*
@@ -525,7 +532,7 @@ var ProfileEditorActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = ProfileEditorActions;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 var CardsStore = require('./stores/cardsStore.js');
@@ -554,7 +561,7 @@ var CardsList = React.createClass({
     }
 });
 
-},{"./actions/cardsActions.js":7,"./stores/cardsStore.js":32}],16:[function(require,module,exports){
+},{"./actions/cardsActions.js":8,"./stores/cardsStore.js":36}],17:[function(require,module,exports){
 'use strict';
 
 var CategoriesListStore = require('./stores/categoriesListStore.js');
@@ -624,7 +631,7 @@ var CategoriesList = React.createClass({
 
 module.exports = CategoriesList;
 
-},{"./actions/categoriesListActions.js":8,"./actions/menuItemsActions.js":13,"./stores/categoriesListStore.js":33}],17:[function(require,module,exports){
+},{"./actions/categoriesListActions.js":9,"./actions/menuItemsActions.js":14,"./stores/categoriesListStore.js":37}],18:[function(require,module,exports){
 'use strict';
 
 var CityListActions = require('./actions/cityListActions.js');
@@ -702,11 +709,12 @@ module.exports = CityList;
 
 ReactDOM.render(React.createElement(CityList, null), document.getElementById('selectCityField'));
 
-},{"./actions/cityListActions.js":9,"./actions/companyListActions.js":11,"./stores/cityListStore.js":34}],18:[function(require,module,exports){
+},{"./actions/cityListActions.js":10,"./actions/companyListActions.js":12,"./stores/cityListStore.js":38}],19:[function(require,module,exports){
 'use strict';
 
 var CompanyDetailsStore = require('./stores/companyDetailsStore.js');
 var CompanyListActions = require('./actions/companyListActions.js');
+var CuisinesList = require('./cuisinesList.react.jsx');
 
 var CompanyDetails = React.createClass({
     displayName: 'CompanyDetails',
@@ -719,13 +727,14 @@ var CompanyDetails = React.createClass({
             companyData: []
         };
     },
-
     componentDidMount: function componentDidMount() {},
-
     render: function render() {
         var company = this.state.companyData;
+        var cuisinesSelect;
         if (company.restaurant_main_image) var image = imageBaseUrl + company.restaurant_main_image;
+        if (company.restaurant_cuisines) cuisinesSelect = React.createElement(CuisinesList, { cuisines: company.restaurant_cuisines });
 
+        var rating = company.restaurant_rating;
         return React.createElement(
             'div',
             { className: 'container' },
@@ -761,39 +770,41 @@ var CompanyDetails = React.createClass({
                     React.createElement(
                         'div',
                         { className: 'line types' },
-                        React.createElement('i', { className: 'icon icn-restaurant' }),
+                        React.createElement('i', { className: 'fi-dishes icon' }),
+                        ' ',
+                        cuisinesSelect,
                         React.createElement(
-                            'a',
-                            { className: 'food', href: '#' },
-                            'Европейская'
-                        ),
-                        React.createElement(
-                            'a',
-                            { className: 'food', href: '#' },
-                            'Японская'
-                        ),
-                        React.createElement(
-                            'a',
-                            { className: 'food', href: '#' },
-                            'Китайская'
+                            'div',
+                            { className: 'rating' },
+                            React.createElement(
+                                'span',
+                                null,
+                                rating
+                            )
                         )
                     ),
                     React.createElement(
                         'div',
                         { className: 'line delivery' },
-                        React.createElement('i', { className: 'icon icn-cab' }),
+                        React.createElement('i', { className: 'icon fi-delivery' }),
                         React.createElement(
                             'div',
                             { className: 'box cost' },
                             React.createElement(
                                 'span',
                                 { className: 'detail-title' },
-                                'стоимость'
+                                'доставка'
                             ),
                             React.createElement(
                                 'b',
                                 null,
-                                company.restaurant_delivery_cost
+                                company.restaurant_delivery_cost,
+                                ' ',
+                                React.createElement(
+                                    'i',
+                                    { className: 'rouble' },
+                                    'o'
+                                )
                             )
                         ),
                         React.createElement(
@@ -802,13 +813,13 @@ var CompanyDetails = React.createClass({
                             React.createElement(
                                 'span',
                                 { className: 'detail-title' },
-                                'среднее время'
+                                'время'
                             ),
                             React.createElement(
                                 'b',
                                 null,
                                 company.restaurant_delivery_time,
-                                ' минут'
+                                ' мин.'
                             )
                         ),
                         React.createElement(
@@ -817,7 +828,7 @@ var CompanyDetails = React.createClass({
                             React.createElement(
                                 'span',
                                 { className: 'detail-title' },
-                                'мин. сумма'
+                                'минимум'
                             ),
                             React.createElement(
                                 'b',
@@ -827,7 +838,7 @@ var CompanyDetails = React.createClass({
                                 React.createElement(
                                     'i',
                                     { className: 'rouble' },
-                                    'e'
+                                    'o'
                                 )
                             )
                         ),
@@ -847,7 +858,7 @@ var CompanyDetails = React.createClass({
                                 React.createElement(
                                     'i',
                                     { className: 'rouble' },
-                                    'e'
+                                    'o'
                                 )
                             )
                         ),
@@ -938,7 +949,7 @@ var CompanyDetails = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyDetails, { companyId: '1' }), document.getElementById('companyDetails'));
 
-},{"./actions/companyListActions.js":11,"./stores/companyDetailsStore.js":35}],19:[function(require,module,exports){
+},{"./actions/companyListActions.js":12,"./cuisinesList.react.jsx":28,"./stores/companyDetailsStore.js":39}],20:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -950,7 +961,6 @@ var CuisinesActions = require('./actions/cuisinesActions.js');
 var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
-// CompanyListActions.selectByCuisine(this.props.cuisine);
 
 var CompanyListHeader = React.createClass({
     displayName: 'CompanyListHeader',
@@ -1138,7 +1148,7 @@ var CompanyList = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyList, null), document.getElementById('pageCompanyList'));
 
-},{"./actions/companyListActions.js":11,"./actions/cuisinesActions.js":12,"./companyList.react.jsx":19,"./components/buttonMore.js":21,"./components/companyListSidebar.js":22,"./components/quicklyLogo.js":24,"./components/singleCompany.js":25,"./cuisinesList.react.jsx":26,"./stores/companyListStore.js":36}],20:[function(require,module,exports){
+},{"./actions/companyListActions.js":12,"./actions/cuisinesActions.js":13,"./companyList.react.jsx":20,"./components/buttonMore.js":22,"./components/companyListSidebar.js":24,"./components/quicklyLogo.js":26,"./components/singleCompany.js":27,"./cuisinesList.react.jsx":28,"./stores/companyListStore.js":40}],21:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1162,7 +1172,7 @@ var ButtonBack = React.createClass({
 
 module.exports = ButtonBack;
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1187,7 +1197,148 @@ var ButtonMore = React.createClass({
 
 module.exports = ButtonMore;
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
+'use strict';
+
+var CampaignsStore = require('../stores/campaignsStore.js');
+var CampaignsActions = require('../actions/campaignsActions.js');
+var CampaignsLimitedStore = require('../stores/CampaignsLimitedStore.js');
+
+var SliderItem = React.createClass({
+    displayName: 'SliderItem',
+
+    render: function render() {
+        var className;
+        if (this.props.pos == '0') className = "selected";
+        return React.createElement(
+            'li',
+            { className: className },
+            React.createElement(
+                'div',
+                { className: 'half-width' },
+                React.createElement(
+                    'h2',
+                    null,
+                    this.props.title
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'Постоянная акция'
+                ),
+                React.createElement(
+                    'a',
+                    { href: '#0', className: 'button main' },
+                    'Подробнее об акции'
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'half-width img-container' },
+                React.createElement('img', { src: imageBaseUrl + this.props.image, alt: '...' })
+            )
+        );
+    }
+});
+
+var CampaignsSlider = React.createClass({
+    displayName: 'CampaignsSlider',
+
+    mixins: [Reflux.connect(CampaignsStore, 'campaignsData'), Reflux.connect(CampaignsLimitedStore, 'CampaignsLimitedStore')],
+    getInitialState: function getInitialState() {
+        return {
+            data: [],
+            campaignsData: [],
+            campaignsLimitedData: []
+        };
+    },
+    render: function render() {
+        console.log('CampagainsSlider: ', this.state.campaignsData, this.state.campaignsLimitedData);
+        var campaigns = this.state.campaignsData;
+        var campaignsLimited = this.state.campaignsLimitedData;
+        var count = 0;
+        var slides = campaigns.map(function (the, i) {
+            return React.createElement(SliderItem, { title: the.campaign_name, image: the.campaign_image, pos: i, key: i });
+        });
+        var slidesLimited = campaignsLimited.map(function (the, i) {
+            return React.createElement(SliderItem, { title: the.campaign_name, image: the.campaign_image, pos: i, key: i });
+        });
+        console.log(slidesLimited);
+        return React.createElement(
+            'section',
+            { className: 'hero' },
+            React.createElement(
+                'ul',
+                { className: 'quickly-slider autoplay' },
+                slides,
+                ' ',
+                slidesLimited
+            ),
+            React.createElement(
+                'div',
+                { className: 'slider-nav' },
+                React.createElement(
+                    'nav',
+                    null,
+                    React.createElement('span', { className: 'marker item-1' }),
+                    React.createElement(
+                        'ul',
+                        null,
+                        React.createElement(
+                            'li',
+                            { className: 'selected' },
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-dish' })
+                            )
+                        ),
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-table' })
+                            )
+                        ),
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-dish' })
+                            )
+                        ),
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-table' })
+                            )
+                        ),
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'a',
+                                { href: '#0' },
+                                React.createElement('i', { className: 'icon fi-dish' })
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
+});
+
+module.exports = CampaignsSlider;
+
+},{"../actions/campaignsActions.js":7,"../stores/CampaignsLimitedStore.js":34,"../stores/campaignsStore.js":35}],24:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1337,7 +1488,7 @@ var CompanyListSidebar = React.createClass({
 
 module.exports = CompanyListSidebar;
 
-},{}],23:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../../screens.jsx');
@@ -1448,7 +1599,7 @@ var CuisinesSelectList = React.createClass({
 
 module.exports = CuisinesSelectList;
 
-},{"../../screens.jsx":43,"../actions/companyListActions.js":11,"../stores/cuisinesStore.js":37}],24:[function(require,module,exports){
+},{"../../screens.jsx":47,"../actions/companyListActions.js":12,"../stores/cuisinesStore.js":41}],26:[function(require,module,exports){
 "use strict";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1488,7 +1639,7 @@ var QuicklyLogo = React.createClass({
 
 module.exports = QuicklyLogo;
 
-},{}],25:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../../screens.jsx');
@@ -1686,301 +1837,310 @@ var SingleCompany = React.createClass({
         var imageUrl = imageBaseUrl + that.restaurant_main_image;
         var bgImage = imageBaseUrl + that.restaurant_interior_image;
 
-        var style = {
-            backgroundImage: 'url(' + bgImage + ')'
-        };
-        var rating = 4;
-        if (that.restaurant_online_payment = 1)
-            // <PaymentTypes type={that.restaurant_payment_type} />
-            return React.createElement(
-                'div',
-                { className: 'col-lg-6' },
+        var style = { backgroundImage: 'url(' + bgImage + ')' };
+
+        var cardsPaymentStyle = { display: 'none' };
+
+        var rating = that.restaurant_rating;
+        var online;
+
+        if (that.restaurant_online_payment == 1) {
+            online = "онлайн оплата";
+        }
+
+        if (that.restaurant_payment_type == 0) {
+            cardsPaymentStyle = { display: 'inline-block' };
+        }
+
+        return React.createElement(
+            'div',
+            { className: 'col-lg-6' },
+            React.createElement(
+                'section',
+                { style: style, onClick: this.toggleCompany, className: 'company-item company-toggle', 'data-company': that.restaurant_id },
                 React.createElement(
-                    'section',
-                    { style: style, onClick: this.toggleCompany, className: 'company-item company-toggle', 'data-company': that.restaurant_id },
+                    'div',
+                    { className: 'the-box row' },
                     React.createElement(
                         'div',
-                        { className: 'the-box row' },
+                        { className: 'company-logo col-lg-3 col-xs-4 col-sm-4' },
                         React.createElement(
                             'div',
-                            { className: 'company-logo col-lg-3 col-xs-4 col-sm-4' },
+                            { className: 'image-thumb' },
+                            React.createElement('img', { src: imageUrl })
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'c-payment' },
+                            React.createElement('img', { style: cardsPaymentStyle, src: 'images/cards/mastercard.png', alt: '...' }),
+                            React.createElement('img', { style: cardsPaymentStyle, src: 'images/cards/visa.png', alt: '...' }),
                             React.createElement(
                                 'div',
-                                { className: 'image-thumb' },
-                                React.createElement('img', { src: imageUrl })
-                            ),
+                                { className: 'is-online' },
+                                online
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'company-description col-lg-9 col-xs-8 col-sm-8' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            that.restaurant_name,
                             React.createElement(
                                 'div',
-                                { className: 'c-payment' },
-                                React.createElement('img', { src: 'images/cards/mastercard.png', alt: '...' }),
-                                React.createElement('img', { src: 'images/cards/visa.png', alt: '...' }),
-                                React.createElement(
-                                    'div',
-                                    { className: 'is-online' },
-                                    'онлайн оплата'
-                                )
+                                { className: 'rating' },
+                                rating
                             )
                         ),
                         React.createElement(
                             'div',
-                            { className: 'company-description col-lg-9 col-xs-8 col-sm-8' },
+                            { className: 'address' },
                             React.createElement(
-                                'h2',
+                                'span',
                                 null,
-                                that.restaurant_name,
-                                React.createElement(
-                                    'div',
-                                    { className: 'rating' },
-                                    rating
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'address' },
-                                React.createElement(
-                                    'span',
-                                    null,
-                                    that.restaurant_address
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'text-line cuisines-list' },
-                                React.createElement(
-                                    'span',
-                                    { className: 'text-line' },
-                                    React.createElement(CuisinesList, { cuisines: that.restaurant_cuisines })
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'row btm-line' },
-                                React.createElement(
-                                    'div',
-                                    { className: 'col-lg-3 col-xs-3 kal' },
-                                    React.createElement(
-                                        'div',
-                                        { className: 'box-info' },
-                                        React.createElement(
-                                            'b',
-                                            { className: 'value' },
-                                            that.restaurant_min_order,
-                                            ' ',
-                                            React.createElement('i', { className: 'fa fa-rouble' })
-                                        ),
-                                        React.createElement(
-                                            'span',
-                                            { className: 'description' },
-                                            'заказ от'
-                                        )
-                                    )
-                                ),
-                                React.createElement(
-                                    'div',
-                                    { className: 'col-lg-3 col-xs-3 kal' },
-                                    React.createElement(
-                                        'div',
-                                        { className: 'box-info' },
-                                        React.createElement(
-                                            'b',
-                                            { className: 'value' },
-                                            that.restaurant_delivery_cost,
-                                            ' ',
-                                            React.createElement('i', { className: 'fa fa-rouble' })
-                                        ),
-                                        React.createElement(
-                                            'span',
-                                            { className: 'description' },
-                                            'доставка'
-                                        )
-                                    )
-                                ),
-                                React.createElement(
-                                    'div',
-                                    { className: 'col-lg-3 col-xs-3 kal' },
-                                    React.createElement(
-                                        'div',
-                                        { className: 'box-info' },
-                                        React.createElement(
-                                            'b',
-                                            { className: 'value' },
-                                            that.restaurant_delivery_time,
-                                            ' ',
-                                            React.createElement('i', { className: 'icon icon-clock' })
-                                        ),
-                                        React.createElement(
-                                            'span',
-                                            { className: 'description' },
-                                            'время'
-                                        )
-                                    )
-                                ),
-                                React.createElement(
-                                    'div',
-                                    { className: 'col-lg-3 col-xs-3 kal' },
-                                    React.createElement(
-                                        'div',
-                                        { className: 'box-info' },
-                                        React.createElement(
-                                            'b',
-                                            { className: 'value' },
-                                            that.restaurant_average_check,
-                                            ' ',
-                                            React.createElement('i', { className: 'fa fa-rouble' })
-                                        ),
-                                        React.createElement(
-                                            'span',
-                                            { className: 'description' },
-                                            'средний чек'
-                                        )
-                                    )
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'c-payment mobile' },
-                                React.createElement('img', { src: 'images/cards/mastercard.png', alt: '...' }),
-                                React.createElement('img', { src: 'images/cards/visa.png', alt: '...' }),
-                                React.createElement(
-                                    'div',
-                                    { className: 'is-online' },
-                                    'онлайн'
-                                )
-                            )
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'row btm-line mobile' },
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-3 col-xs-3 kal' },
-                            React.createElement(
-                                'div',
-                                { className: 'box-info' },
-                                React.createElement(
-                                    'b',
-                                    { className: 'value' },
-                                    that.restaurant_min_order,
-                                    ' ',
-                                    React.createElement('i', { className: 'fa fa-rouble' })
-                                ),
-                                React.createElement(
-                                    'span',
-                                    { className: 'description' },
-                                    'заказ от'
-                                )
+                                that.restaurant_address
                             )
                         ),
                         React.createElement(
                             'div',
-                            { className: 'col-lg-3 col-xs-3 kal' },
+                            { className: 'text-line cuisines-list' },
                             React.createElement(
-                                'div',
-                                { className: 'box-info' },
-                                React.createElement(
-                                    'b',
-                                    { className: 'value' },
-                                    that.restaurant_delivery_cost,
-                                    ' ',
-                                    React.createElement('i', { className: 'fa fa-rouble' })
-                                ),
-                                React.createElement(
-                                    'span',
-                                    { className: 'description' },
-                                    'доставка'
-                                )
+                                'span',
+                                { className: 'text-line' },
+                                React.createElement(CuisinesList, { cuisines: that.restaurant_cuisines })
                             )
                         ),
                         React.createElement(
                             'div',
-                            { className: 'col-lg-3 col-xs-3 kal' },
+                            { className: 'row btm-line' },
                             React.createElement(
                                 'div',
-                                { className: 'box-info' },
-                                React.createElement(
-                                    'b',
-                                    { className: 'value' },
-                                    that.restaurant_delivery_time,
-                                    ' ',
-                                    React.createElement('i', { className: 'icon icon-clock' })
-                                ),
-                                React.createElement(
-                                    'span',
-                                    { className: 'description' },
-                                    'время'
-                                )
-                            )
-                        ),
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-3 col-xs-3 kal' },
-                            React.createElement(
-                                'div',
-                                { className: 'box-info' },
-                                React.createElement(
-                                    'b',
-                                    { className: 'value' },
-                                    that.restaurant_average_check,
-                                    ' ',
-                                    React.createElement('i', { className: 'fa fa-rouble' })
-                                ),
-                                React.createElement(
-                                    'span',
-                                    { className: 'description' },
-                                    'средний чек'
-                                )
-                            )
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'the-footer' },
-                        React.createElement(
-                            'div',
-                            { className: 'row' },
-                            React.createElement(
-                                'div',
-                                { className: 'align-left col-xs-6 col-lg-6' },
+                                { className: 'col-lg-3 col-xs-3 kal' },
                                 React.createElement(
                                     'div',
-                                    { className: 'comments-count' },
-                                    React.createElement('i', { className: 'icon fi-comment' }),
+                                    { className: 'box-info' },
                                     React.createElement(
-                                        'span',
-                                        { className: 'count' },
-                                        that.restaurant_comments_count
-                                    )
-                                )
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'align-right col-xs-6 col-lg-6' },
-                                React.createElement(
-                                    'div',
-                                    { className: 'right-icons' },
-                                    React.createElement(
-                                        'button',
-                                        { className: 'bt-round delivery' },
-                                        React.createElement('i', { className: 'icon fi-dish' })
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_min_order,
+                                        ' ',
+                                        React.createElement('i', { className: 'fa fa-rouble' })
                                     ),
                                     React.createElement(
-                                        'button',
-                                        { className: 'bt-round reservation' },
-                                        React.createElement('i', { className: 'icon fi-table' })
+                                        'span',
+                                        { className: 'description' },
+                                        'заказ от'
                                     )
+                                )
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'col-lg-3 col-xs-3 kal' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'box-info' },
+                                    React.createElement(
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_delivery_cost,
+                                        ' ',
+                                        React.createElement('i', { className: 'fa fa-rouble' })
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'description' },
+                                        'доставка'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'col-lg-3 col-xs-3 kal' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'box-info' },
+                                    React.createElement(
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_delivery_time,
+                                        ' ',
+                                        React.createElement('i', { className: 'icon icon-clock' })
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'description' },
+                                        'время'
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'col-lg-3 col-xs-3 kal' },
+                                React.createElement(
+                                    'div',
+                                    { className: 'box-info' },
+                                    React.createElement(
+                                        'b',
+                                        { className: 'value' },
+                                        that.restaurant_average_check,
+                                        ' ',
+                                        React.createElement('i', { className: 'fa fa-rouble' })
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'description' },
+                                        'средний чек'
+                                    )
+                                )
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'c-payment mobile' },
+                            React.createElement('img', { style: cardsPaymentStyle, src: 'images/cards/mastercard.png', alt: '...' }),
+                            React.createElement('img', { style: cardsPaymentStyle, src: 'images/cards/visa.png', alt: '...' }),
+                            React.createElement(
+                                'div',
+                                { className: 'is-online' },
+                                online
+                            )
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row btm-line mobile' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_min_order,
+                                ' ',
+                                React.createElement('i', { className: 'fa fa-rouble' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'заказ от'
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_delivery_cost,
+                                ' ',
+                                React.createElement('i', { className: 'fa fa-rouble' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'доставка'
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_delivery_time,
+                                ' ',
+                                React.createElement('i', { className: 'icon icon-clock' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'время'
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-lg-3 col-xs-3 kal' },
+                        React.createElement(
+                            'div',
+                            { className: 'box-info' },
+                            React.createElement(
+                                'b',
+                                { className: 'value' },
+                                that.restaurant_average_check,
+                                ' ',
+                                React.createElement('i', { className: 'fa fa-rouble' })
+                            ),
+                            React.createElement(
+                                'span',
+                                { className: 'description' },
+                                'средний чек'
+                            )
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'the-footer' },
+                    React.createElement(
+                        'div',
+                        { className: 'row' },
+                        React.createElement(
+                            'div',
+                            { className: 'align-left col-xs-6 col-lg-6' },
+                            React.createElement(
+                                'div',
+                                { className: 'comments-count' },
+                                React.createElement('i', { className: 'icon fi-comment' }),
+                                React.createElement(
+                                    'span',
+                                    { className: 'count' },
+                                    that.restaurant_comments_count
+                                )
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'align-right col-xs-6 col-lg-6' },
+                            React.createElement(
+                                'div',
+                                { className: 'right-icons' },
+                                React.createElement(
+                                    'button',
+                                    { className: 'bt-round delivery' },
+                                    React.createElement('i', { className: 'icon fi-dish' })
+                                ),
+                                React.createElement(
+                                    'button',
+                                    { className: 'bt-round reservation' },
+                                    React.createElement('i', { className: 'icon fi-table' })
                                 )
                             )
                         )
                     )
                 )
-            );
+            )
+        );
     }
 });
 
 module.exports = SingleCompany;
 
-},{"../../screens.jsx":43,"../actions/categoriesListActions.js":8,"../actions/companyDetailsActions.js":10,"../actions/menuItemsActions.js":13,"../cuisinesList.react.jsx":26}],26:[function(require,module,exports){
+},{"../../screens.jsx":47,"../actions/categoriesListActions.js":9,"../actions/companyDetailsActions.js":11,"../actions/menuItemsActions.js":14,"../cuisinesList.react.jsx":28}],28:[function(require,module,exports){
 'use strict';
 
 var CuisinesStore = require('./stores/cuisinesStore.js');
@@ -2027,7 +2187,7 @@ var CuisinesList = React.createClass({
 
 module.exports = CuisinesList;
 
-},{"./stores/cuisinesStore.js":37}],27:[function(require,module,exports){
+},{"./stores/cuisinesStore.js":41}],29:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../screens.jsx');
@@ -2037,189 +2197,13 @@ var QuicklyLogo = require('./components/quicklyLogo.js');
 var ButtonBack = require('./components/buttonBack.js');
 var CuisinesSelectList = require('./components/cuisinesSelectList.js');
 var CityList = require('./cityList.react.jsx');
+var CampaignsSlider = require('./components/campaignsSlider.js');
 
 var ButtonBackTop = React.createClass({
     displayName: 'ButtonBackTop',
 
     render: function render() {
         React.createElement(ButtonBack, null);
-    }
-});
-
-var MainSlider = React.createClass({
-    displayName: 'MainSlider',
-
-    render: function render() {
-        return React.createElement(
-            'section',
-            { className: 'hero' },
-            React.createElement(
-                'ul',
-                { className: 'quickly-slider autoplay' },
-                React.createElement(
-                    'li',
-                    { className: 'selected' },
-                    React.createElement(
-                        'div',
-                        { className: 'half-width' },
-                        React.createElement(
-                            'h2',
-                            null,
-                            'Сытые выходные с Квикли'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            'Вторая мировая с ее сверхжестким регулированием массовыми разрушениями нанесла группировке серьезный удар. '
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#0', className: 'button main' },
-                            'Подробнее об акции'
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'half-width img-container' },
-                        React.createElement('img', { src: 'images/samples/app-1.png', alt: '...' })
-                    )
-                ),
-                React.createElement(
-                    'li',
-                    null,
-                    React.createElement(
-                        'div',
-                        { className: 'half-width img-container' },
-                        React.createElement('img', { src: 'images/samples/pizza.png', alt: '...' })
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'half-width' },
-                        React.createElement(
-                            'h2',
-                            null,
-                            'Супер-пицца в подарок'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            'После смерти Таоки для клана Кенити Ямамото отбывал срок в тюрьме, где скоропостижно скончался полгода спустя'
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#0', className: 'button' },
-                            'Что-то там'
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#0', className: 'button main' },
-                            'Подробнее'
-                        )
-                    )
-                ),
-                React.createElement(
-                    'li',
-                    { className: 'bg-video' },
-                    React.createElement(
-                        'div',
-                        { className: 'full-width' },
-                        React.createElement(
-                            'h2',
-                            null,
-                            'Ещё что-то интересное'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            'Следующий, пятый оябун не просто восстановил влияние группировки, но и привел ее к невиданному процветанию. '
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#0', className: 'button main' },
-                            'Узнать больше'
-                        )
-                    ),
-                    React.createElement('div', { className: 'bg-video-wrapper', 'data-video': 'assets/video/video' })
-                ),
-                React.createElement(
-                    'li',
-                    null,
-                    React.createElement(
-                        'div',
-                        { className: 'full-width' },
-                        React.createElement(
-                            'h2',
-                            null,
-                            'Вваываывавы'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            'Не просто восстановил влияние группировки смерти Таоки для клана Кенити Ямамото отбывал срок в тюрьме, где скоропостижно '
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#0', className: 'button' },
-                            'Узнать больше'
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#0', className: 'button main' },
-                            'Или ещё что-то'
-                        )
-                    )
-                )
-            ),
-            React.createElement(
-                'div',
-                { className: 'slider-nav' },
-                React.createElement(
-                    'nav',
-                    null,
-                    React.createElement('span', { className: 'marker item-1' }),
-                    React.createElement(
-                        'ul',
-                        null,
-                        React.createElement(
-                            'li',
-                            { className: 'selected' },
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-dish' })
-                            )
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-table' })
-                            )
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-dish' })
-                            )
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-table' })
-                            )
-                        )
-                    )
-                )
-            )
-        );
     }
 });
 
@@ -2230,7 +2214,7 @@ var MainPageHeader = React.createClass({
         return React.createElement(
             'section',
             { className: 'main-header' },
-            React.createElement(MainSlider, null)
+            React.createElement(CampaignsSlider, null)
         );
     }
 });
@@ -2250,7 +2234,7 @@ var ButtonBack = React.createClass({
 ReactDOM.render(React.createElement(MainPageHeader, null), document.getElementById('mainPageHeader'));
 ReactDOM.render(React.createElement(CuisinesSelectList, null), document.getElementById('cuisinesSelectList'));
 
-},{"../screens.jsx":43,"./cityList.react.jsx":17,"./components/buttonBack.js":20,"./components/cuisinesSelectList.js":23,"./components/quicklyLogo.js":24,"./stores/cuisinesStore.js":37}],28:[function(require,module,exports){
+},{"../screens.jsx":47,"./cityList.react.jsx":18,"./components/buttonBack.js":21,"./components/campaignsSlider.js":23,"./components/cuisinesSelectList.js":25,"./components/quicklyLogo.js":26,"./stores/cuisinesStore.js":41}],30:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2277,8 +2261,8 @@ var SingleMenuItem = React.createClass({
             'div',
             { className: 'col-lg-4 col-xs-6 food-item' },
             React.createElement(
-                'a',
-                { href: '#' },
+                'div',
+                { className: 'inner' },
                 React.createElement(
                     'div',
                     { className: 'product-image' },
@@ -2431,7 +2415,7 @@ var MenuItems = React.createClass({
 
 ReactDOM.render(React.createElement(MenuItems, null), document.getElementById('menuItems'));
 
-},{"./actions/categoriesListActions.js":8,"./categoriesList.react.jsx":16,"./stores/menuItemsStore.js":38}],29:[function(require,module,exports){
+},{"./actions/categoriesListActions.js":9,"./categoriesList.react.jsx":17,"./stores/menuItemsStore.js":42}],31:[function(require,module,exports){
 'use strict';
 
 var _addToCart = require('../engine/addToCart.js');
@@ -2678,7 +2662,7 @@ var OrdersHistory = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersHistory, null), document.getElementById('ordersHistory'));
 
-},{"../engine/addToCart.js":2,"./components/buttonMore.js":21,"./stores/ordersHistoryStore.js":39}],30:[function(require,module,exports){
+},{"../engine/addToCart.js":2,"./components/buttonMore.js":22,"./stores/ordersHistoryStore.js":43}],32:[function(require,module,exports){
 'use strict';
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2938,7 +2922,7 @@ var ProfileEditor = React.createClass({
 
 ReactDOM.render(React.createElement(ProfileEditor, null), document.getElementById('profileEditor'));
 
-},{"./actions/profileEditorActions.js":14,"./components/buttonMore.js":21,"./stores/profileEditorStore.js":40}],31:[function(require,module,exports){
+},{"./actions/profileEditorActions.js":15,"./components/buttonMore.js":22,"./stores/profileEditorStore.js":44}],33:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -3163,7 +3147,85 @@ var OrdersReservation = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersReservation, null), document.getElementById('reservationHistory'));
 
-},{"./components/buttonMore.js":21,"./stores/reservationHistoryStore.js":41}],32:[function(require,module,exports){
+},{"./components/buttonMore.js":22,"./stores/reservationHistoryStore.js":45}],34:[function(require,module,exports){
+'use strict';
+
+/*
+* @Author: Andrey Starkov
+* @Date:   2016-03-29 09:33:15
+* @Last Modified by:   Andrey Starkov
+* @Last Modified time: 2016-03-29 22:20:25
+*/
+var CampaignsActions = require('../actions/campaignsActions.js');
+
+var CampaignsLimitedStore = Reflux.createStore({
+    listenables: [CampaignsActions],
+    campaignsLimitedData: [],
+    companyId: 0,
+    sourceUrl: serverUrl + '/api/v2/campaigns/limited/get',
+    init: function init() {
+        this.fetchList();
+    },
+    updateData: function updateData(newId) {
+        console.log('CampaignsLimitedStore updateData()');
+        this.fetchList();
+    },
+    fetchList: function fetchList() {
+        var some = this;
+        var url = this.sourceUrl;
+
+        console.log('CampaignsLimitedStore: fetchList Url = ', url);
+        $.getJSON(url, function (data) {
+            some.CampaignsLimitedData = data.result.campaigns;
+            console.log('CampaignsLimitedStore: result = ', data);
+            some.trigger(some.CampaignsLimitedData);
+        });
+    }
+});
+
+module.exports = CampaignsLimitedStore;
+
+},{"../actions/campaignsActions.js":7}],35:[function(require,module,exports){
+'use strict';
+
+/*
+* @Author: Andrey Starkov
+* @Date:   2016-03-29 09:33:15
+* @Last Modified by:   Andrey Starkov
+* @Last Modified time: 2016-03-29 22:20:25
+*/
+var CampaignsActions = require('../actions/campaignsActions.js');
+
+var CampaignsStore = Reflux.createStore({
+    listenables: [CampaignsActions],
+    campaignsData: [],
+    companyId: 0,
+    sourceUrl: serverUrl + '/api/v2/campaigns/permanent/get',
+    init: function init() {
+        //   this.companyId = currentCompany;
+        this.fetchList();
+    },
+    updateData: function updateData(newId) {
+        console.log('CampaignsStore updateData() newId = ', newId);
+        this.companyId = newId;
+        this.fetchList();
+    },
+    fetchList: function fetchList() {
+        var some = this;
+        var url = this.sourceUrl;
+
+        console.log('CampaignsStore: fetchList Url = ', url);
+        $.getJSON(url, function (data) {
+            some.campaignsData = data.result.campaigns;
+            console.log('CampaignsStore: result = ', data);
+            some.trigger(some.campaignsData);
+        });
+    }
+});
+
+module.exports = CampaignsStore;
+
+},{"../actions/campaignsActions.js":7}],36:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3198,7 +3260,7 @@ var CardsStore = Reflux.createStore({
 
 module.exports = CardsStore;
 
-},{"../actions/cardsActions.js":7}],33:[function(require,module,exports){
+},{"../actions/cardsActions.js":8}],37:[function(require,module,exports){
 'use strict';
 
 var CategoriesListActions = require('../actions/categoriesListActions.js');
@@ -3236,7 +3298,7 @@ var CategoriesListStore = Reflux.createStore({
 
 module.exports = CategoriesListStore;
 
-},{"../actions/categoriesListActions.js":8,"../actions/menuItemsActions.js":13}],34:[function(require,module,exports){
+},{"../actions/categoriesListActions.js":9,"../actions/menuItemsActions.js":14}],38:[function(require,module,exports){
 'use strict';
 
 var CityListActions = require('../actions/cityListActions.js');
@@ -3334,7 +3396,7 @@ var CityListStore = Reflux.createStore({
 
 module.exports = CityListStore;
 
-},{"../actions/cityListActions.js":9}],35:[function(require,module,exports){
+},{"../actions/cityListActions.js":10}],39:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3351,8 +3413,8 @@ var CompanyDetailsStore = Reflux.createStore({
     companyId: 0,
     sourceUrl: serverUrl + '/api/v2/restaurants/get/',
     init: function init() {
-        this.companyId = currentCompany;
-        this.fetchList();
+        //   this.companyId = currentCompany;
+        //   this.fetchList();
     },
     updateData: function updateData(newId) {
         console.log('CompanyDetailsStore updateData() newId = ', newId);
@@ -3374,7 +3436,7 @@ var CompanyDetailsStore = Reflux.createStore({
 
 module.exports = CompanyDetailsStore;
 
-},{"../actions/companyDetailsActions.js":10}],36:[function(require,module,exports){
+},{"../actions/companyDetailsActions.js":11}],40:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3469,7 +3531,7 @@ var CompanyListStore = Reflux.createStore({
 
 module.exports = CompanyListStore;
 
-},{"../actions/companyListActions.js":11,"../actions/cuisinesActions.js":12,"./cuisinesStore.js":37}],37:[function(require,module,exports){
+},{"../actions/companyListActions.js":12,"../actions/cuisinesActions.js":13,"./cuisinesStore.js":41}],41:[function(require,module,exports){
 'use strict';
 
 var CuisinesActions = require('../actions/cuisinesActions.js');
@@ -3499,7 +3561,7 @@ var CuisinesStore = Reflux.createStore({
 
 module.exports = CuisinesStore;
 
-},{"../actions/cuisinesActions.js":12}],38:[function(require,module,exports){
+},{"../actions/cuisinesActions.js":13}],42:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3538,7 +3600,7 @@ var MenuItemsStore = Reflux.createStore({
 
 module.exports = MenuItemsStore;
 
-},{"../actions/menuItemsActions.js":13}],39:[function(require,module,exports){
+},{"../actions/menuItemsActions.js":14}],43:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3573,7 +3635,7 @@ var OrdersHistoryStore = Reflux.createStore({
 
 module.exports = OrdersHistoryStore;
 
-},{}],40:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3618,7 +3680,7 @@ var ProfileEditorStore = Reflux.createStore({
 
 module.exports = ProfileEditorStore;
 
-},{"../actions/profileEditorActions.js":14}],41:[function(require,module,exports){
+},{"../actions/profileEditorActions.js":15}],45:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3653,7 +3715,7 @@ var ReservationHistoryStore = Reflux.createStore({
 
 module.exports = ReservationHistoryStore;
 
-},{}],42:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 "use strict";
 
 var _checkoutFunc = require("./engine/checkout.func.jsx");
@@ -3836,7 +3898,7 @@ $(function () {
     getReservationPointsList(currentCompany, currentTime);
 });
 
-},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],43:[function(require,module,exports){
+},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3905,7 +3967,7 @@ $(function () {
     });
 });
 
-},{"./react/stores/companyDetailsStore.js":35,"./react/stores/menuItemsStore.js":38}],44:[function(require,module,exports){
+},{"./react/stores/companyDetailsStore.js":39,"./react/stores/menuItemsStore.js":42}],48:[function(require,module,exports){
 'use strict';
 
 var _checkoutFunc = require('./engine/checkout.func.jsx');
@@ -4022,7 +4084,7 @@ $(function () {
     (0, _checkoutFunc.refreshCart)();
 });
 
-},{"./engine/checkout.func.jsx":3}]},{},[44,6,42,1,43,18,29,31,28,30,19,27,15,17])
+},{"./engine/checkout.func.jsx":3}]},{},[48,6,46,1,47,19,31,33,30,32,20,29,16,18])
 
 
 //# sourceMappingURL=es6.js.map

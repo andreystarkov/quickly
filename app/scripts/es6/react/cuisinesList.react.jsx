@@ -10,7 +10,6 @@ var CuisinesList = React.createClass({
       };
     },
     componentDidMount: function() {
-
     },
     render: function() {
         var companyCuisines = JSON.parse(this.props.cuisines);
@@ -30,7 +29,7 @@ var CuisinesList = React.createClass({
         });
         return (
             <div className="cuisinesList">
-            {totalList}
+                {totalList}
             </div>
         )
     }
