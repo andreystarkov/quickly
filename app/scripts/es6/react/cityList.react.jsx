@@ -29,7 +29,13 @@ var CityList = React.createClass({
         CompanyListActions.setCurrentCity(e.target.value);
     },
     componentDidMount: function() {
-
+        var selectedCity = getStorage('city');
+        if ( selectedCity ) {
+          this.setState({
+            value:selectedCity.city_id
+          });
+          CompanyListActions.setCurrentCity(selectedCity.city_id);
+        }
     },
     render: function() {
       var totalList = this.state.cityList.map(function(the, i) {
@@ -39,7 +45,7 @@ var CityList = React.createClass({
       return (
       <div className="city-select">
         <div className="form-group">
-          <b>Ваш город</b> {this.state.value}
+          <b>Ваш город</b>
           <select id="cityListSelect" onChange={this.changeHandler} className="form-control">
             {totalList}
           </select>

@@ -151,6 +151,15 @@ gulp.task('production-copy-html', function() {
 
 var scp = require('gulp-scp2');
 
+gulp.task('upload', function(callback) {
+return runSequence(
+        'deploy',
+        'deploy-html',
+        'deploy-fonts',
+        'deploy-images',
+        callback);
+});
+
 gulp.task('deploy', function() {
   return gulp.src('./app/app/**/*')
   .pipe(scp({
@@ -184,6 +193,19 @@ gulp.task('deploy-fonts', function() {
     username: secrets.username,
     password: secrets.password,
     dest: secrets.path+'fonts/'
+  }))
+  .on('error', function(err) {
+    console.log('Deploy error: ',err);
+  });
+});
+
+gulp.task('deploy-images', function() {
+  return gulp.src('./app/images/**/*')
+  .pipe(scp({
+    host: secrets.host,
+    username: secrets.username,
+    password: secrets.password,
+    dest: secrets.path+'images/'
   }))
   .on('error', function(err) {
     console.log('Deploy error: ',err);
@@ -235,7 +257,7 @@ gulp.task('watch-deploy', function(){
     }, ['styles-deploy']);
     gulp.watch('app/*.html', {
         interval: 800
-    }, ['html-deploy']);
+    }, ['deploy-html']);
 });
 
 gulp.task('watch', function() {

@@ -28,7 +28,7 @@ export function showScreen(screenId){
 $(function() {
 
     showScreen('pageMain');
-
+/*
     $(document).on('click', '.company-toggle', function(event) {
         var company = $(this).data('company');
         console.log('CompanyToggle: Toggling: ', company);
@@ -37,7 +37,7 @@ $(function() {
         CompanyDetailsActions.updateData(company);
         MenuItemsActions.updateData(company);
         showScreen('pageCompany');
-    });
+    });*/
 
     $(document).on('click', '.screen-toggle', function(event) {
         event.preventDefault();

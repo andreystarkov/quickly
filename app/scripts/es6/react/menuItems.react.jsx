@@ -6,6 +6,8 @@
 */
 
 var MenuItemsStore = require('./stores/menuItemsStore.js');
+var CategoriesListActions = require('./actions/categoriesListActions.js');
+var CategoriesList = require('./categoriesList.react.jsx');
 
 var SingleMenuItem = React.createClass({
     render: function(){
@@ -44,29 +46,59 @@ var SingleMenuItem = React.createClass({
     }
 });
 
-var MenuItems = React.createClass({
+var MenuItemsSidebar = React.createClass({
+    render: function(){
+        return (
+            <div>
+                <div className="button-close" id="menu-close"><i className="icon-close"></i></div>
+                <div className="button-open" id="menu-open"><i className="icn-menu"></i></div>
+                <div className="sidebar-wrap">
+                    <div className="form-group label-floating is-empty">
+                        <label htmlFor="i5" className="control-label">Поиск блюда</label>
+                        <input type="search" className="form-control" id="i5" />
+                        <span className="help-block"></span>
+                        <span className="material-input"></span>
+                    </div>
+                    <CategoriesList />
+                </div>
+            </div>
+        )
+    }
+});
+
+var MenuItemsList = React.createClass({
     mixins: [Reflux.connect(MenuItemsStore, 'menuItems')],
-    limit: 12,
     getInitialState: function() {
       return {
         data: [],
         menuItems: []
       };
     },
-    componentDidMount: function() {
-    },
-    loadMore: function(){
-        this.limit += 6;
-        MenuItemsActions.updateData();
-    },
-    render: function() {
+    render: function(){
         var theData = this.state.menuItems;
         var total = 0;
-        var messages = theData.map(function(the, i) {
+        var items = theData.map(function(the, i) {
             return <SingleMenuItem item={the} key={i} />
         });
         return (
-            <div>{messages}</div>
+            <div>{items}</div>
+        )
+    }
+});
+
+var MenuItems = React.createClass({
+    render: function() {
+        return (
+            <div className="row">
+                <div className="col-lg-9">
+                    <div className="row">
+                        <MenuItemsList />
+                    </div>
+                </div>
+                <div className="col-lg-3 mobile sidebar" id="sidebar">
+                    <MenuItemsSidebar />
+                </div>
+            </div>
         )
     }
 });

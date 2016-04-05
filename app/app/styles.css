@@ -8857,7 +8857,7 @@ body .company-item .background-image img {
   transition: 0.2s cubic-bezier(0.27, 0.47, 0.53, 0.37) all;
 }
 .food-category .food-item a {
-  height: 170px;
+  height: 220px;
   width: 100%;
   display: inline-block;
   position: relative;
@@ -8979,32 +8979,40 @@ body .company-item .background-image img {
 .food-category .food-item .product-price i {
   font-size: 14px;
 }
-.food-category .food-item:hover .product-description {
+.food-category .food-item:hover .product-description,
+.food-category .food-item .open .product-description {
   visibility: visible;
   -webkit-transform: scale(1, 1) rotateX(0) perspective(250px);
   -moz-transform: scale(1, 1) rotateX(0) perspective(250px);
   transform: scale(1, 1) rotateX(0) perspective(250px);
 }
-.food-category .food-item:hover .product-info {
+.food-category .food-item:hover .product-info,
+.food-category .food-item .open .product-info {
   background: #fff;
 }
-.food-category .food-item:hover img {
+.food-category .food-item:hover img,
+.food-category .food-item .open img {
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
-.food-category .food-item:hover .product-price {
+.food-category .food-item:hover .product-price,
+.food-category .food-item .open .product-price {
   background: rgba(33, 32, 31, 0.03);
 }
-.food-category .food-item:hover .overlay .price {
+.food-category .food-item:hover .overlay .price,
+.food-category .food-item .open .overlay .price {
   background: rgba(33, 32, 31, 0.55);
 }
 .food-category .food-item:hover .overlay .price span,
-.food-category .food-item:hover .overlay .price i {
+.food-category .food-item .open .overlay .price span,
+.food-category .food-item:hover .overlay .price i,
+.food-category .food-item .open .overlay .price i {
   color: #f8f6f3;
 }
-.food-category .food-item:hover .product-controls {
+.food-category .food-item:hover .product-controls,
+.food-category .food-item .open .product-controls {
   opacity: 1;
   -webkit-transform: translateY(0px) scale(1);
   -moz-transform: translateY(0px) scale(1);
@@ -9016,7 +9024,8 @@ body .company-item .background-image img {
   -webkit-transition: 0.2s cubic-bezier(0.17, 0.67, 0.73, 0.57) all;
   -moz-transition: 0.2s cubic-bezier(0.17, 0.67, 0.73, 0.57) all;
   transition: 0.2s cubic-bezier(0.17, 0.67, 0.73, 0.57) all;
-  width: 100%;
+  min-width: 100%;
+  height: 100%;
 }
 .menu {
   list-style: none;
@@ -9036,13 +9045,13 @@ body .company-item .background-image img {
 .menu li.has-child {
   margin-bottom: 25px;
 }
-.menu li.has-child a.parent .icon {
+.menu li.has-child .category-toggle.parent .icon {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
 }
-.menu li.has-child a .icon {
+.menu li.has-child .category-toggle .icon {
   opacity: 0.4;
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
@@ -9050,40 +9059,44 @@ body .company-item .background-image img {
   transform: scale(0.8);
   border: 2px solid rgba(33, 32, 31, 0.3);
 }
-.menu li.has-child a {
+.menu li.has-child .category-toggle {
   opacity: 1;
 }
 .menu li.active .parent .icon {
   background: #fff036;
 }
-.menu li a {
-  opacity: 0.8;
+.menu li .category-toggle {
+  opacity: 0.9;
   -webkit-transition: 0.3s cubic-bezier(0.17, 0.67, 0.27, 0.01) all;
   -moz-transition: 0.3s cubic-bezier(0.17, 0.67, 0.27, 0.01) all;
   transition: 0.3s cubic-bezier(0.17, 0.67, 0.27, 0.01) all;
   border-bottom: 2px solid #eeece3;
-  padding: 8px 15px;
-  font-size: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  text-align: left;
   font-weight: 300;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: 400;
   display: block;
+  text-transform: none;
   width: 100%;
 }
-.menu li a.parent {
+.menu li .category-toggle.parent {
   font-weight: 300;
 }
-.menu li a.parent .icon {
+.menu li .category-toggle.parent .icon {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
   opacity: 1;
 }
-.menu li a.active {
+.menu li .category-toggle.active {
   opacity: 1;
-  background: rgba(238, 236, 227, 0.5);
+  background: #fff;
   border-bottom: 2px solid rgba(218, 216, 207, 0.8);
 }
-.menu li a.active .icon {
+.menu li .category-toggle.active .icon {
   background: #fff036;
   border: 2px solid rgba(33, 32, 31, 0.75);
   opacity: 1;
@@ -9092,12 +9105,12 @@ body .company-item .background-image img {
   -ms-transform: scale(1);
   transform: scale(1);
 }
-.menu li a.active:hover {
+.menu li .category-toggle.active:hover {
   opacity: 1;
-  background: rgba(238, 236, 227, 0.5);
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 2px solid rgba(218, 216, 207, 0.8);
 }
-.menu li a.active:hover .icon {
+.menu li .category-toggle.active:hover .icon {
   background: #fff036;
   border: 2px solid rgba(33, 32, 31, 0.75);
   opacity: 1;
@@ -9106,11 +9119,11 @@ body .company-item .background-image img {
   -ms-transform: scale(1);
   transform: scale(1);
 }
-.menu li a:hover {
+.menu li .category-toggle:hover {
   opacity: 1;
   border-bottom: 2px solid rgba(218, 216, 207, 0.8);
 }
-.menu li a:hover .icon {
+.menu li .category-toggle:hover .icon {
   background: #f8f6f3;
   border: 2px solid rgba(33, 32, 31, 0.35);
   opacity: 1;
@@ -9119,11 +9132,11 @@ body .company-item .background-image img {
   -ms-transform: scale(1);
   transform: scale(1);
 }
-.menu li a .icon {
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
+.menu li .category-toggle .icon {
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
   -webkit-transition: 0.3s cubic-bezier(0.17, 0.67, 0.27, 0.01) all;
   -moz-transition: 0.3s cubic-bezier(0.17, 0.67, 0.27, 0.01) all;
   transition: 0.3s cubic-bezier(0.17, 0.67, 0.27, 0.01) all;
@@ -9132,11 +9145,10 @@ body .company-item .background-image img {
   height: 12px;
   background: rgba(237, 210, 0, 0.1);
   border: 2px solid rgba(33, 32, 31, 0.15);
-  opacity: 0.4;
+  opacity: 0.8;
   border-radius: 15px;
   float: left;
-  margin-top: 6px;
-  margin-right: 14px;
+  margin-right: 12px;
 }
 section.company-list section.company-about {
   padding-top: 20px;

@@ -16,26 +16,29 @@
 
         &.has-child {
             margin-bottom:25px;
-            a.parent {
+            .category-toggle.parent {
                 .icon { transform: scale(1); }
             }
-            a .icon {
+            .category-toggle .icon {
                 opacity:0.4;
                 transform: scale(0.8);
                 border:2px solid fade(@colorBlack, 30%);
             }
-            a {
+            .category-toggle {
                 opacity:1;
             }
         }
         &.active .parent .icon {
             background:@colorYellow;
         }
-        a {
-            opacity:0.8;
+        .category-toggle {
+            opacity:0.9;
             transition:0.3s cubic-bezier(.17,.67,.27,.01) all;
             border-bottom: 2px solid @colorGrayLight;
-
+            background:fade(#fff,30%);
+            text-align:left;
+            text-transform:none;
+            font-weight:300;
             &.parent {
                 font-weight:300;
                 .icon {
@@ -45,7 +48,7 @@
             }
             &.active {
                 opacity:1;
-                background: fade(@colorGrayLight, 50%);
+                background: #fff;
                 .icon {
                     background: @colorYellow;
                     border:2px solid fade(@colorBlack, 75%);
@@ -55,7 +58,7 @@
                 border-bottom: 2px solid fade(mix(@colorGrayLight,@colorBlack,90%),80%);
                 &:hover {
                     opacity:1;
-                    background: fade(@colorGrayLight, 50%);
+                    background: fade(#fff,90%);
                     .icon {
                         background: @colorYellow;
                         border:2px solid fade(@colorBlack, 75%);
@@ -76,24 +79,23 @@
                 border-bottom: 2px solid fade(mix(@colorGrayLight,@colorBlack,90%),80%);
             }
             .icon {
-                transform: scale(0.8);
+                transform: scale(0.9);
                 transition:0.3s cubic-bezier(.17,.67,.27,.01) all;
                 width:12px;
                 display:block;
                 height:12px;
                 background: fade(#edd200,10%);
                 border:2px solid fade(@colorBlack, 15%);
-                opacity:0.4;
+                opacity:0.8;
                 border-radius:15px;
                 float:left;
-                margin-top:6px;
-                margin-right:14px;
-
+                margin-right:12px;
             }
-            padding:8px 15px;
+            padding:10px 15px;
             font-size:15px;
-            font-weight:300;
+            font-weight:400;
             display:block;
+            text-transform:none;
             width:100%;
         }
     }

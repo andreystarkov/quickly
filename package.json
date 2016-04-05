@@ -39,6 +39,7 @@
     "imagemin-jpegtran": "^4.3.2",
     "imagemin-pngquant": "^4.2.0",
     "jshint-stylish": "^1.0.0",
+    "material-ui": "^0.14.4",
     "run-sequence": "^1.1.5",
     "scp2": "^0.2.2",
     "vinyl-buffer": "^1.0.0",

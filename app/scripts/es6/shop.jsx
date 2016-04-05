@@ -267,13 +267,12 @@ $(function() {
         clearCart();
     });
 
+
     $(document).on('click', '.category-toggle', function(event) {
         event.preventDefault();
-        $('.category-line a').removeClass('active');
+        $('.category-toggle').removeClass('active');
         $(this).addClass('active');
-        pasteMenu($(this).attr('data-category'));
     });
 
     refreshCart();
 });
-

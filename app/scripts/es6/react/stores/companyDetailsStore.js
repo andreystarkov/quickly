@@ -4,32 +4,30 @@
 * @Last Modified by:   Andrey Starkov
 * @Last Modified time: 2016-03-29 22:20:25
 */
-
-var CompanyDetailsActions = Reflux.createActions([
-    'fetchList', 'updateData'
-]);
+var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
 
 var CompanyDetailsStore = Reflux.createStore({
     listenables: [CompanyDetailsActions],
     companyData: [],
-    companyId: currentCompany,
-    sourceUrl: serverUrl+'/api/v2/restaurants/get/'+currentCompany,
+    companyId: 0,
+    sourceUrl: serverUrl+'/api/v2/restaurants/get/',
     init: function() {
         this.companyId = currentCompany;
         this.fetchList();
     },
     updateData: function(newId){
-        console.log('CompanyDetailsStore updateData()');
+        console.log('CompanyDetailsStore updateData() newId = ', newId);
         this.companyId = newId;
-        this.sourceUrl = serverUrl+'/api/v2/restaurants/get/'+newId;
-        console.log('CompanyDetailsStore:', this.sourceUrl);
         this.fetchList();
     },
     fetchList: function() {
       var some = this;
-      $.getJSON(this.sourceUrl, function (data) {
+      var url = this.sourceUrl + this.companyId;
+
+      console.log('CompanyDetailsStore: fetchList Url = ', url);
+      $.getJSON(url, function (data) {
         some.companyData = data.result.restaurant;
-        console.log('REFLUX: CompanyDetailsStore fetchList', some.companyData);
+        console.log('CompanyDetailsStore: result = ', some.companyData);
         some.trigger(some.companyData);
       });
     }

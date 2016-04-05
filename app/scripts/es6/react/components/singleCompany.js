@@ -6,6 +6,10 @@
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
+var MenuItemsActions = require('../actions/menuItemsActions.js');
+var CategoriesListActions = require('../actions/categoriesListActions.js');
+var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
+import {showScreen} from "../../screens.jsx";
 
 //<span className="desc"><i>наличными</i><i>картой курьеру</i></span>
 //<span className="desc">только наличные</span>
@@ -98,6 +102,15 @@ var RatingStars = React.createClass({
 });
 
 var SingleCompany = React.createClass({
+    toggleCompany: function(el){
+        var company = this.props.company.restaurant_id;
+        console.log('SingleCompany: Next ID: ' ,company);
+        currentCompany = company;
+        CompanyDetailsActions.updateData(company);
+        MenuItemsActions.updateData(company);
+        CategoriesListActions.updateData(company);
+        showScreen('pageCompany');
+    },
     render: function(){
         var total = 0;
         var that = this.props.company;
@@ -111,11 +124,10 @@ var SingleCompany = React.createClass({
         }
         var rating = 4;
         if( that.restaurant_online_payment = 1 )
-        console.log('SingleCompany: ', this.props.company);
         // <PaymentTypes type={that.restaurant_payment_type} />
         return(
         <div className="col-lg-6">
-        <section style={style} className="company-item company-toggle" data-company={that.restaurant_id}>
+        <section style={style} onClick={this.toggleCompany} className="company-item company-toggle" data-company={that.restaurant_id}>
             <div className="the-box row">
                 <div className="company-logo col-lg-3 col-xs-4 col-sm-4">
                     <div className="image-thumb">

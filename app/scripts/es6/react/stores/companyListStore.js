@@ -69,7 +69,6 @@ var CompanyListStore = Reflux.createStore({
       console.log('CompanyListStore: fetchList: this.cuisine = '+this.cuisine, 'this.currentCity', this.currentCity);
 
       queryUrl += '?restaurantType=3';
-
       if( cuisineId ) {
         queryUrl += '&cuisineId='+cuisineId;
       }

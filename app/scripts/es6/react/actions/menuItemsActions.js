@@ -5,3 +5,8 @@
 * @Last Modified time: 2016-04-01 00:37:36
 */
 
+var MenuItemsActions = Reflux.createActions([
+    'fetchList', 'updateData'
+]);
+
+module.exports = MenuItemsActions;
