@@ -4,13 +4,16 @@ var CampaignsLimitedStore = require('../stores/CampaignsLimitedStore.js');
 
 var SliderItem = React.createClass({
     render: function(){
-        var className;
+        var className, expires = "Акция действительна до ";
         if( this.props.pos == '0' ) className = "selected";
+        if( this.props.expires ) {
+            expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
+        } else expires = "Постоянная акция";
         return(
         <li className={className}>
             <div className="half-width">
                 <h2>{this.props.title}</h2>
-                <p>Постоянная акция</p>
+                <p>{}{expires}</p>
                 <a href="#0" className="button main">Подробнее об акции</a>
             </div>
             <div className="half-width img-container">
@@ -42,7 +45,7 @@ var CampaignsSlider = React.createClass({
             return <SliderItem title={the.campaign_name} image={the.campaign_image} pos={i} key={i} />
         });
         var slidesLimited = campaignsLimited.map(function(the, i) {
-            return <SliderItem title={the.campaign_name} image={the.campaign_image} pos={i} key={i} />
+            return <SliderItem title={the.campaign_name} expires={the.campaign_end} image={the.campaign_image} pos={i} key={i} />
         });
         console.log(slidesLimited);
         return (

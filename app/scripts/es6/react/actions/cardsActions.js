@@ -6,7 +6,7 @@
 */
 
 var CardsActions = Reflux.createActions([
-    'fetchList', 'updateData'
+    'fetchList', 'updateData', 'bindCard'
 ]);
 
 module.exports = CardsActions;

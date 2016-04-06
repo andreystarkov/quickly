@@ -11,6 +11,7 @@ var CardsStore = Reflux.createStore({
     listenables: [CardsActions],
     cardsData: [],
     sourceUrl: serverUrl+'/api/v2/cards/get/'+userToken,
+    bindUrl: serverUrl+'/api/v3/payments/cards/bind/'+userToken,
     init: function() {
         this.fetchList();
     },
@@ -18,12 +19,18 @@ var CardsStore = Reflux.createStore({
         console.log('CardsStore updateData()');
         this.fetchList();
     },
+    bindCard: function() {
+      $.getJSON(this.bindUrl, function(data){
+        console.log('CardsStore bindCard', data);
+      });
+    },
     fetchList: function() {
       var some = this;
       $.getJSON(this.sourceUrl, function(data){
+        console.log('CardsStore fetchList', data);
         some.cardsData = data.result.cards;
         some.trigger(some.cardsData);
-        console.log('CardsStore fetchList', some.historyList);
+
       });
     }
 });

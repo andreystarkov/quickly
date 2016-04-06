@@ -451,7 +451,7 @@ module.exports = CampaignsActions;
 * @Last Modified time: 2016-04-02 14:07:37
 */
 
-var CardsActions = Reflux.createActions(['fetchList', 'updateData']);
+var CardsActions = Reflux.createActions(['fetchList', 'updateData', 'bindCard']);
 
 module.exports = CardsActions;
 
@@ -1208,8 +1208,12 @@ var SliderItem = React.createClass({
     displayName: 'SliderItem',
 
     render: function render() {
-        var className;
+        var className,
+            expires = "Акция действительна до ";
         if (this.props.pos == '0') className = "selected";
+        if (this.props.expires) {
+            expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
+        } else expires = "Постоянная акция";
         return React.createElement(
             'li',
             { className: className },
@@ -1224,7 +1228,7 @@ var SliderItem = React.createClass({
                 React.createElement(
                     'p',
                     null,
-                    'Постоянная акция'
+                    expires
                 ),
                 React.createElement(
                     'a',
@@ -1261,7 +1265,7 @@ var CampaignsSlider = React.createClass({
             return React.createElement(SliderItem, { title: the.campaign_name, image: the.campaign_image, pos: i, key: i });
         });
         var slidesLimited = campaignsLimited.map(function (the, i) {
-            return React.createElement(SliderItem, { title: the.campaign_name, image: the.campaign_image, pos: i, key: i });
+            return React.createElement(SliderItem, { title: the.campaign_name, expires: the.campaign_end, image: the.campaign_image, pos: i, key: i });
         });
         console.log(slidesLimited);
         return React.createElement(
@@ -2670,259 +2674,368 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
+var CardsActions = require('./actions/cardsActions.js');
+var CardsStore = require('./stores/cardsStore.js');
 
 function editUserField(obj, callback) {
-    var theOptions = {};
-    var theParameter = $('#' + fieldId).data('id');
+  var theOptions = {};
+  var theParameter = $('#' + fieldId).data('id');
 
-    theOptions['userToken'] = userToken;
-    theOptions['cityId'] = cityId;
-    theOptions[theParameter] = $('#' + fieldId).val();
+  theOptions['userToken'] = userToken;
+  theOptions['cityId'] = cityId;
+  theOptions[theParameter] = $('#' + fieldId).val();
 
-    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-    $.ajax({
-        url: serverUrl + '/api/v2/user/profile/edit',
-        dataType: 'json',
-        type: 'POST',
-        data: theOptions,
-        success: function success(data) {
-            console.log('editUserField: ', data);
-            if (data.err === undefined || data.err === null) {
-                toastr.success('Данные профиля сохранены');
-            }
-            $('#' + fieldId).parent().addClass('has-success');
-            refreshUserProfile();
-            if (callback) callback(data);
-        }
-    });
+  console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+  $.ajax({
+    url: serverUrl + '/api/v2/user/profile/edit',
+    dataType: 'json',
+    type: 'POST',
+    data: theOptions,
+    success: function success(data) {
+      console.log('editUserField: ', data);
+      if (data.err === undefined || data.err === null) {
+        toastr.success('Данные профиля сохранены');
+      }
+      $('#' + fieldId).parent().addClass('has-success');
+      refreshUserProfile();
+      if (callback) callback(data);
+    }
+  });
 }
 
-var Field = React.createClass({
-    displayName: 'Field',
+var ProfileField = React.createClass({
+  displayName: 'ProfileField',
 
-    render: function render() {
-        var _React$createElement;
+  getInitialState: function getInitialState() {
+    var value = this.props.value;
+    return {
+      value: 'Что-то'
+    };
+  },
 
-        return React.createElement(
-            'div',
-            { className: 'form-group' },
-            React.createElement(
-                'label',
-                { className: 'control-label', htmlFor: this.props.id },
-                this.props.name
-            ),
-            React.createElement('input', (_React$createElement = { type: this.props.type, ref: this.props.id, 'data-id': this.props.id }, _defineProperty(_React$createElement, 'type', 'text'), _defineProperty(_React$createElement, 'className', 'form-control'), _defineProperty(_React$createElement, 'value', this.props.value), _defineProperty(_React$createElement, 'defaultValue', this.props.default), _defineProperty(_React$createElement, 'onChange', this.props.onChange), _defineProperty(_React$createElement, 'id', this.props.id), _defineProperty(_React$createElement, 'defaultValue', this.props.value), _React$createElement))
-        );
-    }
+  handleChange: function handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  },
+
+  render: function render() {
+    return React.createElement('input', { type: 'text', value: this.state.value, onChange: this.handleChange });
+  }
 });
 
-var AddressAddForm = React.createClass({
-    displayName: 'AddressAddForm',
+var Field = React.createClass({
+  displayName: 'Field',
 
-    render: function render() {
-        return React.createElement(
-            'div',
-            null,
-            'test'
-        );
-    }
+  getInitialState: function getInitialState() {
+    return {
+      field: this.props.initVal
+    };
+  },
+  onChange: function onChange(e) {
+    console.log('wtf ', e.target.value);
+    this.setState({
+      field: e.target.value
+    });
+  },
+  render: function render() {
+    var _React$createElement;
+
+    console.log('Field: state = ', this.state.field);
+    console.log('Field: props val = ', this.props.initVal);
+    return React.createElement(
+      'div',
+      { className: 'form-group' },
+      React.createElement(
+        'label',
+        { className: 'control-label', htmlFor: this.props.id },
+        this.props.name
+      ),
+      React.createElement('input', (_React$createElement = { type: this.props.type,
+        ref: this.props.id,
+        'data-id': this.props.id
+      }, _defineProperty(_React$createElement, 'type', this.props.type), _defineProperty(_React$createElement, 'className', 'form-control'), _defineProperty(_React$createElement, 'value', this.state.field), _defineProperty(_React$createElement, 'onChange', this.onChange), _defineProperty(_React$createElement, 'id', this.props.id), _React$createElement))
+    );
+  }
+});
+
+function openNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
+var CardsEditor = React.createClass({
+  displayName: 'CardsEditor',
+
+  mixins: [Reflux.connect(CardsStore, 'cardsData')],
+  bindUrl: serverUrl + '/api/v3/payments/cards/bind/' + userToken,
+  getInitalState: function getInitalState() {
+    return {
+      cardsData: []
+    };
+  },
+  bindCard: function bindCard() {
+    $.getJSON(this.bindUrl, function (data) {
+      console.log('CardsEditor bindCard', data.result);
+      openNewTab(data.result);
+    });
+  },
+  render: function render() {
+    console.log('CardsEditor: ', this.state.cardsData);
+    return React.createElement(
+      'div',
+      { className: 'cards-editor' },
+      React.createElement(
+        'b',
+        { className: 'group-title' },
+        'Банковские карты'
+      ),
+      React.createElement(
+        'div',
+        { className: 'profile-cards' },
+        React.createElement(
+          'div',
+          { className: 'card-item' },
+          React.createElement('i', { className: 'fi-card-detail' }),
+          React.createElement(
+            'span',
+            { className: 'number' },
+            '**** **** **** 1125'
+          )
+        )
+      ),
+      React.createElement(
+        'button',
+        { onClick: this.bindCard, className: 'button main' },
+        'Добавить карту'
+      )
+    );
+  }
 });
 
 var ProfileEditorForm = React.createClass({
-    displayName: 'ProfileEditorForm',
+  displayName: 'ProfileEditorForm',
 
-    getInitalState: function getInitalState() {
-        console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
-        return {
-            profile: {
-                userAvatarUrl: '',
-                userBirthdate: null,
-                userEmail: '',
-                userGender: 0,
-                userName: '',
-                userSurname: '',
-                userPhone: ''
-            }
-        };
-    },
-    onFieldChange: function onFieldChange(value) {
-        console.log('ProfileEditorForm onFieldChange: value = ', value.target);
-    },
-    addCardForm: function addCardForm() {
-        swal({
-            title: 'Введите номер карты',
-            html: '<input id="inputCardNumber" type="text" class="form-control">',
-            showCancelButton: true,
-            closeOnConfirm: false,
-            allowOutsideClick: false
-        }, function () {
-            swal({
-                html: 'Номер карты: <strong>' + $('#inputCardNumber').val() + '</strong>'
-            });
-        });
-    },
-    render: function render() {
-        var total = 0;
-        var profile = this.props.profile;
-        var userAvatar;
-        if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-            userAvatar = 'images/samples/user.png';
-        } else userAvatar = profile.userAvatarUrl;
+  getInitalState: function getInitalState() {
+    console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
+    return {
+      userAvatarUrl: '',
+      userBirthdate: null,
+      userEmail: '',
+      userGender: 0,
+      userName: this.props.profile.userName,
+      userSurname: '',
+      userPhone: ''
+    };
+  },
+  onFieldChange: function onFieldChange(value) {
+    console.log('ProfileEditorForm onFieldChange: value = ', value.target);
+  },
+  onNameChange: function onNameChange(e) {
+    this.setState({
+      userName: e.target.value
+    });
+  },
+  addCardForm: function addCardForm() {
+    swal({
+      title: 'Введите номер карты',
+      html: '<input id="inputCardNumber" type="text" className="form-control">',
+      showCancelButton: true,
+      closeOnConfirm: false,
+      allowOutsideClick: false
+    }, function () {
+      swal({
+        html: 'Номер карты: <strong>' + $('#inputCardNumber').val() + '</strong>'
+      });
+    });
+  },
+  render: function render() {
+    var _React$createElement2;
 
-        console.log('ProfileEditorForm: profile = ', this.state);
-        return React.createElement(
+    var total = 0;
+    var profile = this.props.profile;
+    var userAvatar;
+    if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+      userAvatar = 'images/samples/user.png';
+    } else userAvatar = profile.userAvatarUrl;
+
+    console.log('ProfileEditorForm: profile = ', this.state);
+    return React.createElement(
+      'div',
+      { className: 'user-editor container' },
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-lg-2 text-center' },
+          React.createElement(
             'div',
-            { className: 'user-editor container' },
+            { className: 'avatar round' },
+            React.createElement('img', { src: userAvatar, alt: '...' })
+          ),
+          React.createElement(
+            'div',
+            { className: 'form-group gender-select' },
             React.createElement(
-                'div',
-                { className: 'row' },
+              'div',
+              { className: 'radio radio-primary' },
+              React.createElement(
+                'label',
+                null,
+                React.createElement('input', { type: 'radio', name: 'optionsRadios', id: 'optionsRadios1', value: '0' }),
                 React.createElement(
-                    'div',
-                    { className: 'col-lg-2 text-center' },
-                    React.createElement(
-                        'div',
-                        { className: 'avatar round' },
-                        React.createElement('img', { src: userAvatar, alt: '...' })
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'btn-group' },
-                        React.createElement(
-                            'a',
-                            { className: 'button light small' },
-                            'Изменить аватар'
-                        )
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'col-lg-10 the-info' },
-                    React.createElement(
-                        'div',
-                        { className: 'row delivery' },
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-2' },
-                            React.createElement(Field, { type: 'text', name: 'Имя', id: 'userName', 'default': profile.userName })
-                        ),
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-2' },
-                            React.createElement(Field, { type: 'text', name: 'Фамилия', id: 'userSurname', 'default': profile.userName })
-                        ),
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-2' },
-                            React.createElement(Field, { type: 'datetime', name: 'Дата рождения', id: 'userBirthdate', 'default': profile.userName })
-                        ),
-                        React.createElement('div', { className: 'col-lg-3' })
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'line row' },
-                        React.createElement(
-                            'div',
-                            { className: 'col-lg-6' },
-                            React.createElement(
-                                'b',
-                                { className: 'el-title' },
-                                'Привязка карты'
-                            ),
-                            React.createElement(
-                                'button',
-                                { className: 'button main', onClick: this.addCardForm },
-                                'Добавить карту'
-                            )
-                        )
-                    )
+                  'span',
+                  { className: 'radio-label-text' },
+                  'Мужской'
                 )
+              )
             ),
             React.createElement(
-                'div',
-                { className: 'row buttons-line' },
-                React.createElement('div', { className: 'col-lg-2' }),
+              'div',
+              { className: 'radio radio-primary' },
+              React.createElement(
+                'label',
+                null,
+                React.createElement('input', { type: 'radio', name: 'optionsRadios', id: 'optionsRadios2', value: '1' }),
                 React.createElement(
-                    'div',
-                    { className: 'col-lg-10 buttons-tabs' },
-                    React.createElement(
-                        'div',
-                        { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
-                        React.createElement(
-                            'a',
-                            { href: '#tab-order-history', className: 'tab-toggle btn button light', id: 'tabOrderHistory' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'История заказов'
-                            )
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#tab-reservation-history', className: 'tab-toggle btn button light' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'История бронирования'
-                            )
-                        ),
-                        React.createElement(
-                            'a',
-                            { href: '#tab-comments-history', className: 'tab-toggle btn button light' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'Оставленные отзывы'
-                            )
-                        ),
-                        React.createElement(
-                            'a',
-                            { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
-                            React.createElement(
-                                'span',
-                                null,
-                                'Вернуться к ресторану'
-                            )
-                        )
-                    )
+                  'span',
+                  { className: 'radio-label-text' },
+                  'Женский'
                 )
+              )
             )
-        );
-    }
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-lg-4 the-info' },
+          React.createElement(
+            'div',
+            { className: 'row delivery' },
+            React.createElement(
+              'div',
+              { className: 'profile-field col-lg-6' },
+              React.createElement(Field, { type: 'text', initVal: profile.userName, name: 'Имя', id: 'userName' })
+            ),
+            React.createElement(
+              'div',
+              { className: 'profile-field col-lg-6' },
+              React.createElement(Field, (_React$createElement2 = { type: 'text' }, _defineProperty(_React$createElement2, 'type', 'text'), _defineProperty(_React$createElement2, 'name', 'Фамилия'), _defineProperty(_React$createElement2, 'id', 'userSurname'), _defineProperty(_React$createElement2, 'initVal', profile.userSurname), _React$createElement2))
+            ),
+            React.createElement(
+              'div',
+              { className: 'profile-field col-lg-6' },
+              React.createElement(Field, { type: 'datetime', name: 'Дата рождения', id: 'userBirthdate', initVal: profile.userBirthdate })
+            ),
+            React.createElement(
+              'div',
+              { className: 'profile-field col-lg-6' },
+              React.createElement(Field, { type: 'email', name: 'Электронная почта', id: 'userEmail', initVal: profile.userEmail })
+            )
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-lg-4' },
+          React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+              'div',
+              { className: 'col-lg-6' },
+              React.createElement(CardsEditor, null)
+            ),
+            React.createElement('div', { className: 'col-lg-6' })
+          )
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'row buttons-line' },
+        React.createElement('div', { className: 'col-lg-2' }),
+        React.createElement(
+          'div',
+          { className: 'col-lg-10 buttons-tabs' },
+          React.createElement(
+            'div',
+            { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
+            React.createElement(
+              'a',
+              { href: '#tab-order-history', className: 'tab-toggle btn button light', id: 'tabOrderHistory' },
+              React.createElement(
+                'span',
+                null,
+                'История заказов'
+              )
+            ),
+            React.createElement(
+              'a',
+              { href: '#tab-reservation-history', className: 'tab-toggle btn button light' },
+              React.createElement(
+                'span',
+                null,
+                'История бронирования'
+              )
+            ),
+            React.createElement(
+              'a',
+              { href: '#tab-comments-history', className: 'tab-toggle btn button light' },
+              React.createElement(
+                'span',
+                null,
+                'Оставленные отзывы'
+              )
+            ),
+            React.createElement(
+              'a',
+              { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
+              React.createElement(
+                'span',
+                null,
+                'Вернуться к ресторану'
+              )
+            )
+          )
+        )
+      )
+    );
+  }
 });
 
 var ProfileEditor = React.createClass({
-    displayName: 'ProfileEditor',
+  displayName: 'ProfileEditor',
 
-    mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
-    limit: 5,
-    getInitialState: function getInitialState() {
-        return {
-            data: [],
-            profileData: {
-                userAvatarUrl: '',
-                userBirthdate: null,
-                userEmail: '',
-                userGender: 0,
-                userName: '',
-                userSurname: '',
-                userPhone: ''
-            }
-        };
-    },
-    componentDidMount: function componentDidMount() {
-        ProfileEditorActions.updateData();
-    },
-    render: function render() {
-        //   profileEditorActions.updateData();
-        var theData = this.state.profileData;
-        console.log('ProfileEditor: theData = ', theData);
-        return React.createElement(ProfileEditorForm, { profile: theData });
-    }
+  mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
+  limit: 5,
+  getInitialState: function getInitialState() {
+    return {
+      data: [],
+      profileData: {
+        userAvatarUrl: '',
+        userBirthdate: null,
+        userEmail: '',
+        userGender: 0,
+        userName: '',
+        userSurname: '',
+        userPhone: ''
+      }
+    };
+  },
+  componentDidMount: function componentDidMount() {
+    ProfileEditorActions.updateData();
+  },
+  render: function render() {
+    //   profileEditorActions.updateData();
+    var theData = this.state.profileData;
+    console.log('ProfileEditor: theData = ', theData);
+    return React.createElement(ProfileEditorForm, { profile: theData });
+  }
 });
 
 ReactDOM.render(React.createElement(ProfileEditor, null), document.getElementById('profileEditor'));
 
-},{"./actions/profileEditorActions.js":15,"./components/buttonMore.js":22,"./stores/profileEditorStore.js":44}],33:[function(require,module,exports){
+},{"./actions/cardsActions.js":8,"./actions/profileEditorActions.js":15,"./components/buttonMore.js":22,"./stores/cardsStore.js":36,"./stores/profileEditorStore.js":44}],33:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -3238,24 +3351,30 @@ module.exports = CampaignsStore;
 var CardsActions = require('../actions/cardsActions.js');
 
 var CardsStore = Reflux.createStore({
-    listenables: [CardsActions],
-    cardsData: [],
-    sourceUrl: serverUrl + '/api/v2/cards/get/' + userToken,
-    init: function init() {
-        this.fetchList();
-    },
-    updateData: function updateData() {
-        console.log('CardsStore updateData()');
-        this.fetchList();
-    },
-    fetchList: function fetchList() {
-        var some = this;
-        $.getJSON(this.sourceUrl, function (data) {
-            some.cardsData = data.result.cards;
-            some.trigger(some.cardsData);
-            console.log('CardsStore fetchList', some.historyList);
-        });
-    }
+  listenables: [CardsActions],
+  cardsData: [],
+  sourceUrl: serverUrl + '/api/v2/cards/get/' + userToken,
+  bindUrl: serverUrl + '/api/v3/payments/cards/bind/' + userToken,
+  init: function init() {
+    this.fetchList();
+  },
+  updateData: function updateData() {
+    console.log('CardsStore updateData()');
+    this.fetchList();
+  },
+  bindCard: function bindCard() {
+    $.getJSON(this.bindUrl, function (data) {
+      console.log('CardsStore bindCard', data);
+    });
+  },
+  fetchList: function fetchList() {
+    var some = this;
+    $.getJSON(this.sourceUrl, function (data) {
+      console.log('CardsStore fetchList', data);
+      some.cardsData = data.result.cards;
+      some.trigger(some.cardsData);
+    });
+  }
 });
 
 module.exports = CardsStore;

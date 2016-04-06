@@ -1,6 +1,8 @@
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
+var CardsActions = require('./actions/cardsActions.js');
+var CardsStore = require('./stores/cardsStore.js');
 
 function editUserField(obj, callback) {
     var theOptions = {};
@@ -28,23 +30,89 @@ function editUserField(obj, callback) {
     });
 }
 
+var ProfileField = React.createClass({
+  getInitialState: function() {
+      var value = this.props.value;
+      return {
+        value: 'Что-то'
+      }
+  },
+
+  handleChange: function(event) {
+    this.setState({
+      value: event.target.value
+    });
+  },
+
+  render: function() {
+    return ( <input type="text" value={this.state.value} onChange={this.handleChange} /> )
+  }
+});
 
 var Field = React.createClass({
+  getInitialState: function() {
+    return {
+      field: this.props.initVal
+    };
+  },
+  onChange: function(e) {
+     console.log('wtf ',e.target.value);
+     this.setState({
+        field: e.target.value
+     });
+  },
   render: function () {
+      console.log('Field: state = ', this.state.field);
+      console.log('Field: props val = ', this.props.initVal);
       return (
         <div className="form-group">
           <label className="control-label" htmlFor={this.props.id}>{this.props.name}</label>
-          <input type={this.props.type } ref={this.props.id} data-id={this.props.id} type="text" className="form-control" value={this.props.value} defaultValue={this.props.default} onChange={this.props.onChange} id={this.props.id} defaultValue={this.props.value} />
+          <input type={this.props.type}
+          ref={this.props.id}
+          data-id={this.props.id}
+          type={this.props.type}
+          className="form-control"
+          value={this.state.field}
+          onChange={this.onChange}
+          id={this.props.id} />
         </div>
       );
   }
 });
 
-var AddressAddForm = React.createClass({
+function openNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
+var CardsEditor = React.createClass({
+    mixins: [Reflux.connect(CardsStore, 'cardsData')],
+    bindUrl: serverUrl+'/api/v3/payments/cards/bind/'+userToken,
+    getInitalState: function(){
+        return {
+            cardsData: []
+        }
+    },
+    bindCard: function() {
+      $.getJSON(this.bindUrl, function(data){
+        console.log('CardsEditor bindCard', data.result);
+        openNewTab(data.result);
+      });
+    },
     render: function () {
+        console.log('CardsEditor: ',this.state.cardsData);
         return (
-          <div>
-           test
+          <div className="cards-editor">
+            <b className="group-title">Банковские карты</b>
+            <div className="profile-cards">
+              <div className="card-item">
+                <i className="fi-card-detail"></i>
+                <span className="number">
+                  **** **** **** 1125
+                </span>
+              </div>
+            </div>
+            <button onClick={this.bindCard} className="button main">Добавить карту</button>
           </div>
         )
     }
@@ -54,24 +122,27 @@ var ProfileEditorForm = React.createClass({
     getInitalState: function(){
         console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
         return {
-          profile: {
             userAvatarUrl: '',
             userBirthdate: null,
             userEmail: '',
             userGender: 0,
-            userName: '',
+            userName: this.props.profile.userName,
             userSurname: '',
             userPhone: ''
-          }
         }
     },
     onFieldChange: function(value){
         console.log('ProfileEditorForm onFieldChange: value = ', value.target);
     },
+    onNameChange: function(e){
+      this.setState({
+        userName: e.target.value
+      });
+    },
     addCardForm: function(){
       swal({
         title: 'Введите номер карты',
-        html: '<input id="inputCardNumber" type="text" class="form-control">',
+        html: '<input id="inputCardNumber" type="text" className="form-control">',
         showCancelButton: true,
         closeOnConfirm: false,
         allowOutsideClick: false
@@ -101,31 +172,45 @@ var ProfileEditorForm = React.createClass({
                  <div className="avatar round">
                     <img src={userAvatar} alt="..." />
                  </div>
-                 <div className="btn-group">
-                    <a className="button light small">Изменить аватар</a>
+                 <div className="form-group gender-select">
+                    <div className="radio radio-primary">
+                      <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="0" />
+                        <span className="radio-label-text">Мужской</span>
+                      </label>
+                    </div>
+                    <div className="radio radio-primary">
+                      <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="1" />
+                        <span className="radio-label-text">Женский</span>
+                      </label>
+                    </div>
                  </div>
               </div>
-              <div className="col-lg-10 the-info">
+              <div className="col-lg-4 the-info">
                  <div className="row delivery">
-                    <div className="col-lg-2">
-                      <Field type="text" name="Имя" id="userName" default={profile.userName} />
+                    <div className="profile-field col-lg-6">
+                      <Field type="text" initVal={profile.userName} name="Имя" id="userName" />
                     </div>
-                    <div className="col-lg-2">
-                      <Field type="text" name="Фамилия" id="userSurname" default={profile.userName} />
+                    <div className="profile-field col-lg-6">
+                      <Field type="text" type="text" name="Фамилия" id="userSurname" initVal={profile.userSurname} />
                     </div>
-                    <div className="col-lg-2">
-                      <Field type="datetime" name="Дата рождения" id="userBirthdate" default={profile.userName} />
+                    <div className="profile-field col-lg-6">
+                      <Field type="datetime" name="Дата рождения" id="userBirthdate" initVal={profile.userBirthdate} />
                     </div>
-                    <div className="col-lg-3">
-
+                    <div className="profile-field col-lg-6">
+                      <Field type="email" name="Электронная почта" id="userEmail" initVal={profile.userEmail} />
                     </div>
                  </div>
-                  <div className="line row">
-                    <div className="col-lg-6">
-                      <b className="el-title">Привязка карты</b>
-                      <button className="button main" onClick={this.addCardForm}>Добавить карту</button>
-                    </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <CardsEditor />
                   </div>
+                  <div className="col-lg-6">
+                  </div>
+                </div>
               </div>
            </div>
            <div className="row buttons-line">

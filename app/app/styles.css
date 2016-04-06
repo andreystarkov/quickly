@@ -7325,6 +7325,38 @@ section.gray {
 .the-tab.tab-active {
   display: block;
 }
+.radio-label-text {
+  padding-left: 22px;
+}
+.group-title {
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 400;
+}
+.user-editor .button {
+  font-size: 11px;
+  font-weight: 400;
+}
+.profile-cards {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.profile-cards .card-item {
+  line-height: 30px;
+  background: #fff;
+}
+.profile-field {
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+.gender-select {
+  padding-left: 40px;
+  padding-top: 10px;
+}
+.profile-editor .radio-primary {
+  display: inline-block;
+  min-width: 110px;
+}
 body h2 {
   font-family: RobotoDraft;
   font-weight: 200;
@@ -10289,11 +10321,6 @@ div.top-box {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -10442,6 +10469,8 @@ Slider
 .quickly-slider {
   position: relative;
   height: 360px;
+  padding-top: 35px;
+  background-color: #e9e8e5;
   overflow: hidden;
 }
 .quickly-slider li {
