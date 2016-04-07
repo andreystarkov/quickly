@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:37:12
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-02 16:49:43
+* @Last Modified time: 2016-04-07 11:20:23
 */
 var ProfileEditorActions = require('../actions/profileEditorActions.js');
 
@@ -28,11 +28,14 @@ var ProfileEditorStore = Reflux.createStore({
                 'userToken': userToken
             },
             success: function(data) {
+                var result = data.result;
+                if( result !== undefined ){
                 some.profileData = data.result.profile;
                 console.log('profileEditorStore: AJAX result: ',data);
                 some.trigger(some.profileData);
                 console.log('ProfileEditorStore some.profileData = ', some.profileData);
                 setStorage('profile', data.result.profile);
+                } else console.log('ProfileEditorStore: No Data: ', data);
             }
         });
     }

@@ -21240,7 +21240,7 @@ var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');
 
 var devMode = false;
-var currentVersion = '0.1.4';
+var currentVersion = '0.1.5';
 var serverHost = location.host.trim();
 
 console.log('Server: ', serverHost);
@@ -26141,6 +26141,7 @@ $(function() {
         }
       });
     }
+
     $('#reservation-datetime').datetimepicker({
         inline: true,
         locale: moment.locale('ru'),

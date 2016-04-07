@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:35:29
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:36:01
+* @Last Modified time: 2016-04-07 11:18:15
 */
 
 var OrdersHistoryActions = Reflux.createActions([
@@ -17,15 +17,18 @@ var OrdersHistoryStore = Reflux.createStore({
         this.fetchList();
     },
     updateData: function(){
-        console.log('OrdersHistoryStore updateData()');
+        console.log('OrdersHistoryStore: updateData()');
         this.fetchList();
     },
     fetchList: function() {
       var some = this;
       $.getJSON(this.sourceUrl, function (data) {
-        some.historyList = data.result.orders;
-        some.trigger(some.historyList);
-        console.log('REFLUX: OrdersHistoryStore fetchList', some.historyList);
+        var result = data.result;
+        if( result !== undefined ){
+            some.historyList = data.result.orders;
+            some.trigger(some.historyList);
+            console.log('OrdersHistoryStore: fetchList', some.historyList);
+        } else console.log('OrdersHistoryStore: no data', data);
       });
     }
 });

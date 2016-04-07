@@ -10470,7 +10470,7 @@ Slider
   position: relative;
   height: 360px;
   padding-top: 35px;
-  background-color: #e9e8e5;
+  background-color: #ebe9e1;
   overflow: hidden;
 }
 .quickly-slider li {
@@ -19778,6 +19778,15 @@ Slider navigation
     -moz-transform: scale(1) translate(0%, 0%);
     transform: scale(1) translate(0%, 0%);
   }
+}
+.city-select .form-control {
+  font-size: 1em;
+}
+.city-select b {
+  font-size: 12px;
+}
+.form-auth {
+  margin-top: 14px;
 }
 .slideout-menu {
   position: fixed;

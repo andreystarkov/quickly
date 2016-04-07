@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-02 14:02:06
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-02 14:24:21
+* @Last Modified time: 2016-04-07 11:21:17
 */
 
 var CardsActions = require('../actions/cardsActions.js');
@@ -27,10 +27,12 @@ var CardsStore = Reflux.createStore({
     fetchList: function() {
       var some = this;
       $.getJSON(this.sourceUrl, function(data){
-        console.log('CardsStore fetchList', data);
-        some.cardsData = data.result.cards;
-        some.trigger(some.cardsData);
-
+        var result = data.result;
+        if( result !== undefined ){
+            console.log('CardsStore fetchList', data);
+            some.cardsData = data.result.cards;
+            some.trigger(some.cardsData);
+        } else console.log('CardsStore: No Data: ',data);
       });
     }
 });

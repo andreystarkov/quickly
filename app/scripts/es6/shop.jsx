@@ -1,66 +1,23 @@
-    import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
-
-function pasteMenu(categoryId){
-    $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
-        $('#foodItems').html('');
-        console.log(data);
-        $.each(data.result.menuItems, function(key, item){
-            if( item.menu_item_image == ""){
-                item.menu_item_image = "images/samples/9-tiny.jpg";
-            } else item.menu_item_image = "http://176.112.201.81/static/cdn/"+item.menu_item_image;
-
-            var output = `
-                <div class="col-lg-4 col-xs-6 food-item">
-                    <a href="#">
-                        <div class="product-image">
-                            <img src="${item.menu_item_image}" />
-                            <div class="product-controls">
-                                <button class="button main add-to-cart"
-                                data-name="${item.menu_item_name}"
-                                data-price="${item.menu_item_price}"
-                                data-id="${item.menu_item_id}">В корзину</button>
-                            </div>
-                        </div>
-
-                        <div class="product-info">
-                            <div class="major">
-                                <div class="product-name">
-                                    <b>${item.menu_item_name}</b>
-                                </div>
-                                <div class="product-price">
-                                    <span>${item.menu_item_price} <i class="rouble">i</i></span>
-                                </div>
-                            </div>
-                            <div class="product-description">
-                                <span>${item.menu_item_full_description}</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>`;
-            $('#foodItems').append(output);
-        });
-    });
-}
+import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
 
 function pasteCartElement(cartElement, elementCount){
-var el = `
-<tr class="reservation-${cartElement.type}">
-    <td>${cartElement.name}</td>
-    <td>${cartElement.price} р.</td>
-    <td>
-        <div class="form-group label-placeholder is-empty" data-id="${cartElement.id}" data-name="${cartElement.name}" data-price="${cartElement.price}">
-            <span class="control-minus" data-id="cartItem-${cartElement.id}">-</span>
-            <input type="text" value="${elementCount}" class="form-control" id="cartItem-${cartElement.id}">
-            <span class="control-plus" data-id="cartItem-${cartElement.id}">+</span>
-        </div>
-    </td>
-    <td>
-        <button class="checkout-action"><i class="icon icn-trash"></i></button>
-    </td>
-</tr>
-`;
-
-return el;
+    var el = `
+    <tr class="reservation-${cartElement.type}">
+        <td>${cartElement.name}</td>
+        <td>${cartElement.price} р.</td>
+        <td>
+            <div class="form-group label-placeholder is-empty" data-id="${cartElement.id}" data-name="${cartElement.name}" data-price="${cartElement.price}">
+                <span class="control-minus" data-id="cartItem-${cartElement.id}">-</span>
+                <input type="text" value="${elementCount}" class="form-control" id="cartItem-${cartElement.id}">
+                <span class="control-plus" data-id="cartItem-${cartElement.id}">+</span>
+            </div>
+        </td>
+        <td>
+            <button class="checkout-action"><i class="icon icn-trash"></i></button>
+        </td>
+    </tr>
+    `;
+    return el;
 }
 
 function pasteCheckoutFormUnregistered(){
@@ -217,8 +174,6 @@ $(function() {
         theCart.contents = getStorage('theCart');
     }
 
-  //  pasteMenu(currentCompany);
-
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
 
     $(document).on('click', '.add-to-cart', function(event) {
@@ -266,7 +221,6 @@ $(function() {
     $(document).on('click', '.checkout-icon', function(event){
         clearCart();
     });
-
 
     $(document).on('click', '.category-toggle', function(event) {
         event.preventDefault();

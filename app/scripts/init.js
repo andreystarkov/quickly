@@ -51,6 +51,7 @@ $(function() {
         }
       });
     }
+
     $('#reservation-datetime').datetimepicker({
         inline: true,
         locale: moment.locale('ru'),

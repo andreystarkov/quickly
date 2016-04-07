@@ -12,26 +12,29 @@ function selectCityByName(cityName){
         console.log('selectCityByName: selected: ', val);
         selected = val;
     });
+    if(selected){
+        var isLocked = getStorage('cityLocked', 1);
 
-    var isLocked = getStorage('cityLocked', 1);
+        if( isLocked !== 1 ){
+          setStorage('city', selected);
 
-    if( isLocked !== 1 ){
-      setStorage('city', selected);
+          var currentCityId = selected.city_id;
 
-      var currentCityId = selected.city_id;
+          $('#cityListSelect option').each(function(el){
+              if( currentCityId == $(this).val() ){
+                console.log('selectCityByName: selected');
+                $(this).attr('selected', 'selected');
+              }
+          });
 
-      $('#cityListSelect option').each(function(el){
-          if( currentCityId == $(this).val() ){
-            console.log('selectCityByName: selected');
-            $(this).attr('selected', 'selected');
-          }
-      });
-
-      currentCity = selected;
+          currentCity = selected;
+        } else {
+          console.log('City is locked!');
+          var city = getStorage('city');
+          currentCity = city.city_id;
+        }
     } else {
-      console.log('City is locked!');
-      var city = getStorage('city');
-      currentCity = city.city_id;
+        console.log('selectCityByName: Wrong city or whatever');
     }
 }
 
@@ -58,6 +61,7 @@ function getCity(position) {
                       var city=value[count-4];
                       console.log('getCity: City detected: ', city.trim());
                       selectCityByName(city.trim());
+
                   }
                   else  {
                       alert("address not found");

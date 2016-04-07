@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:39:19
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:39:24
+* @Last Modified time: 2016-04-07 11:19:37
 */
 
 var ReservationHistoryActions = Reflux.createActions([
@@ -23,9 +23,12 @@ var ReservationHistoryStore = Reflux.createStore({
     fetchList: function() {
       var some = this;
       $.getJSON(this.sourceUrl, function (data) {
-        some.historyList = data.result.reservations;
-        some.trigger(some.historyList);
-        console.log('REFLUX: ReservationHistoryStore fetchList', some.historyList);
+        var result = data.result;
+        if( result !== undefined ){
+            some.historyList = data.result.reservations;
+            some.trigger(some.historyList);
+            console.log('ReservationHistoryStore fetchList', some.historyList);
+        } else console.log('ReservationHistoryStore: no data', data);
       });
     }
 });

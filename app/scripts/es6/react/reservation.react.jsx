@@ -7,7 +7,7 @@ var HallsList = React.createClass({
 			return {
 				hallsData: []
 			}
-		}.
+		},
 		render: function() {
 			console.log('HallsList: ', this.state.hallsData);
 			return(

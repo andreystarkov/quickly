@@ -69,7 +69,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.clearCart = clearCart;
 exports.refreshCart = refreshCart;
-
 function templateCartFooter() {
     var totalPrice = 0;
     var totalCount = 0;
@@ -84,7 +83,10 @@ function templateCartFooter() {
 }
 
 function hideCart() {
-    $('#cartBottomPanel').velocity('transition.flipYOut', { duration: 600 });
+    //  $('.checkout-active').removeClass('checkout-active');
+    $('.checkout-close').click();
+    $('#cartBottomPanel').velocity('transition.slideDownOut', { duration: 400 });
+    $('#cartBottomPanel').addClass('cart-empty');
 }
 
 function clearCart() {
@@ -115,9 +117,11 @@ function refreshCart() {
         $('.checkout-total').html(totalCount);
 
         if (cartPanel.hasClass('cart-empty')) {
+            console.log('refreshCart: cart empty is set');
             cartPanel.removeClass('cart-empty');
-            cartPanel.css({ 'visibility': 'visible', 'height': '40px' }).velocity('transition.slideUpBigIn', { duration: 600 });
+            cartPanel.css({ opacity: 1 }).velocity('transition.slideUpBigIn', { duration: 600 });
         }
+
         var uniqueList;
         var uniqueCount = _.countBy(cartContents, "id");
         var uniqueList = _.uniq(cartContents, "id");
@@ -335,103 +339,103 @@ function createReservation() {
 'use strict';
 
 function editUserField(fieldId, callback) {
-    var theOptions = {};
-    var theParameter = $('#' + fieldId).data('id');
+   var theOptions = {};
+   var theParameter = $('#' + fieldId).data('id');
 
-    theOptions['userToken'] = userToken;
-    theOptions['cityId'] = cityId;
-    theOptions[theParameter] = $('#' + fieldId).val();
+   theOptions['userToken'] = userToken;
+   theOptions['cityId'] = cityId;
+   theOptions[theParameter] = $('#' + fieldId).val();
 
-    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-    $.ajax({
-        url: serverUrl + '/api/v2/user/profile/edit',
-        dataType: 'json',
-        type: 'POST',
-        data: theOptions,
-        success: function success(data) {
-            console.log('editUserField: ', data);
-            if (data.err === undefined || data.err === null) {
-                toastr.success('Данные профиля сохранены');
-            }
-            $('#' + fieldId).parent().addClass('has-success');
-            refreshUserProfile();
-            if (callback) callback(data);
-        }
-    });
+   console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
+   $.ajax({
+      url: serverUrl + '/api/v2/user/profile/edit',
+      dataType: 'json',
+      type: 'POST',
+      data: theOptions,
+      success: function success(data) {
+         console.log('editUserField: ', data);
+         if (data.err === undefined || data.err === null) {
+            toastr.success('Данные профиля сохранены');
+         }
+         $('#' + fieldId).parent().addClass('has-success');
+         refreshUserProfile();
+         if (callback) callback(data);
+      }
+   });
 }
 
 function createProfileEditor(profile, callback) {
 
-    var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
-    var userAvatar = imageBaseUrl + profile.userAvatarUrl;
-    if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-        userAvatar = 'images/samples/user.png';
-    }
+   var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
+   var userAvatar = imageBaseUrl + profile.userAvatarUrl;
+   if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
+      userAvatar = 'images/samples/user.png';
+   }
 
-    var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                    <div class="box" id="addCards">\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
-    $('#profileEditor').prepend(htmlTemplate);
-    if (callback) callback();
+   var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                    <div class="box" id="addCards">\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
+   $('#profileEditor').prepend(htmlTemplate);
+   if (callback) callback();
 }
 
 function emptyProfile() {
-    var token = userToken;
-    getUserProfile(token, function (data) {
-        var userBonus = getUserBonus(userToken);
-        var userInfo = data;
-        $('#userBadgeTop').html('\n              <div class="user-text" id="buttonEmptyProfile">\n                <b class="user-name">Добро пожаловать!</b>\n                <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n              </div>\n            ');
-    });
+   var token = userToken;
+   getUserProfile(token, function (data) {
+      var userBonus = getUserBonus(userToken);
+      var userInfo = data;
+      $('#userBadgeTop').html('\n              <div class="user-text" id="buttonEmptyProfile">\n                <b class="user-name">Добро пожаловать!</b>\n                <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n              </div>\n            ');
+   });
 }
 
 function refreshUserProfile() {
-    var token = userToken;
-    getUserProfile(token, function (data) {
-        var userBonus = getUserBonus(userToken);
-        var userInfo = data;
-        var userAvatar = data.userAvatarUrl;
-        if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
-            userAvatar = 'images/samples/user.png';
-        }
-        $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
-    });
+   var token = userToken;
+   getUserProfile(token, function (data) {
+      var userBonus = getUserBonus(userToken);
+      var userInfo = data;
+      var userAvatar = data.userAvatarUrl;
+      if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
+         userAvatar = 'images/samples/user.png';
+      }
+      $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
+   });
 }
 
 function getUserBonus(userToken) {
-    var bonus;
-    $.ajax({
-        url: serverUrl + '/api/v2/user/bonus/' + userToken,
-        async: false,
-        dataType: 'json',
-        success: function success(data) {
-            bonus = data.result.userBonus;
-        }
-    });
-    return bonus;
+   var bonus;
+   $.ajax({
+      url: serverUrl + '/api/v2/user/bonus/' + userToken,
+      async: false,
+      dataType: 'json',
+      success: function success(data) {
+         bonus = data.result.userBonus;
+      }
+   });
+   return bonus;
 }
 
 $(function () {
 
-    /*       getUserProfile(userToken, function(data) {
-               console.log('getUserProfile:', data);
-               createProfileEditor(data, function() {
-                   $('.user-editor .control-label').each(function() {
-                       $(this).append('<i class="status-icon its-ok icon-check"></i>');
-                   });
-               });
-           });*/
+   /*       getUserProfile(userToken, function(data) {
+              console.log('getUserProfile:', data);
+              createProfileEditor(data, function() {
+                  $('.user-editor .control-label').each(function() {
+                      $(this).append('<i class="status-icon its-ok icon-check"></i>');
+                  });
+              });
+          });*/
 
-    $(document).on('click', '#buttonReturnShop', function (event) {
-        easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
-            easyVelocity('#pageCompany', 'transition.flipXIn');
-        });
-    });
+   $(document).on('click', '#buttonReturnShop', function (event) {
+      easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
+         easyVelocity('#pageCompany', 'transition.flipXIn');
+      });
+   });
 
-    refreshUserProfile();
+   refreshUserProfile();
 
-    $(document).on('focusout', ".user-editor .autoupdate", function () {
-        var fieldId = $(this).attr('id');
-        console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
-        editUserField(fieldId);
-    });
+   $(document).on('focusout', ".user-editor .autoupdate", function () {
+      var fieldId = $(this).attr('id');
+      console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
+      editUserField(fieldId);
+   });
 });
 
 },{}],7:[function(require,module,exports){
@@ -670,15 +674,7 @@ var CityList = React.createClass({
     });
     CompanyListActions.setCurrentCity(e.target.value);
   },
-  componentDidMount: function componentDidMount() {
-    var selectedCity = getStorage('city');
-    if (selectedCity) {
-      this.setState({
-        value: selectedCity.city_id
-      });
-      CompanyListActions.setCurrentCity(selectedCity.city_id);
-    }
-  },
+  componentDidMount: function componentDidMount() {},
   render: function render() {
     var totalList = this.state.cityList.map(function (the, i) {
       return React.createElement(Option, { name: the.city_name, value: the.city_id, key: i });
@@ -3345,36 +3341,39 @@ module.exports = CampaignsStore;
 * @Author: Andrey Starkov
 * @Date:   2016-04-02 14:02:06
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-02 14:24:21
+* @Last Modified time: 2016-04-07 11:21:17
 */
 
 var CardsActions = require('../actions/cardsActions.js');
 
 var CardsStore = Reflux.createStore({
-  listenables: [CardsActions],
-  cardsData: [],
-  sourceUrl: serverUrl + '/api/v2/cards/get/' + userToken,
-  bindUrl: serverUrl + '/api/v3/payments/cards/bind/' + userToken,
-  init: function init() {
-    this.fetchList();
-  },
-  updateData: function updateData() {
-    console.log('CardsStore updateData()');
-    this.fetchList();
-  },
-  bindCard: function bindCard() {
-    $.getJSON(this.bindUrl, function (data) {
-      console.log('CardsStore bindCard', data);
-    });
-  },
-  fetchList: function fetchList() {
-    var some = this;
-    $.getJSON(this.sourceUrl, function (data) {
-      console.log('CardsStore fetchList', data);
-      some.cardsData = data.result.cards;
-      some.trigger(some.cardsData);
-    });
-  }
+    listenables: [CardsActions],
+    cardsData: [],
+    sourceUrl: serverUrl + '/api/v2/cards/get/' + userToken,
+    bindUrl: serverUrl + '/api/v3/payments/cards/bind/' + userToken,
+    init: function init() {
+        this.fetchList();
+    },
+    updateData: function updateData() {
+        console.log('CardsStore updateData()');
+        this.fetchList();
+    },
+    bindCard: function bindCard() {
+        $.getJSON(this.bindUrl, function (data) {
+            console.log('CardsStore bindCard', data);
+        });
+    },
+    fetchList: function fetchList() {
+        var some = this;
+        $.getJSON(this.sourceUrl, function (data) {
+            var result = data.result;
+            if (result !== undefined) {
+                console.log('CardsStore fetchList', data);
+                some.cardsData = data.result.cards;
+                some.trigger(some.cardsData);
+            } else console.log('CardsStore: No Data: ', data);
+        });
+    }
 });
 
 module.exports = CardsStore;
@@ -3434,26 +3433,29 @@ function selectCityByName(cityName) {
         console.log('selectCityByName: selected: ', val);
         selected = val;
     });
+    if (selected) {
+        var isLocked = getStorage('cityLocked', 1);
 
-    var isLocked = getStorage('cityLocked', 1);
+        if (isLocked !== 1) {
+            setStorage('city', selected);
 
-    if (isLocked !== 1) {
-        setStorage('city', selected);
+            var currentCityId = selected.city_id;
 
-        var currentCityId = selected.city_id;
+            $('#cityListSelect option').each(function (el) {
+                if (currentCityId == $(this).val()) {
+                    console.log('selectCityByName: selected');
+                    $(this).attr('selected', 'selected');
+                }
+            });
 
-        $('#cityListSelect option').each(function (el) {
-            if (currentCityId == $(this).val()) {
-                console.log('selectCityByName: selected');
-                $(this).attr('selected', 'selected');
-            }
-        });
-
-        currentCity = selected;
+            currentCity = selected;
+        } else {
+            console.log('City is locked!');
+            var city = getStorage('city');
+            currentCity = city.city_id;
+        }
     } else {
-        console.log('City is locked!');
-        var city = getStorage('city');
-        currentCity = city.city_id;
+        console.log('selectCityByName: Wrong city or whatever');
     }
 }
 
@@ -3726,7 +3728,7 @@ module.exports = MenuItemsStore;
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:35:29
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:36:01
+* @Last Modified time: 2016-04-07 11:18:15
 */
 
 var OrdersHistoryActions = Reflux.createActions(['fetchList', 'updateData']);
@@ -3739,15 +3741,18 @@ var OrdersHistoryStore = Reflux.createStore({
         this.fetchList();
     },
     updateData: function updateData() {
-        console.log('OrdersHistoryStore updateData()');
+        console.log('OrdersHistoryStore: updateData()');
         this.fetchList();
     },
     fetchList: function fetchList() {
         var some = this;
         $.getJSON(this.sourceUrl, function (data) {
-            some.historyList = data.result.orders;
-            some.trigger(some.historyList);
-            console.log('REFLUX: OrdersHistoryStore fetchList', some.historyList);
+            var result = data.result;
+            if (result !== undefined) {
+                some.historyList = data.result.orders;
+                some.trigger(some.historyList);
+                console.log('OrdersHistoryStore: fetchList', some.historyList);
+            } else console.log('OrdersHistoryStore: no data', data);
         });
     }
 });
@@ -3761,7 +3766,7 @@ module.exports = OrdersHistoryStore;
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:37:12
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-02 16:49:43
+* @Last Modified time: 2016-04-07 11:20:23
 */
 var ProfileEditorActions = require('../actions/profileEditorActions.js');
 
@@ -3787,11 +3792,14 @@ var ProfileEditorStore = Reflux.createStore({
                 'userToken': userToken
             },
             success: function success(data) {
-                some.profileData = data.result.profile;
-                console.log('profileEditorStore: AJAX result: ', data);
-                some.trigger(some.profileData);
-                console.log('ProfileEditorStore some.profileData = ', some.profileData);
-                setStorage('profile', data.result.profile);
+                var result = data.result;
+                if (result !== undefined) {
+                    some.profileData = data.result.profile;
+                    console.log('profileEditorStore: AJAX result: ', data);
+                    some.trigger(some.profileData);
+                    console.log('ProfileEditorStore some.profileData = ', some.profileData);
+                    setStorage('profile', data.result.profile);
+                } else console.log('ProfileEditorStore: No Data: ', data);
             }
         });
     }
@@ -3806,7 +3814,7 @@ module.exports = ProfileEditorStore;
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:39:19
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 09:39:24
+* @Last Modified time: 2016-04-07 11:19:37
 */
 
 var ReservationHistoryActions = Reflux.createActions(['fetchList', 'updateData']);
@@ -3825,9 +3833,12 @@ var ReservationHistoryStore = Reflux.createStore({
     fetchList: function fetchList() {
         var some = this;
         $.getJSON(this.sourceUrl, function (data) {
-            some.historyList = data.result.reservations;
-            some.trigger(some.historyList);
-            console.log('REFLUX: ReservationHistoryStore fetchList', some.historyList);
+            var result = data.result;
+            if (result !== undefined) {
+                some.historyList = data.result.reservations;
+                some.trigger(some.historyList);
+                console.log('ReservationHistoryStore fetchList', some.historyList);
+            } else console.log('ReservationHistoryStore: no data', data);
         });
     }
 });
@@ -4091,24 +4102,8 @@ $(function () {
 
 var _checkoutFunc = require('./engine/checkout.func.jsx');
 
-function pasteMenu(categoryId) {
-    $.getJSON(serverUrl + '/api/v2/menu-items/get/' + categoryId, function (data) {
-        $('#foodItems').html('');
-        console.log(data);
-        $.each(data.result.menuItems, function (key, item) {
-            if (item.menu_item_image == "") {
-                item.menu_item_image = "images/samples/9-tiny.jpg";
-            } else item.menu_item_image = "http://176.112.201.81/static/cdn/" + item.menu_item_image;
-
-            var output = '\n                <div class="col-lg-4 col-xs-6 food-item">\n                    <a href="#">\n                        <div class="product-image">\n                            <img src="' + item.menu_item_image + '" />\n                            <div class="product-controls">\n                                <button class="button main add-to-cart"\n                                data-name="' + item.menu_item_name + '"\n                                data-price="' + item.menu_item_price + '"\n                                data-id="' + item.menu_item_id + '">В корзину</button>\n                            </div>\n                        </div>\n\n                        <div class="product-info">\n                            <div class="major">\n                                <div class="product-name">\n                                    <b>' + item.menu_item_name + '</b>\n                                </div>\n                                <div class="product-price">\n                                    <span>' + item.menu_item_price + ' <i class="rouble">i</i></span>\n                                </div>\n                            </div>\n                            <div class="product-description">\n                                <span>' + item.menu_item_full_description + '</span>\n                            </div>\n                        </div>\n                    </a>\n                </div>';
-            $('#foodItems').append(output);
-        });
-    });
-}
-
 function pasteCartElement(cartElement, elementCount) {
-    var el = '\n<tr class="reservation-' + cartElement.type + '">\n    <td>' + cartElement.name + '</td>\n    <td>' + cartElement.price + ' р.</td>\n    <td>\n        <div class="form-group label-placeholder is-empty" data-id="' + cartElement.id + '" data-name="' + cartElement.name + '" data-price="' + cartElement.price + '">\n            <span class="control-minus" data-id="cartItem-' + cartElement.id + '">-</span>\n            <input type="text" value="' + elementCount + '" class="form-control" id="cartItem-' + cartElement.id + '">\n            <span class="control-plus" data-id="cartItem-' + cartElement.id + '">+</span>\n        </div>\n    </td>\n    <td>\n        <button class="checkout-action"><i class="icon icn-trash"></i></button>\n    </td>\n</tr>\n';
-
+    var el = '\n    <tr class="reservation-' + cartElement.type + '">\n        <td>' + cartElement.name + '</td>\n        <td>' + cartElement.price + ' р.</td>\n        <td>\n            <div class="form-group label-placeholder is-empty" data-id="' + cartElement.id + '" data-name="' + cartElement.name + '" data-price="' + cartElement.price + '">\n                <span class="control-minus" data-id="cartItem-' + cartElement.id + '">-</span>\n                <input type="text" value="' + elementCount + '" class="form-control" id="cartItem-' + cartElement.id + '">\n                <span class="control-plus" data-id="cartItem-' + cartElement.id + '">+</span>\n            </div>\n        </td>\n        <td>\n            <button class="checkout-action"><i class="icon icn-trash"></i></button>\n        </td>\n    </tr>\n    ';
     return el;
 }
 
@@ -4143,8 +4138,6 @@ $(function () {
         console.log('Getting Cart Contents..');
         theCart.contents = getStorage('theCart');
     }
-
-    //  pasteMenu(currentCompany);
 
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
 
