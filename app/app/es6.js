@@ -416,11 +416,6 @@ function getUserBonus(userToken) {
 
 $(function () {
 
-    $(document).on('click', '#buttonReturnShop', function (event) {
-        easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
-            easyVelocity('#pageCompany', 'transition.flipXIn');
-        });
-    });
     refreshUserProfile();
     var oldFieldVal;
 
@@ -1338,47 +1333,27 @@ var CampaignsSlider = React.createClass({
                         React.createElement(
                             'li',
                             { className: 'selected' },
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-dish' })
-                            )
+                            React.createElement('a', { href: '#0' })
                         ),
                         React.createElement(
                             'li',
                             null,
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-table' })
-                            )
+                            React.createElement('a', { href: '#0' })
                         ),
                         React.createElement(
                             'li',
                             null,
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-dish' })
-                            )
+                            React.createElement('a', { href: '#0' })
                         ),
                         React.createElement(
                             'li',
                             null,
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-table' })
-                            )
+                            React.createElement('a', { href: '#0' })
                         ),
                         React.createElement(
                             'li',
                             null,
-                            React.createElement(
-                                'a',
-                                { href: '#0' },
-                                React.createElement('i', { className: 'icon fi-dish' })
-                            )
+                            React.createElement('a', { href: '#0' })
                         )
                     )
                 )
@@ -2978,7 +2953,7 @@ var ProfileEditorForm = React.createClass({
         ),
         React.createElement(
           'div',
-          { className: 'col-lg-4 the-info' },
+          { className: 'col-lg-5 the-info' },
           React.createElement(
             'div',
             { className: 'row delivery' },
@@ -3006,7 +2981,7 @@ var ProfileEditorForm = React.createClass({
         ),
         React.createElement(
           'div',
-          { className: 'col-lg-4' },
+          { className: 'col-lg-5' },
           React.createElement(
             'div',
             { className: 'row' },
@@ -3029,16 +3004,16 @@ var ProfileEditorForm = React.createClass({
           React.createElement(
             'div',
             { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
-            React.createElement(ButtonTabToggle, { name: 'История заказов', tab: 'tab-order-history', id: 'tabOrdersHistory' }),
+            React.createElement(ButtonTabToggle, { name: 'История заказов', active: 'true', tab: 'tab-order-history', id: 'tabOrdersHistory' }),
             React.createElement(ButtonTabToggle, { name: 'История бронирования', tab: 'tab-reservation-history' }),
             React.createElement(ButtonTabToggle, { name: 'Оставленные отзывы', tab: 'tab-comments-history' }),
             React.createElement(
-              'a',
-              { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
+              'button',
+              { id: 'buttonReturnShop', className: 'btn button main float-right' },
               React.createElement(
                 'span',
                 null,
-                'Вернуться к ресторану'
+                'Вернуться к покупкам'
               )
             )
           )
@@ -4112,15 +4087,14 @@ var CompanyDetailsActions = require('./react/stores/companyDetailsStore.js');
 var MenuItemsActions = require('./react/stores/menuItemsStore.js');
 
 function showScreen(screenId) {
-    var aniOut = 'transition.flipXOut';
-    var aniIn = 'transition.flipXIn'; // 'transition.flipXIn';
-
+    //  var aniOut = 'transition.flipXOut';
+    //  var aniIn = 'transition.flipXIn'; // 'transition.flipXIn';
+    var aniOut = 'transition.slideLeftOut';
+    var aniIn = 'transition.slideRightBigIn'; // 'transition.flipXIn';
     var screenId = '#' + screenId;
 
     if ($(screenId).length) {
-
         $('.screen-toggle').removeClass('active');
-
         console.log('showScreen: Screen = ' + screenId);
 
         easyVelocity('.page-wrapper', aniOut, function () {
@@ -4130,7 +4104,6 @@ function showScreen(screenId) {
         });
 
         $(this).addClass('active');
-
         $(screenId).addClass('screen-active');
     } else console.log('showScreen: Screen not exists. ID: ' + screenId);
 }
@@ -4138,6 +4111,11 @@ function showScreen(screenId) {
 $(function () {
 
     showScreen('pageMain');
+
+    $(document).on('click', '#buttonReturnShop', function (event) {
+        showScreen('pageMain');
+    });
+
     /*
         $(document).on('click', '.company-toggle', function(event) {
             var company = $(this).data('company');

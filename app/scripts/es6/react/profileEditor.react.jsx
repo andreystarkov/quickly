@@ -204,7 +204,7 @@ var ProfileEditorForm = React.createClass({
                     </div>
                  </div>
               </div>
-              <div className="col-lg-4 the-info">
+              <div className="col-lg-5 the-info">
                  <div className="row delivery">
                     <div className="profile-field col-lg-6">
                       <FieldControlled type="text" field="name" defaultValue={profile.userName} name="Имя" id="userName" />
@@ -220,7 +220,7 @@ var ProfileEditorForm = React.createClass({
                     </div>
                  </div>
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-5">
                 <div className="row">
                   <div className="col-lg-6">
                     <CardsEditor />
@@ -235,12 +235,12 @@ var ProfileEditorForm = React.createClass({
               </div>
               <div className="col-lg-10 buttons-tabs">
                  <div className="btn-group btn-group-justified" data-tabs="tabs-profile">
-                    <ButtonTabToggle name="История заказов" tab="tab-order-history" id="tabOrdersHistory" />
+                    <ButtonTabToggle name="История заказов" active="true" tab="tab-order-history" id="tabOrdersHistory" />
                     <ButtonTabToggle name="История бронирования" tab="tab-reservation-history" />
                     <ButtonTabToggle name="Оставленные отзывы" tab="tab-comments-history" />
-                    <a id="buttonReturnShop" href="#" className="btn button main">
-                        <span>Вернуться к ресторану</span>
-                    </a>
+                    <button id="buttonReturnShop" className="btn button main float-right">
+                        <span>Вернуться к покупкам</span>
+                    </button>
                  </div>
               </div>
            </div>

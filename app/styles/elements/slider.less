@@ -148,9 +148,12 @@ Slider
   position: relative;
   height: 360px;
   padding-top:35px;
+  padding-bottom:15px;
+  margin-bottom:0;
   background-color:darken(#f1f0ea,3%);
   overflow: hidden;
 }
+
 .quickly-slider li {
   position: absolute;
   top: 0;
@@ -480,11 +483,8 @@ Slider
     transition: opacity 0.4s 0.4s, transform 0.5s 0.4s, background-color 0.2s 0s;
   }
 }
-/* --------------------------------
 
-Slider navigation
-
--------------------------------- */
+/* navigation */
 
 .slider-nav nav, .slider-nav ul, .slider-nav li, .slider-nav a {
   height: 100%;
@@ -495,7 +495,6 @@ Slider navigation
 }
 .slider-nav .marker {
   position: relative;
-
   width: auto;
   height: 100%;
   color: #d44457;
@@ -542,23 +541,32 @@ Slider navigation
 .slider-nav {
   position: absolute;
   width: 100%;
-  bottom: -15px;
+  bottom: 0px;
   z-index: 2;
   text-align: center;
   height: 55px;
   li {
+    transition: all 0.4s linear;
+    padding: 6px 12px;
+    border-radius: 40px;
+    width: auto;
+    background: #f8f6f3;
+    margin-left: 8px;
+    margin-right: 8px;
     display: inline-block;
     width: auto;
-    padding-left:14px;
-    padding-right:14px;
     float: left;
-    border-radius:3px;
+    cursor: pointer;
+    &:hover {
+        background:#fff;
+    }
     &.selected {
-      background:mix(#fff, #f8f6f3,50%);
+      background:#fff;
    //   background:@colorYellow;
       border-bottom:3px solid darken(#F8F6F3,15%);
     }
   }
+
   a {
     [class^="fi-"]:before, [class*=" fi-"]:before, [class^="fi-"]:after, [class*=" fi-"]:after {
       font-size:18px;

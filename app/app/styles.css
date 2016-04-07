@@ -7328,6 +7328,9 @@ section.gray {
 .radio-label-text {
   padding-left: 22px;
 }
+.float-right {
+  float: right;
+}
 .group-title {
   margin-bottom: 8px;
   display: block;
@@ -7840,12 +7843,16 @@ button.small .icon {
   vertical-align: middle;
 }
 .button.main,
-button.main {
+button.main,
+.button.btn.main,
+button.btn.main {
   background: #fff036;
   border-bottom: 3px solid #eedc00;
 }
 .button.main:hover,
-button.main:hover {
+button.main:hover,
+.button.btn.main:hover,
+button.btn.main:hover {
   background: #fff573;
   border-bottom: 3px solid #f8e500;
 }
@@ -9425,10 +9432,12 @@ section.company-about .delivery .box .card-icon {
   float: left;
 }
 section.company-about .buttons-line {
-  padding-bottom: 10px;
-  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-top: 8px;
 }
 section.company-about .buttons-line .buttons-tabs .button {
+  margin-bottom: 0px;
+  margin-top: 0px;
   padding-left: 30px;
   padding-right: 30px;
   z-index: 1;
@@ -9563,6 +9572,27 @@ section.company-about .buttons-line .buttons-reserv {
 section.user-profile {
   background: rgba(244, 242, 237, 0.8);
   padding-top: 20px;
+}
+section.user-profile .cards-editor {
+  margin-top: 5px;
+}
+section.user-profile .cards-editor .group-title {
+  line-height: 1.07142857;
+  color: #5f5f5f;
+  font-weight: 400;
+  /* margin: 16px 0 0 0; */
+  font-size: 12px;
+}
+section.user-profile .control-label {
+  font-weight: 400;
+}
+section.user-profile .radio-primary {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+section.user-profile .btn-group {
+  margin-bottom: 0px;
 }
 section.user-profile .avatar {
   background-size: 70%;
@@ -10470,6 +10500,8 @@ Slider
   position: relative;
   height: 360px;
   padding-top: 35px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
   background-color: #ebe9e1;
   overflow: hidden;
 }
@@ -10790,11 +10822,7 @@ Slider
     transition: opacity 0.4s 0.4s, transform 0.5s 0.4s, background-color 0.2s 0s;
   }
 }
-/* --------------------------------
-
-Slider navigation
-
--------------------------------- */
+/* navigation */
 .slider-nav nav,
 .slider-nav ul,
 .slider-nav li,
@@ -10848,21 +10876,30 @@ Slider navigation
 .slider-nav {
   position: absolute;
   width: 100%;
-  bottom: -15px;
+  bottom: 0px;
   z-index: 2;
   text-align: center;
   height: 55px;
 }
 .slider-nav li {
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+  padding: 6px 12px;
+  border-radius: 40px;
+  background: #f8f6f3;
+  margin-left: 8px;
+  margin-right: 8px;
   display: inline-block;
   width: auto;
-  padding-left: 14px;
-  padding-right: 14px;
   float: left;
-  border-radius: 3px;
+  cursor: pointer;
+}
+.slider-nav li:hover {
+  background: #fff;
 }
 .slider-nav li.selected {
-  background: #fcfbf9;
+  background: #fff;
   border-bottom: 3px solid #dcd2c3;
 }
 .slider-nav a {

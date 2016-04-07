@@ -2,15 +2,14 @@ var CompanyDetailsActions = require('./react/stores/companyDetailsStore.js');
 var MenuItemsActions = require('./react/stores/menuItemsStore.js');
 
 export function showScreen(screenId){
-    var aniOut = 'transition.flipXOut';
-    var aniIn = 'transition.flipXIn'; // 'transition.flipXIn';
-
+  //  var aniOut = 'transition.flipXOut';
+  //  var aniIn = 'transition.flipXIn'; // 'transition.flipXIn';
+  var aniOut = 'transition.slideLeftOut';
+  var aniIn = 'transition.slideRightBigIn'; // 'transition.flipXIn';
     var screenId = '#'+screenId;
 
     if( $(screenId).length ){
-
         $('.screen-toggle').removeClass('active');
-
         console.log('showScreen: Screen = '+screenId);
 
         easyVelocity('.page-wrapper', aniOut, function(){
@@ -20,7 +19,6 @@ export function showScreen(screenId){
         });
 
         $(this).addClass('active');
-
         $(screenId).addClass('screen-active');
     } else console.log('showScreen: Screen not exists. ID: '+screenId);
 }
@@ -28,6 +26,12 @@ export function showScreen(screenId){
 $(function() {
 
     showScreen('pageMain');
+
+
+    $(document).on('click', '#buttonReturnShop', function(event) {
+        showScreen('pageMain');
+    });
+
 /*
     $(document).on('click', '.company-toggle', function(event) {
         var company = $(this).data('company');

@@ -58,12 +58,12 @@ var CampaignsSlider = React.createClass({
                     <span className="marker item-1"></span>
                     <ul>
                         <li className="selected">
-                            <a href="#0"><i className="icon fi-dish"></i></a>
+                            <a href="#0"></a>
                         </li>
-                        <li><a href="#0"><i className="icon fi-table"></i></a></li>
-                        <li><a href="#0"><i className="icon fi-dish"></i></a></li>
-                        <li><a href="#0"><i className="icon fi-table"></i></a></li>
-                        <li><a href="#0"><i className="icon fi-dish"></i></a></li>
+                        <li><a href="#0"></a></li>
+                        <li><a href="#0"></a></li>
+                        <li><a href="#0"></a></li>
+                        <li><a href="#0"></a></li>
                     </ul>
                 </nav>
             </div>
