@@ -3,87 +3,57 @@ var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
 var CardsActions = require('./actions/cardsActions.js');
 var CardsStore = require('./stores/cardsStore.js');
+var ButtonTabToggle = require('./components/buttonTabToggle.js');
 
-function editUserField(obj, callback) {
-    var theOptions = {};
-    var theParameter = $('#' + fieldId).data('id');
+import {refreshUserProfile} from '../profile.jsx';
 
-    theOptions['userToken'] = userToken;
-    theOptions['cityId'] = cityId;
-    theOptions[theParameter] = $('#' + fieldId).val();
-
-    console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-    $.ajax({
-        url: serverUrl + '/api/v2/user/profile/edit',
-        dataType: 'json',
-        type: 'POST',
-        data: theOptions,
-        success: function(data) {
-            console.log('editUserField: ', data);
-            if (data.err === undefined || data.err === null) {
-                toastr.success('Данные профиля сохранены');
-            }
-            $('#' + fieldId).parent().addClass('has-success');
-            refreshUserProfile();
-            if (callback) callback(data);
-        }
-    });
-}
-
-var ProfileField = React.createClass({
-  getInitialState: function() {
-      var value = this.props.value;
-      return {
-        value: 'Что-то'
-      }
-  },
-
-  handleChange: function(event) {
-    this.setState({
-      value: event.target.value
-    });
-  },
-
-  render: function() {
-    return ( <input type="text" value={this.state.value} onChange={this.handleChange} /> )
-  }
-});
-
-var Field = React.createClass({
-  getInitialState: function() {
-    return {
-      field: this.props.initVal
-    };
-  },
-  onChange: function(e) {
-     console.log('wtf ',e.target.value);
-     this.setState({
-        field: e.target.value
-     });
-  },
-  render: function () {
-      console.log('Field: state = ', this.state.field);
-      console.log('Field: props val = ', this.props.initVal);
+var FieldDefault = React.createClass({
+    render: function() {
       return (
         <div className="form-group">
           <label className="control-label" htmlFor={this.props.id}>{this.props.name}</label>
-          <input type={this.props.type}
-          ref={this.props.id}
-          data-id={this.props.id}
-          type={this.props.type}
-          className="form-control"
-          value={this.state.field}
-          onChange={this.onChange}
-          id={this.props.id} />
+          <input
+              type={this.props.type || "text"}
+              className="form-control profile-autoupdate"
+              data-id={this.props.field}
+              onChange={this.props.onChange}
+              id={this.props.id} />
         </div>
-      );
-  }
+        )
+    }
 });
 
-function openNewTab(url) {
-  var win = window.open(url, '_blank');
-  win.focus();
-}
+var FieldControlled = React.createClass({
+    getInitialState: function() {
+      console.log('FieldControlled: default = ', this.props.defaultValue);
+      return {
+        value: this.props.defaultValue
+      }
+    },
+    componentWillUpdate: function(){
+        console.log('FieldControlled: willUpdate');
+    },
+    componentDidUpdate: function(){
+        console.log('FieldControlled: didUpdate');
+    },
+    handleChange: function(event) {
+      this.setState({
+        value: event.target.value
+      });
+    },
+    render: function() {
+      return (
+        <div className="form-group">
+          <label className="control-label" htmlFor={this.props.id}>{this.props.name}</label>
+          <input type={this.props.type || "text"} className="form-control profile-autoupdate"
+          value={this.state.value}
+          data-id={this.props.field}
+          onChange={this.handleChange}
+          id={this.props.id} />
+        </div>
+        )
+    }
+});
 
 var CardsEditor = React.createClass({
     mixins: [Reflux.connect(CardsStore, 'cardsData')],
@@ -120,19 +90,25 @@ var CardsEditor = React.createClass({
 
 var ProfileEditorForm = React.createClass({
     getInitalState: function(){
-        console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
-        return {
-            userAvatarUrl: '',
-            userBirthdate: null,
-            userEmail: '',
-            userGender: 0,
-            userName: this.props.profile.userName,
-            userSurname: '',
-            userPhone: ''
-        }
+        console.log('ProfileEditorForm getInitalState');
+    },
+    componentWillUpdate: function(){
+        console.log('ProfileEditorForm willUpdate');
+    },
+    componentDidUpdate: function(){
+        console.log('ProfileEditorForm didUpdate');
+        $('#userSurname').val(this.props.profile.userSurname);
+        $('#userName').val(this.props.profile.userName);
+        $('#userEmail').val(this.props.profile.userEmail);
+
+        var birthDate = moment.unix(this.props.profile.userBirthdate).format("YYYY-MM-DD");
+        $('#userBirthdate').val(birthDate);
     },
     onFieldChange: function(value){
         console.log('ProfileEditorForm onFieldChange: value = ', value.target);
+    },
+    onBirthChange: function(e){
+        console.log('onBirthChange: ', e.target.value);
     },
     onNameChange: function(e){
       this.setState({
@@ -156,15 +132,56 @@ var ProfileEditorForm = React.createClass({
         });
       })
     },
+    setGender: function(e){
+        console.log('setGender: ', e.target.value);
+        this.editUserField('gender', e.target.value);
+    },
+    editUserField: function(theParameter, theValue){
+        var currentCity = getStorage('city');
+        var cityId = currentCity.city_id || 3;
+
+        var theOptions = {};
+        theOptions['userToken'] = userToken;
+        theOptions['cityId'] = cityId;
+        theOptions[theParameter] = theValue;
+
+        console.log('ProfileEditorForm: editUserField: Options: ', theOptions);
+
+        $.ajax({
+            url: serverUrl + '/api/v2/user/profile/edit',
+            dataType: 'json',
+            type: 'POST',
+            data: theOptions,
+            success: function(data) {
+                console.log('ProfileEditorForm: editUserField: ', data);
+                if (data.err === undefined || data.err === null) {
+                    toastr.success('Данные профиля сохранены');
+                }
+                refreshUserProfile();
+            }
+        });
+    },
     render: function(){
         var total = 0;
         var profile = this.props.profile;
-        var userAvatar;
+        var userAvatar, maleChecked, femaleChecked;
+
+        console.log('ProfileEditorForm: profile = ', profile);
+
         if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
             userAvatar = 'images/samples/user.png';
         } else userAvatar = profile.userAvatarUrl;
 
-        console.log('ProfileEditorForm: profile = ', this.state);
+        if( profile.userGender == 1 ) {
+            maleChecked = "checked";
+            $('#profileMaleRadio').prop('checked', true);
+        }
+
+        if( profile.userGender == 2 ) {
+            femaleChecked = "checked";
+            $('#profileFemaleRadio').prop('checked', true);
+        }
+
         return (
         <div className="user-editor container">
            <div className="row">
@@ -175,13 +192,13 @@ var ProfileEditorForm = React.createClass({
                  <div className="form-group gender-select">
                     <div className="radio radio-primary">
                       <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="0" />
+                        <input onChange={this.setGender} type="radio" id="profileMaleRadio" name="profileGender" data-id="gender" value="1" />
                         <span className="radio-label-text">Мужской</span>
                       </label>
                     </div>
                     <div className="radio radio-primary">
                       <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="1" />
+                        <input onChange={this.setGender} type="radio" id="profileFemaleRadio" name="profileGender" data-id="gender" value="2" />
                         <span className="radio-label-text">Женский</span>
                       </label>
                     </div>
@@ -190,16 +207,16 @@ var ProfileEditorForm = React.createClass({
               <div className="col-lg-4 the-info">
                  <div className="row delivery">
                     <div className="profile-field col-lg-6">
-                      <Field type="text" initVal={profile.userName} name="Имя" id="userName" />
+                      <FieldControlled type="text" field="name" defaultValue={profile.userName} name="Имя" id="userName" />
                     </div>
                     <div className="profile-field col-lg-6">
-                      <Field type="text" type="text" name="Фамилия" id="userSurname" initVal={profile.userSurname} />
+                      <FieldControlled type="text" field="surname" defaultValue={profile.userSurname} name="Фамилия" id="userSurname" />
                     </div>
                     <div className="profile-field col-lg-6">
-                      <Field type="datetime" name="Дата рождения" id="userBirthdate" initVal={profile.userBirthdate} />
+                      <FieldControlled type="date" field="birthdate" defaultValue={profile.userBirthdate} name="Дата рождения" id="userBirthdate" />
                     </div>
                     <div className="profile-field col-lg-6">
-                      <Field type="email" name="Электронная почта" id="userEmail" initVal={profile.userEmail} />
+                      <FieldControlled type="text" field="email" defaultValue={profile.userEmail} name="Электронная почта" id="userEmail" />
                     </div>
                  </div>
               </div>
@@ -218,17 +235,11 @@ var ProfileEditorForm = React.createClass({
               </div>
               <div className="col-lg-10 buttons-tabs">
                  <div className="btn-group btn-group-justified" data-tabs="tabs-profile">
-                    <a href="#tab-order-history" className="tab-toggle btn button light" id="tabOrderHistory">
-                    <span>История заказов</span>
-                    </a>
-                    <a href="#tab-reservation-history" className="tab-toggle btn button light">
-                    <span>История бронирования</span>
-                    </a>
-                    <a href="#tab-comments-history" className="tab-toggle btn button light">
-                    <span>Оставленные отзывы</span>
-                    </a>
+                    <ButtonTabToggle name="История заказов" tab="tab-order-history" id="tabOrdersHistory" />
+                    <ButtonTabToggle name="История бронирования" tab="tab-reservation-history" />
+                    <ButtonTabToggle name="Оставленные отзывы" tab="tab-comments-history" />
                     <a id="buttonReturnShop" href="#" className="btn button main">
-                    <span>Вернуться к ресторану</span>
+                        <span>Вернуться к ресторану</span>
                     </a>
                  </div>
               </div>
@@ -240,11 +251,11 @@ var ProfileEditorForm = React.createClass({
 
 var ProfileEditor = React.createClass({
     mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
-    limit: 5,
     getInitialState: function() {
       return {
         data: [],
-        profileData: {
+        profileData: [],
+/*        profileData: {
           userAvatarUrl: '',
           userBirthdate: null,
           userEmail: '',
@@ -252,7 +263,7 @@ var ProfileEditor = React.createClass({
           userName: '',
           userSurname: '',
           userPhone: ''
-        }
+        }*/
       };
     },
     componentDidMount: function() {

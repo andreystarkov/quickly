@@ -74,6 +74,9 @@ var MenuItemsList = React.createClass({
         menuItems: []
       };
     },
+    componentWillMount: function(){
+        // sure it will
+    },
     render: function(){
         var theData = this.state.menuItems;
         var total = 0;

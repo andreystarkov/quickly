@@ -51,7 +51,6 @@ $(function() {
         }
       });
     }
-
     $('#reservation-datetime').datetimepicker({
         inline: true,
         locale: moment.locale('ru'),
@@ -122,7 +121,7 @@ $(function() {
 
     // testing
 
-    pasteCategories(1);
+   // pasteCategories(1);
 
     pasteComments(1);
 

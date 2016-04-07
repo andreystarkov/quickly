@@ -25,20 +25,18 @@ $(document).on('click', '.tab-toggle', function(event) {
     var aniInClass = 'fadeOutRight animated';
     var aniOutClass = 'slideOutLeft animated';
     var groupClass = '.'+$(this).parent().data('tabs');
+    var theTab = $(this).data('tab');
 
     event.preventDefault();
 
-    $('.button', $(this).parent()).removeClass('active');
+    console.log('Tabs: Group = '+groupClass);
+    console.log('Tabs: Tab = #'+theTab);
 
+    $('.button', $(this).parent()).removeClass('active');
     $(this).addClass('active');
 
-    console.log('Tabs: Toggling Group = '+groupClass);
-
     $(groupClass).removeClass('tab-active');
-
-    var theTab = $(this).attr('href');
-
-    $(theTab).addClass('tab-active animated fadeInRight');
+    $('#'+theTab).addClass('tab-active animated fadeInRight');
 
 });
 

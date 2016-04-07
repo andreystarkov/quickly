@@ -2,6 +2,8 @@ import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
 import {createOrder} from "./engine/createOrder.jsx";
 import {reservationAdded, createReservation} from "./engine/createReservation.jsx";
 
+// menuItems - массив при заказе с едой
+
 function pasteMenu(categoryId){
     $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
         $('#foodItems').html('');
@@ -65,10 +67,21 @@ function pasteCartElement(cartElement, elementCount){
     return el;
 }
 
-function getHallsList(restaurantId, callback){
+export function getHallsList(restaurantId, callback){
+    var box = $('#hallsBox');
     $.getJSON(serverUrl+'/api/v2/reservation/halls/'+restaurantId, function(data){
-        console.log('getHallsList: ', data)
-        callback(data);
+        console.log('getHallsList: ', data);
+        if( data.result ){
+            var halls = data.result.halls;
+            console.log('getHallsList: ', halls);
+            $.each(halls, function(hall, index){
+                box.append(`
+                    <button class="button light button-hall" data-id="${hall.hall_id}">${hall.hall_name}</button>
+                `);
+            });
+
+            callback(data.result.halls);
+        }
     });
 }
 
@@ -78,8 +91,7 @@ function showReservationMap(halls){
     });
 }
 
-
-function getReservationPointsList(hallId, theDate){
+export function getReservationPointsList(hallId, theDate){
     $.getJSON(serverUrl+'/api/v2/reservation/tables/'+hallId+'/'+theDate, function(data){
         console.log('getReservationPointsList: Using Timestamp = ', theDate);
         console.log('getReservationPointsList: ', data);
@@ -244,9 +256,5 @@ $(function() {
         currentReservationTime = getReservationUnixTime();
         getReservationPointsList(currentCompany, getReservationUnixTime());
     });
-
-    var currentTime = moment().add(30, 'm').unix();
-
-    getReservationPointsList(currentCompany, currentTime);
 
 });

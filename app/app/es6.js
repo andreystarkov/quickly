@@ -338,104 +338,104 @@ function createReservation() {
 },{}],6:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.refreshUserProfile = refreshUserProfile;
+
 function editUserField(fieldId, callback) {
-   var theOptions = {};
-   var theParameter = $('#' + fieldId).data('id');
+    var theOptions = {};
+    var theParameter = $('#' + fieldId).data('id');
+    var currentCity = getStorage('city');
+    var cityId = currentCity.city_id || 3;
+    var setValue = $('#' + fieldId).val();
 
-   theOptions['userToken'] = userToken;
-   theOptions['cityId'] = cityId;
-   theOptions[theParameter] = $('#' + fieldId).val();
+    theOptions['userToken'] = userToken;
+    theOptions['cityId'] = cityId;
 
-   console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-   $.ajax({
-      url: serverUrl + '/api/v2/user/profile/edit',
-      dataType: 'json',
-      type: 'POST',
-      data: theOptions,
-      success: function success(data) {
-         console.log('editUserField: ', data);
-         if (data.err === undefined || data.err === null) {
-            toastr.success('Данные профиля сохранены');
-         }
-         $('#' + fieldId).parent().addClass('has-success');
-         refreshUserProfile();
-         if (callback) callback(data);
-      }
-   });
-}
+    if (fieldId == "userBirthdate") {
+        console.log('Editing: userBirthdate, ', setValue + ' = ' + moment(setValue).utc().format('X'));
+        setValue = moment(setValue).utc().format('X');
+        console.log('setValue: ', setValue);
+    }
 
-function createProfileEditor(profile, callback) {
+    theOptions[theParameter] = setValue;
 
-   var birthDate = moment(profile.userBirthdate, "MM-DD-YYYY");
-   var userAvatar = imageBaseUrl + profile.userAvatarUrl;
-   if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
-      userAvatar = 'images/samples/user.png';
-   }
-
-   var htmlTemplate = '<div class="user-editor container">\n           <div class="row">\n              <div class="col-lg-2 text-center">\n                 <div class="avatar round">\n                    <img src="' + userAvatar + '" alt="...">\n                 </div>\n                 <div class="btn-group">\n                    <a class="button light small">Изменить аватар</a>\n                 </div>\n              </div>\n              <div class="col-lg-10 the-info">\n                 <div class="row delivery">\n                    <div class="col-lg-4">\n                     <div class="title user-name-edit">\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userName">Имя</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="name" id="userName" value="' + profile.userName + '">\n                        </div>\n                        <div class="form-group" style="width:48%; display: inline-block">\n                          <label class="control-label" for="userSurname">Фамилия</label>\n                          <input type="text" class="form-control focus-out autoupdate" data-id="surname" id="userSurname" value="' + profile.userSurname + '">\n                        </div>\n                     </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userEmail">Электронная почта</label>\n                          <input type="email" class="form-control focus-out autoupdate" data-id="email" id="userEmail" value="' + profile.userEmail + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userPhone">Номер телефона</label>\n                          <input type="tel" class="form-control focus-out" id="userPhone" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3">\n                       <div class="form-group">\n                          <label class="control-label" for="userBirth">Дата рождения</label>\n                          <input type="date" class="form-control focus-out" data-id="birthdate" id="userBirth" value="' + profile.userPhone + '">\n                       </div>\n                    </div>\n                    <div class="col-lg-3" style="display:none">\n                       <div class="form-group">\n                          <label class="control-label" for="userCity">Город</label>\n                          <input type="text" class="form-control" id="userCity" value="Оренбург">\n                       </div>\n                    </div>\n                 </div>\n                 <div class="line delivery" style="padding-top:20px">\n                    <div id="profile-addresses" data-id="1" class="inline-block float-left">\n                       <i class="icon icon-location-pin"></i>\n                       <div class="box">\n                          <div class="form-group label-placeholder is-empty" title="Введите адреса для доставки">\n                             <input type="text" class="form-control" id="profile-address-1">\n                          </div>\n                       </div>\n                    </div>\n                    <div class="box">\n                       <a href="#" class="button button-plus tip" id="profile-address-add">\n                       <i class="icon fa fa-plus-square-o"></i>\n                       <span>Добавить адрес</span>\n                       </a>\n                    </div>\n                    <div class="box" id="addCards">\n                    </div>\n                 </div>\n              </div>\n           </div>\n           <div class="row buttons-line">\n              <div class="col-lg-2">\n              </div>\n              <div class="col-lg-10 buttons-tabs">\n                 <div class="btn-group btn-group-justified" data-tabs="tabs-profile">\n                    <a href="#tab-order-history" class="tab-toggle btn button light" id="tabOrderHistory">\n                    <span>История заказов</span>\n                    </a>\n                    <a href="#tab-reservation-history" class="tab-toggle btn button light">\n                    <span>История бронирования</span>\n                    </a>\n                    <a href="#tab-comments-history" class="tab-toggle btn button light">\n                    <span>Оставленные отзывы</span>\n                    </a>\n                    <a id="buttonReturnShop" href="#" class="btn button main">\n                    <span>Вернуться к ресторану</span>\n                    </a>\n                 </div>\n              </div>\n           </div>\n        </div>';
-   $('#profileEditor').prepend(htmlTemplate);
-   if (callback) callback();
+    console.log('editUserField: Options: ', theOptions);
+    $.ajax({
+        url: serverUrl + '/api/v2/user/profile/edit',
+        dataType: 'json',
+        type: 'POST',
+        data: theOptions,
+        success: function success(data) {
+            console.log('editUserField: ', data);
+            if (data.err === undefined || data.err === null) {
+                toastr.success('Данные профиля сохранены');
+            }
+            $('#' + fieldId).parent().addClass('has-success');
+            refreshUserProfile();
+            if (callback) callback(data);
+        }
+    });
 }
 
 function emptyProfile() {
-   var token = userToken;
-   getUserProfile(token, function (data) {
-      var userBonus = getUserBonus(userToken);
-      var userInfo = data;
-      $('#userBadgeTop').html('\n              <div class="user-text" id="buttonEmptyProfile">\n                <b class="user-name">Добро пожаловать!</b>\n                <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n              </div>\n            ');
-   });
+    var token = userToken;
+    getUserProfile(token, function (data) {
+        var userBonus = getUserBonus(userToken);
+        var userInfo = data;
+        $('#userBadgeTop').html('\n              <div class="user-text" id="buttonEmptyProfile">\n                <b class="user-name">Добро пожаловать!</b>\n                <a class="r-bonus">У вас <b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n              </div>\n            ');
+    });
 }
 
 function refreshUserProfile() {
-   var token = userToken;
-   getUserProfile(token, function (data) {
-      var userBonus = getUserBonus(userToken);
-      var userInfo = data;
-      var userAvatar = data.userAvatarUrl;
-      if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
-         userAvatar = 'images/samples/user.png';
-      }
-      $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
-   });
+    var token = userToken;
+    getUserProfile(token, function (data) {
+        var userBonus = getUserBonus(userToken);
+        var userInfo = data;
+        var userAvatar = data.userAvatarUrl;
+        if (data.userAvatarUrl === undefined || data.userAvatarUrl === null) {
+            userAvatar = 'images/samples/user.png';
+        }
+        $('#userBadgeTop').html('\n          <div class="user-text">\n            <b class="user-name">' + data.userName + ' ' + data.userSurname + '</b>\n            <a class="r-bonus"><b>' + userBonus + '</b> <span class="fa fa-rouble"></span>-бонусов</a>\n          </div>\n          <div class="user-avatar" style="background-image:url(' + userAvatar + ')"></div>\n        ');
+    });
 }
 
 function getUserBonus(userToken) {
-   var bonus;
-   $.ajax({
-      url: serverUrl + '/api/v2/user/bonus/' + userToken,
-      async: false,
-      dataType: 'json',
-      success: function success(data) {
-         bonus = data.result.userBonus;
-      }
-   });
-   return bonus;
+    var bonus;
+    $.ajax({
+        url: serverUrl + '/api/v2/user/bonus/' + userToken,
+        async: false,
+        dataType: 'json',
+        success: function success(data) {
+            bonus = data.result.userBonus;
+        }
+    });
+    return bonus;
 }
 
 $(function () {
 
-   /*       getUserProfile(userToken, function(data) {
-              console.log('getUserProfile:', data);
-              createProfileEditor(data, function() {
-                  $('.user-editor .control-label').each(function() {
-                      $(this).append('<i class="status-icon its-ok icon-check"></i>');
-                  });
-              });
-          });*/
+    $(document).on('click', '#buttonReturnShop', function (event) {
+        easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
+            easyVelocity('#pageCompany', 'transition.flipXIn');
+        });
+    });
+    refreshUserProfile();
+    var oldFieldVal;
 
-   $(document).on('click', '#buttonReturnShop', function (event) {
-      easyVelocity('.page-wrapper', 'transition.flipXOut', function () {
-         easyVelocity('#pageCompany', 'transition.flipXIn');
-      });
-   });
+    $(document).on('focusin', ".profile-autoupdate", function () {
+        oldFieldVal = $(this).val();
+    });
 
-   refreshUserProfile();
-
-   $(document).on('focusout', ".user-editor .autoupdate", function () {
-      var fieldId = $(this).attr('id');
-      console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'));
-      editUserField(fieldId);
-   });
+    $(document).on('focusout', ".profile-autoupdate", function () {
+        var fieldId = $(this).attr('id');
+        var newFieldVal = $(this).val();
+        if (!(oldFieldVal == newFieldVal)) {
+            console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'), 'Old val = ' + oldFieldVal);
+            editUserField(fieldId);
+        } else console.log('AutoField: Nothing changed');
+    });
 });
 
 },{}],7:[function(require,module,exports){
@@ -565,7 +565,7 @@ var CardsList = React.createClass({
     }
 });
 
-},{"./actions/cardsActions.js":8,"./stores/cardsStore.js":36}],17:[function(require,module,exports){
+},{"./actions/cardsActions.js":8,"./stores/cardsStore.js":37}],17:[function(require,module,exports){
 'use strict';
 
 var CategoriesListStore = require('./stores/categoriesListStore.js');
@@ -635,7 +635,7 @@ var CategoriesList = React.createClass({
 
 module.exports = CategoriesList;
 
-},{"./actions/categoriesListActions.js":9,"./actions/menuItemsActions.js":14,"./stores/categoriesListStore.js":37}],18:[function(require,module,exports){
+},{"./actions/categoriesListActions.js":9,"./actions/menuItemsActions.js":14,"./stores/categoriesListStore.js":38}],18:[function(require,module,exports){
 'use strict';
 
 var CityListActions = require('./actions/cityListActions.js');
@@ -705,30 +705,67 @@ module.exports = CityList;
 
 ReactDOM.render(React.createElement(CityList, null), document.getElementById('selectCityField'));
 
-},{"./actions/cityListActions.js":10,"./actions/companyListActions.js":12,"./stores/cityListStore.js":38}],19:[function(require,module,exports){
+},{"./actions/cityListActions.js":10,"./actions/companyListActions.js":12,"./stores/cityListStore.js":39}],19:[function(require,module,exports){
 'use strict';
+
+var _reservation = require('../reservation.jsx');
 
 var CompanyDetailsStore = require('./stores/companyDetailsStore.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
+var ButtonTabToggle = require('./components/buttonTabToggle.js');
+
+// restaurant_type:
+// 1 - только бронь
+// 2 - только доставка
+// 3 - и то и другое
 
 var CompanyDetails = React.createClass({
     displayName: 'CompanyDetails',
 
     mixins: [Reflux.connect(CompanyDetailsStore, 'companyData')],
     limit: 12,
+    isReservation: false,
     getInitialState: function getInitialState() {
         return {
             data: [],
             companyData: []
         };
     },
-    componentDidMount: function componentDidMount() {},
+    componentWillUpdate: function componentWillUpdate() {
+        var data = this.state.companyData;
+        if (data) {
+            var type = data.restaurant_type;
+            if (type == 1 || type == 3) {
+                console.log('companyDetails: Reservation Enabled (' + type + ')');
+                this.isReservation = true;
+                (0, _reservation.getHallsList)(data.restaurant_id, function (data) {
+                    console.log('getHallsList: callback, data = ', data);
+                });
+            } else {
+                console.log('CompanyDetails: Reservation Disabled (' + type + ')');
+                this.isReservation = false;
+            }
+        } else console.log('CompanyDetails: data is undefined');
+    },
     render: function render() {
         var company = this.state.companyData;
         var cuisinesSelect;
-        if (company.restaurant_main_image) var image = imageBaseUrl + company.restaurant_main_image;
+
+        if (company.restaurant_main_image) {
+            var image = imageBaseUrl + company.restaurant_main_image;
+            console.log('CompanyDetails: Is image exists? ', isImageExists(image));
+        }
+
         if (company.restaurant_cuisines) cuisinesSelect = React.createElement(CuisinesList, { cuisines: company.restaurant_cuisines });
+
+        var buttonReservation = this.isReservation ? React.createElement(ButtonTabToggle, { name: 'Бронирование', tab: 'tab-reservation' }) : React.createElement(ButtonTabToggle, { name: 'Бронирование', tab: 'tab-reservation', disabled: 'true' });
+
+        if (company.restaurant_comments_count) {
+            console.log('CompanyDetails: Has comments (' + company.comments_count + ')');
+        } else {
+            console.log('CompanyDetails: No comments (' + company.comments_count + ')');
+        }
 
         var rating = company.restaurant_rating;
         return React.createElement(
@@ -886,33 +923,9 @@ var CompanyDetails = React.createClass({
                 React.createElement(
                     'div',
                     { className: 'col-lg-6 buttons-tabs', 'data-tabs': 'tabs-shop' },
-                    React.createElement(
-                        'a',
-                        { className: 'button tab-toggle light', 'data-tab': 'tab-comments', href: '#tab-comments' },
-                        React.createElement(
-                            'span',
-                            null,
-                            'Отзывы'
-                        )
-                    ),
-                    React.createElement(
-                        'a',
-                        { className: 'button tab-toggle light active', 'data-tab': 'tab-food', href: '#tab-food' },
-                        React.createElement(
-                            'span',
-                            null,
-                            'Доставка'
-                        )
-                    ),
-                    React.createElement(
-                        'a',
-                        { className: 'button tab-toggle light', 'data-tab': 'tab-reservation', href: '#tab-reservation' },
-                        React.createElement(
-                            'span',
-                            null,
-                            'Бронирование'
-                        )
-                    )
+                    React.createElement(ButtonTabToggle, { name: 'Отзывы', tab: 'tab-comments' }),
+                    React.createElement(ButtonTabToggle, { name: 'Доставка', active: 'true', tab: 'tab-food' }),
+                    buttonReservation
                 ),
                 React.createElement(
                     'div',
@@ -945,7 +958,7 @@ var CompanyDetails = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyDetails, { companyId: '1' }), document.getElementById('companyDetails'));
 
-},{"./actions/companyListActions.js":12,"./cuisinesList.react.jsx":28,"./stores/companyDetailsStore.js":39}],20:[function(require,module,exports){
+},{"../reservation.jsx":47,"./actions/companyListActions.js":12,"./components/buttonTabToggle.js":23,"./cuisinesList.react.jsx":29,"./stores/companyDetailsStore.js":40}],20:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -1144,7 +1157,7 @@ var CompanyList = React.createClass({
 
 ReactDOM.render(React.createElement(CompanyList, null), document.getElementById('pageCompanyList'));
 
-},{"./actions/companyListActions.js":12,"./actions/cuisinesActions.js":13,"./companyList.react.jsx":20,"./components/buttonMore.js":22,"./components/companyListSidebar.js":24,"./components/quicklyLogo.js":26,"./components/singleCompany.js":27,"./cuisinesList.react.jsx":28,"./stores/companyListStore.js":40}],21:[function(require,module,exports){
+},{"./actions/companyListActions.js":12,"./actions/cuisinesActions.js":13,"./companyList.react.jsx":20,"./components/buttonMore.js":22,"./components/companyListSidebar.js":25,"./components/quicklyLogo.js":27,"./components/singleCompany.js":28,"./cuisinesList.react.jsx":29,"./stores/companyListStore.js":41}],21:[function(require,module,exports){
 "use strict";
 
 /*
@@ -1194,6 +1207,44 @@ var ButtonMore = React.createClass({
 module.exports = ButtonMore;
 
 },{}],23:[function(require,module,exports){
+'use strict';
+
+/*
+* @Author: Andrey Starkov
+* @Date:   2016-04-07 14:04:04
+* @Last Modified by:   Andrey Starkov
+* @Last Modified time: 2016-04-07 14:55:49
+*/
+
+var ButtonTabToggle = React.createClass({
+    displayName: 'ButtonTabToggle',
+
+    render: function render() {
+        var classNames = "tab-toggle btn button light";
+        var disabled = false;
+
+        if (this.props.disabled) {
+            disabled = true;
+        }
+        if (this.props.active) {
+            console.log('ButtonTabToggle: "' + this.props.name + '" is active');
+            classNames += " active";
+        }
+        return React.createElement(
+            'button',
+            { className: classNames, id: this.props.id, 'data-tab': this.props.tab, disabled: disabled },
+            React.createElement(
+                'span',
+                null,
+                this.props.name
+            )
+        );
+    }
+});
+
+module.exports = ButtonTabToggle;
+
+},{}],24:[function(require,module,exports){
 'use strict';
 
 var CampaignsStore = require('../stores/campaignsStore.js');
@@ -1338,7 +1389,7 @@ var CampaignsSlider = React.createClass({
 
 module.exports = CampaignsSlider;
 
-},{"../actions/campaignsActions.js":7,"../stores/CampaignsLimitedStore.js":34,"../stores/campaignsStore.js":35}],24:[function(require,module,exports){
+},{"../actions/campaignsActions.js":7,"../stores/CampaignsLimitedStore.js":35,"../stores/campaignsStore.js":36}],25:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1488,7 +1539,7 @@ var CompanyListSidebar = React.createClass({
 
 module.exports = CompanyListSidebar;
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../../screens.jsx');
@@ -1599,7 +1650,7 @@ var CuisinesSelectList = React.createClass({
 
 module.exports = CuisinesSelectList;
 
-},{"../../screens.jsx":47,"../actions/companyListActions.js":12,"../stores/cuisinesStore.js":41}],26:[function(require,module,exports){
+},{"../../screens.jsx":48,"../actions/companyListActions.js":12,"../stores/cuisinesStore.js":42}],27:[function(require,module,exports){
 "use strict";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1639,7 +1690,7 @@ var QuicklyLogo = React.createClass({
 
 module.exports = QuicklyLogo;
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../../screens.jsx');
@@ -2140,7 +2191,7 @@ var SingleCompany = React.createClass({
 
 module.exports = SingleCompany;
 
-},{"../../screens.jsx":47,"../actions/categoriesListActions.js":9,"../actions/companyDetailsActions.js":11,"../actions/menuItemsActions.js":14,"../cuisinesList.react.jsx":28}],28:[function(require,module,exports){
+},{"../../screens.jsx":48,"../actions/categoriesListActions.js":9,"../actions/companyDetailsActions.js":11,"../actions/menuItemsActions.js":14,"../cuisinesList.react.jsx":29}],29:[function(require,module,exports){
 'use strict';
 
 var CuisinesStore = require('./stores/cuisinesStore.js');
@@ -2187,7 +2238,7 @@ var CuisinesList = React.createClass({
 
 module.exports = CuisinesList;
 
-},{"./stores/cuisinesStore.js":41}],29:[function(require,module,exports){
+},{"./stores/cuisinesStore.js":42}],30:[function(require,module,exports){
 'use strict';
 
 var _screens = require('../screens.jsx');
@@ -2234,7 +2285,7 @@ var ButtonBack = React.createClass({
 ReactDOM.render(React.createElement(MainPageHeader, null), document.getElementById('mainPageHeader'));
 ReactDOM.render(React.createElement(CuisinesSelectList, null), document.getElementById('cuisinesSelectList'));
 
-},{"../screens.jsx":47,"./cityList.react.jsx":18,"./components/buttonBack.js":21,"./components/campaignsSlider.js":23,"./components/cuisinesSelectList.js":25,"./components/quicklyLogo.js":26,"./stores/cuisinesStore.js":41}],30:[function(require,module,exports){
+},{"../screens.jsx":48,"./cityList.react.jsx":18,"./components/buttonBack.js":21,"./components/campaignsSlider.js":24,"./components/cuisinesSelectList.js":26,"./components/quicklyLogo.js":27,"./stores/cuisinesStore.js":42}],31:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2374,6 +2425,9 @@ var MenuItemsList = React.createClass({
             menuItems: []
         };
     },
+    componentWillMount: function componentWillMount() {
+        // sure it will
+    },
     render: function render() {
         var theData = this.state.menuItems;
         var total = 0;
@@ -2415,7 +2469,7 @@ var MenuItems = React.createClass({
 
 ReactDOM.render(React.createElement(MenuItems, null), document.getElementById('menuItems'));
 
-},{"./actions/categoriesListActions.js":9,"./categoriesList.react.jsx":17,"./stores/menuItemsStore.js":42}],31:[function(require,module,exports){
+},{"./actions/categoriesListActions.js":9,"./categoriesList.react.jsx":17,"./stores/menuItemsStore.js":43}],32:[function(require,module,exports){
 'use strict';
 
 var _addToCart = require('../engine/addToCart.js');
@@ -2662,83 +2716,22 @@ var OrdersHistory = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersHistory, null), document.getElementById('ordersHistory'));
 
-},{"../engine/addToCart.js":2,"./components/buttonMore.js":22,"./stores/ordersHistoryStore.js":43}],32:[function(require,module,exports){
+},{"../engine/addToCart.js":2,"./components/buttonMore.js":22,"./stores/ordersHistoryStore.js":44}],33:[function(require,module,exports){
 'use strict';
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _profile = require('../profile.jsx');
 
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
 var CardsActions = require('./actions/cardsActions.js');
 var CardsStore = require('./stores/cardsStore.js');
+var ButtonTabToggle = require('./components/buttonTabToggle.js');
 
-function editUserField(obj, callback) {
-  var theOptions = {};
-  var theParameter = $('#' + fieldId).data('id');
-
-  theOptions['userToken'] = userToken;
-  theOptions['cityId'] = cityId;
-  theOptions[theParameter] = $('#' + fieldId).val();
-
-  console.log('editUserField: AJAX: ' + theParameter + ' = ' + fieldId);
-  $.ajax({
-    url: serverUrl + '/api/v2/user/profile/edit',
-    dataType: 'json',
-    type: 'POST',
-    data: theOptions,
-    success: function success(data) {
-      console.log('editUserField: ', data);
-      if (data.err === undefined || data.err === null) {
-        toastr.success('Данные профиля сохранены');
-      }
-      $('#' + fieldId).parent().addClass('has-success');
-      refreshUserProfile();
-      if (callback) callback(data);
-    }
-  });
-}
-
-var ProfileField = React.createClass({
-  displayName: 'ProfileField',
-
-  getInitialState: function getInitialState() {
-    var value = this.props.value;
-    return {
-      value: 'Что-то'
-    };
-  },
-
-  handleChange: function handleChange(event) {
-    this.setState({
-      value: event.target.value
-    });
-  },
+var FieldDefault = React.createClass({
+  displayName: 'FieldDefault',
 
   render: function render() {
-    return React.createElement('input', { type: 'text', value: this.state.value, onChange: this.handleChange });
-  }
-});
-
-var Field = React.createClass({
-  displayName: 'Field',
-
-  getInitialState: function getInitialState() {
-    return {
-      field: this.props.initVal
-    };
-  },
-  onChange: function onChange(e) {
-    console.log('wtf ', e.target.value);
-    this.setState({
-      field: e.target.value
-    });
-  },
-  render: function render() {
-    var _React$createElement;
-
-    console.log('Field: state = ', this.state.field);
-    console.log('Field: props val = ', this.props.initVal);
     return React.createElement(
       'div',
       { className: 'form-group' },
@@ -2747,18 +2740,53 @@ var Field = React.createClass({
         { className: 'control-label', htmlFor: this.props.id },
         this.props.name
       ),
-      React.createElement('input', (_React$createElement = { type: this.props.type,
-        ref: this.props.id,
-        'data-id': this.props.id
-      }, _defineProperty(_React$createElement, 'type', this.props.type), _defineProperty(_React$createElement, 'className', 'form-control'), _defineProperty(_React$createElement, 'value', this.state.field), _defineProperty(_React$createElement, 'onChange', this.onChange), _defineProperty(_React$createElement, 'id', this.props.id), _React$createElement))
+      React.createElement('input', {
+        type: this.props.type || "text",
+        className: 'form-control profile-autoupdate',
+        'data-id': this.props.field,
+        onChange: this.props.onChange,
+        id: this.props.id })
     );
   }
 });
 
-function openNewTab(url) {
-  var win = window.open(url, '_blank');
-  win.focus();
-}
+var FieldControlled = React.createClass({
+  displayName: 'FieldControlled',
+
+  getInitialState: function getInitialState() {
+    console.log('FieldControlled: default = ', this.props.defaultValue);
+    return {
+      value: this.props.defaultValue
+    };
+  },
+  componentWillUpdate: function componentWillUpdate() {
+    console.log('FieldControlled: willUpdate');
+  },
+  componentDidUpdate: function componentDidUpdate() {
+    console.log('FieldControlled: didUpdate');
+  },
+  handleChange: function handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  },
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'form-group' },
+      React.createElement(
+        'label',
+        { className: 'control-label', htmlFor: this.props.id },
+        this.props.name
+      ),
+      React.createElement('input', { type: this.props.type || "text", className: 'form-control profile-autoupdate',
+        value: this.state.value,
+        'data-id': this.props.field,
+        onChange: this.handleChange,
+        id: this.props.id })
+    );
+  }
+});
 
 var CardsEditor = React.createClass({
   displayName: 'CardsEditor',
@@ -2813,19 +2841,25 @@ var ProfileEditorForm = React.createClass({
   displayName: 'ProfileEditorForm',
 
   getInitalState: function getInitalState() {
-    console.log('ProfileEditorForm getInitalState profile = ', this.props.profile);
-    return {
-      userAvatarUrl: '',
-      userBirthdate: null,
-      userEmail: '',
-      userGender: 0,
-      userName: this.props.profile.userName,
-      userSurname: '',
-      userPhone: ''
-    };
+    console.log('ProfileEditorForm getInitalState');
+  },
+  componentWillUpdate: function componentWillUpdate() {
+    console.log('ProfileEditorForm willUpdate');
+  },
+  componentDidUpdate: function componentDidUpdate() {
+    console.log('ProfileEditorForm didUpdate');
+    $('#userSurname').val(this.props.profile.userSurname);
+    $('#userName').val(this.props.profile.userName);
+    $('#userEmail').val(this.props.profile.userEmail);
+
+    var birthDate = moment.unix(this.props.profile.userBirthdate).format("YYYY-MM-DD");
+    $('#userBirthdate').val(birthDate);
   },
   onFieldChange: function onFieldChange(value) {
     console.log('ProfileEditorForm onFieldChange: value = ', value.target);
+  },
+  onBirthChange: function onBirthChange(e) {
+    console.log('onBirthChange: ', e.target.value);
   },
   onNameChange: function onNameChange(e) {
     this.setState({
@@ -2845,17 +2879,56 @@ var ProfileEditorForm = React.createClass({
       });
     });
   },
-  render: function render() {
-    var _React$createElement2;
+  setGender: function setGender(e) {
+    console.log('setGender: ', e.target.value);
+    this.editUserField('gender', e.target.value);
+  },
+  editUserField: function editUserField(theParameter, theValue) {
+    var currentCity = getStorage('city');
+    var cityId = currentCity.city_id || 3;
 
+    var theOptions = {};
+    theOptions['userToken'] = userToken;
+    theOptions['cityId'] = cityId;
+    theOptions[theParameter] = theValue;
+
+    console.log('ProfileEditorForm: editUserField: Options: ', theOptions);
+
+    $.ajax({
+      url: serverUrl + '/api/v2/user/profile/edit',
+      dataType: 'json',
+      type: 'POST',
+      data: theOptions,
+      success: function success(data) {
+        console.log('ProfileEditorForm: editUserField: ', data);
+        if (data.err === undefined || data.err === null) {
+          toastr.success('Данные профиля сохранены');
+        }
+        (0, _profile.refreshUserProfile)();
+      }
+    });
+  },
+  render: function render() {
     var total = 0;
     var profile = this.props.profile;
-    var userAvatar;
+    var userAvatar, maleChecked, femaleChecked;
+
+    console.log('ProfileEditorForm: profile = ', profile);
+
     if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
       userAvatar = 'images/samples/user.png';
     } else userAvatar = profile.userAvatarUrl;
 
-    console.log('ProfileEditorForm: profile = ', this.state);
+    if (profile.userGender == 1) {
+      maleChecked = "checked";
+      $('#profileMaleRadio').prop('checked', true);
+    }
+
+    if (profile.userGender == 2) {
+      femaleChecked = "checked";
+      $('#profileFemaleRadio').prop('checked', true);
+    }
+
     return React.createElement(
       'div',
       { className: 'user-editor container' },
@@ -2879,7 +2952,7 @@ var ProfileEditorForm = React.createClass({
               React.createElement(
                 'label',
                 null,
-                React.createElement('input', { type: 'radio', name: 'optionsRadios', id: 'optionsRadios1', value: '0' }),
+                React.createElement('input', { onChange: this.setGender, type: 'radio', id: 'profileMaleRadio', name: 'profileGender', 'data-id': 'gender', value: '1' }),
                 React.createElement(
                   'span',
                   { className: 'radio-label-text' },
@@ -2893,7 +2966,7 @@ var ProfileEditorForm = React.createClass({
               React.createElement(
                 'label',
                 null,
-                React.createElement('input', { type: 'radio', name: 'optionsRadios', id: 'optionsRadios2', value: '1' }),
+                React.createElement('input', { onChange: this.setGender, type: 'radio', id: 'profileFemaleRadio', name: 'profileGender', 'data-id': 'gender', value: '2' }),
                 React.createElement(
                   'span',
                   { className: 'radio-label-text' },
@@ -2912,22 +2985,22 @@ var ProfileEditorForm = React.createClass({
             React.createElement(
               'div',
               { className: 'profile-field col-lg-6' },
-              React.createElement(Field, { type: 'text', initVal: profile.userName, name: 'Имя', id: 'userName' })
+              React.createElement(FieldControlled, { type: 'text', field: 'name', defaultValue: profile.userName, name: 'Имя', id: 'userName' })
             ),
             React.createElement(
               'div',
               { className: 'profile-field col-lg-6' },
-              React.createElement(Field, (_React$createElement2 = { type: 'text' }, _defineProperty(_React$createElement2, 'type', 'text'), _defineProperty(_React$createElement2, 'name', 'Фамилия'), _defineProperty(_React$createElement2, 'id', 'userSurname'), _defineProperty(_React$createElement2, 'initVal', profile.userSurname), _React$createElement2))
+              React.createElement(FieldControlled, { type: 'text', field: 'surname', defaultValue: profile.userSurname, name: 'Фамилия', id: 'userSurname' })
             ),
             React.createElement(
               'div',
               { className: 'profile-field col-lg-6' },
-              React.createElement(Field, { type: 'datetime', name: 'Дата рождения', id: 'userBirthdate', initVal: profile.userBirthdate })
+              React.createElement(FieldControlled, { type: 'date', field: 'birthdate', defaultValue: profile.userBirthdate, name: 'Дата рождения', id: 'userBirthdate' })
             ),
             React.createElement(
               'div',
               { className: 'profile-field col-lg-6' },
-              React.createElement(Field, { type: 'email', name: 'Электронная почта', id: 'userEmail', initVal: profile.userEmail })
+              React.createElement(FieldControlled, { type: 'text', field: 'email', defaultValue: profile.userEmail, name: 'Электронная почта', id: 'userEmail' })
             )
           )
         ),
@@ -2956,33 +3029,9 @@ var ProfileEditorForm = React.createClass({
           React.createElement(
             'div',
             { className: 'btn-group btn-group-justified', 'data-tabs': 'tabs-profile' },
-            React.createElement(
-              'a',
-              { href: '#tab-order-history', className: 'tab-toggle btn button light', id: 'tabOrderHistory' },
-              React.createElement(
-                'span',
-                null,
-                'История заказов'
-              )
-            ),
-            React.createElement(
-              'a',
-              { href: '#tab-reservation-history', className: 'tab-toggle btn button light' },
-              React.createElement(
-                'span',
-                null,
-                'История бронирования'
-              )
-            ),
-            React.createElement(
-              'a',
-              { href: '#tab-comments-history', className: 'tab-toggle btn button light' },
-              React.createElement(
-                'span',
-                null,
-                'Оставленные отзывы'
-              )
-            ),
+            React.createElement(ButtonTabToggle, { name: 'История заказов', tab: 'tab-order-history', id: 'tabOrdersHistory' }),
+            React.createElement(ButtonTabToggle, { name: 'История бронирования', tab: 'tab-reservation-history' }),
+            React.createElement(ButtonTabToggle, { name: 'Оставленные отзывы', tab: 'tab-comments-history' }),
             React.createElement(
               'a',
               { id: 'buttonReturnShop', href: '#', className: 'btn button main' },
@@ -3003,21 +3052,21 @@ var ProfileEditor = React.createClass({
   displayName: 'ProfileEditor',
 
   mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
-  limit: 5,
   getInitialState: function getInitialState() {
     return {
       data: [],
-      profileData: {
-        userAvatarUrl: '',
-        userBirthdate: null,
-        userEmail: '',
-        userGender: 0,
-        userName: '',
-        userSurname: '',
-        userPhone: ''
-      }
+      profileData: []
     };
   },
+  /*        profileData: {
+            userAvatarUrl: '',
+            userBirthdate: null,
+            userEmail: '',
+            userGender: 0,
+            userName: '',
+            userSurname: '',
+            userPhone: ''
+          }*/
   componentDidMount: function componentDidMount() {
     ProfileEditorActions.updateData();
   },
@@ -3031,7 +3080,7 @@ var ProfileEditor = React.createClass({
 
 ReactDOM.render(React.createElement(ProfileEditor, null), document.getElementById('profileEditor'));
 
-},{"./actions/cardsActions.js":8,"./actions/profileEditorActions.js":15,"./components/buttonMore.js":22,"./stores/cardsStore.js":36,"./stores/profileEditorStore.js":44}],33:[function(require,module,exports){
+},{"../profile.jsx":6,"./actions/cardsActions.js":8,"./actions/profileEditorActions.js":15,"./components/buttonMore.js":22,"./components/buttonTabToggle.js":23,"./stores/cardsStore.js":37,"./stores/profileEditorStore.js":45}],34:[function(require,module,exports){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -3256,7 +3305,7 @@ var OrdersReservation = React.createClass({
 
 ReactDOM.render(React.createElement(OrdersReservation, null), document.getElementById('reservationHistory'));
 
-},{"./components/buttonMore.js":22,"./stores/reservationHistoryStore.js":45}],34:[function(require,module,exports){
+},{"./components/buttonMore.js":22,"./stores/reservationHistoryStore.js":46}],35:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3294,7 +3343,7 @@ var CampaignsLimitedStore = Reflux.createStore({
 
 module.exports = CampaignsLimitedStore;
 
-},{"../actions/campaignsActions.js":7}],35:[function(require,module,exports){
+},{"../actions/campaignsActions.js":7}],36:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3334,7 +3383,7 @@ var CampaignsStore = Reflux.createStore({
 
 module.exports = CampaignsStore;
 
-},{"../actions/campaignsActions.js":7}],36:[function(require,module,exports){
+},{"../actions/campaignsActions.js":7}],37:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3378,7 +3427,7 @@ var CardsStore = Reflux.createStore({
 
 module.exports = CardsStore;
 
-},{"../actions/cardsActions.js":8}],37:[function(require,module,exports){
+},{"../actions/cardsActions.js":8}],38:[function(require,module,exports){
 'use strict';
 
 var CategoriesListActions = require('../actions/categoriesListActions.js');
@@ -3416,7 +3465,7 @@ var CategoriesListStore = Reflux.createStore({
 
 module.exports = CategoriesListStore;
 
-},{"../actions/categoriesListActions.js":9,"../actions/menuItemsActions.js":14}],38:[function(require,module,exports){
+},{"../actions/categoriesListActions.js":9,"../actions/menuItemsActions.js":14}],39:[function(require,module,exports){
 'use strict';
 
 var CityListActions = require('../actions/cityListActions.js');
@@ -3517,7 +3566,7 @@ var CityListStore = Reflux.createStore({
 
 module.exports = CityListStore;
 
-},{"../actions/cityListActions.js":10}],39:[function(require,module,exports){
+},{"../actions/cityListActions.js":10}],40:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3557,7 +3606,7 @@ var CompanyDetailsStore = Reflux.createStore({
 
 module.exports = CompanyDetailsStore;
 
-},{"../actions/companyDetailsActions.js":11}],40:[function(require,module,exports){
+},{"../actions/companyDetailsActions.js":11}],41:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3652,7 +3701,7 @@ var CompanyListStore = Reflux.createStore({
 
 module.exports = CompanyListStore;
 
-},{"../actions/companyListActions.js":12,"../actions/cuisinesActions.js":13,"./cuisinesStore.js":41}],41:[function(require,module,exports){
+},{"../actions/companyListActions.js":12,"../actions/cuisinesActions.js":13,"./cuisinesStore.js":42}],42:[function(require,module,exports){
 'use strict';
 
 var CuisinesActions = require('../actions/cuisinesActions.js');
@@ -3682,7 +3731,7 @@ var CuisinesStore = Reflux.createStore({
 
 module.exports = CuisinesStore;
 
-},{"../actions/cuisinesActions.js":13}],42:[function(require,module,exports){
+},{"../actions/cuisinesActions.js":13}],43:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3721,7 +3770,7 @@ var MenuItemsStore = Reflux.createStore({
 
 module.exports = MenuItemsStore;
 
-},{"../actions/menuItemsActions.js":14}],43:[function(require,module,exports){
+},{"../actions/menuItemsActions.js":14}],44:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3759,55 +3808,66 @@ var OrdersHistoryStore = Reflux.createStore({
 
 module.exports = OrdersHistoryStore;
 
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
+
+var _reactCookie = require('react-cookie');
+
+var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:37:12
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-07 11:20:23
+* @Last Modified time: 2016-04-07 14:59:48
 */
 var ProfileEditorActions = require('../actions/profileEditorActions.js');
+
 
 var ProfileEditorStore = Reflux.createStore({
     listenables: [ProfileEditorActions],
     profileData: [],
+    userToken: _reactCookie2.default.load('token'),
     sourceUrl: serverUrl + '/api/v2/user/profile/get',
     init: function init() {
-        //  this.fetchList();
+        this.fetchList();
     },
     updateData: function updateData() {
         console.log('ProfileEditorStore updateData()');
         this.fetchList();
     },
     fetchList: function fetchList() {
-        var some = this;
-        $.ajax({
-            type: 'POST',
-            async: 'false',
-            dataType: 'json',
-            url: this.sourceUrl,
-            data: {
-                'userToken': userToken
-            },
-            success: function success(data) {
-                var result = data.result;
-                if (result !== undefined) {
-                    some.profileData = data.result.profile;
-                    console.log('profileEditorStore: AJAX result: ', data);
-                    some.trigger(some.profileData);
-                    console.log('ProfileEditorStore some.profileData = ', some.profileData);
-                    setStorage('profile', data.result.profile);
-                } else console.log('ProfileEditorStore: No Data: ', data);
-            }
-        });
+        if (this.userToken) {
+            console.log('ProfileEditorStore: Token = ', this.userToken);
+            var some = this;
+            $.ajax({
+                type: 'POST',
+                async: 'false',
+                dataType: 'json',
+                url: this.sourceUrl,
+                data: {
+                    'userToken': userToken
+                },
+                success: function success(data) {
+                    var result = data.result;
+                    if (result !== undefined) {
+                        some.profileData = data.result.profile;
+                        console.log('profileEditorStore: AJAX result: ', data);
+                        some.trigger(some.profileData);
+                        console.log('ProfileEditorStore some.profileData = ', some.profileData);
+                        setStorage('profile', data.result.profile);
+                    } else console.log('ProfileEditorStore: No Data: ', data);
+                }
+            });
+        } else console.log('ProfileEditorStore: User token not specifed');
     }
 });
 
 module.exports = ProfileEditorStore;
 
-},{"../actions/profileEditorActions.js":15}],45:[function(require,module,exports){
+},{"../actions/profileEditorActions.js":15,"react-cookie":51}],46:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3845,8 +3905,14 @@ var ReservationHistoryStore = Reflux.createStore({
 
 module.exports = ReservationHistoryStore;
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getHallsList = getHallsList;
+exports.getReservationPointsList = getReservationPointsList;
 
 var _checkoutFunc = require("./engine/checkout.func.jsx");
 
@@ -3855,6 +3921,8 @@ var _createOrder = require("./engine/createOrder.jsx");
 var _createReservation = require("./engine/createReservation.jsx");
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// menuItems - массив при заказе с едой
 
 function pasteMenu(categoryId) {
     $.getJSON(serverUrl + '/api/v2/menu-items/get/' + categoryId, function (data) {
@@ -3878,9 +3946,18 @@ function pasteCartElement(cartElement, elementCount) {
 }
 
 function getHallsList(restaurantId, callback) {
+    var box = $('#hallsBox');
     $.getJSON(serverUrl + '/api/v2/reservation/halls/' + restaurantId, function (data) {
         console.log('getHallsList: ', data);
-        callback(data);
+        if (data.result) {
+            var halls = data.result.halls;
+            console.log('getHallsList: ', halls);
+            $.each(halls, function (hall, index) {
+                box.append("\n                    <button class=\"button light button-hall\" data-id=\"" + hall.hall_id + "\">" + hall.hall_name + "</button>\n                ");
+            });
+
+            callback(data.result.halls);
+        }
     });
 }
 
@@ -4022,13 +4099,9 @@ $(function () {
         currentReservationTime = getReservationUnixTime();
         getReservationPointsList(currentCompany, getReservationUnixTime());
     });
-
-    var currentTime = moment().add(30, 'm').unix();
-
-    getReservationPointsList(currentCompany, currentTime);
 });
 
-},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],47:[function(require,module,exports){
+},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],48:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4097,7 +4170,7 @@ $(function () {
     });
 });
 
-},{"./react/stores/companyDetailsStore.js":39,"./react/stores/menuItemsStore.js":42}],48:[function(require,module,exports){
+},{"./react/stores/companyDetailsStore.js":40,"./react/stores/menuItemsStore.js":43}],49:[function(require,module,exports){
 'use strict';
 
 var _checkoutFunc = require('./engine/checkout.func.jsx');
@@ -4196,7 +4269,258 @@ $(function () {
     (0, _checkoutFunc.refreshCart)();
 });
 
-},{"./engine/checkout.func.jsx":3}]},{},[48,6,46,1,47,19,31,33,30,32,20,29,16,18])
+},{"./engine/checkout.func.jsx":3}],50:[function(require,module,exports){
+/*!
+ * cookie
+ * Copyright(c) 2012-2014 Roman Shtylman
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/**
+ * Module exports.
+ * @public
+ */
+
+exports.parse = parse;
+exports.serialize = serialize;
+
+/**
+ * Module variables.
+ * @private
+ */
+
+var decode = decodeURIComponent;
+var encode = encodeURIComponent;
+
+/**
+ * RegExp to match field-content in RFC 7230 sec 3.2
+ *
+ * field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+ * field-vchar   = VCHAR / obs-text
+ * obs-text      = %x80-FF
+ */
+
+var fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
+
+/**
+ * Parse a cookie header.
+ *
+ * Parse the given cookie header string into an object
+ * The object has the various cookies as keys(names) => values
+ *
+ * @param {string} str
+ * @param {object} [options]
+ * @return {object}
+ * @public
+ */
+
+function parse(str, options) {
+  if (typeof str !== 'string') {
+    throw new TypeError('argument str must be a string');
+  }
+
+  var obj = {}
+  var opt = options || {};
+  var pairs = str.split(/; */);
+  var dec = opt.decode || decode;
+
+  pairs.forEach(function(pair) {
+    var eq_idx = pair.indexOf('=')
+
+    // skip things that don't look like key=value
+    if (eq_idx < 0) {
+      return;
+    }
+
+    var key = pair.substr(0, eq_idx).trim()
+    var val = pair.substr(++eq_idx, pair.length).trim();
+
+    // quoted values
+    if ('"' == val[0]) {
+      val = val.slice(1, -1);
+    }
+
+    // only assign once
+    if (undefined == obj[key]) {
+      obj[key] = tryDecode(val, dec);
+    }
+  });
+
+  return obj;
+}
+
+/**
+ * Serialize data into a cookie header.
+ *
+ * Serialize the a name value pair into a cookie string suitable for
+ * http headers. An optional options object specified cookie parameters.
+ *
+ * serialize('foo', 'bar', { httpOnly: true })
+ *   => "foo=bar; httpOnly"
+ *
+ * @param {string} name
+ * @param {string} val
+ * @param {object} [options]
+ * @return {string}
+ * @public
+ */
+
+function serialize(name, val, options) {
+  var opt = options || {};
+  var enc = opt.encode || encode;
+
+  if (!fieldContentRegExp.test(name)) {
+    throw new TypeError('argument name is invalid');
+  }
+
+  var value = enc(val);
+
+  if (value && !fieldContentRegExp.test(value)) {
+    throw new TypeError('argument val is invalid');
+  }
+
+  var pairs = [name + '=' + value];
+
+  if (null != opt.maxAge) {
+    var maxAge = opt.maxAge - 0;
+    if (isNaN(maxAge)) throw new Error('maxAge should be a Number');
+    pairs.push('Max-Age=' + maxAge);
+  }
+
+  if (opt.domain) {
+    if (!fieldContentRegExp.test(opt.domain)) {
+      throw new TypeError('option domain is invalid');
+    }
+
+    pairs.push('Domain=' + opt.domain);
+  }
+
+  if (opt.path) {
+    if (!fieldContentRegExp.test(opt.path)) {
+      throw new TypeError('option path is invalid');
+    }
+
+    pairs.push('Path=' + opt.path);
+  }
+
+  if (opt.expires) pairs.push('Expires=' + opt.expires.toUTCString());
+  if (opt.httpOnly) pairs.push('HttpOnly');
+  if (opt.secure) pairs.push('Secure');
+
+  return pairs.join('; ');
+}
+
+/**
+ * Try decoding a string using a decoding function.
+ *
+ * @param {string} str
+ * @param {function} decode
+ * @private
+ */
+
+function tryDecode(str, decode) {
+  try {
+    return decode(str);
+  } catch (e) {
+    return str;
+  }
+}
+
+},{}],51:[function(require,module,exports){
+var cookie = require('cookie');
+
+var _rawCookie = {};
+var _res = undefined;
+
+function load(name, doNotParse) {
+  var cookies = (typeof document === 'undefined') ? _rawCookie : cookie.parse(document.cookie);
+  var cookieVal = cookies && cookies[name];
+
+  if (!doNotParse) {
+    try {
+      cookieVal = JSON.parse(cookieVal);
+    } catch(e) {
+      // Not serialized object
+    }
+  }
+
+  return cookieVal;
+}
+
+function save(name, val, opt) {
+  _rawCookie[name] = val;
+
+  // allow you to work with cookies as objects.
+  if (typeof val === 'object') {
+    _rawCookie[name] = JSON.stringify(val);
+  }
+
+  // Cookies only work in the browser
+  if (typeof document !== 'undefined') {
+    document.cookie = cookie.serialize(name, _rawCookie[name], opt);
+  }
+
+  if (_res && _res.cookie) {
+    _res.cookie(name, val, opt);
+  }
+}
+
+function remove(name, opt) {
+  delete _rawCookie[name];
+
+  if (typeof opt === 'undefined') {
+    opt = {};
+  } else if (typeof opt === 'string') {
+    // Will be deprecated in future versions
+    opt = { path: opt };
+  }
+
+  if (typeof document !== 'undefined') {
+    opt.expires = new Date(1970, 1, 1, 0, 0, 1);
+    document.cookie = cookie.serialize(name, '', opt);
+  }
+
+  if (_res && _res.clearCookie) {
+    _res.clearCookie(name, opt);
+  }
+}
+
+function setRawCookie(rawCookie) {
+  if (rawCookie) {
+    _rawCookie = cookie.parse(rawCookie);
+  } else {
+    _rawCookie = {};
+  }
+}
+
+function plugToRequest(req, res) {
+  if (req.cookie) {
+    _rawCookie = req.cookie;
+  } else if (req.headers && req.headers.cookie) {
+    setRawCookie(req.headers.cookie);
+  } else {
+    _rawCookie = {};
+  }
+
+  _res = res;
+}
+
+var reactCookie = {
+  load: load,
+  save: save,
+  remove: remove,
+  setRawCookie: setRawCookie,
+  plugToRequest: plugToRequest
+};
+
+if (typeof window !== 'undefined') {
+  window['reactCookie'] = reactCookie;
+}
+
+module.exports = reactCookie;
+
+},{"cookie":50}]},{},[49,6,47,1,48,19,32,34,31,33,20,30,16,18])
 
 
 //# sourceMappingURL=es6.js.map

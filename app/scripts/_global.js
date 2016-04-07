@@ -57,8 +57,27 @@ if (userToken !== undefined) {
 function first(obj) {
     for (var a in obj) return a;
 }
+
 function isEmpty(obj) {
     if (obj) return Object.keys(obj).length === 0;
+}
+
+function isImageExists(url) {
+   var img = new Image();
+   img.src = url;
+   return img.height != 0;
+}
+
+function openNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
+function isUrlExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
 }
 
 function setStorage(itemName, theJSON) {
@@ -124,3 +143,4 @@ function flyToCart(what) {
         });
     }
 }
+

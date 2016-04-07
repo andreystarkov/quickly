@@ -1,24 +1,62 @@
 var CompanyDetailsStore = require('./stores/companyDetailsStore.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
+var ButtonTabToggle = require('./components/buttonTabToggle.js');
+
+import {getReservationPointsList, getHallsList} from '../reservation.jsx';
+
+// restaurant_type:
+// 1 - только бронь
+// 2 - только доставка
+// 3 - и то и другое
 
 var CompanyDetails = React.createClass({
     mixins: [Reflux.connect(CompanyDetailsStore, 'companyData')],
     limit: 12,
+    isReservation: false,
     getInitialState: function() {
       return {
         data: [],
         companyData: []
       };
     },
-    componentDidMount: function() {
-
+    componentWillUpdate: function() {
+        var data = this.state.companyData;
+        if (data){
+            var type = data.restaurant_type;
+            if ( (type == 1) || (type == 3) ){
+                console.log('companyDetails: Reservation Enabled ('+type+')');
+                this.isReservation = true;
+                getHallsList(data.restaurant_id, function(data){
+                    console.log('getHallsList: callback, data = ',data);
+                });
+            } else {
+                console.log('CompanyDetails: Reservation Disabled ('+type+')');
+                this.isReservation = false;
+            }
+        } else console.log('CompanyDetails: data is undefined');
     },
     render: function() {
         var company = this.state.companyData;
         var cuisinesSelect;
-        if( company.restaurant_main_image ) var image = imageBaseUrl+company.restaurant_main_image;
-        if( company.restaurant_cuisines ) cuisinesSelect = <CuisinesList cuisines={company.restaurant_cuisines} />
+
+        if( (company.restaurant_main_image) ) {
+            var image = imageBaseUrl+company.restaurant_main_image;
+            console.log('CompanyDetails: Is image exists? ', isImageExists(image));
+        }
+
+        if( company.restaurant_cuisines )
+            cuisinesSelect = <CuisinesList cuisines={company.restaurant_cuisines} />
+
+        var buttonReservation = (this.isReservation) ?
+            <ButtonTabToggle name="Бронирование" tab="tab-reservation" /> :
+                <ButtonTabToggle name="Бронирование" tab="tab-reservation" disabled="true" />
+
+        if( company.restaurant_comments_count ) {
+            console.log('CompanyDetails: Has comments ('+company.comments_count+')');
+        } else {
+            console.log('CompanyDetails: No comments ('+company.comments_count+')');
+        }
 
         var rating = company.restaurant_rating;
         return (
@@ -68,15 +106,9 @@ var CompanyDetails = React.createClass({
                 <div className="col-lg-2">
                 </div>
                 <div className="col-lg-6 buttons-tabs" data-tabs="tabs-shop">
-                    <a className="button tab-toggle light" data-tab="tab-comments" href="#tab-comments">
-                        <span>Отзывы</span>
-                    </a>
-                    <a className="button tab-toggle light active" data-tab="tab-food" href="#tab-food">
-                        <span>Доставка</span>
-                    </a>
-                    <a className="button tab-toggle light" data-tab="tab-reservation" href="#tab-reservation">
-                        <span>Бронирование</span>
-                    </a>
+                    <ButtonTabToggle name="Отзывы" tab="tab-comments" />
+                    <ButtonTabToggle name="Доставка" active="true" tab="tab-food" />
+                    {buttonReservation}
                 </div>
                 <div className="col-lg-4 buttons-reserv">
                     <a className="button light" href="#">
@@ -94,7 +126,4 @@ var CompanyDetails = React.createClass({
       }
 });
 
-ReactDOM.render(
-  <CompanyDetails companyId="1"/>,
-  document.getElementById('companyDetails')
-);
+ReactDOM.render( <CompanyDetails companyId="1"/>, document.getElementById('companyDetails') );
