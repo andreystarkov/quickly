@@ -76,7 +76,6 @@ function templateCartFooter() {
         totalPrice += value.price;
         totalCount++;
     });
-
     var out = '\n        <div class="row">\n            <div class="col-lg-8">\n                <div class="price-total">\n                    <b>Итого</b>: <span>' + totalCount + '</span> товаров на сумму <span>' + totalPrice + ' <i class="fa fa-rouble"></i></span>\n                </div>\n            </div>\n        </div>\n    ';
 
     return out;
@@ -89,11 +88,17 @@ function hideCart() {
     $('#cartBottomPanel').addClass('cart-empty');
 }
 
-function clearCart() {
+function clearCart(callback) {
     localStorage.removeItem('theCart');
     theCart.contents = [];
     console.log('clearCart: cleared');
-    hideCart();
+    Cookies.remove('shop');
+    $('.checkout-close').click();
+    $('#cartBottomPanel').addClass('cart-empty');
+
+    $('#cartBottomPanel').velocity('transition.slideDownOut', { duration: 400 }, function () {
+        if (callback) callback();
+    });
 }
 
 function refreshCart() {
@@ -105,13 +110,15 @@ function refreshCart() {
         tablesCount = 0,
         totalCount;
 
-    if (cartContents !== null) foodCount = cartContents.length;
-    if (tables !== null) tablesCount = 1;
+    if (cartContents) foodCount = cartContents.length;
+    if (tables) tablesCount = 1;
 
     totalCount = tablesCount + foodCount;
+
     if (totalCount == 0) {
         console.log('refreshCart: Cart is empty');
         localStorage.removeItem('theCart');
+        Cookies.remove('shop');
         clearCart();
     } else {
         $('.checkout-total').html(totalCount);
@@ -126,9 +133,7 @@ function refreshCart() {
         var uniqueCount = _.countBy(cartContents, "id");
         var uniqueList = _.uniq(cartContents, "id");
         var tablesList = _.uniq(tables, "id");
-
         var cartTable = null;
-
         var tablesList, foodList;
 
         if (tables !== null) tablesList += pasteCartTable(tables);
@@ -1371,7 +1376,7 @@ module.exports = CampaignsSlider;
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 19:17:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 19:20:04
+* @Last Modified time: 2016-04-07 18:42:37
 */
 
 var CompanyListSidebar = React.createClass({
@@ -1459,21 +1464,6 @@ var CompanyListSidebar = React.createClass({
           React.createElement(
             'span',
             { className: 'filter-name' },
-            'Еда за баллы'
-          )
-        )
-      ),
-      React.createElement(
-        'div',
-        { className: 'checkbox control-item' },
-        React.createElement(
-          'label',
-          null,
-          React.createElement('input', { type: 'checkbox', name: 'somename' }),
-          ' ',
-          React.createElement(
-            'span',
-            { className: 'filter-name' },
             'Работает сейчас'
           )
         )
@@ -1490,21 +1480,6 @@ var CompanyListSidebar = React.createClass({
             'span',
             { className: 'filter-name' },
             'Рядом со мной'
-          )
-        )
-      ),
-      React.createElement(
-        'div',
-        { className: 'checkbox control-item' },
-        React.createElement(
-          'label',
-          null,
-          React.createElement('input', { type: 'checkbox', name: 'somename' }),
-          ' ',
-          React.createElement(
-            'span',
-            { className: 'filter-name' },
-            'Новые'
           )
         )
       )
@@ -2277,12 +2252,16 @@ var CategoriesList = require('./categoriesList.react.jsx');
 var SingleMenuItem = React.createClass({
     displayName: 'SingleMenuItem',
 
+    addToCart: function addToCart(e) {
+        console.log('clicked', this.props.item.restaurant_id);
+    },
     render: function render() {
         var item = this.props.item;
         var itemImage = imageBaseUrl + item.menu_item_image;
         if (item.menu_item_image === undefined || item.menu_item_image === null || item.menu_item_image == '') {
             itemImage = 'images/samples/2.png';
         }
+        console.log(this.props.item, this.props.item.restaurant_id);
         return React.createElement(
             'div',
             { className: 'col-lg-4 col-xs-6 food-item' },
@@ -2298,10 +2277,10 @@ var SingleMenuItem = React.createClass({
                         { className: 'product-controls' },
                         React.createElement(
                             'button',
-                            { className: 'button main add-to-cart',
+                            { onClick: this.addToCart, className: 'button main add-to-cart',
                                 'data-name': item.menu_item_name,
                                 'data-price': item.menu_item_price,
-                                'data-id': item.menu_item_id },
+                                'data-id': item.menu_item_id, 'data-restaurant': item.restaurant_id },
                             'В корзину'
                         )
                     )
@@ -3431,8 +3410,8 @@ var CategoriesListStore = Reflux.createStore({
       var firstCategory = some.categories[0];
       if (firstCategory) {
         console.log('CategoriesListStore: First Id = ', firstCategory.category_id);
+        MenuItemsActions.updateData(firstCategory.category_id);
       }
-
       some.trigger(some.categories);
     });
   }
@@ -3713,14 +3692,14 @@ module.exports = CuisinesStore;
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:40:22
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-04 22:33:02
+* @Last Modified time: 2016-04-07 21:11:24
 */
 
 var MenuItemsActions = require('../actions/menuItemsActions.js');
 
 var MenuItemsStore = Reflux.createStore({
     listenables: [MenuItemsActions],
-    currentCategory: 1,
+    currentCategory: 0,
     menuItems: [],
     sourceUrl: serverUrl + '/api/v2/menu-items/get/',
     init: function init() {
@@ -3736,7 +3715,7 @@ var MenuItemsStore = Reflux.createStore({
         var url = this.sourceUrl + this.currentCategory;
         console.log('MenuItemsStore: fetchList() url = ', url);
         $.getJSON(url, function (data) {
-            console.log('REFLUX: MenuItemsStore fetchList', some.menuItems);
+            console.log('MenuItemsStore fetchList', data.result.menuItems);
             some.menuItems = data.result.menuItems;
             some.trigger(some.menuItems);
         });
@@ -4192,19 +4171,69 @@ $(function () {
 
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
 
+    function addToCart(obj, clicked) {
+        Cookies.set('shop', obj['restaurant']);
+        theCart.contents.push(obj);
+        console.log('addToCart: theCart = ', theCart);
+        console.log('addToCart: Pushing = ', obj);
+        setStorage('theCart', theCart.contents);
+        flyToCart(clicked.parent().parent().find("img").eq(0));
+        toastr.success(obj.name + ', ' + obj.price + ' р.');
+        (0, _checkoutFunc.refreshCart)();
+    }
+
     $(document).on('click', '.add-to-cart', function (event) {
         var jsonObj = {};
-        jsonObj['id'] = $(this).data('id');
-        jsonObj['name'] = $(this).data('name');
-        jsonObj['price'] = $(this).data('price');
-        jsonObj['type'] = 'food';
-        theCart.contents.push(jsonObj);
-        console.log('addToCart: theCart = ', theCart);
-        setStorage('theCart', theCart.contents);
+        var button = $(this);
+        var currentShop = Cookies.get('shop');
+        var thisShop = button.data('restaurant');
 
-        flyToCart($(this).parent().parent().find("img").eq(0));
-        toastr.success(jsonObj.name + ', ' + jsonObj.price + ' р.');
-        (0, _checkoutFunc.refreshCart)();
+        jsonObj['id'] = button.data('id');
+        jsonObj['name'] = button.data('name');
+        jsonObj['price'] = button.data('price');
+        jsonObj['restaurant'] = button.data('restaurant');
+
+        var is = _.where(theCart.contents, { restaurant: thisShop });
+        var one;
+        $.each(is, function (the, index) {
+            one = is;
+        });
+        var first;
+
+        if (theCart.contents.length > 0) first = theCart.contents[0];
+
+        console.log('ISSS = ', one, first);
+
+        if (currentShop) {
+
+            console.log('Current Shop: ' + currentShop);
+            console.log('This Shop: ' + thisShop);
+
+            if (thisShop == currentShop) {
+                addToCart(jsonObj, button);
+            } else {
+                swal({
+                    title: 'Внимание!', type: 'warning',
+                    text: 'В корзину нельзя положить позиции из разных ресторанов. Удалить позиции другого ресторана?',
+                    confirmButtonText: 'Да, удалить!', cancelButtonText: 'Нет, продолжить',
+                    showCancelButton: true, closeOnConfirm: true, closeOnCancel: true
+                }, function (isConfirm) {
+                    if (isConfirm === true) {
+                        console.log('Old Shop = ', Cookies.get('shop'));
+                        console.log('New Shop = ', thisShop);
+                        (0, _checkoutFunc.clearCart)(function () {
+                            Cookies.set('shop', thisShop);
+                            console.log('Callback ClearCart: ', thisShop, jsonObj);
+                            addToCart(jsonObj, button);
+                        });
+                    }
+                });
+            }
+        } else {
+            Cookies.set('shop', thisShop);
+            console.log('Add to cart: First blood');
+            addToCart(jsonObj, button);
+        }
     });
 
     $(document).on('click', '.reservation-food .checkout-action', function (e) {

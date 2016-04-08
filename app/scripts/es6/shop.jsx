@@ -176,19 +176,73 @@ $(function() {
 
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
 
+    function addToCart(obj, clicked){
+        Cookies.set( 'shop', obj['restaurant'] );
+        theCart.contents.push(obj);
+        console.log('addToCart: theCart = ', theCart);
+        console.log('addToCart: Pushing = ', obj);
+        setStorage('theCart', theCart.contents);
+        flyToCart( clicked.parent().parent().find("img").eq(0) );
+        toastr.success(`${obj.name}, ${obj.price} р.`);
+        refreshCart();
+    }
+
     $(document).on('click', '.add-to-cart', function(event) {
         var jsonObj = {};
-        jsonObj['id'] = $(this).data('id');
-        jsonObj['name'] = $(this).data('name');
-        jsonObj['price'] = $(this).data('price');
-        jsonObj['type'] = 'food';
-        theCart.contents.push(jsonObj);
-        console.log('addToCart: theCart = ', theCart);
-        setStorage('theCart', theCart.contents);
+        var button = $(this);
+        var currentShop = Cookies.get('shop');
+        var thisShop = button.data('restaurant');
 
-        flyToCart($(this).parent().parent().find("img").eq(0));
-        toastr.success(`${jsonObj.name}, ${jsonObj.price} р.`);
-        refreshCart();
+        jsonObj['id'] = button.data('id');
+        jsonObj['name'] = button.data('name');
+        jsonObj['price'] = button.data('price');
+        jsonObj['restaurant'] = button.data('restaurant');
+
+        var is = _.where(theCart.contents, {restaurant: thisShop});
+        var one;
+        $.each( is, function(the, index){
+            one = is;
+        });
+        var first;
+
+        if( theCart.contents.length > 0 ) first = theCart.contents[0];
+
+        console.log('ISSS = ', one, first);
+
+        if( currentShop ){
+
+            console.log('Current Shop: '+currentShop);
+            console.log('This Shop: '+thisShop);
+
+            if( thisShop == currentShop ){
+                addToCart( jsonObj, button );
+            } else {
+                swal({
+                  title: 'Внимание!', type: 'warning',
+                  text: 'В корзину нельзя положить позиции из разных ресторанов. Удалить позиции другого ресторана?',
+                  confirmButtonText: 'Да, удалить!', cancelButtonText: 'Нет, продолжить',
+                  showCancelButton: true, closeOnConfirm: true, closeOnCancel: true
+                },
+                function(isConfirm) {
+                  if (isConfirm === true) {
+                    console.log('Old Shop = ', Cookies.get('shop'));
+                    console.log('New Shop = ', thisShop);
+                    clearCart(function(){
+                        Cookies.set('shop', thisShop);
+                        console.log('Callback ClearCart: ',thisShop, jsonObj);
+                        addToCart(jsonObj, button);
+                    });
+                  }
+                });
+
+            }
+
+        } else {
+            Cookies.set('shop', thisShop);
+            console.log('Add to cart: First blood');
+            addToCart( jsonObj, button );
+        }
+
     });
 
     $(document).on('click', '.reservation-food .checkout-action', function(e){

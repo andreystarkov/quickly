@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 19:17:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 19:20:04
+* @Last Modified time: 2016-04-07 18:42:37
 */
 
 var CompanyListSidebar = React.createClass({
@@ -29,16 +29,10 @@ var CompanyListSidebar = React.createClass({
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Онлайн оплата</span></label>
             </div>
             <div className="checkbox control-item">
-              <label><input type="checkbox" name="somename" /> <span className="filter-name">Еда за баллы</span></label>
-            </div>
-            <div className="checkbox control-item">
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Работает сейчас</span></label>
             </div>
             <div className="checkbox control-item">
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Рядом со мной</span></label>
-            </div>
-            <div className="checkbox control-item">
-              <label><input type="checkbox" name="somename" /> <span className="filter-name">Новые</span></label>
             </div>
         </div>
         )

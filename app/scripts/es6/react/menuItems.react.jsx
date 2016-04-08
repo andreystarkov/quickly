@@ -10,20 +10,24 @@ var CategoriesListActions = require('./actions/categoriesListActions.js');
 var CategoriesList = require('./categoriesList.react.jsx');
 
 var SingleMenuItem = React.createClass({
+    addToCart: function(e){
+        console.log('clicked', this.props.item.restaurant_id);
+    },
     render: function(){
         var item = this.props.item;
         var itemImage = imageBaseUrl+item.menu_item_image;
         if (item.menu_item_image === undefined || item.menu_item_image === null || item.menu_item_image == '') { itemImage = 'images/samples/2.png'; }
+        console.log(this.props.item, this.props.item.restaurant_id);
         return(
         <div className="col-lg-4 col-xs-6 food-item">
             <div className="inner">
                 <div className="product-image">
                     <img src={itemImage} />
                     <div className="product-controls">
-                        <button className="button main add-to-cart"
+                        <button onClick={this.addToCart} className="button main add-to-cart"
                         data-name={item.menu_item_name}
                         data-price={item.menu_item_price}
-                        data-id={item.menu_item_id}>В корзину</button>
+                        data-id={item.menu_item_id} data-restaurant={item.restaurant_id}>В корзину</button>
                     </div>
                 </div>
 

@@ -13,6 +13,7 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var babel = require('babelify');
 var uglify = require('gulp-uglify');
+var sftp = require('gulp-sftp');
 
 var runSequence = require('run-sequence').use(gulp);
 
@@ -151,6 +152,16 @@ gulp.task('production-copy-html', function() {
 
 var scp = require('gulp-scp2');
 
+gulp.task('sftp', function() {
+  return gulp.src('./app/app/*')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.username,
+        pass: secrets.password,
+        remotePath: '/home/app/quickly-landing/_/app/app/'
+      }));
+});
+
 gulp.task('upload', function(callback) {
 return runSequence(
         'deploy',
@@ -160,14 +171,35 @@ return runSequence(
         callback);
 });
 
-gulp.task('deploy', function() {
-  return gulp.src('./app/app/**/*')
+var rsync  = require('gulp-rsync');
+
+gulp.task('rsync', function() {
+  return gulp.src('./app/app/*')
+    .pipe(rsync({
+    destination: secrets.path+'app/',
+  //  root: './app/app/*',
+    hostname: secrets.host,
+    username: secrets.username,
+    incremental: true,
+    progress: true,
+    relative: true,
+    emptyDirectories: true,
+    recursive: true,
+    clean: true,
+    exclude: ['.DS_Store'],
+    include: []
+  }));
+});
+
+
+gulp.task('deploy', [], function(cb) {
+  return gulp.src('./app/app/*')
   .pipe(scp({
     host: secrets.host,
     username: secrets.username,
     password: secrets.password,
     dest: secrets.path+'app/'
-  }))
+  }, cb))
   .on('error', function(err) {
     console.log('Deploy error: ',err);
   });
@@ -240,6 +272,15 @@ gulp.task('scripts-deploy', function(callback) {
         callback)
 });
 
+gulp.task('the-deploy', function(callback) {
+    runSequence(
+        'styles',
+        'scripts',
+        'scripts-es6',
+        'sftp',
+        callback)
+});
+
 gulp.task('styles-deploy', function(callback) {
     runSequence(
         'styles',
@@ -247,25 +288,25 @@ gulp.task('styles-deploy', function(callback) {
         callback)
 });
 
-gulp.task('watch-deploy', function(){
+gulp.task('sftp-watch', function(){
     gulp.watch('app/libs/**/*.js', {
         interval: 800
-    }, ['build-deploy']);
+    }, ['the-deploy']);
     gulp.watch('app/libs/**/*.less', {
         interval: 800
-    }, ['build-deploy']);
+    }, ['the-deploy']);
     gulp.watch('app/scripts/**/*.jsx', {
         interval: 800
-    }, ['build-deploy']);
+    }, ['the-deploy']);
     gulp.watch('app/scripts/**/*.js', {
         interval: 800
-    }, ['js', 'deploy']);
+    }, ['the-deploy']);
     gulp.watch('app/styles/**/*.less', {
         interval: 800
-    }, ['build-deploy']);
+    }, ['the-deploy']);
     gulp.watch('app/*.html', {
         interval: 800
-    }, ['deploy-html']);
+    }, ['the-deploy']);
 });
 
 gulp.task('watch', function() {

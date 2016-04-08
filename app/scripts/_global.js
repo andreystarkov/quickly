@@ -14,6 +14,8 @@ var devMode = false;
 var currentVersion = '0.1.5';
 var serverHost = location.host.trim();
 
+var currentShop = Cookies.get('shop')
+
 console.log('Server: ', serverHost);
 
 if (serverHost == "quickly.box") devMode = true;

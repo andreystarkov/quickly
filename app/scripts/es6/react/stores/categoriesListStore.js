@@ -24,8 +24,8 @@ var CategoriesListStore = Reflux.createStore({
         var firstCategory = some.categories[0];
         if( firstCategory ){
           console.log('CategoriesListStore: First Id = ', firstCategory.category_id);
+          MenuItemsActions.updateData(firstCategory.category_id);
         }
-
         some.trigger(some.categories);
       });
     }

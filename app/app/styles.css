@@ -6712,6 +6712,9 @@ html {
   background: #E2E0D3;
   text-align: center;
 }
+.bottom-panel .checkout-total {
+  line-height: 20px;
+}
 .bottom-panel .checkout-order-inner {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;

@@ -5,7 +5,6 @@ function templateCartFooter(){
         totalPrice += value.price;
         totalCount++;
     });
-
     var out = `
         <div class="row">
             <div class="col-lg-8">
@@ -26,11 +25,17 @@ function hideCart(){
     $('#cartBottomPanel').addClass('cart-empty');
 }
 
-export function clearCart(){
+export function clearCart(callback){
     localStorage.removeItem('theCart');
     theCart.contents = [];
     console.log('clearCart: cleared');
-    hideCart();
+    Cookies.remove('shop');
+    $('.checkout-close').click();
+    $('#cartBottomPanel').addClass('cart-empty');
+
+    $('#cartBottomPanel').velocity('transition.slideDownOut', { duration: 400 }, function(){
+        if (callback) callback();
+    });
 }
 
 export function refreshCart(){
@@ -38,44 +43,43 @@ export function refreshCart(){
     var cartContents = getStorage('theCart');
     var tables = getStorage('theReservation');
 
-        var foodCount = 0, tablesCount = 0, totalCount;
+    var foodCount = 0, tablesCount = 0, totalCount;
 
-        if(cartContents !== null) foodCount = cartContents.length;
-        if(tables !== null) tablesCount = 1
+    if( cartContents ) foodCount = cartContents.length;
+    if( tables ) tablesCount = 1;
 
-        totalCount = tablesCount+foodCount;
-        if( totalCount == 0 ) {
-            console.log('refreshCart: Cart is empty');
-            localStorage.removeItem('theCart');
-            clearCart();
-        } else {
-            $('.checkout-total').html(totalCount);
+    totalCount = tablesCount+foodCount;
 
+    if( totalCount == 0 ) {
+        console.log('refreshCart: Cart is empty');
+        localStorage.removeItem('theCart');
+        Cookies.remove('shop');
+        clearCart();
+    } else {
+        $('.checkout-total').html(totalCount);
 
-            if(cartPanel.hasClass('cart-empty')){
-                console.log('refreshCart: cart empty is set');
-                cartPanel.removeClass('cart-empty');
-                cartPanel.css({opacity:1}).velocity('transition.slideUpBigIn', { duration: 600 });
-            }
-
-            var uniqueList;
-            var uniqueCount = _.countBy(cartContents, "id");
-            var uniqueList = _.uniq(cartContents, "id");
-            var tablesList = _.uniq(tables, "id");
-
-            var cartTable = null;
-
-            var tablesList, foodList;
-
-            if(tables !== null) tablesList += pasteCartTable(tables);
-
-            $.each(uniqueList, function(key, value){
-               foodList += pasteCartElement(value,uniqueCount[value.id], key);
-            });
-
-            $('.checkout-contents').html(tablesList+foodList);
-            $('.checkout-footer').html(templateCartFooter());
+        if(cartPanel.hasClass('cart-empty')){
+            console.log('refreshCart: cart empty is set');
+            cartPanel.removeClass('cart-empty');
+            cartPanel.css({opacity:1}).velocity('transition.slideUpBigIn', { duration: 600 });
         }
+
+        var uniqueList;
+        var uniqueCount = _.countBy(cartContents, "id");
+        var uniqueList = _.uniq(cartContents, "id");
+        var tablesList = _.uniq(tables, "id");
+        var cartTable = null;
+        var tablesList, foodList;
+
+        if(tables !== null) tablesList += pasteCartTable(tables);
+
+        $.each(uniqueList, function(key, value){
+           foodList += pasteCartElement(value,uniqueCount[value.id], key);
+        });
+
+        $('.checkout-contents').html(tablesList+foodList);
+        $('.checkout-footer').html(templateCartFooter());
+    }
 
 }
 
