@@ -30,7 +30,7 @@ export function createOrder(callback){
         porch = $('#checkout-porch').val(),
         floor = $('#checkout-floor').val(),
         apartment = $('#checkout-apartment').val(),
-        restaurauntId = currentCompany;
+        restaurantId;
 
     console.log('createOrder: uniqueList = ', uniqueList);
     console.log('createOrder: uniqueCount = ', uniqueCount);
@@ -39,21 +39,13 @@ export function createOrder(callback){
     var summary = [];
     var tables = [];
 
-    for(i = 0; i < uniqueList.length; i++){
+    for(var i = 0; i < uniqueList.length; i++){
         var row = {};
-
-        if ( uniqueList[i].type == 'food'){
-            row['menu_item_id'] = uniqueList[i].id,
-            row['menu_item_price'] = uniqueList[i].price,
-            row['count'] = uniqueCount[uniqueList[i].id];
-            summary.push(row);
-        } else {
-            row['id'] = uniqueList[i].id,
-            row['price'] = uniqueList[i].price,
-            row['count'] = uniqueList[i].count,
-            row['hall'] = uniqueList[i].hall
-            tables.push(row);
-        }
+        restaurantId = uniqueList[i].restaurant;
+        row['menu_item_id'] = uniqueList[i].id,
+        row['menu_item_price'] = uniqueList[i].price,
+        row['count'] = uniqueCount[uniqueList[i].id];
+        summary.push(row);
     }
 
     console.log('createOrder: summary = ', summary);
@@ -62,7 +54,7 @@ export function createOrder(callback){
 
     var params = {
         token: userToken,
-        restaurantId: currentCompany,
+        restaurantId: restaurantId,
         menuItems: summary,
         street: street,
         usedBonus: usedBonus,
@@ -76,6 +68,7 @@ export function createOrder(callback){
         comment: comment
     };
 
+    console.log('createOrder: params = ', params);
 
     $.ajax({
         type: 'POST',

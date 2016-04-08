@@ -71,15 +71,16 @@ export function getHallsList(restaurantId, callback){
     var box = $('#hallsBox');
     $.getJSON(serverUrl+'/api/v2/reservation/halls/'+restaurantId, function(data){
         console.log('getHallsList: ', data);
+        var hallsList = ``;
         if( data.result ){
             var halls = data.result.halls;
             console.log('getHallsList: ', halls);
-            $.each(halls, function(hall, index){
-                box.append(`
-                    <button class="button light button-hall" data-id="${hall.hall_id}">${hall.hall_name}</button>
-                `);
+            $.each(halls, function(index, hall){
+                console.log('Hall: ', hall);
+                hallsList += '<button class="hall-button light button-hall" data-id="'+hall.hall_id+'">'+hall.hall_name+'</button>';
             });
-
+            console.log('hallsList: ', hallsList);
+            box.html(hallsList);
             callback(data.result.halls);
         }
     });
@@ -96,7 +97,7 @@ export function getReservationPointsList(hallId, theDate){
         console.log('getReservationPointsList: Using Timestamp = ', theDate);
         console.log('getReservationPointsList: ', data);
         var tableType = 0;
-        $('#roomBox').append(`
+        $('#roomBox').html(`
             <div class="the-room">
             <img src="${hallsUrl}${data.params.hall.hall_image}"></div>`);
             $.each(data.params.tables, function(index,value){
@@ -165,6 +166,16 @@ $(function() {
         format: 'DD-MM-YYYY',
         locale: 'ru',
         defaultDate: moment().valueOf()
+    });
+
+    $(document).on('click', '.button-hall', function(event){
+        $(this).addClass('main');
+        $('.button-hall').removeClass('main');
+        var time = getReservationUnixTime();
+        var id = $(this).data('id');
+        console.log('Button Hall Clicked; Time = ',time);
+        console.log('Restaurant ID: ', id);
+        getReservationPointsList(id, time);
     });
 
     $(document).on('click', '#buttonCheckoutDelivery', function(event){

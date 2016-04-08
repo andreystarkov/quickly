@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-30 02:26:15
+* @Last Modified time: 2016-04-08 17:10:11
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -107,7 +107,7 @@ var SingleCompany = React.createClass({
         console.log('SingleCompany: Next ID: ' ,company);
         currentCompany = company;
         CompanyDetailsActions.updateData(company);
-        MenuItemsActions.updateData(company);
+        MenuItemsActions.updateDataById(company);
         CategoriesListActions.updateData(company);
         showScreen('pageCompany');
     },

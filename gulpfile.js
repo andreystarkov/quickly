@@ -162,6 +162,26 @@ gulp.task('sftp', function() {
       }));
 });
 
+gulp.task('sftp-html', function() {
+  return gulp.src('./app/index.html')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.username,
+        pass: secrets.password,
+        remotePath: '/home/app/quickly-landing/_/app/'
+      }));
+});
+
+gulp.task('sftp-images', function() {
+  return gulp.src('./app/images/**/*')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.username,
+        pass: secrets.password,
+        remotePath: '/home/app/quickly-landing/_/app/images/'
+      }));
+});
+
 gulp.task('upload', function(callback) {
 return runSequence(
         'deploy',
@@ -174,7 +194,7 @@ return runSequence(
 var rsync  = require('gulp-rsync');
 
 gulp.task('rsync', function() {
-  return gulp.src('./app/app/*')
+  return gulp.src(['./app/index.html','./app/app/*'])
     .pipe(rsync({
     destination: secrets.path+'app/',
   //  root: './app/app/*',
@@ -277,6 +297,7 @@ gulp.task('the-deploy', function(callback) {
         'styles',
         'scripts',
         'scripts-es6',
+        'sftp-html',
         'sftp',
         callback)
 });

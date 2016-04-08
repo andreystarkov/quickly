@@ -20,8 +20,13 @@ var CompanyDetails = React.createClass({
         companyData: []
       };
     },
-    componentWillUpdate: function() {
+    componentDidUpdate: function() {
+
+    },
+    render: function() {
+
         var data = this.state.companyData;
+
         if (data){
             var type = data.restaurant_type;
             if ( (type == 1) || (type == 3) ){
@@ -35,8 +40,7 @@ var CompanyDetails = React.createClass({
                 this.isReservation = false;
             }
         } else console.log('CompanyDetails: data is undefined');
-    },
-    render: function() {
+
         var company = this.state.companyData;
         var cuisinesSelect;
 
@@ -57,7 +61,7 @@ var CompanyDetails = React.createClass({
         } else {
             console.log('CompanyDetails: No comments ('+company.comments_count+')');
         }
-
+        //                     <span className="hidden-force">{company.restaurant_info}</span>
         var rating = company.restaurant_rating;
         return (
         <div className="container">
@@ -66,13 +70,15 @@ var CompanyDetails = React.createClass({
                     <div className="logo round">
                         <img src={image} />
                     </div>
-                    <div className="title"><h2>{company.restaurant_name}</h2><span>{company.restaurant_info}</span></div>
+                    <div className="title"><h2>{company.restaurant_name}</h2>
+
+                </div>
                 </div>
                 <div className="col-lg-10 the-info">
                     <div className="line types">
                         <i className="fi-dishes icon"></i> {cuisinesSelect}
                         <div className="rating">
-                            <span>{rating}</span>
+                            <span>{rating}.0</span>
                         </div>
                     </div>
                     <div className="line delivery">

@@ -18,6 +18,11 @@ var SingleMenuItem = React.createClass({
         var itemImage = imageBaseUrl+item.menu_item_image;
         if (item.menu_item_image === undefined || item.menu_item_image === null || item.menu_item_image == '') { itemImage = 'images/samples/2.png'; }
         console.log(this.props.item, this.props.item.restaurant_id);
+
+/*        if ( !isUrlExists(itemImage) ) {
+            console.log('Image doesnt exists ', itemImage);
+            itemImage = "images/placeholder.png";
+        }*/
         return(
         <div className="col-lg-4 col-xs-6 food-item">
             <div className="inner">

@@ -199,7 +199,7 @@ function createOrder(callback) {
         porch = $('#checkout-porch').val(),
         floor = $('#checkout-floor').val(),
         apartment = $('#checkout-apartment').val(),
-        restaurauntId = currentCompany;
+        restaurantId;
 
     console.log('createOrder: uniqueList = ', uniqueList);
     console.log('createOrder: uniqueCount = ', uniqueCount);
@@ -208,16 +208,11 @@ function createOrder(callback) {
     var summary = [];
     var tables = [];
 
-    for (i = 0; i < uniqueList.length; i++) {
+    for (var i = 0; i < uniqueList.length; i++) {
         var row = {};
-
-        if (uniqueList[i].type == 'food') {
-            row['menu_item_id'] = uniqueList[i].id, row['menu_item_price'] = uniqueList[i].price, row['count'] = uniqueCount[uniqueList[i].id];
-            summary.push(row);
-        } else {
-            row['id'] = uniqueList[i].id, row['price'] = uniqueList[i].price, row['count'] = uniqueList[i].count, row['hall'] = uniqueList[i].hall;
-            tables.push(row);
-        }
+        restaurantId = uniqueList[i].restaurant;
+        row['menu_item_id'] = uniqueList[i].id, row['menu_item_price'] = uniqueList[i].price, row['count'] = uniqueCount[uniqueList[i].id];
+        summary.push(row);
     }
 
     console.log('createOrder: summary = ', summary);
@@ -226,7 +221,7 @@ function createOrder(callback) {
 
     var params = {
         token: userToken,
-        restaurantId: currentCompany,
+        restaurantId: restaurantId,
         menuItems: summary,
         street: street,
         usedBonus: usedBonus,
@@ -239,6 +234,8 @@ function createOrder(callback) {
         persons_count: parseInt(personsCount),
         comment: comment
     };
+
+    console.log('createOrder: params = ', params);
 
     $.ajax({
         type: 'POST',
@@ -515,10 +512,10 @@ module.exports = CuisinesActions;
 * @Author: Andrey Starkov
 * @Date:   2016-03-31 23:13:33
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-01 00:37:36
+* @Last Modified time: 2016-04-08 17:01:29
 */
 
-var MenuItemsActions = Reflux.createActions(['fetchList', 'updateData']);
+var MenuItemsActions = Reflux.createActions(['fetchList', 'updateData', 'updateDataById']);
 
 module.exports = MenuItemsActions;
 
@@ -732,8 +729,11 @@ var CompanyDetails = React.createClass({
             companyData: []
         };
     },
-    componentWillUpdate: function componentWillUpdate() {
+    componentDidUpdate: function componentDidUpdate() {},
+    render: function render() {
+
         var data = this.state.companyData;
+
         if (data) {
             var type = data.restaurant_type;
             if (type == 1 || type == 3) {
@@ -747,8 +747,7 @@ var CompanyDetails = React.createClass({
                 this.isReservation = false;
             }
         } else console.log('CompanyDetails: data is undefined');
-    },
-    render: function render() {
+
         var company = this.state.companyData;
         var cuisinesSelect;
 
@@ -766,7 +765,7 @@ var CompanyDetails = React.createClass({
         } else {
             console.log('CompanyDetails: No comments (' + company.comments_count + ')');
         }
-
+        //                     <span className="hidden-force">{company.restaurant_info}</span>
         var rating = company.restaurant_rating;
         return React.createElement(
             'div',
@@ -789,11 +788,6 @@ var CompanyDetails = React.createClass({
                             'h2',
                             null,
                             company.restaurant_name
-                        ),
-                        React.createElement(
-                            'span',
-                            null,
-                            company.restaurant_info
                         )
                     )
                 ),
@@ -812,7 +806,8 @@ var CompanyDetails = React.createClass({
                             React.createElement(
                                 'span',
                                 null,
-                                rating
+                                rating,
+                                '.0'
                             )
                         )
                     ),
@@ -1649,7 +1644,7 @@ var _screens = require('../../screens.jsx');
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-30 02:26:15
+* @Last Modified time: 2016-04-08 17:10:11
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -1826,7 +1821,7 @@ var SingleCompany = React.createClass({
         console.log('SingleCompany: Next ID: ', company);
         currentCompany = company;
         CompanyDetailsActions.updateData(company);
-        MenuItemsActions.updateData(company);
+        MenuItemsActions.updateDataById(company);
         CategoriesListActions.updateData(company);
         (0, _screens.showScreen)('pageCompany');
     },
@@ -2262,6 +2257,11 @@ var SingleMenuItem = React.createClass({
             itemImage = 'images/samples/2.png';
         }
         console.log(this.props.item, this.props.item.restaurant_id);
+
+        /*        if ( !isUrlExists(itemImage) ) {
+                    console.log('Image doesnt exists ', itemImage);
+                    itemImage = "images/placeholder.png";
+                }*/
         return React.createElement(
             'div',
             { className: 'col-lg-4 col-xs-6 food-item' },
@@ -3407,11 +3407,11 @@ var CategoriesListStore = Reflux.createStore({
     $.getJSON(url, function (data) {
       console.log('CategoriesListStore: fetchList: data = ', data);
       some.categories = data.result.categories;
-      var firstCategory = some.categories[0];
-      if (firstCategory) {
-        console.log('CategoriesListStore: First Id = ', firstCategory.category_id);
-        MenuItemsActions.updateData(firstCategory.category_id);
-      }
+      /*        var firstCategory = some.categories[0];
+              if( firstCategory ){
+                console.log('CategoriesListStore: First Id = ', firstCategory.category_id);
+                MenuItemsActions.updateData(firstCategory.category_id);
+              }*/
       some.trigger(some.categories);
     });
   }
@@ -3692,7 +3692,7 @@ module.exports = CuisinesStore;
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:40:22
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-07 21:11:24
+* @Last Modified time: 2016-04-08 18:36:29
 */
 
 var MenuItemsActions = require('../actions/menuItemsActions.js');
@@ -3705,17 +3705,23 @@ var MenuItemsStore = Reflux.createStore({
     init: function init() {
         //        this.fetchList();
     },
+    updateDataById: function updateDataById(newId) {
+        this.sourceUrl = serverUrl + '/api/v3/menu-items/get/by-restaurant?restaurantId=' + newId;
+        console.log('MenuItemsStore: updateDataById() companyId = ' + newId);
+        this.fetchList();
+    },
     updateData: function updateData(newId) {
         this.currentCategory = newId;
+        this.sourceUrl = serverUrl + '/api/v2/menu-items/get/' + newId;
         console.log('MenuItemsStore: updateData() companyId = ' + newId);
         this.fetchList();
     },
     fetchList: function fetchList() {
         var some = this;
-        var url = this.sourceUrl + this.currentCategory;
-        console.log('MenuItemsStore: fetchList() url = ', url);
-        $.getJSON(url, function (data) {
-            console.log('MenuItemsStore fetchList', data.result.menuItems);
+        //  var url = this.sourceUrl+this.currentCategory;
+        console.log('MenuItemsStore: fetchList() url = ', this.sourceUrl);
+        $.getJSON(this.sourceUrl, function (data) {
+            console.log('MenuItemsStore fetchList', data);
             some.menuItems = data.result.menuItems;
             some.trigger(some.menuItems);
         });
@@ -3903,13 +3909,16 @@ function getHallsList(restaurantId, callback) {
     var box = $('#hallsBox');
     $.getJSON(serverUrl + '/api/v2/reservation/halls/' + restaurantId, function (data) {
         console.log('getHallsList: ', data);
+        var hallsList = "";
         if (data.result) {
             var halls = data.result.halls;
             console.log('getHallsList: ', halls);
-            $.each(halls, function (hall, index) {
-                box.append("\n                    <button class=\"button light button-hall\" data-id=\"" + hall.hall_id + "\">" + hall.hall_name + "</button>\n                ");
+            $.each(halls, function (index, hall) {
+                console.log('Hall: ', hall);
+                hallsList += '<button class="hall-button light button-hall" data-id="' + hall.hall_id + '">' + hall.hall_name + '</button>';
             });
-
+            console.log('hallsList: ', hallsList);
+            box.html(hallsList);
             callback(data.result.halls);
         }
     });
@@ -3926,7 +3935,7 @@ function getReservationPointsList(hallId, theDate) {
         console.log('getReservationPointsList: Using Timestamp = ', theDate);
         console.log('getReservationPointsList: ', data);
         var tableType = 0;
-        $('#roomBox').append("\n            <div class=\"the-room\">\n            <img src=\"" + hallsUrl + data.params.hall.hall_image + "\"></div>");
+        $('#roomBox').html("\n            <div class=\"the-room\">\n            <img src=\"" + hallsUrl + data.params.hall.hall_image + "\"></div>");
         $.each(data.params.tables, function (index, value) {
 
             if (value.table_type == 0) tableType = "\n                    <div class=\"type\">Беплатный</div>\n                    ";
@@ -3966,6 +3975,16 @@ $(function () {
         format: 'DD-MM-YYYY',
         locale: 'ru',
         defaultDate: moment().valueOf()
+    });
+
+    $(document).on('click', '.button-hall', function (event) {
+        $(this).addClass('main');
+        $('.button-hall').removeClass('main');
+        var time = getReservationUnixTime();
+        var id = $(this).data('id');
+        console.log('Button Hall Clicked; Time = ', time);
+        console.log('Restaurant ID: ', id);
+        getReservationPointsList(id, time);
     });
 
     $(document).on('click', '#buttonCheckoutDelivery', function (event) {
@@ -4146,7 +4165,7 @@ function pasteCheckoutFormUnregistered() {
         if (profile.userName) userName = profile.userName;
         if (profile.userPhone) userPhone = profile.userPhone;
     }
-    var out = '\n    <div class="checkout-form">\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-6 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-name" class="control-label">Ваше имя</label>\n                        <input type="text" class="form-control" id="checkout-name" value=' + userName + '>\n                    </div>\n                </div>\n                <div class="col-lg-6 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-phone" class="control-label">Телефон</label>\n                        <input type="text" class="form-control" id="checkout-phone" value="' + userPhone + '">\n                    </div>\n                </div>\n            </div>\n            <div class="row">\n                <div class="col-lg-4 col-xs-4">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-street" class="control-label">Улица</label>\n                        <input type="text" class="form-control" id="checkout-street">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-building" class="control-label">Дом</label>\n                        <input type="text" class="form-control" id="checkout-building">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-apartment" class="control-label">Квартира</label>\n                        <input type="text" class="form-control" id="checkout-apartment">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-porch" class="control-label">Подьезд</label>\n                        <input type="text" class="form-control" id="checkout-porch">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-floor" class="control-label">Этаж</label>\n                        <input type="text" class="form-control" id="checkout-floor">\n                    </div>\n                </div>\n                <div class="col-lg-4 col-xs-12">\n                    <div class="form-group label-floating required" style="margin-top:30px">\n                        <label for="checkout-persons" class="control-label" value="1">Количество персон</label>\n                        <input type="search" class="form-control" id="checkout-persons">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="control-group">\n            <div class="row radio-box">\n                <div class="col-lg-6">\n                    <div class="the-label">\n                        <span>Способ оплаты</span>\n                    </div>\n                    <div class="form-group radio-group">\n                        <div class="radio radio-primary">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked>\n                              <span class="circle"></span><span class="check"></span>\n                              Наличными\n                            </label>\n                        </div>\n                        <div class="radio radio-primary">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1">\n                              <span class="circle"></span><span class="check"></span>\n                              По карте курьеру\n                            </label>\n                        </div>\n                        <div class="radio radio-primary" class="display:none">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2">\n                              <span class="circle"></span><span class="check"></span>\n                              По карте онлайн\n                            </label>\n                        </div>\n                    </div>\n                </div>\n                <div class="col-lg-6">\n                    <div class="form-group label-floating">\n                        <label for="checkout-phone" class="control-label">Сколько наличными?</label>\n                        <input type="text" class="form-control" id="checkout-cash">\n                    </div>\n                    <div class="form-group label-floating">\n                        <label for="checkout-phone" class="control-label">Сколько <span class="fa fa-rouble"></span>-бонусов использовать?</label>\n                        <input type="text" class="form-control" id="checkout-bonus">\n                        <div class="bonus-count">\n                            У вас есть ' + bonusCount + ' <span class="fa fa-rouble"></span>-бонусов\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-8">\n                    <div class="form-group label-floating" style="margin-top:30px">\n                        <label for="checkout-comment" class="control-label">Комментарий</label>\n                        <input type="search" class="form-control" id="checkout-comment">\n                    </div>\n                </div>\n            </div>\n\n        </div>\n        <div class="checkout-buttons">\n            <div class="row">\n                <div class="col-lg-6 col-xs-6">\n                    <div class="button main" id="buttonCheckoutDelivery">оформить доставку</div>\n                </div>\n                <div class="col-lg-6 col-xs-6">\n                    <div class="button main" id="buttonCheckoutReservation">Забронировать стол</div>\n                </div>\n            </div>\n        </div>\n    </div>\n    ';
+    var out = '\n    <div class="checkout-form">\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-6 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-name" class="control-label">Ваше имя</label>\n                        <input type="text" class="form-control" id="checkout-name" value=' + userName + '>\n                    </div>\n                </div>\n                <div class="col-lg-6 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-phone" class="control-label">Телефон</label>\n                        <input type="text" class="form-control" id="checkout-phone" value="' + userPhone + '">\n                    </div>\n                </div>\n            </div>\n            <div class="row">\n                <div class="col-lg-4 col-xs-4">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-street" class="control-label">Улица</label>\n                        <input type="text" class="form-control" id="checkout-street">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-building" class="control-label">Дом</label>\n                        <input type="text" class="form-control" id="checkout-building">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-apartment" class="control-label">Квартира</label>\n                        <input type="text" class="form-control" id="checkout-apartment">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-porch" class="control-label">Подьезд</label>\n                        <input type="text" class="form-control" id="checkout-porch">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-floor" class="control-label">Этаж</label>\n                        <input type="text" class="form-control" id="checkout-floor">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="control-group">\n            <div class="row radio-box">\n                <div class="col-lg-6">\n                    <div class="the-label">\n                        <span>Способ оплаты</span>\n                    </div>\n                    <div class="form-group radio-group">\n                        <div class="radio radio-primary">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked>\n                              <span class="circle"></span><span class="check"></span>\n                              Наличными\n                            </label>\n                        </div>\n                        <div class="radio radio-primary">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1">\n                              <span class="circle"></span><span class="check"></span>\n                              По карте курьеру\n                            </label>\n                        </div>\n                        <div class="radio radio-primary" class="display:none">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2">\n                              <span class="circle"></span><span class="check"></span>\n                              По карте онлайн\n                            </label>\n                        </div>\n                    </div>\n                </div>\n                <div class="col-lg-6">\n                    <div class="form-group label-floating">\n                        <label for="checkout-phone" class="control-label">Сколько наличными?</label>\n                        <input type="text" class="form-control" id="checkout-cash">\n                    </div>\n                    <div class="form-group label-floating">\n                        <label for="checkout-phone" class="control-label">Сколько <span class="fa fa-rouble"></span>-бонусов использовать?</label>\n                        <input type="text" class="form-control" id="checkout-bonus">\n                        <div class="bonus-count">\n                            У вас есть ' + bonusCount + ' <span class="fa fa-rouble"></span>-бонусов\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-4">\n                    <div class="form-group label-floating required" style="margin-top:30px">\n                        <label for="checkout-persons" class="control-label" value="1">Количество персон</label>\n                        <input type="search" class="form-control" id="checkout-persons">\n                    </div>\n                </div>\n                <div class="col-lg-8">\n                    <div class="form-group label-floating" style="margin-top:30px">\n                        <label for="checkout-comment" class="control-label">Комментарий</label>\n                        <input type="search" class="form-control" id="checkout-comment">\n                    </div>\n                </div>\n            </div>\n\n        </div>\n        <div class="checkout-buttons">\n            <div class="row">\n                <div class="col-lg-6 col-xs-6">\n                    <div class="button main" id="buttonCheckoutDelivery">оформить доставку</div>\n                </div>\n                <div class="col-lg-6 col-xs-6">\n                    <div class="button main" id="buttonCheckoutReservation">Забронировать стол</div>\n                </div>\n            </div>\n        </div>\n    </div>\n    ';
     return out;
 }
 
@@ -4195,9 +4214,11 @@ $(function () {
 
         var is = _.where(theCart.contents, { restaurant: thisShop });
         var one;
+
         $.each(is, function (the, index) {
             one = is;
         });
+
         var first;
 
         if (theCart.contents.length > 0) first = theCart.contents[0];

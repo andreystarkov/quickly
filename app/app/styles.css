@@ -7959,6 +7959,7 @@ body .form-group {
 .table-number {
   text-align: center;
   /* height: 100px; */
+  line-height: 30px;
   border-radius: 100px;
   padding: 4px;
   display: inline-block;
@@ -8907,6 +8908,8 @@ body .company-item .background-image img {
   margin-bottom: 6px;
 }
 .food-category .food-item .inner .product-image {
+  background-image: url(../images/placeholder.png);
+  background-size: cover;
   display: block;
   left: 0;
   top: 0;
@@ -9365,10 +9368,10 @@ section.company-about .line {
 }
 section.company-about .line .rating {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0px;
+  right: 5px;
   color: #fff;
-  padding: 12px 6px;
+  padding: 6px 6px;
   background: #109634;
   border-radius: 4px;
 }
@@ -19819,6 +19822,9 @@ Slider
     transform: scale(1) translate(0%, 0%);
   }
 }
+.hidden-force {
+  display: none;
+}
 .city-select .form-control {
   font-size: 1em;
 }
@@ -19827,6 +19833,12 @@ Slider
 }
 .form-auth {
   margin-top: 14px;
+}
+.halls-box {
+  margin-bottom: 20px;
+}
+.tab-reservation {
+  padding-top: 15px;
 }
 .slideout-menu {
   position: fixed;

@@ -76,12 +76,6 @@ function pasteCheckoutFormUnregistered(){
                         <input type="text" class="form-control" id="checkout-floor">
                     </div>
                 </div>
-                <div class="col-lg-4 col-xs-12">
-                    <div class="form-group label-floating required" style="margin-top:30px">
-                        <label for="checkout-persons" class="control-label" value="1">Количество персон</label>
-                        <input type="search" class="form-control" id="checkout-persons">
-                    </div>
-                </div>
             </div>
         </div>
         <div class="control-group">
@@ -131,6 +125,12 @@ function pasteCheckoutFormUnregistered(){
         </div>
         <div class="control-group">
             <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group label-floating required" style="margin-top:30px">
+                        <label for="checkout-persons" class="control-label" value="1">Количество персон</label>
+                        <input type="search" class="form-control" id="checkout-persons">
+                    </div>
+                </div>
                 <div class="col-lg-8">
                     <div class="form-group label-floating" style="margin-top:30px">
                         <label for="checkout-comment" class="control-label">Комментарий</label>
@@ -200,9 +200,11 @@ $(function() {
 
         var is = _.where(theCart.contents, {restaurant: thisShop});
         var one;
+
         $.each( is, function(the, index){
             one = is;
         });
+
         var first;
 
         if( theCart.contents.length > 0 ) first = theCart.contents[0];

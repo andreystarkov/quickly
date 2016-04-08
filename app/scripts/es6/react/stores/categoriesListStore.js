@@ -21,11 +21,11 @@ var CategoriesListStore = Reflux.createStore({
       $.getJSON(url, function (data) {
         console.log('CategoriesListStore: fetchList: data = ', data);
         some.categories = data.result.categories;
-        var firstCategory = some.categories[0];
+/*        var firstCategory = some.categories[0];
         if( firstCategory ){
           console.log('CategoriesListStore: First Id = ', firstCategory.category_id);
           MenuItemsActions.updateData(firstCategory.category_id);
-        }
+        }*/
         some.trigger(some.categories);
       });
     }
