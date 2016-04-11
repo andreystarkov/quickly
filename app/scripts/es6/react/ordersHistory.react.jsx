@@ -3,6 +3,7 @@ import {addToCart, repeatOrder} from '../engine/addToCart.js';
 var routesMap = require('./routes/map.js');
 var OrdersHistoryStore = require('./stores/ordersHistoryStore.js');
 var HistoryActions = require('./actions/historyActions.js');
+var OrdersHistoryActions = require('./actions/ordersHistoryActions.js');
 
 var SingleOrderItem = React.createClass({
     render: function(){
@@ -100,7 +101,7 @@ var OrdersHistory = React.createClass({
       };
     },
     componentDidMount: function() {
-        HistoryActions.updateData();
+        OrdersHistoryActions.updateData();
     },
     loadMore: function(){
         this.limit += 5;

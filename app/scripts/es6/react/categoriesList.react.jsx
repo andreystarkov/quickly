@@ -17,10 +17,10 @@ var CategoryItem = React.createClass({
 		var item = this.props.item;
 		return (
 		<li className="category-line">
-			<button onClick={this.categoryToggle} className="category-toggle">
-        <i className="icon"></i>{item.category_name}
-      </button>
-    </li>
+    		<button onClick={this.categoryToggle} className="category-toggle">
+            <i className="icon"></i>{item.category_name}
+            </button>
+        </li>
 		)
 	}
 });
@@ -40,7 +40,7 @@ var CategoriesList = React.createClass({
      //   OrdersHistoryActions.updateData();
         var list = this.state.categories;
 
-				console.log('CategoriesList: ', list);
+		console.log('CategoriesList: ', list);
         var everything = list.map(function(the, i) {
             return <CategoryItem item={the} key={i} />
         });

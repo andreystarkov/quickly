@@ -3,6 +3,7 @@ var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
 var ReservationHistoryActions = require('./actions/reservationHistoryActions.js');
 var OrdersHistoryActions = require('./actions/reservationHistoryActions.js');
+var HistoryActions = require('./actions/historyActions.js');
 var CardsActions = require('./actions/cardsActions.js');
 var CardsStore = require('./stores/cardsStore.js');
 var ButtonTabToggle = require('./components/buttonTabToggle.js');
@@ -102,6 +103,7 @@ var ProfileEditorForm = React.createClass({
     },
     componentDidMount: function(){
         OrdersHistoryActions.fetchList();
+        HistoryActions.fetchList();
         ReservationHistoryActions.fetchList()
     },
     componentDidUpdate: function(){

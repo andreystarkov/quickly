@@ -67,6 +67,7 @@ var CompanyDetails = React.createClass({
         }
 
         var rating = company.restaurant_rating;
+
         return (
         <div className="container">
             <div className="row">

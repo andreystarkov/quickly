@@ -46922,10 +46922,10 @@ $(function() {
 
     theReservation.contents = getStorage('theReservation');
 
-    $.material.init();
-
-    removeHoverCSSRule();
+   // removeHoverCSSRule();
     initTabs();
+
+    $.material.init();
 
     var isMobile = false;
 

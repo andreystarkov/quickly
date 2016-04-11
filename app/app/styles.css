@@ -29,6 +29,27 @@
 @import url("//cdnjs.cloudflare.com/ajax/libs/rateYo/2.0.1/jquery.rateyo.min.css");
 @import "../libs/sweetalert2/dist/sweetalert2.css";
 @import "../libs/toastr/toastr.css";
+@color M@time: .3s;
+.page-transition-enter {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  position: absolute;
+}
+.page-transition-enter.page-transition-enter-active {
+  opacity: 1;
+}
+.page-transition-leave {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  position: absolute;
+}
+.page-transition-leave.page-transition-leave-active {
+  opacity: 0;
+}
 /* cyrillic */
 @font-face {
     font-family: 'RobotoDraft';
@@ -19868,6 +19889,26 @@ Slider
     -moz-transform: scale(1) translate(0%, 0%);
     transform: scale(1) translate(0%, 0%);
   }
+}
+.page-transition-enter {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  position: absolute;
+}
+.page-transition-enter.page-transition-enter-active {
+  opacity: 1;
+}
+.page-transition-leave {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  position: absolute;
+}
+.page-transition-leave.page-transition-leave-active {
+  opacity: 0;
 }
 .logo svg {
   width: 65%;
