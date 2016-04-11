@@ -67,7 +67,7 @@ var SingleReservation = React.createClass({
     }
 })
 
-var OrdersReservation = React.createClass({
+var ReservationHistory = React.createClass({
     mixins: [Reflux.connect(ReservationHistoryStore, 'historyData')],
     limit: 5,
     getInitialState: function() {
@@ -101,4 +101,5 @@ var OrdersReservation = React.createClass({
     }
 });
 
-ReactDOM.render(<OrdersReservation />, document.getElementById('reservationHistory'));
+module.exports = ReservationHistory;
+// ReactDOM.render(<OrdersReservation />, document.getElementById('reservationHistory'));

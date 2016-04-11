@@ -18,6 +18,8 @@ var currentShop = Cookies.get('shop')
 
 console.log('Server: ', serverHost);
 
+var pathPrefix = '/app';
+
 if (serverHost == "quickly.box") devMode = true;
 if (serverHost == "quickly.su") devMode = false;
 
@@ -25,10 +27,12 @@ if (devMode) {
     var serverUrl = 'http://176.112.201.81';
     var imageBaseUrl = 'http://176.112.201.81/static/cdn';
     var hallsUrl = 'http://176.112.201.81/static/hallsCdn/';
+    console.log('Dev Mode Enabled', 'Server: '+serverUrl);
 } else {
     var serverUrl = 'http://quickly.su';
     var imageBaseUrl = 'http://quickly.su/static/cdn';
     var hallsUrl = 'http://quickly.su/static/hallsCdn/';
+    console.log('Dev Mode Disabled', 'Server: '+serverUrl);
 }
 
 $(function() {

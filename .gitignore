@@ -1,3 +1,5 @@
 node_modules
-./app/app/
+app/app/*
+build/*
+psd-templates/*
 secrets.json

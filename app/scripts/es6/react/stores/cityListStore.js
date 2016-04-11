@@ -1,4 +1,6 @@
 var CityListActions = require('../actions/cityListActions.js');
+var CityList = require('../cityList.react.jsx');
+
 var resultCity;
 
 function selectCityByName(cityName){
@@ -19,22 +21,30 @@ function selectCityByName(cityName){
           setStorage('city', selected);
 
           var currentCityId = selected.city_id;
-
+          console.log('City not Locked. ');
           $('#cityListSelect option').each(function(el){
               if( currentCityId == $(this).val() ){
-                console.log('selectCityByName: selected');
+                console.log('selectCityByName: Selecting city: ', $(this).html());
                 $(this).attr('selected', 'selected');
               }
           });
 
           currentCity = selected;
         } else {
-          console.log('City is locked!');
           var city = getStorage('city');
+          console.log('City is locked! Current: ',city);
           currentCity = city.city_id;
         }
     } else {
-        console.log('selectCityByName: Wrong city or whatever');
+        console.log('Wrong city or whatever');
+        console.log('Setting Default City');
+          $('#cityListSelect option').each(function(el){
+              if( $(this).val() == 3 ){
+                console.log('selectCityByName: selected');
+                $(this).attr('selected', 'selected');
+              }
+          });
+
     }
 }
 

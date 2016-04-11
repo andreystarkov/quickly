@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-08 17:10:11
+* @Last Modified time: 2016-04-11 15:15:35
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -101,15 +101,17 @@ var RatingStars = React.createClass({
     }
 });
 
+import {browserHistory} from 'react-router';
 var SingleCompany = React.createClass({
     toggleCompany: function(el){
+
         var company = this.props.company.restaurant_id;
         console.log('SingleCompany: Next ID: ' ,company);
         currentCompany = company;
         CompanyDetailsActions.updateData(company);
         MenuItemsActions.updateDataById(company);
         CategoriesListActions.updateData(company);
-        showScreen('pageCompany');
+        browserHistory.push(pathPrefix+'/shop/'+company);
     },
     render: function(){
         var total = 0;

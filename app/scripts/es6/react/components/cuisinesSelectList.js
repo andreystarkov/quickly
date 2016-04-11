@@ -1,12 +1,15 @@
 var CuisinesStore = require('../stores/cuisinesStore.js');
 var CompanyListActions = require('../actions/companyListActions.js');
+var CuisinesActions = require('../actions/cuisinesActions.js');
+import { browserHistory } from 'react-router';
+import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
 import {showScreen} from '../../screens.jsx';
-
+var pathPrefix = '/app'
 var SingleCuisine = React.createClass({
     toggleCategory: function(cuisine){
         CompanyListActions.selectByCuisine(this.props.cuisine);
-        showScreen('pageCompanyList');
+        browserHistory.push(pathPrefix+'/list/'+this.props.cuisine.cuisine_id);
     },
     render: function(){
         return(
@@ -46,7 +49,8 @@ var CuisinesSelectList = React.createClass({
       };
     },
     componentDidMount: function() {
-
+        CuisinesActions.fetchList();
+        console.log('CuisinesSelectList did moumt');
     },
     render: function() {
         var allCuisines = this.state.cuisinesData;

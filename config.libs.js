@@ -3,11 +3,11 @@ var theLibs = [
 
     // react with bros
 
-    'app/libs/react/react.js',
+    'app/libs/react/react-with-addons.js',
     'app/libs/react/react-dom.js',
     'app/libs/reflux/dist/reflux.js',
     'app/libs/react-cookie/dist/react-cookie.min.js',
-
+ 
     // tools
 
     'app/libs/underscore/underscore-min.js',

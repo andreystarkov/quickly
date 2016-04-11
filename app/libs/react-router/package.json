@@ -1,6 +1,6 @@
 {
   "name": "react-router",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A complete routing library for React.js",
   "files": [
     "*.md",
@@ -8,17 +8,13 @@
     "es6",
     "lib",
     "modules/*.js",
-    "npm-scripts",
     "umd"
   ],
   "main": "lib/index",
   "jsnext:main": "es6/index",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rackt/react-router.git"
-  },
-  "homepage": "https://rackt.github.io/react-router/",
-  "bugs": "https://github.com/rackt/react-router/issues",
+  "repository": "reactjs/react-router",
+  "homepage": "https://reactjs.org/react-router/",
+  "bugs": "https://github.com/reactjs/react-router/issues",
   "scripts": {
     "build": "npm run build-cjs && npm run build-es6",
     "build-cjs": "rimraf lib && babel ./modules -d lib --ignore '__tests__'",
@@ -29,8 +25,7 @@
     "start": "node examples/server.js",
     "test": "npm run lint && npm run test-node && npm run test-browser",
     "test-browser": "karma start",
-    "test-node": "mocha --compilers js:babel-core/register tests.node.js",
-    "postinstall": "node ./npm-scripts/postinstall.js"
+    "test-node": "mocha --compilers js:babel-core/register tests.node.js"
   },
   "authors": [
     "Ryan Florence",

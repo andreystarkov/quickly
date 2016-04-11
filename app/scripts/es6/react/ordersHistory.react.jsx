@@ -122,4 +122,5 @@ var OrdersHistory = React.createClass({
     }
 });
 
-ReactDOM.render(<OrdersHistory />, document.getElementById('ordersHistory'));
+module.exports = OrdersHistory;
+// ReactDOM.render(<OrdersHistory />, document.getElementById('ordersHistory'));

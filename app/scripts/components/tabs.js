@@ -52,13 +52,13 @@ $(function() {
 });
 
 window.onload = function() {
-
+/*
     if(window.location.hash) {
       var hash = window.location.hash.substring(1);
       console.log('Page Hash: '+hash);
       showTab('#'+hash);
     } else {
       // No hash found
-    }
+    }*/
 
 };

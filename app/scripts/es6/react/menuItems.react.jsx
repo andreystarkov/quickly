@@ -115,4 +115,6 @@ var MenuItems = React.createClass({
     }
 });
 
-ReactDOM.render(<MenuItems />, document.getElementById('menuItems'));
+module.exports = MenuItems;
+
+// ReactDOM.render(<MenuItems />, document.getElementById('menuItems'));

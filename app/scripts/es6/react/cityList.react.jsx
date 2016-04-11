@@ -50,5 +50,3 @@ var CityList = React.createClass({
 });
 
 module.exports = CityList;
-
-ReactDOM.render(<CityList />, document.getElementById('selectCityField'));

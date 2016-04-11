@@ -36,6 +36,10 @@ var CampaignsSlider = React.createClass({
         campaignsLimitedData: []
       };
     },
+    componentDidMount: function(){
+        console.log('CampaignsSlider: did mount');
+        CampaignsActions.fetchList();
+    },
     render: function(){
         console.log('CampagainsSlider: ', this.state.campaignsData, this.state.campaignsLimitedData);
         var campaigns = this.state.campaignsData;

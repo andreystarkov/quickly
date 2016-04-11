@@ -6,11 +6,11 @@ var CategoryItem = React.createClass({
 	categoryToggle: function(el){
 		var newId = this.props.item.category_id;
 		console.log('CategoryItem: categoryToggle: newId = ', newId);
-    var the = el.target;
-    var others = document.getElementsByClassName('category-toggle');
-    console.log(others);
-/*    $('.category-toggle.active').removeClass('active');
-    the.addClass('active');*/
+        var the = el.target;
+        var others = document.getElementsByClassName('category-toggle');
+        console.log(others);
+    /*    $('.category-toggle.active').removeClass('active');
+        the.addClass('active');*/
 		MenuItemsActions.updateData(newId);
 	},
 	render: function(){

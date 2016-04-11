@@ -125,5 +125,4 @@ var CompanyList = React.createClass({
     }
 });
 
-
-ReactDOM.render(<CompanyList />, document.getElementById('pageCompanyList'));
+module.exports = CompanyList;

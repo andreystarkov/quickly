@@ -8,13 +8,15 @@ import Router from '../Router'
 
 describe('When a router enters a branch', function () {
   let
-    node, leaveHookSpy, removeLeaveHook,
-    DashboardRoute, NewsFeedRoute, InboxRoute, RedirectToInboxRoute, MessageRoute,
+    node,
+    newsLeaveHookSpy, removeNewsLeaveHook, userLeaveHookSpy,
+    DashboardRoute, NewsFeedRoute, InboxRoute, RedirectToInboxRoute, MessageRoute, UserRoute, AssignmentRoute,
     routes
 
   beforeEach(function () {
     node = document.createElement('div')
-    leaveHookSpy = expect.createSpy()
+    newsLeaveHookSpy = expect.createSpy()
+    userLeaveHookSpy = expect.createSpy()
 
     class Dashboard extends Component {
       render() {
@@ -29,9 +31,9 @@ describe('When a router enters a branch', function () {
 
     class NewsFeed extends Component {
       componentWillMount() {
-        removeLeaveHook = this.context.router.setRouteLeaveHook(
+        removeNewsLeaveHook = this.context.router.setRouteLeaveHook(
           this.props.route,
-          () => leaveHookSpy() // Break reference equality.
+          () => newsLeaveHookSpy() // Break reference equality.
         )
       }
 
@@ -48,6 +50,29 @@ describe('When a router enters a branch', function () {
       render() {
         return <div>Inbox</div>
       }
+    }
+
+    class UserAssignment extends Component {
+      render() {
+        return <div>assignment {this.props.params.assignmentId}</div>
+      }
+    }
+
+    class User extends Component {
+      componentWillMount() {
+        this.context.router.setRouteLeaveHook(
+          this.props.route,
+          userLeaveHookSpy
+        )
+      }
+
+      render() {
+        return <div>User {this.props.params.userId} {this.props.children}</div>
+      }
+    }
+
+    User.contextTypes = {
+      router: React.PropTypes.object.isRequired
     }
 
     NewsFeedRoute = {
@@ -102,6 +127,21 @@ describe('When a router enters a branch', function () {
       }
     }
 
+    AssignmentRoute = {
+      path: 'assignments/:assignmentId',
+      component: UserAssignment,
+      onEnter() { expect(this).toBe(AssignmentRoute) },
+      onLeave() { expect(this).toBe(AssignmentRoute) }
+    }
+
+    UserRoute = {
+      path: 'users/:userId',
+      component: User,
+      childRoutes: [ AssignmentRoute ],
+      onEnter() { expect(this).toBe(UserRoute) },
+      onLeave() { expect(this).toBe(UserRoute) }
+    }
+
     DashboardRoute = {
       path: '/',
       component: Dashboard,
@@ -113,7 +153,7 @@ describe('When a router enters a branch', function () {
       onLeave() {
         expect(this).toBe(DashboardRoute)
       },
-      childRoutes: [ NewsFeedRoute, InboxRoute, RedirectToInboxRoute, MessageRoute ]
+      childRoutes: [ NewsFeedRoute, InboxRoute, RedirectToInboxRoute, MessageRoute, UserRoute ]
     }
 
     routes = [
@@ -139,17 +179,14 @@ describe('When a router enters a branch', function () {
   it('calls the route leave hooks when leaving the route', function (done) {
     const history = createHistory('/news')
 
-    // Stub this function to exercise the code path.
-    history.listenBeforeUnload = () => (() => {})
-
     render(<Router history={history} routes={routes}/>, node, function () {
-      expect(leaveHookSpy.calls.length).toEqual(0)
+      expect(newsLeaveHookSpy.calls.length).toEqual(0)
       history.push('/inbox')
-      expect(leaveHookSpy.calls.length).toEqual(1)
+      expect(newsLeaveHookSpy.calls.length).toEqual(1)
       history.push('/news')
-      expect(leaveHookSpy.calls.length).toEqual(1)
+      expect(newsLeaveHookSpy.calls.length).toEqual(1)
       history.push('/inbox')
-      expect(leaveHookSpy.calls.length).toEqual(2)
+      expect(newsLeaveHookSpy.calls.length).toEqual(2)
       done()
     })
   })
@@ -158,9 +195,25 @@ describe('When a router enters a branch', function () {
     const history = createHistory('/news')
 
     render(<Router history={history} routes={routes}/>, node, function () {
-      removeLeaveHook()
+      removeNewsLeaveHook()
       history.push('/inbox')
-      expect(leaveHookSpy).toNotHaveBeenCalled()
+      expect(newsLeaveHookSpy).toNotHaveBeenCalled()
+      done()
+    })
+  })
+
+  it('does not remove route leave hooks when changing params', function (done) {
+    const history = createHistory('/users/foo')
+
+    // Stub this function to exercise the code path.
+    history.listenBeforeUnload = () => (() => {})
+
+    render(<Router history={history} routes={routes}/>, node, function () {
+      expect(userLeaveHookSpy.calls.length).toEqual(0)
+      history.push('/users/bar')
+      expect(userLeaveHookSpy.calls.length).toEqual(1)
+      history.push('/users/baz')
+      expect(userLeaveHookSpy.calls.length).toEqual(2)
       done()
     })
   })
@@ -227,6 +280,38 @@ describe('When a router enters a branch', function () {
           expect(messageRouteLeaveSpy).toHaveBeenCalled('MessageRoute.onLeave was not called')
           expect(messageRouteEnterSpy).toHaveBeenCalled('MessageRoute.onEnter was not called')
           expect(dashboardRouteLeaveSpy.calls.length).toEqual(0, 'DashboardRoute.onLeave was called')
+        }
+      ]
+
+      const execNextStep = execSteps(steps, done)
+
+      render(
+        <Router history={history}
+                routes={routes}
+                onUpdate={execNextStep}
+        />, node, execNextStep)
+    })
+  })
+
+  describe('and then navigates to the same branch, but with different parent params', function () {
+    it('calls the onLeave and onEnter hooks of the parent and children', function (done) {
+      const parentLeaveSpy = spyOn(UserRoute, 'onLeave').andCallThrough()
+      const parentEnterSpy = spyOn(UserRoute, 'onEnter').andCallThrough()
+      const childLeaveSpy = spyOn(AssignmentRoute, 'onLeave').andCallThrough()
+      const childEnterSpy = spyOn(AssignmentRoute, 'onEnter').andCallThrough()
+      const history = createHistory('/users/123/assignments/456')
+
+      const steps = [
+        function () {
+          expect(parentEnterSpy).toHaveBeenCalled()
+          expect(childEnterSpy).toHaveBeenCalled()
+          history.push('/users/789/assignments/456')
+        },
+        function () {
+          expect(parentLeaveSpy).toHaveBeenCalled()
+          expect(childLeaveSpy).toHaveBeenCalled()
+          expect(parentEnterSpy).toHaveBeenCalled()
+          expect(childEnterSpy).toHaveBeenCalled()
         }
       ]
 

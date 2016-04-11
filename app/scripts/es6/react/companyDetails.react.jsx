@@ -4,6 +4,9 @@ var CuisinesList = require('./cuisinesList.react.jsx');
 var ButtonTabToggle = require('./components/buttonTabToggle.js');
 
 import {getReservationPointsList, getHallsList} from '../reservation.jsx';
+import {browserHistory} from 'react-router';
+
+var routesMap = require('./routes/map.js')
 
 // restaurant_type:
 // 1 - только бронь
@@ -22,6 +25,9 @@ var CompanyDetails = React.createClass({
     },
     componentDidUpdate: function() {
 
+    },
+    routeBack: function(){
+        browserHistory(routesMap.home.path);
     },
     render: function() {
 
@@ -121,9 +127,9 @@ var CompanyDetails = React.createClass({
                         <i className="icon icon-eye"></i>
                         <span>3D тур</span>
                     </a>
-                    <button className="button main screen-toggle" data-screen="pageCompanyList" id="buttonRestaurantList">
+                    <button onClick={this.routeBack} className="button main screen-toggle" id="buttonBackToList">
                         <i className="icon icon-list"></i>
-                        <span>К списку ресторанов</span>
+                        <span>К списку кухонь</span>
                     </button>
                 </div>
             </div>
@@ -132,4 +138,5 @@ var CompanyDetails = React.createClass({
       }
 });
 
-ReactDOM.render( <CompanyDetails companyId="1"/>, document.getElementById('companyDetails') );
+module.exports = CompanyDetails;
+// ReactDOM.render( <CompanyDetails companyId="1"/>, document.getElementById('companyDetails') );

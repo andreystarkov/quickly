@@ -279,5 +279,7 @@ var ProfileEditor = React.createClass({
     }
 });
 
-ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
+module.exports = ProfileEditor;
+
+// ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
 
