@@ -8,7 +8,13 @@ var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
 
+import { browserHistory } from 'react-router';
+var routesMap = require('./routes/map.js');
+
 var CompanyListHeader = React.createClass({
+    toList: function(){
+        browserHistory.push(routesMap.routes.main.path);
+    },
     render: function(){
         var cuisine = this.props.cuisine;
             return (
@@ -32,7 +38,7 @@ var CompanyListHeader = React.createClass({
                     <div className="row bottom-line">
                         <div className="col-lg-8">
                             <div className="back-to-home align-left back-left">
-                                <button className="button light screen-toggle" data-screen="pageMain" id="buttonPageMain">
+                                <button className="button light screen-toggle" onClick={this.toList}>
                                     <i className="icon icon-arrow-left"></i><span> К списку</span>
                                 </button>
                             </div>

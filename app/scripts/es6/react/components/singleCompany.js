@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 15:15:35
+* @Last Modified time: 2016-04-11 18:51:06
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -10,6 +10,7 @@ var MenuItemsActions = require('../actions/menuItemsActions.js');
 var CategoriesListActions = require('../actions/categoriesListActions.js');
 var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
 import {showScreen} from "../../screens.jsx";
+import {browserHistory, Link} from "react-router";
 
 //<span className="desc"><i>наличными</i><i>картой курьеру</i></span>
 //<span className="desc">только наличные</span>
@@ -101,10 +102,8 @@ var RatingStars = React.createClass({
     }
 });
 
-import {browserHistory} from 'react-router';
 var SingleCompany = React.createClass({
     toggleCompany: function(el){
-
         var company = this.props.company.restaurant_id;
         console.log('SingleCompany: Next ID: ' ,company);
         currentCompany = company;

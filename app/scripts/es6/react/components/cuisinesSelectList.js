@@ -4,6 +4,10 @@ var CuisinesActions = require('../actions/cuisinesActions.js');
 import { browserHistory } from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
+import {renderTransitionContext, withTransition} from 'react-router-transitions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+var TransitionGroup = React.addons.CSSTransitionGroup;
+
 import {showScreen} from '../../screens.jsx';
 var pathPrefix = '/app'
 var SingleCuisine = React.createClass({

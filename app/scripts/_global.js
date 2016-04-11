@@ -20,7 +20,7 @@ console.log('Server: ', serverHost);
 
 var pathPrefix = '/app';
 
-if (serverHost == "quickly.box") devMode = true;
+if (serverHost == "quickly.box" ) devMode = true;
 if (serverHost == "quickly.su") devMode = false;
 
 if (devMode) {

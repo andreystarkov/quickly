@@ -1,6 +1,8 @@
 var ButtonMore = require('./components/buttonMore.js');
 import {addToCart, repeatOrder} from '../engine/addToCart.js';
+var routesMap = require('./routes/map.js');
 var OrdersHistoryStore = require('./stores/ordersHistoryStore.js');
+var HistoryActions = require('./actions/historyActions.js');
 
 var SingleOrderItem = React.createClass({
     render: function(){
@@ -98,11 +100,11 @@ var OrdersHistory = React.createClass({
       };
     },
     componentDidMount: function() {
-     //   OrdersHistoryActions.updateData();
+        HistoryActions.updateData();
     },
     loadMore: function(){
         this.limit += 5;
-        OrdersHistoryActions.updateData();
+        HistoryActions.updateData();
     },
     render: function() {
      //   OrdersHistoryActions.updateData();

@@ -2,12 +2,9 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:35:29
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-07 11:18:15
+* @Last Modified time: 2016-04-11 19:36:58
 */
-
-var OrdersHistoryActions = Reflux.createActions([
-    'fetchList', 'updateData'
-]);
+var OrdersHistoryActions = require('../actions/ordersHistoryActions.js');
 
 var OrdersHistoryStore = Reflux.createStore({
     listenables: [OrdersHistoryActions],

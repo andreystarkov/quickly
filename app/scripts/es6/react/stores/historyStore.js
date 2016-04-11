@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-24 13:48:30
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 14:34:14
+* @Last Modified time: 2016-04-11 19:22:55
 */
 
 var HistoryActions = require('../actions/historyActions');

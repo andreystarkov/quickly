@@ -1,11 +1,16 @@
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
+var ReservationHistoryActions = require('./actions/reservationHistoryActions.js');
+var OrdersHistoryActions = require('./actions/reservationHistoryActions.js');
 var CardsActions = require('./actions/cardsActions.js');
 var CardsStore = require('./stores/cardsStore.js');
 var ButtonTabToggle = require('./components/buttonTabToggle.js');
 
 import {refreshUserProfile} from '../profile.jsx';
+
+var routesMap = require('./routes/map.js');
+import {Link, browserHistory} from 'react-router';
 
 var FieldDefault = React.createClass({
     render: function() {
@@ -95,6 +100,10 @@ var ProfileEditorForm = React.createClass({
     componentWillUpdate: function(){
         console.log('ProfileEditorForm willUpdate');
     },
+    componentDidMount: function(){
+        OrdersHistoryActions.fetchList();
+        ReservationHistoryActions.fetchList()
+    },
     componentDidUpdate: function(){
         console.log('ProfileEditorForm didUpdate');
         $('#userSurname').val(this.props.profile.userSurname);
@@ -160,6 +169,9 @@ var ProfileEditorForm = React.createClass({
                 refreshUserProfile();
             }
         });
+    },
+    returnShop: function(){
+        browserHistory.push(routesMap.routes.main.path);
     },
     render: function(){
         var total = 0;
@@ -238,7 +250,7 @@ var ProfileEditorForm = React.createClass({
                     <ButtonTabToggle name="История заказов" active="true" tab="tab-order-history" id="tabOrdersHistory" />
                     <ButtonTabToggle name="История бронирования" tab="tab-reservation-history" />
                     <ButtonTabToggle name="Оставленные отзывы" tab="tab-comments-history" />
-                    <button id="buttonReturnShop" className="btn button main float-right">
+                    <button onClick={this.returnShop} className="btn button main float-right">
                         <span>Вернуться к покупкам</span>
                     </button>
                  </div>

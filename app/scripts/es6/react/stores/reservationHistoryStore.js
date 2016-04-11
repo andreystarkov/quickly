@@ -2,12 +2,10 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:39:19
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-07 11:19:37
+* @Last Modified time: 2016-04-11 19:40:00
 */
 
-var ReservationHistoryActions = Reflux.createActions([
-    'fetchList', 'updateData'
-]);
+var ReservationHistoryActions = require('../actions/reservationHistoryActions.js');
 
 var ReservationHistoryStore = Reflux.createStore({
     listenables: [ReservationHistoryActions],

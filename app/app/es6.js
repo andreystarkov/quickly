@@ -1,4 +1,5 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\checkout.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _checkoutFunc = require('./engine/checkout.func.jsx');
@@ -26,7 +27,10 @@ var _checkoutFunc = require('./engine/checkout.func.jsx');
     });
 })();
 
-},{"./engine/checkout.func.jsx":3}],2:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\checkout.jsx","/app\\scripts\\es6")
+
+},{"./engine/checkout.func.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\checkout.func.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\addToCart.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -61,7 +65,10 @@ function repeatOrder(items) {
     });
 }
 
-},{"../engine/checkout.func.jsx":3}],3:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\engine\\addToCart.js","/app\\scripts\\es6\\engine")
+
+},{"../engine/checkout.func.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\checkout.func.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\checkout.func.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -159,7 +166,10 @@ function pasteCartElement(cartElement, elementCount) {
     return el;
 }
 
-},{}],4:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\engine\\checkout.func.jsx","/app\\scripts\\es6\\engine")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\createOrder.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -258,7 +268,10 @@ function createOrder(callback) {
     });
 }
 
-},{"./checkout.func.jsx":3}],5:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\engine\\createOrder.jsx","/app\\scripts\\es6\\engine")
+
+},{"./checkout.func.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\checkout.func.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\createReservation.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -337,7 +350,10 @@ function createReservation() {
     console.log('createReservation: Table = ', table);
 }
 
-},{}],6:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\engine\\createReservation.jsx","/app\\scripts\\es6\\engine")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\profile.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -435,14 +451,20 @@ $(function () {
     });
 });
 
-},{}],7:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\profile.jsx","/app\\scripts\\es6")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\campaignsActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CampaignsActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = CampaignsActions;
 
-},{}],8:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\campaignsActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cardsActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -456,28 +478,40 @@ var CardsActions = Reflux.createActions(['fetchList', 'updateData', 'bindCard'])
 
 module.exports = CardsActions;
 
-},{}],9:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\cardsActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\categoriesListActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CategoriesListActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = CategoriesListActions;
 
-},{}],10:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\categoriesListActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cityListActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CityActions = Reflux.createActions(['fetchList']);
 
 module.exports = CityActions;
 
-},{}],11:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\cityListActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyDetailsActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CompanyDetailsActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = CompanyDetailsActions;
 
-},{}],12:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\companyDetailsActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyListActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -491,7 +525,10 @@ var CompanyListActions = Reflux.createActions(['fetchList', 'updateData', 'filte
 
 module.exports = CompanyListActions;
 
-},{}],13:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\companyListActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cuisinesActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -505,7 +542,29 @@ var CuisinesActions = Reflux.createActions(['fetchList', 'getCuisineById', 'onRo
 
 module.exports = CuisinesActions;
 
-},{}],14:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\cuisinesActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\historyActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+/*
+* @Author: Andrey Starkov
+* @Date:   2016-03-24 13:47:28
+* @Last Modified by:   Andrey Starkov
+* @Last Modified time: 2016-04-11 19:20:41
+*/
+
+var HistoryActions = Reflux.createActions(['fetchList', 'updateData']);
+
+HistoryActions.updateData();
+
+module.exports = HistoryActions;
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\historyActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\menuItemsActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -519,7 +578,20 @@ var MenuItemsActions = Reflux.createActions(['fetchList', 'updateData', 'updateD
 
 module.exports = MenuItemsActions;
 
-},{}],15:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\menuItemsActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\ordersHistoryActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+var OrdersHistoryActions = Reflux.createActions(['fetchList', 'updateData']);
+
+module.exports = OrdersHistoryActions;
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\ordersHistoryActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -533,7 +605,27 @@ var ProfileEditorActions = Reflux.createActions(['fetchList', 'updateData']);
 
 module.exports = ProfileEditorActions;
 
-},{}],16:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\profileEditorActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationHistoryActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+/*
+* @Author: Andrey Starkov
+* @Date:   2016-04-11 19:34:06
+* @Last Modified by:   Andrey Starkov
+* @Last Modified time: 2016-04-11 19:34:26
+*/
+
+var ReservationHistoryActions = Reflux.createActions(['fetchList', 'updateData']);
+
+module.exports = ReservationHistoryActions;
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\reservationHistoryActions.js","/app\\scripts\\es6\\react\\actions")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\categoriesList.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CategoriesListStore = require('./stores/categoriesListStore.js');
@@ -603,7 +695,10 @@ var CategoriesList = React.createClass({
 
 module.exports = CategoriesList;
 
-},{"./actions/categoriesListActions.js":9,"./actions/menuItemsActions.js":14,"./stores/categoriesListStore.js":47}],17:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\categoriesList.react.jsx","/app\\scripts\\es6\\react")
+
+},{"./actions/categoriesListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\categoriesListActions.js","./actions/menuItemsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\menuItemsActions.js","./stores/categoriesListStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\categoriesListStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cityList.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CityListActions = require('./actions/cityListActions.js');
@@ -671,7 +766,10 @@ var CityList = React.createClass({
 
 module.exports = CityList;
 
-},{"./actions/cityListActions.js":10,"./actions/companyListActions.js":12,"./stores/cityListStore.js":48}],18:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\cityList.react.jsx","/app\\scripts\\es6\\react")
+
+},{"./actions/cityListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cityListActions.js","./actions/companyListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyListActions.js","./stores/cityListStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cityListStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\companyDetails.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _reservation = require('../reservation.jsx');
@@ -704,12 +802,10 @@ var CompanyDetails = React.createClass({
     },
     componentDidUpdate: function componentDidUpdate() {},
     routeBack: function routeBack() {
-        (0, _reactRouter.browserHistory)(routesMap.home.path);
+        _reactRouter.browserHistory.push(routesMap.routes.main.path);
     },
     render: function render() {
-
         var data = this.state.companyData;
-
         if (data) {
             var type = data.restaurant_type;
             if (type == 1 || type == 3) {
@@ -741,7 +837,7 @@ var CompanyDetails = React.createClass({
         } else {
             console.log('CompanyDetails: No comments (' + company.comments_count + ')');
         }
-        //                     <span className="hidden-force">{company.restaurant_info}</span>
+
         var rating = company.restaurant_rating;
         return React.createElement(
             'div',
@@ -928,10 +1024,14 @@ var CompanyDetails = React.createClass({
 });
 
 module.exports = CompanyDetails;
-// ReactDOM.render( <CompanyDetails companyId="1"/>, document.getElementById('companyDetails') );
 
-},{"../reservation.jsx":56,"./actions/companyListActions.js":12,"./components/buttonTabToggle.js":23,"./cuisinesList.react.jsx":31,"./routes/map.js":38,"./stores/companyDetailsStore.js":49,"react-router":207}],19:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\companyDetails.react.jsx","/app\\scripts\\es6\\react")
+
+},{"../reservation.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\reservation.jsx","./actions/companyListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyListActions.js","./components/buttonTabToggle.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonTabToggle.js","./cuisinesList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx","./routes/map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","./stores/companyDetailsStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\companyDetailsStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\companyList.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
+
+var _reactRouter = require('react-router');
 
 var ButtonMore = require('./components/buttonMore.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
@@ -943,9 +1043,14 @@ var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
 
+var routesMap = require('./routes/map.js');
+
 var CompanyListHeader = React.createClass({
     displayName: 'CompanyListHeader',
 
+    toList: function toList() {
+        _reactRouter.browserHistory.push(routesMap.routes.main.path);
+    },
     render: function render() {
         var cuisine = this.props.cuisine;
         return React.createElement(
@@ -1000,7 +1105,7 @@ var CompanyListHeader = React.createClass({
                             { className: 'back-to-home align-left back-left' },
                             React.createElement(
                                 'button',
-                                { className: 'button light screen-toggle', 'data-screen': 'pageMain', id: 'buttonPageMain' },
+                                { className: 'button light screen-toggle', onClick: this.toList },
                                 React.createElement('i', { className: 'icon icon-arrow-left' }),
                                 React.createElement(
                                     'span',
@@ -1129,7 +1234,10 @@ var CompanyList = React.createClass({
 
 module.exports = CompanyList;
 
-},{"./actions/companyListActions.js":12,"./actions/cuisinesActions.js":13,"./companyList.react.jsx":19,"./components/buttonMore.js":22,"./components/companyListSidebar.js":25,"./components/quicklyLogo.js":29,"./components/singleCompany.js":30,"./cuisinesList.react.jsx":31,"./stores/companyListStore.js":50}],20:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\companyList.react.jsx","/app\\scripts\\es6\\react")
+
+},{"./actions/companyListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyListActions.js","./actions/cuisinesActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cuisinesActions.js","./companyList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\companyList.react.jsx","./components/buttonMore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonMore.js","./components/companyListSidebar.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\companyListSidebar.js","./components/quicklyLogo.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\quicklyLogo.js","./components/singleCompany.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\singleCompany.js","./cuisinesList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx","./routes/map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","./stores/companyListStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\companyListStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\bottomPanel.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 /*
@@ -1249,7 +1357,10 @@ var BottomPanel = React.createClass({
 
 module.exports = BottomPanel;
 
-},{}],21:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\bottomPanel.js","/app\\scripts\\es6\\react\\components")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonBack.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 /*
@@ -1273,7 +1384,10 @@ var ButtonBack = React.createClass({
 
 module.exports = ButtonBack;
 
-},{}],22:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\buttonBack.js","/app\\scripts\\es6\\react\\components")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonMore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 /*
@@ -1298,7 +1412,10 @@ var ButtonMore = React.createClass({
 
 module.exports = ButtonMore;
 
-},{}],23:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\buttonMore.js","/app\\scripts\\es6\\react\\components")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonTabToggle.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -1336,7 +1453,10 @@ var ButtonTabToggle = React.createClass({
 
 module.exports = ButtonTabToggle;
 
-},{}],24:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\buttonTabToggle.js","/app\\scripts\\es6\\react\\components")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\campaignsSlider.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CampaignsStore = require('../stores/campaignsStore.js');
@@ -1465,7 +1585,10 @@ var CampaignsSlider = React.createClass({
 
 module.exports = CampaignsSlider;
 
-},{"../actions/campaignsActions.js":7,"../stores/CampaignsLimitedStore.js":44,"../stores/campaignsStore.js":45}],25:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\campaignsSlider.js","/app\\scripts\\es6\\react\\components")
+
+},{"../actions/campaignsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\campaignsActions.js","../stores/CampaignsLimitedStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\CampaignsLimitedStore.js","../stores/campaignsStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\campaignsStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\companyListSidebar.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -1585,16 +1708,29 @@ var CompanyListSidebar = React.createClass({
 
 module.exports = CompanyListSidebar;
 
-},{}],26:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\companyListSidebar.js","/app\\scripts\\es6\\react\\components")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\cuisinesSelectList.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _reactRouter = require('react-router');
 
+var _reactRouterTransitions = require('react-router-transitions');
+
+var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
+
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
 var _screens = require('../../screens.jsx');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CuisinesStore = require('../stores/cuisinesStore.js');
 var CompanyListActions = require('../actions/companyListActions.js');
 var CuisinesActions = require('../actions/cuisinesActions.js');
+
+var TransitionGroup = React.addons.CSSTransitionGroup;
 
 var pathPrefix = '/app';
 var SingleCuisine = React.createClass({
@@ -1703,7 +1839,10 @@ var CuisinesSelectList = React.createClass({
 
 module.exports = CuisinesSelectList;
 
-},{"../../screens.jsx":57,"../actions/companyListActions.js":12,"../actions/cuisinesActions.js":13,"../stores/cuisinesStore.js":51,"react-router":207}],27:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\cuisinesSelectList.js","/app\\scripts\\es6\\react\\components")
+
+},{"../../screens.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\screens.jsx","../actions/companyListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyListActions.js","../actions/cuisinesActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cuisinesActions.js","../stores/cuisinesStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cuisinesStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-addons-css-transition-group":"Q:\\_alpha\\quickly.box\\node_modules\\react-addons-css-transition-group\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js","react-router-transitions":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\notFoundPage.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 /*
@@ -1731,169 +1870,179 @@ var NotFoundPage = React.createClass({
 
 module.exports = NotFoundPage;
 
-},{}],28:[function(require,module,exports){
-"use strict";
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\notFoundPage.js","/app\\scripts\\es6\\react\\components")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\pageHeader.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+var _reactRouter = require('react-router');
 
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-10 22:34:08
+* @Last Modified time: 2016-04-11 19:19:40
 */
 
 var InlineSvg = require('react-inlinesvg');
+var routesMap = require('../routes/map.js');
+
+
+var ProfileEditorActions = require('../actions/profileEditorActions.js');
+var HistoryActions = require('../actions/historyActions.js');
 
 var PageHeader = React.createClass({
-    displayName: "PageHeader",
+    displayName: 'PageHeader',
 
+    editProfile: function editProfile() {
+        ProfileEditorActions.fetchList();
+        HistoryActions.fetchList();
+        _reactRouter.browserHistory.push(routesMap.routes.profile.path);
+    },
     render: function render() {
         return React.createElement(
-            "div",
+            'div',
             null,
             React.createElement(
-                "div",
-                { className: "top-line" },
+                'div',
+                { className: 'top-line' },
                 React.createElement(
-                    "div",
-                    { className: "container" },
+                    'div',
+                    { className: 'container' },
                     React.createElement(
-                        "div",
-                        { className: "row" },
+                        'div',
+                        { className: 'row' },
                         React.createElement(
-                            "div",
-                            { className: "col-lg-2" },
+                            'div',
+                            { className: 'col-lg-2' },
                             React.createElement(
-                                "div",
-                                { className: "logo screen-toggle", "data-screen": "pageMain" },
-                                React.createElement(InlineSvg, { src: "svg/logo.svg" })
+                                'div',
+                                { className: 'logo screen-toggle', 'data-screen': 'pageMain' },
+                                React.createElement(InlineSvg, { src: 'svg/logo.svg' })
                             )
                         ),
                         React.createElement(
-                            "div",
-                            { className: "col-lg-4" },
+                            'div',
+                            { className: 'col-lg-4' },
                             React.createElement(
-                                "div",
-                                { className: "paths" },
+                                'div',
+                                { className: 'paths' },
                                 React.createElement(
-                                    "a",
-                                    { href: "#" },
-                                    "Главная"
+                                    'a',
+                                    { href: '#' },
+                                    'Главная'
                                 ),
-                                " / ",
+                                ' / ',
                                 React.createElement(
-                                    "a",
-                                    { href: "#" },
-                                    "Доставка еды"
+                                    'a',
+                                    { href: '#' },
+                                    'Доставка еды'
                                 ),
-                                " / ",
+                                ' / ',
                                 React.createElement(
-                                    "a",
-                                    { href: "#" },
-                                    "Пицца"
+                                    'a',
+                                    { href: '#' },
+                                    'Пицца'
                                 )
                             )
                         ),
                         React.createElement(
-                            "div",
-                            { className: "col-lg-2" },
-                            React.createElement("div", { id: "selectCityField" })
+                            'div',
+                            { className: 'col-lg-2' },
+                            React.createElement('div', { id: 'selectCityField' })
                         ),
                         React.createElement(
-                            "div",
-                            { className: "col-lg-4" },
+                            'div',
+                            { className: 'col-lg-4' },
                             React.createElement(
-                                "div",
-                                { className: "form-auth form-register pop", id: "formRegisterPhone" },
+                                'div',
+                                { className: 'form-auth form-register pop', id: 'formRegisterPhone' },
                                 React.createElement(
-                                    "div",
-                                    { className: "row" },
+                                    'div',
+                                    { className: 'row' },
                                     React.createElement(
-                                        "div",
-                                        { className: "col-lg-6" },
+                                        'div',
+                                        { className: 'col-lg-6' },
                                         React.createElement(
-                                            "div",
-                                            { className: "form-group label-floating is-empty" },
+                                            'div',
+                                            { className: 'form-group label-floating is-empty' },
                                             React.createElement(
-                                                "label",
-                                                { htmlFor: "inputRegisterPhone", className: "control-label" },
-                                                "Ваш номер телефона"
+                                                'label',
+                                                { htmlFor: 'inputRegisterPhone', className: 'control-label' },
+                                                'Ваш номер телефона'
                                             ),
-                                            React.createElement("input", { type: "text", className: "form-control pop", id: "inputRegisterPhone" }),
-                                            React.createElement("span", { className: "help-block" })
+                                            React.createElement('input', { type: 'text', className: 'form-control pop', id: 'inputRegisterPhone' }),
+                                            React.createElement('span', { className: 'help-block' })
                                         )
                                     ),
                                     React.createElement(
-                                        "div",
-                                        { className: "col-lg-6" },
+                                        'div',
+                                        { className: 'col-lg-6' },
                                         React.createElement(
-                                            "a",
-                                            { href: "#", id: "buttonRegisterPhone", className: "btn btn-padding btn-raised" },
-                                            "Зарегистрироваться"
+                                            'a',
+                                            { href: '#', id: 'buttonRegisterPhone', className: 'btn btn-padding btn-raised' },
+                                            'Зарегистрироваться'
                                         )
                                     )
                                 )
                             ),
                             React.createElement(
-                                "div",
-                                { className: "form-auth form-code pop", id: "formRegisterSMSCode" },
+                                'div',
+                                { className: 'form-auth form-code pop', id: 'formRegisterSMSCode' },
                                 React.createElement(
-                                    "div",
-                                    { className: "row" },
+                                    'div',
+                                    { className: 'row' },
                                     React.createElement(
-                                        "div",
-                                        { className: "col-lg-7" },
+                                        'div',
+                                        { className: 'col-lg-7' },
                                         React.createElement(
-                                            "div",
-                                            { className: "form-group label-floating is-empty" },
+                                            'div',
+                                            { className: 'form-group label-floating is-empty' },
                                             React.createElement(
-                                                "label",
-                                                { htmlFor: "inputRegisterSMSCode", className: "control-label pop" },
-                                                "Введите код, полученный по смс"
+                                                'label',
+                                                { htmlFor: 'inputRegisterSMSCode', className: 'control-label pop' },
+                                                'Введите код, полученный по смс'
                                             ),
-                                            React.createElement("input", { type: "text", className: "form-control", id: "inputRegisterSMSCode" }),
-                                            React.createElement("span", { className: "help-block" })
+                                            React.createElement('input', { type: 'text', className: 'form-control', id: 'inputRegisterSMSCode' }),
+                                            React.createElement('span', { className: 'help-block' })
                                         )
                                     ),
                                     React.createElement(
-                                        "div",
-                                        { className: "col-lg-5" },
+                                        'div',
+                                        { className: 'col-lg-5' },
                                         React.createElement(
-                                            "a",
-                                            { href: "#", id: "buttonRegisterSMSCode", className: "btn btn-clean btn-padding btn-raised" },
-                                            "Отправить"
+                                            'a',
+                                            { href: '#', id: 'buttonRegisterSMSCode', className: 'btn btn-clean btn-padding btn-raised' },
+                                            'Отправить'
                                         ),
                                         React.createElement(
-                                            "a",
-                                            { href: "#", id: "buttonSMSCodeRefresh", className: "btn btn-clean" },
-                                            React.createElement("i", { className: "icon-refresh" })
+                                            'a',
+                                            { href: '#', id: 'buttonSMSCodeRefresh', className: 'btn btn-clean' },
+                                            React.createElement('i', { className: 'icon-refresh' })
                                         )
                                     )
                                 )
                             ),
                             React.createElement(
-                                "div",
-                                { className: "auth-box mini-profile", id: "userAuthorizedTop" },
+                                'div',
+                                { className: 'auth-box mini-profile', id: 'userAuthorizedTop' },
                                 React.createElement(
-                                    "div",
-                                    { className: "dropdown-nice" },
-                                    React.createElement("div", { className: "user-top", id: "userBadgeTop" }),
+                                    'div',
+                                    { className: 'dropdown-nice' },
+                                    React.createElement('div', { className: 'user-top', id: 'userBadgeTop' }),
                                     React.createElement(
-                                        "div",
-                                        { className: "menu-box" },
+                                        'div',
+                                        { className: 'menu-box' },
                                         React.createElement(
-                                            "a",
-                                            { href: "#", className: "buttonEditProfile", id: "buttonEditProfile" },
-                                            "Редактировать профиль"
+                                            'button',
+                                            { className: 'btn button', onClick: this.editProfile },
+                                            'Редактировать профиль'
                                         ),
                                         React.createElement(
-                                            "a",
-                                            { href: "#" },
-                                            "История заказов"
-                                        ),
-                                        React.createElement(
-                                            "a",
-                                            { href: "#", className: "control-logout", id: "buttonLogOutTop" },
-                                            "Выйти"
+                                            'a',
+                                            { href: '#', className: 'control-logout', id: 'buttonLogOutTop' },
+                                            'Выйти'
                                         )
                                     )
                                 )
@@ -1908,7 +2057,10 @@ var PageHeader = React.createClass({
 
 module.exports = PageHeader;
 
-},{"react-inlinesvg":171}],29:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\pageHeader.js","/app\\scripts\\es6\\react\\components")
+
+},{"../actions/historyActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\historyActions.js","../actions/profileEditorActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js","../routes/map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-inlinesvg":"Q:\\_alpha\\quickly.box\\node_modules\\react-inlinesvg\\lib\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\quicklyLogo.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1948,7 +2100,10 @@ var QuicklyLogo = React.createClass({
 
 module.exports = QuicklyLogo;
 
-},{}],30:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\quicklyLogo.js","/app\\scripts\\es6\\react\\components")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\singleCompany.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _screens = require('../../screens.jsx');
@@ -1959,7 +2114,7 @@ var _reactRouter = require('react-router');
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 15:15:35
+* @Last Modified time: 2016-04-11 18:51:06
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -2132,7 +2287,6 @@ var SingleCompany = React.createClass({
     displayName: 'SingleCompany',
 
     toggleCompany: function toggleCompany(el) {
-
         var company = this.props.company.restaurant_id;
         console.log('SingleCompany: Next ID: ', company);
         currentCompany = company;
@@ -2452,7 +2606,10 @@ var SingleCompany = React.createClass({
 
 module.exports = SingleCompany;
 
-},{"../../screens.jsx":57,"../actions/categoriesListActions.js":9,"../actions/companyDetailsActions.js":11,"../actions/menuItemsActions.js":14,"../cuisinesList.react.jsx":31,"react-router":207}],31:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\singleCompany.js","/app\\scripts\\es6\\react\\components")
+
+},{"../../screens.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\screens.jsx","../actions/categoriesListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\categoriesListActions.js","../actions/companyDetailsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyDetailsActions.js","../actions/menuItemsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\menuItemsActions.js","../cuisinesList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -2502,7 +2659,10 @@ var CuisinesList = React.createClass({
 
 module.exports = CuisinesList;
 
-},{"./stores/cuisinesStore.js":51,"react-router":207}],32:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\cuisinesList.react.jsx","/app\\scripts\\es6\\react")
+
+},{"./stores/cuisinesStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cuisinesStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -2518,7 +2678,10 @@ var Routes = require('./routes/routes.js');
 
 ReactDOM.render(React.createElement(Routes, null), App);
 
-},{"./routes/routes.js":39}],33:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\index.js","/app\\scripts\\es6\\react")
+
+},{"./routes/routes.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\routes.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\mainPage.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _screens = require('../screens.jsx');
@@ -2551,7 +2714,10 @@ var MainPageHeader = React.createClass({
 
 module.exports = MainPageHeader;
 
-},{"../screens.jsx":57,"./cityList.react.jsx":17,"./components/buttonBack.js":21,"./components/campaignsSlider.js":24,"./components/quicklyLogo.js":29,"./stores/cuisinesStore.js":51}],34:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\mainPage.react.jsx","/app\\scripts\\es6\\react")
+
+},{"../screens.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\screens.jsx","./cityList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cityList.react.jsx","./components/buttonBack.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonBack.js","./components/campaignsSlider.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\campaignsSlider.js","./components/quicklyLogo.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\quicklyLogo.js","./stores/cuisinesStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cuisinesStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\menuItems.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -2746,14 +2912,19 @@ module.exports = MenuItems;
 
 // ReactDOM.render(<MenuItems />, document.getElementById('menuItems'));
 
-},{"./actions/categoriesListActions.js":9,"./categoriesList.react.jsx":16,"./stores/menuItemsStore.js":52}],35:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\menuItems.react.jsx","/app\\scripts\\es6\\react")
+
+},{"./actions/categoriesListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\categoriesListActions.js","./categoriesList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\categoriesList.react.jsx","./stores/menuItemsStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\menuItemsStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\ordersHistory.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _addToCart = require('../engine/addToCart.js');
 
 var ButtonMore = require('./components/buttonMore.js');
 
+var routesMap = require('./routes/map.js');
 var OrdersHistoryStore = require('./stores/ordersHistoryStore.js');
+var HistoryActions = require('./actions/historyActions.js');
 
 var SingleOrderItem = React.createClass({
     displayName: 'SingleOrderItem',
@@ -2964,11 +3135,11 @@ var OrdersHistory = React.createClass({
         };
     },
     componentDidMount: function componentDidMount() {
-        //   OrdersHistoryActions.updateData();
+        HistoryActions.updateData();
     },
     loadMore: function loadMore() {
         this.limit += 5;
-        OrdersHistoryActions.updateData();
+        HistoryActions.updateData();
     },
     render: function render() {
         //   OrdersHistoryActions.updateData();
@@ -2994,17 +3165,27 @@ var OrdersHistory = React.createClass({
 module.exports = OrdersHistory;
 // ReactDOM.render(<OrdersHistory />, document.getElementById('ordersHistory'));
 
-},{"../engine/addToCart.js":2,"./components/buttonMore.js":22,"./stores/ordersHistoryStore.js":53}],36:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\ordersHistory.react.jsx","/app\\scripts\\es6\\react")
+
+},{"../engine/addToCart.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\addToCart.js","./actions/historyActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\historyActions.js","./components/buttonMore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonMore.js","./routes/map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","./stores/ordersHistoryStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\ordersHistoryStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\profileEditor.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _profile = require('../profile.jsx');
 
+var _reactRouter = require('react-router');
+
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
+var ReservationHistoryActions = require('./actions/reservationHistoryActions.js');
+var OrdersHistoryActions = require('./actions/reservationHistoryActions.js');
 var CardsActions = require('./actions/cardsActions.js');
 var CardsStore = require('./stores/cardsStore.js');
 var ButtonTabToggle = require('./components/buttonTabToggle.js');
+
+var routesMap = require('./routes/map.js');
+
 
 var FieldDefault = React.createClass({
   displayName: 'FieldDefault',
@@ -3124,6 +3305,10 @@ var ProfileEditorForm = React.createClass({
   componentWillUpdate: function componentWillUpdate() {
     console.log('ProfileEditorForm willUpdate');
   },
+  componentDidMount: function componentDidMount() {
+    OrdersHistoryActions.fetchList();
+    ReservationHistoryActions.fetchList();
+  },
   componentDidUpdate: function componentDidUpdate() {
     console.log('ProfileEditorForm didUpdate');
     $('#userSurname').val(this.props.profile.userSurname);
@@ -3185,6 +3370,9 @@ var ProfileEditorForm = React.createClass({
         (0, _profile.refreshUserProfile)();
       }
     });
+  },
+  returnShop: function returnShop() {
+    _reactRouter.browserHistory.push(routesMap.routes.main.path);
   },
   render: function render() {
     var total = 0;
@@ -3312,7 +3500,7 @@ var ProfileEditorForm = React.createClass({
             React.createElement(ButtonTabToggle, { name: 'Оставленные отзывы', tab: 'tab-comments-history' }),
             React.createElement(
               'button',
-              { id: 'buttonReturnShop', className: 'btn button main float-right' },
+              { onClick: this.returnShop, className: 'btn button main float-right' },
               React.createElement(
                 'span',
                 null,
@@ -3360,7 +3548,10 @@ module.exports = ProfileEditor;
 
 // ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
 
-},{"../profile.jsx":6,"./actions/cardsActions.js":8,"./actions/profileEditorActions.js":15,"./components/buttonMore.js":22,"./components/buttonTabToggle.js":23,"./stores/cardsStore.js":46,"./stores/profileEditorStore.js":54}],37:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\profileEditor.react.jsx","/app\\scripts\\es6\\react")
+
+},{"../profile.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\profile.jsx","./actions/cardsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cardsActions.js","./actions/profileEditorActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js","./actions/reservationHistoryActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationHistoryActions.js","./components/buttonMore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonMore.js","./components/buttonTabToggle.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonTabToggle.js","./routes/map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","./stores/cardsStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cardsStore.js","./stores/profileEditorStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\profileEditorStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\reservationHistory.react.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var ButtonMore = require('./components/buttonMore.js');
@@ -3555,12 +3746,8 @@ var ReservationHistory = React.createClass({
             historyData: []
         };
     },
-    componentDidMount: function componentDidMount() {
-        //   OrdersHistoryActions.updateData();
-    },
     loadMore: function loadMore() {
         this.limit += 5;
-        ReservationHistoryActions.updateData();
     },
     render: function render() {
         //   OrdersHistoryActions.updateData();
@@ -3584,9 +3771,11 @@ var ReservationHistory = React.createClass({
 });
 
 module.exports = ReservationHistory;
-// ReactDOM.render(<OrdersReservation />, document.getElementById('reservationHistory'));
 
-},{"./components/buttonMore.js":22,"./stores/reservationHistoryStore.js":55}],38:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\reservationHistory.react.jsx","/app\\scripts\\es6\\react")
+
+},{"./components/buttonMore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\buttonMore.js","./stores/reservationHistoryStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationHistoryStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -3626,29 +3815,21 @@ var routesMap = {
 
 module.exports = routesMap;
 
-},{}],39:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\routes\\map.js","/app\\scripts\\es6\\react\\routes")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\routes.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
-
-var _reactRouterTransitions = require('react-router-transitions');
-
-var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
 var _reactRouter = require('react-router');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var PageHeader = require('../components/pageHeader.js'); /*
+                                                         * @Author: Andrey Starkov
+                                                         * @Date:   2016-04-11 15:38:51
+                                                         * @Last Modified by:   Andrey Starkov
+                                                         * @Last Modified time: 2016-04-11 17:30:30
+                                                         */
 
-/*
-* @Author: Andrey Starkov
-* @Date:   2016-04-11 15:38:51
-* @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 15:56:12
-*/
-
-var TransitionGroup = React.addons.CSSTransitionGroup;
-
-var PageHeader = require('../components/pageHeader.js');
 var ScreenShop = require('../screens/screenShop.js');
 var ScreenProfile = require('../screens/screenProfile.js');
 var ScreenCompanyList = require('../screens/screenCompanyList.js');
@@ -3688,20 +3869,23 @@ var Routes = React.createClass({
 
 module.exports = Routes;
 
-},{"../components/bottomPanel.js":20,"../components/notFoundPage.js":27,"../components/pageHeader.js":28,"../screens/screenCompanyList.js":40,"../screens/screenMain.js":41,"../screens/screenProfile.js":42,"../screens/screenShop.js":43,"./map.js":38,"react-addons-css-transition-group":169,"react-router":207,"react-router-transitions":177}],40:[function(require,module,exports){
-"use strict";
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\routes\\routes.js","/app\\scripts\\es6\\react\\routes")
 
-/*
-* @Author: Andrey Starkov
-* @Date:   2016-04-10 23:23:02
-* @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 06:50:24
-*/
+},{"../components/bottomPanel.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\bottomPanel.js","../components/notFoundPage.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\notFoundPage.js","../components/pageHeader.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\pageHeader.js","../screens/screenCompanyList.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenCompanyList.js","../screens/screenMain.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenMain.js","../screens/screenProfile.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenProfile.js","../screens/screenShop.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenShop.js","./map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenCompanyList.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
 
-var CompanyList = require('../companyList.react.jsx');
+var _velocityAnimate = require('velocity-animate');
+
+var CompanyList = require('../companyList.react.jsx'); /*
+                                                       * @Author: Andrey Starkov
+                                                       * @Date:   2016-04-10 23:23:02
+                                                       * @Last Modified by:   Andrey Starkov
+                                                       * @Last Modified time: 2016-04-11 18:29:26
+                                                       */
 
 var ScreenCompanyList = React.createClass({
-    displayName: "ScreenCompanyList",
+    displayName: 'ScreenCompanyList',
 
     getInitialState: function getInitialState() {
         return {
@@ -3710,8 +3894,8 @@ var ScreenCompanyList = React.createClass({
     },
     render: function render() {
         return React.createElement(
-            "section",
-            { className: "the-screen page-wrapper food-grid", id: "pageCompanyList" },
+            'section',
+            { className: 'the-screen page-wrapper food-grid', id: 'pageCompanyList' },
             React.createElement(CompanyList, null)
         );
     }
@@ -3719,15 +3903,20 @@ var ScreenCompanyList = React.createClass({
 
 module.exports = ScreenCompanyList;
 
-},{"../companyList.react.jsx":19}],41:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\screens\\screenCompanyList.js","/app\\scripts\\es6\\react\\screens")
+
+},{"../companyList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\companyList.react.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","velocity-animate":"Q:\\_alpha\\quickly.box\\node_modules\\velocity-animate\\velocity.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenMain.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:24:58
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 01:10:20
+* @Last Modified time: 2016-04-11 17:30:20
 */
+require('velocity-animate');
+require('velocity-animate/velocity.ui');
 
 var CuisinesSelectList = require('../components/cuisinesSelectList.js');
 var MainPageHeader = require('../mainPage.react.jsx');
@@ -3747,7 +3936,10 @@ var ScreenMain = React.createClass({
 
 module.exports = ScreenMain;
 
-},{"../components/cuisinesSelectList.js":26,"../mainPage.react.jsx":33}],42:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\screens\\screenMain.js","/app\\scripts\\es6\\react\\screens")
+
+},{"../components/cuisinesSelectList.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\cuisinesSelectList.js","../mainPage.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\mainPage.react.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","velocity-animate":"Q:\\_alpha\\quickly.box\\node_modules\\velocity-animate\\velocity.js","velocity-animate/velocity.ui":"Q:\\_alpha\\quickly.box\\node_modules\\velocity-animate\\velocity.ui.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenProfile.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -3806,7 +3998,10 @@ var ScreenProfile = React.createClass({
 
 module.exports = ScreenProfile;
 
-},{"../ordersHistory.react.jsx":35,"../profileEditor.react.jsx":36,"../reservationHistory.react.jsx":37}],43:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\screens\\screenProfile.js","/app\\scripts\\es6\\react\\screens")
+
+},{"../ordersHistory.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\ordersHistory.react.jsx","../profileEditor.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\profileEditor.react.jsx","../reservationHistory.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\reservationHistory.react.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\screens\\screenShop.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -4009,7 +4204,10 @@ var ScreenShop = React.createClass({
 
 module.exports = ScreenShop;
 
-},{"../companyDetails.react.jsx":18,"../menuItems.react.jsx":34}],44:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\screens\\screenShop.js","/app\\scripts\\es6\\react\\screens")
+
+},{"../companyDetails.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\companyDetails.react.jsx","../menuItems.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\menuItems.react.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\CampaignsLimitedStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -4047,7 +4245,10 @@ var CampaignsLimitedStore = Reflux.createStore({
 
 module.exports = CampaignsLimitedStore;
 
-},{"../actions/campaignsActions.js":7}],45:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\CampaignsLimitedStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/campaignsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\campaignsActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\campaignsStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -4087,7 +4288,10 @@ var CampaignsStore = Reflux.createStore({
 
 module.exports = CampaignsStore;
 
-},{"../actions/campaignsActions.js":7}],46:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\campaignsStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/campaignsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\campaignsActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cardsStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -4131,7 +4335,10 @@ var CardsStore = Reflux.createStore({
 
 module.exports = CardsStore;
 
-},{"../actions/cardsActions.js":8}],47:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\cardsStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/cardsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cardsActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\categoriesListStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CategoriesListActions = require('../actions/categoriesListActions.js');
@@ -4169,7 +4376,10 @@ var CategoriesListStore = Reflux.createStore({
 
 module.exports = CategoriesListStore;
 
-},{"../actions/categoriesListActions.js":9,"../actions/menuItemsActions.js":14}],48:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\categoriesListStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/categoriesListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\categoriesListActions.js","../actions/menuItemsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\menuItemsActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cityListStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CityListActions = require('../actions/cityListActions.js');
@@ -4279,7 +4489,10 @@ var CityListStore = Reflux.createStore({
 
 module.exports = CityListStore;
 
-},{"../actions/cityListActions.js":10,"../cityList.react.jsx":17}],49:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\cityListStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/cityListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cityListActions.js","../cityList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cityList.react.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\companyDetailsStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -4319,14 +4532,17 @@ var CompanyDetailsStore = Reflux.createStore({
 
 module.exports = CompanyDetailsStore;
 
-},{"../actions/companyDetailsActions.js":11}],50:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\companyDetailsStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/companyDetailsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyDetailsActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\companyListStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:41:34
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 22:49:28
+* @Last Modified time: 2016-04-11 18:33:14
 */
 
 var CompanyListActions = require('../actions/companyListActions.js');
@@ -4414,7 +4630,10 @@ var CompanyListStore = Reflux.createStore({
 
 module.exports = CompanyListStore;
 
-},{"../actions/companyListActions.js":12,"../actions/cuisinesActions.js":13,"./cuisinesStore.js":51}],51:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\companyListStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/companyListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyListActions.js","../actions/cuisinesActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cuisinesActions.js","./cuisinesStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cuisinesStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\cuisinesStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var CuisinesActions = require('../actions/cuisinesActions.js');
@@ -4444,7 +4663,10 @@ var CuisinesStore = Reflux.createStore({
 
 module.exports = CuisinesStore;
 
-},{"../actions/cuisinesActions.js":13}],52:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\cuisinesStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/cuisinesActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cuisinesActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\menuItemsStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
@@ -4489,17 +4711,19 @@ var MenuItemsStore = Reflux.createStore({
 
 module.exports = MenuItemsStore;
 
-},{"../actions/menuItemsActions.js":14}],53:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\menuItemsStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/menuItemsActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\menuItemsActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\ordersHistoryStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:35:29
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-07 11:18:15
+* @Last Modified time: 2016-04-11 19:36:58
 */
-
-var OrdersHistoryActions = Reflux.createActions(['fetchList', 'updateData']);
+var OrdersHistoryActions = require('../actions/ordersHistoryActions.js');
 
 var OrdersHistoryStore = Reflux.createStore({
     listenables: [OrdersHistoryActions],
@@ -4527,7 +4751,10 @@ var OrdersHistoryStore = Reflux.createStore({
 
 module.exports = OrdersHistoryStore;
 
-},{}],54:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\ordersHistoryStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/ordersHistoryActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\ordersHistoryActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\profileEditorStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _reactCookie = require('react-cookie');
@@ -4586,17 +4813,20 @@ var ProfileEditorStore = Reflux.createStore({
 
 module.exports = ProfileEditorStore;
 
-},{"../actions/profileEditorActions.js":15,"react-cookie":170}],55:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\profileEditorStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/profileEditorActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-cookie":"Q:\\_alpha\\quickly.box\\node_modules\\react-cookie\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationHistoryStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 /*
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:39:19
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-07 11:19:37
+* @Last Modified time: 2016-04-11 19:40:00
 */
 
-var ReservationHistoryActions = Reflux.createActions(['fetchList', 'updateData']);
+var ReservationHistoryActions = require('../actions/reservationHistoryActions.js');
 
 var ReservationHistoryStore = Reflux.createStore({
     listenables: [ReservationHistoryActions],
@@ -4624,7 +4854,10 @@ var ReservationHistoryStore = Reflux.createStore({
 
 module.exports = ReservationHistoryStore;
 
-},{}],56:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\reservationHistoryStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/reservationHistoryActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationHistoryActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\reservation.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4833,7 +5066,10 @@ $(function () {
     });
 });
 
-},{"./engine/checkout.func.jsx":3,"./engine/createOrder.jsx":4,"./engine/createReservation.jsx":5}],57:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\reservation.jsx","/app\\scripts\\es6")
+
+},{"./engine/checkout.func.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\checkout.func.jsx","./engine/createOrder.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\createOrder.jsx","./engine/createReservation.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\createReservation.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\screens.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4905,7 +5141,10 @@ $(function () {
     });
 });
 
-},{"./react/stores/companyDetailsStore.js":49,"./react/stores/menuItemsStore.js":52}],58:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\screens.jsx","/app\\scripts\\es6")
+
+},{"./react/stores/companyDetailsStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\companyDetailsStore.js","./react/stores/menuItemsStore.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\menuItemsStore.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\shop.jsx":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var _checkoutFunc = require('./engine/checkout.func.jsx');
@@ -5056,15 +5295,30 @@ $(function () {
     (0, _checkoutFunc.refreshCart)();
 });
 
-},{"./engine/checkout.func.jsx":3}],59:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\shop.jsx","/app\\scripts\\es6")
+
+},{"./engine/checkout.func.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\engine\\checkout.func.jsx","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\object\\assign.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
-},{"core-js/library/fn/object/assign":70}],60:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\core-js\\object\\assign.js","/node_modules\\babel-runtime\\core-js\\object")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","core-js/library/fn/object/assign":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\object\\assign.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\object\\create.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = { "default": require("core-js/library/fn/object/create"), __esModule: true };
-},{"core-js/library/fn/object/create":71}],61:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\core-js\\object\\create.js","/node_modules\\babel-runtime\\core-js\\object")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","core-js/library/fn/object/create":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\object\\create.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\object\\set-prototype-of.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = { "default": require("core-js/library/fn/object/set-prototype-of"), __esModule: true };
-},{"core-js/library/fn/object/set-prototype-of":72}],62:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\core-js\\object\\set-prototype-of.js","/node_modules\\babel-runtime\\core-js\\object")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","core-js/library/fn/object/set-prototype-of":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\object\\set-prototype-of.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\symbol.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = { "default": require("core-js/library/fn/symbol"), __esModule: true };
-},{"core-js/library/fn/symbol":73}],63:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\core-js\\symbol.js","/node_modules\\babel-runtime\\core-js")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","core-js/library/fn/symbol":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\symbol\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\classCallCheck.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 exports.__esModule = true;
@@ -5074,7 +5328,10 @@ exports.default = function (instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 };
-},{}],64:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\helpers\\classCallCheck.js","/node_modules\\babel-runtime\\helpers")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\extends.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 var _Object$assign = require("babel-runtime/core-js/object/assign")["default"];
@@ -5094,7 +5351,10 @@ exports["default"] = _Object$assign || function (target) {
 };
 
 exports.__esModule = true;
-},{"babel-runtime/core-js/object/assign":59}],65:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\helpers\\extends.js","/node_modules\\babel-runtime\\helpers")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","babel-runtime/core-js/object/assign":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\object\\assign.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\inherits.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 var _Object$create = require("babel-runtime/core-js/object/create")["default"];
@@ -5118,7 +5378,10 @@ exports["default"] = function (subClass, superClass) {
 };
 
 exports.__esModule = true;
-},{"babel-runtime/core-js/object/create":60,"babel-runtime/core-js/object/set-prototype-of":61}],66:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\helpers\\inherits.js","/node_modules\\babel-runtime\\helpers")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","babel-runtime/core-js/object/create":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\object\\create.js","babel-runtime/core-js/object/set-prototype-of":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\object\\set-prototype-of.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\objectWithoutProperties.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 exports.__esModule = true;
@@ -5134,7 +5397,10 @@ exports.default = function (obj, keys) {
 
   return target;
 };
-},{}],67:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\helpers\\objectWithoutProperties.js","/node_modules\\babel-runtime\\helpers")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\possibleConstructorReturn.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 exports.__esModule = true;
@@ -5152,7 +5418,10 @@ exports.default = function (self, call) {
 
   return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
 };
-},{"../helpers/typeof":68}],68:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\helpers\\possibleConstructorReturn.js","/node_modules\\babel-runtime\\helpers")
+
+},{"../helpers/typeof":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\typeof.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\typeof.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 var _Symbol = require("babel-runtime/core-js/symbol")["default"];
@@ -5162,7 +5431,1595 @@ exports["default"] = function (obj) {
 };
 
 exports.__esModule = true;
-},{"babel-runtime/core-js/symbol":62}],69:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\babel-runtime\\helpers\\typeof.js","/node_modules\\babel-runtime\\helpers")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","babel-runtime/core-js/symbol":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\core-js\\symbol.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\base64-js\\lib\\b64.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict'
+
+exports.toByteArray = toByteArray
+exports.fromByteArray = fromByteArray
+
+var lookup = []
+var revLookup = []
+var Arr = typeof Uint8Array !== 'undefined' ? Uint8Array : Array
+
+function init () {
+  var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+  for (var i = 0, len = code.length; i < len; ++i) {
+    lookup[i] = code[i]
+    revLookup[code.charCodeAt(i)] = i
+  }
+
+  revLookup['-'.charCodeAt(0)] = 62
+  revLookup['_'.charCodeAt(0)] = 63
+}
+
+init()
+
+function toByteArray (b64) {
+  var i, j, l, tmp, placeHolders, arr
+  var len = b64.length
+
+  if (len % 4 > 0) {
+    throw new Error('Invalid string. Length must be a multiple of 4')
+  }
+
+  // the number of equal signs (place holders)
+  // if there are two placeholders, than the two characters before it
+  // represent one byte
+  // if there is only one, then the three characters before it represent 2 bytes
+  // this is just a cheap hack to not do indexOf twice
+  placeHolders = b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0
+
+  // base64 is 4/3 + up to two characters of the original data
+  arr = new Arr(len * 3 / 4 - placeHolders)
+
+  // if there are placeholders, only get up to the last complete 4 chars
+  l = placeHolders > 0 ? len - 4 : len
+
+  var L = 0
+
+  for (i = 0, j = 0; i < l; i += 4, j += 3) {
+    tmp = (revLookup[b64.charCodeAt(i)] << 18) | (revLookup[b64.charCodeAt(i + 1)] << 12) | (revLookup[b64.charCodeAt(i + 2)] << 6) | revLookup[b64.charCodeAt(i + 3)]
+    arr[L++] = (tmp >> 16) & 0xFF
+    arr[L++] = (tmp >> 8) & 0xFF
+    arr[L++] = tmp & 0xFF
+  }
+
+  if (placeHolders === 2) {
+    tmp = (revLookup[b64.charCodeAt(i)] << 2) | (revLookup[b64.charCodeAt(i + 1)] >> 4)
+    arr[L++] = tmp & 0xFF
+  } else if (placeHolders === 1) {
+    tmp = (revLookup[b64.charCodeAt(i)] << 10) | (revLookup[b64.charCodeAt(i + 1)] << 4) | (revLookup[b64.charCodeAt(i + 2)] >> 2)
+    arr[L++] = (tmp >> 8) & 0xFF
+    arr[L++] = tmp & 0xFF
+  }
+
+  return arr
+}
+
+function tripletToBase64 (num) {
+  return lookup[num >> 18 & 0x3F] + lookup[num >> 12 & 0x3F] + lookup[num >> 6 & 0x3F] + lookup[num & 0x3F]
+}
+
+function encodeChunk (uint8, start, end) {
+  var tmp
+  var output = []
+  for (var i = start; i < end; i += 3) {
+    tmp = (uint8[i] << 16) + (uint8[i + 1] << 8) + (uint8[i + 2])
+    output.push(tripletToBase64(tmp))
+  }
+  return output.join('')
+}
+
+function fromByteArray (uint8) {
+  var tmp
+  var len = uint8.length
+  var extraBytes = len % 3 // if we have 1 byte left, pad 2 bytes
+  var output = ''
+  var parts = []
+  var maxChunkLength = 16383 // must be multiple of 3
+
+  // go through the array every three bytes, we'll deal with trailing stuff later
+  for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
+    parts.push(encodeChunk(uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)))
+  }
+
+  // pad the end with zeros, but make sure to not forget the extra bytes
+  if (extraBytes === 1) {
+    tmp = uint8[len - 1]
+    output += lookup[tmp >> 2]
+    output += lookup[(tmp << 4) & 0x3F]
+    output += '=='
+  } else if (extraBytes === 2) {
+    tmp = (uint8[len - 2] << 8) + (uint8[len - 1])
+    output += lookup[tmp >> 10]
+    output += lookup[(tmp >> 4) & 0x3F]
+    output += lookup[(tmp << 2) & 0x3F]
+    output += '='
+  }
+
+  parts.push(output)
+
+  return parts.join('')
+}
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\base64-js\\lib\\b64.js","/node_modules\\base64-js\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+/* eslint-disable no-proto */
+
+'use strict'
+
+var base64 = require('base64-js')
+var ieee754 = require('ieee754')
+var isArray = require('isarray')
+
+exports.Buffer = Buffer
+exports.SlowBuffer = SlowBuffer
+exports.INSPECT_MAX_BYTES = 50
+Buffer.poolSize = 8192 // not used by this implementation
+
+var rootParent = {}
+
+/**
+ * If `Buffer.TYPED_ARRAY_SUPPORT`:
+ *   === true    Use Uint8Array implementation (fastest)
+ *   === false   Use Object implementation (most compatible, even IE6)
+ *
+ * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
+ * Opera 11.6+, iOS 4.2+.
+ *
+ * Due to various browser bugs, sometimes the Object implementation will be used even
+ * when the browser supports typed arrays.
+ *
+ * Note:
+ *
+ *   - Firefox 4-29 lacks support for adding new properties to `Uint8Array` instances,
+ *     See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438.
+ *
+ *   - Chrome 9-10 is missing the `TypedArray.prototype.subarray` function.
+ *
+ *   - IE10 has a broken `TypedArray.prototype.subarray` function which returns arrays of
+ *     incorrect length in some situations.
+
+ * We detect these buggy browsers and set `Buffer.TYPED_ARRAY_SUPPORT` to `false` so they
+ * get the Object implementation, which is slower but behaves correctly.
+ */
+Buffer.TYPED_ARRAY_SUPPORT = global.TYPED_ARRAY_SUPPORT !== undefined
+  ? global.TYPED_ARRAY_SUPPORT
+  : typedArraySupport()
+
+function typedArraySupport () {
+  try {
+    var arr = new Uint8Array(1)
+    arr.foo = function () { return 42 }
+    return arr.foo() === 42 && // typed array instances can be augmented
+        typeof arr.subarray === 'function' && // chrome 9-10 lack `subarray`
+        arr.subarray(1, 1).byteLength === 0 // ie10 has broken `subarray`
+  } catch (e) {
+    return false
+  }
+}
+
+function kMaxLength () {
+  return Buffer.TYPED_ARRAY_SUPPORT
+    ? 0x7fffffff
+    : 0x3fffffff
+}
+
+/**
+ * The Buffer constructor returns instances of `Uint8Array` that have their
+ * prototype changed to `Buffer.prototype`. Furthermore, `Buffer` is a subclass of
+ * `Uint8Array`, so the returned instances will have all the node `Buffer` methods
+ * and the `Uint8Array` methods. Square bracket notation works as expected -- it
+ * returns a single octet.
+ *
+ * The `Uint8Array` prototype remains unmodified.
+ */
+function Buffer (arg) {
+  if (!(this instanceof Buffer)) {
+    // Avoid going through an ArgumentsAdaptorTrampoline in the common case.
+    if (arguments.length > 1) return new Buffer(arg, arguments[1])
+    return new Buffer(arg)
+  }
+
+  if (!Buffer.TYPED_ARRAY_SUPPORT) {
+    this.length = 0
+    this.parent = undefined
+  }
+
+  // Common case.
+  if (typeof arg === 'number') {
+    return fromNumber(this, arg)
+  }
+
+  // Slightly less common case.
+  if (typeof arg === 'string') {
+    return fromString(this, arg, arguments.length > 1 ? arguments[1] : 'utf8')
+  }
+
+  // Unusual.
+  return fromObject(this, arg)
+}
+
+// TODO: Legacy, not needed anymore. Remove in next major version.
+Buffer._augment = function (arr) {
+  arr.__proto__ = Buffer.prototype
+  return arr
+}
+
+function fromNumber (that, length) {
+  that = allocate(that, length < 0 ? 0 : checked(length) | 0)
+  if (!Buffer.TYPED_ARRAY_SUPPORT) {
+    for (var i = 0; i < length; i++) {
+      that[i] = 0
+    }
+  }
+  return that
+}
+
+function fromString (that, string, encoding) {
+  if (typeof encoding !== 'string' || encoding === '') encoding = 'utf8'
+
+  // Assumption: byteLength() return value is always < kMaxLength.
+  var length = byteLength(string, encoding) | 0
+  that = allocate(that, length)
+
+  that.write(string, encoding)
+  return that
+}
+
+function fromObject (that, object) {
+  if (Buffer.isBuffer(object)) return fromBuffer(that, object)
+
+  if (isArray(object)) return fromArray(that, object)
+
+  if (object == null) {
+    throw new TypeError('must start with number, buffer, array or string')
+  }
+
+  if (typeof ArrayBuffer !== 'undefined') {
+    if (object.buffer instanceof ArrayBuffer) {
+      return fromTypedArray(that, object)
+    }
+    if (object instanceof ArrayBuffer) {
+      return fromArrayBuffer(that, object)
+    }
+  }
+
+  if (object.length) return fromArrayLike(that, object)
+
+  return fromJsonObject(that, object)
+}
+
+function fromBuffer (that, buffer) {
+  var length = checked(buffer.length) | 0
+  that = allocate(that, length)
+  buffer.copy(that, 0, 0, length)
+  return that
+}
+
+function fromArray (that, array) {
+  var length = checked(array.length) | 0
+  that = allocate(that, length)
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+// Duplicate of fromArray() to keep fromArray() monomorphic.
+function fromTypedArray (that, array) {
+  var length = checked(array.length) | 0
+  that = allocate(that, length)
+  // Truncating the elements is probably not what people expect from typed
+  // arrays with BYTES_PER_ELEMENT > 1 but it's compatible with the behavior
+  // of the old Buffer constructor.
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+function fromArrayBuffer (that, array) {
+  array.byteLength // this throws if `array` is not a valid ArrayBuffer
+
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    // Return an augmented `Uint8Array` instance, for best performance
+    that = new Uint8Array(array)
+    that.__proto__ = Buffer.prototype
+  } else {
+    // Fallback: Return an object instance of the Buffer class
+    that = fromTypedArray(that, new Uint8Array(array))
+  }
+  return that
+}
+
+function fromArrayLike (that, array) {
+  var length = checked(array.length) | 0
+  that = allocate(that, length)
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+// Deserialize { type: 'Buffer', data: [1,2,3,...] } into a Buffer object.
+// Returns a zero-length buffer for inputs that don't conform to the spec.
+function fromJsonObject (that, object) {
+  var array
+  var length = 0
+
+  if (object.type === 'Buffer' && isArray(object.data)) {
+    array = object.data
+    length = checked(array.length) | 0
+  }
+  that = allocate(that, length)
+
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+if (Buffer.TYPED_ARRAY_SUPPORT) {
+  Buffer.prototype.__proto__ = Uint8Array.prototype
+  Buffer.__proto__ = Uint8Array
+  if (typeof Symbol !== 'undefined' && Symbol.species &&
+      Buffer[Symbol.species] === Buffer) {
+    // Fix subarray() in ES2016. See: https://github.com/feross/buffer/pull/97
+    Object.defineProperty(Buffer, Symbol.species, {
+      value: null,
+      configurable: true
+    })
+  }
+} else {
+  // pre-set for values that may exist in the future
+  Buffer.prototype.length = undefined
+  Buffer.prototype.parent = undefined
+}
+
+function allocate (that, length) {
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    // Return an augmented `Uint8Array` instance, for best performance
+    that = new Uint8Array(length)
+    that.__proto__ = Buffer.prototype
+  } else {
+    // Fallback: Return an object instance of the Buffer class
+    that.length = length
+  }
+
+  var fromPool = length !== 0 && length <= Buffer.poolSize >>> 1
+  if (fromPool) that.parent = rootParent
+
+  return that
+}
+
+function checked (length) {
+  // Note: cannot use `length < kMaxLength` here because that fails when
+  // length is NaN (which is otherwise coerced to zero.)
+  if (length >= kMaxLength()) {
+    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
+                         'size: 0x' + kMaxLength().toString(16) + ' bytes')
+  }
+  return length | 0
+}
+
+function SlowBuffer (subject, encoding) {
+  if (!(this instanceof SlowBuffer)) return new SlowBuffer(subject, encoding)
+
+  var buf = new Buffer(subject, encoding)
+  delete buf.parent
+  return buf
+}
+
+Buffer.isBuffer = function isBuffer (b) {
+  return !!(b != null && b._isBuffer)
+}
+
+Buffer.compare = function compare (a, b) {
+  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
+    throw new TypeError('Arguments must be Buffers')
+  }
+
+  if (a === b) return 0
+
+  var x = a.length
+  var y = b.length
+
+  for (var i = 0, len = Math.min(x, y); i < len; ++i) {
+    if (a[i] !== b[i]) {
+      x = a[i]
+      y = b[i]
+      break
+    }
+  }
+
+  if (x < y) return -1
+  if (y < x) return 1
+  return 0
+}
+
+Buffer.isEncoding = function isEncoding (encoding) {
+  switch (String(encoding).toLowerCase()) {
+    case 'hex':
+    case 'utf8':
+    case 'utf-8':
+    case 'ascii':
+    case 'binary':
+    case 'base64':
+    case 'raw':
+    case 'ucs2':
+    case 'ucs-2':
+    case 'utf16le':
+    case 'utf-16le':
+      return true
+    default:
+      return false
+  }
+}
+
+Buffer.concat = function concat (list, length) {
+  if (!isArray(list)) throw new TypeError('list argument must be an Array of Buffers.')
+
+  if (list.length === 0) {
+    return new Buffer(0)
+  }
+
+  var i
+  if (length === undefined) {
+    length = 0
+    for (i = 0; i < list.length; i++) {
+      length += list[i].length
+    }
+  }
+
+  var buf = new Buffer(length)
+  var pos = 0
+  for (i = 0; i < list.length; i++) {
+    var item = list[i]
+    item.copy(buf, pos)
+    pos += item.length
+  }
+  return buf
+}
+
+function byteLength (string, encoding) {
+  if (typeof string !== 'string') string = '' + string
+
+  var len = string.length
+  if (len === 0) return 0
+
+  // Use a for loop to avoid recursion
+  var loweredCase = false
+  for (;;) {
+    switch (encoding) {
+      case 'ascii':
+      case 'binary':
+      // Deprecated
+      case 'raw':
+      case 'raws':
+        return len
+      case 'utf8':
+      case 'utf-8':
+        return utf8ToBytes(string).length
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return len * 2
+      case 'hex':
+        return len >>> 1
+      case 'base64':
+        return base64ToBytes(string).length
+      default:
+        if (loweredCase) return utf8ToBytes(string).length // assume utf8
+        encoding = ('' + encoding).toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+Buffer.byteLength = byteLength
+
+function slowToString (encoding, start, end) {
+  var loweredCase = false
+
+  start = start | 0
+  end = end === undefined || end === Infinity ? this.length : end | 0
+
+  if (!encoding) encoding = 'utf8'
+  if (start < 0) start = 0
+  if (end > this.length) end = this.length
+  if (end <= start) return ''
+
+  while (true) {
+    switch (encoding) {
+      case 'hex':
+        return hexSlice(this, start, end)
+
+      case 'utf8':
+      case 'utf-8':
+        return utf8Slice(this, start, end)
+
+      case 'ascii':
+        return asciiSlice(this, start, end)
+
+      case 'binary':
+        return binarySlice(this, start, end)
+
+      case 'base64':
+        return base64Slice(this, start, end)
+
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return utf16leSlice(this, start, end)
+
+      default:
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
+        encoding = (encoding + '').toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+
+// The property is used by `Buffer.isBuffer` and `is-buffer` (in Safari 5-7) to detect
+// Buffer instances.
+Buffer.prototype._isBuffer = true
+
+Buffer.prototype.toString = function toString () {
+  var length = this.length | 0
+  if (length === 0) return ''
+  if (arguments.length === 0) return utf8Slice(this, 0, length)
+  return slowToString.apply(this, arguments)
+}
+
+Buffer.prototype.equals = function equals (b) {
+  if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
+  if (this === b) return true
+  return Buffer.compare(this, b) === 0
+}
+
+Buffer.prototype.inspect = function inspect () {
+  var str = ''
+  var max = exports.INSPECT_MAX_BYTES
+  if (this.length > 0) {
+    str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
+    if (this.length > max) str += ' ... '
+  }
+  return '<Buffer ' + str + '>'
+}
+
+Buffer.prototype.compare = function compare (b) {
+  if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
+  return Buffer.compare(this, b)
+}
+
+Buffer.prototype.indexOf = function indexOf (val, byteOffset) {
+  if (byteOffset > 0x7fffffff) byteOffset = 0x7fffffff
+  else if (byteOffset < -0x80000000) byteOffset = -0x80000000
+  byteOffset >>= 0
+
+  if (this.length === 0) return -1
+  if (byteOffset >= this.length) return -1
+
+  // Negative offsets start from the end of the buffer
+  if (byteOffset < 0) byteOffset = Math.max(this.length + byteOffset, 0)
+
+  if (typeof val === 'string') {
+    if (val.length === 0) return -1 // special case: looking for empty string always fails
+    return String.prototype.indexOf.call(this, val, byteOffset)
+  }
+  if (Buffer.isBuffer(val)) {
+    return arrayIndexOf(this, val, byteOffset)
+  }
+  if (typeof val === 'number') {
+    if (Buffer.TYPED_ARRAY_SUPPORT && Uint8Array.prototype.indexOf === 'function') {
+      return Uint8Array.prototype.indexOf.call(this, val, byteOffset)
+    }
+    return arrayIndexOf(this, [ val ], byteOffset)
+  }
+
+  function arrayIndexOf (arr, val, byteOffset) {
+    var foundIndex = -1
+    for (var i = 0; byteOffset + i < arr.length; i++) {
+      if (arr[byteOffset + i] === val[foundIndex === -1 ? 0 : i - foundIndex]) {
+        if (foundIndex === -1) foundIndex = i
+        if (i - foundIndex + 1 === val.length) return byteOffset + foundIndex
+      } else {
+        foundIndex = -1
+      }
+    }
+    return -1
+  }
+
+  throw new TypeError('val must be string, number or Buffer')
+}
+
+function hexWrite (buf, string, offset, length) {
+  offset = Number(offset) || 0
+  var remaining = buf.length - offset
+  if (!length) {
+    length = remaining
+  } else {
+    length = Number(length)
+    if (length > remaining) {
+      length = remaining
+    }
+  }
+
+  // must be an even number of digits
+  var strLen = string.length
+  if (strLen % 2 !== 0) throw new Error('Invalid hex string')
+
+  if (length > strLen / 2) {
+    length = strLen / 2
+  }
+  for (var i = 0; i < length; i++) {
+    var parsed = parseInt(string.substr(i * 2, 2), 16)
+    if (isNaN(parsed)) throw new Error('Invalid hex string')
+    buf[offset + i] = parsed
+  }
+  return i
+}
+
+function utf8Write (buf, string, offset, length) {
+  return blitBuffer(utf8ToBytes(string, buf.length - offset), buf, offset, length)
+}
+
+function asciiWrite (buf, string, offset, length) {
+  return blitBuffer(asciiToBytes(string), buf, offset, length)
+}
+
+function binaryWrite (buf, string, offset, length) {
+  return asciiWrite(buf, string, offset, length)
+}
+
+function base64Write (buf, string, offset, length) {
+  return blitBuffer(base64ToBytes(string), buf, offset, length)
+}
+
+function ucs2Write (buf, string, offset, length) {
+  return blitBuffer(utf16leToBytes(string, buf.length - offset), buf, offset, length)
+}
+
+Buffer.prototype.write = function write (string, offset, length, encoding) {
+  // Buffer#write(string)
+  if (offset === undefined) {
+    encoding = 'utf8'
+    length = this.length
+    offset = 0
+  // Buffer#write(string, encoding)
+  } else if (length === undefined && typeof offset === 'string') {
+    encoding = offset
+    length = this.length
+    offset = 0
+  // Buffer#write(string, offset[, length][, encoding])
+  } else if (isFinite(offset)) {
+    offset = offset | 0
+    if (isFinite(length)) {
+      length = length | 0
+      if (encoding === undefined) encoding = 'utf8'
+    } else {
+      encoding = length
+      length = undefined
+    }
+  // legacy write(string, encoding, offset, length) - remove in v0.13
+  } else {
+    var swap = encoding
+    encoding = offset
+    offset = length | 0
+    length = swap
+  }
+
+  var remaining = this.length - offset
+  if (length === undefined || length > remaining) length = remaining
+
+  if ((string.length > 0 && (length < 0 || offset < 0)) || offset > this.length) {
+    throw new RangeError('attempt to write outside buffer bounds')
+  }
+
+  if (!encoding) encoding = 'utf8'
+
+  var loweredCase = false
+  for (;;) {
+    switch (encoding) {
+      case 'hex':
+        return hexWrite(this, string, offset, length)
+
+      case 'utf8':
+      case 'utf-8':
+        return utf8Write(this, string, offset, length)
+
+      case 'ascii':
+        return asciiWrite(this, string, offset, length)
+
+      case 'binary':
+        return binaryWrite(this, string, offset, length)
+
+      case 'base64':
+        // Warning: maxLength not taken into account in base64Write
+        return base64Write(this, string, offset, length)
+
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return ucs2Write(this, string, offset, length)
+
+      default:
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
+        encoding = ('' + encoding).toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+
+Buffer.prototype.toJSON = function toJSON () {
+  return {
+    type: 'Buffer',
+    data: Array.prototype.slice.call(this._arr || this, 0)
+  }
+}
+
+function base64Slice (buf, start, end) {
+  if (start === 0 && end === buf.length) {
+    return base64.fromByteArray(buf)
+  } else {
+    return base64.fromByteArray(buf.slice(start, end))
+  }
+}
+
+function utf8Slice (buf, start, end) {
+  end = Math.min(buf.length, end)
+  var res = []
+
+  var i = start
+  while (i < end) {
+    var firstByte = buf[i]
+    var codePoint = null
+    var bytesPerSequence = (firstByte > 0xEF) ? 4
+      : (firstByte > 0xDF) ? 3
+      : (firstByte > 0xBF) ? 2
+      : 1
+
+    if (i + bytesPerSequence <= end) {
+      var secondByte, thirdByte, fourthByte, tempCodePoint
+
+      switch (bytesPerSequence) {
+        case 1:
+          if (firstByte < 0x80) {
+            codePoint = firstByte
+          }
+          break
+        case 2:
+          secondByte = buf[i + 1]
+          if ((secondByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0x1F) << 0x6 | (secondByte & 0x3F)
+            if (tempCodePoint > 0x7F) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 3:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0xC | (secondByte & 0x3F) << 0x6 | (thirdByte & 0x3F)
+            if (tempCodePoint > 0x7FF && (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF)) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 4:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          fourthByte = buf[i + 3]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80 && (fourthByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0x12 | (secondByte & 0x3F) << 0xC | (thirdByte & 0x3F) << 0x6 | (fourthByte & 0x3F)
+            if (tempCodePoint > 0xFFFF && tempCodePoint < 0x110000) {
+              codePoint = tempCodePoint
+            }
+          }
+      }
+    }
+
+    if (codePoint === null) {
+      // we did not generate a valid codePoint so insert a
+      // replacement char (U+FFFD) and advance only 1 byte
+      codePoint = 0xFFFD
+      bytesPerSequence = 1
+    } else if (codePoint > 0xFFFF) {
+      // encode to utf16 (surrogate pair dance)
+      codePoint -= 0x10000
+      res.push(codePoint >>> 10 & 0x3FF | 0xD800)
+      codePoint = 0xDC00 | codePoint & 0x3FF
+    }
+
+    res.push(codePoint)
+    i += bytesPerSequence
+  }
+
+  return decodeCodePointsArray(res)
+}
+
+// Based on http://stackoverflow.com/a/22747272/680742, the browser with
+// the lowest limit is Chrome, with 0x10000 args.
+// We go 1 magnitude less, for safety
+var MAX_ARGUMENTS_LENGTH = 0x1000
+
+function decodeCodePointsArray (codePoints) {
+  var len = codePoints.length
+  if (len <= MAX_ARGUMENTS_LENGTH) {
+    return String.fromCharCode.apply(String, codePoints) // avoid extra slice()
+  }
+
+  // Decode in chunks to avoid "call stack size exceeded".
+  var res = ''
+  var i = 0
+  while (i < len) {
+    res += String.fromCharCode.apply(
+      String,
+      codePoints.slice(i, i += MAX_ARGUMENTS_LENGTH)
+    )
+  }
+  return res
+}
+
+function asciiSlice (buf, start, end) {
+  var ret = ''
+  end = Math.min(buf.length, end)
+
+  for (var i = start; i < end; i++) {
+    ret += String.fromCharCode(buf[i] & 0x7F)
+  }
+  return ret
+}
+
+function binarySlice (buf, start, end) {
+  var ret = ''
+  end = Math.min(buf.length, end)
+
+  for (var i = start; i < end; i++) {
+    ret += String.fromCharCode(buf[i])
+  }
+  return ret
+}
+
+function hexSlice (buf, start, end) {
+  var len = buf.length
+
+  if (!start || start < 0) start = 0
+  if (!end || end < 0 || end > len) end = len
+
+  var out = ''
+  for (var i = start; i < end; i++) {
+    out += toHex(buf[i])
+  }
+  return out
+}
+
+function utf16leSlice (buf, start, end) {
+  var bytes = buf.slice(start, end)
+  var res = ''
+  for (var i = 0; i < bytes.length; i += 2) {
+    res += String.fromCharCode(bytes[i] + bytes[i + 1] * 256)
+  }
+  return res
+}
+
+Buffer.prototype.slice = function slice (start, end) {
+  var len = this.length
+  start = ~~start
+  end = end === undefined ? len : ~~end
+
+  if (start < 0) {
+    start += len
+    if (start < 0) start = 0
+  } else if (start > len) {
+    start = len
+  }
+
+  if (end < 0) {
+    end += len
+    if (end < 0) end = 0
+  } else if (end > len) {
+    end = len
+  }
+
+  if (end < start) end = start
+
+  var newBuf
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    newBuf = this.subarray(start, end)
+    newBuf.__proto__ = Buffer.prototype
+  } else {
+    var sliceLen = end - start
+    newBuf = new Buffer(sliceLen, undefined)
+    for (var i = 0; i < sliceLen; i++) {
+      newBuf[i] = this[i + start]
+    }
+  }
+
+  if (newBuf.length) newBuf.parent = this.parent || this
+
+  return newBuf
+}
+
+/*
+ * Need to make sure that buffer isn't trying to write out of bounds.
+ */
+function checkOffset (offset, ext, length) {
+  if ((offset % 1) !== 0 || offset < 0) throw new RangeError('offset is not uint')
+  if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length')
+}
+
+Buffer.prototype.readUIntLE = function readUIntLE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  var val = this[offset]
+  var mul = 1
+  var i = 0
+  while (++i < byteLength && (mul *= 0x100)) {
+    val += this[offset + i] * mul
+  }
+
+  return val
+}
+
+Buffer.prototype.readUIntBE = function readUIntBE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) {
+    checkOffset(offset, byteLength, this.length)
+  }
+
+  var val = this[offset + --byteLength]
+  var mul = 1
+  while (byteLength > 0 && (mul *= 0x100)) {
+    val += this[offset + --byteLength] * mul
+  }
+
+  return val
+}
+
+Buffer.prototype.readUInt8 = function readUInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  return this[offset]
+}
+
+Buffer.prototype.readUInt16LE = function readUInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  return this[offset] | (this[offset + 1] << 8)
+}
+
+Buffer.prototype.readUInt16BE = function readUInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  return (this[offset] << 8) | this[offset + 1]
+}
+
+Buffer.prototype.readUInt32LE = function readUInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return ((this[offset]) |
+      (this[offset + 1] << 8) |
+      (this[offset + 2] << 16)) +
+      (this[offset + 3] * 0x1000000)
+}
+
+Buffer.prototype.readUInt32BE = function readUInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset] * 0x1000000) +
+    ((this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    this[offset + 3])
+}
+
+Buffer.prototype.readIntLE = function readIntLE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  var val = this[offset]
+  var mul = 1
+  var i = 0
+  while (++i < byteLength && (mul *= 0x100)) {
+    val += this[offset + i] * mul
+  }
+  mul *= 0x80
+
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
+
+  return val
+}
+
+Buffer.prototype.readIntBE = function readIntBE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  var i = byteLength
+  var mul = 1
+  var val = this[offset + --i]
+  while (i > 0 && (mul *= 0x100)) {
+    val += this[offset + --i] * mul
+  }
+  mul *= 0x80
+
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
+
+  return val
+}
+
+Buffer.prototype.readInt8 = function readInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  if (!(this[offset] & 0x80)) return (this[offset])
+  return ((0xff - this[offset] + 1) * -1)
+}
+
+Buffer.prototype.readInt16LE = function readInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  var val = this[offset] | (this[offset + 1] << 8)
+  return (val & 0x8000) ? val | 0xFFFF0000 : val
+}
+
+Buffer.prototype.readInt16BE = function readInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  var val = this[offset + 1] | (this[offset] << 8)
+  return (val & 0x8000) ? val | 0xFFFF0000 : val
+}
+
+Buffer.prototype.readInt32LE = function readInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset]) |
+    (this[offset + 1] << 8) |
+    (this[offset + 2] << 16) |
+    (this[offset + 3] << 24)
+}
+
+Buffer.prototype.readInt32BE = function readInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset] << 24) |
+    (this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    (this[offset + 3])
+}
+
+Buffer.prototype.readFloatLE = function readFloatLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+  return ieee754.read(this, offset, true, 23, 4)
+}
+
+Buffer.prototype.readFloatBE = function readFloatBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+  return ieee754.read(this, offset, false, 23, 4)
+}
+
+Buffer.prototype.readDoubleLE = function readDoubleLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
+  return ieee754.read(this, offset, true, 52, 8)
+}
+
+Buffer.prototype.readDoubleBE = function readDoubleBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
+  return ieee754.read(this, offset, false, 52, 8)
+}
+
+function checkInt (buf, value, offset, ext, max, min) {
+  if (!Buffer.isBuffer(buf)) throw new TypeError('buffer must be a Buffer instance')
+  if (value > max || value < min) throw new RangeError('value is out of bounds')
+  if (offset + ext > buf.length) throw new RangeError('index out of range')
+}
+
+Buffer.prototype.writeUIntLE = function writeUIntLE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
+
+  var mul = 1
+  var i = 0
+  this[offset] = value & 0xFF
+  while (++i < byteLength && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeUIntBE = function writeUIntBE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
+
+  var i = byteLength - 1
+  var mul = 1
+  this[offset + i] = value & 0xFF
+  while (--i >= 0 && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeUInt8 = function writeUInt8 (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0xff, 0)
+  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
+  this[offset] = (value & 0xff)
+  return offset + 1
+}
+
+function objectWriteUInt16 (buf, value, offset, littleEndian) {
+  if (value < 0) value = 0xffff + value + 1
+  for (var i = 0, j = Math.min(buf.length - offset, 2); i < j; i++) {
+    buf[offset + i] = (value & (0xff << (8 * (littleEndian ? i : 1 - i)))) >>>
+      (littleEndian ? i : 1 - i) * 8
+  }
+}
+
+Buffer.prototype.writeUInt16LE = function writeUInt16LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value & 0xff)
+    this[offset + 1] = (value >>> 8)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
+  return offset + 2
+}
+
+Buffer.prototype.writeUInt16BE = function writeUInt16BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 8)
+    this[offset + 1] = (value & 0xff)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
+  return offset + 2
+}
+
+function objectWriteUInt32 (buf, value, offset, littleEndian) {
+  if (value < 0) value = 0xffffffff + value + 1
+  for (var i = 0, j = Math.min(buf.length - offset, 4); i < j; i++) {
+    buf[offset + i] = (value >>> (littleEndian ? i : 3 - i) * 8) & 0xff
+  }
+}
+
+Buffer.prototype.writeUInt32LE = function writeUInt32LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset + 3] = (value >>> 24)
+    this[offset + 2] = (value >>> 16)
+    this[offset + 1] = (value >>> 8)
+    this[offset] = (value & 0xff)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
+  return offset + 4
+}
+
+Buffer.prototype.writeUInt32BE = function writeUInt32BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 24)
+    this[offset + 1] = (value >>> 16)
+    this[offset + 2] = (value >>> 8)
+    this[offset + 3] = (value & 0xff)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
+  return offset + 4
+}
+
+Buffer.prototype.writeIntLE = function writeIntLE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) {
+    var limit = Math.pow(2, 8 * byteLength - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
+  }
+
+  var i = 0
+  var mul = 1
+  var sub = value < 0 ? 1 : 0
+  this[offset] = value & 0xFF
+  while (++i < byteLength && (mul *= 0x100)) {
+    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeIntBE = function writeIntBE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) {
+    var limit = Math.pow(2, 8 * byteLength - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
+  }
+
+  var i = byteLength - 1
+  var mul = 1
+  var sub = value < 0 ? 1 : 0
+  this[offset + i] = value & 0xFF
+  while (--i >= 0 && (mul *= 0x100)) {
+    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeInt8 = function writeInt8 (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0x7f, -0x80)
+  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
+  if (value < 0) value = 0xff + value + 1
+  this[offset] = (value & 0xff)
+  return offset + 1
+}
+
+Buffer.prototype.writeInt16LE = function writeInt16LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value & 0xff)
+    this[offset + 1] = (value >>> 8)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
+  return offset + 2
+}
+
+Buffer.prototype.writeInt16BE = function writeInt16BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 8)
+    this[offset + 1] = (value & 0xff)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
+  return offset + 2
+}
+
+Buffer.prototype.writeInt32LE = function writeInt32LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value & 0xff)
+    this[offset + 1] = (value >>> 8)
+    this[offset + 2] = (value >>> 16)
+    this[offset + 3] = (value >>> 24)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
+  return offset + 4
+}
+
+Buffer.prototype.writeInt32BE = function writeInt32BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  if (value < 0) value = 0xffffffff + value + 1
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 24)
+    this[offset + 1] = (value >>> 16)
+    this[offset + 2] = (value >>> 8)
+    this[offset + 3] = (value & 0xff)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
+  return offset + 4
+}
+
+function checkIEEE754 (buf, value, offset, ext, max, min) {
+  if (offset + ext > buf.length) throw new RangeError('index out of range')
+  if (offset < 0) throw new RangeError('index out of range')
+}
+
+function writeFloat (buf, value, offset, littleEndian, noAssert) {
+  if (!noAssert) {
+    checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38)
+  }
+  ieee754.write(buf, value, offset, littleEndian, 23, 4)
+  return offset + 4
+}
+
+Buffer.prototype.writeFloatLE = function writeFloatLE (value, offset, noAssert) {
+  return writeFloat(this, value, offset, true, noAssert)
+}
+
+Buffer.prototype.writeFloatBE = function writeFloatBE (value, offset, noAssert) {
+  return writeFloat(this, value, offset, false, noAssert)
+}
+
+function writeDouble (buf, value, offset, littleEndian, noAssert) {
+  if (!noAssert) {
+    checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308)
+  }
+  ieee754.write(buf, value, offset, littleEndian, 52, 8)
+  return offset + 8
+}
+
+Buffer.prototype.writeDoubleLE = function writeDoubleLE (value, offset, noAssert) {
+  return writeDouble(this, value, offset, true, noAssert)
+}
+
+Buffer.prototype.writeDoubleBE = function writeDoubleBE (value, offset, noAssert) {
+  return writeDouble(this, value, offset, false, noAssert)
+}
+
+// copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
+Buffer.prototype.copy = function copy (target, targetStart, start, end) {
+  if (!start) start = 0
+  if (!end && end !== 0) end = this.length
+  if (targetStart >= target.length) targetStart = target.length
+  if (!targetStart) targetStart = 0
+  if (end > 0 && end < start) end = start
+
+  // Copy 0 bytes; we're done
+  if (end === start) return 0
+  if (target.length === 0 || this.length === 0) return 0
+
+  // Fatal error conditions
+  if (targetStart < 0) {
+    throw new RangeError('targetStart out of bounds')
+  }
+  if (start < 0 || start >= this.length) throw new RangeError('sourceStart out of bounds')
+  if (end < 0) throw new RangeError('sourceEnd out of bounds')
+
+  // Are we oob?
+  if (end > this.length) end = this.length
+  if (target.length - targetStart < end - start) {
+    end = target.length - targetStart + start
+  }
+
+  var len = end - start
+  var i
+
+  if (this === target && start < targetStart && targetStart < end) {
+    // descending copy from end
+    for (i = len - 1; i >= 0; i--) {
+      target[i + targetStart] = this[i + start]
+    }
+  } else if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
+    // ascending copy from start
+    for (i = 0; i < len; i++) {
+      target[i + targetStart] = this[i + start]
+    }
+  } else {
+    Uint8Array.prototype.set.call(
+      target,
+      this.subarray(start, start + len),
+      targetStart
+    )
+  }
+
+  return len
+}
+
+// fill(value, start=0, end=buffer.length)
+Buffer.prototype.fill = function fill (value, start, end) {
+  if (!value) value = 0
+  if (!start) start = 0
+  if (!end) end = this.length
+
+  if (end < start) throw new RangeError('end < start')
+
+  // Fill 0 bytes; we're done
+  if (end === start) return
+  if (this.length === 0) return
+
+  if (start < 0 || start >= this.length) throw new RangeError('start out of bounds')
+  if (end < 0 || end > this.length) throw new RangeError('end out of bounds')
+
+  var i
+  if (typeof value === 'number') {
+    for (i = start; i < end; i++) {
+      this[i] = value
+    }
+  } else {
+    var bytes = utf8ToBytes(value.toString())
+    var len = bytes.length
+    for (i = start; i < end; i++) {
+      this[i] = bytes[i % len]
+    }
+  }
+
+  return this
+}
+
+// HELPER FUNCTIONS
+// ================
+
+var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g
+
+function base64clean (str) {
+  // Node strips out invalid characters like \n and \t from the string, base64-js does not
+  str = stringtrim(str).replace(INVALID_BASE64_RE, '')
+  // Node converts strings with length < 2 to ''
+  if (str.length < 2) return ''
+  // Node allows for non-padded base64 strings (missing trailing ===), base64-js does not
+  while (str.length % 4 !== 0) {
+    str = str + '='
+  }
+  return str
+}
+
+function stringtrim (str) {
+  if (str.trim) return str.trim()
+  return str.replace(/^\s+|\s+$/g, '')
+}
+
+function toHex (n) {
+  if (n < 16) return '0' + n.toString(16)
+  return n.toString(16)
+}
+
+function utf8ToBytes (string, units) {
+  units = units || Infinity
+  var codePoint
+  var length = string.length
+  var leadSurrogate = null
+  var bytes = []
+
+  for (var i = 0; i < length; i++) {
+    codePoint = string.charCodeAt(i)
+
+    // is surrogate component
+    if (codePoint > 0xD7FF && codePoint < 0xE000) {
+      // last char was a lead
+      if (!leadSurrogate) {
+        // no lead yet
+        if (codePoint > 0xDBFF) {
+          // unexpected trail
+          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+          continue
+        } else if (i + 1 === length) {
+          // unpaired lead
+          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+          continue
+        }
+
+        // valid lead
+        leadSurrogate = codePoint
+
+        continue
+      }
+
+      // 2 leads in a row
+      if (codePoint < 0xDC00) {
+        if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+        leadSurrogate = codePoint
+        continue
+      }
+
+      // valid surrogate pair
+      codePoint = (leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00) + 0x10000
+    } else if (leadSurrogate) {
+      // valid bmp char, but last char was a lead
+      if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+    }
+
+    leadSurrogate = null
+
+    // encode utf8
+    if (codePoint < 0x80) {
+      if ((units -= 1) < 0) break
+      bytes.push(codePoint)
+    } else if (codePoint < 0x800) {
+      if ((units -= 2) < 0) break
+      bytes.push(
+        codePoint >> 0x6 | 0xC0,
+        codePoint & 0x3F | 0x80
+      )
+    } else if (codePoint < 0x10000) {
+      if ((units -= 3) < 0) break
+      bytes.push(
+        codePoint >> 0xC | 0xE0,
+        codePoint >> 0x6 & 0x3F | 0x80,
+        codePoint & 0x3F | 0x80
+      )
+    } else if (codePoint < 0x110000) {
+      if ((units -= 4) < 0) break
+      bytes.push(
+        codePoint >> 0x12 | 0xF0,
+        codePoint >> 0xC & 0x3F | 0x80,
+        codePoint >> 0x6 & 0x3F | 0x80,
+        codePoint & 0x3F | 0x80
+      )
+    } else {
+      throw new Error('Invalid code point')
+    }
+  }
+
+  return bytes
+}
+
+function asciiToBytes (str) {
+  var byteArray = []
+  for (var i = 0; i < str.length; i++) {
+    // Node's code seems to be doing this and not & 0x7F..
+    byteArray.push(str.charCodeAt(i) & 0xFF)
+  }
+  return byteArray
+}
+
+function utf16leToBytes (str, units) {
+  var c, hi, lo
+  var byteArray = []
+  for (var i = 0; i < str.length; i++) {
+    if ((units -= 2) < 0) break
+
+    c = str.charCodeAt(i)
+    hi = c >> 8
+    lo = c % 256
+    byteArray.push(lo)
+    byteArray.push(hi)
+  }
+
+  return byteArray
+}
+
+function base64ToBytes (str) {
+  return base64.toByteArray(base64clean(str))
+}
+
+function blitBuffer (src, dst, offset, length) {
+  for (var i = 0; i < length; i++) {
+    if ((i + offset >= dst.length) || (i >= src.length)) break
+    dst[i + offset] = src[i]
+  }
+  return i
+}
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\buffer\\index.js","/node_modules\\buffer")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","base64-js":"Q:\\_alpha\\quickly.box\\node_modules\\base64-js\\lib\\b64.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","ieee754":"Q:\\_alpha\\quickly.box\\node_modules\\ieee754\\index.js","isarray":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\node_modules\\isarray\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\node_modules\\isarray\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+var toString = {}.toString;
+
+module.exports = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\buffer\\node_modules\\isarray\\index.js","/node_modules\\buffer\\node_modules\\isarray")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\cookie\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*!
  * cookie
  * Copyright(c) 2012-2014 Roman Shtylman
@@ -5320,42 +7177,69 @@ function tryDecode(str, decode) {
   }
 }
 
-},{}],70:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\cookie\\index.js","/node_modules\\cookie")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\object\\assign.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 require('../../modules/es6.object.assign');
 module.exports = require('../../modules/$.core').Object.assign;
-},{"../../modules/$.core":77,"../../modules/es6.object.assign":104}],71:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\fn\\object\\assign.js","/node_modules\\core-js\\library\\fn\\object")
+
+},{"../../modules/$.core":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.core.js","../../modules/es6.object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.object.assign.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\object\\create.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var $ = require('../../modules/$');
 module.exports = function create(P, D){
   return $.create(P, D);
 };
-},{"../../modules/$":91}],72:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\fn\\object\\create.js","/node_modules\\core-js\\library\\fn\\object")
+
+},{"../../modules/$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\object\\set-prototype-of.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 require('../../modules/es6.object.set-prototype-of');
 module.exports = require('../../modules/$.core').Object.setPrototypeOf;
-},{"../../modules/$.core":77,"../../modules/es6.object.set-prototype-of":105}],73:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\fn\\object\\set-prototype-of.js","/node_modules\\core-js\\library\\fn\\object")
+
+},{"../../modules/$.core":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.core.js","../../modules/es6.object.set-prototype-of":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.object.set-prototype-of.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\fn\\symbol\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 require('../../modules/es6.symbol');
 require('../../modules/es6.object.to-string');
 module.exports = require('../../modules/$.core').Symbol;
-},{"../../modules/$.core":77,"../../modules/es6.object.to-string":106,"../../modules/es6.symbol":107}],74:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\fn\\symbol\\index.js","/node_modules\\core-js\\library\\fn\\symbol")
+
+},{"../../modules/$.core":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.core.js","../../modules/es6.object.to-string":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.object.to-string.js","../../modules/es6.symbol":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.symbol.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.a-function.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = function(it){
   if(typeof it != 'function')throw TypeError(it + ' is not a function!');
   return it;
 };
-},{}],75:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.a-function.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.an-object.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var isObject = require('./$.is-object');
 module.exports = function(it){
   if(!isObject(it))throw TypeError(it + ' is not an object!');
   return it;
 };
-},{"./$.is-object":90}],76:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.an-object.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.is-object":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.is-object.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.cof.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var toString = {}.toString;
 
 module.exports = function(it){
   return toString.call(it).slice(8, -1);
 };
-},{}],77:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.cof.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.core.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var core = module.exports = {version: '1.2.6'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-},{}],78:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.core.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.ctx.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // optional / simple context binding
 var aFunction = require('./$.a-function');
 module.exports = function(fn, that, length){
@@ -5376,18 +7260,27 @@ module.exports = function(fn, that, length){
     return fn.apply(that, arguments);
   };
 };
-},{"./$.a-function":74}],79:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.ctx.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.a-function":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.a-function.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.defined.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function(it){
   if(it == undefined)throw TypeError("Can't call method on  " + it);
   return it;
 };
-},{}],80:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.defined.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.descriptors.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Thank's IE8 for his funny defineProperty
 module.exports = !require('./$.fails')(function(){
   return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 });
-},{"./$.fails":83}],81:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.descriptors.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.fails":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.fails.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.enum-keys.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // all enumerable object keys, includes symbols
 var $ = require('./$');
 module.exports = function(it){
@@ -5402,7 +7295,10 @@ module.exports = function(it){
   }
   return keys;
 };
-},{"./$":91}],82:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.enum-keys.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.export.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var global    = require('./$.global')
   , core      = require('./$.core')
   , ctx       = require('./$.ctx')
@@ -5449,7 +7345,10 @@ $export.P = 8;  // proto
 $export.B = 16; // bind
 $export.W = 32; // wrap
 module.exports = $export;
-},{"./$.core":77,"./$.ctx":78,"./$.global":85}],83:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.export.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.core":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.core.js","./$.ctx":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.ctx.js","./$.global":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.global.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.fails.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = function(exec){
   try {
     return !!exec();
@@ -5457,7 +7356,10 @@ module.exports = function(exec){
     return true;
   }
 };
-},{}],84:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.fails.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.get-names.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = require('./$.to-iobject')
   , getNames  = require('./$').getNames
@@ -5478,17 +7380,26 @@ module.exports.get = function getOwnPropertyNames(it){
   if(windowNames && toString.call(it) == '[object Window]')return getWindowNames(it);
   return getNames(toIObject(it));
 };
-},{"./$":91,"./$.to-iobject":100}],85:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.get-names.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","./$.to-iobject":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.to-iobject.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.global.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
   ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-},{}],86:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.global.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.has.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function(it, key){
   return hasOwnProperty.call(it, key);
 };
-},{}],87:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.has.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.hide.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var $          = require('./$')
   , createDesc = require('./$.property-desc');
 module.exports = require('./$.descriptors') ? function(object, key, value){
@@ -5497,23 +7408,35 @@ module.exports = require('./$.descriptors') ? function(object, key, value){
   object[key] = value;
   return object;
 };
-},{"./$":91,"./$.descriptors":80,"./$.property-desc":95}],88:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.hide.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","./$.descriptors":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.descriptors.js","./$.property-desc":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.property-desc.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.iobject.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = require('./$.cof');
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
-},{"./$.cof":76}],89:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.iobject.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.cof":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.cof.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.is-array.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // 7.2.2 IsArray(argument)
 var cof = require('./$.cof');
 module.exports = Array.isArray || function(arg){
   return cof(arg) == 'Array';
 };
-},{"./$.cof":76}],90:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.is-array.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.cof":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.cof.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.is-object.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = function(it){
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
-},{}],91:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.is-object.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var $Object = Object;
 module.exports = {
   create:     $Object.create,
@@ -5527,7 +7450,10 @@ module.exports = {
   getSymbols: $Object.getOwnPropertySymbols,
   each:       [].forEach
 };
-},{}],92:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.keyof.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var $         = require('./$')
   , toIObject = require('./$.to-iobject');
 module.exports = function(object, el){
@@ -5538,9 +7464,15 @@ module.exports = function(object, el){
     , key;
   while(length > index)if(O[key = keys[index++]] === el)return key;
 };
-},{"./$":91,"./$.to-iobject":100}],93:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.keyof.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","./$.to-iobject":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.to-iobject.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.library.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = true;
-},{}],94:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.library.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.object-assign.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // 19.1.2.1 Object.assign(target, source, ...)
 var $        = require('./$')
   , toObject = require('./$.to-object')
@@ -5574,7 +7506,10 @@ module.exports = require('./$.fails')(function(){
   }
   return T;
 } : Object.assign;
-},{"./$":91,"./$.fails":83,"./$.iobject":88,"./$.to-object":101}],95:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.object-assign.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","./$.fails":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.fails.js","./$.iobject":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.iobject.js","./$.to-object":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.to-object.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.property-desc.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = function(bitmap, value){
   return {
     enumerable  : !(bitmap & 1),
@@ -5583,9 +7518,15 @@ module.exports = function(bitmap, value){
     value       : value
   };
 };
-},{}],96:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.property-desc.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.redefine.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = require('./$.hide');
-},{"./$.hide":87}],97:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.redefine.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.hide":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.hide.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.set-proto.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
 var getDesc  = require('./$').getDesc
@@ -5612,7 +7553,10 @@ module.exports = {
     }({}, false) : undefined),
   check: check
 };
-},{"./$":91,"./$.an-object":75,"./$.ctx":78,"./$.is-object":90}],98:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.set-proto.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","./$.an-object":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.an-object.js","./$.ctx":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.ctx.js","./$.is-object":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.is-object.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.set-to-string-tag.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var def = require('./$').setDesc
   , has = require('./$.has')
   , TAG = require('./$.wks')('toStringTag');
@@ -5620,33 +7564,48 @@ var def = require('./$').setDesc
 module.exports = function(it, tag, stat){
   if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 };
-},{"./$":91,"./$.has":86,"./$.wks":103}],99:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.set-to-string-tag.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","./$.has":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.has.js","./$.wks":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.wks.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.shared.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var global = require('./$.global')
   , SHARED = '__core-js_shared__'
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
 };
-},{"./$.global":85}],100:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.shared.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.global":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.global.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.to-iobject.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = require('./$.iobject')
   , defined = require('./$.defined');
 module.exports = function(it){
   return IObject(defined(it));
 };
-},{"./$.defined":79,"./$.iobject":88}],101:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.to-iobject.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.defined":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.defined.js","./$.iobject":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.iobject.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.to-object.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // 7.1.13 ToObject(argument)
 var defined = require('./$.defined');
 module.exports = function(it){
   return Object(defined(it));
 };
-},{"./$.defined":79}],102:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.to-object.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.defined":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.defined.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.uid.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var id = 0
   , px = Math.random();
 module.exports = function(key){
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
 };
-},{}],103:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.uid.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.wks.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var store  = require('./$.shared')('wks')
   , uid    = require('./$.uid')
   , Symbol = require('./$.global').Symbol;
@@ -5654,18 +7613,30 @@ module.exports = function(name){
   return store[name] || (store[name] =
     Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
 };
-},{"./$.global":85,"./$.shared":99,"./$.uid":102}],104:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\$.wks.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.global":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.global.js","./$.shared":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.shared.js","./$.uid":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.uid.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.object.assign.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // 19.1.3.1 Object.assign(target, source)
 var $export = require('./$.export');
 
 $export($export.S + $export.F, 'Object', {assign: require('./$.object-assign')});
-},{"./$.export":82,"./$.object-assign":94}],105:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\es6.object.assign.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$.export":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.export.js","./$.object-assign":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.object-assign.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.object.set-prototype-of.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $export = require('./$.export');
 $export($export.S, 'Object', {setPrototypeOf: require('./$.set-proto').set});
-},{"./$.export":82,"./$.set-proto":97}],106:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\es6.object.set-prototype-of.js","/node_modules\\core-js\\library\\modules")
 
-},{}],107:[function(require,module,exports){
+},{"./$.export":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.export.js","./$.set-proto":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.set-proto.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.object.to-string.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\es6.object.to-string.js","/node_modules\\core-js\\library\\modules")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\es6.symbol.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 // ECMAScript 6 symbols shim
 var $              = require('./$')
@@ -5893,7 +7864,10 @@ setToStringTag($Symbol, 'Symbol');
 setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
-},{"./$":91,"./$.an-object":75,"./$.descriptors":80,"./$.enum-keys":81,"./$.export":82,"./$.fails":83,"./$.get-names":84,"./$.global":85,"./$.has":86,"./$.is-array":89,"./$.keyof":92,"./$.library":93,"./$.property-desc":95,"./$.redefine":96,"./$.set-to-string-tag":98,"./$.shared":99,"./$.to-iobject":100,"./$.uid":102,"./$.wks":103}],108:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\core-js\\library\\modules\\es6.symbol.js","/node_modules\\core-js\\library\\modules")
+
+},{"./$":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.js","./$.an-object":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.an-object.js","./$.descriptors":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.descriptors.js","./$.enum-keys":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.enum-keys.js","./$.export":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.export.js","./$.fails":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.fails.js","./$.get-names":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.get-names.js","./$.global":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.global.js","./$.has":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.has.js","./$.is-array":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.is-array.js","./$.keyof":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.keyof.js","./$.library":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.library.js","./$.property-desc":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.property-desc.js","./$.redefine":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.redefine.js","./$.set-to-string-tag":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.set-to-string-tag.js","./$.shared":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.shared.js","./$.to-iobject":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.to-iobject.js","./$.uid":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.uid.js","./$.wks":"Q:\\_alpha\\quickly.box\\node_modules\\core-js\\library\\modules\\$.wks.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\deep-equal\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -5989,7 +7963,10 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":109,"./lib/keys.js":110}],109:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\deep-equal\\index.js","/node_modules\\deep-equal")
+
+},{"./lib/is_arguments.js":"Q:\\_alpha\\quickly.box\\node_modules\\deep-equal\\lib\\is_arguments.js","./lib/keys.js":"Q:\\_alpha\\quickly.box\\node_modules\\deep-equal\\lib\\keys.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\deep-equal\\lib\\is_arguments.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -6011,7 +7988,10 @@ function unsupported(object){
     false;
 };
 
-},{}],110:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\deep-equal\\lib\\is_arguments.js","/node_modules\\deep-equal\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\deep-equal\\lib\\keys.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -6022,8 +8002,10 @@ function shim (obj) {
   return keys;
 }
 
-},{}],111:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\deep-equal\\lib\\keys.js","/node_modules\\deep-equal\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\CSSCore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6121,10 +8103,10 @@ var CSSCore = {
 };
 
 module.exports = CSSCore;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\CSSCore.js","/node_modules\\fbjs\\lib")
 
-},{"./invariant":127,"_process":167}],112:[function(require,module,exports){
-(function (process){
+},{"./invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\EventListener.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  *
@@ -6209,9 +8191,10 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\EventListener.js","/node_modules\\fbjs\\lib")
 
-},{"./emptyFunction":119,"_process":167}],113:[function(require,module,exports){
+},{"./emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6248,7 +8231,10 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],114:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\ExecutionEnvironment.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\camelize.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6281,7 +8267,10 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],115:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\camelize.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\camelizeStyleName.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6322,7 +8311,10 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":114}],116:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\camelizeStyleName.js","/node_modules\\fbjs\\lib")
+
+},{"./camelize":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\camelize.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\containsNode.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6378,7 +8370,10 @@ function containsNode(_x, _x2) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":129}],117:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\containsNode.js","/node_modules\\fbjs\\lib")
+
+},{"./isTextNode":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\isTextNode.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\createArrayFromMixed.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6464,8 +8459,10 @@ function createArrayFromMixed(obj) {
 }
 
 module.exports = createArrayFromMixed;
-},{"./toArray":137}],118:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\createArrayFromMixed.js","/node_modules\\fbjs\\lib")
+
+},{"./toArray":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\toArray.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\createNodesFromMarkup.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6550,9 +8547,10 @@ function createNodesFromMarkup(markup, handleScript) {
 }
 
 module.exports = createNodesFromMarkup;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\createNodesFromMarkup.js","/node_modules\\fbjs\\lib")
 
-},{"./ExecutionEnvironment":113,"./createArrayFromMixed":117,"./getMarkupWrap":123,"./invariant":127,"_process":167}],119:[function(require,module,exports){
+},{"./ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","./createArrayFromMixed":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\createArrayFromMixed.js","./getMarkupWrap":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getMarkupWrap.js","./invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6591,8 +8589,10 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],120:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\emptyFunction.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyObject.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6613,9 +8613,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\emptyObject.js","/node_modules\\fbjs\\lib")
 
-},{"_process":167}],121:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\focusNode.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6642,7 +8643,10 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],122:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\focusNode.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getActiveElement.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6678,8 +8682,10 @@ function getActiveElement() /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],123:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\getActiveElement.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getMarkupWrap.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6775,9 +8781,10 @@ function getMarkupWrap(nodeName) {
 }
 
 module.exports = getMarkupWrap;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\getMarkupWrap.js","/node_modules\\fbjs\\lib")
 
-},{"./ExecutionEnvironment":113,"./invariant":127,"_process":167}],124:[function(require,module,exports){
+},{"./ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","./invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6816,7 +8823,10 @@ function getUnboundedScrollPosition(scrollable) {
 }
 
 module.exports = getUnboundedScrollPosition;
-},{}],125:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\hyphenate.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6850,7 +8860,10 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],126:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\hyphenate.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\hyphenateStyleName.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6890,8 +8903,10 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":125}],127:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\hyphenateStyleName.js","/node_modules\\fbjs\\lib")
+
+},{"./hyphenate":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\hyphenate.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6942,9 +8957,10 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\invariant.js","/node_modules\\fbjs\\lib")
 
-},{"_process":167}],128:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\isNode.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6968,7 +8984,10 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],129:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\isNode.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\isTextNode.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -6994,8 +9013,10 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":128}],130:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\isTextNode.js","/node_modules\\fbjs\\lib")
+
+},{"./isNode":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\isNode.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyMirror.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7044,9 +9065,10 @@ var keyMirror = function (obj) {
 };
 
 module.exports = keyMirror;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\keyMirror.js","/node_modules\\fbjs\\lib")
 
-},{"./invariant":127,"_process":167}],131:[function(require,module,exports){
+},{"./invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7082,7 +9104,10 @@ var keyOf = function (oneKeyObj) {
 };
 
 module.exports = keyOf;
-},{}],132:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\keyOf.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\mapObject.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7134,7 +9159,10 @@ function mapObject(object, callback, context) {
 }
 
 module.exports = mapObject;
-},{}],133:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\mapObject.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\memoizeStringOnly.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7166,7 +9194,10 @@ function memoizeStringOnly(callback) {
 }
 
 module.exports = memoizeStringOnly;
-},{}],134:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\memoizeStringOnly.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\performance.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7190,7 +9221,10 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = performance || {};
-},{"./ExecutionEnvironment":113}],135:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\performance.js","/node_modules\\fbjs\\lib")
+
+},{"./ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\performanceNow.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7225,7 +9259,10 @@ if (performance.now) {
 }
 
 module.exports = performanceNow;
-},{"./performance":134}],136:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\performanceNow.js","/node_modules\\fbjs\\lib")
+
+},{"./performance":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\performance.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\shallowEqual.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7276,8 +9313,10 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],137:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\shallowEqual.js","/node_modules\\fbjs\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\toArray.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7335,10 +9374,10 @@ function toArray(obj) {
 }
 
 module.exports = toArray;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\toArray.js","/node_modules\\fbjs\\lib")
 
-},{"./invariant":127,"_process":167}],138:[function(require,module,exports){
-(function (process){
+},{"./invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -7396,9 +9435,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\fbjs\\lib\\warning.js","/node_modules\\fbjs\\lib")
 
-},{"./emptyFunction":119,"_process":167}],139:[function(require,module,exports){
+},{"./emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\Actions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -7430,7 +9470,10 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],140:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\Actions.js","/node_modules\\history\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\AsyncUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 exports.__esModule = true;
@@ -7489,8 +9532,10 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],141:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\AsyncUtils.js","/node_modules\\history\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\DOMStateStorage.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*eslint-disable no-empty */
 'use strict';
 
@@ -7564,9 +9609,10 @@ function readState(key) {
 
   return null;
 }
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\DOMStateStorage.js","/node_modules\\history\\lib")
 
-},{"_process":167,"warning":350}],142:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\DOMUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -7642,14 +9688,19 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],143:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\DOMUtils.js","/node_modules\\history\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\ExecutionEnvironment.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],144:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\ExecutionEnvironment.js","/node_modules\\history\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -7697,10 +9748,10 @@ function parsePath(path) {
     hash: hash
   };
 }
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\PathUtils.js","/node_modules\\history\\lib")
 
-},{"_process":167,"warning":350}],145:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createBrowserHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -7877,10 +9928,10 @@ function createBrowserHistory() {
 
 exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\createBrowserHistory.js","/node_modules\\history\\lib")
 
-},{"./Actions":139,"./DOMStateStorage":141,"./DOMUtils":142,"./ExecutionEnvironment":143,"./PathUtils":144,"./createDOMHistory":146,"_process":167,"invariant":165}],146:[function(require,module,exports){
-(function (process){
+},{"./Actions":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\Actions.js","./DOMStateStorage":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\DOMStateStorage.js","./DOMUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js","./createDOMHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createDOMHistory.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createDOMHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -7921,10 +9972,10 @@ function createDOMHistory(options) {
 
 exports['default'] = createDOMHistory;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\createDOMHistory.js","/node_modules\\history\\lib")
 
-},{"./DOMUtils":142,"./ExecutionEnvironment":143,"./createHistory":148,"_process":167,"invariant":165}],147:[function(require,module,exports){
-(function (process){
+},{"./DOMUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\ExecutionEnvironment.js","./createHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createHistory.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createHashHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -8171,10 +10222,10 @@ function createHashHistory() {
 
 exports['default'] = createHashHistory;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\createHashHistory.js","/node_modules\\history\\lib")
 
-},{"./Actions":139,"./DOMStateStorage":141,"./DOMUtils":142,"./ExecutionEnvironment":143,"./PathUtils":144,"./createDOMHistory":146,"_process":167,"invariant":165,"warning":350}],148:[function(require,module,exports){
-(function (process){
+},{"./Actions":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\Actions.js","./DOMStateStorage":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\DOMStateStorage.js","./DOMUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js","./createDOMHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createDOMHistory.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -8463,10 +10514,10 @@ function createHistory() {
 
 exports['default'] = createHistory;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\createHistory.js","/node_modules\\history\\lib")
 
-},{"./Actions":139,"./AsyncUtils":140,"./PathUtils":144,"./createLocation":149,"./deprecate":151,"./runTransitionHook":152,"_process":167,"deep-equal":108,"warning":350}],149:[function(require,module,exports){
-(function (process){
+},{"./Actions":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\Actions.js","./AsyncUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\AsyncUtils.js","./PathUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js","./createLocation":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createLocation.js","./deprecate":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\runTransitionHook.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","deep-equal":"Q:\\_alpha\\quickly.box\\node_modules\\deep-equal\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createLocation.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -8518,10 +10569,10 @@ function createLocation() {
 
 exports['default'] = createLocation;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\createLocation.js","/node_modules\\history\\lib")
 
-},{"./Actions":139,"./PathUtils":144,"_process":167,"warning":350}],150:[function(require,module,exports){
-(function (process){
+},{"./Actions":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\Actions.js","./PathUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createMemoryHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -8676,10 +10727,10 @@ function createMemoryHistory() {
 
 exports['default'] = createMemoryHistory;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\createMemoryHistory.js","/node_modules\\history\\lib")
 
-},{"./Actions":139,"./PathUtils":144,"./createHistory":148,"_process":167,"invariant":165,"warning":350}],151:[function(require,module,exports){
-(function (process){
+},{"./Actions":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\Actions.js","./PathUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js","./createHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createHistory.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\deprecate.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -8699,10 +10750,10 @@ function deprecate(fn, message) {
 
 exports['default'] = deprecate;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\deprecate.js","/node_modules\\history\\lib")
 
-},{"_process":167,"warning":350}],152:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\runTransitionHook.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -8727,9 +10778,10 @@ function runTransitionHook(hook, location, callback) {
 
 exports['default'] = runTransitionHook;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\runTransitionHook.js","/node_modules\\history\\lib")
 
-},{"_process":167,"warning":350}],153:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useBasename.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -8865,8 +10917,10 @@ function useBasename(createHistory) {
 
 exports['default'] = useBasename;
 module.exports = exports['default'];
-},{"./ExecutionEnvironment":143,"./PathUtils":144,"./deprecate":151,"./runTransitionHook":152}],154:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\useBasename.js","/node_modules\\history\\lib")
+
+},{"./ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js","./deprecate":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\runTransitionHook.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useQueries.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -9043,9 +11097,10 @@ function useQueries(createHistory) {
 
 exports['default'] = useQueries;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\history\\lib\\useQueries.js","/node_modules\\history\\lib")
 
-},{"./PathUtils":144,"./deprecate":151,"./runTransitionHook":152,"_process":167,"query-string":168,"warning":350}],155:[function(require,module,exports){
+},{"./PathUtils":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\PathUtils.js","./deprecate":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\runTransitionHook.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","query-string":"Q:\\_alpha\\quickly.box\\node_modules\\query-string\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\error.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var Response = require('./response');
@@ -9083,7 +11138,10 @@ RequestError.create = function(message, req, props) {
 
 module.exports = RequestError;
 
-},{"./response":158,"./utils/extractResponseProps":160,"xtend":352}],156:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\error.js","/node_modules\\httpplease\\lib")
+
+},{"./response":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\response.js","./utils/extractResponseProps":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\extractResponseProps.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","xtend":"Q:\\_alpha\\quickly.box\\node_modules\\xtend\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var
@@ -9297,7 +11355,10 @@ function getError(req, err) {
   return createError(msg, req);
 }
 
-},{"../plugins/cleanurl":163,"./error":155,"./request":157,"./response":158,"./utils/delay":159,"./utils/once":161,"./xhr":162,"xtend":352}],157:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\index.js","/node_modules\\httpplease\\lib")
+
+},{"../plugins/cleanurl":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\plugins\\cleanurl.js","./error":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\error.js","./request":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\request.js","./response":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\response.js","./utils/delay":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\delay.js","./utils/once":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\once.js","./xhr":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\xhr-browser.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","xtend":"Q:\\_alpha\\quickly.box\\node_modules\\xtend\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\request.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 function Request(optsOrUrl) {
@@ -9342,7 +11403,10 @@ Request.prototype.header = function(name, value) {
 
 module.exports = Request;
 
-},{}],158:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\request.js","/node_modules\\httpplease\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\response.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var Request = require('./request');
@@ -9368,7 +11432,10 @@ Response.fromRequest = function(req) {
 
 module.exports = Response;
 
-},{"./request":157,"./utils/extractResponseProps":160}],159:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\response.js","/node_modules\\httpplease\\lib")
+
+},{"./request":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\request.js","./utils/extractResponseProps":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\extractResponseProps.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\delay.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 // Wrap a function in a `setTimeout` call. This is used to guarantee async
@@ -9385,7 +11452,10 @@ module.exports = function(fn) {
   };
 };
 
-},{}],160:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\utils\\delay.js","/node_modules\\httpplease\\lib\\utils")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\extractResponseProps.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var extend = require('xtend');
@@ -9420,7 +11490,10 @@ module.exports = function(req) {
   return props;
 };
 
-},{"xtend":352}],161:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\utils\\extractResponseProps.js","/node_modules\\httpplease\\lib\\utils")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","xtend":"Q:\\_alpha\\quickly.box\\node_modules\\xtend\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\once.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 // A "once" utility.
@@ -9435,10 +11508,16 @@ module.exports = function(fn) {
   };
 };
 
-},{}],162:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\utils\\once.js","/node_modules\\httpplease\\lib\\utils")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\xhr-browser.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = window.XMLHttpRequest;
 
-},{}],163:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\lib\\xhr-browser.js","/node_modules\\httpplease\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\plugins\\cleanurl.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 module.exports = {
@@ -9449,7 +11528,10 @@ module.exports = {
   }
 };
 
-},{}],164:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\plugins\\cleanurl.js","/node_modules\\httpplease\\plugins")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\plugins\\oldiexdomain.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 var
@@ -9519,8 +11601,99 @@ module.exports = {
   }
 };
 
-},{"../lib/utils/once":161,"urllite/lib/core":349}],165:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\httpplease\\plugins\\oldiexdomain.js","/node_modules\\httpplease\\plugins")
+
+},{"../lib/utils/once":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\utils\\once.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","urllite/lib/core":"Q:\\_alpha\\quickly.box\\node_modules\\urllite\\lib\\core.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\ieee754\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+exports.read = function (buffer, offset, isLE, mLen, nBytes) {
+  var e, m
+  var eLen = nBytes * 8 - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var nBits = -7
+  var i = isLE ? (nBytes - 1) : 0
+  var d = isLE ? -1 : 1
+  var s = buffer[offset + i]
+
+  i += d
+
+  e = s & ((1 << (-nBits)) - 1)
+  s >>= (-nBits)
+  nBits += eLen
+  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
+
+  m = e & ((1 << (-nBits)) - 1)
+  e >>= (-nBits)
+  nBits += mLen
+  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8) {}
+
+  if (e === 0) {
+    e = 1 - eBias
+  } else if (e === eMax) {
+    return m ? NaN : ((s ? -1 : 1) * Infinity)
+  } else {
+    m = m + Math.pow(2, mLen)
+    e = e - eBias
+  }
+  return (s ? -1 : 1) * m * Math.pow(2, e - mLen)
+}
+
+exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
+  var e, m, c
+  var eLen = nBytes * 8 - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0)
+  var i = isLE ? 0 : (nBytes - 1)
+  var d = isLE ? 1 : -1
+  var s = value < 0 || (value === 0 && 1 / value < 0) ? 1 : 0
+
+  value = Math.abs(value)
+
+  if (isNaN(value) || value === Infinity) {
+    m = isNaN(value) ? 1 : 0
+    e = eMax
+  } else {
+    e = Math.floor(Math.log(value) / Math.LN2)
+    if (value * (c = Math.pow(2, -e)) < 1) {
+      e--
+      c *= 2
+    }
+    if (e + eBias >= 1) {
+      value += rt / c
+    } else {
+      value += rt * Math.pow(2, 1 - eBias)
+    }
+    if (value * c >= 2) {
+      e++
+      c /= 2
+    }
+
+    if (e + eBias >= eMax) {
+      m = 0
+      e = eMax
+    } else if (e + eBias >= 1) {
+      m = (value * c - 1) * Math.pow(2, mLen)
+      e = e + eBias
+    } else {
+      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
+      e = 0
+    }
+  }
+
+  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
+
+  e = (e << mLen) | m
+  eLen += mLen
+  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
+
+  buffer[offset + i - d] |= s * 128
+}
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\ieee754\\index.js","/node_modules\\ieee754")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -9573,9 +11746,10 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\invariant\\browser.js","/node_modules\\invariant")
 
-},{"_process":167}],166:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\once\\once.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var wrappy = require('wrappy')
 module.exports = wrappy(once)
 
@@ -9598,7 +11772,10 @@ function once (fn) {
   return f
 }
 
-},{"wrappy":351}],167:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\once\\once.js","/node_modules\\once")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","wrappy":"Q:\\_alpha\\quickly.box\\node_modules\\wrappy\\wrappy.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -9691,7 +11868,10 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],168:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\process\\browser.js","/node_modules\\process")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\query-string\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 var strictUriEncode = require('strict-uri-encode');
 
@@ -9759,9 +11939,15 @@ exports.stringify = function (obj) {
 	}).join('&') : '';
 };
 
-},{"strict-uri-encode":348}],169:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\query-string\\index.js","/node_modules\\query-string")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","strict-uri-encode":"Q:\\_alpha\\quickly.box\\node_modules\\strict-uri-encode\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-addons-css-transition-group\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = require('react/lib/ReactCSSTransitionGroup');
-},{"react/lib/ReactCSSTransitionGroup":240}],170:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-addons-css-transition-group\\index.js","/node_modules\\react-addons-css-transition-group")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react/lib/ReactCSSTransitionGroup":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCSSTransitionGroup.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-cookie\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var cookie = require('cookie');
 
 var _rawCookie = {};
@@ -9854,7 +12040,10 @@ if (typeof window !== 'undefined') {
 
 module.exports = reactCookie;
 
-},{"cookie":69}],171:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-cookie\\index.js","/node_modules\\react-cookie")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","cookie":"Q:\\_alpha\\quickly.box\\node_modules\\cookie\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-inlinesvg\\lib\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var InlineSVGError, PropTypes, React, Status, configurationError, createError, delay, getHash, http, httpplease, ieXDomain, isSupportedEnvironment, me, once, span, supportsInlineSVG, uniquifyIDs, unsupportedBrowserError,
   __slice = [].slice,
   __hasProp = {}.hasOwnProperty,
@@ -10117,14 +12306,20 @@ module.exports = me = React.createClass({
   }
 });
 
-},{"httpplease":156,"httpplease/plugins/oldiexdomain":164,"once":166,"react":347}],172:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-inlinesvg\\lib\\index.js","/node_modules\\react-inlinesvg\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","httpplease":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\lib\\index.js","httpplease/plugins/oldiexdomain":"Q:\\_alpha\\quickly.box\\node_modules\\httpplease\\plugins\\oldiexdomain.js","once":"Q:\\_alpha\\quickly.box\\node_modules\\once\\once.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\HistoryActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
 var PUSH = exports.PUSH = 'PUSH';
 var REPLACE = exports.REPLACE = 'REPLACE';
 var POP = exports.POP = 'POP';
-},{}],173:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\HistoryActions.js","/node_modules\\react-router-transitions\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\LocationUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10167,7 +12362,10 @@ var createLocation = exports.createLocation = function createLocation(location) 
 
   return location || {};
 };
-},{"babel-runtime/helpers/extends":64}],174:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\LocationUtils.js","/node_modules\\react-router-transitions\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","babel-runtime/helpers/extends":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\extends.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\RouterUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10196,13 +12394,19 @@ var getRoutePath = exports.getRoutePath = function getRoutePath(route, routes) {
   var currentRoutes = routes.slice(0, currentRouteIndex + 1);
   return getCompleteRoutesPath(currentRoutes);
 };
-},{}],175:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\RouterUtils.js","/node_modules\\react-router-transitions\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\TransitionActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
 var DISMISS = exports.DISMISS = 'dismiss';
 var SHOW = exports.SHOW = 'show';
-},{}],176:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\TransitionActions.js","/node_modules\\react-router-transitions\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\TransitionContext.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10380,7 +12584,10 @@ TransitionContext.childContextTypes = {
   transitionRouter: _react.PropTypes.object.isRequired
 };
 exports.default = TransitionContext;
-},{"./HistoryActions":172,"./LocationUtils":173,"./TransitionActions":175,"babel-runtime/helpers/classCallCheck":63,"babel-runtime/helpers/extends":64,"babel-runtime/helpers/inherits":65,"babel-runtime/helpers/objectWithoutProperties":66,"babel-runtime/helpers/possibleConstructorReturn":67,"react":347}],177:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\TransitionContext.js","/node_modules\\react-router-transitions\\lib")
+
+},{"./HistoryActions":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\HistoryActions.js","./LocationUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\LocationUtils.js","./TransitionActions":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\TransitionActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","babel-runtime/helpers/classCallCheck":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\classCallCheck.js","babel-runtime/helpers/extends":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\extends.js","babel-runtime/helpers/inherits":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\inherits.js","babel-runtime/helpers/objectWithoutProperties":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\objectWithoutProperties.js","babel-runtime/helpers/possibleConstructorReturn":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\possibleConstructorReturn.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10437,7 +12644,10 @@ exports.HistoryActions = HistoryActions;
 exports.TransitionActions = TransitionActions;
 exports.LocationUtils = LocationUtils;
 exports.RouterUtils = RouterUtils;
-},{"./HistoryActions":172,"./LocationUtils":173,"./RouterUtils":174,"./TransitionActions":175,"./TransitionContext":176,"./renderTransitionContext":178,"./withTransition":179}],178:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\index.js","/node_modules\\react-router-transitions\\lib")
+
+},{"./HistoryActions":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\HistoryActions.js","./LocationUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\LocationUtils.js","./RouterUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\RouterUtils.js","./TransitionActions":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\TransitionActions.js","./TransitionContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\TransitionContext.js","./renderTransitionContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\renderTransitionContext.js","./withTransition":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\withTransition.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\renderTransitionContext.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10472,7 +12682,10 @@ exports.default = function (contextConfig) {
     );
   };
 };
-},{"./TransitionContext":176,"babel-runtime/helpers/extends":64,"babel-runtime/helpers/objectWithoutProperties":66,"react":347}],179:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\renderTransitionContext.js","/node_modules\\react-router-transitions\\lib")
+
+},{"./TransitionContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\TransitionContext.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","babel-runtime/helpers/extends":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\extends.js","babel-runtime/helpers/objectWithoutProperties":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\objectWithoutProperties.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\withTransition.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10687,7 +12900,10 @@ exports.default = function (Component, transitionConfig) {
     transitionRouter: _react.PropTypes.object.isRequired
   }, _temp;
 };
-},{"./RouterUtils":174,"./TransitionActions":175,"babel-runtime/helpers/classCallCheck":63,"babel-runtime/helpers/extends":64,"babel-runtime/helpers/inherits":65,"babel-runtime/helpers/objectWithoutProperties":66,"babel-runtime/helpers/possibleConstructorReturn":67,"react":347}],180:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router-transitions\\lib\\withTransition.js","/node_modules\\react-router-transitions\\lib")
+
+},{"./RouterUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\RouterUtils.js","./TransitionActions":"Q:\\_alpha\\quickly.box\\node_modules\\react-router-transitions\\lib\\TransitionActions.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","babel-runtime/helpers/classCallCheck":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\classCallCheck.js","babel-runtime/helpers/extends":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\extends.js","babel-runtime/helpers/inherits":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\inherits.js","babel-runtime/helpers/objectWithoutProperties":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\objectWithoutProperties.js","babel-runtime/helpers/possibleConstructorReturn":"Q:\\_alpha\\quickly.box\\node_modules\\babel-runtime\\helpers\\possibleConstructorReturn.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\AsyncUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
 exports.__esModule = true;
@@ -10778,8 +12994,10 @@ function mapAsync(array, work, callback) {
     });
   });
 }
-},{}],181:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\AsyncUtils.js","/node_modules\\react-router\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\History.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10810,9 +13028,10 @@ var History = {
 
 exports['default'] = History;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\History.js","/node_modules\\react-router\\lib")
 
-},{"./PropTypes":188,"./routerWarning":211,"_process":167}],182:[function(require,module,exports){
+},{"./PropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\IndexLink.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10843,8 +13062,10 @@ var IndexLink = _react2['default'].createClass({
 
 exports['default'] = IndexLink;
 module.exports = exports['default'];
-},{"./Link":186,"react":347}],183:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\IndexLink.js","/node_modules\\react-router\\lib")
+
+},{"./Link":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Link.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\IndexRedirect.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10909,10 +13130,10 @@ var IndexRedirect = _react2['default'].createClass({
 
 exports['default'] = IndexRedirect;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\IndexRedirect.js","/node_modules\\react-router\\lib")
 
-},{"./PropTypes":188,"./Redirect":189,"./routerWarning":211,"_process":167,"invariant":165,"react":347}],184:[function(require,module,exports){
-(function (process){
+},{"./PropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js","./Redirect":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Redirect.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\IndexRoute.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -10974,10 +13195,10 @@ var IndexRoute = _react2['default'].createClass({
 
 exports['default'] = IndexRoute;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\IndexRoute.js","/node_modules\\react-router\\lib")
 
-},{"./PropTypes":188,"./RouteUtils":192,"./routerWarning":211,"_process":167,"invariant":165,"react":347}],185:[function(require,module,exports){
-(function (process){
+},{"./PropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js","./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Lifecycle.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11047,10 +13268,10 @@ var Lifecycle = {
 
 exports['default'] = Lifecycle;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\Lifecycle.js","/node_modules\\react-router\\lib")
 
-},{"./routerWarning":211,"_process":167,"invariant":165,"react":347}],186:[function(require,module,exports){
-(function (process){
+},{"./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Link.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11215,10 +13436,10 @@ var Link = _react2['default'].createClass({
 
 exports['default'] = Link;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\Link.js","/node_modules\\react-router\\lib")
 
-},{"./routerWarning":211,"_process":167,"react":347}],187:[function(require,module,exports){
-(function (process){
+},{"./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PatternUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11446,9 +13667,10 @@ function formatPattern(pattern, params) {
 
   return pathname.replace(/\/+/g, '/');
 }
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\PatternUtils.js","/node_modules\\react-router\\lib")
 
-},{"_process":167,"invariant":165}],188:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11502,8 +13724,10 @@ exports['default'] = {
   components: components,
   route: route
 };
-},{"react":347}],189:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\PropTypes.js","/node_modules\\react-router\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Redirect.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11607,10 +13831,10 @@ var Redirect = _react2['default'].createClass({
 
 exports['default'] = Redirect;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\Redirect.js","/node_modules\\react-router\\lib")
 
-},{"./PatternUtils":187,"./PropTypes":188,"./RouteUtils":192,"_process":167,"invariant":165,"react":347}],190:[function(require,module,exports){
-(function (process){
+},{"./PatternUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PatternUtils.js","./PropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js","./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Route.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11667,10 +13891,10 @@ var Route = _react2['default'].createClass({
 
 exports['default'] = Route;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\Route.js","/node_modules\\react-router\\lib")
 
-},{"./PropTypes":188,"./RouteUtils":192,"_process":167,"invariant":165,"react":347}],191:[function(require,module,exports){
-(function (process){
+},{"./PropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js","./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteContext.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11717,10 +13941,10 @@ var RouteContext = {
 
 exports['default'] = RouteContext;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\RouteContext.js","/node_modules\\react-router\\lib")
 
-},{"./routerWarning":211,"_process":167,"react":347}],192:[function(require,module,exports){
-(function (process){
+},{"./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -11835,10 +14059,10 @@ function createRoutes(routes) {
 
   return routes;
 }
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\RouteUtils.js","/node_modules\\react-router\\lib")
 
-},{"./routerWarning":211,"_process":167,"react":347}],193:[function(require,module,exports){
-(function (process){
+},{"./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Router.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12049,10 +14273,10 @@ var Router = _react2['default'].createClass({
 
 exports['default'] = Router;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\Router.js","/node_modules\\react-router\\lib")
 
-},{"./PropTypes":188,"./RouteUtils":192,"./RouterContext":194,"./RouterUtils":195,"./createTransitionManager":202,"./routerWarning":211,"_process":167,"history/lib/createHashHistory":147,"history/lib/useQueries":154,"react":347}],194:[function(require,module,exports){
-(function (process){
+},{"./PropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js","./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","./RouterContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouterContext.js","./RouterUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouterUtils.js","./createTransitionManager":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createTransitionManager.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","history/lib/createHashHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createHashHistory.js","history/lib/useQueries":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useQueries.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouterContext.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12207,10 +14431,10 @@ var RouterContext = _react2['default'].createClass({
 
 exports['default'] = RouterContext;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\RouterContext.js","/node_modules\\react-router\\lib")
 
-},{"./RouteUtils":192,"./deprecateObjectProperties":203,"./getRouteParams":205,"./routerWarning":211,"_process":167,"invariant":165,"react":347}],195:[function(require,module,exports){
-(function (process){
+},{"./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","./deprecateObjectProperties":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","./getRouteParams":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\getRouteParams.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouterUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12244,10 +14468,10 @@ function createRoutingHistory(history, transitionManager) {
 
   return history;
 }
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\RouterUtils.js","/node_modules\\react-router\\lib")
 
-},{"./deprecateObjectProperties":203,"_process":167}],196:[function(require,module,exports){
-(function (process){
+},{"./deprecateObjectProperties":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RoutingContext.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12280,10 +14504,10 @@ var RoutingContext = _react2['default'].createClass({
 
 exports['default'] = RoutingContext;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\RoutingContext.js","/node_modules\\react-router\\lib")
 
-},{"./RouterContext":194,"./routerWarning":211,"_process":167,"react":347}],197:[function(require,module,exports){
-(function (process){
+},{"./RouterContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouterContext.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react":"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\TransitionUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12373,9 +14597,10 @@ function runLeaveHooks(routes) {
     if (routes[i].onLeave) routes[i].onLeave.call(routes[i]);
   }
 }
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\TransitionUtils.js","/node_modules\\react-router\\lib")
 
-},{"./AsyncUtils":180,"./routerWarning":211,"_process":167}],198:[function(require,module,exports){
+},{"./AsyncUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\AsyncUtils.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\browserHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12392,7 +14617,10 @@ var _createRouterHistory2 = _interopRequireDefault(_createRouterHistory);
 
 exports['default'] = _createRouterHistory2['default'](_historyLibCreateBrowserHistory2['default']);
 module.exports = exports['default'];
-},{"./createRouterHistory":201,"history/lib/createBrowserHistory":145}],199:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\browserHistory.js","/node_modules\\react-router\\lib")
+
+},{"./createRouterHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createRouterHistory.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","history/lib/createBrowserHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createBrowserHistory.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\computeChangedRoutes.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12458,7 +14686,10 @@ function computeChangedRoutes(prevState, nextState) {
 
 exports['default'] = computeChangedRoutes;
 module.exports = exports['default'];
-},{"./PatternUtils":187}],200:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\computeChangedRoutes.js","/node_modules\\react-router\\lib")
+
+},{"./PatternUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PatternUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createMemoryHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12492,7 +14723,10 @@ function createMemoryHistory(options) {
 }
 
 module.exports = exports['default'];
-},{"history/lib/createMemoryHistory":150,"history/lib/useBasename":153,"history/lib/useQueries":154}],201:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\createMemoryHistory.js","/node_modules\\react-router\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","history/lib/createMemoryHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createMemoryHistory.js","history/lib/useBasename":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useBasename.js","history/lib/useQueries":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useQueries.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createRouterHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12512,8 +14746,10 @@ exports['default'] = function (createHistory) {
 };
 
 module.exports = exports['default'];
-},{"./useRouterHistory":212}],202:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\createRouterHistory.js","/node_modules\\react-router\\lib")
+
+},{"./useRouterHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\useRouterHistory.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createTransitionManager.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12812,10 +15048,10 @@ function createTransitionManager(history, routes) {
 
 //export default useRoutes
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\createTransitionManager.js","/node_modules\\react-router\\lib")
 
-},{"./TransitionUtils":197,"./computeChangedRoutes":199,"./getComponents":204,"./isActive":208,"./matchRoutes":210,"./routerWarning":211,"_process":167,"history/lib/Actions":139}],203:[function(require,module,exports){
-(function (process){
+},{"./TransitionUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\TransitionUtils.js","./computeChangedRoutes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\computeChangedRoutes.js","./getComponents":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\getComponents.js","./isActive":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\isActive.js","./matchRoutes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\matchRoutes.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","history/lib/Actions":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\Actions.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\deprecateObjectProperties.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*eslint no-empty: 0*/
 'use strict';
 
@@ -12873,9 +15109,10 @@ function deprecateObjectProperties(object, message) {
 }
 
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\deprecateObjectProperties.js","/node_modules\\react-router\\lib")
 
-},{"./routerWarning":211,"_process":167}],204:[function(require,module,exports){
+},{"./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\getComponents.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12909,7 +15146,10 @@ function getComponents(nextState, callback) {
 
 exports['default'] = getComponents;
 module.exports = exports['default'];
-},{"./AsyncUtils":180}],205:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\getComponents.js","/node_modules\\react-router\\lib")
+
+},{"./AsyncUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\AsyncUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\getRouteParams.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12934,7 +15174,10 @@ function getRouteParams(route, params) {
 
 exports['default'] = getRouteParams;
 module.exports = exports['default'];
-},{"./PatternUtils":187}],206:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\getRouteParams.js","/node_modules\\react-router\\lib")
+
+},{"./PatternUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PatternUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\hashHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -12951,7 +15194,10 @@ var _createRouterHistory2 = _interopRequireDefault(_createRouterHistory);
 
 exports['default'] = _createRouterHistory2['default'](_historyLibCreateHashHistory2['default']);
 module.exports = exports['default'];
-},{"./createRouterHistory":201,"history/lib/createHashHistory":147}],207:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\hashHistory.js","/node_modules\\react-router\\lib")
+
+},{"./createRouterHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createRouterHistory.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","history/lib/createHashHistory":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\createHashHistory.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /* components */
 'use strict';
 
@@ -13088,7 +15334,10 @@ var _createMemoryHistory2 = require('./createMemoryHistory');
 var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
 
 exports.createMemoryHistory = _createMemoryHistory3['default'];
-},{"./History":181,"./IndexLink":182,"./IndexRedirect":183,"./IndexRoute":184,"./Lifecycle":185,"./Link":186,"./PatternUtils":187,"./PropTypes":188,"./Redirect":189,"./Route":190,"./RouteContext":191,"./RouteUtils":192,"./Router":193,"./RouterContext":194,"./RoutingContext":196,"./browserHistory":198,"./createMemoryHistory":200,"./hashHistory":206,"./match":209,"./useRouterHistory":212,"./useRoutes":213}],208:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\index.js","/node_modules\\react-router\\lib")
+
+},{"./History":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\History.js","./IndexLink":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\IndexLink.js","./IndexRedirect":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\IndexRedirect.js","./IndexRoute":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\IndexRoute.js","./Lifecycle":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Lifecycle.js","./Link":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Link.js","./PatternUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PatternUtils.js","./PropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PropTypes.js","./Redirect":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Redirect.js","./Route":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Route.js","./RouteContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteContext.js","./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","./Router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\Router.js","./RouterContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouterContext.js","./RoutingContext":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RoutingContext.js","./browserHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\browserHistory.js","./createMemoryHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createMemoryHistory.js","./hashHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\hashHistory.js","./match":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\match.js","./useRouterHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\useRouterHistory.js","./useRoutes":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\useRoutes.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\isActive.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -13216,8 +15465,10 @@ function isActive(_ref, indexOnly, currentLocation, routes, params) {
 }
 
 module.exports = exports['default'];
-},{"./PatternUtils":187}],209:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\isActive.js","/node_modules\\react-router\\lib")
+
+},{"./PatternUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PatternUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\match.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -13299,10 +15550,10 @@ function match(_ref, callback) {
 
 exports['default'] = match;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\match.js","/node_modules\\react-router\\lib")
 
-},{"./RouteUtils":192,"./RouterUtils":195,"./createMemoryHistory":200,"./createTransitionManager":202,"_process":167,"invariant":165}],210:[function(require,module,exports){
-(function (process){
+},{"./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","./RouterUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouterUtils.js","./createMemoryHistory":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createMemoryHistory.js","./createTransitionManager":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createTransitionManager.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","invariant":"Q:\\_alpha\\quickly.box\\node_modules\\invariant\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\matchRoutes.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -13509,10 +15760,10 @@ function matchRoutes(routes, location, callback) {
 
 exports['default'] = matchRoutes;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\matchRoutes.js","/node_modules\\react-router\\lib")
 
-},{"./AsyncUtils":180,"./PatternUtils":187,"./RouteUtils":192,"./routerWarning":211,"_process":167}],211:[function(require,module,exports){
-(function (process){
+},{"./AsyncUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\AsyncUtils.js","./PatternUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\PatternUtils.js","./RouteUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\RouteUtils.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -13535,9 +15786,10 @@ function routerWarning(falseToWarn, message) {
 }
 
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\routerWarning.js","/node_modules\\react-router\\lib")
 
-},{"_process":167,"warning":350}],212:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","warning":"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\useRouterHistory.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -13562,8 +15814,10 @@ function useRouterHistory(createHistory) {
 }
 
 module.exports = exports['default'];
-},{"history/lib/useBasename":153,"history/lib/useQueries":154}],213:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\useRouterHistory.js","/node_modules\\react-router\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","history/lib/useBasename":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useBasename.js","history/lib/useQueries":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useQueries.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\useRoutes.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 exports.__esModule = true;
@@ -13615,9 +15869,10 @@ function useRoutes(createHistory) {
 
 exports['default'] = useRoutes;
 module.exports = exports['default'];
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react-router\\lib\\useRoutes.js","/node_modules\\react-router\\lib")
 
-},{"./createTransitionManager":202,"./routerWarning":211,"_process":167,"history/lib/useQueries":154}],214:[function(require,module,exports){
+},{"./createTransitionManager":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\createTransitionManager.js","./routerWarning":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\routerWarning.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","history/lib/useQueries":"Q:\\_alpha\\quickly.box\\node_modules\\history\\lib\\useQueries.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\AutoFocusUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -13654,7 +15909,10 @@ var AutoFocusUtils = {
 };
 
 module.exports = AutoFocusUtils;
-},{"./ReactMount":280,"./findDOMNode":326,"fbjs/lib/focusNode":121}],215:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\AutoFocusUtils.js","/node_modules\\react\\lib")
+
+},{"./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./findDOMNode":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\findDOMNode.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/focusNode":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\focusNode.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\BeforeInputEventPlugin.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015 Facebook, Inc.
  * All rights reserved.
@@ -14060,7 +16318,10 @@ var BeforeInputEventPlugin = {
 };
 
 module.exports = BeforeInputEventPlugin;
-},{"./EventConstants":227,"./EventPropagators":231,"./FallbackCompositionState":232,"./SyntheticCompositionEvent":308,"./SyntheticInputEvent":312,"fbjs/lib/ExecutionEnvironment":113,"fbjs/lib/keyOf":131}],216:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\BeforeInputEventPlugin.js","/node_modules\\react\\lib")
+
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPropagators.js","./FallbackCompositionState":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\FallbackCompositionState.js","./SyntheticCompositionEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticCompositionEvent.js","./SyntheticInputEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticInputEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CSSProperty.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14200,8 +16461,10 @@ var CSSProperty = {
 };
 
 module.exports = CSSProperty;
-},{}],217:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\CSSProperty.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CSSPropertyOperations.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14377,10 +16640,10 @@ ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
 });
 
 module.exports = CSSPropertyOperations;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\CSSPropertyOperations.js","/node_modules\\react\\lib")
 
-},{"./CSSProperty":216,"./ReactPerf":286,"./dangerousStyleValue":323,"_process":167,"fbjs/lib/ExecutionEnvironment":113,"fbjs/lib/camelizeStyleName":115,"fbjs/lib/hyphenateStyleName":126,"fbjs/lib/memoizeStringOnly":133,"fbjs/lib/warning":138}],218:[function(require,module,exports){
-(function (process){
+},{"./CSSProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CSSProperty.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./dangerousStyleValue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\dangerousStyleValue.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/camelizeStyleName":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\camelizeStyleName.js","fbjs/lib/hyphenateStyleName":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\hyphenateStyleName.js","fbjs/lib/memoizeStringOnly":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\memoizeStringOnly.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CallbackQueue.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14474,9 +16737,10 @@ assign(CallbackQueue.prototype, {
 PooledClass.addPoolingTo(CallbackQueue);
 
 module.exports = CallbackQueue;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\CallbackQueue.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./PooledClass":236,"_process":167,"fbjs/lib/invariant":127}],219:[function(require,module,exports){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ChangeEventPlugin.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14798,7 +17062,10 @@ var ChangeEventPlugin = {
 };
 
 module.exports = ChangeEventPlugin;
-},{"./EventConstants":227,"./EventPluginHub":228,"./EventPropagators":231,"./ReactUpdates":301,"./SyntheticEvent":310,"./getEventTarget":332,"./isEventSupported":337,"./isTextInputElement":338,"fbjs/lib/ExecutionEnvironment":113,"fbjs/lib/keyOf":131}],220:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ChangeEventPlugin.js","/node_modules\\react\\lib")
+
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginHub.js","./EventPropagators":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPropagators.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","./SyntheticEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js","./getEventTarget":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventTarget.js","./isEventSupported":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\isEventSupported.js","./isTextInputElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\isTextInputElement.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ClientReactRootIndex.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14822,8 +17089,10 @@ var ClientReactRootIndex = {
 };
 
 module.exports = ClientReactRootIndex;
-},{}],221:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ClientReactRootIndex.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMChildrenOperations.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14953,10 +17222,10 @@ ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
 });
 
 module.exports = DOMChildrenOperations;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\DOMChildrenOperations.js","/node_modules\\react\\lib")
 
-},{"./Danger":224,"./ReactMultiChildUpdateTypes":282,"./ReactPerf":286,"./setInnerHTML":342,"./setTextContent":343,"_process":167,"fbjs/lib/invariant":127}],222:[function(require,module,exports){
-(function (process){
+},{"./Danger":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Danger.js","./ReactMultiChildUpdateTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./setInnerHTML":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setInnerHTML.js","./setTextContent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setTextContent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15191,10 +17460,10 @@ var DOMProperty = {
 };
 
 module.exports = DOMProperty;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\DOMProperty.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/invariant":127}],223:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMPropertyOperations.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15420,10 +17689,10 @@ ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
 });
 
 module.exports = DOMPropertyOperations;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\DOMPropertyOperations.js","/node_modules\\react\\lib")
 
-},{"./DOMProperty":222,"./ReactPerf":286,"./quoteAttributeValueForBrowser":340,"_process":167,"fbjs/lib/warning":138}],224:[function(require,module,exports){
-(function (process){
+},{"./DOMProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./quoteAttributeValueForBrowser":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\quoteAttributeValueForBrowser.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Danger.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15569,9 +17838,10 @@ var Danger = {
 };
 
 module.exports = Danger;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\Danger.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/ExecutionEnvironment":113,"fbjs/lib/createNodesFromMarkup":118,"fbjs/lib/emptyFunction":119,"fbjs/lib/getMarkupWrap":123,"fbjs/lib/invariant":127}],225:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/createNodesFromMarkup":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\createNodesFromMarkup.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/getMarkupWrap":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getMarkupWrap.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DefaultEventPluginOrder.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15599,7 +17869,10 @@ var keyOf = require('fbjs/lib/keyOf');
 var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];
 
 module.exports = DefaultEventPluginOrder;
-},{"fbjs/lib/keyOf":131}],226:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\DefaultEventPluginOrder.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EnterLeaveEventPlugin.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15724,7 +17997,10 @@ var EnterLeaveEventPlugin = {
 };
 
 module.exports = EnterLeaveEventPlugin;
-},{"./EventConstants":227,"./EventPropagators":231,"./ReactMount":280,"./SyntheticMouseEvent":314,"fbjs/lib/keyOf":131}],227:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\EnterLeaveEventPlugin.js","/node_modules\\react\\lib")
+
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPropagators.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./SyntheticMouseEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticMouseEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15817,8 +18093,10 @@ var EventConstants = {
 };
 
 module.exports = EventConstants;
-},{"fbjs/lib/keyMirror":130}],228:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\EventConstants.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/keyMirror":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyMirror.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginHub.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16098,10 +18376,10 @@ var EventPluginHub = {
 };
 
 module.exports = EventPluginHub;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\EventPluginHub.js","/node_modules\\react\\lib")
 
-},{"./EventPluginRegistry":229,"./EventPluginUtils":230,"./ReactErrorUtils":271,"./accumulateInto":320,"./forEachAccumulated":328,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],229:[function(require,module,exports){
-(function (process){
+},{"./EventPluginRegistry":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginRegistry.js","./EventPluginUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginUtils.js","./ReactErrorUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactErrorUtils.js","./accumulateInto":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\accumulateInto.js","./forEachAccumulated":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\forEachAccumulated.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginRegistry.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16322,10 +18600,10 @@ var EventPluginRegistry = {
 };
 
 module.exports = EventPluginRegistry;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\EventPluginRegistry.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/invariant":127}],230:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16528,10 +18806,10 @@ var EventPluginUtils = {
 };
 
 module.exports = EventPluginUtils;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\EventPluginUtils.js","/node_modules\\react\\lib")
 
-},{"./EventConstants":227,"./ReactErrorUtils":271,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],231:[function(require,module,exports){
-(function (process){
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./ReactErrorUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactErrorUtils.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPropagators.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16667,9 +18945,10 @@ var EventPropagators = {
 };
 
 module.exports = EventPropagators;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\EventPropagators.js","/node_modules\\react\\lib")
 
-},{"./EventConstants":227,"./EventPluginHub":228,"./accumulateInto":320,"./forEachAccumulated":328,"_process":167,"fbjs/lib/warning":138}],232:[function(require,module,exports){
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginHub.js","./accumulateInto":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\accumulateInto.js","./forEachAccumulated":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\forEachAccumulated.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\FallbackCompositionState.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16765,7 +19044,10 @@ assign(FallbackCompositionState.prototype, {
 PooledClass.addPoolingTo(FallbackCompositionState);
 
 module.exports = FallbackCompositionState;
-},{"./Object.assign":235,"./PooledClass":236,"./getTextContentAccessor":335}],233:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\FallbackCompositionState.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","./getTextContentAccessor":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getTextContentAccessor.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\HTMLDOMPropertyConfig.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16996,8 +19278,10 @@ var HTMLDOMPropertyConfig = {
 };
 
 module.exports = HTMLDOMPropertyConfig;
-},{"./DOMProperty":222,"fbjs/lib/ExecutionEnvironment":113}],234:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\HTMLDOMPropertyConfig.js","/node_modules\\react\\lib")
+
+},{"./DOMProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\LinkedValueUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17132,9 +19416,10 @@ var LinkedValueUtils = {
 };
 
 module.exports = LinkedValueUtils;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\LinkedValueUtils.js","/node_modules\\react\\lib")
 
-},{"./ReactPropTypeLocations":288,"./ReactPropTypes":289,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],235:[function(require,module,exports){
+},{"./ReactPropTypeLocations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./ReactPropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypes.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -17182,8 +19467,10 @@ function assign(target, sources) {
 }
 
 module.exports = assign;
-},{}],236:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\Object.assign.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17303,9 +19590,10 @@ var PooledClass = {
 };
 
 module.exports = PooledClass;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\PooledClass.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/invariant":127}],237:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\React.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17346,8 +19634,10 @@ React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
 React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
 
 module.exports = React;
-},{"./Object.assign":235,"./ReactDOM":250,"./ReactDOMServer":260,"./ReactIsomorphic":278,"./deprecated":324}],238:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\React.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactDOM":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOM.js","./ReactDOMServer":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMServer.js","./ReactIsomorphic":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactIsomorphic.js","./deprecated":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\deprecated.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactBrowserComponentMixin.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17384,9 +19674,10 @@ var ReactBrowserComponentMixin = {
 };
 
 module.exports = ReactBrowserComponentMixin;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactBrowserComponentMixin.js","/node_modules\\react\\lib")
 
-},{"./ReactInstanceMap":277,"./findDOMNode":326,"_process":167,"fbjs/lib/warning":138}],239:[function(require,module,exports){
+},{"./ReactInstanceMap":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceMap.js","./findDOMNode":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\findDOMNode.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17711,7 +20002,10 @@ ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
 });
 
 module.exports = ReactBrowserEventEmitter;
-},{"./EventConstants":227,"./EventPluginHub":228,"./EventPluginRegistry":229,"./Object.assign":235,"./ReactEventEmitterMixin":272,"./ReactPerf":286,"./ViewportMetrics":319,"./isEventSupported":337}],240:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactBrowserEventEmitter.js","/node_modules\\react\\lib")
+
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginHub.js","./EventPluginRegistry":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginRegistry.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactEventEmitterMixin":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEventEmitterMixin.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./ViewportMetrics":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ViewportMetrics.js","./isEventSupported":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\isEventSupported.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCSSTransitionGroup.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17795,7 +20089,10 @@ var ReactCSSTransitionGroup = React.createClass({
 });
 
 module.exports = ReactCSSTransitionGroup;
-},{"./Object.assign":235,"./React":237,"./ReactCSSTransitionGroupChild":241,"./ReactTransitionGroup":299}],241:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactCSSTransitionGroup.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./React":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\React.js","./ReactCSSTransitionGroupChild":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCSSTransitionGroupChild.js","./ReactTransitionGroup":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactTransitionGroup.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCSSTransitionGroupChild.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17961,8 +20258,10 @@ var ReactCSSTransitionGroupChild = React.createClass({
 });
 
 module.exports = ReactCSSTransitionGroupChild;
-},{"./React":237,"./ReactDOM":250,"./ReactTransitionEvents":298,"./onlyChild":339,"fbjs/lib/CSSCore":111}],242:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactCSSTransitionGroupChild.js","/node_modules\\react\\lib")
+
+},{"./React":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\React.js","./ReactDOM":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOM.js","./ReactTransitionEvents":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactTransitionEvents.js","./onlyChild":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\onlyChild.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/CSSCore":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\CSSCore.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactChildReconciler.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -18085,9 +20384,10 @@ var ReactChildReconciler = {
 };
 
 module.exports = ReactChildReconciler;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactChildReconciler.js","/node_modules\\react\\lib")
 
-},{"./ReactReconciler":291,"./instantiateReactComponent":336,"./shouldUpdateReactComponent":344,"./traverseAllChildren":345,"_process":167,"fbjs/lib/warning":138}],243:[function(require,module,exports){
+},{"./ReactReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js","./instantiateReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\instantiateReactComponent.js","./shouldUpdateReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","./traverseAllChildren":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\traverseAllChildren.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactChildren.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -18270,8 +20570,10 @@ var ReactChildren = {
 };
 
 module.exports = ReactChildren;
-},{"./PooledClass":236,"./ReactElement":267,"./traverseAllChildren":345,"fbjs/lib/emptyFunction":119}],244:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactChildren.js","/node_modules\\react\\lib")
+
+},{"./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./traverseAllChildren":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\traverseAllChildren.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactClass.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19043,10 +21345,10 @@ var ReactClass = {
 };
 
 module.exports = ReactClass;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactClass.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./ReactComponent":245,"./ReactElement":267,"./ReactNoopUpdateQueue":284,"./ReactPropTypeLocationNames":287,"./ReactPropTypeLocations":288,"_process":167,"fbjs/lib/emptyObject":120,"fbjs/lib/invariant":127,"fbjs/lib/keyMirror":130,"fbjs/lib/keyOf":131,"fbjs/lib/warning":138}],245:[function(require,module,exports){
-(function (process){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponent.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactNoopUpdateQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","./ReactPropTypeLocationNames":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypeLocations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocations.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyObject":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyMirror":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyMirror.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19169,9 +21471,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = ReactComponent;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactComponent.js","/node_modules\\react\\lib")
 
-},{"./ReactNoopUpdateQueue":284,"./canDefineProperty":322,"_process":167,"fbjs/lib/emptyObject":120,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],246:[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","./canDefineProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\canDefineProperty.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyObject":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19213,8 +21516,10 @@ var ReactComponentBrowserEnvironment = {
 };
 
 module.exports = ReactComponentBrowserEnvironment;
-},{"./ReactDOMIDOperations":255,"./ReactMount":280}],247:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js","/node_modules\\react\\lib")
+
+},{"./ReactDOMIDOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMIDOperations.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentEnvironment.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -19266,10 +21571,10 @@ var ReactComponentEnvironment = {
 };
 
 module.exports = ReactComponentEnvironment;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactComponentEnvironment.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/invariant":127}],248:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCompositeComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19964,9 +22269,10 @@ var ReactCompositeComponent = {
 };
 
 module.exports = ReactCompositeComponent;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactCompositeComponent.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./ReactComponentEnvironment":247,"./ReactCurrentOwner":249,"./ReactElement":267,"./ReactInstanceMap":277,"./ReactPerf":286,"./ReactPropTypeLocationNames":287,"./ReactPropTypeLocations":288,"./ReactReconciler":291,"./ReactUpdateQueue":300,"./shouldUpdateReactComponent":344,"_process":167,"fbjs/lib/emptyObject":120,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],249:[function(require,module,exports){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactComponentEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactInstanceMap":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./ReactPropTypeLocationNames":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypeLocations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./ReactReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js","./ReactUpdateQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdateQueue.js","./shouldUpdateReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyObject":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19997,8 +22303,10 @@ var ReactCurrentOwner = {
 };
 
 module.exports = ReactCurrentOwner;
-},{}],250:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactCurrentOwner.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOM.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -20091,9 +22399,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = React;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOM.js","/node_modules\\react\\lib")
 
-},{"./ReactCurrentOwner":249,"./ReactDOMTextComponent":261,"./ReactDefaultInjection":264,"./ReactInstanceHandles":276,"./ReactMount":280,"./ReactPerf":286,"./ReactReconciler":291,"./ReactUpdates":301,"./ReactVersion":302,"./findDOMNode":326,"./renderSubtreeIntoContainer":341,"_process":167,"fbjs/lib/ExecutionEnvironment":113,"fbjs/lib/warning":138}],251:[function(require,module,exports){
+},{"./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactDOMTextComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMTextComponent.js","./ReactDefaultInjection":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultInjection.js","./ReactInstanceHandles":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceHandles.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./ReactReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","./ReactVersion":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactVersion.js","./findDOMNode":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\findDOMNode.js","./renderSubtreeIntoContainer":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\renderSubtreeIntoContainer.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMButton.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -20144,8 +22453,10 @@ var ReactDOMButton = {
 };
 
 module.exports = ReactDOMButton;
-},{}],252:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMButton.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21108,10 +23419,10 @@ ReactPerf.measureMethods(ReactDOMComponent, 'ReactDOMComponent', {
 assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
 
 module.exports = ReactDOMComponent;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMComponent.js","/node_modules\\react\\lib")
 
-},{"./AutoFocusUtils":214,"./CSSPropertyOperations":217,"./DOMProperty":222,"./DOMPropertyOperations":223,"./EventConstants":227,"./Object.assign":235,"./ReactBrowserEventEmitter":239,"./ReactComponentBrowserEnvironment":246,"./ReactDOMButton":251,"./ReactDOMInput":256,"./ReactDOMOption":257,"./ReactDOMSelect":258,"./ReactDOMTextarea":262,"./ReactMount":280,"./ReactMultiChild":281,"./ReactPerf":286,"./ReactUpdateQueue":300,"./canDefineProperty":322,"./escapeTextContentForBrowser":325,"./isEventSupported":337,"./setInnerHTML":342,"./setTextContent":343,"./validateDOMNesting":346,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/keyOf":131,"fbjs/lib/shallowEqual":136,"fbjs/lib/warning":138}],253:[function(require,module,exports){
-(function (process){
+},{"./AutoFocusUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\AutoFocusUtils.js","./CSSPropertyOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CSSPropertyOperations.js","./DOMProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js","./DOMPropertyOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMPropertyOperations.js","./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactBrowserEventEmitter":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactComponentBrowserEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js","./ReactDOMButton":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMButton.js","./ReactDOMInput":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMInput.js","./ReactDOMOption":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMOption.js","./ReactDOMSelect":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMSelect.js","./ReactDOMTextarea":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMTextarea.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactMultiChild":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMultiChild.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./ReactUpdateQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdateQueue.js","./canDefineProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\canDefineProperty.js","./escapeTextContentForBrowser":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./isEventSupported":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\isEventSupported.js","./setInnerHTML":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setInnerHTML.js","./setTextContent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setTextContent.js","./validateDOMNesting":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/shallowEqual":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\shallowEqual.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMFactories.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21289,9 +23600,10 @@ var ReactDOMFactories = mapObject({
 }, createDOMFactory);
 
 module.exports = ReactDOMFactories;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMFactories.js","/node_modules\\react\\lib")
 
-},{"./ReactElement":267,"./ReactElementValidator":268,"_process":167,"fbjs/lib/mapObject":132}],254:[function(require,module,exports){
+},{"./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactElementValidator":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElementValidator.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/mapObject":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\mapObject.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21310,8 +23622,10 @@ var ReactDOMFeatureFlags = {
 };
 
 module.exports = ReactDOMFeatureFlags;
-},{}],255:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMFeatureFlags.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMIDOperations.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21406,10 +23720,10 @@ ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
 });
 
 module.exports = ReactDOMIDOperations;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMIDOperations.js","/node_modules\\react\\lib")
 
-},{"./DOMChildrenOperations":221,"./DOMPropertyOperations":223,"./ReactMount":280,"./ReactPerf":286,"_process":167,"fbjs/lib/invariant":127}],256:[function(require,module,exports){
-(function (process){
+},{"./DOMChildrenOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMChildrenOperations.js","./DOMPropertyOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMPropertyOperations.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMInput.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21563,10 +23877,10 @@ function _handleChange(event) {
 }
 
 module.exports = ReactDOMInput;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMInput.js","/node_modules\\react\\lib")
 
-},{"./LinkedValueUtils":234,"./Object.assign":235,"./ReactDOMIDOperations":255,"./ReactMount":280,"./ReactUpdates":301,"_process":167,"fbjs/lib/invariant":127}],257:[function(require,module,exports){
-(function (process){
+},{"./LinkedValueUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\LinkedValueUtils.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactDOMIDOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMIDOperations.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMOption.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21656,10 +23970,10 @@ var ReactDOMOption = {
 };
 
 module.exports = ReactDOMOption;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMOption.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./ReactChildren":243,"./ReactDOMSelect":258,"_process":167,"fbjs/lib/warning":138}],258:[function(require,module,exports){
-(function (process){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactChildren":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactChildren.js","./ReactDOMSelect":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMSelect.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMSelect.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21848,9 +24162,10 @@ function _handleChange(event) {
 }
 
 module.exports = ReactDOMSelect;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMSelect.js","/node_modules\\react\\lib")
 
-},{"./LinkedValueUtils":234,"./Object.assign":235,"./ReactMount":280,"./ReactUpdates":301,"_process":167,"fbjs/lib/warning":138}],259:[function(require,module,exports){
+},{"./LinkedValueUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\LinkedValueUtils.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMSelection.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22063,7 +24378,10 @@ var ReactDOMSelection = {
 };
 
 module.exports = ReactDOMSelection;
-},{"./getNodeForCharacterOffset":334,"./getTextContentAccessor":335,"fbjs/lib/ExecutionEnvironment":113}],260:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMSelection.js","/node_modules\\react\\lib")
+
+},{"./getNodeForCharacterOffset":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getNodeForCharacterOffset.js","./getTextContentAccessor":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getTextContentAccessor.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMServer.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22090,8 +24408,10 @@ var ReactDOMServer = {
 };
 
 module.exports = ReactDOMServer;
-},{"./ReactDefaultInjection":264,"./ReactServerRendering":295,"./ReactVersion":302}],261:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMServer.js","/node_modules\\react\\lib")
+
+},{"./ReactDefaultInjection":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultInjection.js","./ReactServerRendering":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactServerRendering.js","./ReactVersion":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactVersion.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMTextComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22219,10 +24539,10 @@ assign(ReactDOMTextComponent.prototype, {
 });
 
 module.exports = ReactDOMTextComponent;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMTextComponent.js","/node_modules\\react\\lib")
 
-},{"./DOMChildrenOperations":221,"./DOMPropertyOperations":223,"./Object.assign":235,"./ReactComponentBrowserEnvironment":246,"./ReactMount":280,"./escapeTextContentForBrowser":325,"./setTextContent":343,"./validateDOMNesting":346,"_process":167}],262:[function(require,module,exports){
-(function (process){
+},{"./DOMChildrenOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMChildrenOperations.js","./DOMPropertyOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMPropertyOperations.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactComponentBrowserEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./escapeTextContentForBrowser":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./setTextContent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setTextContent.js","./validateDOMNesting":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMTextarea.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22336,9 +24656,10 @@ function _handleChange(event) {
 }
 
 module.exports = ReactDOMTextarea;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDOMTextarea.js","/node_modules\\react\\lib")
 
-},{"./LinkedValueUtils":234,"./Object.assign":235,"./ReactDOMIDOperations":255,"./ReactUpdates":301,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],263:[function(require,module,exports){
+},{"./LinkedValueUtils":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\LinkedValueUtils.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactDOMIDOperations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMIDOperations.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22406,8 +24727,10 @@ var ReactDefaultBatchingStrategy = {
 };
 
 module.exports = ReactDefaultBatchingStrategy;
-},{"./Object.assign":235,"./ReactUpdates":301,"./Transaction":318,"fbjs/lib/emptyFunction":119}],264:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","./Transaction":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Transaction.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultInjection.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22505,9 +24828,10 @@ function inject() {
 module.exports = {
   inject: inject
 };
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDefaultInjection.js","/node_modules\\react\\lib")
 
-},{"./BeforeInputEventPlugin":215,"./ChangeEventPlugin":219,"./ClientReactRootIndex":220,"./DefaultEventPluginOrder":225,"./EnterLeaveEventPlugin":226,"./HTMLDOMPropertyConfig":233,"./ReactBrowserComponentMixin":238,"./ReactComponentBrowserEnvironment":246,"./ReactDOMComponent":252,"./ReactDOMTextComponent":261,"./ReactDefaultBatchingStrategy":263,"./ReactDefaultPerf":265,"./ReactEventListener":273,"./ReactInjection":274,"./ReactInstanceHandles":276,"./ReactMount":280,"./ReactReconcileTransaction":290,"./SVGDOMPropertyConfig":303,"./SelectEventPlugin":304,"./ServerReactRootIndex":305,"./SimpleEventPlugin":306,"_process":167,"fbjs/lib/ExecutionEnvironment":113}],265:[function(require,module,exports){
+},{"./BeforeInputEventPlugin":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\BeforeInputEventPlugin.js","./ChangeEventPlugin":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ChangeEventPlugin.js","./ClientReactRootIndex":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ClientReactRootIndex.js","./DefaultEventPluginOrder":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DefaultEventPluginOrder.js","./EnterLeaveEventPlugin":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EnterLeaveEventPlugin.js","./HTMLDOMPropertyConfig":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\HTMLDOMPropertyConfig.js","./ReactBrowserComponentMixin":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactBrowserComponentMixin.js","./ReactComponentBrowserEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js","./ReactDOMComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMComponent.js","./ReactDOMTextComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMTextComponent.js","./ReactDefaultBatchingStrategy":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js","./ReactDefaultPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultPerf.js","./ReactEventListener":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEventListener.js","./ReactInjection":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInjection.js","./ReactInstanceHandles":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceHandles.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactReconcileTransaction":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconcileTransaction.js","./SVGDOMPropertyConfig":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SVGDOMPropertyConfig.js","./SelectEventPlugin":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SelectEventPlugin.js","./ServerReactRootIndex":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ServerReactRootIndex.js","./SimpleEventPlugin":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SimpleEventPlugin.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultPerf.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22745,7 +25069,10 @@ var ReactDefaultPerf = {
 };
 
 module.exports = ReactDefaultPerf;
-},{"./DOMProperty":222,"./ReactDefaultPerfAnalysis":266,"./ReactMount":280,"./ReactPerf":286,"fbjs/lib/performanceNow":135}],266:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDefaultPerf.js","/node_modules\\react\\lib")
+
+},{"./DOMProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js","./ReactDefaultPerfAnalysis":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultPerfAnalysis.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/performanceNow":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\performanceNow.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultPerfAnalysis.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22947,8 +25274,10 @@ var ReactDefaultPerfAnalysis = {
 };
 
 module.exports = ReactDefaultPerfAnalysis;
-},{"./Object.assign":235}],267:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactDefaultPerfAnalysis.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -23196,10 +25525,10 @@ ReactElement.isValidElement = function (object) {
 };
 
 module.exports = ReactElement;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactElement.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./ReactCurrentOwner":249,"./canDefineProperty":322,"_process":167}],268:[function(require,module,exports){
-(function (process){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./canDefineProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\canDefineProperty.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElementValidator.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -23481,9 +25810,10 @@ var ReactElementValidator = {
 };
 
 module.exports = ReactElementValidator;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactElementValidator.js","/node_modules\\react\\lib")
 
-},{"./ReactCurrentOwner":249,"./ReactElement":267,"./ReactPropTypeLocationNames":287,"./ReactPropTypeLocations":288,"./canDefineProperty":322,"./getIteratorFn":333,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],269:[function(require,module,exports){
+},{"./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactPropTypeLocationNames":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypeLocations":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./canDefineProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\canDefineProperty.js","./getIteratorFn":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getIteratorFn.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEmptyComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -23539,7 +25869,10 @@ assign(ReactEmptyComponent.prototype, {
 ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 
 module.exports = ReactEmptyComponent;
-},{"./Object.assign":235,"./ReactElement":267,"./ReactEmptyComponentRegistry":270,"./ReactReconciler":291}],270:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactEmptyComponent.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactEmptyComponentRegistry":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEmptyComponentRegistry.js","./ReactReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEmptyComponentRegistry.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -23588,8 +25921,10 @@ var ReactEmptyComponentRegistry = {
 };
 
 module.exports = ReactEmptyComponentRegistry;
-},{}],271:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactEmptyComponentRegistry.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactErrorUtils.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23667,9 +26002,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = ReactErrorUtils;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactErrorUtils.js","/node_modules\\react\\lib")
 
-},{"_process":167}],272:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEventEmitterMixin.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23708,7 +26044,10 @@ var ReactEventEmitterMixin = {
 };
 
 module.exports = ReactEventEmitterMixin;
-},{"./EventPluginHub":228}],273:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactEventEmitterMixin.js","/node_modules\\react\\lib")
+
+},{"./EventPluginHub":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginHub.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEventListener.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23920,7 +26259,10 @@ var ReactEventListener = {
 };
 
 module.exports = ReactEventListener;
-},{"./Object.assign":235,"./PooledClass":236,"./ReactInstanceHandles":276,"./ReactMount":280,"./ReactUpdates":301,"./getEventTarget":332,"fbjs/lib/EventListener":112,"fbjs/lib/ExecutionEnvironment":113,"fbjs/lib/getUnboundedScrollPosition":124}],274:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactEventListener.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","./ReactInstanceHandles":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceHandles.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","./getEventTarget":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventTarget.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/EventListener":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\EventListener.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/getUnboundedScrollPosition":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInjection.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23959,7 +26301,10 @@ var ReactInjection = {
 };
 
 module.exports = ReactInjection;
-},{"./DOMProperty":222,"./EventPluginHub":228,"./ReactBrowserEventEmitter":239,"./ReactClass":244,"./ReactComponentEnvironment":247,"./ReactEmptyComponent":269,"./ReactNativeComponent":283,"./ReactPerf":286,"./ReactRootIndex":293,"./ReactUpdates":301}],275:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactInjection.js","/node_modules\\react\\lib")
+
+},{"./DOMProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js","./EventPluginHub":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPluginHub.js","./ReactBrowserEventEmitter":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactClass.js","./ReactComponentEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactEmptyComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEmptyComponent.js","./ReactNativeComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactNativeComponent.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./ReactRootIndex":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactRootIndex.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInputSelection.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24084,8 +26429,10 @@ var ReactInputSelection = {
 };
 
 module.exports = ReactInputSelection;
-},{"./ReactDOMSelection":259,"fbjs/lib/containsNode":116,"fbjs/lib/focusNode":121,"fbjs/lib/getActiveElement":122}],276:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactInputSelection.js","/node_modules\\react\\lib")
+
+},{"./ReactDOMSelection":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMSelection.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/containsNode":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\containsNode.js","fbjs/lib/focusNode":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\focusNode.js","fbjs/lib/getActiveElement":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getActiveElement.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceHandles.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24388,9 +26735,10 @@ var ReactInstanceHandles = {
 };
 
 module.exports = ReactInstanceHandles;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactInstanceHandles.js","/node_modules\\react\\lib")
 
-},{"./ReactRootIndex":293,"_process":167,"fbjs/lib/invariant":127}],277:[function(require,module,exports){
+},{"./ReactRootIndex":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactRootIndex.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceMap.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24438,8 +26786,10 @@ var ReactInstanceMap = {
 };
 
 module.exports = ReactInstanceMap;
-},{}],278:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactInstanceMap.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactIsomorphic.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24514,9 +26864,10 @@ var React = {
 };
 
 module.exports = React;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactIsomorphic.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./ReactChildren":243,"./ReactClass":244,"./ReactComponent":245,"./ReactDOMFactories":253,"./ReactElement":267,"./ReactElementValidator":268,"./ReactPropTypes":289,"./ReactVersion":302,"./onlyChild":339,"_process":167}],279:[function(require,module,exports){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactChildren":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactChildren.js","./ReactClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactClass.js","./ReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponent.js","./ReactDOMFactories":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMFactories.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactElementValidator":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElementValidator.js","./ReactPropTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypes.js","./ReactVersion":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactVersion.js","./onlyChild":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\onlyChild.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMarkupChecksum.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24562,8 +26913,10 @@ var ReactMarkupChecksum = {
 };
 
 module.exports = ReactMarkupChecksum;
-},{"./adler32":321}],280:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactMarkupChecksum.js","/node_modules\\react\\lib")
+
+},{"./adler32":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\adler32.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25414,10 +27767,10 @@ ReactPerf.measureMethods(ReactMount, 'ReactMount', {
 });
 
 module.exports = ReactMount;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactMount.js","/node_modules\\react\\lib")
 
-},{"./DOMProperty":222,"./Object.assign":235,"./ReactBrowserEventEmitter":239,"./ReactCurrentOwner":249,"./ReactDOMFeatureFlags":254,"./ReactElement":267,"./ReactEmptyComponentRegistry":270,"./ReactInstanceHandles":276,"./ReactInstanceMap":277,"./ReactMarkupChecksum":279,"./ReactPerf":286,"./ReactReconciler":291,"./ReactUpdateQueue":300,"./ReactUpdates":301,"./instantiateReactComponent":336,"./setInnerHTML":342,"./shouldUpdateReactComponent":344,"./validateDOMNesting":346,"_process":167,"fbjs/lib/containsNode":116,"fbjs/lib/emptyObject":120,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],281:[function(require,module,exports){
-(function (process){
+},{"./DOMProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactBrowserEventEmitter":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactDOMFeatureFlags":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactEmptyComponentRegistry":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEmptyComponentRegistry.js","./ReactInstanceHandles":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceHandles.js","./ReactInstanceMap":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactMarkupChecksum":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMarkupChecksum.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./ReactReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js","./ReactUpdateQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdateQueue.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","./instantiateReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\instantiateReactComponent.js","./setInnerHTML":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setInnerHTML.js","./shouldUpdateReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","./validateDOMNesting":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/containsNode":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\containsNode.js","fbjs/lib/emptyObject":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMultiChild.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25914,9 +28267,10 @@ var ReactMultiChild = {
 };
 
 module.exports = ReactMultiChild;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactMultiChild.js","/node_modules\\react\\lib")
 
-},{"./ReactChildReconciler":242,"./ReactComponentEnvironment":247,"./ReactCurrentOwner":249,"./ReactMultiChildUpdateTypes":282,"./ReactReconciler":291,"./flattenChildren":327,"_process":167}],282:[function(require,module,exports){
+},{"./ReactChildReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactChildReconciler.js","./ReactComponentEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactMultiChildUpdateTypes":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js","./ReactReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js","./flattenChildren":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\flattenChildren.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25949,8 +28303,10 @@ var ReactMultiChildUpdateTypes = keyMirror({
 });
 
 module.exports = ReactMultiChildUpdateTypes;
-},{"fbjs/lib/keyMirror":130}],283:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/keyMirror":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyMirror.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactNativeComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -26045,10 +28401,10 @@ var ReactNativeComponent = {
 };
 
 module.exports = ReactNativeComponent;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactNativeComponent.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"_process":167,"fbjs/lib/invariant":127}],284:[function(require,module,exports){
-(function (process){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2015, Facebook, Inc.
  * All rights reserved.
@@ -26167,10 +28523,10 @@ var ReactNoopUpdateQueue = {
 };
 
 module.exports = ReactNoopUpdateQueue;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactNoopUpdateQueue.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/warning":138}],285:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactOwner.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26262,10 +28618,10 @@ var ReactOwner = {
 };
 
 module.exports = ReactOwner;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactOwner.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/invariant":127}],286:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26362,10 +28718,10 @@ function _noMeasure(objName, fnName, func) {
 }
 
 module.exports = ReactPerf;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactPerf.js","/node_modules\\react\\lib")
 
-},{"_process":167}],287:[function(require,module,exports){
-(function (process){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26390,9 +28746,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = ReactPropTypeLocationNames;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactPropTypeLocationNames.js","/node_modules\\react\\lib")
 
-},{"_process":167}],288:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocations.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26415,7 +28772,10 @@ var ReactPropTypeLocations = keyMirror({
 });
 
 module.exports = ReactPropTypeLocations;
-},{"fbjs/lib/keyMirror":130}],289:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactPropTypeLocations.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/keyMirror":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyMirror.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypes.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26772,7 +29132,10 @@ function getClassName(propValue) {
 }
 
 module.exports = ReactPropTypes;
-},{"./ReactElement":267,"./ReactPropTypeLocationNames":287,"./getIteratorFn":333,"fbjs/lib/emptyFunction":119}],290:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactPropTypes.js","/node_modules\\react\\lib")
+
+},{"./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactPropTypeLocationNames":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./getIteratorFn":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getIteratorFn.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconcileTransaction.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26924,7 +29287,10 @@ assign(ReactReconcileTransaction.prototype, Transaction.Mixin, Mixin);
 PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
-},{"./CallbackQueue":218,"./Object.assign":235,"./PooledClass":236,"./ReactBrowserEventEmitter":239,"./ReactDOMFeatureFlags":254,"./ReactInputSelection":275,"./Transaction":318}],291:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactReconcileTransaction.js","/node_modules\\react\\lib")
+
+},{"./CallbackQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CallbackQueue.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","./ReactBrowserEventEmitter":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactDOMFeatureFlags":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js","./ReactInputSelection":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInputSelection.js","./Transaction":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Transaction.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27032,7 +29398,10 @@ var ReactReconciler = {
 };
 
 module.exports = ReactReconciler;
-},{"./ReactRef":292}],292:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactReconciler.js","/node_modules\\react\\lib")
+
+},{"./ReactRef":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactRef.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactRef.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27111,7 +29480,10 @@ ReactRef.detachRefs = function (instance, element) {
 };
 
 module.exports = ReactRef;
-},{"./ReactOwner":285}],293:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactRef.js","/node_modules\\react\\lib")
+
+},{"./ReactOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactOwner.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactRootIndex.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27141,7 +29513,10 @@ var ReactRootIndex = {
 };
 
 module.exports = ReactRootIndex;
-},{}],294:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactRootIndex.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactServerBatchingStrategy.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -27165,8 +29540,10 @@ var ReactServerBatchingStrategy = {
 };
 
 module.exports = ReactServerBatchingStrategy;
-},{}],295:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactServerBatchingStrategy.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactServerRendering.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27250,9 +29627,10 @@ module.exports = {
   renderToString: renderToString,
   renderToStaticMarkup: renderToStaticMarkup
 };
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactServerRendering.js","/node_modules\\react\\lib")
 
-},{"./ReactDefaultBatchingStrategy":263,"./ReactElement":267,"./ReactInstanceHandles":276,"./ReactMarkupChecksum":279,"./ReactServerBatchingStrategy":294,"./ReactServerRenderingTransaction":296,"./ReactUpdates":301,"./instantiateReactComponent":336,"_process":167,"fbjs/lib/emptyObject":120,"fbjs/lib/invariant":127}],296:[function(require,module,exports){
+},{"./ReactDefaultBatchingStrategy":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactInstanceHandles":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceHandles.js","./ReactMarkupChecksum":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMarkupChecksum.js","./ReactServerBatchingStrategy":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactServerBatchingStrategy.js","./ReactServerRenderingTransaction":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactServerRenderingTransaction.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","./instantiateReactComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\instantiateReactComponent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyObject":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactServerRenderingTransaction.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -27340,7 +29718,10 @@ assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, Mixin);
 PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
-},{"./CallbackQueue":218,"./Object.assign":235,"./PooledClass":236,"./Transaction":318,"fbjs/lib/emptyFunction":119}],297:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactServerRenderingTransaction.js","/node_modules\\react\\lib")
+
+},{"./CallbackQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CallbackQueue.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","./Transaction":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Transaction.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactTransitionChildMapping.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27439,7 +29820,10 @@ var ReactTransitionChildMapping = {
 };
 
 module.exports = ReactTransitionChildMapping;
-},{"./flattenChildren":327}],298:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactTransitionChildMapping.js","/node_modules\\react\\lib")
+
+},{"./flattenChildren":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\flattenChildren.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactTransitionEvents.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27549,7 +29933,10 @@ var ReactTransitionEvents = {
 };
 
 module.exports = ReactTransitionEvents;
-},{"fbjs/lib/ExecutionEnvironment":113}],299:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactTransitionEvents.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactTransitionGroup.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27755,8 +30142,10 @@ var ReactTransitionGroup = React.createClass({
 });
 
 module.exports = ReactTransitionGroup;
-},{"./Object.assign":235,"./React":237,"./ReactTransitionChildMapping":297,"fbjs/lib/emptyFunction":119}],300:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactTransitionGroup.js","/node_modules\\react\\lib")
+
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./React":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\React.js","./ReactTransitionChildMapping":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactTransitionChildMapping.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdateQueue.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2015, Facebook, Inc.
  * All rights reserved.
@@ -28014,10 +30403,10 @@ var ReactUpdateQueue = {
 };
 
 module.exports = ReactUpdateQueue;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactUpdateQueue.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./ReactCurrentOwner":249,"./ReactElement":267,"./ReactInstanceMap":277,"./ReactUpdates":301,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],301:[function(require,module,exports){
-(function (process){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactInstanceMap":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactUpdates":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactUpdates.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -28241,9 +30630,10 @@ var ReactUpdates = {
 };
 
 module.exports = ReactUpdates;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactUpdates.js","/node_modules\\react\\lib")
 
-},{"./CallbackQueue":218,"./Object.assign":235,"./PooledClass":236,"./ReactPerf":286,"./ReactReconciler":291,"./Transaction":318,"_process":167,"fbjs/lib/invariant":127}],302:[function(require,module,exports){
+},{"./CallbackQueue":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CallbackQueue.js","./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","./ReactPerf":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactPerf.js","./ReactReconciler":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactReconciler.js","./Transaction":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Transaction.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactVersion.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -28258,7 +30648,10 @@ module.exports = ReactUpdates;
 'use strict';
 
 module.exports = '0.14.8';
-},{}],303:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ReactVersion.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SVGDOMPropertyConfig.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -28386,7 +30779,10 @@ var SVGDOMPropertyConfig = {
 };
 
 module.exports = SVGDOMPropertyConfig;
-},{"./DOMProperty":222}],304:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SVGDOMPropertyConfig.js","/node_modules\\react\\lib")
+
+},{"./DOMProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\DOMProperty.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SelectEventPlugin.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -28588,7 +30984,10 @@ var SelectEventPlugin = {
 };
 
 module.exports = SelectEventPlugin;
-},{"./EventConstants":227,"./EventPropagators":231,"./ReactInputSelection":275,"./SyntheticEvent":310,"./isTextInputElement":338,"fbjs/lib/ExecutionEnvironment":113,"fbjs/lib/getActiveElement":122,"fbjs/lib/keyOf":131,"fbjs/lib/shallowEqual":136}],305:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SelectEventPlugin.js","/node_modules\\react\\lib")
+
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPropagators.js","./ReactInputSelection":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInputSelection.js","./SyntheticEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js","./isTextInputElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\isTextInputElement.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/getActiveElement":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\getActiveElement.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/shallowEqual":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\shallowEqual.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ServerReactRootIndex.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -28618,8 +31017,10 @@ var ServerReactRootIndex = {
 };
 
 module.exports = ServerReactRootIndex;
-},{}],306:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ServerReactRootIndex.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SimpleEventPlugin.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29207,9 +31608,10 @@ var SimpleEventPlugin = {
 };
 
 module.exports = SimpleEventPlugin;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SimpleEventPlugin.js","/node_modules\\react\\lib")
 
-},{"./EventConstants":227,"./EventPropagators":231,"./ReactMount":280,"./SyntheticClipboardEvent":307,"./SyntheticDragEvent":309,"./SyntheticEvent":310,"./SyntheticFocusEvent":311,"./SyntheticKeyboardEvent":313,"./SyntheticMouseEvent":314,"./SyntheticTouchEvent":315,"./SyntheticUIEvent":316,"./SyntheticWheelEvent":317,"./getEventCharCode":329,"_process":167,"fbjs/lib/EventListener":112,"fbjs/lib/emptyFunction":119,"fbjs/lib/invariant":127,"fbjs/lib/keyOf":131}],307:[function(require,module,exports){
+},{"./EventConstants":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\EventPropagators.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","./SyntheticClipboardEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticClipboardEvent.js","./SyntheticDragEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticDragEvent.js","./SyntheticEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js","./SyntheticFocusEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticFocusEvent.js","./SyntheticKeyboardEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticKeyboardEvent.js","./SyntheticMouseEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticMouseEvent.js","./SyntheticTouchEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticTouchEvent.js","./SyntheticUIEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticUIEvent.js","./SyntheticWheelEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticWheelEvent.js","./getEventCharCode":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventCharCode.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/EventListener":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\EventListener.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyOf":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\keyOf.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticClipboardEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29249,7 +31651,10 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 
 module.exports = SyntheticClipboardEvent;
-},{"./SyntheticEvent":310}],308:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticClipboardEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticCompositionEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29287,7 +31692,10 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface);
 
 module.exports = SyntheticCompositionEvent;
-},{"./SyntheticEvent":310}],309:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticCompositionEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticDragEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29325,8 +31733,10 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
 SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 
 module.exports = SyntheticDragEvent;
-},{"./SyntheticMouseEvent":314}],310:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticDragEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticMouseEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticMouseEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29507,9 +31917,10 @@ SyntheticEvent.augmentClass = function (Class, Interface) {
 PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
 
 module.exports = SyntheticEvent;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticEvent.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./PooledClass":236,"_process":167,"fbjs/lib/emptyFunction":119,"fbjs/lib/warning":138}],311:[function(require,module,exports){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./PooledClass":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\PooledClass.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticFocusEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29547,7 +31958,10 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 
 module.exports = SyntheticFocusEvent;
-},{"./SyntheticUIEvent":316}],312:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticFocusEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticUIEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticUIEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticInputEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29586,7 +32000,10 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 
 module.exports = SyntheticInputEvent;
-},{"./SyntheticEvent":310}],313:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticInputEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticKeyboardEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29672,7 +32089,10 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 
 module.exports = SyntheticKeyboardEvent;
-},{"./SyntheticUIEvent":316,"./getEventCharCode":329,"./getEventKey":330,"./getEventModifierState":331}],314:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticKeyboardEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticUIEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticUIEvent.js","./getEventCharCode":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventCharCode.js","./getEventKey":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventKey.js","./getEventModifierState":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventModifierState.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticMouseEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29746,7 +32166,10 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
-},{"./SyntheticUIEvent":316,"./ViewportMetrics":319,"./getEventModifierState":331}],315:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticMouseEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticUIEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticUIEvent.js","./ViewportMetrics":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ViewportMetrics.js","./getEventModifierState":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventModifierState.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticTouchEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29793,7 +32216,10 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
-},{"./SyntheticUIEvent":316,"./getEventModifierState":331}],316:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticTouchEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticUIEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticUIEvent.js","./getEventModifierState":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventModifierState.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticUIEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29854,7 +32280,10 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-},{"./SyntheticEvent":310,"./getEventTarget":332}],317:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticUIEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticEvent.js","./getEventTarget":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventTarget.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticWheelEvent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -29910,8 +32339,10 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 
 module.exports = SyntheticWheelEvent;
-},{"./SyntheticMouseEvent":314}],318:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\SyntheticWheelEvent.js","/node_modules\\react\\lib")
+
+},{"./SyntheticMouseEvent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\SyntheticMouseEvent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Transaction.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30143,9 +32574,10 @@ var Transaction = {
 };
 
 module.exports = Transaction;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\Transaction.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/invariant":127}],319:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ViewportMetrics.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30173,8 +32605,10 @@ var ViewportMetrics = {
 };
 
 module.exports = ViewportMetrics;
-},{}],320:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\ViewportMetrics.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\accumulateInto.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -30234,9 +32668,10 @@ function accumulateInto(current, next) {
 }
 
 module.exports = accumulateInto;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\accumulateInto.js","/node_modules\\react\\lib")
 
-},{"_process":167,"fbjs/lib/invariant":127}],321:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\adler32.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30279,8 +32714,10 @@ function adler32(data) {
 }
 
 module.exports = adler32;
-},{}],322:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\adler32.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\canDefineProperty.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30305,9 +32742,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = canDefineProperty;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\canDefineProperty.js","/node_modules\\react\\lib")
 
-},{"_process":167}],323:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\dangerousStyleValue.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30363,8 +32801,10 @@ function dangerousStyleValue(name, value) {
 }
 
 module.exports = dangerousStyleValue;
-},{"./CSSProperty":216}],324:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\dangerousStyleValue.js","/node_modules\\react\\lib")
+
+},{"./CSSProperty":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\CSSProperty.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\deprecated.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30413,9 +32853,10 @@ function deprecated(fnName, newModule, newPackage, ctx, fn) {
 }
 
 module.exports = deprecated;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\deprecated.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"_process":167,"fbjs/lib/warning":138}],325:[function(require,module,exports){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\escapeTextContentForBrowser.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30454,8 +32895,10 @@ function escapeTextContentForBrowser(text) {
 }
 
 module.exports = escapeTextContentForBrowser;
-},{}],326:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\escapeTextContentForBrowser.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\findDOMNode.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30505,10 +32948,10 @@ function findDOMNode(componentOrElement) {
 }
 
 module.exports = findDOMNode;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\findDOMNode.js","/node_modules\\react\\lib")
 
-},{"./ReactCurrentOwner":249,"./ReactInstanceMap":277,"./ReactMount":280,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],327:[function(require,module,exports){
-(function (process){
+},{"./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactInstanceMap":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\flattenChildren.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30557,9 +33000,10 @@ function flattenChildren(children) {
 }
 
 module.exports = flattenChildren;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\flattenChildren.js","/node_modules\\react\\lib")
 
-},{"./traverseAllChildren":345,"_process":167,"fbjs/lib/warning":138}],328:[function(require,module,exports){
+},{"./traverseAllChildren":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\traverseAllChildren.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\forEachAccumulated.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30589,7 +33033,10 @@ var forEachAccumulated = function (arr, cb, scope) {
 };
 
 module.exports = forEachAccumulated;
-},{}],329:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\forEachAccumulated.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventCharCode.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30640,7 +33087,10 @@ function getEventCharCode(nativeEvent) {
 }
 
 module.exports = getEventCharCode;
-},{}],330:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\getEventCharCode.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventKey.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30744,7 +33194,10 @@ function getEventKey(nativeEvent) {
 }
 
 module.exports = getEventKey;
-},{"./getEventCharCode":329}],331:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\getEventKey.js","/node_modules\\react\\lib")
+
+},{"./getEventCharCode":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventCharCode.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventModifierState.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30789,7 +33242,10 @@ function getEventModifierState(nativeEvent) {
 }
 
 module.exports = getEventModifierState;
-},{}],332:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\getEventModifierState.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getEventTarget.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30819,7 +33275,10 @@ function getEventTarget(nativeEvent) {
 }
 
 module.exports = getEventTarget;
-},{}],333:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\getEventTarget.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getIteratorFn.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30860,7 +33319,10 @@ function getIteratorFn(maybeIterable) {
 }
 
 module.exports = getIteratorFn;
-},{}],334:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\getIteratorFn.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getNodeForCharacterOffset.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30934,7 +33396,10 @@ function getNodeForCharacterOffset(root, offset) {
 }
 
 module.exports = getNodeForCharacterOffset;
-},{}],335:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\getNodeForCharacterOffset.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getTextContentAccessor.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -30968,8 +33433,10 @@ function getTextContentAccessor() {
 }
 
 module.exports = getTextContentAccessor;
-},{"fbjs/lib/ExecutionEnvironment":113}],336:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\getTextContentAccessor.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\instantiateReactComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31082,9 +33549,10 @@ function instantiateReactComponent(node) {
 }
 
 module.exports = instantiateReactComponent;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\instantiateReactComponent.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"./ReactCompositeComponent":248,"./ReactEmptyComponent":269,"./ReactNativeComponent":283,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],337:[function(require,module,exports){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","./ReactCompositeComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCompositeComponent.js","./ReactEmptyComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactEmptyComponent.js","./ReactNativeComponent":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactNativeComponent.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\isEventSupported.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31145,7 +33613,10 @@ function isEventSupported(eventNameSuffix, capture) {
 }
 
 module.exports = isEventSupported;
-},{"fbjs/lib/ExecutionEnvironment":113}],338:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\isEventSupported.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\isTextInputElement.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31186,8 +33657,10 @@ function isTextInputElement(elem) {
 }
 
 module.exports = isTextInputElement;
-},{}],339:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\isTextInputElement.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\onlyChild.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31221,9 +33694,10 @@ function onlyChild(children) {
 }
 
 module.exports = onlyChild;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\onlyChild.js","/node_modules\\react\\lib")
 
-},{"./ReactElement":267,"_process":167,"fbjs/lib/invariant":127}],340:[function(require,module,exports){
+},{"./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\quoteAttributeValueForBrowser.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31250,7 +33724,10 @@ function quoteAttributeValueForBrowser(value) {
 }
 
 module.exports = quoteAttributeValueForBrowser;
-},{"./escapeTextContentForBrowser":325}],341:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\quoteAttributeValueForBrowser.js","/node_modules\\react\\lib")
+
+},{"./escapeTextContentForBrowser":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\renderSubtreeIntoContainer.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31267,7 +33744,10 @@ module.exports = quoteAttributeValueForBrowser;
 var ReactMount = require('./ReactMount');
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
-},{"./ReactMount":280}],342:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\renderSubtreeIntoContainer.js","/node_modules\\react\\lib")
+
+},{"./ReactMount":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactMount.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setInnerHTML.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31358,7 +33838,10 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setInnerHTML;
-},{"fbjs/lib/ExecutionEnvironment":113}],343:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\setInnerHTML.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setTextContent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31399,7 +33882,10 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setTextContent;
-},{"./escapeTextContentForBrowser":325,"./setInnerHTML":342,"fbjs/lib/ExecutionEnvironment":113}],344:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\setTextContent.js","/node_modules\\react\\lib")
+
+},{"./escapeTextContentForBrowser":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./setInnerHTML":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\setInnerHTML.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/ExecutionEnvironment":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\shouldUpdateReactComponent.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31443,8 +33929,10 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 }
 
 module.exports = shouldUpdateReactComponent;
-},{}],345:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\shouldUpdateReactComponent.js","/node_modules\\react\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\traverseAllChildren.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -31634,10 +34122,10 @@ function traverseAllChildren(children, callback, traverseContext) {
 }
 
 module.exports = traverseAllChildren;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\traverseAllChildren.js","/node_modules\\react\\lib")
 
-},{"./ReactCurrentOwner":249,"./ReactElement":267,"./ReactInstanceHandles":276,"./getIteratorFn":333,"_process":167,"fbjs/lib/invariant":127,"fbjs/lib/warning":138}],346:[function(require,module,exports){
-(function (process){
+},{"./ReactCurrentOwner":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactElement.js","./ReactInstanceHandles":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\ReactInstanceHandles.js","./getIteratorFn":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\getIteratorFn.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/invariant":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\validateDOMNesting.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2015, Facebook, Inc.
  * All rights reserved.
@@ -32001,14 +34489,18 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = validateDOMNesting;
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\lib\\validateDOMNesting.js","/node_modules\\react\\lib")
 
-},{"./Object.assign":235,"_process":167,"fbjs/lib/emptyFunction":119,"fbjs/lib/warning":138}],347:[function(require,module,exports){
+},{"./Object.assign":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\Object.assign.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","fbjs/lib/emptyFunction":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"Q:\\_alpha\\quickly.box\\node_modules\\fbjs\\lib\\warning.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\react\\react.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":237}],348:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\react\\react.js","/node_modules\\react")
+
+},{"./lib/React":"Q:\\_alpha\\quickly.box\\node_modules\\react\\lib\\React.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\strict-uri-encode\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 module.exports = function (str) {
 	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
@@ -32016,7 +34508,10 @@ module.exports = function (str) {
 	});
 };
 
-},{}],349:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\strict-uri-encode\\index.js","/node_modules\\strict-uri-encode")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\urllite\\lib\\core.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 (function() {
   var URL, URL_PATTERN, defaults, urllite,
     __hasProp = {}.hasOwnProperty;
@@ -32083,8 +34578,4666 @@ module.exports = function (str) {
 
 }).call(this);
 
-},{}],350:[function(require,module,exports){
-(function (process){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\urllite\\lib\\core.js","/node_modules\\urllite\\lib")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\velocity-animate\\velocity.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+/*! VelocityJS.org (1.2.3). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
+
+/*************************
+   Velocity jQuery Shim
+*************************/
+
+/*! VelocityJS.org jQuery Shim (1.0.1). (C) 2014 The jQuery Foundation. MIT @license: en.wikipedia.org/wiki/MIT_License. */
+
+/* This file contains the jQuery functions that Velocity relies on, thereby removing Velocity's dependency on a full copy of jQuery, and allowing it to work in any environment. */
+/* These shimmed functions are only used if jQuery isn't present. If both this shim and jQuery are loaded, Velocity defaults to jQuery proper. */
+/* Browser support: Using this shim instead of jQuery proper removes support for IE8. */
+
+;(function (window) {
+    /***************
+         Setup
+    ***************/
+
+    /* If jQuery is already loaded, there's no point in loading this shim. */
+    if (window.jQuery) {
+        return;
+    }
+
+    /* jQuery base. */
+    var $ = function (selector, context) {
+        return new $.fn.init(selector, context);
+    };
+
+    /********************
+       Private Methods
+    ********************/
+
+    /* jQuery */
+    $.isWindow = function (obj) {
+        /* jshint eqeqeq: false */
+        return obj != null && obj == obj.window;
+    };
+
+    /* jQuery */
+    $.type = function (obj) {
+        if (obj == null) {
+            return obj + "";
+        }
+
+        return typeof obj === "object" || typeof obj === "function" ?
+            class2type[toString.call(obj)] || "object" :
+            typeof obj;
+    };
+
+    /* jQuery */
+    $.isArray = Array.isArray || function (obj) {
+        return $.type(obj) === "array";
+    };
+
+    /* jQuery */
+    function isArraylike (obj) {
+        var length = obj.length,
+            type = $.type(obj);
+
+        if (type === "function" || $.isWindow(obj)) {
+            return false;
+        }
+
+        if (obj.nodeType === 1 && length) {
+            return true;
+        }
+
+        return type === "array" || length === 0 || typeof length === "number" && length > 0 && (length - 1) in obj;
+    }
+
+    /***************
+       $ Methods
+    ***************/
+
+    /* jQuery: Support removed for IE<9. */
+    $.isPlainObject = function (obj) {
+        var key;
+
+        if (!obj || $.type(obj) !== "object" || obj.nodeType || $.isWindow(obj)) {
+            return false;
+        }
+
+        try {
+            if (obj.constructor &&
+                !hasOwn.call(obj, "constructor") &&
+                !hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
+                return false;
+            }
+        } catch (e) {
+            return false;
+        }
+
+        for (key in obj) {}
+
+        return key === undefined || hasOwn.call(obj, key);
+    };
+
+    /* jQuery */
+    $.each = function(obj, callback, args) {
+        var value,
+            i = 0,
+            length = obj.length,
+            isArray = isArraylike(obj);
+
+        if (args) {
+            if (isArray) {
+                for (; i < length; i++) {
+                    value = callback.apply(obj[i], args);
+
+                    if (value === false) {
+                        break;
+                    }
+                }
+            } else {
+                for (i in obj) {
+                    value = callback.apply(obj[i], args);
+
+                    if (value === false) {
+                        break;
+                    }
+                }
+            }
+
+        } else {
+            if (isArray) {
+                for (; i < length; i++) {
+                    value = callback.call(obj[i], i, obj[i]);
+
+                    if (value === false) {
+                        break;
+                    }
+                }
+            } else {
+                for (i in obj) {
+                    value = callback.call(obj[i], i, obj[i]);
+
+                    if (value === false) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        return obj;
+    };
+
+    /* Custom */
+    $.data = function (node, key, value) {
+        /* $.getData() */
+        if (value === undefined) {
+            var id = node[$.expando],
+                store = id && cache[id];
+
+            if (key === undefined) {
+                return store;
+            } else if (store) {
+                if (key in store) {
+                    return store[key];
+                }
+            }
+        /* $.setData() */
+        } else if (key !== undefined) {
+            var id = node[$.expando] || (node[$.expando] = ++$.uuid);
+
+            cache[id] = cache[id] || {};
+            cache[id][key] = value;
+
+            return value;
+        }
+    };
+
+    /* Custom */
+    $.removeData = function (node, keys) {
+        var id = node[$.expando],
+            store = id && cache[id];
+
+        if (store) {
+            $.each(keys, function(_, key) {
+                delete store[key];
+            });
+        }
+    };
+
+    /* jQuery */
+    $.extend = function () {
+        var src, copyIsArray, copy, name, options, clone,
+            target = arguments[0] || {},
+            i = 1,
+            length = arguments.length,
+            deep = false;
+
+        if (typeof target === "boolean") {
+            deep = target;
+
+            target = arguments[i] || {};
+            i++;
+        }
+
+        if (typeof target !== "object" && $.type(target) !== "function") {
+            target = {};
+        }
+
+        if (i === length) {
+            target = this;
+            i--;
+        }
+
+        for (; i < length; i++) {
+            if ((options = arguments[i]) != null) {
+                for (name in options) {
+                    src = target[name];
+                    copy = options[name];
+
+                    if (target === copy) {
+                        continue;
+                    }
+
+                    if (deep && copy && ($.isPlainObject(copy) || (copyIsArray = $.isArray(copy)))) {
+                        if (copyIsArray) {
+                            copyIsArray = false;
+                            clone = src && $.isArray(src) ? src : [];
+
+                        } else {
+                            clone = src && $.isPlainObject(src) ? src : {};
+                        }
+
+                        target[name] = $.extend(deep, clone, copy);
+
+                    } else if (copy !== undefined) {
+                        target[name] = copy;
+                    }
+                }
+            }
+        }
+
+        return target;
+    };
+
+    /* jQuery 1.4.3 */
+    $.queue = function (elem, type, data) {
+        function $makeArray (arr, results) {
+            var ret = results || [];
+
+            if (arr != null) {
+                if (isArraylike(Object(arr))) {
+                    /* $.merge */
+                    (function(first, second) {
+                        var len = +second.length,
+                            j = 0,
+                            i = first.length;
+
+                        while (j < len) {
+                            first[i++] = second[j++];
+                        }
+
+                        if (len !== len) {
+                            while (second[j] !== undefined) {
+                                first[i++] = second[j++];
+                            }
+                        }
+
+                        first.length = i;
+
+                        return first;
+                    })(ret, typeof arr === "string" ? [arr] : arr);
+                } else {
+                    [].push.call(ret, arr);
+                }
+            }
+
+            return ret;
+        }
+
+        if (!elem) {
+            return;
+        }
+
+        type = (type || "fx") + "queue";
+
+        var q = $.data(elem, type);
+
+        if (!data) {
+            return q || [];
+        }
+
+        if (!q || $.isArray(data)) {
+            q = $.data(elem, type, $makeArray(data));
+        } else {
+            q.push(data);
+        }
+
+        return q;
+    };
+
+    /* jQuery 1.4.3 */
+    $.dequeue = function (elems, type) {
+        /* Custom: Embed element iteration. */
+        $.each(elems.nodeType ? [ elems ] : elems, function(i, elem) {
+            type = type || "fx";
+
+            var queue = $.queue(elem, type),
+                fn = queue.shift();
+
+            if (fn === "inprogress") {
+                fn = queue.shift();
+            }
+
+            if (fn) {
+                if (type === "fx") {
+                    queue.unshift("inprogress");
+                }
+
+                fn.call(elem, function() {
+                    $.dequeue(elem, type);
+                });
+            }
+        });
+    };
+
+    /******************
+       $.fn Methods
+    ******************/
+
+    /* jQuery */
+    $.fn = $.prototype = {
+        init: function (selector) {
+            /* Just return the element wrapped inside an array; don't proceed with the actual jQuery node wrapping process. */
+            if (selector.nodeType) {
+                this[0] = selector;
+
+                return this;
+            } else {
+                throw new Error("Not a DOM node.");
+            }
+        },
+
+        offset: function () {
+            /* jQuery altered code: Dropped disconnected DOM node checking. */
+            var box = this[0].getBoundingClientRect ? this[0].getBoundingClientRect() : { top: 0, left: 0 };
+
+            return {
+                top: box.top + (window.pageYOffset || document.scrollTop  || 0)  - (document.clientTop  || 0),
+                left: box.left + (window.pageXOffset || document.scrollLeft  || 0) - (document.clientLeft || 0)
+            };
+        },
+
+        position: function () {
+            /* jQuery */
+            function offsetParent() {
+                var offsetParent = this.offsetParent || document;
+
+                while (offsetParent && (!offsetParent.nodeType.toLowerCase === "html" && offsetParent.style.position === "static")) {
+                    offsetParent = offsetParent.offsetParent;
+                }
+
+                return offsetParent || document;
+            }
+
+            /* Zepto */
+            var elem = this[0],
+                offsetParent = offsetParent.apply(elem),
+                offset = this.offset(),
+                parentOffset = /^(?:body|html)$/i.test(offsetParent.nodeName) ? { top: 0, left: 0 } : $(offsetParent).offset()
+
+            offset.top -= parseFloat(elem.style.marginTop) || 0;
+            offset.left -= parseFloat(elem.style.marginLeft) || 0;
+
+            if (offsetParent.style) {
+                parentOffset.top += parseFloat(offsetParent.style.borderTopWidth) || 0
+                parentOffset.left += parseFloat(offsetParent.style.borderLeftWidth) || 0
+            }
+
+            return {
+                top: offset.top - parentOffset.top,
+                left: offset.left - parentOffset.left
+            };
+        }
+    };
+
+    /**********************
+       Private Variables
+    **********************/
+
+    /* For $.data() */
+    var cache = {};
+    $.expando = "velocity" + (new Date().getTime());
+    $.uuid = 0;
+
+    /* For $.queue() */
+    var class2type = {},
+        hasOwn = class2type.hasOwnProperty,
+        toString = class2type.toString;
+
+    var types = "Boolean Number String Function Array Date RegExp Object Error".split(" ");
+    for (var i = 0; i < types.length; i++) {
+        class2type["[object " + types[i] + "]"] = types[i].toLowerCase();
+    }
+
+    /* Makes $(node) possible, without having to call init. */
+    $.fn.init.prototype = $.fn;
+
+    /* Globalize Velocity onto the window, and assign its Utilities property. */
+    window.Velocity = { Utilities: $ };
+})(window);
+
+/******************
+    Velocity.js
+******************/
+
+;(function (factory) {
+    /* CommonJS module. */
+    if (typeof module === "object" && typeof module.exports === "object") {
+        module.exports = factory();
+    /* AMD module. */
+    } else if (typeof define === "function" && define.amd) {
+        define(factory);
+    /* Browser globals. */
+    } else {
+        factory();
+    }
+}(function() {
+return function (global, window, document, undefined) {
+
+    /***************
+        Summary
+    ***************/
+
+    /*
+    - CSS: CSS stack that works independently from the rest of Velocity.
+    - animate(): Core animation method that iterates over the targeted elements and queues the incoming call onto each element individually.
+      - Pre-Queueing: Prepare the element for animation by instantiating its data cache and processing the call's options.
+      - Queueing: The logic that runs once the call has reached its point of execution in the element's $.queue() stack.
+                  Most logic is placed here to avoid risking it becoming stale (if the element's properties have changed).
+      - Pushing: Consolidation of the tween data followed by its push onto the global in-progress calls container.
+    - tick(): The single requestAnimationFrame loop responsible for tweening all in-progress calls.
+    - completeCall(): Handles the cleanup process for each Velocity call.
+    */
+
+    /*********************
+       Helper Functions
+    *********************/
+
+    /* IE detection. Gist: https://gist.github.com/julianshapiro/9098609 */
+    var IE = (function() {
+        if (document.documentMode) {
+            return document.documentMode;
+        } else {
+            for (var i = 7; i > 4; i--) {
+                var div = document.createElement("div");
+
+                div.innerHTML = "<!--[if IE " + i + "]><span></span><![endif]-->";
+
+                if (div.getElementsByTagName("span").length) {
+                    div = null;
+
+                    return i;
+                }
+            }
+        }
+
+        return undefined;
+    })();
+
+    /* rAF shim. Gist: https://gist.github.com/julianshapiro/9497513 */
+    var rAFShim = (function() {
+        var timeLast = 0;
+
+        return window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
+            var timeCurrent = (new Date()).getTime(),
+                timeDelta;
+
+            /* Dynamically set delay on a per-tick basis to match 60fps. */
+            /* Technique by Erik Moller. MIT license: https://gist.github.com/paulirish/1579671 */
+            timeDelta = Math.max(0, 16 - (timeCurrent - timeLast));
+            timeLast = timeCurrent + timeDelta;
+
+            return setTimeout(function() { callback(timeCurrent + timeDelta); }, timeDelta);
+        };
+    })();
+
+    /* Array compacting. Copyright Lo-Dash. MIT License: https://github.com/lodash/lodash/blob/master/LICENSE.txt */
+    function compactSparseArray (array) {
+        var index = -1,
+            length = array ? array.length : 0,
+            result = [];
+
+        while (++index < length) {
+            var value = array[index];
+
+            if (value) {
+                result.push(value);
+            }
+        }
+
+        return result;
+    }
+
+    function sanitizeElements (elements) {
+        /* Unwrap jQuery/Zepto objects. */
+        if (Type.isWrapped(elements)) {
+            elements = [].slice.call(elements);
+        /* Wrap a single element in an array so that $.each() can iterate with the element instead of its node's children. */
+        } else if (Type.isNode(elements)) {
+            elements = [ elements ];
+        }
+
+        return elements;
+    }
+
+    var Type = {
+        isString: function (variable) {
+            return (typeof variable === "string");
+        },
+        isArray: Array.isArray || function (variable) {
+            return Object.prototype.toString.call(variable) === "[object Array]";
+        },
+        isFunction: function (variable) {
+            return Object.prototype.toString.call(variable) === "[object Function]";
+        },
+        isNode: function (variable) {
+            return variable && variable.nodeType;
+        },
+        /* Copyright Martin Bohm. MIT License: https://gist.github.com/Tomalak/818a78a226a0738eaade */
+        isNodeList: function (variable) {
+            return typeof variable === "object" &&
+                /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(variable)) &&
+                variable.length !== undefined &&
+                (variable.length === 0 || (typeof variable[0] === "object" && variable[0].nodeType > 0));
+        },
+        /* Determine if variable is a wrapped jQuery or Zepto element. */
+        isWrapped: function (variable) {
+            return variable && (variable.jquery || (window.Zepto && window.Zepto.zepto.isZ(variable)));
+        },
+        isSVG: function (variable) {
+            return window.SVGElement && (variable instanceof window.SVGElement);
+        },
+        isEmptyObject: function (variable) {
+            for (var name in variable) {
+                return false;
+            }
+
+            return true;
+        }
+    };
+
+    /*****************
+       Dependencies
+    *****************/
+
+    var $,
+        isJQuery = false;
+
+    if (global.fn && global.fn.jquery) {
+        $ = global;
+        isJQuery = true;
+    } else {
+        $ = window.Velocity.Utilities;
+    }
+
+    if (IE <= 8 && !isJQuery) {
+        throw new Error("Velocity: IE8 and below require jQuery to be loaded before Velocity.");
+    } else if (IE <= 7) {
+        /* Revert to jQuery's $.animate(), and lose Velocity's extra features. */
+        jQuery.fn.velocity = jQuery.fn.animate;
+
+        /* Now that $.fn.velocity is aliased, abort this Velocity declaration. */
+        return;
+    }
+
+    /*****************
+        Constants
+    *****************/
+
+    var DURATION_DEFAULT = 400,
+        EASING_DEFAULT = "swing";
+
+    /*************
+        State
+    *************/
+
+    var Velocity = {
+        /* Container for page-wide Velocity state data. */
+        State: {
+            /* Detect mobile devices to determine if mobileHA should be turned on. */
+            isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+            /* The mobileHA option's behavior changes on older Android devices (Gingerbread, versions 2.3.3-2.3.7). */
+            isAndroid: /Android/i.test(navigator.userAgent),
+            isGingerbread: /Android 2\.3\.[3-7]/i.test(navigator.userAgent),
+            isChrome: window.chrome,
+            isFirefox: /Firefox/i.test(navigator.userAgent),
+            /* Create a cached element for re-use when checking for CSS property prefixes. */
+            prefixElement: document.createElement("div"),
+            /* Cache every prefix match to avoid repeating lookups. */
+            prefixMatches: {},
+            /* Cache the anchor used for animating window scrolling. */
+            scrollAnchor: null,
+            /* Cache the browser-specific property names associated with the scroll anchor. */
+            scrollPropertyLeft: null,
+            scrollPropertyTop: null,
+            /* Keep track of whether our RAF tick is running. */
+            isTicking: false,
+            /* Container for every in-progress call to Velocity. */
+            calls: []
+        },
+        /* Velocity's custom CSS stack. Made global for unit testing. */
+        CSS: { /* Defined below. */ },
+        /* A shim of the jQuery utility functions used by Velocity -- provided by Velocity's optional jQuery shim. */
+        Utilities: $,
+        /* Container for the user's custom animation redirects that are referenced by name in place of the properties map argument. */
+        Redirects: { /* Manually registered by the user. */ },
+        Easings: { /* Defined below. */ },
+        /* Attempt to use ES6 Promises by default. Users can override this with a third-party promises library. */
+        Promise: window.Promise,
+        /* Velocity option defaults, which can be overriden by the user. */
+        defaults: {
+            queue: "",
+            duration: DURATION_DEFAULT,
+            easing: EASING_DEFAULT,
+            begin: undefined,
+            complete: undefined,
+            progress: undefined,
+            display: undefined,
+            visibility: undefined,
+            loop: false,
+            delay: false,
+            mobileHA: true,
+            /* Advanced: Set to false to prevent property values from being cached between consecutive Velocity-initiated chain calls. */
+            _cacheValues: true
+        },
+        /* A design goal of Velocity is to cache data wherever possible in order to avoid DOM requerying. Accordingly, each element has a data cache. */
+        init: function (element) {
+            $.data(element, "velocity", {
+                /* Store whether this is an SVG element, since its properties are retrieved and updated differently than standard HTML elements. */
+                isSVG: Type.isSVG(element),
+                /* Keep track of whether the element is currently being animated by Velocity.
+                   This is used to ensure that property values are not transferred between non-consecutive (stale) calls. */
+                isAnimating: false,
+                /* A reference to the element's live computedStyle object. Learn more here: https://developer.mozilla.org/en/docs/Web/API/window.getComputedStyle */
+                computedStyle: null,
+                /* Tween data is cached for each animation on the element so that data can be passed across calls --
+                   in particular, end values are used as subsequent start values in consecutive Velocity calls. */
+                tweensContainer: null,
+                /* The full root property values of each CSS hook being animated on this element are cached so that:
+                   1) Concurrently-animating hooks sharing the same root can have their root values' merged into one while tweening.
+                   2) Post-hook-injection root values can be transferred over to consecutively chained Velocity calls as starting root values. */
+                rootPropertyValueCache: {},
+                /* A cache for transform updates, which must be manually flushed via CSS.flushTransformCache(). */
+                transformCache: {}
+            });
+        },
+        /* A parallel to jQuery's $.css(), used for getting/setting Velocity's hooked CSS properties. */
+        hook: null, /* Defined below. */
+        /* Velocity-wide animation time remapping for testing purposes. */
+        mock: false,
+        version: { major: 1, minor: 2, patch: 2 },
+        /* Set to 1 or 2 (most verbose) to output debug info to console. */
+        debug: false
+    };
+
+    /* Retrieve the appropriate scroll anchor and property name for the browser: https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY */
+    if (window.pageYOffset !== undefined) {
+        Velocity.State.scrollAnchor = window;
+        Velocity.State.scrollPropertyLeft = "pageXOffset";
+        Velocity.State.scrollPropertyTop = "pageYOffset";
+    } else {
+        Velocity.State.scrollAnchor = document.documentElement || document.body.parentNode || document.body;
+        Velocity.State.scrollPropertyLeft = "scrollLeft";
+        Velocity.State.scrollPropertyTop = "scrollTop";
+    }
+
+    /* Shorthand alias for jQuery's $.data() utility. */
+    function Data (element) {
+        /* Hardcode a reference to the plugin name. */
+        var response = $.data(element, "velocity");
+
+        /* jQuery <=1.4.2 returns null instead of undefined when no match is found. We normalize this behavior. */
+        return response === null ? undefined : response;
+    };
+
+    /**************
+        Easing
+    **************/
+
+    /* Step easing generator. */
+    function generateStep (steps) {
+        return function (p) {
+            return Math.round(p * steps) * (1 / steps);
+        };
+    }
+
+    /* Bezier curve function generator. Copyright Gaetan Renaudeau. MIT License: http://en.wikipedia.org/wiki/MIT_License */
+    function generateBezier (mX1, mY1, mX2, mY2) {
+        var NEWTON_ITERATIONS = 4,
+            NEWTON_MIN_SLOPE = 0.001,
+            SUBDIVISION_PRECISION = 0.0000001,
+            SUBDIVISION_MAX_ITERATIONS = 10,
+            kSplineTableSize = 11,
+            kSampleStepSize = 1.0 / (kSplineTableSize - 1.0),
+            float32ArraySupported = "Float32Array" in window;
+
+        /* Must contain four arguments. */
+        if (arguments.length !== 4) {
+            return false;
+        }
+
+        /* Arguments must be numbers. */
+        for (var i = 0; i < 4; ++i) {
+            if (typeof arguments[i] !== "number" || isNaN(arguments[i]) || !isFinite(arguments[i])) {
+                return false;
+            }
+        }
+
+        /* X values must be in the [0, 1] range. */
+        mX1 = Math.min(mX1, 1);
+        mX2 = Math.min(mX2, 1);
+        mX1 = Math.max(mX1, 0);
+        mX2 = Math.max(mX2, 0);
+
+        var mSampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
+
+        function A (aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
+        function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
+        function C (aA1)      { return 3.0 * aA1; }
+
+        function calcBezier (aT, aA1, aA2) {
+            return ((A(aA1, aA2)*aT + B(aA1, aA2))*aT + C(aA1))*aT;
+        }
+
+        function getSlope (aT, aA1, aA2) {
+            return 3.0 * A(aA1, aA2)*aT*aT + 2.0 * B(aA1, aA2) * aT + C(aA1);
+        }
+
+        function newtonRaphsonIterate (aX, aGuessT) {
+            for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
+                var currentSlope = getSlope(aGuessT, mX1, mX2);
+
+                if (currentSlope === 0.0) return aGuessT;
+
+                var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
+                aGuessT -= currentX / currentSlope;
+            }
+
+            return aGuessT;
+        }
+
+        function calcSampleValues () {
+            for (var i = 0; i < kSplineTableSize; ++i) {
+                mSampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
+            }
+        }
+
+        function binarySubdivide (aX, aA, aB) {
+            var currentX, currentT, i = 0;
+
+            do {
+                currentT = aA + (aB - aA) / 2.0;
+                currentX = calcBezier(currentT, mX1, mX2) - aX;
+                if (currentX > 0.0) {
+                  aB = currentT;
+                } else {
+                  aA = currentT;
+                }
+            } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
+
+            return currentT;
+        }
+
+        function getTForX (aX) {
+            var intervalStart = 0.0,
+                currentSample = 1,
+                lastSample = kSplineTableSize - 1;
+
+            for (; currentSample != lastSample && mSampleValues[currentSample] <= aX; ++currentSample) {
+                intervalStart += kSampleStepSize;
+            }
+
+            --currentSample;
+
+            var dist = (aX - mSampleValues[currentSample]) / (mSampleValues[currentSample+1] - mSampleValues[currentSample]),
+                guessForT = intervalStart + dist * kSampleStepSize,
+                initialSlope = getSlope(guessForT, mX1, mX2);
+
+            if (initialSlope >= NEWTON_MIN_SLOPE) {
+                return newtonRaphsonIterate(aX, guessForT);
+            } else if (initialSlope == 0.0) {
+                return guessForT;
+            } else {
+                return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize);
+            }
+        }
+
+        var _precomputed = false;
+
+        function precompute() {
+            _precomputed = true;
+            if (mX1 != mY1 || mX2 != mY2) calcSampleValues();
+        }
+
+        var f = function (aX) {
+            if (!_precomputed) precompute();
+            if (mX1 === mY1 && mX2 === mY2) return aX;
+            if (aX === 0) return 0;
+            if (aX === 1) return 1;
+
+            return calcBezier(getTForX(aX), mY1, mY2);
+        };
+
+        f.getControlPoints = function() { return [{ x: mX1, y: mY1 }, { x: mX2, y: mY2 }]; };
+
+        var str = "generateBezier(" + [mX1, mY1, mX2, mY2] + ")";
+        f.toString = function () { return str; };
+
+        return f;
+    }
+
+    /* Runge-Kutta spring physics function generator. Adapted from Framer.js, copyright Koen Bok. MIT License: http://en.wikipedia.org/wiki/MIT_License */
+    /* Given a tension, friction, and duration, a simulation at 60FPS will first run without a defined duration in order to calculate the full path. A second pass
+       then adjusts the time delta -- using the relation between actual time and duration -- to calculate the path for the duration-constrained animation. */
+    var generateSpringRK4 = (function () {
+        function springAccelerationForState (state) {
+            return (-state.tension * state.x) - (state.friction * state.v);
+        }
+
+        function springEvaluateStateWithDerivative (initialState, dt, derivative) {
+            var state = {
+                x: initialState.x + derivative.dx * dt,
+                v: initialState.v + derivative.dv * dt,
+                tension: initialState.tension,
+                friction: initialState.friction
+            };
+
+            return { dx: state.v, dv: springAccelerationForState(state) };
+        }
+
+        function springIntegrateState (state, dt) {
+            var a = {
+                    dx: state.v,
+                    dv: springAccelerationForState(state)
+                },
+                b = springEvaluateStateWithDerivative(state, dt * 0.5, a),
+                c = springEvaluateStateWithDerivative(state, dt * 0.5, b),
+                d = springEvaluateStateWithDerivative(state, dt, c),
+                dxdt = 1.0 / 6.0 * (a.dx + 2.0 * (b.dx + c.dx) + d.dx),
+                dvdt = 1.0 / 6.0 * (a.dv + 2.0 * (b.dv + c.dv) + d.dv);
+
+            state.x = state.x + dxdt * dt;
+            state.v = state.v + dvdt * dt;
+
+            return state;
+        }
+
+        return function springRK4Factory (tension, friction, duration) {
+
+            var initState = {
+                    x: -1,
+                    v: 0,
+                    tension: null,
+                    friction: null
+                },
+                path = [0],
+                time_lapsed = 0,
+                tolerance = 1 / 10000,
+                DT = 16 / 1000,
+                have_duration, dt, last_state;
+
+            tension = parseFloat(tension) || 500;
+            friction = parseFloat(friction) || 20;
+            duration = duration || null;
+
+            initState.tension = tension;
+            initState.friction = friction;
+
+            have_duration = duration !== null;
+
+            /* Calculate the actual time it takes for this animation to complete with the provided conditions. */
+            if (have_duration) {
+                /* Run the simulation without a duration. */
+                time_lapsed = springRK4Factory(tension, friction);
+                /* Compute the adjusted time delta. */
+                dt = time_lapsed / duration * DT;
+            } else {
+                dt = DT;
+            }
+
+            while (true) {
+                /* Next/step function .*/
+                last_state = springIntegrateState(last_state || initState, dt);
+                /* Store the position. */
+                path.push(1 + last_state.x);
+                time_lapsed += 16;
+                /* If the change threshold is reached, break. */
+                if (!(Math.abs(last_state.x) > tolerance && Math.abs(last_state.v) > tolerance)) {
+                    break;
+                }
+            }
+
+            /* If duration is not defined, return the actual time required for completing this animation. Otherwise, return a closure that holds the
+               computed path and returns a snapshot of the position according to a given percentComplete. */
+            return !have_duration ? time_lapsed : function(percentComplete) { return path[ (percentComplete * (path.length - 1)) | 0 ]; };
+        };
+    }());
+
+    /* jQuery easings. */
+    Velocity.Easings = {
+        linear: function(p) { return p; },
+        swing: function(p) { return 0.5 - Math.cos( p * Math.PI ) / 2 },
+        /* Bonus "spring" easing, which is a less exaggerated version of easeInOutElastic. */
+        spring: function(p) { return 1 - (Math.cos(p * 4.5 * Math.PI) * Math.exp(-p * 6)); }
+    };
+
+    /* CSS3 and Robert Penner easings. */
+    $.each(
+        [
+            [ "ease", [ 0.25, 0.1, 0.25, 1.0 ] ],
+            [ "ease-in", [ 0.42, 0.0, 1.00, 1.0 ] ],
+            [ "ease-out", [ 0.00, 0.0, 0.58, 1.0 ] ],
+            [ "ease-in-out", [ 0.42, 0.0, 0.58, 1.0 ] ],
+            [ "easeInSine", [ 0.47, 0, 0.745, 0.715 ] ],
+            [ "easeOutSine", [ 0.39, 0.575, 0.565, 1 ] ],
+            [ "easeInOutSine", [ 0.445, 0.05, 0.55, 0.95 ] ],
+            [ "easeInQuad", [ 0.55, 0.085, 0.68, 0.53 ] ],
+            [ "easeOutQuad", [ 0.25, 0.46, 0.45, 0.94 ] ],
+            [ "easeInOutQuad", [ 0.455, 0.03, 0.515, 0.955 ] ],
+            [ "easeInCubic", [ 0.55, 0.055, 0.675, 0.19 ] ],
+            [ "easeOutCubic", [ 0.215, 0.61, 0.355, 1 ] ],
+            [ "easeInOutCubic", [ 0.645, 0.045, 0.355, 1 ] ],
+            [ "easeInQuart", [ 0.895, 0.03, 0.685, 0.22 ] ],
+            [ "easeOutQuart", [ 0.165, 0.84, 0.44, 1 ] ],
+            [ "easeInOutQuart", [ 0.77, 0, 0.175, 1 ] ],
+            [ "easeInQuint", [ 0.755, 0.05, 0.855, 0.06 ] ],
+            [ "easeOutQuint", [ 0.23, 1, 0.32, 1 ] ],
+            [ "easeInOutQuint", [ 0.86, 0, 0.07, 1 ] ],
+            [ "easeInExpo", [ 0.95, 0.05, 0.795, 0.035 ] ],
+            [ "easeOutExpo", [ 0.19, 1, 0.22, 1 ] ],
+            [ "easeInOutExpo", [ 1, 0, 0, 1 ] ],
+            [ "easeInCirc", [ 0.6, 0.04, 0.98, 0.335 ] ],
+            [ "easeOutCirc", [ 0.075, 0.82, 0.165, 1 ] ],
+            [ "easeInOutCirc", [ 0.785, 0.135, 0.15, 0.86 ] ]
+        ], function(i, easingArray) {
+            Velocity.Easings[easingArray[0]] = generateBezier.apply(null, easingArray[1]);
+        });
+
+    /* Determine the appropriate easing type given an easing input. */
+    function getEasing(value, duration) {
+        var easing = value;
+
+        /* The easing option can either be a string that references a pre-registered easing,
+           or it can be a two-/four-item array of integers to be converted into a bezier/spring function. */
+        if (Type.isString(value)) {
+            /* Ensure that the easing has been assigned to jQuery's Velocity.Easings object. */
+            if (!Velocity.Easings[value]) {
+                easing = false;
+            }
+        } else if (Type.isArray(value) && value.length === 1) {
+            easing = generateStep.apply(null, value);
+        } else if (Type.isArray(value) && value.length === 2) {
+            /* springRK4 must be passed the animation's duration. */
+            /* Note: If the springRK4 array contains non-numbers, generateSpringRK4() returns an easing
+               function generated with default tension and friction values. */
+            easing = generateSpringRK4.apply(null, value.concat([ duration ]));
+        } else if (Type.isArray(value) && value.length === 4) {
+            /* Note: If the bezier array contains non-numbers, generateBezier() returns false. */
+            easing = generateBezier.apply(null, value);
+        } else {
+            easing = false;
+        }
+
+        /* Revert to the Velocity-wide default easing type, or fall back to "swing" (which is also jQuery's default)
+           if the Velocity-wide default has been incorrectly modified. */
+        if (easing === false) {
+            if (Velocity.Easings[Velocity.defaults.easing]) {
+                easing = Velocity.defaults.easing;
+            } else {
+                easing = EASING_DEFAULT;
+            }
+        }
+
+        return easing;
+    }
+
+    /*****************
+        CSS Stack
+    *****************/
+
+    /* The CSS object is a highly condensed and performant CSS stack that fully replaces jQuery's.
+       It handles the validation, getting, and setting of both standard CSS properties and CSS property hooks. */
+    /* Note: A "CSS" shorthand is aliased so that our code is easier to read. */
+    var CSS = Velocity.CSS = {
+
+        /*************
+            RegEx
+        *************/
+
+        RegEx: {
+            isHex: /^#([A-f\d]{3}){1,2}$/i,
+            /* Unwrap a property value's surrounding text, e.g. "rgba(4, 3, 2, 1)" ==> "4, 3, 2, 1" and "rect(4px 3px 2px 1px)" ==> "4px 3px 2px 1px". */
+            valueUnwrap: /^[A-z]+\((.*)\)$/i,
+            wrappedValueAlreadyExtracted: /[0-9.]+ [0-9.]+ [0-9.]+( [0-9.]+)?/,
+            /* Split a multi-value property into an array of subvalues, e.g. "rgba(4, 3, 2, 1) 4px 3px 2px 1px" ==> [ "rgba(4, 3, 2, 1)", "4px", "3px", "2px", "1px" ]. */
+            valueSplit: /([A-z]+\(.+\))|(([A-z0-9#-.]+?)(?=\s|$))/ig
+        },
+
+        /************
+            Lists
+        ************/
+
+        Lists: {
+            colors: [ "fill", "stroke", "stopColor", "color", "backgroundColor", "borderColor", "borderTopColor", "borderRightColor", "borderBottomColor", "borderLeftColor", "outlineColor" ],
+            transformsBase: [ "translateX", "translateY", "scale", "scaleX", "scaleY", "skewX", "skewY", "rotateZ" ],
+            transforms3D: [ "transformPerspective", "translateZ", "scaleZ", "rotateX", "rotateY" ]
+        },
+
+        /************
+            Hooks
+        ************/
+
+        /* Hooks allow a subproperty (e.g. "boxShadowBlur") of a compound-value CSS property
+           (e.g. "boxShadow: X Y Blur Spread Color") to be animated as if it were a discrete property. */
+        /* Note: Beyond enabling fine-grained property animation, hooking is necessary since Velocity only
+           tweens properties with single numeric values; unlike CSS transitions, Velocity does not interpolate compound-values. */
+        Hooks: {
+            /********************
+                Registration
+            ********************/
+
+            /* Templates are a concise way of indicating which subproperties must be individually registered for each compound-value CSS property. */
+            /* Each template consists of the compound-value's base name, its constituent subproperty names, and those subproperties' default values. */
+            templates: {
+                "textShadow": [ "Color X Y Blur", "black 0px 0px 0px" ],
+                "boxShadow": [ "Color X Y Blur Spread", "black 0px 0px 0px 0px" ],
+                "clip": [ "Top Right Bottom Left", "0px 0px 0px 0px" ],
+                "backgroundPosition": [ "X Y", "0% 0%" ],
+                "transformOrigin": [ "X Y Z", "50% 50% 0px" ],
+                "perspectiveOrigin": [ "X Y", "50% 50%" ]
+            },
+
+            /* A "registered" hook is one that has been converted from its template form into a live,
+               tweenable property. It contains data to associate it with its root property. */
+            registered: {
+                /* Note: A registered hook looks like this ==> textShadowBlur: [ "textShadow", 3 ],
+                   which consists of the subproperty's name, the associated root property's name,
+                   and the subproperty's position in the root's value. */
+            },
+            /* Convert the templates into individual hooks then append them to the registered object above. */
+            register: function () {
+                /* Color hooks registration: Colors are defaulted to white -- as opposed to black -- since colors that are
+                   currently set to "transparent" default to their respective template below when color-animated,
+                   and white is typically a closer match to transparent than black is. An exception is made for text ("color"),
+                   which is almost always set closer to black than white. */
+                for (var i = 0; i < CSS.Lists.colors.length; i++) {
+                    var rgbComponents = (CSS.Lists.colors[i] === "color") ? "0 0 0 1" : "255 255 255 1";
+                    CSS.Hooks.templates[CSS.Lists.colors[i]] = [ "Red Green Blue Alpha", rgbComponents ];
+                }
+
+                var rootProperty,
+                    hookTemplate,
+                    hookNames;
+
+                /* In IE, color values inside compound-value properties are positioned at the end the value instead of at the beginning.
+                   Thus, we re-arrange the templates accordingly. */
+                if (IE) {
+                    for (rootProperty in CSS.Hooks.templates) {
+                        hookTemplate = CSS.Hooks.templates[rootProperty];
+                        hookNames = hookTemplate[0].split(" ");
+
+                        var defaultValues = hookTemplate[1].match(CSS.RegEx.valueSplit);
+
+                        if (hookNames[0] === "Color") {
+                            /* Reposition both the hook's name and its default value to the end of their respective strings. */
+                            hookNames.push(hookNames.shift());
+                            defaultValues.push(defaultValues.shift());
+
+                            /* Replace the existing template for the hook's root property. */
+                            CSS.Hooks.templates[rootProperty] = [ hookNames.join(" "), defaultValues.join(" ") ];
+                        }
+                    }
+                }
+
+                /* Hook registration. */
+                for (rootProperty in CSS.Hooks.templates) {
+                    hookTemplate = CSS.Hooks.templates[rootProperty];
+                    hookNames = hookTemplate[0].split(" ");
+
+                    for (var i in hookNames) {
+                        var fullHookName = rootProperty + hookNames[i],
+                            hookPosition = i;
+
+                        /* For each hook, register its full name (e.g. textShadowBlur) with its root property (e.g. textShadow)
+                           and the hook's position in its template's default value string. */
+                        CSS.Hooks.registered[fullHookName] = [ rootProperty, hookPosition ];
+                    }
+                }
+            },
+
+            /*****************************
+               Injection and Extraction
+            *****************************/
+
+            /* Look up the root property associated with the hook (e.g. return "textShadow" for "textShadowBlur"). */
+            /* Since a hook cannot be set directly (the browser won't recognize it), style updating for hooks is routed through the hook's root property. */
+            getRoot: function (property) {
+                var hookData = CSS.Hooks.registered[property];
+
+                if (hookData) {
+                    return hookData[0];
+                } else {
+                    /* If there was no hook match, return the property name untouched. */
+                    return property;
+                }
+            },
+            /* Convert any rootPropertyValue, null or otherwise, into a space-delimited list of hook values so that
+               the targeted hook can be injected or extracted at its standard position. */
+            cleanRootPropertyValue: function(rootProperty, rootPropertyValue) {
+                /* If the rootPropertyValue is wrapped with "rgb()", "clip()", etc., remove the wrapping to normalize the value before manipulation. */
+                if (CSS.RegEx.valueUnwrap.test(rootPropertyValue)) {
+                    rootPropertyValue = rootPropertyValue.match(CSS.RegEx.valueUnwrap)[1];
+                }
+
+                /* If rootPropertyValue is a CSS null-value (from which there's inherently no hook value to extract),
+                   default to the root's default value as defined in CSS.Hooks.templates. */
+                /* Note: CSS null-values include "none", "auto", and "transparent". They must be converted into their
+                   zero-values (e.g. textShadow: "none" ==> textShadow: "0px 0px 0px black") for hook manipulation to proceed. */
+                if (CSS.Values.isCSSNullValue(rootPropertyValue)) {
+                    rootPropertyValue = CSS.Hooks.templates[rootProperty][1];
+                }
+
+                return rootPropertyValue;
+            },
+            /* Extracted the hook's value from its root property's value. This is used to get the starting value of an animating hook. */
+            extractValue: function (fullHookName, rootPropertyValue) {
+                var hookData = CSS.Hooks.registered[fullHookName];
+
+                if (hookData) {
+                    var hookRoot = hookData[0],
+                        hookPosition = hookData[1];
+
+                    rootPropertyValue = CSS.Hooks.cleanRootPropertyValue(hookRoot, rootPropertyValue);
+
+                    /* Split rootPropertyValue into its constituent hook values then grab the desired hook at its standard position. */
+                    return rootPropertyValue.toString().match(CSS.RegEx.valueSplit)[hookPosition];
+                } else {
+                    /* If the provided fullHookName isn't a registered hook, return the rootPropertyValue that was passed in. */
+                    return rootPropertyValue;
+                }
+            },
+            /* Inject the hook's value into its root property's value. This is used to piece back together the root property
+               once Velocity has updated one of its individually hooked values through tweening. */
+            injectValue: function (fullHookName, hookValue, rootPropertyValue) {
+                var hookData = CSS.Hooks.registered[fullHookName];
+
+                if (hookData) {
+                    var hookRoot = hookData[0],
+                        hookPosition = hookData[1],
+                        rootPropertyValueParts,
+                        rootPropertyValueUpdated;
+
+                    rootPropertyValue = CSS.Hooks.cleanRootPropertyValue(hookRoot, rootPropertyValue);
+
+                    /* Split rootPropertyValue into its individual hook values, replace the targeted value with hookValue,
+                       then reconstruct the rootPropertyValue string. */
+                    rootPropertyValueParts = rootPropertyValue.toString().match(CSS.RegEx.valueSplit);
+                    rootPropertyValueParts[hookPosition] = hookValue;
+                    rootPropertyValueUpdated = rootPropertyValueParts.join(" ");
+
+                    return rootPropertyValueUpdated;
+                } else {
+                    /* If the provided fullHookName isn't a registered hook, return the rootPropertyValue that was passed in. */
+                    return rootPropertyValue;
+                }
+            }
+        },
+
+        /*******************
+           Normalizations
+        *******************/
+
+        /* Normalizations standardize CSS property manipulation by pollyfilling browser-specific implementations (e.g. opacity)
+           and reformatting special properties (e.g. clip, rgba) to look like standard ones. */
+        Normalizations: {
+            /* Normalizations are passed a normalization target (either the property's name, its extracted value, or its injected value),
+               the targeted element (which may need to be queried), and the targeted property value. */
+            registered: {
+                clip: function (type, element, propertyValue) {
+                    switch (type) {
+                        case "name":
+                            return "clip";
+                        /* Clip needs to be unwrapped and stripped of its commas during extraction. */
+                        case "extract":
+                            var extracted;
+
+                            /* If Velocity also extracted this value, skip extraction. */
+                            if (CSS.RegEx.wrappedValueAlreadyExtracted.test(propertyValue)) {
+                                extracted = propertyValue;
+                            } else {
+                                /* Remove the "rect()" wrapper. */
+                                extracted = propertyValue.toString().match(CSS.RegEx.valueUnwrap);
+
+                                /* Strip off commas. */
+                                extracted = extracted ? extracted[1].replace(/,(\s+)?/g, " ") : propertyValue;
+                            }
+
+                            return extracted;
+                        /* Clip needs to be re-wrapped during injection. */
+                        case "inject":
+                            return "rect(" + propertyValue + ")";
+                    }
+                },
+
+                blur: function(type, element, propertyValue) {
+                    switch (type) {
+                        case "name":
+                            return Velocity.State.isFirefox ? "filter" : "-webkit-filter";
+                        case "extract":
+                            var extracted = parseFloat(propertyValue);
+
+                            /* If extracted is NaN, meaning the value isn't already extracted. */
+                            if (!(extracted || extracted === 0)) {
+                                var blurComponent = propertyValue.toString().match(/blur\(([0-9]+[A-z]+)\)/i);
+
+                                /* If the filter string had a blur component, return just the blur value and unit type. */
+                                if (blurComponent) {
+                                    extracted = blurComponent[1];
+                                /* If the component doesn't exist, default blur to 0. */
+                                } else {
+                                    extracted = 0;
+                                }
+                            }
+
+                            return extracted;
+                        /* Blur needs to be re-wrapped during injection. */
+                        case "inject":
+                            /* For the blur effect to be fully de-applied, it needs to be set to "none" instead of 0. */
+                            if (!parseFloat(propertyValue)) {
+                                return "none";
+                            } else {
+                                return "blur(" + propertyValue + ")";
+                            }
+                    }
+                },
+
+                /* <=IE8 do not support the standard opacity property. They use filter:alpha(opacity=INT) instead. */
+                opacity: function (type, element, propertyValue) {
+                    if (IE <= 8) {
+                        switch (type) {
+                            case "name":
+                                return "filter";
+                            case "extract":
+                                /* <=IE8 return a "filter" value of "alpha(opacity=\d{1,3})".
+                                   Extract the value and convert it to a decimal value to match the standard CSS opacity property's formatting. */
+                                var extracted = propertyValue.toString().match(/alpha\(opacity=(.*)\)/i);
+
+                                if (extracted) {
+                                    /* Convert to decimal value. */
+                                    propertyValue = extracted[1] / 100;
+                                } else {
+                                    /* When extracting opacity, default to 1 since a null value means opacity hasn't been set. */
+                                    propertyValue = 1;
+                                }
+
+                                return propertyValue;
+                            case "inject":
+                                /* Opacified elements are required to have their zoom property set to a non-zero value. */
+                                element.style.zoom = 1;
+
+                                /* Setting the filter property on elements with certain font property combinations can result in a
+                                   highly unappealing ultra-bolding effect. There's no way to remedy this throughout a tween, but dropping the
+                                   value altogether (when opacity hits 1) at leasts ensures that the glitch is gone post-tweening. */
+                                if (parseFloat(propertyValue) >= 1) {
+                                    return "";
+                                } else {
+                                  /* As per the filter property's spec, convert the decimal value to a whole number and wrap the value. */
+                                  return "alpha(opacity=" + parseInt(parseFloat(propertyValue) * 100, 10) + ")";
+                                }
+                        }
+                    /* With all other browsers, normalization is not required; return the same values that were passed in. */
+                    } else {
+                        switch (type) {
+                            case "name":
+                                return "opacity";
+                            case "extract":
+                                return propertyValue;
+                            case "inject":
+                                return propertyValue;
+                        }
+                    }
+                }
+            },
+
+            /*****************************
+                Batched Registrations
+            *****************************/
+
+            /* Note: Batched normalizations extend the CSS.Normalizations.registered object. */
+            register: function () {
+
+                /*****************
+                    Transforms
+                *****************/
+
+                /* Transforms are the subproperties contained by the CSS "transform" property. Transforms must undergo normalization
+                   so that they can be referenced in a properties map by their individual names. */
+                /* Note: When transforms are "set", they are actually assigned to a per-element transformCache. When all transform
+                   setting is complete complete, CSS.flushTransformCache() must be manually called to flush the values to the DOM.
+                   Transform setting is batched in this way to improve performance: the transform style only needs to be updated
+                   once when multiple transform subproperties are being animated simultaneously. */
+                /* Note: IE9 and Android Gingerbread have support for 2D -- but not 3D -- transforms. Since animating unsupported
+                   transform properties results in the browser ignoring the *entire* transform string, we prevent these 3D values
+                   from being normalized for these browsers so that tweening skips these properties altogether
+                   (since it will ignore them as being unsupported by the browser.) */
+                if (!(IE <= 9) && !Velocity.State.isGingerbread) {
+                    /* Note: Since the standalone CSS "perspective" property and the CSS transform "perspective" subproperty
+                    share the same name, the latter is given a unique token within Velocity: "transformPerspective". */
+                    CSS.Lists.transformsBase = CSS.Lists.transformsBase.concat(CSS.Lists.transforms3D);
+                }
+
+                for (var i = 0; i < CSS.Lists.transformsBase.length; i++) {
+                    /* Wrap the dynamically generated normalization function in a new scope so that transformName's value is
+                    paired with its respective function. (Otherwise, all functions would take the final for loop's transformName.) */
+                    (function() {
+                        var transformName = CSS.Lists.transformsBase[i];
+
+                        CSS.Normalizations.registered[transformName] = function (type, element, propertyValue) {
+                            switch (type) {
+                                /* The normalized property name is the parent "transform" property -- the property that is actually set in CSS. */
+                                case "name":
+                                    return "transform";
+                                /* Transform values are cached onto a per-element transformCache object. */
+                                case "extract":
+                                    /* If this transform has yet to be assigned a value, return its null value. */
+                                    if (Data(element) === undefined || Data(element).transformCache[transformName] === undefined) {
+                                        /* Scale CSS.Lists.transformsBase default to 1 whereas all other transform properties default to 0. */
+                                        return /^scale/i.test(transformName) ? 1 : 0;
+                                    /* When transform values are set, they are wrapped in parentheses as per the CSS spec.
+                                       Thus, when extracting their values (for tween calculations), we strip off the parentheses. */
+                                    } else {
+                                        return Data(element).transformCache[transformName].replace(/[()]/g, "");
+                                    }
+                                case "inject":
+                                    var invalid = false;
+
+                                    /* If an individual transform property contains an unsupported unit type, the browser ignores the *entire* transform property.
+                                       Thus, protect users from themselves by skipping setting for transform values supplied with invalid unit types. */
+                                    /* Switch on the base transform type; ignore the axis by removing the last letter from the transform's name. */
+                                    switch (transformName.substr(0, transformName.length - 1)) {
+                                        /* Whitelist unit types for each transform. */
+                                        case "translate":
+                                            invalid = !/(%|px|em|rem|vw|vh|\d)$/i.test(propertyValue);
+                                            break;
+                                        /* Since an axis-free "scale" property is supported as well, a little hack is used here to detect it by chopping off its last letter. */
+                                        case "scal":
+                                        case "scale":
+                                            /* Chrome on Android has a bug in which scaled elements blur if their initial scale
+                                               value is below 1 (which can happen with forcefeeding). Thus, we detect a yet-unset scale property
+                                               and ensure that its first value is always 1. More info: http://stackoverflow.com/questions/10417890/css3-animations-with-transform-causes-blurred-elements-on-webkit/10417962#10417962 */
+                                            if (Velocity.State.isAndroid && Data(element).transformCache[transformName] === undefined && propertyValue < 1) {
+                                                propertyValue = 1;
+                                            }
+
+                                            invalid = !/(\d)$/i.test(propertyValue);
+                                            break;
+                                        case "skew":
+                                            invalid = !/(deg|\d)$/i.test(propertyValue);
+                                            break;
+                                        case "rotate":
+                                            invalid = !/(deg|\d)$/i.test(propertyValue);
+                                            break;
+                                    }
+
+                                    if (!invalid) {
+                                        /* As per the CSS spec, wrap the value in parentheses. */
+                                        Data(element).transformCache[transformName] = "(" + propertyValue + ")";
+                                    }
+
+                                    /* Although the value is set on the transformCache object, return the newly-updated value for the calling code to process as normal. */
+                                    return Data(element).transformCache[transformName];
+                            }
+                        };
+                    })();
+                }
+
+                /*************
+                    Colors
+                *************/
+
+                /* Since Velocity only animates a single numeric value per property, color animation is achieved by hooking the individual RGBA components of CSS color properties.
+                   Accordingly, color values must be normalized (e.g. "#ff0000", "red", and "rgb(255, 0, 0)" ==> "255 0 0 1") so that their components can be injected/extracted by CSS.Hooks logic. */
+                for (var i = 0; i < CSS.Lists.colors.length; i++) {
+                    /* Wrap the dynamically generated normalization function in a new scope so that colorName's value is paired with its respective function.
+                       (Otherwise, all functions would take the final for loop's colorName.) */
+                    (function () {
+                        var colorName = CSS.Lists.colors[i];
+
+                        /* Note: In IE<=8, which support rgb but not rgba, color properties are reverted to rgb by stripping off the alpha component. */
+                        CSS.Normalizations.registered[colorName] = function(type, element, propertyValue) {
+                            switch (type) {
+                                case "name":
+                                    return colorName;
+                                /* Convert all color values into the rgb format. (Old IE can return hex values and color names instead of rgb/rgba.) */
+                                case "extract":
+                                    var extracted;
+
+                                    /* If the color is already in its hookable form (e.g. "255 255 255 1") due to having been previously extracted, skip extraction. */
+                                    if (CSS.RegEx.wrappedValueAlreadyExtracted.test(propertyValue)) {
+                                        extracted = propertyValue;
+                                    } else {
+                                        var converted,
+                                            colorNames = {
+                                                black: "rgb(0, 0, 0)",
+                                                blue: "rgb(0, 0, 255)",
+                                                gray: "rgb(128, 128, 128)",
+                                                green: "rgb(0, 128, 0)",
+                                                red: "rgb(255, 0, 0)",
+                                                white: "rgb(255, 255, 255)"
+                                            };
+
+                                        /* Convert color names to rgb. */
+                                        if (/^[A-z]+$/i.test(propertyValue)) {
+                                            if (colorNames[propertyValue] !== undefined) {
+                                                converted = colorNames[propertyValue]
+                                            } else {
+                                                /* If an unmatched color name is provided, default to black. */
+                                                converted = colorNames.black;
+                                            }
+                                        /* Convert hex values to rgb. */
+                                        } else if (CSS.RegEx.isHex.test(propertyValue)) {
+                                            converted = "rgb(" + CSS.Values.hexToRgb(propertyValue).join(" ") + ")";
+                                        /* If the provided color doesn't match any of the accepted color formats, default to black. */
+                                        } else if (!(/^rgba?\(/i.test(propertyValue))) {
+                                            converted = colorNames.black;
+                                        }
+
+                                        /* Remove the surrounding "rgb/rgba()" string then replace commas with spaces and strip
+                                           repeated spaces (in case the value included spaces to begin with). */
+                                        extracted = (converted || propertyValue).toString().match(CSS.RegEx.valueUnwrap)[1].replace(/,(\s+)?/g, " ");
+                                    }
+
+                                    /* So long as this isn't <=IE8, add a fourth (alpha) component if it's missing and default it to 1 (visible). */
+                                    if (!(IE <= 8) && extracted.split(" ").length === 3) {
+                                        extracted += " 1";
+                                    }
+
+                                    return extracted;
+                                case "inject":
+                                    /* If this is IE<=8 and an alpha component exists, strip it off. */
+                                    if (IE <= 8) {
+                                        if (propertyValue.split(" ").length === 4) {
+                                            propertyValue = propertyValue.split(/\s+/).slice(0, 3).join(" ");
+                                        }
+                                    /* Otherwise, add a fourth (alpha) component if it's missing and default it to 1 (visible). */
+                                    } else if (propertyValue.split(" ").length === 3) {
+                                        propertyValue += " 1";
+                                    }
+
+                                    /* Re-insert the browser-appropriate wrapper("rgb/rgba()"), insert commas, and strip off decimal units
+                                       on all values but the fourth (R, G, and B only accept whole numbers). */
+                                    return (IE <= 8 ? "rgb" : "rgba") + "(" + propertyValue.replace(/\s+/g, ",").replace(/\.(\d)+(?=,)/g, "") + ")";
+                            }
+                        };
+                    })();
+                }
+            }
+        },
+
+        /************************
+           CSS Property Names
+        ************************/
+
+        Names: {
+            /* Camelcase a property name into its JavaScript notation (e.g. "background-color" ==> "backgroundColor").
+               Camelcasing is used to normalize property names between and across calls. */
+            camelCase: function (property) {
+                return property.replace(/-(\w)/g, function (match, subMatch) {
+                    return subMatch.toUpperCase();
+                });
+            },
+
+            /* For SVG elements, some properties (namely, dimensional ones) are GET/SET via the element's HTML attributes (instead of via CSS styles). */
+            SVGAttribute: function (property) {
+                var SVGAttributes = "width|height|x|y|cx|cy|r|rx|ry|x1|x2|y1|y2";
+
+                /* Certain browsers require an SVG transform to be applied as an attribute. (Otherwise, application via CSS is preferable due to 3D support.) */
+                if (IE || (Velocity.State.isAndroid && !Velocity.State.isChrome)) {
+                    SVGAttributes += "|transform";
+                }
+
+                return new RegExp("^(" + SVGAttributes + ")$", "i").test(property);
+            },
+
+            /* Determine whether a property should be set with a vendor prefix. */
+            /* If a prefixed version of the property exists, return it. Otherwise, return the original property name.
+               If the property is not at all supported by the browser, return a false flag. */
+            prefixCheck: function (property) {
+                /* If this property has already been checked, return the cached value. */
+                if (Velocity.State.prefixMatches[property]) {
+                    return [ Velocity.State.prefixMatches[property], true ];
+                } else {
+                    var vendors = [ "", "Webkit", "Moz", "ms", "O" ];
+
+                    for (var i = 0, vendorsLength = vendors.length; i < vendorsLength; i++) {
+                        var propertyPrefixed;
+
+                        if (i === 0) {
+                            propertyPrefixed = property;
+                        } else {
+                            /* Capitalize the first letter of the property to conform to JavaScript vendor prefix notation (e.g. webkitFilter). */
+                            propertyPrefixed = vendors[i] + property.replace(/^\w/, function(match) { return match.toUpperCase(); });
+                        }
+
+                        /* Check if the browser supports this property as prefixed. */
+                        if (Type.isString(Velocity.State.prefixElement.style[propertyPrefixed])) {
+                            /* Cache the match. */
+                            Velocity.State.prefixMatches[property] = propertyPrefixed;
+
+                            return [ propertyPrefixed, true ];
+                        }
+                    }
+
+                    /* If the browser doesn't support this property in any form, include a false flag so that the caller can decide how to proceed. */
+                    return [ property, false ];
+                }
+            }
+        },
+
+        /************************
+           CSS Property Values
+        ************************/
+
+        Values: {
+            /* Hex to RGB conversion. Copyright Tim Down: http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
+            hexToRgb: function (hex) {
+                var shortformRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+                    longformRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i,
+                    rgbParts;
+
+                hex = hex.replace(shortformRegex, function (m, r, g, b) {
+                    return r + r + g + g + b + b;
+                });
+
+                rgbParts = longformRegex.exec(hex);
+
+                return rgbParts ? [ parseInt(rgbParts[1], 16), parseInt(rgbParts[2], 16), parseInt(rgbParts[3], 16) ] : [ 0, 0, 0 ];
+            },
+
+            isCSSNullValue: function (value) {
+                /* The browser defaults CSS values that have not been set to either 0 or one of several possible null-value strings.
+                   Thus, we check for both falsiness and these special strings. */
+                /* Null-value checking is performed to default the special strings to 0 (for the sake of tweening) or their hook
+                   templates as defined as CSS.Hooks (for the sake of hook injection/extraction). */
+                /* Note: Chrome returns "rgba(0, 0, 0, 0)" for an undefined color whereas IE returns "transparent". */
+                return (value == 0 || /^(none|auto|transparent|(rgba\(0, ?0, ?0, ?0\)))$/i.test(value));
+            },
+
+            /* Retrieve a property's default unit type. Used for assigning a unit type when one is not supplied by the user. */
+            getUnitType: function (property) {
+                if (/^(rotate|skew)/i.test(property)) {
+                    return "deg";
+                } else if (/(^(scale|scaleX|scaleY|scaleZ|alpha|flexGrow|flexHeight|zIndex|fontWeight)$)|((opacity|red|green|blue|alpha)$)/i.test(property)) {
+                    /* The above properties are unitless. */
+                    return "";
+                } else {
+                    /* Default to px for all other properties. */
+                    return "px";
+                }
+            },
+
+            /* HTML elements default to an associated display type when they're not set to display:none. */
+            /* Note: This function is used for correctly setting the non-"none" display value in certain Velocity redirects, such as fadeIn/Out. */
+            getDisplayType: function (element) {
+                var tagName = element && element.tagName.toString().toLowerCase();
+
+                if (/^(b|big|i|small|tt|abbr|acronym|cite|code|dfn|em|kbd|strong|samp|var|a|bdo|br|img|map|object|q|script|span|sub|sup|button|input|label|select|textarea)$/i.test(tagName)) {
+                    return "inline";
+                } else if (/^(li)$/i.test(tagName)) {
+                    return "list-item";
+                } else if (/^(tr)$/i.test(tagName)) {
+                    return "table-row";
+                } else if (/^(table)$/i.test(tagName)) {
+                    return "table";
+                } else if (/^(tbody)$/i.test(tagName)) {
+                    return "table-row-group";
+                /* Default to "block" when no match is found. */
+                } else {
+                    return "block";
+                }
+            },
+
+            /* The class add/remove functions are used to temporarily apply a "velocity-animating" class to elements while they're animating. */
+            addClass: function (element, className) {
+                if (element.classList) {
+                    element.classList.add(className);
+                } else {
+                    element.className += (element.className.length ? " " : "") + className;
+                }
+            },
+
+            removeClass: function (element, className) {
+                if (element.classList) {
+                    element.classList.remove(className);
+                } else {
+                    element.className = element.className.toString().replace(new RegExp("(^|\\s)" + className.split(" ").join("|") + "(\\s|$)", "gi"), " ");
+                }
+            }
+        },
+
+        /****************************
+           Style Getting & Setting
+        ****************************/
+
+        /* The singular getPropertyValue, which routes the logic for all normalizations, hooks, and standard CSS properties. */
+        getPropertyValue: function (element, property, rootPropertyValue, forceStyleLookup) {
+            /* Get an element's computed property value. */
+            /* Note: Retrieving the value of a CSS property cannot simply be performed by checking an element's
+               style attribute (which only reflects user-defined values). Instead, the browser must be queried for a property's
+               *computed* value. You can read more about getComputedStyle here: https://developer.mozilla.org/en/docs/Web/API/window.getComputedStyle */
+            function computePropertyValue (element, property) {
+                /* When box-sizing isn't set to border-box, height and width style values are incorrectly computed when an
+                   element's scrollbars are visible (which expands the element's dimensions). Thus, we defer to the more accurate
+                   offsetHeight/Width property, which includes the total dimensions for interior, border, padding, and scrollbar.
+                   We subtract border and padding to get the sum of interior + scrollbar. */
+                var computedValue = 0;
+
+                /* IE<=8 doesn't support window.getComputedStyle, thus we defer to jQuery, which has an extensive array
+                   of hacks to accurately retrieve IE8 property values. Re-implementing that logic here is not worth bloating the
+                   codebase for a dying browser. The performance repercussions of using jQuery here are minimal since
+                   Velocity is optimized to rarely (and sometimes never) query the DOM. Further, the $.css() codepath isn't that slow. */
+                if (IE <= 8) {
+                    computedValue = $.css(element, property); /* GET */
+                /* All other browsers support getComputedStyle. The returned live object reference is cached onto its
+                   associated element so that it does not need to be refetched upon every GET. */
+                } else {
+                    /* Browsers do not return height and width values for elements that are set to display:"none". Thus, we temporarily
+                       toggle display to the element type's default value. */
+                    var toggleDisplay = false;
+
+                    if (/^(width|height)$/.test(property) && CSS.getPropertyValue(element, "display") === 0) {
+                        toggleDisplay = true;
+                        CSS.setPropertyValue(element, "display", CSS.Values.getDisplayType(element));
+                    }
+
+                    function revertDisplay () {
+                        if (toggleDisplay) {
+                            CSS.setPropertyValue(element, "display", "none");
+                        }
+                    }
+
+                    if (!forceStyleLookup) {
+                        if (property === "height" && CSS.getPropertyValue(element, "boxSizing").toString().toLowerCase() !== "border-box") {
+                            var contentBoxHeight = element.offsetHeight - (parseFloat(CSS.getPropertyValue(element, "borderTopWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "borderBottomWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingTop")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingBottom")) || 0);
+                            revertDisplay();
+
+                            return contentBoxHeight;
+                        } else if (property === "width" && CSS.getPropertyValue(element, "boxSizing").toString().toLowerCase() !== "border-box") {
+                            var contentBoxWidth = element.offsetWidth - (parseFloat(CSS.getPropertyValue(element, "borderLeftWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "borderRightWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingLeft")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingRight")) || 0);
+                            revertDisplay();
+
+                            return contentBoxWidth;
+                        }
+                    }
+
+                    var computedStyle;
+
+                    /* For elements that Velocity hasn't been called on directly (e.g. when Velocity queries the DOM on behalf
+                       of a parent of an element its animating), perform a direct getComputedStyle lookup since the object isn't cached. */
+                    if (Data(element) === undefined) {
+                        computedStyle = window.getComputedStyle(element, null); /* GET */
+                    /* If the computedStyle object has yet to be cached, do so now. */
+                    } else if (!Data(element).computedStyle) {
+                        computedStyle = Data(element).computedStyle = window.getComputedStyle(element, null); /* GET */
+                    /* If computedStyle is cached, use it. */
+                    } else {
+                        computedStyle = Data(element).computedStyle;
+                    }
+
+                    /* IE and Firefox do not return a value for the generic borderColor -- they only return individual values for each border side's color.
+                       Also, in all browsers, when border colors aren't all the same, a compound value is returned that Velocity isn't setup to parse.
+                       So, as a polyfill for querying individual border side colors, we just return the top border's color and animate all borders from that value. */
+                    if (property === "borderColor") {
+                        property = "borderTopColor";
+                    }
+
+                    /* IE9 has a bug in which the "filter" property must be accessed from computedStyle using the getPropertyValue method
+                       instead of a direct property lookup. The getPropertyValue method is slower than a direct lookup, which is why we avoid it by default. */
+                    if (IE === 9 && property === "filter") {
+                        computedValue = computedStyle.getPropertyValue(property); /* GET */
+                    } else {
+                        computedValue = computedStyle[property];
+                    }
+
+                    /* Fall back to the property's style value (if defined) when computedValue returns nothing,
+                       which can happen when the element hasn't been painted. */
+                    if (computedValue === "" || computedValue === null) {
+                        computedValue = element.style[property];
+                    }
+
+                    revertDisplay();
+                }
+
+                /* For top, right, bottom, and left (TRBL) values that are set to "auto" on elements of "fixed" or "absolute" position,
+                   defer to jQuery for converting "auto" to a numeric value. (For elements with a "static" or "relative" position, "auto" has the same
+                   effect as being set to 0, so no conversion is necessary.) */
+                /* An example of why numeric conversion is necessary: When an element with "position:absolute" has an untouched "left"
+                   property, which reverts to "auto", left's value is 0 relative to its parent element, but is often non-zero relative
+                   to its *containing* (not parent) element, which is the nearest "position:relative" ancestor or the viewport (and always the viewport in the case of "position:fixed"). */
+                if (computedValue === "auto" && /^(top|right|bottom|left)$/i.test(property)) {
+                    var position = computePropertyValue(element, "position"); /* GET */
+
+                    /* For absolute positioning, jQuery's $.position() only returns values for top and left;
+                       right and bottom will have their "auto" value reverted to 0. */
+                    /* Note: A jQuery object must be created here since jQuery doesn't have a low-level alias for $.position().
+                       Not a big deal since we're currently in a GET batch anyway. */
+                    if (position === "fixed" || (position === "absolute" && /top|left/i.test(property))) {
+                        /* Note: jQuery strips the pixel unit from its returned values; we re-add it here to conform with computePropertyValue's behavior. */
+                        computedValue = $(element).position()[property] + "px"; /* GET */
+                    }
+                }
+
+                return computedValue;
+            }
+
+            var propertyValue;
+
+            /* If this is a hooked property (e.g. "clipLeft" instead of the root property of "clip"),
+               extract the hook's value from a normalized rootPropertyValue using CSS.Hooks.extractValue(). */
+            if (CSS.Hooks.registered[property]) {
+                var hook = property,
+                    hookRoot = CSS.Hooks.getRoot(hook);
+
+                /* If a cached rootPropertyValue wasn't passed in (which Velocity always attempts to do in order to avoid requerying the DOM),
+                   query the DOM for the root property's value. */
+                if (rootPropertyValue === undefined) {
+                    /* Since the browser is now being directly queried, use the official post-prefixing property name for this lookup. */
+                    rootPropertyValue = CSS.getPropertyValue(element, CSS.Names.prefixCheck(hookRoot)[0]); /* GET */
+                }
+
+                /* If this root has a normalization registered, peform the associated normalization extraction. */
+                if (CSS.Normalizations.registered[hookRoot]) {
+                    rootPropertyValue = CSS.Normalizations.registered[hookRoot]("extract", element, rootPropertyValue);
+                }
+
+                /* Extract the hook's value. */
+                propertyValue = CSS.Hooks.extractValue(hook, rootPropertyValue);
+
+            /* If this is a normalized property (e.g. "opacity" becomes "filter" in <=IE8) or "translateX" becomes "transform"),
+               normalize the property's name and value, and handle the special case of transforms. */
+            /* Note: Normalizing a property is mutually exclusive from hooking a property since hook-extracted values are strictly
+               numerical and therefore do not require normalization extraction. */
+            } else if (CSS.Normalizations.registered[property]) {
+                var normalizedPropertyName,
+                    normalizedPropertyValue;
+
+                normalizedPropertyName = CSS.Normalizations.registered[property]("name", element);
+
+                /* Transform values are calculated via normalization extraction (see below), which checks against the element's transformCache.
+                   At no point do transform GETs ever actually query the DOM; initial stylesheet values are never processed.
+                   This is because parsing 3D transform matrices is not always accurate and would bloat our codebase;
+                   thus, normalization extraction defaults initial transform values to their zero-values (e.g. 1 for scaleX and 0 for translateX). */
+                if (normalizedPropertyName !== "transform") {
+                    normalizedPropertyValue = computePropertyValue(element, CSS.Names.prefixCheck(normalizedPropertyName)[0]); /* GET */
+
+                    /* If the value is a CSS null-value and this property has a hook template, use that zero-value template so that hooks can be extracted from it. */
+                    if (CSS.Values.isCSSNullValue(normalizedPropertyValue) && CSS.Hooks.templates[property]) {
+                        normalizedPropertyValue = CSS.Hooks.templates[property][1];
+                    }
+                }
+
+                propertyValue = CSS.Normalizations.registered[property]("extract", element, normalizedPropertyValue);
+            }
+
+            /* If a (numeric) value wasn't produced via hook extraction or normalization, query the DOM. */
+            if (!/^[\d-]/.test(propertyValue)) {
+                /* For SVG elements, dimensional properties (which SVGAttribute() detects) are tweened via
+                   their HTML attribute values instead of their CSS style values. */
+                if (Data(element) && Data(element).isSVG && CSS.Names.SVGAttribute(property)) {
+                    /* Since the height/width attribute values must be set manually, they don't reflect computed values.
+                       Thus, we use use getBBox() to ensure we always get values for elements with undefined height/width attributes. */
+                    if (/^(height|width)$/i.test(property)) {
+                        /* Firefox throws an error if .getBBox() is called on an SVG that isn't attached to the DOM. */
+                        try {
+                            propertyValue = element.getBBox()[property];
+                        } catch (error) {
+                            propertyValue = 0;
+                        }
+                    /* Otherwise, access the attribute value directly. */
+                    } else {
+                        propertyValue = element.getAttribute(property);
+                    }
+                } else {
+                    propertyValue = computePropertyValue(element, CSS.Names.prefixCheck(property)[0]); /* GET */
+                }
+            }
+
+            /* Since property lookups are for animation purposes (which entails computing the numeric delta between start and end values),
+               convert CSS null-values to an integer of value 0. */
+            if (CSS.Values.isCSSNullValue(propertyValue)) {
+                propertyValue = 0;
+            }
+
+            if (Velocity.debug >= 2) console.log("Get " + property + ": " + propertyValue);
+
+            return propertyValue;
+        },
+
+        /* The singular setPropertyValue, which routes the logic for all normalizations, hooks, and standard CSS properties. */
+        setPropertyValue: function(element, property, propertyValue, rootPropertyValue, scrollData) {
+            var propertyName = property;
+
+            /* In order to be subjected to call options and element queueing, scroll animation is routed through Velocity as if it were a standard CSS property. */
+            if (property === "scroll") {
+                /* If a container option is present, scroll the container instead of the browser window. */
+                if (scrollData.container) {
+                    scrollData.container["scroll" + scrollData.direction] = propertyValue;
+                /* Otherwise, Velocity defaults to scrolling the browser window. */
+                } else {
+                    if (scrollData.direction === "Left") {
+                        window.scrollTo(propertyValue, scrollData.alternateValue);
+                    } else {
+                        window.scrollTo(scrollData.alternateValue, propertyValue);
+                    }
+                }
+            } else {
+                /* Transforms (translateX, rotateZ, etc.) are applied to a per-element transformCache object, which is manually flushed via flushTransformCache().
+                   Thus, for now, we merely cache transforms being SET. */
+                if (CSS.Normalizations.registered[property] && CSS.Normalizations.registered[property]("name", element) === "transform") {
+                    /* Perform a normalization injection. */
+                    /* Note: The normalization logic handles the transformCache updating. */
+                    CSS.Normalizations.registered[property]("inject", element, propertyValue);
+
+                    propertyName = "transform";
+                    propertyValue = Data(element).transformCache[property];
+                } else {
+                    /* Inject hooks. */
+                    if (CSS.Hooks.registered[property]) {
+                        var hookName = property,
+                            hookRoot = CSS.Hooks.getRoot(property);
+
+                        /* If a cached rootPropertyValue was not provided, query the DOM for the hookRoot's current value. */
+                        rootPropertyValue = rootPropertyValue || CSS.getPropertyValue(element, hookRoot); /* GET */
+
+                        propertyValue = CSS.Hooks.injectValue(hookName, propertyValue, rootPropertyValue);
+                        property = hookRoot;
+                    }
+
+                    /* Normalize names and values. */
+                    if (CSS.Normalizations.registered[property]) {
+                        propertyValue = CSS.Normalizations.registered[property]("inject", element, propertyValue);
+                        property = CSS.Normalizations.registered[property]("name", element);
+                    }
+
+                    /* Assign the appropriate vendor prefix before performing an official style update. */
+                    propertyName = CSS.Names.prefixCheck(property)[0];
+
+                    /* A try/catch is used for IE<=8, which throws an error when "invalid" CSS values are set, e.g. a negative width.
+                       Try/catch is avoided for other browsers since it incurs a performance overhead. */
+                    if (IE <= 8) {
+                        try {
+                            element.style[propertyName] = propertyValue;
+                        } catch (error) { if (Velocity.debug) console.log("Browser does not support [" + propertyValue + "] for [" + propertyName + "]"); }
+                    /* SVG elements have their dimensional properties (width, height, x, y, cx, etc.) applied directly as attributes instead of as styles. */
+                    /* Note: IE8 does not support SVG elements, so it's okay that we skip it for SVG animation. */
+                    } else if (Data(element) && Data(element).isSVG && CSS.Names.SVGAttribute(property)) {
+                        /* Note: For SVG attributes, vendor-prefixed property names are never used. */
+                        /* Note: Not all CSS properties can be animated via attributes, but the browser won't throw an error for unsupported properties. */
+                        element.setAttribute(property, propertyValue);
+                    } else {
+                        element.style[propertyName] = propertyValue;
+                    }
+
+                    if (Velocity.debug >= 2) console.log("Set " + property + " (" + propertyName + "): " + propertyValue);
+                }
+            }
+
+            /* Return the normalized property name and value in case the caller wants to know how these values were modified before being applied to the DOM. */
+            return [ propertyName, propertyValue ];
+        },
+
+        /* To increase performance by batching transform updates into a single SET, transforms are not directly applied to an element until flushTransformCache() is called. */
+        /* Note: Velocity applies transform properties in the same order that they are chronogically introduced to the element's CSS styles. */
+        flushTransformCache: function(element) {
+            var transformString = "";
+
+            /* Certain browsers require that SVG transforms be applied as an attribute. However, the SVG transform attribute takes a modified version of CSS's transform string
+               (units are dropped and, except for skewX/Y, subproperties are merged into their master property -- e.g. scaleX and scaleY are merged into scale(X Y). */
+            if ((IE || (Velocity.State.isAndroid && !Velocity.State.isChrome)) && Data(element).isSVG) {
+                /* Since transform values are stored in their parentheses-wrapped form, we use a helper function to strip out their numeric values.
+                   Further, SVG transform properties only take unitless (representing pixels) values, so it's okay that parseFloat() strips the unit suffixed to the float value. */
+                function getTransformFloat (transformProperty) {
+                    return parseFloat(CSS.getPropertyValue(element, transformProperty));
+                }
+
+                /* Create an object to organize all the transforms that we'll apply to the SVG element. To keep the logic simple,
+                   we process *all* transform properties -- even those that may not be explicitly applied (since they default to their zero-values anyway). */
+                var SVGTransforms = {
+                    translate: [ getTransformFloat("translateX"), getTransformFloat("translateY") ],
+                    skewX: [ getTransformFloat("skewX") ], skewY: [ getTransformFloat("skewY") ],
+                    /* If the scale property is set (non-1), use that value for the scaleX and scaleY values
+                       (this behavior mimics the result of animating all these properties at once on HTML elements). */
+                    scale: getTransformFloat("scale") !== 1 ? [ getTransformFloat("scale"), getTransformFloat("scale") ] : [ getTransformFloat("scaleX"), getTransformFloat("scaleY") ],
+                    /* Note: SVG's rotate transform takes three values: rotation degrees followed by the X and Y values
+                       defining the rotation's origin point. We ignore the origin values (default them to 0). */
+                    rotate: [ getTransformFloat("rotateZ"), 0, 0 ]
+                };
+
+                /* Iterate through the transform properties in the user-defined property map order.
+                   (This mimics the behavior of non-SVG transform animation.) */
+                $.each(Data(element).transformCache, function(transformName) {
+                    /* Except for with skewX/Y, revert the axis-specific transform subproperties to their axis-free master
+                       properties so that they match up with SVG's accepted transform properties. */
+                    if (/^translate/i.test(transformName)) {
+                        transformName = "translate";
+                    } else if (/^scale/i.test(transformName)) {
+                        transformName = "scale";
+                    } else if (/^rotate/i.test(transformName)) {
+                        transformName = "rotate";
+                    }
+
+                    /* Check that we haven't yet deleted the property from the SVGTransforms container. */
+                    if (SVGTransforms[transformName]) {
+                        /* Append the transform property in the SVG-supported transform format. As per the spec, surround the space-delimited values in parentheses. */
+                        transformString += transformName + "(" + SVGTransforms[transformName].join(" ") + ")" + " ";
+
+                        /* After processing an SVG transform property, delete it from the SVGTransforms container so we don't
+                           re-insert the same master property if we encounter another one of its axis-specific properties. */
+                        delete SVGTransforms[transformName];
+                    }
+                });
+            } else {
+                var transformValue,
+                    perspective;
+
+                /* Transform properties are stored as members of the transformCache object. Concatenate all the members into a string. */
+                $.each(Data(element).transformCache, function(transformName) {
+                    transformValue = Data(element).transformCache[transformName];
+
+                    /* Transform's perspective subproperty must be set first in order to take effect. Store it temporarily. */
+                    if (transformName === "transformPerspective") {
+                        perspective = transformValue;
+                        return true;
+                    }
+
+                    /* IE9 only supports one rotation type, rotateZ, which it refers to as "rotate". */
+                    if (IE === 9 && transformName === "rotateZ") {
+                        transformName = "rotate";
+                    }
+
+                    transformString += transformName + transformValue + " ";
+                });
+
+                /* If present, set the perspective subproperty first. */
+                if (perspective) {
+                    transformString = "perspective" + perspective + " " + transformString;
+                }
+            }
+
+            CSS.setPropertyValue(element, "transform", transformString);
+        }
+    };
+
+    /* Register hooks and normalizations. */
+    CSS.Hooks.register();
+    CSS.Normalizations.register();
+
+    /* Allow hook setting in the same fashion as jQuery's $.css(). */
+    Velocity.hook = function (elements, arg2, arg3) {
+        var value = undefined;
+
+        elements = sanitizeElements(elements);
+
+        $.each(elements, function(i, element) {
+            /* Initialize Velocity's per-element data cache if this element hasn't previously been animated. */
+            if (Data(element) === undefined) {
+                Velocity.init(element);
+            }
+
+            /* Get property value. If an element set was passed in, only return the value for the first element. */
+            if (arg3 === undefined) {
+                if (value === undefined) {
+                    value = Velocity.CSS.getPropertyValue(element, arg2);
+                }
+            /* Set property value. */
+            } else {
+                /* sPV returns an array of the normalized propertyName/propertyValue pair used to update the DOM. */
+                var adjustedSet = Velocity.CSS.setPropertyValue(element, arg2, arg3);
+
+                /* Transform properties don't automatically set. They have to be flushed to the DOM. */
+                if (adjustedSet[0] === "transform") {
+                    Velocity.CSS.flushTransformCache(element);
+                }
+
+                value = adjustedSet;
+            }
+        });
+
+        return value;
+    };
+
+    /*****************
+        Animation
+    *****************/
+
+    var animate = function() {
+
+        /******************
+            Call Chain
+        ******************/
+
+        /* Logic for determining what to return to the call stack when exiting out of Velocity. */
+        function getChain () {
+            /* If we are using the utility function, attempt to return this call's promise. If no promise library was detected,
+               default to null instead of returning the targeted elements so that utility function's return value is standardized. */
+            if (isUtility) {
+                return promiseData.promise || null;
+            /* Otherwise, if we're using $.fn, return the jQuery-/Zepto-wrapped element set. */
+            } else {
+                return elementsWrapped;
+            }
+        }
+
+        /*************************
+           Arguments Assignment
+        *************************/
+
+        /* To allow for expressive CoffeeScript code, Velocity supports an alternative syntax in which "elements" (or "e"), "properties" (or "p"), and "options" (or "o")
+           objects are defined on a container object that's passed in as Velocity's sole argument. */
+        /* Note: Some browsers automatically populate arguments with a "properties" object. We detect it by checking for its default "names" property. */
+        var syntacticSugar = (arguments[0] && (arguments[0].p || (($.isPlainObject(arguments[0].properties) && !arguments[0].properties.names) || Type.isString(arguments[0].properties)))),
+            /* Whether Velocity was called via the utility function (as opposed to on a jQuery/Zepto object). */
+            isUtility,
+            /* When Velocity is called via the utility function ($.Velocity()/Velocity()), elements are explicitly
+               passed in as the first parameter. Thus, argument positioning varies. We normalize them here. */
+            elementsWrapped,
+            argumentIndex;
+
+        var elements,
+            propertiesMap,
+            options;
+
+        /* Detect jQuery/Zepto elements being animated via the $.fn method. */
+        if (Type.isWrapped(this)) {
+            isUtility = false;
+
+            argumentIndex = 0;
+            elements = this;
+            elementsWrapped = this;
+        /* Otherwise, raw elements are being animated via the utility function. */
+        } else {
+            isUtility = true;
+
+            argumentIndex = 1;
+            elements = syntacticSugar ? (arguments[0].elements || arguments[0].e) : arguments[0];
+        }
+
+        elements = sanitizeElements(elements);
+
+        if (!elements) {
+            return;
+        }
+
+        if (syntacticSugar) {
+            propertiesMap = arguments[0].properties || arguments[0].p;
+            options = arguments[0].options || arguments[0].o;
+        } else {
+            propertiesMap = arguments[argumentIndex];
+            options = arguments[argumentIndex + 1];
+        }
+
+        /* The length of the element set (in the form of a nodeList or an array of elements) is defaulted to 1 in case a
+           single raw DOM element is passed in (which doesn't contain a length property). */
+        var elementsLength = elements.length,
+            elementsIndex = 0;
+
+        /***************************
+            Argument Overloading
+        ***************************/
+
+        /* Support is included for jQuery's argument overloading: $.animate(propertyMap [, duration] [, easing] [, complete]).
+           Overloading is detected by checking for the absence of an object being passed into options. */
+        /* Note: The stop and finish actions do not accept animation options, and are therefore excluded from this check. */
+        if (!/^(stop|finish|finishAll)$/i.test(propertiesMap) && !$.isPlainObject(options)) {
+            /* The utility function shifts all arguments one position to the right, so we adjust for that offset. */
+            var startingArgumentPosition = argumentIndex + 1;
+
+            options = {};
+
+            /* Iterate through all options arguments */
+            for (var i = startingArgumentPosition; i < arguments.length; i++) {
+                /* Treat a number as a duration. Parse it out. */
+                /* Note: The following RegEx will return true if passed an array with a number as its first item.
+                   Thus, arrays are skipped from this check. */
+                if (!Type.isArray(arguments[i]) && (/^(fast|normal|slow)$/i.test(arguments[i]) || /^\d/.test(arguments[i]))) {
+                    options.duration = arguments[i];
+                /* Treat strings and arrays as easings. */
+                } else if (Type.isString(arguments[i]) || Type.isArray(arguments[i])) {
+                    options.easing = arguments[i];
+                /* Treat a function as a complete callback. */
+                } else if (Type.isFunction(arguments[i])) {
+                    options.complete = arguments[i];
+                }
+            }
+        }
+
+        /***************
+            Promises
+        ***************/
+
+        var promiseData = {
+                promise: null,
+                resolver: null,
+                rejecter: null
+            };
+
+        /* If this call was made via the utility function (which is the default method of invocation when jQuery/Zepto are not being used), and if
+           promise support was detected, create a promise object for this call and store references to its resolver and rejecter methods. The resolve
+           method is used when a call completes naturally or is prematurely stopped by the user. In both cases, completeCall() handles the associated
+           call cleanup and promise resolving logic. The reject method is used when an invalid set of arguments is passed into a Velocity call. */
+        /* Note: Velocity employs a call-based queueing architecture, which means that stopping an animating element actually stops the full call that
+           triggered it -- not that one element exclusively. Similarly, there is one promise per call, and all elements targeted by a Velocity call are
+           grouped together for the purposes of resolving and rejecting a promise. */
+        if (isUtility && Velocity.Promise) {
+            promiseData.promise = new Velocity.Promise(function (resolve, reject) {
+                promiseData.resolver = resolve;
+                promiseData.rejecter = reject;
+            });
+        }
+
+        /*********************
+           Action Detection
+        *********************/
+
+        /* Velocity's behavior is categorized into "actions": Elements can either be specially scrolled into view,
+           or they can be started, stopped, or reversed. If a literal or referenced properties map is passed in as Velocity's
+           first argument, the associated action is "start". Alternatively, "scroll", "reverse", or "stop" can be passed in instead of a properties map. */
+        var action;
+
+        switch (propertiesMap) {
+            case "scroll":
+                action = "scroll";
+                break;
+
+            case "reverse":
+                action = "reverse";
+                break;
+
+            case "finish":
+            case "finishAll":
+            case "stop":
+                /*******************
+                    Action: Stop
+                *******************/
+
+                /* Clear the currently-active delay on each targeted element. */
+                $.each(elements, function(i, element) {
+                    if (Data(element) && Data(element).delayTimer) {
+                        /* Stop the timer from triggering its cached next() function. */
+                        clearTimeout(Data(element).delayTimer.setTimeout);
+
+                        /* Manually call the next() function so that the subsequent queue items can progress. */
+                        if (Data(element).delayTimer.next) {
+                            Data(element).delayTimer.next();
+                        }
+
+                        delete Data(element).delayTimer;
+                    }
+
+                    /* If we want to finish everything in the queue, we have to iterate through it
+                       and call each function. This will make them active calls below, which will
+                       cause them to be applied via the duration setting. */
+                    if (propertiesMap === "finishAll" && (options === true || Type.isString(options))) {
+                        /* Iterate through the items in the element's queue. */
+                        $.each($.queue(element, Type.isString(options) ? options : ""), function(_, item) {
+                            /* The queue array can contain an "inprogress" string, which we skip. */
+                            if (Type.isFunction(item)) {
+                                item();
+                            }
+                        });
+
+                        /* Clearing the $.queue() array is achieved by resetting it to []. */
+                        $.queue(element, Type.isString(options) ? options : "", []);
+                    }
+                });
+
+                var callsToStop = [];
+
+                /* When the stop action is triggered, the elements' currently active call is immediately stopped. The active call might have
+                   been applied to multiple elements, in which case all of the call's elements will be stopped. When an element
+                   is stopped, the next item in its animation queue is immediately triggered. */
+                /* An additional argument may be passed in to clear an element's remaining queued calls. Either true (which defaults to the "fx" queue)
+                   or a custom queue string can be passed in. */
+                /* Note: The stop command runs prior to Velocity's Queueing phase since its behavior is intended to take effect *immediately*,
+                   regardless of the element's current queue state. */
+
+                /* Iterate through every active call. */
+                $.each(Velocity.State.calls, function(i, activeCall) {
+                    /* Inactive calls are set to false by the logic inside completeCall(). Skip them. */
+                    if (activeCall) {
+                        /* Iterate through the active call's targeted elements. */
+                        $.each(activeCall[1], function(k, activeElement) {
+                            /* If true was passed in as a secondary argument, clear absolutely all calls on this element. Otherwise, only
+                               clear calls associated with the relevant queue. */
+                            /* Call stopping logic works as follows:
+                               - options === true --> stop current default queue calls (and queue:false calls), including remaining queued ones.
+                               - options === undefined --> stop current queue:"" call and all queue:false calls.
+                               - options === false --> stop only queue:false calls.
+                               - options === "custom" --> stop current queue:"custom" call, including remaining queued ones (there is no functionality to only clear the currently-running queue:"custom" call). */
+                            var queueName = (options === undefined) ? "" : options;
+
+                            if (queueName !== true && (activeCall[2].queue !== queueName) && !(options === undefined && activeCall[2].queue === false)) {
+                                return true;
+                            }
+
+                            /* Iterate through the calls targeted by the stop command. */
+                            $.each(elements, function(l, element) {
+                                /* Check that this call was applied to the target element. */
+                                if (element === activeElement) {
+                                    /* Optionally clear the remaining queued calls. If we're doing "finishAll" this won't find anything,
+                                       due to the queue-clearing above. */
+                                    if (options === true || Type.isString(options)) {
+                                        /* Iterate through the items in the element's queue. */
+                                        $.each($.queue(element, Type.isString(options) ? options : ""), function(_, item) {
+                                            /* The queue array can contain an "inprogress" string, which we skip. */
+                                            if (Type.isFunction(item)) {
+                                                /* Pass the item's callback a flag indicating that we want to abort from the queue call.
+                                                   (Specifically, the queue will resolve the call's associated promise then abort.)  */
+                                                item(null, true);
+                                            }
+                                        });
+
+                                        /* Clearing the $.queue() array is achieved by resetting it to []. */
+                                        $.queue(element, Type.isString(options) ? options : "", []);
+                                    }
+
+                                    if (propertiesMap === "stop") {
+                                        /* Since "reverse" uses cached start values (the previous call's endValues), these values must be
+                                           changed to reflect the final value that the elements were actually tweened to. */
+                                        /* Note: If only queue:false animations are currently running on an element, it won't have a tweensContainer
+                                           object. Also, queue:false animations can't be reversed. */
+                                        if (Data(element) && Data(element).tweensContainer && queueName !== false) {
+                                            $.each(Data(element).tweensContainer, function(m, activeTween) {
+                                                activeTween.endValue = activeTween.currentValue;
+                                            });
+                                        }
+
+                                        callsToStop.push(i);
+                                    } else if (propertiesMap === "finish" || propertiesMap === "finishAll") {
+                                        /* To get active tweens to finish immediately, we forcefully shorten their durations to 1ms so that
+                                        they finish upon the next rAf tick then proceed with normal call completion logic. */
+                                        activeCall[2].duration = 1;
+                                    }
+                                }
+                            });
+                        });
+                    }
+                });
+
+                /* Prematurely call completeCall() on each matched active call. Pass an additional flag for "stop" to indicate
+                   that the complete callback and display:none setting should be skipped since we're completing prematurely. */
+                if (propertiesMap === "stop") {
+                    $.each(callsToStop, function(i, j) {
+                        completeCall(j, true);
+                    });
+
+                    if (promiseData.promise) {
+                        /* Immediately resolve the promise associated with this stop call since stop runs synchronously. */
+                        promiseData.resolver(elements);
+                    }
+                }
+
+                /* Since we're stopping, and not proceeding with queueing, exit out of Velocity. */
+                return getChain();
+
+            default:
+                /* Treat a non-empty plain object as a literal properties map. */
+                if ($.isPlainObject(propertiesMap) && !Type.isEmptyObject(propertiesMap)) {
+                    action = "start";
+
+                /****************
+                    Redirects
+                ****************/
+
+                /* Check if a string matches a registered redirect (see Redirects above). */
+                } else if (Type.isString(propertiesMap) && Velocity.Redirects[propertiesMap]) {
+                    var opts = $.extend({}, options),
+                        durationOriginal = opts.duration,
+                        delayOriginal = opts.delay || 0;
+
+                    /* If the backwards option was passed in, reverse the element set so that elements animate from the last to the first. */
+                    if (opts.backwards === true) {
+                        elements = $.extend(true, [], elements).reverse();
+                    }
+
+                    /* Individually trigger the redirect for each element in the set to prevent users from having to handle iteration logic in their redirect. */
+                    $.each(elements, function(elementIndex, element) {
+                        /* If the stagger option was passed in, successively delay each element by the stagger value (in ms). Retain the original delay value. */
+                        if (parseFloat(opts.stagger)) {
+                            opts.delay = delayOriginal + (parseFloat(opts.stagger) * elementIndex);
+                        } else if (Type.isFunction(opts.stagger)) {
+                            opts.delay = delayOriginal + opts.stagger.call(element, elementIndex, elementsLength);
+                        }
+
+                        /* If the drag option was passed in, successively increase/decrease (depending on the presense of opts.backwards)
+                           the duration of each element's animation, using floors to prevent producing very short durations. */
+                        if (opts.drag) {
+                            /* Default the duration of UI pack effects (callouts and transitions) to 1000ms instead of the usual default duration of 400ms. */
+                            opts.duration = parseFloat(durationOriginal) || (/^(callout|transition)/.test(propertiesMap) ? 1000 : DURATION_DEFAULT);
+
+                            /* For each element, take the greater duration of: A) animation completion percentage relative to the original duration,
+                               B) 75% of the original duration, or C) a 200ms fallback (in case duration is already set to a low value).
+                               The end result is a baseline of 75% of the redirect's duration that increases/decreases as the end of the element set is approached. */
+                            opts.duration = Math.max(opts.duration * (opts.backwards ? 1 - elementIndex/elementsLength : (elementIndex + 1) / elementsLength), opts.duration * 0.75, 200);
+                        }
+
+                        /* Pass in the call's opts object so that the redirect can optionally extend it. It defaults to an empty object instead of null to
+                           reduce the opts checking logic required inside the redirect. */
+                        Velocity.Redirects[propertiesMap].call(element, element, opts || {}, elementIndex, elementsLength, elements, promiseData.promise ? promiseData : undefined);
+                    });
+
+                    /* Since the animation logic resides within the redirect's own code, abort the remainder of this call.
+                       (The performance overhead up to this point is virtually non-existant.) */
+                    /* Note: The jQuery call chain is kept intact by returning the complete element set. */
+                    return getChain();
+                } else {
+                    var abortError = "Velocity: First argument (" + propertiesMap + ") was not a property map, a known action, or a registered redirect. Aborting.";
+
+                    if (promiseData.promise) {
+                        promiseData.rejecter(new Error(abortError));
+                    } else {
+                        console.log(abortError);
+                    }
+
+                    return getChain();
+                }
+        }
+
+        /**************************
+            Call-Wide Variables
+        **************************/
+
+        /* A container for CSS unit conversion ratios (e.g. %, rem, and em ==> px) that is used to cache ratios across all elements
+           being animated in a single Velocity call. Calculating unit ratios necessitates DOM querying and updating, and is therefore
+           avoided (via caching) wherever possible. This container is call-wide instead of page-wide to avoid the risk of using stale
+           conversion metrics across Velocity animations that are not immediately consecutively chained. */
+        var callUnitConversionData = {
+                lastParent: null,
+                lastPosition: null,
+                lastFontSize: null,
+                lastPercentToPxWidth: null,
+                lastPercentToPxHeight: null,
+                lastEmToPx: null,
+                remToPx: null,
+                vwToPx: null,
+                vhToPx: null
+            };
+
+        /* A container for all the ensuing tween data and metadata associated with this call. This container gets pushed to the page-wide
+           Velocity.State.calls array that is processed during animation ticking. */
+        var call = [];
+
+        /************************
+           Element Processing
+        ************************/
+
+        /* Element processing consists of three parts -- data processing that cannot go stale and data processing that *can* go stale (i.e. third-party style modifications):
+           1) Pre-Queueing: Element-wide variables, including the element's data storage, are instantiated. Call options are prepared. If triggered, the Stop action is executed.
+           2) Queueing: The logic that runs once this call has reached its point of execution in the element's $.queue() stack. Most logic is placed here to avoid risking it becoming stale.
+           3) Pushing: Consolidation of the tween data followed by its push onto the global in-progress calls container.
+        */
+
+        function processElement () {
+
+            /*************************
+               Part I: Pre-Queueing
+            *************************/
+
+            /***************************
+               Element-Wide Variables
+            ***************************/
+
+            var element = this,
+                /* The runtime opts object is the extension of the current call's options and Velocity's page-wide option defaults. */
+                opts = $.extend({}, Velocity.defaults, options),
+                /* A container for the processed data associated with each property in the propertyMap.
+                   (Each property in the map produces its own "tween".) */
+                tweensContainer = {},
+                elementUnitConversionData;
+
+            /******************
+               Element Init
+            ******************/
+
+            if (Data(element) === undefined) {
+                Velocity.init(element);
+            }
+
+            /******************
+               Option: Delay
+            ******************/
+
+            /* Since queue:false doesn't respect the item's existing queue, we avoid injecting its delay here (it's set later on). */
+            /* Note: Velocity rolls its own delay function since jQuery doesn't have a utility alias for $.fn.delay()
+               (and thus requires jQuery element creation, which we avoid since its overhead includes DOM querying). */
+            if (parseFloat(opts.delay) && opts.queue !== false) {
+                $.queue(element, opts.queue, function(next) {
+                    /* This is a flag used to indicate to the upcoming completeCall() function that this queue entry was initiated by Velocity. See completeCall() for further details. */
+                    Velocity.velocityQueueEntryFlag = true;
+
+                    /* The ensuing queue item (which is assigned to the "next" argument that $.queue() automatically passes in) will be triggered after a setTimeout delay.
+                       The setTimeout is stored so that it can be subjected to clearTimeout() if this animation is prematurely stopped via Velocity's "stop" command. */
+                    Data(element).delayTimer = {
+                        setTimeout: setTimeout(next, parseFloat(opts.delay)),
+                        next: next
+                    };
+                });
+            }
+
+            /*********************
+               Option: Duration
+            *********************/
+
+            /* Support for jQuery's named durations. */
+            switch (opts.duration.toString().toLowerCase()) {
+                case "fast":
+                    opts.duration = 200;
+                    break;
+
+                case "normal":
+                    opts.duration = DURATION_DEFAULT;
+                    break;
+
+                case "slow":
+                    opts.duration = 600;
+                    break;
+
+                default:
+                    /* Remove the potential "ms" suffix and default to 1 if the user is attempting to set a duration of 0 (in order to produce an immediate style change). */
+                    opts.duration = parseFloat(opts.duration) || 1;
+            }
+
+            /************************
+               Global Option: Mock
+            ************************/
+
+            if (Velocity.mock !== false) {
+                /* In mock mode, all animations are forced to 1ms so that they occur immediately upon the next rAF tick.
+                   Alternatively, a multiplier can be passed in to time remap all delays and durations. */
+                if (Velocity.mock === true) {
+                    opts.duration = opts.delay = 1;
+                } else {
+                    opts.duration *= parseFloat(Velocity.mock) || 1;
+                    opts.delay *= parseFloat(Velocity.mock) || 1;
+                }
+            }
+
+            /*******************
+               Option: Easing
+            *******************/
+
+            opts.easing = getEasing(opts.easing, opts.duration);
+
+            /**********************
+               Option: Callbacks
+            **********************/
+
+            /* Callbacks must functions. Otherwise, default to null. */
+            if (opts.begin && !Type.isFunction(opts.begin)) {
+                opts.begin = null;
+            }
+
+            if (opts.progress && !Type.isFunction(opts.progress)) {
+                opts.progress = null;
+            }
+
+            if (opts.complete && !Type.isFunction(opts.complete)) {
+                opts.complete = null;
+            }
+
+            /*********************************
+               Option: Display & Visibility
+            *********************************/
+
+            /* Refer to Velocity's documentation (VelocityJS.org/#displayAndVisibility) for a description of the display and visibility options' behavior. */
+            /* Note: We strictly check for undefined instead of falsiness because display accepts an empty string value. */
+            if (opts.display !== undefined && opts.display !== null) {
+                opts.display = opts.display.toString().toLowerCase();
+
+                /* Users can pass in a special "auto" value to instruct Velocity to set the element to its default display value. */
+                if (opts.display === "auto") {
+                    opts.display = Velocity.CSS.Values.getDisplayType(element);
+                }
+            }
+
+            if (opts.visibility !== undefined && opts.visibility !== null) {
+                opts.visibility = opts.visibility.toString().toLowerCase();
+            }
+
+            /**********************
+               Option: mobileHA
+            **********************/
+
+            /* When set to true, and if this is a mobile device, mobileHA automatically enables hardware acceleration (via a null transform hack)
+               on animating elements. HA is removed from the element at the completion of its animation. */
+            /* Note: Android Gingerbread doesn't support HA. If a null transform hack (mobileHA) is in fact set, it will prevent other tranform subproperties from taking effect. */
+            /* Note: You can read more about the use of mobileHA in Velocity's documentation: VelocityJS.org/#mobileHA. */
+            opts.mobileHA = (opts.mobileHA && Velocity.State.isMobile && !Velocity.State.isGingerbread);
+
+            /***********************
+               Part II: Queueing
+            ***********************/
+
+            /* When a set of elements is targeted by a Velocity call, the set is broken up and each element has the current Velocity call individually queued onto it.
+               In this way, each element's existing queue is respected; some elements may already be animating and accordingly should not have this current Velocity call triggered immediately. */
+            /* In each queue, tween data is processed for each animating property then pushed onto the call-wide calls array. When the last element in the set has had its tweens processed,
+               the call array is pushed to Velocity.State.calls for live processing by the requestAnimationFrame tick. */
+            function buildQueue (next) {
+
+                /*******************
+                   Option: Begin
+                *******************/
+
+                /* The begin callback is fired once per call -- not once per elemenet -- and is passed the full raw DOM element set as both its context and its first argument. */
+                if (opts.begin && elementsIndex === 0) {
+                    /* We throw callbacks in a setTimeout so that thrown errors don't halt the execution of Velocity itself. */
+                    try {
+                        opts.begin.call(elements, elements);
+                    } catch (error) {
+                        setTimeout(function() { throw error; }, 1);
+                    }
+                }
+
+                /*****************************************
+                   Tween Data Construction (for Scroll)
+                *****************************************/
+
+                /* Note: In order to be subjected to chaining and animation options, scroll's tweening is routed through Velocity as if it were a standard CSS property animation. */
+                if (action === "scroll") {
+                    /* The scroll action uniquely takes an optional "offset" option -- specified in pixels -- that offsets the targeted scroll position. */
+                    var scrollDirection = (/^x$/i.test(opts.axis) ? "Left" : "Top"),
+                        scrollOffset = parseFloat(opts.offset) || 0,
+                        scrollPositionCurrent,
+                        scrollPositionCurrentAlternate,
+                        scrollPositionEnd;
+
+                    /* Scroll also uniquely takes an optional "container" option, which indicates the parent element that should be scrolled --
+                       as opposed to the browser window itself. This is useful for scrolling toward an element that's inside an overflowing parent element. */
+                    if (opts.container) {
+                        /* Ensure that either a jQuery object or a raw DOM element was passed in. */
+                        if (Type.isWrapped(opts.container) || Type.isNode(opts.container)) {
+                            /* Extract the raw DOM element from the jQuery wrapper. */
+                            opts.container = opts.container[0] || opts.container;
+                            /* Note: Unlike other properties in Velocity, the browser's scroll position is never cached since it so frequently changes
+                               (due to the user's natural interaction with the page). */
+                            scrollPositionCurrent = opts.container["scroll" + scrollDirection]; /* GET */
+
+                            /* $.position() values are relative to the container's currently viewable area (without taking into account the container's true dimensions
+                               -- say, for example, if the container was not overflowing). Thus, the scroll end value is the sum of the child element's position *and*
+                               the scroll container's current scroll position. */
+                            scrollPositionEnd = (scrollPositionCurrent + $(element).position()[scrollDirection.toLowerCase()]) + scrollOffset; /* GET */
+                        /* If a value other than a jQuery object or a raw DOM element was passed in, default to null so that this option is ignored. */
+                        } else {
+                            opts.container = null;
+                        }
+                    } else {
+                        /* If the window itself is being scrolled -- not a containing element -- perform a live scroll position lookup using
+                           the appropriate cached property names (which differ based on browser type). */
+                        scrollPositionCurrent = Velocity.State.scrollAnchor[Velocity.State["scrollProperty" + scrollDirection]]; /* GET */
+                        /* When scrolling the browser window, cache the alternate axis's current value since window.scrollTo() doesn't let us change only one value at a time. */
+                        scrollPositionCurrentAlternate = Velocity.State.scrollAnchor[Velocity.State["scrollProperty" + (scrollDirection === "Left" ? "Top" : "Left")]]; /* GET */
+
+                        /* Unlike $.position(), $.offset() values are relative to the browser window's true dimensions -- not merely its currently viewable area --
+                           and therefore end values do not need to be compounded onto current values. */
+                        scrollPositionEnd = $(element).offset()[scrollDirection.toLowerCase()] + scrollOffset; /* GET */
+                    }
+
+                    /* Since there's only one format that scroll's associated tweensContainer can take, we create it manually. */
+                    tweensContainer = {
+                        scroll: {
+                            rootPropertyValue: false,
+                            startValue: scrollPositionCurrent,
+                            currentValue: scrollPositionCurrent,
+                            endValue: scrollPositionEnd,
+                            unitType: "",
+                            easing: opts.easing,
+                            scrollData: {
+                                container: opts.container,
+                                direction: scrollDirection,
+                                alternateValue: scrollPositionCurrentAlternate
+                            }
+                        },
+                        element: element
+                    };
+
+                    if (Velocity.debug) console.log("tweensContainer (scroll): ", tweensContainer.scroll, element);
+
+                /******************************************
+                   Tween Data Construction (for Reverse)
+                ******************************************/
+
+                /* Reverse acts like a "start" action in that a property map is animated toward. The only difference is
+                   that the property map used for reverse is the inverse of the map used in the previous call. Thus, we manipulate
+                   the previous call to construct our new map: use the previous map's end values as our new map's start values. Copy over all other data. */
+                /* Note: Reverse can be directly called via the "reverse" parameter, or it can be indirectly triggered via the loop option. (Loops are composed of multiple reverses.) */
+                /* Note: Reverse calls do not need to be consecutively chained onto a currently-animating element in order to operate on cached values;
+                   there is no harm to reverse being called on a potentially stale data cache since reverse's behavior is simply defined
+                   as reverting to the element's values as they were prior to the previous *Velocity* call. */
+                } else if (action === "reverse") {
+                    /* Abort if there is no prior animation data to reverse to. */
+                    if (!Data(element).tweensContainer) {
+                        /* Dequeue the element so that this queue entry releases itself immediately, allowing subsequent queue entries to run. */
+                        $.dequeue(element, opts.queue);
+
+                        return;
+                    } else {
+                        /*********************
+                           Options Parsing
+                        *********************/
+
+                        /* If the element was hidden via the display option in the previous call,
+                           revert display to "auto" prior to reversal so that the element is visible again. */
+                        if (Data(element).opts.display === "none") {
+                            Data(element).opts.display = "auto";
+                        }
+
+                        if (Data(element).opts.visibility === "hidden") {
+                            Data(element).opts.visibility = "visible";
+                        }
+
+                        /* If the loop option was set in the previous call, disable it so that "reverse" calls aren't recursively generated.
+                           Further, remove the previous call's callback options; typically, users do not want these to be refired. */
+                        Data(element).opts.loop = false;
+                        Data(element).opts.begin = null;
+                        Data(element).opts.complete = null;
+
+                        /* Since we're extending an opts object that has already been extended with the defaults options object,
+                           we remove non-explicitly-defined properties that are auto-assigned values. */
+                        if (!options.easing) {
+                            delete opts.easing;
+                        }
+
+                        if (!options.duration) {
+                            delete opts.duration;
+                        }
+
+                        /* The opts object used for reversal is an extension of the options object optionally passed into this
+                           reverse call plus the options used in the previous Velocity call. */
+                        opts = $.extend({}, Data(element).opts, opts);
+
+                        /*************************************
+                           Tweens Container Reconstruction
+                        *************************************/
+
+                        /* Create a deepy copy (indicated via the true flag) of the previous call's tweensContainer. */
+                        var lastTweensContainer = $.extend(true, {}, Data(element).tweensContainer);
+
+                        /* Manipulate the previous tweensContainer by replacing its end values and currentValues with its start values. */
+                        for (var lastTween in lastTweensContainer) {
+                            /* In addition to tween data, tweensContainers contain an element property that we ignore here. */
+                            if (lastTween !== "element") {
+                                var lastStartValue = lastTweensContainer[lastTween].startValue;
+
+                                lastTweensContainer[lastTween].startValue = lastTweensContainer[lastTween].currentValue = lastTweensContainer[lastTween].endValue;
+                                lastTweensContainer[lastTween].endValue = lastStartValue;
+
+                                /* Easing is the only option that embeds into the individual tween data (since it can be defined on a per-property basis).
+                                   Accordingly, every property's easing value must be updated when an options object is passed in with a reverse call.
+                                   The side effect of this extensibility is that all per-property easing values are forcefully reset to the new value. */
+                                if (!Type.isEmptyObject(options)) {
+                                    lastTweensContainer[lastTween].easing = opts.easing;
+                                }
+
+                                if (Velocity.debug) console.log("reverse tweensContainer (" + lastTween + "): " + JSON.stringify(lastTweensContainer[lastTween]), element);
+                            }
+                        }
+
+                        tweensContainer = lastTweensContainer;
+                    }
+
+                /*****************************************
+                   Tween Data Construction (for Start)
+                *****************************************/
+
+                } else if (action === "start") {
+
+                    /*************************
+                        Value Transferring
+                    *************************/
+
+                    /* If this queue entry follows a previous Velocity-initiated queue entry *and* if this entry was created
+                       while the element was in the process of being animated by Velocity, then this current call is safe to use
+                       the end values from the prior call as its start values. Velocity attempts to perform this value transfer
+                       process whenever possible in order to avoid requerying the DOM. */
+                    /* If values aren't transferred from a prior call and start values were not forcefed by the user (more on this below),
+                       then the DOM is queried for the element's current values as a last resort. */
+                    /* Note: Conversely, animation reversal (and looping) *always* perform inter-call value transfers; they never requery the DOM. */
+                    var lastTweensContainer;
+
+                    /* The per-element isAnimating flag is used to indicate whether it's safe (i.e. the data isn't stale)
+                       to transfer over end values to use as start values. If it's set to true and there is a previous
+                       Velocity call to pull values from, do so. */
+                    if (Data(element).tweensContainer && Data(element).isAnimating === true) {
+                        lastTweensContainer = Data(element).tweensContainer;
+                    }
+
+                    /***************************
+                       Tween Data Calculation
+                    ***************************/
+
+                    /* This function parses property data and defaults endValue, easing, and startValue as appropriate. */
+                    /* Property map values can either take the form of 1) a single value representing the end value,
+                       or 2) an array in the form of [ endValue, [, easing] [, startValue] ].
+                       The optional third parameter is a forcefed startValue to be used instead of querying the DOM for
+                       the element's current value. Read Velocity's docmentation to learn more about forcefeeding: VelocityJS.org/#forcefeeding */
+                    function parsePropertyValue (valueData, skipResolvingEasing) {
+                        var endValue = undefined,
+                            easing = undefined,
+                            startValue = undefined;
+
+                        /* Handle the array format, which can be structured as one of three potential overloads:
+                           A) [ endValue, easing, startValue ], B) [ endValue, easing ], or C) [ endValue, startValue ] */
+                        if (Type.isArray(valueData)) {
+                            /* endValue is always the first item in the array. Don't bother validating endValue's value now
+                               since the ensuing property cycling logic does that. */
+                            endValue = valueData[0];
+
+                            /* Two-item array format: If the second item is a number, function, or hex string, treat it as a
+                               start value since easings can only be non-hex strings or arrays. */
+                            if ((!Type.isArray(valueData[1]) && /^[\d-]/.test(valueData[1])) || Type.isFunction(valueData[1]) || CSS.RegEx.isHex.test(valueData[1])) {
+                                startValue = valueData[1];
+                            /* Two or three-item array: If the second item is a non-hex string or an array, treat it as an easing. */
+                            } else if ((Type.isString(valueData[1]) && !CSS.RegEx.isHex.test(valueData[1])) || Type.isArray(valueData[1])) {
+                                easing = skipResolvingEasing ? valueData[1] : getEasing(valueData[1], opts.duration);
+
+                                /* Don't bother validating startValue's value now since the ensuing property cycling logic inherently does that. */
+                                if (valueData[2] !== undefined) {
+                                    startValue = valueData[2];
+                                }
+                            }
+                        /* Handle the single-value format. */
+                        } else {
+                            endValue = valueData;
+                        }
+
+                        /* Default to the call's easing if a per-property easing type was not defined. */
+                        if (!skipResolvingEasing) {
+                            easing = easing || opts.easing;
+                        }
+
+                        /* If functions were passed in as values, pass the function the current element as its context,
+                           plus the element's index and the element set's size as arguments. Then, assign the returned value. */
+                        if (Type.isFunction(endValue)) {
+                            endValue = endValue.call(element, elementsIndex, elementsLength);
+                        }
+
+                        if (Type.isFunction(startValue)) {
+                            startValue = startValue.call(element, elementsIndex, elementsLength);
+                        }
+
+                        /* Allow startValue to be left as undefined to indicate to the ensuing code that its value was not forcefed. */
+                        return [ endValue || 0, easing, startValue ];
+                    }
+
+                    /* Cycle through each property in the map, looking for shorthand color properties (e.g. "color" as opposed to "colorRed"). Inject the corresponding
+                       colorRed, colorGreen, and colorBlue RGB component tweens into the propertiesMap (which Velocity understands) and remove the shorthand property. */
+                    $.each(propertiesMap, function(property, value) {
+                        /* Find shorthand color properties that have been passed a hex string. */
+                        if (RegExp("^" + CSS.Lists.colors.join("$|^") + "$").test(property)) {
+                            /* Parse the value data for each shorthand. */
+                            var valueData = parsePropertyValue(value, true),
+                                endValue = valueData[0],
+                                easing = valueData[1],
+                                startValue = valueData[2];
+
+                            if (CSS.RegEx.isHex.test(endValue)) {
+                                /* Convert the hex strings into their RGB component arrays. */
+                                var colorComponents = [ "Red", "Green", "Blue" ],
+                                    endValueRGB = CSS.Values.hexToRgb(endValue),
+                                    startValueRGB = startValue ? CSS.Values.hexToRgb(startValue) : undefined;
+
+                                /* Inject the RGB component tweens into propertiesMap. */
+                                for (var i = 0; i < colorComponents.length; i++) {
+                                    var dataArray = [ endValueRGB[i] ];
+
+                                    if (easing) {
+                                        dataArray.push(easing);
+                                    }
+
+                                    if (startValueRGB !== undefined) {
+                                        dataArray.push(startValueRGB[i]);
+                                    }
+
+                                    propertiesMap[property + colorComponents[i]] = dataArray;
+                                }
+
+                                /* Remove the intermediary shorthand property entry now that we've processed it. */
+                                delete propertiesMap[property];
+                            }
+                        }
+                    });
+
+                    /* Create a tween out of each property, and append its associated data to tweensContainer. */
+                    for (var property in propertiesMap) {
+
+                        /**************************
+                           Start Value Sourcing
+                        **************************/
+
+                        /* Parse out endValue, easing, and startValue from the property's data. */
+                        var valueData = parsePropertyValue(propertiesMap[property]),
+                            endValue = valueData[0],
+                            easing = valueData[1],
+                            startValue = valueData[2];
+
+                        /* Now that the original property name's format has been used for the parsePropertyValue() lookup above,
+                           we force the property to its camelCase styling to normalize it for manipulation. */
+                        property = CSS.Names.camelCase(property);
+
+                        /* In case this property is a hook, there are circumstances where we will intend to work on the hook's root property and not the hooked subproperty. */
+                        var rootProperty = CSS.Hooks.getRoot(property),
+                            rootPropertyValue = false;
+
+                        /* Other than for the dummy tween property, properties that are not supported by the browser (and do not have an associated normalization) will
+                           inherently produce no style changes when set, so they are skipped in order to decrease animation tick overhead.
+                           Property support is determined via prefixCheck(), which returns a false flag when no supported is detected. */
+                        /* Note: Since SVG elements have some of their properties directly applied as HTML attributes,
+                           there is no way to check for their explicit browser support, and so we skip skip this check for them. */
+                        if (!Data(element).isSVG && rootProperty !== "tween" && CSS.Names.prefixCheck(rootProperty)[1] === false && CSS.Normalizations.registered[rootProperty] === undefined) {
+                            if (Velocity.debug) console.log("Skipping [" + rootProperty + "] due to a lack of browser support.");
+
+                            continue;
+                        }
+
+                        /* If the display option is being set to a non-"none" (e.g. "block") and opacity (filter on IE<=8) is being
+                           animated to an endValue of non-zero, the user's intention is to fade in from invisible, thus we forcefeed opacity
+                           a startValue of 0 if its startValue hasn't already been sourced by value transferring or prior forcefeeding. */
+                        if (((opts.display !== undefined && opts.display !== null && opts.display !== "none") || (opts.visibility !== undefined && opts.visibility !== "hidden")) && /opacity|filter/.test(property) && !startValue && endValue !== 0) {
+                            startValue = 0;
+                        }
+
+                        /* If values have been transferred from the previous Velocity call, extract the endValue and rootPropertyValue
+                           for all of the current call's properties that were *also* animated in the previous call. */
+                        /* Note: Value transferring can optionally be disabled by the user via the _cacheValues option. */
+                        if (opts._cacheValues && lastTweensContainer && lastTweensContainer[property]) {
+                            if (startValue === undefined) {
+                                startValue = lastTweensContainer[property].endValue + lastTweensContainer[property].unitType;
+                            }
+
+                            /* The previous call's rootPropertyValue is extracted from the element's data cache since that's the
+                               instance of rootPropertyValue that gets freshly updated by the tweening process, whereas the rootPropertyValue
+                               attached to the incoming lastTweensContainer is equal to the root property's value prior to any tweening. */
+                            rootPropertyValue = Data(element).rootPropertyValueCache[rootProperty];
+                        /* If values were not transferred from a previous Velocity call, query the DOM as needed. */
+                        } else {
+                            /* Handle hooked properties. */
+                            if (CSS.Hooks.registered[property]) {
+                               if (startValue === undefined) {
+                                    rootPropertyValue = CSS.getPropertyValue(element, rootProperty); /* GET */
+                                    /* Note: The following getPropertyValue() call does not actually trigger a DOM query;
+                                       getPropertyValue() will extract the hook from rootPropertyValue. */
+                                    startValue = CSS.getPropertyValue(element, property, rootPropertyValue);
+                                /* If startValue is already defined via forcefeeding, do not query the DOM for the root property's value;
+                                   just grab rootProperty's zero-value template from CSS.Hooks. This overwrites the element's actual
+                                   root property value (if one is set), but this is acceptable since the primary reason users forcefeed is
+                                   to avoid DOM queries, and thus we likewise avoid querying the DOM for the root property's value. */
+                                } else {
+                                    /* Grab this hook's zero-value template, e.g. "0px 0px 0px black". */
+                                    rootPropertyValue = CSS.Hooks.templates[rootProperty][1];
+                                }
+                            /* Handle non-hooked properties that haven't already been defined via forcefeeding. */
+                            } else if (startValue === undefined) {
+                                startValue = CSS.getPropertyValue(element, property); /* GET */
+                            }
+                        }
+
+                        /**************************
+                           Value Data Extraction
+                        **************************/
+
+                        var separatedValue,
+                            endValueUnitType,
+                            startValueUnitType,
+                            operator = false;
+
+                        /* Separates a property value into its numeric value and its unit type. */
+                        function separateValue (property, value) {
+                            var unitType,
+                                numericValue;
+
+                            numericValue = (value || "0")
+                                .toString()
+                                .toLowerCase()
+                                /* Match the unit type at the end of the value. */
+                                .replace(/[%A-z]+$/, function(match) {
+                                    /* Grab the unit type. */
+                                    unitType = match;
+
+                                    /* Strip the unit type off of value. */
+                                    return "";
+                                });
+
+                            /* If no unit type was supplied, assign one that is appropriate for this property (e.g. "deg" for rotateZ or "px" for width). */
+                            if (!unitType) {
+                                unitType = CSS.Values.getUnitType(property);
+                            }
+
+                            return [ numericValue, unitType ];
+                        }
+
+                        /* Separate startValue. */
+                        separatedValue = separateValue(property, startValue);
+                        startValue = separatedValue[0];
+                        startValueUnitType = separatedValue[1];
+
+                        /* Separate endValue, and extract a value operator (e.g. "+=", "-=") if one exists. */
+                        separatedValue = separateValue(property, endValue);
+                        endValue = separatedValue[0].replace(/^([+-\/*])=/, function(match, subMatch) {
+                            operator = subMatch;
+
+                            /* Strip the operator off of the value. */
+                            return "";
+                        });
+                        endValueUnitType = separatedValue[1];
+
+                        /* Parse float values from endValue and startValue. Default to 0 if NaN is returned. */
+                        startValue = parseFloat(startValue) || 0;
+                        endValue = parseFloat(endValue) || 0;
+
+                        /***************************************
+                           Property-Specific Value Conversion
+                        ***************************************/
+
+                        /* Custom support for properties that don't actually accept the % unit type, but where pollyfilling is trivial and relatively foolproof. */
+                        if (endValueUnitType === "%") {
+                            /* A %-value fontSize/lineHeight is relative to the parent's fontSize (as opposed to the parent's dimensions),
+                               which is identical to the em unit's behavior, so we piggyback off of that. */
+                            if (/^(fontSize|lineHeight)$/.test(property)) {
+                                /* Convert % into an em decimal value. */
+                                endValue = endValue / 100;
+                                endValueUnitType = "em";
+                            /* For scaleX and scaleY, convert the value into its decimal format and strip off the unit type. */
+                            } else if (/^scale/.test(property)) {
+                                endValue = endValue / 100;
+                                endValueUnitType = "";
+                            /* For RGB components, take the defined percentage of 255 and strip off the unit type. */
+                            } else if (/(Red|Green|Blue)$/i.test(property)) {
+                                endValue = (endValue / 100) * 255;
+                                endValueUnitType = "";
+                            }
+                        }
+
+                        /***************************
+                           Unit Ratio Calculation
+                        ***************************/
+
+                        /* When queried, the browser returns (most) CSS property values in pixels. Therefore, if an endValue with a unit type of
+                           %, em, or rem is animated toward, startValue must be converted from pixels into the same unit type as endValue in order
+                           for value manipulation logic (increment/decrement) to proceed. Further, if the startValue was forcefed or transferred
+                           from a previous call, startValue may also not be in pixels. Unit conversion logic therefore consists of two steps:
+                           1) Calculating the ratio of %/em/rem/vh/vw relative to pixels
+                           2) Converting startValue into the same unit of measurement as endValue based on these ratios. */
+                        /* Unit conversion ratios are calculated by inserting a sibling node next to the target node, copying over its position property,
+                           setting values with the target unit type then comparing the returned pixel value. */
+                        /* Note: Even if only one of these unit types is being animated, all unit ratios are calculated at once since the overhead
+                           of batching the SETs and GETs together upfront outweights the potential overhead
+                           of layout thrashing caused by re-querying for uncalculated ratios for subsequently-processed properties. */
+                        /* Todo: Shift this logic into the calls' first tick instance so that it's synced with RAF. */
+                        function calculateUnitRatios () {
+
+                            /************************
+                                Same Ratio Checks
+                            ************************/
+
+                            /* The properties below are used to determine whether the element differs sufficiently from this call's
+                               previously iterated element to also differ in its unit conversion ratios. If the properties match up with those
+                               of the prior element, the prior element's conversion ratios are used. Like most optimizations in Velocity,
+                               this is done to minimize DOM querying. */
+                            var sameRatioIndicators = {
+                                    myParent: element.parentNode || document.body, /* GET */
+                                    position: CSS.getPropertyValue(element, "position"), /* GET */
+                                    fontSize: CSS.getPropertyValue(element, "fontSize") /* GET */
+                                },
+                                /* Determine if the same % ratio can be used. % is based on the element's position value and its parent's width and height dimensions. */
+                                samePercentRatio = ((sameRatioIndicators.position === callUnitConversionData.lastPosition) && (sameRatioIndicators.myParent === callUnitConversionData.lastParent)),
+                                /* Determine if the same em ratio can be used. em is relative to the element's fontSize. */
+                                sameEmRatio = (sameRatioIndicators.fontSize === callUnitConversionData.lastFontSize);
+
+                            /* Store these ratio indicators call-wide for the next element to compare against. */
+                            callUnitConversionData.lastParent = sameRatioIndicators.myParent;
+                            callUnitConversionData.lastPosition = sameRatioIndicators.position;
+                            callUnitConversionData.lastFontSize = sameRatioIndicators.fontSize;
+
+                            /***************************
+                               Element-Specific Units
+                            ***************************/
+
+                            /* Note: IE8 rounds to the nearest pixel when returning CSS values, thus we perform conversions using a measurement
+                               of 100 (instead of 1) to give our ratios a precision of at least 2 decimal values. */
+                            var measurement = 100,
+                                unitRatios = {};
+
+                            if (!sameEmRatio || !samePercentRatio) {
+                                var dummy = Data(element).isSVG ? document.createElementNS("http://www.w3.org/2000/svg", "rect") : document.createElement("div");
+
+                                Velocity.init(dummy);
+                                sameRatioIndicators.myParent.appendChild(dummy);
+
+                                /* To accurately and consistently calculate conversion ratios, the element's cascaded overflow and box-sizing are stripped.
+                                   Similarly, since width/height can be artificially constrained by their min-/max- equivalents, these are controlled for as well. */
+                                /* Note: Overflow must be also be controlled for per-axis since the overflow property overwrites its per-axis values. */
+                                $.each([ "overflow", "overflowX", "overflowY" ], function(i, property) {
+                                    Velocity.CSS.setPropertyValue(dummy, property, "hidden");
+                                });
+                                Velocity.CSS.setPropertyValue(dummy, "position", sameRatioIndicators.position);
+                                Velocity.CSS.setPropertyValue(dummy, "fontSize", sameRatioIndicators.fontSize);
+                                Velocity.CSS.setPropertyValue(dummy, "boxSizing", "content-box");
+
+                                /* width and height act as our proxy properties for measuring the horizontal and vertical % ratios. */
+                                $.each([ "minWidth", "maxWidth", "width", "minHeight", "maxHeight", "height" ], function(i, property) {
+                                    Velocity.CSS.setPropertyValue(dummy, property, measurement + "%");
+                                });
+                                /* paddingLeft arbitrarily acts as our proxy property for the em ratio. */
+                                Velocity.CSS.setPropertyValue(dummy, "paddingLeft", measurement + "em");
+
+                                /* Divide the returned value by the measurement to get the ratio between 1% and 1px. Default to 1 since working with 0 can produce Infinite. */
+                                unitRatios.percentToPxWidth = callUnitConversionData.lastPercentToPxWidth = (parseFloat(CSS.getPropertyValue(dummy, "width", null, true)) || 1) / measurement; /* GET */
+                                unitRatios.percentToPxHeight = callUnitConversionData.lastPercentToPxHeight = (parseFloat(CSS.getPropertyValue(dummy, "height", null, true)) || 1) / measurement; /* GET */
+                                unitRatios.emToPx = callUnitConversionData.lastEmToPx = (parseFloat(CSS.getPropertyValue(dummy, "paddingLeft")) || 1) / measurement; /* GET */
+
+                                sameRatioIndicators.myParent.removeChild(dummy);
+                            } else {
+                                unitRatios.emToPx = callUnitConversionData.lastEmToPx;
+                                unitRatios.percentToPxWidth = callUnitConversionData.lastPercentToPxWidth;
+                                unitRatios.percentToPxHeight = callUnitConversionData.lastPercentToPxHeight;
+                            }
+
+                            /***************************
+                               Element-Agnostic Units
+                            ***************************/
+
+                            /* Whereas % and em ratios are determined on a per-element basis, the rem unit only needs to be checked
+                               once per call since it's exclusively dependant upon document.body's fontSize. If this is the first time
+                               that calculateUnitRatios() is being run during this call, remToPx will still be set to its default value of null,
+                               so we calculate it now. */
+                            if (callUnitConversionData.remToPx === null) {
+                                /* Default to browsers' default fontSize of 16px in the case of 0. */
+                                callUnitConversionData.remToPx = parseFloat(CSS.getPropertyValue(document.body, "fontSize")) || 16; /* GET */
+                            }
+
+                            /* Similarly, viewport units are %-relative to the window's inner dimensions. */
+                            if (callUnitConversionData.vwToPx === null) {
+                                callUnitConversionData.vwToPx = parseFloat(window.innerWidth) / 100; /* GET */
+                                callUnitConversionData.vhToPx = parseFloat(window.innerHeight) / 100; /* GET */
+                            }
+
+                            unitRatios.remToPx = callUnitConversionData.remToPx;
+                            unitRatios.vwToPx = callUnitConversionData.vwToPx;
+                            unitRatios.vhToPx = callUnitConversionData.vhToPx;
+
+                            if (Velocity.debug >= 1) console.log("Unit ratios: " + JSON.stringify(unitRatios), element);
+
+                            return unitRatios;
+                        }
+
+                        /********************
+                           Unit Conversion
+                        ********************/
+
+                        /* The * and / operators, which are not passed in with an associated unit, inherently use startValue's unit. Skip value and unit conversion. */
+                        if (/[\/*]/.test(operator)) {
+                            endValueUnitType = startValueUnitType;
+                        /* If startValue and endValue differ in unit type, convert startValue into the same unit type as endValue so that if endValueUnitType
+                           is a relative unit (%, em, rem), the values set during tweening will continue to be accurately relative even if the metrics they depend
+                           on are dynamically changing during the course of the animation. Conversely, if we always normalized into px and used px for setting values, the px ratio
+                           would become stale if the original unit being animated toward was relative and the underlying metrics change during the animation. */
+                        /* Since 0 is 0 in any unit type, no conversion is necessary when startValue is 0 -- we just start at 0 with endValueUnitType. */
+                        } else if ((startValueUnitType !== endValueUnitType) && startValue !== 0) {
+                            /* Unit conversion is also skipped when endValue is 0, but *startValueUnitType* must be used for tween values to remain accurate. */
+                            /* Note: Skipping unit conversion here means that if endValueUnitType was originally a relative unit, the animation won't relatively
+                               match the underlying metrics if they change, but this is acceptable since we're animating toward invisibility instead of toward visibility,
+                               which remains past the point of the animation's completion. */
+                            if (endValue === 0) {
+                                endValueUnitType = startValueUnitType;
+                            } else {
+                                /* By this point, we cannot avoid unit conversion (it's undesirable since it causes layout thrashing).
+                                   If we haven't already, we trigger calculateUnitRatios(), which runs once per element per call. */
+                                elementUnitConversionData = elementUnitConversionData || calculateUnitRatios();
+
+                                /* The following RegEx matches CSS properties that have their % values measured relative to the x-axis. */
+                                /* Note: W3C spec mandates that all of margin and padding's properties (even top and bottom) are %-relative to the *width* of the parent element. */
+                                var axis = (/margin|padding|left|right|width|text|word|letter/i.test(property) || /X$/.test(property) || property === "x") ? "x" : "y";
+
+                                /* In order to avoid generating n^2 bespoke conversion functions, unit conversion is a two-step process:
+                                   1) Convert startValue into pixels. 2) Convert this new pixel value into endValue's unit type. */
+                                switch (startValueUnitType) {
+                                    case "%":
+                                        /* Note: translateX and translateY are the only properties that are %-relative to an element's own dimensions -- not its parent's dimensions.
+                                           Velocity does not include a special conversion process to account for this behavior. Therefore, animating translateX/Y from a % value
+                                           to a non-% value will produce an incorrect start value. Fortunately, this sort of cross-unit conversion is rarely done by users in practice. */
+                                        startValue *= (axis === "x" ? elementUnitConversionData.percentToPxWidth : elementUnitConversionData.percentToPxHeight);
+                                        break;
+
+                                    case "px":
+                                        /* px acts as our midpoint in the unit conversion process; do nothing. */
+                                        break;
+
+                                    default:
+                                        startValue *= elementUnitConversionData[startValueUnitType + "ToPx"];
+                                }
+
+                                /* Invert the px ratios to convert into to the target unit. */
+                                switch (endValueUnitType) {
+                                    case "%":
+                                        startValue *= 1 / (axis === "x" ? elementUnitConversionData.percentToPxWidth : elementUnitConversionData.percentToPxHeight);
+                                        break;
+
+                                    case "px":
+                                        /* startValue is already in px, do nothing; we're done. */
+                                        break;
+
+                                    default:
+                                        startValue *= 1 / elementUnitConversionData[endValueUnitType + "ToPx"];
+                                }
+                            }
+                        }
+
+                        /*********************
+                           Relative Values
+                        *********************/
+
+                        /* Operator logic must be performed last since it requires unit-normalized start and end values. */
+                        /* Note: Relative *percent values* do not behave how most people think; while one would expect "+=50%"
+                           to increase the property 1.5x its current value, it in fact increases the percent units in absolute terms:
+                           50 points is added on top of the current % value. */
+                        switch (operator) {
+                            case "+":
+                                endValue = startValue + endValue;
+                                break;
+
+                            case "-":
+                                endValue = startValue - endValue;
+                                break;
+
+                            case "*":
+                                endValue = startValue * endValue;
+                                break;
+
+                            case "/":
+                                endValue = startValue / endValue;
+                                break;
+                        }
+
+                        /**************************
+                           tweensContainer Push
+                        **************************/
+
+                        /* Construct the per-property tween object, and push it to the element's tweensContainer. */
+                        tweensContainer[property] = {
+                            rootPropertyValue: rootPropertyValue,
+                            startValue: startValue,
+                            currentValue: startValue,
+                            endValue: endValue,
+                            unitType: endValueUnitType,
+                            easing: easing
+                        };
+
+                        if (Velocity.debug) console.log("tweensContainer (" + property + "): " + JSON.stringify(tweensContainer[property]), element);
+                    }
+
+                    /* Along with its property data, store a reference to the element itself onto tweensContainer. */
+                    tweensContainer.element = element;
+                }
+
+                /*****************
+                    Call Push
+                *****************/
+
+                /* Note: tweensContainer can be empty if all of the properties in this call's property map were skipped due to not
+                   being supported by the browser. The element property is used for checking that the tweensContainer has been appended to. */
+                if (tweensContainer.element) {
+                    /* Apply the "velocity-animating" indicator class. */
+                    CSS.Values.addClass(element, "velocity-animating");
+
+                    /* The call array houses the tweensContainers for each element being animated in the current call. */
+                    call.push(tweensContainer);
+
+                    /* Store the tweensContainer and options if we're working on the default effects queue, so that they can be used by the reverse command. */
+                    if (opts.queue === "") {
+                        Data(element).tweensContainer = tweensContainer;
+                        Data(element).opts = opts;
+                    }
+
+                    /* Switch on the element's animating flag. */
+                    Data(element).isAnimating = true;
+
+                    /* Once the final element in this call's element set has been processed, push the call array onto
+                       Velocity.State.calls for the animation tick to immediately begin processing. */
+                    if (elementsIndex === elementsLength - 1) {
+                        /* Add the current call plus its associated metadata (the element set and the call's options) onto the global call container.
+                           Anything on this call container is subjected to tick() processing. */
+                        Velocity.State.calls.push([ call, elements, opts, null, promiseData.resolver ]);
+
+                        /* If the animation tick isn't running, start it. (Velocity shuts it off when there are no active calls to process.) */
+                        if (Velocity.State.isTicking === false) {
+                            Velocity.State.isTicking = true;
+
+                            /* Start the tick loop. */
+                            tick();
+                        }
+                    } else {
+                        elementsIndex++;
+                    }
+                }
+            }
+
+            /* When the queue option is set to false, the call skips the element's queue and fires immediately. */
+            if (opts.queue === false) {
+                /* Since this buildQueue call doesn't respect the element's existing queue (which is where a delay option would have been appended),
+                   we manually inject the delay property here with an explicit setTimeout. */
+                if (opts.delay) {
+                    setTimeout(buildQueue, opts.delay);
+                } else {
+                    buildQueue();
+                }
+            /* Otherwise, the call undergoes element queueing as normal. */
+            /* Note: To interoperate with jQuery, Velocity uses jQuery's own $.queue() stack for queuing logic. */
+            } else {
+                $.queue(element, opts.queue, function(next, clearQueue) {
+                    /* If the clearQueue flag was passed in by the stop command, resolve this call's promise. (Promises can only be resolved once,
+                       so it's fine if this is repeatedly triggered for each element in the associated call.) */
+                    if (clearQueue === true) {
+                        if (promiseData.promise) {
+                            promiseData.resolver(elements);
+                        }
+
+                        /* Do not continue with animation queueing. */
+                        return true;
+                    }
+
+                    /* This flag indicates to the upcoming completeCall() function that this queue entry was initiated by Velocity.
+                       See completeCall() for further details. */
+                    Velocity.velocityQueueEntryFlag = true;
+
+                    buildQueue(next);
+                });
+            }
+
+            /*********************
+                Auto-Dequeuing
+            *********************/
+
+            /* As per jQuery's $.queue() behavior, to fire the first non-custom-queue entry on an element, the element
+               must be dequeued if its queue stack consists *solely* of the current call. (This can be determined by checking
+               for the "inprogress" item that jQuery prepends to active queue stack arrays.) Regardless, whenever the element's
+               queue is further appended with additional items -- including $.delay()'s or even $.animate() calls, the queue's
+               first entry is automatically fired. This behavior contrasts that of custom queues, which never auto-fire. */
+            /* Note: When an element set is being subjected to a non-parallel Velocity call, the animation will not begin until
+               each one of the elements in the set has reached the end of its individually pre-existing queue chain. */
+            /* Note: Unfortunately, most people don't fully grasp jQuery's powerful, yet quirky, $.queue() function.
+               Lean more here: http://stackoverflow.com/questions/1058158/can-somebody-explain-jquery-queue-to-me */
+            if ((opts.queue === "" || opts.queue === "fx") && $.queue(element)[0] !== "inprogress") {
+                $.dequeue(element);
+            }
+        }
+
+        /**************************
+           Element Set Iteration
+        **************************/
+
+        /* If the "nodeType" property exists on the elements variable, we're animating a single element.
+           Place it in an array so that $.each() can iterate over it. */
+        $.each(elements, function(i, element) {
+            /* Ensure each element in a set has a nodeType (is a real element) to avoid throwing errors. */
+            if (Type.isNode(element)) {
+                processElement.call(element);
+            }
+        });
+
+        /******************
+           Option: Loop
+        ******************/
+
+        /* The loop option accepts an integer indicating how many times the element should loop between the values in the
+           current call's properties map and the element's property values prior to this call. */
+        /* Note: The loop option's logic is performed here -- after element processing -- because the current call needs
+           to undergo its queue insertion prior to the loop option generating its series of constituent "reverse" calls,
+           which chain after the current call. Two reverse calls (two "alternations") constitute one loop. */
+        var opts = $.extend({}, Velocity.defaults, options),
+            reverseCallsCount;
+
+        opts.loop = parseInt(opts.loop);
+        reverseCallsCount = (opts.loop * 2) - 1;
+
+        if (opts.loop) {
+            /* Double the loop count to convert it into its appropriate number of "reverse" calls.
+               Subtract 1 from the resulting value since the current call is included in the total alternation count. */
+            for (var x = 0; x < reverseCallsCount; x++) {
+                /* Since the logic for the reverse action occurs inside Queueing and therefore this call's options object
+                   isn't parsed until then as well, the current call's delay option must be explicitly passed into the reverse
+                   call so that the delay logic that occurs inside *Pre-Queueing* can process it. */
+                var reverseOptions = {
+                    delay: opts.delay,
+                    progress: opts.progress
+                };
+
+                /* If a complete callback was passed into this call, transfer it to the loop redirect's final "reverse" call
+                   so that it's triggered when the entire redirect is complete (and not when the very first animation is complete). */
+                if (x === reverseCallsCount - 1) {
+                    reverseOptions.display = opts.display;
+                    reverseOptions.visibility = opts.visibility;
+                    reverseOptions.complete = opts.complete;
+                }
+
+                animate(elements, "reverse", reverseOptions);
+            }
+        }
+
+        /***************
+            Chaining
+        ***************/
+
+        /* Return the elements back to the call chain, with wrapped elements taking precedence in case Velocity was called via the $.fn. extension. */
+        return getChain();
+    };
+
+    /* Turn Velocity into the animation function, extended with the pre-existing Velocity object. */
+    Velocity = $.extend(animate, Velocity);
+    /* For legacy support, also expose the literal animate method. */
+    Velocity.animate = animate;
+
+    /**************
+        Timing
+    **************/
+
+    /* Ticker function. */
+    var ticker = window.requestAnimationFrame || rAFShim;
+
+    /* Inactive browser tabs pause rAF, which results in all active animations immediately sprinting to their completion states when the tab refocuses.
+       To get around this, we dynamically switch rAF to setTimeout (which the browser *doesn't* pause) when the tab loses focus. We skip this for mobile
+       devices to avoid wasting battery power on inactive tabs. */
+    /* Note: Tab focus detection doesn't work on older versions of IE, but that's okay since they don't support rAF to begin with. */
+    if (!Velocity.State.isMobile && document.hidden !== undefined) {
+        document.addEventListener("visibilitychange", function() {
+            /* Reassign the rAF function (which the global tick() function uses) based on the tab's focus state. */
+            if (document.hidden) {
+                ticker = function(callback) {
+                    /* The tick function needs a truthy first argument in order to pass its internal timestamp check. */
+                    return setTimeout(function() { callback(true) }, 16);
+                };
+
+                /* The rAF loop has been paused by the browser, so we manually restart the tick. */
+                tick();
+            } else {
+                ticker = window.requestAnimationFrame || rAFShim;
+            }
+        });
+    }
+
+    /************
+        Tick
+    ************/
+
+    /* Note: All calls to Velocity are pushed to the Velocity.State.calls array, which is fully iterated through upon each tick. */
+    function tick (timestamp) {
+        /* An empty timestamp argument indicates that this is the first tick occurence since ticking was turned on.
+           We leverage this metadata to fully ignore the first tick pass since RAF's initial pass is fired whenever
+           the browser's next tick sync time occurs, which results in the first elements subjected to Velocity
+           calls being animated out of sync with any elements animated immediately thereafter. In short, we ignore
+           the first RAF tick pass so that elements being immediately consecutively animated -- instead of simultaneously animated
+           by the same Velocity call -- are properly batched into the same initial RAF tick and consequently remain in sync thereafter. */
+        if (timestamp) {
+            /* We ignore RAF's high resolution timestamp since it can be significantly offset when the browser is
+               under high stress; we opt for choppiness over allowing the browser to drop huge chunks of frames. */
+            var timeCurrent = (new Date).getTime();
+
+            /********************
+               Call Iteration
+            ********************/
+
+            var callsLength = Velocity.State.calls.length;
+
+            /* To speed up iterating over this array, it is compacted (falsey items -- calls that have completed -- are removed)
+               when its length has ballooned to a point that can impact tick performance. This only becomes necessary when animation
+               has been continuous with many elements over a long period of time; whenever all active calls are completed, completeCall() clears Velocity.State.calls. */
+            if (callsLength > 10000) {
+                Velocity.State.calls = compactSparseArray(Velocity.State.calls);
+            }
+
+            /* Iterate through each active call. */
+            for (var i = 0; i < callsLength; i++) {
+                /* When a Velocity call is completed, its Velocity.State.calls entry is set to false. Continue on to the next call. */
+                if (!Velocity.State.calls[i]) {
+                    continue;
+                }
+
+                /************************
+                   Call-Wide Variables
+                ************************/
+
+                var callContainer = Velocity.State.calls[i],
+                    call = callContainer[0],
+                    opts = callContainer[2],
+                    timeStart = callContainer[3],
+                    firstTick = !!timeStart,
+                    tweenDummyValue = null;
+
+                /* If timeStart is undefined, then this is the first time that this call has been processed by tick().
+                   We assign timeStart now so that its value is as close to the real animation start time as possible.
+                   (Conversely, had timeStart been defined when this call was added to Velocity.State.calls, the delay
+                   between that time and now would cause the first few frames of the tween to be skipped since
+                   percentComplete is calculated relative to timeStart.) */
+                /* Further, subtract 16ms (the approximate resolution of RAF) from the current time value so that the
+                   first tick iteration isn't wasted by animating at 0% tween completion, which would produce the
+                   same style value as the element's current value. */
+                if (!timeStart) {
+                    timeStart = Velocity.State.calls[i][3] = timeCurrent - 16;
+                }
+
+                /* The tween's completion percentage is relative to the tween's start time, not the tween's start value
+                   (which would result in unpredictable tween durations since JavaScript's timers are not particularly accurate).
+                   Accordingly, we ensure that percentComplete does not exceed 1. */
+                var percentComplete = Math.min((timeCurrent - timeStart) / opts.duration, 1);
+
+                /**********************
+                   Element Iteration
+                **********************/
+
+                /* For every call, iterate through each of the elements in its set. */
+                for (var j = 0, callLength = call.length; j < callLength; j++) {
+                    var tweensContainer = call[j],
+                        element = tweensContainer.element;
+
+                    /* Check to see if this element has been deleted midway through the animation by checking for the
+                       continued existence of its data cache. If it's gone, skip animating this element. */
+                    if (!Data(element)) {
+                        continue;
+                    }
+
+                    var transformPropertyExists = false;
+
+                    /**********************************
+                       Display & Visibility Toggling
+                    **********************************/
+
+                    /* If the display option is set to non-"none", set it upfront so that the element can become visible before tweening begins.
+                       (Otherwise, display's "none" value is set in completeCall() once the animation has completed.) */
+                    if (opts.display !== undefined && opts.display !== null && opts.display !== "none") {
+                        if (opts.display === "flex") {
+                            var flexValues = [ "-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex" ];
+
+                            $.each(flexValues, function(i, flexValue) {
+                                CSS.setPropertyValue(element, "display", flexValue);
+                            });
+                        }
+
+                        CSS.setPropertyValue(element, "display", opts.display);
+                    }
+
+                    /* Same goes with the visibility option, but its "none" equivalent is "hidden". */
+                    if (opts.visibility !== undefined && opts.visibility !== "hidden") {
+                        CSS.setPropertyValue(element, "visibility", opts.visibility);
+                    }
+
+                    /************************
+                       Property Iteration
+                    ************************/
+
+                    /* For every element, iterate through each property. */
+                    for (var property in tweensContainer) {
+                        /* Note: In addition to property tween data, tweensContainer contains a reference to its associated element. */
+                        if (property !== "element") {
+                            var tween = tweensContainer[property],
+                                currentValue,
+                                /* Easing can either be a pre-genereated function or a string that references a pre-registered easing
+                                   on the Velocity.Easings object. In either case, return the appropriate easing *function*. */
+                                easing = Type.isString(tween.easing) ? Velocity.Easings[tween.easing] : tween.easing;
+
+                            /******************************
+                               Current Value Calculation
+                            ******************************/
+
+                            /* If this is the last tick pass (if we've reached 100% completion for this tween),
+                               ensure that currentValue is explicitly set to its target endValue so that it's not subjected to any rounding. */
+                            if (percentComplete === 1) {
+                                currentValue = tween.endValue;
+                            /* Otherwise, calculate currentValue based on the current delta from startValue. */
+                            } else {
+                                var tweenDelta = tween.endValue - tween.startValue;
+                                currentValue = tween.startValue + (tweenDelta * easing(percentComplete, opts, tweenDelta));
+
+                                /* If no value change is occurring, don't proceed with DOM updating. */
+                                if (!firstTick && (currentValue === tween.currentValue)) {
+                                    continue;
+                                }
+                            }
+
+                            tween.currentValue = currentValue;
+
+                            /* If we're tweening a fake 'tween' property in order to log transition values, update the one-per-call variable so that
+                               it can be passed into the progress callback. */
+                            if (property === "tween") {
+                                tweenDummyValue = currentValue;
+                            } else {
+                                /******************
+                                   Hooks: Part I
+                                ******************/
+
+                                /* For hooked properties, the newly-updated rootPropertyValueCache is cached onto the element so that it can be used
+                                   for subsequent hooks in this call that are associated with the same root property. If we didn't cache the updated
+                                   rootPropertyValue, each subsequent update to the root property in this tick pass would reset the previous hook's
+                                   updates to rootPropertyValue prior to injection. A nice performance byproduct of rootPropertyValue caching is that
+                                   subsequently chained animations using the same hookRoot but a different hook can use this cached rootPropertyValue. */
+                                if (CSS.Hooks.registered[property]) {
+                                    var hookRoot = CSS.Hooks.getRoot(property),
+                                        rootPropertyValueCache = Data(element).rootPropertyValueCache[hookRoot];
+
+                                    if (rootPropertyValueCache) {
+                                        tween.rootPropertyValue = rootPropertyValueCache;
+                                    }
+                                }
+
+                                /*****************
+                                    DOM Update
+                                *****************/
+
+                                /* setPropertyValue() returns an array of the property name and property value post any normalization that may have been performed. */
+                                /* Note: To solve an IE<=8 positioning bug, the unit type is dropped when setting a property value of 0. */
+                                var adjustedSetData = CSS.setPropertyValue(element, /* SET */
+                                                                           property,
+                                                                           tween.currentValue + (parseFloat(currentValue) === 0 ? "" : tween.unitType),
+                                                                           tween.rootPropertyValue,
+                                                                           tween.scrollData);
+
+                                /*******************
+                                   Hooks: Part II
+                                *******************/
+
+                                /* Now that we have the hook's updated rootPropertyValue (the post-processed value provided by adjustedSetData), cache it onto the element. */
+                                if (CSS.Hooks.registered[property]) {
+                                    /* Since adjustedSetData contains normalized data ready for DOM updating, the rootPropertyValue needs to be re-extracted from its normalized form. ?? */
+                                    if (CSS.Normalizations.registered[hookRoot]) {
+                                        Data(element).rootPropertyValueCache[hookRoot] = CSS.Normalizations.registered[hookRoot]("extract", null, adjustedSetData[1]);
+                                    } else {
+                                        Data(element).rootPropertyValueCache[hookRoot] = adjustedSetData[1];
+                                    }
+                                }
+
+                                /***************
+                                   Transforms
+                                ***************/
+
+                                /* Flag whether a transform property is being animated so that flushTransformCache() can be triggered once this tick pass is complete. */
+                                if (adjustedSetData[0] === "transform") {
+                                    transformPropertyExists = true;
+                                }
+
+                            }
+                        }
+                    }
+
+                    /****************
+                        mobileHA
+                    ****************/
+
+                    /* If mobileHA is enabled, set the translate3d transform to null to force hardware acceleration.
+                       It's safe to override this property since Velocity doesn't actually support its animation (hooks are used in its place). */
+                    if (opts.mobileHA) {
+                        /* Don't set the null transform hack if we've already done so. */
+                        if (Data(element).transformCache.translate3d === undefined) {
+                            /* All entries on the transformCache object are later concatenated into a single transform string via flushTransformCache(). */
+                            Data(element).transformCache.translate3d = "(0px, 0px, 0px)";
+
+                            transformPropertyExists = true;
+                        }
+                    }
+
+                    if (transformPropertyExists) {
+                        CSS.flushTransformCache(element);
+                    }
+                }
+
+                /* The non-"none" display value is only applied to an element once -- when its associated call is first ticked through.
+                   Accordingly, it's set to false so that it isn't re-processed by this call in the next tick. */
+                if (opts.display !== undefined && opts.display !== "none") {
+                    Velocity.State.calls[i][2].display = false;
+                }
+                if (opts.visibility !== undefined && opts.visibility !== "hidden") {
+                    Velocity.State.calls[i][2].visibility = false;
+                }
+
+                /* Pass the elements and the timing data (percentComplete, msRemaining, timeStart, tweenDummyValue) into the progress callback. */
+                if (opts.progress) {
+                    opts.progress.call(callContainer[1],
+                                       callContainer[1],
+                                       percentComplete,
+                                       Math.max(0, (timeStart + opts.duration) - timeCurrent),
+                                       timeStart,
+                                       tweenDummyValue);
+                }
+
+                /* If this call has finished tweening, pass its index to completeCall() to handle call cleanup. */
+                if (percentComplete === 1) {
+                    completeCall(i);
+                }
+            }
+        }
+
+        /* Note: completeCall() sets the isTicking flag to false when the last call on Velocity.State.calls has completed. */
+        if (Velocity.State.isTicking) {
+            ticker(tick);
+        }
+    }
+
+    /**********************
+        Call Completion
+    **********************/
+
+    /* Note: Unlike tick(), which processes all active calls at once, call completion is handled on a per-call basis. */
+    function completeCall (callIndex, isStopped) {
+        /* Ensure the call exists. */
+        if (!Velocity.State.calls[callIndex]) {
+            return false;
+        }
+
+        /* Pull the metadata from the call. */
+        var call = Velocity.State.calls[callIndex][0],
+            elements = Velocity.State.calls[callIndex][1],
+            opts = Velocity.State.calls[callIndex][2],
+            resolver = Velocity.State.calls[callIndex][4];
+
+        var remainingCallsExist = false;
+
+        /*************************
+           Element Finalization
+        *************************/
+
+        for (var i = 0, callLength = call.length; i < callLength; i++) {
+            var element = call[i].element;
+
+            /* If the user set display to "none" (intending to hide the element), set it now that the animation has completed. */
+            /* Note: display:none isn't set when calls are manually stopped (via Velocity("stop"). */
+            /* Note: Display gets ignored with "reverse" calls and infinite loops, since this behavior would be undesirable. */
+            if (!isStopped && !opts.loop) {
+                if (opts.display === "none") {
+                    CSS.setPropertyValue(element, "display", opts.display);
+                }
+
+                if (opts.visibility === "hidden") {
+                    CSS.setPropertyValue(element, "visibility", opts.visibility);
+                }
+            }
+
+            /* If the element's queue is empty (if only the "inprogress" item is left at position 0) or if its queue is about to run
+               a non-Velocity-initiated entry, turn off the isAnimating flag. A non-Velocity-initiatied queue entry's logic might alter
+               an element's CSS values and thereby cause Velocity's cached value data to go stale. To detect if a queue entry was initiated by Velocity,
+               we check for the existence of our special Velocity.queueEntryFlag declaration, which minifiers won't rename since the flag
+               is assigned to jQuery's global $ object and thus exists out of Velocity's own scope. */
+            if (opts.loop !== true && ($.queue(element)[1] === undefined || !/\.velocityQueueEntryFlag/i.test($.queue(element)[1]))) {
+                /* The element may have been deleted. Ensure that its data cache still exists before acting on it. */
+                if (Data(element)) {
+                    Data(element).isAnimating = false;
+                    /* Clear the element's rootPropertyValueCache, which will become stale. */
+                    Data(element).rootPropertyValueCache = {};
+
+                    var transformHAPropertyExists = false;
+                    /* If any 3D transform subproperty is at its default value (regardless of unit type), remove it. */
+                    $.each(CSS.Lists.transforms3D, function(i, transformName) {
+                        var defaultValue = /^scale/.test(transformName) ? 1 : 0,
+                            currentValue = Data(element).transformCache[transformName];
+
+                        if (Data(element).transformCache[transformName] !== undefined && new RegExp("^\\(" + defaultValue + "[^.]").test(currentValue)) {
+                            transformHAPropertyExists = true;
+
+                            delete Data(element).transformCache[transformName];
+                        }
+                    });
+
+                    /* Mobile devices have hardware acceleration removed at the end of the animation in order to avoid hogging the GPU's memory. */
+                    if (opts.mobileHA) {
+                        transformHAPropertyExists = true;
+                        delete Data(element).transformCache.translate3d;
+                    }
+
+                    /* Flush the subproperty removals to the DOM. */
+                    if (transformHAPropertyExists) {
+                        CSS.flushTransformCache(element);
+                    }
+
+                    /* Remove the "velocity-animating" indicator class. */
+                    CSS.Values.removeClass(element, "velocity-animating");
+                }
+            }
+
+            /*********************
+               Option: Complete
+            *********************/
+
+            /* Complete is fired once per call (not once per element) and is passed the full raw DOM element set as both its context and its first argument. */
+            /* Note: Callbacks aren't fired when calls are manually stopped (via Velocity("stop"). */
+            if (!isStopped && opts.complete && !opts.loop && (i === callLength - 1)) {
+                /* We throw callbacks in a setTimeout so that thrown errors don't halt the execution of Velocity itself. */
+                try {
+                    opts.complete.call(elements, elements);
+                } catch (error) {
+                    setTimeout(function() { throw error; }, 1);
+                }
+            }
+
+            /**********************
+               Promise Resolving
+            **********************/
+
+            /* Note: Infinite loops don't return promises. */
+            if (resolver && opts.loop !== true) {
+                resolver(elements);
+            }
+
+            /****************************
+               Option: Loop (Infinite)
+            ****************************/
+
+            if (Data(element) && opts.loop === true && !isStopped) {
+                /* If a rotateX/Y/Z property is being animated to 360 deg with loop:true, swap tween start/end values to enable
+                   continuous iterative rotation looping. (Otherise, the element would just rotate back and forth.) */
+                $.each(Data(element).tweensContainer, function(propertyName, tweenContainer) {
+                    if (/^rotate/.test(propertyName) && parseFloat(tweenContainer.endValue) === 360) {
+                        tweenContainer.endValue = 0;
+                        tweenContainer.startValue = 360;
+                    }
+
+                    if (/^backgroundPosition/.test(propertyName) && parseFloat(tweenContainer.endValue) === 100 && tweenContainer.unitType === "%") {
+                        tweenContainer.endValue = 0;
+                        tweenContainer.startValue = 100;
+                    }
+                });
+
+                Velocity(element, "reverse", { loop: true, delay: opts.delay });
+            }
+
+            /***************
+               Dequeueing
+            ***************/
+
+            /* Fire the next call in the queue so long as this call's queue wasn't set to false (to trigger a parallel animation),
+               which would have already caused the next call to fire. Note: Even if the end of the animation queue has been reached,
+               $.dequeue() must still be called in order to completely clear jQuery's animation queue. */
+            if (opts.queue !== false) {
+                $.dequeue(element, opts.queue);
+            }
+        }
+
+        /************************
+           Calls Array Cleanup
+        ************************/
+
+        /* Since this call is complete, set it to false so that the rAF tick skips it. This array is later compacted via compactSparseArray().
+          (For performance reasons, the call is set to false instead of being deleted from the array: http://www.html5rocks.com/en/tutorials/speed/v8/) */
+        Velocity.State.calls[callIndex] = false;
+
+        /* Iterate through the calls array to determine if this was the final in-progress animation.
+           If so, set a flag to end ticking and clear the calls array. */
+        for (var j = 0, callsLength = Velocity.State.calls.length; j < callsLength; j++) {
+            if (Velocity.State.calls[j] !== false) {
+                remainingCallsExist = true;
+
+                break;
+            }
+        }
+
+        if (remainingCallsExist === false) {
+            /* tick() will detect this flag upon its next iteration and subsequently turn itself off. */
+            Velocity.State.isTicking = false;
+
+            /* Clear the calls array so that its length is reset. */
+            delete Velocity.State.calls;
+            Velocity.State.calls = [];
+        }
+    }
+
+    /******************
+        Frameworks
+    ******************/
+
+    /* Both jQuery and Zepto allow their $.fn object to be extended to allow wrapped elements to be subjected to plugin calls.
+       If either framework is loaded, register a "velocity" extension pointing to Velocity's core animate() method.  Velocity
+       also registers itself onto a global container (window.jQuery || window.Zepto || window) so that certain features are
+       accessible beyond just a per-element scope. This master object contains an .animate() method, which is later assigned to $.fn
+       (if jQuery or Zepto are present). Accordingly, Velocity can both act on wrapped DOM elements and stand alone for targeting raw DOM elements. */
+    global.Velocity = Velocity;
+
+    if (global !== window) {
+        /* Assign the element function to Velocity's core animate() method. */
+        global.fn.velocity = animate;
+        /* Assign the object function's defaults to Velocity's global defaults object. */
+        global.fn.velocity.defaults = Velocity.defaults;
+    }
+
+    /***********************
+       Packaged Redirects
+    ***********************/
+
+    /* slideUp, slideDown */
+    $.each([ "Down", "Up" ], function(i, direction) {
+        Velocity.Redirects["slide" + direction] = function (element, options, elementsIndex, elementsSize, elements, promiseData) {
+            var opts = $.extend({}, options),
+                begin = opts.begin,
+                complete = opts.complete,
+                computedValues = { height: "", marginTop: "", marginBottom: "", paddingTop: "", paddingBottom: "" },
+                inlineValues = {};
+
+            if (opts.display === undefined) {
+                /* Show the element before slideDown begins and hide the element after slideUp completes. */
+                /* Note: Inline elements cannot have dimensions animated, so they're reverted to inline-block. */
+                opts.display = (direction === "Down" ? (Velocity.CSS.Values.getDisplayType(element) === "inline" ? "inline-block" : "block") : "none");
+            }
+
+            opts.begin = function() {
+                /* If the user passed in a begin callback, fire it now. */
+                begin && begin.call(elements, elements);
+
+                /* Cache the elements' original vertical dimensional property values so that we can animate back to them. */
+                for (var property in computedValues) {
+                    inlineValues[property] = element.style[property];
+
+                    /* For slideDown, use forcefeeding to animate all vertical properties from 0. For slideUp,
+                       use forcefeeding to start from computed values and animate down to 0. */
+                    var propertyValue = Velocity.CSS.getPropertyValue(element, property);
+                    computedValues[property] = (direction === "Down") ? [ propertyValue, 0 ] : [ 0, propertyValue ];
+                }
+
+                /* Force vertical overflow content to clip so that sliding works as expected. */
+                inlineValues.overflow = element.style.overflow;
+                element.style.overflow = "hidden";
+            }
+
+            opts.complete = function() {
+                /* Reset element to its pre-slide inline values once its slide animation is complete. */
+                for (var property in inlineValues) {
+                    element.style[property] = inlineValues[property];
+                }
+
+                /* If the user passed in a complete callback, fire it now. */
+                complete && complete.call(elements, elements);
+                promiseData && promiseData.resolver(elements);
+            };
+
+            Velocity(element, computedValues, opts);
+        };
+    });
+
+    /* fadeIn, fadeOut */
+    $.each([ "In", "Out" ], function(i, direction) {
+        Velocity.Redirects["fade" + direction] = function (element, options, elementsIndex, elementsSize, elements, promiseData) {
+            var opts = $.extend({}, options),
+                propertiesMap = { opacity: (direction === "In") ? 1 : 0 },
+                originalComplete = opts.complete;
+
+            /* Since redirects are triggered individually for each element in the animated set, avoid repeatedly triggering
+               callbacks by firing them only when the final element has been reached. */
+            if (elementsIndex !== elementsSize - 1) {
+                opts.complete = opts.begin = null;
+            } else {
+                opts.complete = function() {
+                    if (originalComplete) {
+                        originalComplete.call(elements, elements);
+                    }
+
+                    promiseData && promiseData.resolver(elements);
+                }
+            }
+
+            /* If a display was passed in, use it. Otherwise, default to "none" for fadeOut or the element-specific default for fadeIn. */
+            /* Note: We allow users to pass in "null" to skip display setting altogether. */
+            if (opts.display === undefined) {
+                opts.display = (direction === "In" ? "auto" : "none");
+            }
+
+            Velocity(this, propertiesMap, opts);
+        };
+    });
+
+    return Velocity;
+}((window.jQuery || window.Zepto || window), window, document);
+}));
+
+/******************
+   Known Issues
+******************/
+
+/* The CSS spec mandates that the translateX/Y/Z transforms are %-relative to the element itself -- not its parent.
+Velocity, however, doesn't make this distinction. Thus, converting to or from the % unit with these subproperties
+will produce an inaccurate conversion value. The same issue exists with the cx/cy attributes of SVG circles and ellipses. */
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\velocity-animate\\velocity.js","/node_modules\\velocity-animate")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\velocity-animate\\velocity.ui.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+/**********************
+   Velocity UI Pack
+**********************/
+
+/* VelocityJS.org UI Pack (5.0.4). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License. Portions copyright Daniel Eden, Christian Pucci. */
+
+;(function (factory) {
+    /* CommonJS module. */
+    if (typeof require === "function" && typeof exports === "object" ) {
+        module.exports = factory();
+    /* AMD module. */
+    } else if (typeof define === "function" && define.amd) {
+        define([ "velocity" ], factory);
+    /* Browser globals. */
+    } else {
+        factory();
+    }
+}(function() {
+return function (global, window, document, undefined) {
+
+    /*************
+        Checks
+    *************/
+
+    if (!global.Velocity || !global.Velocity.Utilities) {
+        window.console && console.log("Velocity UI Pack: Velocity must be loaded first. Aborting.");
+        return;
+    } else {
+        var Velocity = global.Velocity,
+            $ = Velocity.Utilities;
+    }
+
+    var velocityVersion = Velocity.version,
+        requiredVersion = { major: 1, minor: 1, patch: 0 };
+
+    function greaterSemver (primary, secondary) {
+        var versionInts = [];
+
+        if (!primary || !secondary) { return false; }
+
+        $.each([ primary, secondary ], function(i, versionObject) {
+            var versionIntsComponents = [];
+
+            $.each(versionObject, function(component, value) {
+                while (value.toString().length < 5) {
+                    value = "0" + value;
+                }
+                versionIntsComponents.push(value);
+            });
+
+            versionInts.push(versionIntsComponents.join(""))
+        });
+
+        return (parseFloat(versionInts[0]) > parseFloat(versionInts[1]));
+    }
+
+    if (greaterSemver(requiredVersion, velocityVersion)){
+        var abortError = "Velocity UI Pack: You need to update Velocity (jquery.velocity.js) to a newer version. Visit http://github.com/julianshapiro/velocity.";
+        alert(abortError);
+        throw new Error(abortError);
+    }
+
+    /************************
+       Effect Registration
+    ************************/
+
+    /* Note: RegisterUI is a legacy name. */
+    Velocity.RegisterEffect = Velocity.RegisterUI = function (effectName, properties) {
+        /* Animate the expansion/contraction of the elements' parent's height for In/Out effects. */
+        function animateParentHeight (elements, direction, totalDuration, stagger) {
+            var totalHeightDelta = 0,
+                parentNode;
+
+            /* Sum the total height (including padding and margin) of all targeted elements. */
+            $.each(elements.nodeType ? [ elements ] : elements, function(i, element) {
+                if (stagger) {
+                    /* Increase the totalDuration by the successive delay amounts produced by the stagger option. */
+                    totalDuration += i * stagger;
+                }
+
+                parentNode = element.parentNode;
+
+                $.each([ "height", "paddingTop", "paddingBottom", "marginTop", "marginBottom"], function(i, property) {
+                    totalHeightDelta += parseFloat(Velocity.CSS.getPropertyValue(element, property));
+                });
+            });
+
+            /* Animate the parent element's height adjustment (with a varying duration multiplier for aesthetic benefits). */
+            Velocity.animate(
+                parentNode,
+                { height: (direction === "In" ? "+" : "-") + "=" + totalHeightDelta },
+                { queue: false, easing: "ease-in-out", duration: totalDuration * (direction === "In" ? 0.6 : 1) }
+            );
+        }
+
+        /* Register a custom redirect for each effect. */
+        Velocity.Redirects[effectName] = function (element, redirectOptions, elementsIndex, elementsSize, elements, promiseData) {
+            var finalElement = (elementsIndex === elementsSize - 1);
+
+            if (typeof properties.defaultDuration === "function") {
+                properties.defaultDuration = properties.defaultDuration.call(elements, elements);
+            } else {
+                properties.defaultDuration = parseFloat(properties.defaultDuration);
+            }
+
+            /* Iterate through each effect's call array. */
+            for (var callIndex = 0; callIndex < properties.calls.length; callIndex++) {
+                var call = properties.calls[callIndex],
+                    propertyMap = call[0],
+                    redirectDuration = (redirectOptions.duration || properties.defaultDuration || 1000),
+                    durationPercentage = call[1],
+                    callOptions = call[2] || {},
+                    opts = {};
+
+                /* Assign the whitelisted per-call options. */
+                opts.duration = redirectDuration * (durationPercentage || 1);
+                opts.queue = redirectOptions.queue || "";
+                opts.easing = callOptions.easing || "ease";
+                opts.delay = parseFloat(callOptions.delay) || 0;
+                opts._cacheValues = callOptions._cacheValues || true;
+
+                /* Special processing for the first effect call. */
+                if (callIndex === 0) {
+                    /* If a delay was passed into the redirect, combine it with the first call's delay. */
+                    opts.delay += (parseFloat(redirectOptions.delay) || 0);
+
+                    if (elementsIndex === 0) {
+                        opts.begin = function() {
+                            /* Only trigger a begin callback on the first effect call with the first element in the set. */
+                            redirectOptions.begin && redirectOptions.begin.call(elements, elements);
+
+                            var direction = effectName.match(/(In|Out)$/);
+
+                            /* Make "in" transitioning elements invisible immediately so that there's no FOUC between now
+                               and the first RAF tick. */
+                            if ((direction && direction[0] === "In") && propertyMap.opacity !== undefined) {
+                                $.each(elements.nodeType ? [ elements ] : elements, function(i, element) {
+                                    Velocity.CSS.setPropertyValue(element, "opacity", 0);
+                                });
+                            }
+
+                            /* Only trigger animateParentHeight() if we're using an In/Out transition. */
+                            if (redirectOptions.animateParentHeight && direction) {
+                                animateParentHeight(elements, direction[0], redirectDuration + opts.delay, redirectOptions.stagger);
+                            }
+                        }
+                    }
+
+                    /* If the user isn't overriding the display option, default to "auto" for "In"-suffixed transitions. */
+                    if (redirectOptions.display !== null) {
+                        if (redirectOptions.display !== undefined && redirectOptions.display !== "none") {
+                            opts.display = redirectOptions.display;
+                        } else if (/In$/.test(effectName)) {
+                            /* Inline elements cannot be subjected to transforms, so we switch them to inline-block. */
+                            var defaultDisplay = Velocity.CSS.Values.getDisplayType(element);
+                            opts.display = (defaultDisplay === "inline") ? "inline-block" : defaultDisplay;
+                        }
+                    }
+
+                    if (redirectOptions.visibility && redirectOptions.visibility !== "hidden") {
+                        opts.visibility = redirectOptions.visibility;
+                    }
+                }
+
+                /* Special processing for the last effect call. */
+                if (callIndex === properties.calls.length - 1) {
+                    /* Append promise resolving onto the user's redirect callback. */
+                    function injectFinalCallbacks () {
+                        if ((redirectOptions.display === undefined || redirectOptions.display === "none") && /Out$/.test(effectName)) {
+                            $.each(elements.nodeType ? [ elements ] : elements, function(i, element) {
+                                Velocity.CSS.setPropertyValue(element, "display", "none");
+                            });
+                        }
+
+                        redirectOptions.complete && redirectOptions.complete.call(elements, elements);
+
+                        if (promiseData) {
+                            promiseData.resolver(elements || element);
+                        }
+                    }
+
+                    opts.complete = function() {
+                        if (properties.reset) {
+                            for (var resetProperty in properties.reset) {
+                                var resetValue = properties.reset[resetProperty];
+
+                                /* Format each non-array value in the reset property map to [ value, value ] so that changes apply
+                                   immediately and DOM querying is avoided (via forcefeeding). */
+                                /* Note: Don't forcefeed hooks, otherwise their hook roots will be defaulted to their null values. */
+                                if (Velocity.CSS.Hooks.registered[resetProperty] === undefined && (typeof resetValue === "string" || typeof resetValue === "number")) {
+                                    properties.reset[resetProperty] = [ properties.reset[resetProperty], properties.reset[resetProperty] ];
+                                }
+                            }
+
+                            /* So that the reset values are applied instantly upon the next rAF tick, use a zero duration and parallel queueing. */
+                            var resetOptions = { duration: 0, queue: false };
+
+                            /* Since the reset option uses up the complete callback, we trigger the user's complete callback at the end of ours. */
+                            if (finalElement) {
+                                resetOptions.complete = injectFinalCallbacks;
+                            }
+
+                            Velocity.animate(element, properties.reset, resetOptions);
+                        /* Only trigger the user's complete callback on the last effect call with the last element in the set. */
+                        } else if (finalElement) {
+                            injectFinalCallbacks();
+                        }
+                    };
+
+                    if (redirectOptions.visibility === "hidden") {
+                        opts.visibility = redirectOptions.visibility;
+                    }
+                }
+
+                Velocity.animate(element, propertyMap, opts);
+            }
+        };
+
+        /* Return the Velocity object so that RegisterUI calls can be chained. */
+        return Velocity;
+    };
+
+    /*********************
+       Packaged Effects
+    *********************/
+
+    /* Externalize the packagedEffects data so that they can optionally be modified and re-registered. */
+    /* Support: <=IE8: Callouts will have no effect, and transitions will simply fade in/out. IE9/Android 2.3: Most effects are fully supported, the rest fade in/out. All other browsers: full support. */
+    Velocity.RegisterEffect.packagedEffects =
+        {
+            /* Animate.css */
+            "callout.bounce": {
+                defaultDuration: 550,
+                calls: [
+                    [ { translateY: -30 }, 0.25 ],
+                    [ { translateY: 0 }, 0.125 ],
+                    [ { translateY: -15 }, 0.125 ],
+                    [ { translateY: 0 }, 0.25 ]
+                ]
+            },
+            /* Animate.css */
+            "callout.shake": {
+                defaultDuration: 800,
+                calls: [
+                    [ { translateX: -11 }, 0.125 ],
+                    [ { translateX: 11 }, 0.125 ],
+                    [ { translateX: -11 }, 0.125 ],
+                    [ { translateX: 11 }, 0.125 ],
+                    [ { translateX: -11 }, 0.125 ],
+                    [ { translateX: 11 }, 0.125 ],
+                    [ { translateX: -11 }, 0.125 ],
+                    [ { translateX: 0 }, 0.125 ]
+                ]
+            },
+            /* Animate.css */
+            "callout.flash": {
+                defaultDuration: 1100,
+                calls: [
+                    [ { opacity: [ 0, "easeInOutQuad", 1 ] }, 0.25 ],
+                    [ { opacity: [ 1, "easeInOutQuad" ] }, 0.25 ],
+                    [ { opacity: [ 0, "easeInOutQuad" ] }, 0.25 ],
+                    [ { opacity: [ 1, "easeInOutQuad" ] }, 0.25 ]
+                ]
+            },
+            /* Animate.css */
+            "callout.pulse": {
+                defaultDuration: 825,
+                calls: [
+                    [ { scaleX: 1.1, scaleY: 1.1 }, 0.50, { easing: "easeInExpo" } ],
+                    [ { scaleX: 1, scaleY: 1 }, 0.50 ]
+                ]
+            },
+            /* Animate.css */
+            "callout.swing": {
+                defaultDuration: 950,
+                calls: [
+                    [ { rotateZ: 15 }, 0.20 ],
+                    [ { rotateZ: -10 }, 0.20 ],
+                    [ { rotateZ: 5 }, 0.20 ],
+                    [ { rotateZ: -5 }, 0.20 ],
+                    [ { rotateZ: 0 }, 0.20 ]
+                ]
+            },
+            /* Animate.css */
+            "callout.tada": {
+                defaultDuration: 1000,
+                calls: [
+                    [ { scaleX: 0.9, scaleY: 0.9, rotateZ: -3 }, 0.10 ],
+                    [ { scaleX: 1.1, scaleY: 1.1, rotateZ: 3 }, 0.10 ],
+                    [ { scaleX: 1.1, scaleY: 1.1, rotateZ: -3 }, 0.10 ],
+                    [ "reverse", 0.125 ],
+                    [ "reverse", 0.125 ],
+                    [ "reverse", 0.125 ],
+                    [ "reverse", 0.125 ],
+                    [ "reverse", 0.125 ],
+                    [ { scaleX: 1, scaleY: 1, rotateZ: 0 }, 0.20 ]
+                ]
+            },
+            "transition.fadeIn": {
+                defaultDuration: 500,
+                calls: [
+                    [ { opacity: [ 1, 0 ] } ]
+                ]
+            },
+            "transition.fadeOut": {
+                defaultDuration: 500,
+                calls: [
+                    [ { opacity: [ 0, 1 ] } ]
+                ]
+            },
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipXIn": {
+                defaultDuration: 700,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformPerspective: [ 800, 800 ], rotateY: [ 0, -55 ] } ]
+                ],
+                reset: { transformPerspective: 0 }
+            },
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipXOut": {
+                defaultDuration: 700,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformPerspective: [ 800, 800 ], rotateY: 55 } ]
+                ],
+                reset: { transformPerspective: 0, rotateY: 0 }
+            },
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipYIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformPerspective: [ 800, 800 ], rotateX: [ 0, -45 ] } ]
+                ],
+                reset: { transformPerspective: 0 }
+            },
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipYOut": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformPerspective: [ 800, 800 ], rotateX: 25 } ]
+                ],
+                reset: { transformPerspective: 0, rotateX: 0 }
+            },
+            /* Animate.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipBounceXIn": {
+                defaultDuration: 900,
+                calls: [
+                    [ { opacity: [ 0.725, 0 ], transformPerspective: [ 400, 400 ], rotateY: [ -10, 90 ] }, 0.50 ],
+                    [ { opacity: 0.80, rotateY: 10 }, 0.25 ],
+                    [ { opacity: 1, rotateY: 0 }, 0.25 ]
+                ],
+                reset: { transformPerspective: 0 }
+            },
+            /* Animate.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipBounceXOut": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 0.9, 1 ], transformPerspective: [ 400, 400 ], rotateY: -10 }, 0.50 ],
+                    [ { opacity: 0, rotateY: 90 }, 0.50 ]
+                ],
+                reset: { transformPerspective: 0, rotateY: 0 }
+            },
+            /* Animate.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipBounceYIn": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 0.725, 0 ], transformPerspective: [ 400, 400 ], rotateX: [ -10, 90 ] }, 0.50 ],
+                    [ { opacity: 0.80, rotateX: 10 }, 0.25 ],
+                    [ { opacity: 1, rotateX: 0 }, 0.25 ]
+                ],
+                reset: { transformPerspective: 0 }
+            },
+            /* Animate.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.flipBounceYOut": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 0.9, 1 ], transformPerspective: [ 400, 400 ], rotateX: -15 }, 0.50 ],
+                    [ { opacity: 0, rotateX: 90 }, 0.50 ]
+                ],
+                reset: { transformPerspective: 0, rotateX: 0 }
+            },
+            /* Magic.css */
+            "transition.swoopIn": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformOriginX: [ "100%", "50%" ], transformOriginY: [ "100%", "100%" ], scaleX: [ 1, 0 ], scaleY: [ 1, 0 ], translateX: [ 0, -700 ], translateZ: 0 } ]
+                ],
+                reset: { transformOriginX: "50%", transformOriginY: "50%" }
+            },
+            /* Magic.css */
+            "transition.swoopOut": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformOriginX: [ "50%", "100%" ], transformOriginY: [ "100%", "100%" ], scaleX: 0, scaleY: 0, translateX: -700, translateZ: 0 } ]
+                ],
+                reset: { transformOriginX: "50%", transformOriginY: "50%", scaleX: 1, scaleY: 1, translateX: 0 }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3. (Fades and scales only.) */
+            "transition.whirlIn": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformOriginX: [ "50%", "50%" ], transformOriginY: [ "50%", "50%" ], scaleX: [ 1, 0 ], scaleY: [ 1, 0 ], rotateY: [ 0, 160 ] }, 1, { easing: "easeInOutSine" } ]
+                ]
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3. (Fades and scales only.) */
+            "transition.whirlOut": {
+                defaultDuration: 750,
+                calls: [
+                    [ { opacity: [ 0, "easeInOutQuint", 1 ], transformOriginX: [ "50%", "50%" ], transformOriginY: [ "50%", "50%" ], scaleX: 0, scaleY: 0, rotateY: 160 }, 1, { easing: "swing" } ]
+                ],
+                reset: { scaleX: 1, scaleY: 1, rotateY: 0 }
+            },
+            "transition.shrinkIn": {
+                defaultDuration: 750,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformOriginX: [ "50%", "50%" ], transformOriginY: [ "50%", "50%" ], scaleX: [ 1, 1.5 ], scaleY: [ 1, 1.5 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.shrinkOut": {
+                defaultDuration: 600,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformOriginX: [ "50%", "50%" ], transformOriginY: [ "50%", "50%" ], scaleX: 1.3, scaleY: 1.3, translateZ: 0 } ]
+                ],
+                reset: { scaleX: 1, scaleY: 1 }
+            },
+            "transition.expandIn": {
+                defaultDuration: 700,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformOriginX: [ "50%", "50%" ], transformOriginY: [ "50%", "50%" ], scaleX: [ 1, 0.625 ], scaleY: [ 1, 0.625 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.expandOut": {
+                defaultDuration: 700,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformOriginX: [ "50%", "50%" ], transformOriginY: [ "50%", "50%" ], scaleX: 0.5, scaleY: 0.5, translateZ: 0 } ]
+                ],
+                reset: { scaleX: 1, scaleY: 1 }
+            },
+            /* Animate.css */
+            "transition.bounceIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], scaleX: [ 1.05, 0.3 ], scaleY: [ 1.05, 0.3 ] }, 0.40 ],
+                    [ { scaleX: 0.9, scaleY: 0.9, translateZ: 0 }, 0.20 ],
+                    [ { scaleX: 1, scaleY: 1 }, 0.50 ]
+                ]
+            },
+            /* Animate.css */
+            "transition.bounceOut": {
+                defaultDuration: 800,
+                calls: [
+                    [ { scaleX: 0.95, scaleY: 0.95 }, 0.35 ],
+                    [ { scaleX: 1.1, scaleY: 1.1, translateZ: 0 }, 0.35 ],
+                    [ { opacity: [ 0, 1 ], scaleX: 0.3, scaleY: 0.3 }, 0.30 ]
+                ],
+                reset: { scaleX: 1, scaleY: 1 }
+            },
+            /* Animate.css */
+            "transition.bounceUpIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateY: [ -30, 1000 ] }, 0.60, { easing: "easeOutCirc" } ],
+                    [ { translateY: 10 }, 0.20 ],
+                    [ { translateY: 0 }, 0.20 ]
+                ]
+            },
+            /* Animate.css */
+            "transition.bounceUpOut": {
+                defaultDuration: 1000,
+                calls: [
+                    [ { translateY: 20 }, 0.20 ],
+                    [ { opacity: [ 0, "easeInCirc", 1 ], translateY: -1000 }, 0.80 ]
+                ],
+                reset: { translateY: 0 }
+            },
+            /* Animate.css */
+            "transition.bounceDownIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateY: [ 30, -1000 ] }, 0.60, { easing: "easeOutCirc" } ],
+                    [ { translateY: -10 }, 0.20 ],
+                    [ { translateY: 0 }, 0.20 ]
+                ]
+            },
+            /* Animate.css */
+            "transition.bounceDownOut": {
+                defaultDuration: 1000,
+                calls: [
+                    [ { translateY: -20 }, 0.20 ],
+                    [ { opacity: [ 0, "easeInCirc", 1 ], translateY: 1000 }, 0.80 ]
+                ],
+                reset: { translateY: 0 }
+            },
+            /* Animate.css */
+            "transition.bounceLeftIn": {
+                defaultDuration: 750,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateX: [ 30, -1250 ] }, 0.60, { easing: "easeOutCirc" } ],
+                    [ { translateX: -10 }, 0.20 ],
+                    [ { translateX: 0 }, 0.20 ]
+                ]
+            },
+            /* Animate.css */
+            "transition.bounceLeftOut": {
+                defaultDuration: 750,
+                calls: [
+                    [ { translateX: 30 }, 0.20 ],
+                    [ { opacity: [ 0, "easeInCirc", 1 ], translateX: -1250 }, 0.80 ]
+                ],
+                reset: { translateX: 0 }
+            },
+            /* Animate.css */
+            "transition.bounceRightIn": {
+                defaultDuration: 750,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateX: [ -30, 1250 ] }, 0.60, { easing: "easeOutCirc" } ],
+                    [ { translateX: 10 }, 0.20 ],
+                    [ { translateX: 0 }, 0.20 ]
+                ]
+            },
+            /* Animate.css */
+            "transition.bounceRightOut": {
+                defaultDuration: 750,
+                calls: [
+                    [ { translateX: -30 }, 0.20 ],
+                    [ { opacity: [ 0, "easeInCirc", 1 ], translateX: 1250 }, 0.80 ]
+                ],
+                reset: { translateX: 0 }
+            },
+            "transition.slideUpIn": {
+                defaultDuration: 900,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateY: [ 0, 20 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideUpOut": {
+                defaultDuration: 900,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateY: -20, translateZ: 0 } ]
+                ],
+                reset: { translateY: 0 }
+            },
+            "transition.slideDownIn": {
+                defaultDuration: 900,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateY: [ 0, -20 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideDownOut": {
+                defaultDuration: 900,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateY: 20, translateZ: 0 } ]
+                ],
+                reset: { translateY: 0 }
+            },
+            "transition.slideLeftIn": {
+                defaultDuration: 1000,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateX: [ 0, -20 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideLeftOut": {
+                defaultDuration: 1050,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateX: -20, translateZ: 0 } ]
+                ],
+                reset: { translateX: 0 }
+            },
+            "transition.slideRightIn": {
+                defaultDuration: 1000,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateX: [ 0, 20 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideRightOut": {
+                defaultDuration: 1050,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateX: 20, translateZ: 0 } ]
+                ],
+                reset: { translateX: 0 }
+            },
+            "transition.slideUpBigIn": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateY: [ 0, 75 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideUpBigOut": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateY: -75, translateZ: 0 } ]
+                ],
+                reset: { translateY: 0 }
+            },
+            "transition.slideDownBigIn": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateY: [ 0, -75 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideDownBigOut": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateY: 75, translateZ: 0 } ]
+                ],
+                reset: { translateY: 0 }
+            },
+            "transition.slideLeftBigIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateX: [ 0, -75 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideLeftBigOut": {
+                defaultDuration: 750,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateX: -75, translateZ: 0 } ]
+                ],
+                reset: { translateX: 0 }
+            },
+            "transition.slideRightBigIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], translateX: [ 0, 75 ], translateZ: 0 } ]
+                ]
+            },
+            "transition.slideRightBigOut": {
+                defaultDuration: 750,
+                calls: [
+                    [ { opacity: [ 0, 1 ], translateX: 75, translateZ: 0 } ]
+                ],
+                reset: { translateX: 0 }
+            },
+            /* Magic.css */
+            "transition.perspectiveUpIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformPerspective: [ 800, 800 ], transformOriginX: [ 0, 0 ], transformOriginY: [ "100%", "100%" ], rotateX: [ 0, -180 ] } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%" }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.perspectiveUpOut": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformPerspective: [ 800, 800 ], transformOriginX: [ 0, 0 ], transformOriginY: [ "100%", "100%" ], rotateX: -180 } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%", rotateX: 0 }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.perspectiveDownIn": {
+                defaultDuration: 800,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformPerspective: [ 800, 800 ], transformOriginX: [ 0, 0 ], transformOriginY: [ 0, 0 ], rotateX: [ 0, 180 ] } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%" }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.perspectiveDownOut": {
+                defaultDuration: 850,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformPerspective: [ 800, 800 ], transformOriginX: [ 0, 0 ], transformOriginY: [ 0, 0 ], rotateX: 180 } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%", rotateX: 0 }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.perspectiveLeftIn": {
+                defaultDuration: 950,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformPerspective: [ 2000, 2000 ], transformOriginX: [ 0, 0 ], transformOriginY: [ 0, 0 ], rotateY: [ 0, -180 ] } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%" }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.perspectiveLeftOut": {
+                defaultDuration: 950,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformPerspective: [ 2000, 2000 ], transformOriginX: [ 0, 0 ], transformOriginY: [ 0, 0 ], rotateY: -180 } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%", rotateY: 0 }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.perspectiveRightIn": {
+                defaultDuration: 950,
+                calls: [
+                    [ { opacity: [ 1, 0 ], transformPerspective: [ 2000, 2000 ], transformOriginX: [ "100%", "100%" ], transformOriginY: [ 0, 0 ], rotateY: [ 0, 180 ] } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%" }
+            },
+            /* Magic.css */
+            /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
+            "transition.perspectiveRightOut": {
+                defaultDuration: 950,
+                calls: [
+                    [ { opacity: [ 0, 1 ], transformPerspective: [ 2000, 2000 ], transformOriginX: [ "100%", "100%" ], transformOriginY: [ 0, 0 ], rotateY: 180 } ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%", rotateY: 0 }
+            }
+        };
+
+    /* Register the packaged effects. */
+    for (var effectName in Velocity.RegisterEffect.packagedEffects) {
+        Velocity.RegisterEffect(effectName, Velocity.RegisterEffect.packagedEffects[effectName]);
+    }
+
+    /*********************
+       Sequence Running
+    **********************/
+
+    /* Note: Sequence calls must use Velocity's single-object arguments syntax. */
+    Velocity.RunSequence = function (originalSequence) {
+        var sequence = $.extend(true, [], originalSequence);
+
+        if (sequence.length > 1) {
+            $.each(sequence.reverse(), function(i, currentCall) {
+                var nextCall = sequence[i + 1];
+
+                if (nextCall) {
+                    /* Parallel sequence calls (indicated via sequenceQueue:false) are triggered
+                       in the previous call's begin callback. Otherwise, chained calls are normally triggered
+                       in the previous call's complete callback. */
+                    var currentCallOptions = currentCall.o || currentCall.options,
+                        nextCallOptions = nextCall.o || nextCall.options;
+
+                    var timing = (currentCallOptions && currentCallOptions.sequenceQueue === false) ? "begin" : "complete",
+                        callbackOriginal = nextCallOptions && nextCallOptions[timing],
+                        options = {};
+
+                    options[timing] = function() {
+                        var nextCallElements = nextCall.e || nextCall.elements;
+                        var elements = nextCallElements.nodeType ? [ nextCallElements ] : nextCallElements;
+
+                        callbackOriginal && callbackOriginal.call(elements, elements);
+                        Velocity(currentCall);
+                    }
+
+                    if (nextCall.o) {
+                        nextCall.o = $.extend({}, nextCallOptions, options);
+                    } else {
+                        nextCall.options = $.extend({}, nextCallOptions, options);
+                    }
+                }
+            });
+
+            sequence.reverse();
+        }
+
+        Velocity(sequence[0]);
+    };
+}((window.jQuery || window.Zepto || window), window, document);
+}));
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\velocity-animate\\velocity.ui.js","/node_modules\\velocity-animate")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\warning\\browser.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -32146,9 +39299,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 
-}).call(this,require('_process'))
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\warning\\browser.js","/node_modules\\warning")
 
-},{"_process":167}],351:[function(require,module,exports){
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\wrappy\\wrappy.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 // Returns a wrapper function that returns a wrapped callback
 // The wrapper function should do some stuff, and return a
 // presumably different callback function.
@@ -32183,7 +39337,10 @@ function wrappy (fn, cb) {
   }
 }
 
-},{}],352:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\wrappy\\wrappy.js","/node_modules\\wrappy")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"Q:\\_alpha\\quickly.box\\node_modules\\xtend\\index.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports = extend
 
 function extend() {
@@ -32202,7 +39359,9 @@ function extend() {
     return target
 }
 
-},{}]},{},[58,6,56,1,57,32])
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/node_modules\\xtend\\index.js","/node_modules\\xtend")
+
+},{"_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}]},{},["Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\shop.jsx","Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\profile.jsx","Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\reservation.jsx","Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\checkout.jsx","Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\screens.jsx","Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\index.js"])
 
 
 //# sourceMappingURL=es6.js.map

@@ -4,9 +4,9 @@ var CuisinesList = require('./cuisinesList.react.jsx');
 var ButtonTabToggle = require('./components/buttonTabToggle.js');
 
 import {getReservationPointsList, getHallsList} from '../reservation.jsx';
-import {browserHistory} from 'react-router';
+import {browserHistory, Link} from 'react-router';
 
-var routesMap = require('./routes/map.js')
+var routesMap = require('./routes/map.js');
 
 // restaurant_type:
 // 1 - только бронь
@@ -27,12 +27,10 @@ var CompanyDetails = React.createClass({
 
     },
     routeBack: function(){
-        browserHistory(routesMap.home.path);
+        browserHistory.push(routesMap.routes.main.path);
     },
     render: function() {
-
         var data = this.state.companyData;
-
         if (data){
             var type = data.restaurant_type;
             if ( (type == 1) || (type == 3) ){
@@ -67,7 +65,7 @@ var CompanyDetails = React.createClass({
         } else {
             console.log('CompanyDetails: No comments ('+company.comments_count+')');
         }
-        //                     <span className="hidden-force">{company.restaurant_info}</span>
+
         var rating = company.restaurant_rating;
         return (
         <div className="container">
@@ -139,4 +137,3 @@ var CompanyDetails = React.createClass({
 });
 
 module.exports = CompanyDetails;
-// ReactDOM.render( <CompanyDetails companyId="1"/>, document.getElementById('companyDetails') );

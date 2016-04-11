@@ -14,6 +14,7 @@ var watchify = require('watchify');
 var babel = require('babelify');
 var uglify = require('gulp-uglify');
 var sftp = require('gulp-sftp');
+var reactify = require('reactify');
 
 var runSequence = require('run-sequence').use(gulp);
 
@@ -22,11 +23,23 @@ var theEngine = require('./config.engine.js');
 
 var secrets = require('./secrets.json');
 
+var dependencies = [
+    'alt',
+    'react',
+    'react-dom',
+    'react-router',
+    'react-selectize',
+    'underscore'
+];
+
 gulp.task('default', ['scripts', 'styles', 'js', 'watch']);
 
 function compile(watch) {
     var bundler = watchify(browserify(theEngine, {
-        debug: true
+        debug: true,
+        insertGlobals: true,
+        cache: {}, packageCache: {},
+        fullPaths: true,
     }).transform(babel, {
         presets: ["es2015", "react"]
     }));

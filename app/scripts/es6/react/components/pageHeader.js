@@ -2,12 +2,22 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-10 22:34:08
+* @Last Modified time: 2016-04-11 19:19:40
 */
 
 var InlineSvg = require('react-inlinesvg');
+var routesMap = require('../routes/map.js');
+import {Link, browserHistory} from 'react-router';
+
+var ProfileEditorActions = require('../actions/profileEditorActions.js');
+var HistoryActions = require('../actions/historyActions.js');
 
 var PageHeader = React.createClass({
+    editProfile: function(){
+        ProfileEditorActions.fetchList();
+        HistoryActions.fetchList();
+        browserHistory.push(routesMap.routes.profile.path);
+    },
     render: function(){
         return(
             <div>
@@ -63,8 +73,7 @@ var PageHeader = React.createClass({
                                 <div className="dropdown-nice">
                                    <div className="user-top" id="userBadgeTop"></div>
                                    <div className="menu-box">
-                                        <a href="#" className="buttonEditProfile" id="buttonEditProfile">Редактировать профиль</a>
-                                        <a href="#">История заказов</a>
+                                        <button className="btn button" onClick={this.editProfile}>Редактировать профиль</button>
                                         <a href="#" className="control-logout" id="buttonLogOutTop">Выйти</a>
                                    </div>
                                 </div>

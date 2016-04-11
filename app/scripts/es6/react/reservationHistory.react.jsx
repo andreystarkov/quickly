@@ -76,12 +76,8 @@ var ReservationHistory = React.createClass({
         historyData: []
       };
     },
-    componentDidMount: function() {
-     //   OrdersHistoryActions.updateData();
-    },
     loadMore: function(){
         this.limit += 5;
-        ReservationHistoryActions.updateData();
     },
     render: function() {
      //   OrdersHistoryActions.updateData();
@@ -102,4 +98,3 @@ var ReservationHistory = React.createClass({
 });
 
 module.exports = ReservationHistory;
-// ReactDOM.render(<OrdersReservation />, document.getElementById('reservationHistory'));

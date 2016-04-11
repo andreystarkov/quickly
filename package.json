@@ -65,12 +65,13 @@
     "webpack": "latest"
   },
   "dependencies": {
+    "alt": "^0.18.4",
     "bootstrap": "latest",
     "classnames": "latest",
     "filesaver.js": "latest",
     "highlight.js": "latest",
     "jszip": "latest",
-    "lodash": "latest",
+    "lodash": "^3.10.1",
     "markdown-loader": "latest",
     "marked": "latest",
     "material-ui": "*",
@@ -90,9 +91,13 @@
     "react-router-component": "^0.32.0",
     "react-router-component-transition": "^0.2.0",
     "react-router-transitions": "^1.0.0",
+    "react-selectize": "^0.9.0",
     "react-tap-event-plugin": "latest",
     "react-toolbox": "latest",
+    "reactify": "^1.1.1",
     "reflux": "latest",
+    "underscore": "^1.8.3",
+    "velocity-animate": "^1.2.3",
     "velocity-react": "^1.1.4"
   }
 }
