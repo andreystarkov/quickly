@@ -7,6 +7,8 @@
 
 var CompanyDetails = require('../companyDetails.react.jsx');
 var MenuItems = require('../menuItems.react.jsx');
+var Reservation = require('../components/reservation.js');
+
 import { RouteTransition } from 'react-router-transition';
 
 var ScreenShop = React.createClass({
@@ -67,26 +69,7 @@ var ScreenShop = React.createClass({
                 </section>
 
                 <section className="the-tab tabs-shop tab-reservation" id="tab-reservation">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-8">
-                                <div className="halls-box" id="hallsBox"></div>
-                                <div className="room-box" id="roomBox"></div>
-                            </div>
-                            <div className="col-lg-3">
-                                <h3>Бронирование стола</h3>
-                                <div className="form-group">
-                                    <label htmlFor="reservationTimePicker" className="control-label">Время бронирования</label>
-                                    <input type='text' className="form-control" id='reservationTimePicker' />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="reservationDatePicker" className="control-label">Дата бронирования</label>
-                                    <input type='text' className="form-control" id='reservationDatePicker' />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Reservation />
                 </section>
 
                 <section className="the-tab tabs-shop food-category food-grid tab-active" id="tab-food">

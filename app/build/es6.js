@@ -607,6 +607,16 @@ module.exports = ProfileEditorActions;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\profileEditorActions.js","/app\\scripts\\es6\\react\\actions")
 
+},{"_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationActions.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+var ReservationActions = Reflux.createActions(['fetchList', 'updateData', 'updateHalls', 'updateTables']);
+
+module.exports = ReservationActions;
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\actions\\reservationActions.js","/app\\scripts\\es6\\react\\actions")
+
 },{"_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationHistoryActions.js":[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -904,13 +914,13 @@ var CompanyDetails = React.createClass({
             if (type == 1 || type == 3) {
                 console.log('companyDetails: Reservation Enabled (' + type + ')');
                 this.isReservation = true;
-                (0, _reservation.getHallsList)(data.restaurant_id, function (data) {
-                    console.log('getHallsList: callback, data = ', data);
-                });
+                /*                getHallsList(data.restaurant_id, function(data){
+                                    console.log('getHallsList: callback, data = ',data);
+                                });*/
             } else {
-                console.log('CompanyDetails: Reservation Disabled (' + type + ')');
-                this.isReservation = false;
-            }
+                    console.log('CompanyDetails: Reservation Disabled (' + type + ')');
+                    this.isReservation = false;
+                }
         } else console.log('CompanyDetails: data is undefined');
 
         var company = this.state.companyData;
@@ -2307,7 +2317,133 @@ module.exports = QuicklyLogo;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\quicklyLogo.js","/app\\scripts\\es6\\react\\components")
 
-},{"_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\singleCompany.js":[function(require,module,exports){
+},{"_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\reservation.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+var _reservation = require('../../reservation.jsx');
+
+var ReservationActions = require('../actions/reservationActions.js');
+var ReservationHallsStore = require('../stores/reservationHallsStore.js');
+var ReservationTablesStore = require('../stores/reservationTablesStore.js');
+
+function getReservationUnixTime(e) {
+    var theTime = $('#reservationTimePicker').val();
+    var dateTime = $('#reservationDatePicker').val() + ' ' + $('#reservationTimePicker').val();
+    var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
+
+    console.log('getReservationUnixTime: dateTime = ', dateTime);
+    console.log('getReservationUnixTime: UNIX Timestamp = ', unixTime);
+    return unixTime;
+}
+
+var HallButton = React.createClass({
+    displayName: 'HallButton',
+
+    hallHandle: function hallHandle(e) {
+        var hallId = this.props.hall.hall_id;
+        (0, _reservation.getReservationPointsList)(hallId, 1513073410, function (data) {
+            console.log('rSDASDSADAS ', data);
+        });
+        ReservationActions.updateTable(hallId, 1513073410);
+        console.log('Selecting hall: ', hallId, e);
+    },
+    render: function render() {
+        return React.createElement(
+            'button',
+            { onClick: this.hallHandle, className: 'btn button light' },
+            this.props.hall.hall_name
+        );
+    }
+});
+
+var Reservation = React.createClass({
+    displayName: 'Reservation',
+
+    mixins: [Reflux.connect(ReservationHallsStore, 'hallsList'), Reflux.connect(ReservationTablesStore, 'tablesList')],
+    getInitialState: function getInitialState() {
+        return {
+            hallsList: [],
+            tablesList: []
+        };
+    },
+    componentDidMount: function componentDidMount() {
+        $('#reservation-datetime').datetimepicker({
+            inline: true,
+            locale: moment.locale('ru'),
+            icons: {
+                time: 'picker-time glyphicon glyphicon-time',
+                date: 'glyphicon glyphicon-calendar',
+                up: 'glyphicon glyphicon-chevron-up',
+                down: 'glyphicon glyphicon-chevron-down',
+                previous: 'glyphicon glyphicon-chevron-left',
+                next: 'glyphicon glyphicon-chevron-right',
+                today: 'glyphicon glyphicon-screenshot',
+                clear: 'glyphicon glyphicon-trash',
+                close: 'glyphicon glyphicon-remove'
+            }
+        });
+    },
+    render: function render() {
+        var halls = this.state.hallsList.map(function (the, i) {
+            return React.createElement(HallButton, { hall: the, key: i });
+        });
+
+        return React.createElement(
+            'div',
+            { className: 'container' },
+            React.createElement(
+                'div',
+                { className: 'row' },
+                React.createElement(
+                    'div',
+                    { className: 'col-lg-8' },
+                    React.createElement(
+                        'div',
+                        { className: 'halls-box', id: 'hallsBox' },
+                        halls
+                    ),
+                    React.createElement('div', { className: 'room-box', id: 'roomBox' })
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'col-lg-3' },
+                    React.createElement(
+                        'h3',
+                        null,
+                        'Бронирование стола'
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        React.createElement(
+                            'label',
+                            { htmlFor: 'reservationTimePicker', className: 'control-label' },
+                            'Время бронирования'
+                        ),
+                        React.createElement('input', { type: 'text', className: 'form-control', id: 'reservationTimePicker' })
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        React.createElement(
+                            'label',
+                            { htmlFor: 'reservationDatePicker', className: 'control-label' },
+                            'Дата бронирования'
+                        ),
+                        React.createElement('input', { type: 'text', className: 'form-control', id: 'reservationDatePicker' })
+                    )
+                )
+            )
+        );
+    }
+});
+
+module.exports = Reservation;
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\reservation.js","/app\\scripts\\es6\\react\\components")
+
+},{"../../reservation.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\reservation.jsx","../actions/reservationActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationActions.js","../stores/reservationHallsStore.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationHallsStore.js","../stores/reservationTablesStore.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationTablesStore.js","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\singleCompany.js":[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
@@ -2326,7 +2462,7 @@ var CuisinesList = require('../cuisinesList.react.jsx');
 var MenuItemsActions = require('../actions/menuItemsActions.js');
 var CategoriesListActions = require('../actions/categoriesListActions.js');
 var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
-
+var ReservationActions = require('../actions/reservationActions.js');
 
 //<span className="desc"><i>наличными</i><i>картой курьеру</i></span>
 //<span className="desc">только наличные</span>
@@ -2488,6 +2624,13 @@ var RatingStars = React.createClass({
     }
 });
 
+function updateCompany(id) {
+    ReservationActions.updateHalls(id);
+    CompanyDetailsActions.updateData(id);
+    MenuItemsActions.updateDataById(id);
+    CategoriesListActions.updateData(id);
+}
+
 var SingleCompany = React.createClass({
     displayName: 'SingleCompany',
 
@@ -2495,9 +2638,7 @@ var SingleCompany = React.createClass({
         var company = this.props.company.restaurant_id;
         console.log('SingleCompany: Next ID: ', company);
         currentCompany = company;
-        CompanyDetailsActions.updateData(company);
-        MenuItemsActions.updateDataById(company);
-        CategoriesListActions.updateData(company);
+        updateCompany(company);
         _reactRouter.browserHistory.push(pathPrefix + '/shop/' + company);
     },
     render: function render() {
@@ -2813,7 +2954,7 @@ module.exports = SingleCompany;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\singleCompany.js","/app\\scripts\\es6\\react\\components")
 
-},{"../../screens.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\screens.jsx","../actions/categoriesListActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\categoriesListActions.js","../actions/companyDetailsActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyDetailsActions.js","../actions/menuItemsActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\menuItemsActions.js","../cuisinesList.react.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"D:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx":[function(require,module,exports){
+},{"../../screens.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\screens.jsx","../actions/categoriesListActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\categoriesListActions.js","../actions/companyDetailsActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\companyDetailsActions.js","../actions/menuItemsActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\menuItemsActions.js","../actions/reservationActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationActions.js","../cuisinesList.react.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router":"D:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cuisinesList.react.jsx":[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
@@ -3993,7 +4134,7 @@ module.exports = ReservationHistory;
 * @Last Modified time: 2016-04-11 15:53:45
 */
 
-var prefix = '/';
+var prefix = '/app';
 
 var routesMap = {
     prefix: prefix,
@@ -4265,7 +4406,7 @@ var _reactRouterTransition = require('react-router-transition');
 
 var CompanyDetails = require('../companyDetails.react.jsx');
 var MenuItems = require('../menuItems.react.jsx');
-
+var Reservation = require('../components/reservation.js');
 
 var ScreenShop = React.createClass({
     displayName: 'ScreenShop',
@@ -4405,49 +4546,7 @@ var ScreenShop = React.createClass({
                 React.createElement(
                     'section',
                     { className: 'the-tab tabs-shop tab-reservation', id: 'tab-reservation' },
-                    React.createElement(
-                        'div',
-                        { className: 'container' },
-                        React.createElement(
-                            'div',
-                            { className: 'row' },
-                            React.createElement(
-                                'div',
-                                { className: 'col-lg-8' },
-                                React.createElement('div', { className: 'halls-box', id: 'hallsBox' }),
-                                React.createElement('div', { className: 'room-box', id: 'roomBox' })
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'col-lg-3' },
-                                React.createElement(
-                                    'h3',
-                                    null,
-                                    'Бронирование стола'
-                                ),
-                                React.createElement(
-                                    'div',
-                                    { className: 'form-group' },
-                                    React.createElement(
-                                        'label',
-                                        { htmlFor: 'reservationTimePicker', className: 'control-label' },
-                                        'Время бронирования'
-                                    ),
-                                    React.createElement('input', { type: 'text', className: 'form-control', id: 'reservationTimePicker' })
-                                ),
-                                React.createElement(
-                                    'div',
-                                    { className: 'form-group' },
-                                    React.createElement(
-                                        'label',
-                                        { htmlFor: 'reservationDatePicker', className: 'control-label' },
-                                        'Дата бронирования'
-                                    ),
-                                    React.createElement('input', { type: 'text', className: 'form-control', id: 'reservationDatePicker' })
-                                )
-                            )
-                        )
-                    )
+                    React.createElement(Reservation, null)
                 ),
                 React.createElement(
                     'section',
@@ -4467,7 +4566,7 @@ module.exports = ScreenShop;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\screens\\screenShop.js","/app\\scripts\\es6\\react\\screens")
 
-},{"../companyDetails.react.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\companyDetails.react.jsx","../menuItems.react.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\menuItems.react.jsx","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router-transition":"D:\\_alpha\\quickly.box\\node_modules\\react-router-transition\\lib\\react-router-transition.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\CampaignsLimitedStore.js":[function(require,module,exports){
+},{"../companyDetails.react.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\companyDetails.react.jsx","../components/reservation.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\reservation.js","../menuItems.react.jsx":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\menuItems.react.jsx","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-router-transition":"D:\\_alpha\\quickly.box\\node_modules\\react-router-transition\\lib\\react-router-transition.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\CampaignsLimitedStore.js":[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
@@ -5076,7 +5175,39 @@ module.exports = ProfileEditorStore;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\profileEditorStore.js","/app\\scripts\\es6\\react\\stores")
 
-},{"../actions/profileEditorActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-cookie":"D:\\_alpha\\quickly.box\\node_modules\\react-cookie\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationHistoryStore.js":[function(require,module,exports){
+},{"../actions/profileEditorActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-cookie":"D:\\_alpha\\quickly.box\\node_modules\\react-cookie\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationHallsStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+var ReservationActions = require('../actions/reservationActions.js');
+
+var ReservationHallsStore = Reflux.createStore({
+    listenables: [ReservationActions],
+    hallsList: [],
+    company: 0,
+    init: function init() {},
+    updateHalls: function updateHalls(id) {
+        console.log('ReservationHallsStore updateData(' + id + ')');
+        this.company = id;
+        this.fetchList();
+    },
+    fetchList: function fetchList() {
+        var some = this;
+        var url = serverUrl + '/api/v2/reservation/halls/' + this.company;
+        console.log('ReservationTablesStore url: ', url);
+        $.getJSON(url, function (data) {
+            some.hallsList = data.result.halls;
+            some.trigger(some.hallsList);
+            console.log('ReservationHallsStore fetchList', some.hallsList);
+        });
+    }
+});
+
+module.exports = ReservationHallsStore;
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\reservationHallsStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/reservationActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationActions.js","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationHistoryStore.js":[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
@@ -5117,7 +5248,41 @@ module.exports = ReservationHistoryStore;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\reservationHistoryStore.js","/app\\scripts\\es6\\react\\stores")
 
-},{"../actions/reservationHistoryActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationHistoryActions.js","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\reservation.jsx":[function(require,module,exports){
+},{"../actions/reservationHistoryActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationHistoryActions.js","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\stores\\reservationTablesStore.js":[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+var ReservationActions = require('../actions/reservationActions.js');
+
+var ReservationTablesStore = Reflux.createStore({
+    listenables: [ReservationActions],
+    hall: 0,
+    date: 0,
+    tablesList: [],
+    init: function init() {},
+    updateTables: function updateTables(id, date) {
+        console.log('ReservationTablesStore updateTables(id=' + id + ',date=' + date + ')');
+        this.hall = id;
+        this.date = date;
+        this.fetchList();
+    },
+    fetchList: function fetchList() {
+        var some = this;
+        var url = serverUrl + '/api/v2/reservation/tables/' + this.hall + '/' + this.date;
+        console.log('ReservationTablesStore url: ', url);
+        $.getJSON(url, function (data) {
+            some.tablesList = data.result.reservations;
+            some.trigger(some.tablesList);
+            console.log('ReservationTablesStore result: ', some.hallsList);
+        });
+    }
+});
+
+module.exports = ReservationTablesStore;
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\stores\\reservationTablesStore.js","/app\\scripts\\es6\\react\\stores")
+
+},{"../actions/reservationActions.js":"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\reservationActions.js","_process":"D:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"D:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js"}],"D:\\_alpha\\quickly.box\\app\\scripts\\es6\\reservation.jsx":[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 

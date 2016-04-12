@@ -71,9 +71,8 @@ var PageHeader = React.createClass({
                                     </div>
                                     <div className="col-lg-5">
                                         <a href="#" id="buttonRegisterSMSCode" className="btn btn-clean btn-padding btn-raised">
-                                            Отправить
+                                             Отправить
                                         </a>
-                                        <a href="#" id="buttonSMSCodeRefresh" className="btn btn-clean" ><i className="icon-refresh"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -81,8 +80,7 @@ var PageHeader = React.createClass({
                                 <div className="dropdown-nice">
                                    <div className="user-top" id="userBadgeTop"></div>
                                    <div className="menu-box">
-                                        <button className="btn button" onClick={this.editProfile}>Редактировать профиль</button>
-                                        <a href="#" className="control-logout" id="buttonLogOutTop">Выйти</a>
+                                        <button className="btn button main light" onClick={this.editProfile}>Редактировать профиль</button>
                                    </div>
                                 </div>
                             </div>

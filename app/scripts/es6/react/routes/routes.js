@@ -24,6 +24,8 @@ var Routes = React.createClass({
   },
   render: function() {
     var routes = routesMap.routes;
+
+  console.log('ROUTES: ', routes);
     return (
       <div>
           <PageHeader />

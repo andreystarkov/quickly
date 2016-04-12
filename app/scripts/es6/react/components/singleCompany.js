@@ -9,6 +9,8 @@ var CuisinesList = require('../cuisinesList.react.jsx');
 var MenuItemsActions = require('../actions/menuItemsActions.js');
 var CategoriesListActions = require('../actions/categoriesListActions.js');
 var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
+var ReservationActions = require('../actions/reservationActions.js');
+
 import {showScreen} from "../../screens.jsx";
 import {browserHistory, Link} from "react-router";
 
@@ -102,14 +104,19 @@ var RatingStars = React.createClass({
     }
 });
 
+function updateCompany(id){
+    ReservationActions.updateHalls(id);
+    CompanyDetailsActions.updateData(id);
+    MenuItemsActions.updateDataById(id);
+    CategoriesListActions.updateData(id);
+}
+
 var SingleCompany = React.createClass({
     toggleCompany: function(el){
         var company = this.props.company.restaurant_id;
         console.log('SingleCompany: Next ID: ' ,company);
         currentCompany = company;
-        CompanyDetailsActions.updateData(company);
-        MenuItemsActions.updateDataById(company);
-        CategoriesListActions.updateData(company);
+        updateCompany(company);
         browserHistory.push(pathPrefix+'/shop/'+company);
     },
     render: function(){

@@ -21,7 +21,10 @@ console.log('Server: ', serverHost);
 var pathPrefix = '/app';
 
 if (serverHost == "quickly.box" ) devMode = true;
-if (serverHost == "quickly.su") devMode = false;
+if (serverHost == "quickly.su") {
+    devMode = false;
+    pathPrefix = '/_/app';
+}
 
 if (devMode) {
     var serverUrl = 'http://176.112.201.81';

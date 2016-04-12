@@ -36,9 +36,9 @@ var CompanyDetails = React.createClass({
             if ( (type == 1) || (type == 3) ){
                 console.log('companyDetails: Reservation Enabled ('+type+')');
                 this.isReservation = true;
-                getHallsList(data.restaurant_id, function(data){
+/*                getHallsList(data.restaurant_id, function(data){
                     console.log('getHallsList: callback, data = ',data);
-                });
+                });*/
             } else {
                 console.log('CompanyDetails: Reservation Disabled ('+type+')');
                 this.isReservation = false;

@@ -304,7 +304,7 @@ AddDefaultCharset utf-8
 #
 # (4) Some cloud hosting services will require you set `RewriteBase`.
 #
-#     https://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site
+#     https://www.rackspa ce.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site
 #     https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
 #
 # (5) Depending on how your server is set up, you may also need to
@@ -326,13 +326,12 @@ AddDefaultCharset utf-8
 
     # (3)
     # Options +SymLinksIfOwnerMatch
+    RewriteEngine On
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+    RewriteRule ^ - [L]
 
-  RewriteEngine On
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
-  RewriteRule ^ - [L]
-
-  RewriteRule ^ /index.html [L]
+    RewriteRule ^ /index.html [L]
 
     # RewriteCond %{REQUEST_FILENAME} !-d
     # RewriteCond %{REQUEST_FILENAME} !-f

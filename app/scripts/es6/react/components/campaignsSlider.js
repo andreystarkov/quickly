@@ -1,8 +1,23 @@
 var CampaignsStore = require('../stores/campaignsStore.js');
+
 var CampaignsActions = require('../actions/campaignsActions.js');
+var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
+var MenuItemsActions = require('../actions/menuItemsActions.js');
+var CategoriesListActions = require('../actions/categoriesListActions.js');
 var CampaignsLimitedStore = require('../stores/CampaignsLimitedStore.js');
 
+import {browserHistory, Link} from "react-router";
+
 var SliderItem = React.createClass({
+    handleClick: function(){
+        var company = this.props.company;
+        console.log(' SliderItem: to: ' ,company);
+        currentCompany = company;
+        CompanyDetailsActions.updateData(company);
+        MenuItemsActions.updateDataById(company);
+        CategoriesListActions.updateData(company);
+        browserHistory.push(pathPrefix+'/shop/'+company);
+    },
     render: function(){
         var className, expires = "Акция действительна до ";
         if( this.props.pos == '0' ) className = "selected";
@@ -13,8 +28,8 @@ var SliderItem = React.createClass({
         <li className={className}>
             <div className="half-width">
                 <h2>{this.props.title}</h2>
-                <p>{}{expires}</p>
-                <a href="#0" className="button main">Подробнее об акции</a>
+                <p>{expires}</p>
+                <a onClick={this.handleClick} className="button main">Подробнее об акции</a>
             </div>
             <div className="half-width img-container">
                 <img src={imageBaseUrl+this.props.image} alt="..." />
@@ -41,17 +56,21 @@ var CampaignsSlider = React.createClass({
         CampaignsActions.fetchList();
     },
     render: function(){
+
         console.log('CampagainsSlider: ', this.state.campaignsData, this.state.campaignsLimitedData);
+
         var campaigns = this.state.campaignsData;
         var campaignsLimited = this.state.campaignsLimitedData;
         var count = 0;
         var slides = campaigns.map(function(the, i) {
-            return <SliderItem title={the.campaign_name} image={the.campaign_image} pos={i} key={i} />
+            return <SliderItem company={the.restaurant_id} title={the.campaign_name} image={the.campaign_image} pos={i} key={i} />
         });
         var slidesLimited = campaignsLimited.map(function(the, i) {
-            return <SliderItem title={the.campaign_name} expires={the.campaign_end} image={the.campaign_image} pos={i} key={i} />
+            return <SliderItem company={the.restaurant_id} title={the.campaign_name} expires={the.campaign_end} image={the.campaign_image} pos={i} key={i} />
         });
+
         console.log(slidesLimited);
+
         return (
             <section className="hero">
             <ul className="quickly-slider autoplay">

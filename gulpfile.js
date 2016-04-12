@@ -15,7 +15,7 @@ var babel = require('babelify');
 var uglify = require('gulp-uglify');
 var sftp = require('gulp-sftp');
 var reactify = require('reactify');
-
+var notify = require('gulp-notify');
 var runSequence = require('run-sequence').use(gulp);
 
 var theLibs = require('./config.libs.js');
@@ -23,14 +23,6 @@ var theEngine = require('./config.engine.js');
 
 var secrets = require('./secrets.json');
 
-var dependencies = [
-    'alt',
-    'react',
-    'react-dom',
-    'react-router',
-    'react-selectize',
-    'underscore'
-];
 
 gulp.task('default', ['scripts', 'styles', 'js', 'watch']);
 
@@ -48,13 +40,14 @@ function compile(watch) {
         bundler.bundle()
             .on('error', function(err) {
                 console.error(err);
+                notify.onError(err);
                 this.emit('end');
             })
             .pipe(source('es6.js'))
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
             .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest('./app/app/'));
+            .pipe(gulp.dest('./app/build/'));
     }
 
     if (watch) {
@@ -78,11 +71,11 @@ gulp.task('scripts-es6', function() {
 gulp.task('scripts', function() {
     return gulp.src(theLibs)
         .pipe(plugins.concat('libs.js'))
-        .pipe(gulp.dest('app/app/'));
+        .pipe(gulp.dest('app/build/'));
 });
 
 gulp.task('scripts-concat', function(){
-    return gulp.src(['app/app/libs.js', 'app/app/es6.js'])
+    return gulp.src(['app/build/libs.js', 'app/build/es6.js'])
         .pipe(plugins.concat('scripts.js'))
         .pipe(uglify().on('error', gutil.log))
         .pipe(gulp.dest('app/app'));
@@ -92,7 +85,6 @@ gulp.task('js', function(callback) {
     runSequence(
         'scripts',
         'scripts-es6',
-      //  'scripts-concat',
         callback)
 });
 
@@ -101,7 +93,8 @@ gulp.task('styles', function() {
         .pipe(plugins.plumber())
         .pipe(plugins.less())
         .on('error', function(err) {
-            gutil.log(err);
+            console.error(err);
+            notify.onError(err);
             this.emit('end');
         })
         .pipe(plugins.autoprefixer({
@@ -121,57 +114,43 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('app/app')).on('error', gutil.log);
 });
 
-// production builds
-
-gulp.task('production-scripts', function(){
-    return gulp.src(['app/app/build/libs.js', 'app/app/build/es6.js'])
-        .pipe(plugins.concat('scripts.js'))
-        .pipe(uglify().on('error', gutil.log))
-        .pipe(gulp.dest('build/app'));
-});
-
-gulp.task('production-styles', function(){
-    return gulp.src(['app/app/styles.css'])
-        .pipe(plugins.cssmin())
-        .pipe(gulp.dest('build/app'));
-});
-
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
-var jpegtran = require('imagemin-jpegtran');
-var gifsicle = require('imagemin-gifsicle');
-
-gulp.task('production-images', function() {
-    return gulp.src(['app/images/**/*.jpg', 'app/images/**/*.png'])
-        .pipe(plugins.imagemin({
-            progressive: false,
-            svgoPlugins: [{
-                removeViewBox: false
-            }],
-            use: [pngquant(), jpegtran(), gifsicle()]
-        }))
-        .pipe(gulp.dest('build/images'));
-});
-
-gulp.task('production-copy-fonts', function() {
-    return gulp.src(['app/fonts/**/*'])
-        .pipe(gulp.dest('build/fonts'))
-});
-
-gulp.task('production-copy-html', function() {
-    return gulp.src(['app/*.html'])
-        .pipe(gulp.dest('build'))
-});
-
-var scp = require('gulp-scp2');
-
-gulp.task('sftp', function() {
-  return gulp.src('./app/app/*')
+gulp.task('deploy-styles', function() {
+  return gulp.src('./app/build/styles.css')
     .pipe(sftp({
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/_/app/app/'
+        remotePath: '/home/app/quickly-landing/build'
+      }));
+});
+
+gulp.task('sftp-scripts', function() {
+  return gulp.src('./app/build/*.js')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.username,
+        pass: secrets.password,
+        remotePath: '/home/app/quickly-landing/build'
+      }));
+});
+
+gulp.task('sftp-all', function() {
+  return gulp.src('./app/scripts/**/*')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.username,
+        pass: secrets.password,
+        remotePath: '/home/app/quickly-landing/scripts'
+      }));
+});
+
+gulp.task('sftp-core', function() {
+  return gulp.src('./app/build/*')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.username,
+        pass: secrets.password,
+        remotePath: '/home/app/quickly-landing/build'
       }));
 });
 
@@ -181,7 +160,17 @@ gulp.task('sftp-html', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/_/app/'
+        remotePath: '/home/app/quickly-landing/'
+      }));
+});
+
+gulp.task('sftp-fonts', function() {
+  return gulp.src('./app/fonts/**/*')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.username,
+        pass: secrets.password,
+        remotePath: '/home/app/quickly-landing/fonts/'
       }));
 });
 
@@ -191,104 +180,54 @@ gulp.task('sftp-images', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/_/app/images/'
+        remotePath: '/home/app/quickly-landing/images/'
       }));
 });
 
-gulp.task('upload', function(callback) {
-return runSequence(
-        'deploy',
-        'deploy-html',
-        'deploy-fonts',
-        'deploy-images',
-        callback);
-});
-
-var rsync  = require('gulp-rsync');
-
-gulp.task('rsync', function() {
-  return gulp.src(['./app/index.html','./app/app/*'])
-    .pipe(rsync({
-    destination: secrets.path+'app/',
-  //  root: './app/app/*',
-    hostname: secrets.host,
-    username: secrets.username,
-    incremental: true,
-    progress: true,
-    relative: true,
-    emptyDirectories: true,
-    recursive: true,
-    clean: true,
-    exclude: ['.DS_Store'],
-    include: []
-  }));
-});
-
-
-gulp.task('build-deploy', function(callback) {
-    runSequence(
-        'js',
-        'styles',
-        'deploy',
-        callback)
-});
-
-gulp.task('production', function(callback) {
-    runSequence(
-        'js',
-        'styles',
-        'production-scripts',
-        'production-styles',
-        'production-images',
-        'production-copy-fonts',
-        'production-copy-html',
-        'deploy',
-        callback)
-});
-
-gulp.task('scripts-deploy', function(callback) {
-    runSequence(
-        'js',
-        'deploy',
-        callback)
-});
-
-gulp.task('the-deploy', function(callback) {
+gulp.task('deploy', function(callback) {
     runSequence(
         'styles',
         'scripts',
         'scripts-es6',
         'sftp-html',
-        'sftp',
+        'sftp-core',
         callback)
 });
 
-gulp.task('styles-deploy', function(callback) {
+gulp.task('deploy-styles', function(callback) {
     runSequence(
         'styles',
-        'deploy',
+        'sftp-styles',
         callback)
 });
 
-gulp.task('sftp-watch', function(){
+gulp.task('deploy-scripts', function(callback) {
+    runSequence(
+        'scripts',
+        'scripts-es6',
+        'sftp-scripts',
+        callback)
+});
+
+gulp.task('watch-deploy', function(){
     gulp.watch('app/libs/**/*.js', {
         interval: 800
-    }, ['the-deploy']);
+    }, ['deploy-scripts']);
     gulp.watch('app/libs/**/*.less', {
         interval: 800
-    }, ['the-deploy']);
+    }, ['deploy-styles']);
     gulp.watch('app/scripts/**/*.jsx', {
         interval: 800
-    }, ['the-deploy']);
+    }, ['deploy-scripts']);
     gulp.watch('app/scripts/**/*.js', {
         interval: 800
-    }, ['the-deploy']);
+    }, ['deploy-scripts']);
     gulp.watch('app/styles/**/*.less', {
         interval: 800
-    }, ['the-deploy']);
+    }, ['deploy-styles']);
     gulp.watch('app/*.html', {
         interval: 800
-    }, ['the-deploy']);
+    }, ['deploy-html']);
 });
 
 gulp.task('watch', function() {

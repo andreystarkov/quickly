@@ -1,5 +1,5 @@
 var ReservationActions = Reflux.createActions([
-    'fetchList', 'updateData'
+    'fetchList', 'updateData', 'updateHalls', 'updateTables'
 ]);
 
 module.exports = ReservationActions;
