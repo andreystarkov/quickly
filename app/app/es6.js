@@ -1976,15 +1976,16 @@ var _reactRouter = require('react-router');
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 19:19:40
+* @Last Modified time: 2016-04-12 08:20:07
 */
 
 var InlineSvg = require('react-inlinesvg');
 var routesMap = require('../routes/map.js');
 
-
 var ProfileEditorActions = require('../actions/profileEditorActions.js');
 var HistoryActions = require('../actions/historyActions.js');
+var CityListActions = require('../actions/cityListActions.js');
+var CityList = require('../cityList.react.jsx');
 
 var PageHeader = React.createClass({
     displayName: 'PageHeader',
@@ -1993,6 +1994,9 @@ var PageHeader = React.createClass({
         ProfileEditorActions.fetchList();
         HistoryActions.fetchList();
         _reactRouter.browserHistory.push(routesMap.routes.profile.path);
+    },
+    componentDidMount: function componentDidMount() {
+        CityListActions.fetchList;
     },
     render: function render() {
         return React.createElement(
@@ -2044,7 +2048,11 @@ var PageHeader = React.createClass({
                         React.createElement(
                             'div',
                             { className: 'col-lg-2' },
-                            React.createElement('div', { id: 'selectCityField' })
+                            React.createElement(
+                                'div',
+                                { id: 'selectCityField' },
+                                React.createElement(CityList, null)
+                            )
                         ),
                         React.createElement(
                             'div',
@@ -2153,7 +2161,7 @@ module.exports = PageHeader;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/app\\scripts\\es6\\react\\components\\pageHeader.js","/app\\scripts\\es6\\react\\components")
 
-},{"../actions/historyActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\historyActions.js","../actions/profileEditorActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js","../routes/map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-inlinesvg":"Q:\\_alpha\\quickly.box\\node_modules\\react-inlinesvg\\lib\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\quicklyLogo.js":[function(require,module,exports){
+},{"../actions/cityListActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\cityListActions.js","../actions/historyActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\historyActions.js","../actions/profileEditorActions.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\actions\\profileEditorActions.js","../cityList.react.jsx":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\cityList.react.jsx","../routes/map.js":"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\routes\\map.js","_process":"Q:\\_alpha\\quickly.box\\node_modules\\process\\browser.js","buffer":"Q:\\_alpha\\quickly.box\\node_modules\\buffer\\index.js","react-inlinesvg":"Q:\\_alpha\\quickly.box\\node_modules\\react-inlinesvg\\lib\\index.js","react-router":"Q:\\_alpha\\quickly.box\\node_modules\\react-router\\lib\\index.js"}],"Q:\\_alpha\\quickly.box\\app\\scripts\\es6\\react\\components\\quicklyLogo.js":[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
 
