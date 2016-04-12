@@ -120,7 +120,7 @@ gulp.task('deploy-styles', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/build'
+        remotePath: '/home/app/quickly-landing/app/build'
       }));
 });
 
@@ -130,7 +130,7 @@ gulp.task('sftp-scripts', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/build'
+        remotePath: '/home/app/quickly-landing/app/build'
       }));
 });
 
@@ -140,7 +140,7 @@ gulp.task('sftp-all', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/scripts'
+        remotePath: '/home/app/quickly-landing/app/scripts'
       }));
 });
 
@@ -150,7 +150,7 @@ gulp.task('sftp-core', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/build'
+        remotePath: '/home/app/quickly-landing/app/build'
       }));
 });
 
@@ -160,7 +160,7 @@ gulp.task('sftp-html', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/'
+        remotePath: '/home/app/quickly-landing/app/'
       }));
 });
 
@@ -170,7 +170,7 @@ gulp.task('sftp-fonts', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/fonts/'
+        remotePath: '/home/app/quickly-landing/app/fonts/'
       }));
 });
 
@@ -180,7 +180,7 @@ gulp.task('sftp-images', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/images/'
+        remotePath: '/home/app/quickly-landing/app/images/'
       }));
 });
 
