@@ -327,10 +327,17 @@ AddDefaultCharset utf-8
     # (3)
     # Options +SymLinksIfOwnerMatch
 
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule . index.html [L]
-    RewriteRule ^([^/]*)/([^/]*)\$ /$1/$2 [L]
+  RewriteEngine On
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ /index.html [L]
+
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteRule . index.html [L]
+    # RewriteRule ^([^/]*)/([^/]*)\$ /$1/$2 [L]
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -842,7 +849,7 @@ FileETag None
 
   # CSS
 
-    ExpiresByType text/css                              "access plus 1 year"
+  #  ExpiresByType text/css                              "access plus 1 year"
 
 
   # Data interchange
@@ -871,9 +878,9 @@ FileETag None
 
   # JavaScript
 
-    ExpiresByType application/javascript                "access plus 1 year"
-    ExpiresByType application/x-javascript              "access plus 1 year"
-    ExpiresByType text/javascript                       "access plus 1 year"
+#    ExpiresByType application/javascript                "access plus 1 year"
+#    ExpiresByType application/x-javascript              "access plus 1 year"
+#    ExpiresByType text/javascript                       "access plus 1 year"
 
 
   # Manifest files

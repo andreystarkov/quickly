@@ -58,6 +58,7 @@ var CompanyList = React.createClass({
     mixins: [Reflux.connect(CompanyListStore, 'companyData')],
     limit: 5,
     cuisineId: 0,
+
     getInitialState: function() {
       return {
         data: [],

@@ -225,58 +225,6 @@ gulp.task('rsync', function() {
 });
 
 
-gulp.task('deploy', [], function(cb) {
-  return gulp.src('./app/app/*')
-  .pipe(scp({
-    host: secrets.host,
-    username: secrets.username,
-    password: secrets.password,
-    dest: secrets.path+'app/'
-  }, cb))
-  .on('error', function(err) {
-    console.log('Deploy error: ',err);
-  });
-});
-
-gulp.task('deploy-html', function() {
-  return gulp.src('./app/index.html')
-  .pipe(scp({
-    host: secrets.host,
-    username: secrets.username,
-    password: secrets.password,
-    dest: secrets.path
-  }))
-  .on('error', function(err) {
-    console.log('Deploy error: ',err);
-  });
-});
-
-gulp.task('deploy-fonts', function() {
-  return gulp.src('./app/fonts/**/*')
-  .pipe(scp({
-    host: secrets.host,
-    username: secrets.username,
-    password: secrets.password,
-    dest: secrets.path+'fonts/'
-  }))
-  .on('error', function(err) {
-    console.log('Deploy error: ',err);
-  });
-});
-
-gulp.task('deploy-images', function() {
-  return gulp.src('./app/images/**/*')
-  .pipe(scp({
-    host: secrets.host,
-    username: secrets.username,
-    password: secrets.password,
-    dest: secrets.path+'images/'
-  }))
-  .on('error', function(err) {
-    console.log('Deploy error: ',err);
-  });
-});
-
 gulp.task('build-deploy', function(callback) {
     runSequence(
         'js',

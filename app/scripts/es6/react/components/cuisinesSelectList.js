@@ -9,6 +9,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 var TransitionGroup = React.addons.CSSTransitionGroup;
 
 import {showScreen} from '../../screens.jsx';
+
 var pathPrefix = '/app'
 var SingleCuisine = React.createClass({
     toggleCategory: function(cuisine){
