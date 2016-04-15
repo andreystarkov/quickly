@@ -81,7 +81,6 @@ $(function() {
 
     if(isMobile) $('#sidebar').appendTo(document.body);
 
-    $('#choose').barrating({theme: 'fontawesome-stars' });
 
     $('.tip').tooltip({ animation:true, });
 

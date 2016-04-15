@@ -230,20 +230,21 @@ gulp.task('watch-deploy', function(){
     }, ['deploy-html']);
 });
 
+
 gulp.task('watch', function() {
-    //  watch();
-    gulp.watch('app/libs/**/*.js', {
+    watch();
+    gulp.watch(['app/libs/**/*.js', '!**/node_modules/**'], {
         interval: 800
-    }, ['js']);
+    }, ['scripts', 'scripts-es6']);
     gulp.watch('app/libs/**/*.less', {
         interval: 800
     }, ['styles']);
-    gulp.watch('app/scripts/**/*.jsx', {
+    gulp.watch(['app/scripts/**/*.jsx','!**/node_modules/**'], {
         interval: 800
-    }, ['js']);
-    gulp.watch('app/scripts/**/*.js', {
+    }, ['scripts', 'scripts-es6']);
+    gulp.watch(['app/scripts/**/*.js','!**/node_modules/**'], {
         interval: 800
-    }, ['js']);
+    }, ['scripts', 'scripts-es6']);
     gulp.watch('app/styles/**/*.less', {
         interval: 800
     }, ['styles']);

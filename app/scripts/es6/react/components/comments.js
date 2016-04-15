@@ -2,13 +2,31 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 11:38:24
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 12:25:32
+* @Last Modified time: 2016-04-15 18:18:26
 */
-import {TextField} from 'material-ui';
+import {TextField, RaisedButton} from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 var CommentsStore = require('../stores/commentsStore.js');
 var CommentsActions = require('../actions/commentsActions.js');
+
+var lang = {
+    comments: {
+        commentForm: {
+            formHeader: 'Оставьте отзыв!',
+            messageName: 'Ваше имя',
+            messageLabel: 'Текст вашего сообщения',
+            messageHint: 'Здесь вы можете аргументировать вашу оценку',
+            ratingLabel: 'Ваша оценка',
+            buttonSend: 'Отправить комментарий',
+            buttonSendIcon: 'icon icn-comment',
+            chooseStars: 'Выберите оценку'
+        },
+        errors: {
+            sendFail: 'Видимо что-то случилось'
+        }
+    }
+}
 
 var Comment = React.createClass({
     render: function(){
@@ -46,6 +64,138 @@ var Comment = React.createClass({
     }
 });
 
+
+function postComment(restaurantId, text, rating, callback){
+    var params = {
+        token: userToken,
+        restaurantId: parseInt(restaurantId),
+        rating: parseInt(rating),
+        message: text
+    };
+    console.log('postComment: params = ', params);
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: serverUrl + '/api/v2/comments/create',
+        data: JSON.stringify(params),
+        success: function(data) {
+            if(!data.err){
+                console.log('postComment: success: ', data);
+                CommentsActions.updateData(restaurantId);
+                if (callback) callback(data);
+            } else {
+                console.log('postComment: ERROR: ', data.err);
+                toastr.error(lang.comments.errors.sendFail);
+            }
+        }
+    });
+}
+
+
+var TheTextArea = React.createClass({
+    componentDidMount: function(){
+        $.material.init();
+    },
+    render: function(){
+        var token = Math.random().toString(34).substr(2);
+        return (
+            <div className="form-group">
+              <label htmlFor={this.props.id || token} className="control-label">{this.props.label}</label>
+              <div>
+                <textarea
+                    className="form-control"
+                    rows="3" id={this.props.id || token} value={this.props.value}
+                    onChange={this.props.change} id="textArea"></textarea>
+                    <span className="help-block">{this.props.hint}</span>
+              </div>
+            </div>
+        )
+    }
+});
+
+var CommentForm = React.createClass({
+    getInitialState: function(){
+        return {
+            message: '',
+            rating: 0,
+            enabled: false
+        }
+    },
+    componentWillMount: function(){
+        var _this = this;
+        var url = serverUrl+'/api/v2/comments/get-possibility/'+userToken+'/'+this.props.company;
+        $.getJSON(url, function(data){
+            console.log('commentForm: Can i comment there?', data.result);
+            _this.setState({
+                enabled: data.result
+            });
+        });
+    },
+    componentDidMount: function(){
+        $('#choose').barrating({ theme: 'fontawesome-stars' });
+    },
+    sendMessage: function(){
+        postComment(this.props.company, this.state.message, this.state.rating,
+        function(data){
+            console.log('sendMessage: callback',data);
+            toastr.success('Спасибо за ваш комментарий!', 'Вы оставили отзыв!');
+        });
+        // postComment(restaurantId, message, rating, callback)
+    },
+    msgChange: function(e){
+        this.setState({
+            message: e.target.value
+        });
+    },
+    setRating: function(e){
+        this.setState({
+            rating: e.target.value
+        });
+    },
+    render: function(){
+        var btnStyle = { marginTop: 10, fontSize: 13, fontWeight: 400 }
+        var inputGroup = { marginBottom:35, marginTop:10 }
+        var starsStyles = { marginBottom:5, marginTop:15 }
+
+        var profile = getStorage('profile');
+        var userName = profile.userName+' '+profile.userSurname;
+        var texts = lang.comments.commentForm;
+
+        var disabled = true;
+        if( this.state.enabled ) disabled = false;
+
+        return(
+        <div className="comment-form">
+          <div className="tab-header">
+            <h2>{texts.formHeader}</h2>
+          </div>
+
+            <div className="form-group label-floating" style={inputGroup}>
+              <label className="control-label" htmlFor="focusedInput2">{texts.messageLabel}</label>
+              <input disabled={disabled} onChange={this.msgChange} className="form-control" id="focusedInput2" type="text" />
+              <p className="help-block">{texts.messageHint}</p>
+            </div>
+
+            <div className="stars" style={starsStyles}>
+                <label htmlFor="choose" className="control-label">
+                    {texts.chooseStars}
+                </label>
+                <select disabled={disabled} id="choose" onChange={this.setRating} className="choose-stars">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+            </div>
+            <RaisedButton disabled={disabled} onClick={this.sendMessage} backgroundColor="#fff036" label={texts.buttonSend} style={btnStyle}>
+            </RaisedButton>
+        </div>
+        )
+    }
+});
+
 var Comments = React.createClass({
     mixins: [Reflux.connect(CommentsStore, 'comments')],
     getInitalState: function(){
@@ -55,7 +205,6 @@ var Comments = React.createClass({
     },
     componentDidMount: function(){
         CommentsActions.updateData(this.props.company);
-        $('#choose').barrating({theme: 'fontawesome-stars' });
     },
     render: function(){
         var comments, commentsList;
@@ -69,39 +218,18 @@ var Comments = React.createClass({
         }
         return (
             <div className="container">
-                <div className="tab-header">
-                    <h2>текущие отзывы</h2>
-                </div>
+
                 <div className="the-comments">
                     <div className="row">
-
                         <div className="col-lg-9" id="comments-list">
+                          <div className="tab-header">
+                            <h2>текущие отзывы</h2>
+                          </div>
                             {commentsList}
                         </div>
 
                         <div className="col-lg-3">
-                            <div className="the-form">
-                                <TextField
-                                  hintText="Ваш комментарий"
-                                />
-                                <div className="form-group label-floating is-empty">
-                                    <label htmlhtmlFor="comment-text" className="control-label">Текст комментария</label>
-                                    <input type="text" className="form-control" id="comment-text" />
-                                    <span className="help-block"></span>
-                                    <span className="material-input"></span>
-                                </div>
-                                <div className="stars">
-                                    <span>Ваша оценка</span>
-                                    <select id="choose" className="choose-stars">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <a href="#" className="button main"><i className="icon icn-comment"></i> <span>Отправить комментарий</span></a>
-                            </div>
+                            <CommentForm company={this.props.company} />
                         </div>
                     </div>
                 </div>

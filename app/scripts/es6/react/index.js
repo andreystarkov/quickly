@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 21:20:53
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 06:38:04
+* @Last Modified time: 2016-04-15 17:01:19
 */
 var React = require('react');
 var ReactDOM = require('react-dom');
