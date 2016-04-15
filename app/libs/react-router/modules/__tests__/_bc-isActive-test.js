@@ -6,6 +6,7 @@ import IndexRoute from '../IndexRoute'
 import Router from '../Router'
 import Route from '../Route'
 import qs from 'qs'
+import shouldWarn from './shouldWarn'
 
 describe('v1 isActive', function () {
 
@@ -16,6 +17,10 @@ describe('v1 isActive', function () {
 
   afterEach(function () {
     unmountComponentAtNode(node)
+  })
+
+  beforeEach(function () {
+    shouldWarn('deprecated')
   })
 
   describe('a pathname that matches the URL', function () {
@@ -90,7 +95,7 @@ describe('v1 isActive', function () {
         })
       })
 
-      it('is active with extraneous slashes', function (done) {
+      it('is not active with extraneous slashes', function (done) {
         render((
           <Router history={createHistory('/parent/child')}>
             <Route path="/parent">
@@ -98,7 +103,7 @@ describe('v1 isActive', function () {
             </Route>
           </Router>
         ), node, function () {
-          expect(this.history.isActive('/parent////child////')).toBe(true)
+          expect(this.history.isActive('/parent////child////')).toBe(false)
           done()
         })
       })
@@ -288,7 +293,7 @@ describe('v1 isActive', function () {
         })
       })
 
-      it('is active with extraneous slashes', function (done) {
+      it('is not active with extraneous slashes', function (done) {
         render((
           <Router history={createHistory('/parent/child')}>
             <Route path="/parent">
@@ -298,8 +303,8 @@ describe('v1 isActive', function () {
             </Route>
           </Router>
         ), node, function () {
-          expect(this.history.isActive('/parent///child///', null)).toBe(true)
-          expect(this.history.isActive('/parent///child///', null, true)).toBe(true)
+          expect(this.history.isActive('/parent///child///', null)).toBe(false)
+          expect(this.history.isActive('/parent///child///', null, true)).toBe(false)
           done()
         })
       })
@@ -324,7 +329,7 @@ describe('v1 isActive', function () {
         })
       })
 
-      it('is active with extraneous slashes', function (done) {
+      it('is not active with extraneous slashes', function (done) {
         render((
           <Router history={createHistory('/parent/child')}>
             <Route path="/parent">
@@ -336,8 +341,8 @@ describe('v1 isActive', function () {
             </Route>
           </Router>
         ), node, function () {
-          expect(this.history.isActive('/parent///child///', null)).toBe(true)
-          expect(this.history.isActive('/parent///child///', null, true)).toBe(true)
+          expect(this.history.isActive('/parent///child///', null)).toBe(false)
+          expect(this.history.isActive('/parent///child///', null, true)).toBe(false)
           done()
         })
       })

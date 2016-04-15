@@ -1,15 +1,14 @@
 {
   "name": "react-router",
   "homepage": "https://github.com/rackt/react-router",
-  "version": "2.0.1",
-  "_release": "2.0.1",
+  "version": "2.2.2",
+  "_release": "2.2.2",
   "_resolution": {
     "type": "version",
-    "tag": "v2.0.1",
-    "commit": "77a594c85c4c75c4a214cdf9307092d808ef55c1"
+    "tag": "v2.2.2",
+    "commit": "c58c806b82ed7dec960f042e31b24091bee7dad0"
   },
   "_source": "https://github.com/rackt/react-router.git",
-  "_target": "~2.0.1",
-  "_originalSource": "react-router",
-  "_direct": true
+  "_target": "^2.0.1",
+  "_originalSource": "react-router"
 }

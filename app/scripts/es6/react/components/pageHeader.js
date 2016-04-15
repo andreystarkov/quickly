@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-12 08:20:07
+* @Last Modified time: 2016-04-14 22:30:31
 */
 
 var InlineSvg = require('react-inlinesvg');
@@ -80,7 +80,7 @@ var PageHeader = React.createClass({
                                 <div className="dropdown-nice">
                                    <div className="user-top" id="userBadgeTop"></div>
                                    <div className="menu-box">
-                                        <button className="btn button main light" onClick={this.editProfile}>Редактировать профиль</button>
+                                        <button className="btn button light" onClick={this.editProfile}>Редактировать профиль</button>
                                    </div>
                                 </div>
                             </div>

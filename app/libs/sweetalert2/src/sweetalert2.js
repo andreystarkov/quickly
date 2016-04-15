@@ -28,10 +28,10 @@
     confirmButtonText: 'OK',
     confirmButtonColor: '#3085d6',
     confirmButtonClass: null,
-    cancelButtonText: 'Продолжить',
+    cancelButtonText: 'Cancel',
     cancelButtonColor: '#aaa',
     cancelButtonClass: null,
-    buttonsStyling: false,
+    buttonsStyling: true,
     reverseButtons: false,
     imageUrl: null,
     imageWidth: null,
@@ -349,9 +349,9 @@
         case 'focus':
           if (params.buttonsStyling) {
             if (targetedConfirm) {
-          //    target.style.backgroundColor = colorLuminance(params.confirmButtonColor, -0.1);
+              target.style.backgroundColor = colorLuminance(params.confirmButtonColor, -0.1);
             } else if (targetedCancel) {
-           //   target.style.backgroundColor = colorLuminance(params.cancelButtonColor, -0.1);
+              target.style.backgroundColor = colorLuminance(params.cancelButtonColor, -0.1);
             }
           }
           break;
@@ -359,18 +359,18 @@
         case 'blur':
           if (params.buttonsStyling) {
             if (targetedConfirm) {
-          //    target.style.backgroundColor = params.confirmButtonColor;
+              target.style.backgroundColor = params.confirmButtonColor;
             } else if (targetedCancel) {
-           //   target.style.backgroundColor = params.cancelButtonColor;
+              target.style.backgroundColor = params.cancelButtonColor;
             }
           }
           break;
         case 'mousedown':
           if (params.buttonsStyling) {
             if (targetedConfirm) {
-        //      target.style.backgroundColor = colorLuminance(params.confirmButtonColor, -0.2);
+              target.style.backgroundColor = colorLuminance(params.confirmButtonColor, -0.2);
             } else if (targetedCancel) {
-        //      target.style.backgroundColor = colorLuminance(params.cancelButtonColor, -0.2);
+              target.style.backgroundColor = colorLuminance(params.cancelButtonColor, -0.2);
             }
           }
           break;

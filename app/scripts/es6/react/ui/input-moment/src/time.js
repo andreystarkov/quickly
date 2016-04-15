@@ -1,23 +1,33 @@
+require('velocity-animate');
+require('velocity-animate/velocity.ui');
+
+var {VelocityComponent} = require('velocity-react');
+
 var cx = require('classnames');
 var React = require('react');
 var InputSlider = require('react-input-slider');
+
+moment.locale('ru');
+moment.lang('ru');
 
 module.exports = React.createClass({
   displayName: 'Time',
 
   render() {
     var m = this.props.moment;
-
+    var animation = "callout.flipBounceX";
     return (
       <div className={cx('m-time', this.props.className)}>
         <div className="showtime">
-          <span className="time">{m.format('HH')}</span>
+          <VelocityComponent ref="velocity" animation={animation}>
+            <span className="time">{m.format('HH')}</span>
+          </VelocityComponent>
           <span className="separater">:</span>
           <span className="time">{m.format('mm')}</span>
         </div>
 
         <div className="sliders">
-          <div className="time-text">Hours:</div>
+          <div className="time-text">Часы:</div>
           <InputSlider
             className="u-slider-time"
             xmin={0}
@@ -25,7 +35,7 @@ module.exports = React.createClass({
             x={m.hour()}
             onChange={this.changeHours}
           />
-          <div className="time-text">Minutes:</div>
+          <div className="time-text">Минуты:</div>
           <InputSlider
             className="u-slider-time"
             xmin={0}
@@ -41,7 +51,9 @@ module.exports = React.createClass({
   changeHours(pos) {
     var m = this.props.moment;
     m.hours(parseInt(pos.x, 10));
+    this.refs.velocity.runAnimation(opts);
     this.props.onChange(m);
+
   },
 
   changeMinutes(pos) {

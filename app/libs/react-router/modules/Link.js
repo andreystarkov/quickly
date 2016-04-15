@@ -11,9 +11,10 @@ function isModifiedEvent(event) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
 }
 
+// TODO: De-duplicate against hasAnyProperties in createTransitionManager.
 function isEmptyObject(object) {
-  for (let p in object)
-    if (object.hasOwnProperty(p))
+  for (const p in object)
+    if (Object.prototype.hasOwnProperty.call(object, p))
       return false
 
   return true
@@ -65,7 +66,6 @@ const Link = React.createClass({
   getDefaultProps() {
     return {
       onlyActiveOnIndex: false,
-      className: '',
       style: {}
     }
   },
@@ -117,8 +117,13 @@ const Link = React.createClass({
 
       if (activeClassName || (activeStyle != null && !isEmptyObject(activeStyle))) {
         if (router.isActive(location, onlyActiveOnIndex)) {
-          if (activeClassName)
-            props.className += props.className === '' ? activeClassName : ` ${activeClassName}`
+          if (activeClassName) {
+            if (props.className) {
+              props.className += ` ${activeClassName}`
+            } else {
+              props.className = activeClassName
+            }
+          }
 
           if (activeStyle)
             props.style = { ...props.style, ...activeStyle }

@@ -31,8 +31,7 @@
     "tag": "v0.4.4",
     "commit": "1415b0fb3a12ab57ab44908b4013439f2e98146f"
   },
-  "_source": "git://github.com/limonte/sweetalert2.git",
-  "_target": "~0.4.4",
-  "_originalSource": "sweetalert2",
-  "_direct": true
+  "_source": "https://github.com/limonte/sweetalert2.git",
+  "_target": "*0.4.4",
+  "_originalSource": "sweetalert2"
 }

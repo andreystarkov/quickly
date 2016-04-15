@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 18:51:06
+* @Last Modified time: 2016-04-15 00:44:08
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -10,6 +10,8 @@ var MenuItemsActions = require('../actions/menuItemsActions.js');
 var CategoriesListActions = require('../actions/categoriesListActions.js');
 var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
 var ReservationActions = require('../actions/reservationActions.js');
+
+var routesMap = require('../routes/map.js');
 
 import {showScreen} from "../../screens.jsx";
 import {browserHistory, Link} from "react-router";
@@ -104,20 +106,12 @@ var RatingStars = React.createClass({
     }
 });
 
-function updateCompany(id){
-    ReservationActions.updateHalls(id);
-    CompanyDetailsActions.updateData(id);
-    MenuItemsActions.updateDataById(id);
-    CategoriesListActions.updateData(id);
-}
-
 var SingleCompany = React.createClass({
     toggleCompany: function(el){
         var company = this.props.company.restaurant_id;
-        console.log('SingleCompany: Next ID: ' ,company);
-        currentCompany = company;
-        updateCompany(company);
-        browserHistory.push(pathPrefix+'/shop/'+company);
+        var route = routesMap.routes.shop.cleanPath+company;
+        console.log('SingleCompany: route('+company+'): '+route);
+        browserHistory.push(route);
     },
     render: function(){
         var total = 0;

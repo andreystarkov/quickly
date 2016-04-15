@@ -1,8 +1,11 @@
 var cx = require('classnames');
-var moment = require('moment');
+
 var React = require('react');
 var Calendar = require('./calendar');
 var Time = require('./time');
+
+moment.locale('ru');
+moment.lang('ru');
 
 module.exports = React.createClass({
   displayName: 'InputMoment',
@@ -27,11 +30,11 @@ module.exports = React.createClass({
     return (
       <div className="m-input-moment">
         <div className="options">
-          <button type="button" className={cx('ion-calendar im-btn', {'is-active': tab === 0})} onClick={this.handleClickTab.bind(null, 0)}>
-            Date
+          <button type="button" className={cx('btn ion-calendar im-btn', {'is-active btn-raised': tab === 0})} onClick={this.handleClickTab.bind(null, 0)}>
+            Дата
           </button>
-          <button type="button" className={cx('ion-clock im-btn', {'is-active': tab === 1})} onClick={this.handleClickTab.bind(null, 1)}>
-            Time
+          <button type="button" className={cx('btn ion-clock im-btn', {'is-active btn-raised': tab === 1})} onClick={this.handleClickTab.bind(null, 1)}>
+            Время
           </button>
         </div>
 
@@ -52,7 +55,7 @@ module.exports = React.createClass({
 
         <button type="button" className="im-btn btn-save ion-checkmark"
           onClick={this.handleSave}>
-          Save
+          Выбрать время и дату
         </button>
       </div>
     );

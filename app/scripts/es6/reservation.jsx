@@ -1,6 +1,6 @@
-import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
-import {createOrder} from "./engine/createOrder.jsx";
-import {reservationAdded, createReservation} from "./engine/createReservation.jsx";
+var {clearCart,refreshCart} = require("./engine/checkout.func.jsx");
+var {createOrder} = require("./engine/createOrder.jsx");
+var {reservationAdded, createReservation} = require("./engine/createReservation.jsx");
 
 // menuItems - массив при заказе с едой
 

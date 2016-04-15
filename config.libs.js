@@ -2,12 +2,7 @@ var theLibs = [
     'app/libs/jquery/dist/jquery.min.js',
 
     // react with bros
-    'app/libs/react/react.js',
-    'app/libs/react/react-with-addons.js',
-    'app/libs/react/react-dom.js',
-    'app/libs/reflux/dist/reflux.js',
-    'app/libs/react-cookie/dist/react-cookie.min.js',
- 
+
     // tools
 
     'app/libs/underscore/underscore-min.js',
@@ -36,9 +31,9 @@ var theLibs = [
     'app/libs/sweetalert2/src/sweetalert2.js',
     'app/libs/toastr/toastr.min.js',
     'app/scripts/components/slider.js',
-
+    // 'app/libs/input-moment/dist/input-moment.js',
     // core scripts
-
+ 
     'app/scripts/components/common.js',
     'app/scripts/components/auth.js',
     'app/scripts/components/checkout.js',

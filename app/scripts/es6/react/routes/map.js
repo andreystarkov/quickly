@@ -2,33 +2,36 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-11 15:39:11
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 15:53:45
+* @Last Modified time: 2016-04-15 00:27:38
 */
 
-const prefix = '/app';
+const prefix = '';
 
 var routesMap = {
     prefix: prefix,
+    host: 'http://quickly.su',
     routes: {
         main: {
             name: 'main',
-            path: prefix+'/'
+            path: '/'
         },
         home: {
             name: 'home',
-            path: prefix+'/home'
+            path: '/home'
         },
         profile: {
             name: 'profile',
-            path: prefix+'/profile'
+            path: '/profile'
         },
         list: {
             name: 'list',
-            path: prefix+'/list/:cuisine'
+            cleanPath: '/list/',
+            path: '/list/:cuisine'
         },
         shop: {
             name: 'shop',
-            path: prefix+'/shop/:company'
+            cleanPath: '/shop/',
+            path: '/shop/:company'
         }
     },
 };

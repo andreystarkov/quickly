@@ -3,6 +3,11 @@ var ReservationHallsStore = require('../stores/reservationHallsStore.js');
 var ReservationTablesStore = require('../stores/reservationTablesStore.js');
 
 import {getReservationPointsList} from '../../reservation.jsx';
+//var InputMoment = require('input-moment');
+
+moment.locale('ru');
+moment.lang('ru');
+var InputMoment = require('../ui/input-moment/src/input-moment.js');
 
 function getReservationUnixTime(e){
     var theTime = $('#reservationTimePicker').val();
@@ -14,18 +19,29 @@ function getReservationUnixTime(e){
     return unixTime;
 }
 
+function refreshTable(id, m){
+    var unix = m.format('x');
+    console.log('refreshTable: Unix Time: ', unix);
+    getReservationPointsList(id, unix, function(data){
+        console.log('refreshTable: callback ', data);
+    });
+    ReservationActions.updateTables(id, unix);
+    console.log('refreshTable: Sent params: ', id, m, unix);
+}
+
 var HallButton = React.createClass({
 	hallHandle: function(e){
-		var hallId = this.props.hall.hall_id;
-		getReservationPointsList(hallId, 1513073410, function(data){
-			console.log('rSDASDSADAS ', data);
-		});
-		ReservationActions.updateTable(hallId, 1513073410);
-		console.log('Selecting hall: ', hallId,e);
+       refreshTable(this.props.hall.hall_id, this.props.time);
 	},
 	render: function(){
+
+        var defaultClass = "btn button btn-select-hall";
+        var activeClass = " btn-raised", classNames;
+
+        if ( this.props.active ) defaultClass += activeClass;
+
 		return (
-			<button onClick={this.hallHandle} className="btn button light">{this.props.hall.hall_name}</button>
+			<button onClick={this.hallHandle} className={defaultClass}>{this.props.hall.hall_name}</button>
 		)
 	}
 });
@@ -35,33 +51,55 @@ var Reservation = React.createClass({
   	Reflux.connect(ReservationHallsStore, 'hallsList'),
   	Reflux.connect(ReservationTablesStore, 'tablesList')
   ],
+  halls: {},
   getInitialState: function() {
     return {
       hallsList: [],
-      tablesList: []
+      tablesList: [],
+      moment: moment(),
+      currentHall: 0
     }
   },
-   componentDidMount: function(){
-  	 $('#reservation-datetime').datetimepicker({
-        inline: true,
-        locale: moment.locale('ru'),
-        icons: {
-            time: 'picker-time glyphicon glyphicon-time',
-            date: 'glyphicon glyphicon-calendar',
-            up: 'glyphicon glyphicon-chevron-up',
-            down: 'glyphicon glyphicon-chevron-down',
-            previous: 'glyphicon glyphicon-chevron-left',
-            next: 'glyphicon glyphicon-chevron-right',
-            today: 'glyphicon glyphicon-screenshot',
-            clear: 'glyphicon glyphicon-trash',
-            close: 'glyphicon glyphicon-remove'
-        }
+  componentDidUpdate: function(){
+    var first;
+    var halls = this.state.hallsList.map(function(the, i) {
+      if( i == 0 ) first = the;
+      return the;
+    });
+    console.log('Reservaiton DidUpdate: ',first,halls);
+    if(this.state.currentHall == 0){
+        console.log('Reservation DidUpdate: Current Hall Not Set; Selecting: ',first);
+        if ( first ) refreshTable(first.hall_id, this.state.moment);
+        this.setState({
+            currentHall: first.hall_id
+        });
+    }
+  },
+  componentDidMount: function(){
+
+  },
+  handleChange: function(e){
+    console.log('New Date ', e);
+    this.setState({
+        moment: e
     });
   },
+  handleSave: function(e){
+    console.log(e);
+  },
   render: function(){
-		var halls = this.state.hallsList.map(function(the, i) {
-		  return <HallButton hall={the} key={i} />
-		});
+    var currentDate = this.state.moment,
+        currentHall = this.state.tablesList,
+        currentHallId = 0;
+
+    if (currentHall.hall) currentHallId = currentHall.hall.hall_id;
+
+	var halls = this.state.hallsList.map(function(the, i) {
+      var isActive = false;
+      if ( the.hall_id == currentHallId ) isActive = true;
+      console.log(the.hall_id+' == '+currentHallId, isActive);
+      return <HallButton active={isActive} time={currentDate} hall={the} key={i} />
+	});
 
   	return(
      <div className="container">
@@ -74,21 +112,18 @@ var Reservation = React.createClass({
              </div>
              <div className="col-lg-3">
                  <h3>Бронирование стола</h3>
-                 <div className="form-group">
-                     <label htmlFor="reservationTimePicker" className="control-label">Время бронирования</label>
-                     <input type='text' className="form-control" id='reservationTimePicker' />
-                 </div>
 
-                 <div className="form-group">
-                     <label htmlFor="reservationDatePicker" className="control-label">Дата бронирования</label>
-                     <input type='text' className="form-control" id='reservationDatePicker' />
-                 </div>
+                <InputMoment
+                  moment={this.state.moment}
+                  onChange={this.handleChange}
+                  onSave={this.handleSave}
+                />
+
              </div>
          </div>
      </div>
   	)
   }
 });
-
 
 module.exports = Reservation;

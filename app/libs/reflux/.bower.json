@@ -25,15 +25,14 @@
     "package.json"
   ],
   "dependencies": {},
-  "version": "0.3.0",
-  "_release": "0.3.0",
+  "version": "0.4.1",
+  "_release": "0.4.1",
   "_resolution": {
     "type": "version",
-    "tag": "v0.3.0",
-    "commit": "2b355e9436479c4bd0b8dbff0d33ab8fb28f5916"
+    "tag": "v0.4.1",
+    "commit": "cfc859f18796cd3100f1c213a8480aec78d28c6e"
   },
-  "_source": "git://github.com/spoike/reflux.git",
-  "_target": "^0.3.0",
-  "_originalSource": "reflux",
-  "_direct": true
+  "_source": "https://github.com/spoike/reflux.git",
+  "_target": "*",
+  "_originalSource": "reflux"
 }

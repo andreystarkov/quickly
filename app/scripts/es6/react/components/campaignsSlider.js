@@ -1,3 +1,6 @@
+import {browserHistory, Link} from "react-router";
+import {initSlider} from "./slider.js";
+
 var CampaignsStore = require('../stores/campaignsStore.js');
 
 var CampaignsActions = require('../actions/campaignsActions.js');
@@ -6,7 +9,6 @@ var MenuItemsActions = require('../actions/menuItemsActions.js');
 var CategoriesListActions = require('../actions/categoriesListActions.js');
 var CampaignsLimitedStore = require('../stores/CampaignsLimitedStore.js');
 
-import {browserHistory, Link} from "react-router";
 
 var SliderItem = React.createClass({
     handleClick: function(){
@@ -17,6 +19,9 @@ var SliderItem = React.createClass({
         MenuItemsActions.updateDataById(company);
         CategoriesListActions.updateData(company);
         browserHistory.push(pathPrefix+'/shop/'+company);
+    },
+    componentDidMount:function(){
+        initSlider();
     },
     render: function(){
         var className, expires = "Акция действительна до ";

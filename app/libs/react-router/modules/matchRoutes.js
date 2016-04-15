@@ -35,9 +35,7 @@ function getIndexRoute(route, location, callback) {
       callback(error, !error && createRoutes(indexRoute)[0])
     })
   } else if (route.childRoutes) {
-    const pathless = route.childRoutes.filter(function (obj) {
-      return !obj.hasOwnProperty('path')
-    })
+    const pathless = route.childRoutes.filter(childRoute => !childRoute.path)
 
     loopAsync(pathless.length, function (index, next, done) {
       getIndexRoute(pathless[index], location, function (error, indexRoute) {
@@ -87,13 +85,17 @@ function matchRouteDeep(
     paramValues = []
   }
 
-  if (remainingPathname !== null) {
+  // Only try to match the path if the route actually has a pattern, and if
+  // we're not just searching for potential nested absolute paths.
+  if (remainingPathname !== null && pattern) {
     const matched = matchPattern(pattern, remainingPathname)
     remainingPathname = matched.remainingPathname
     paramNames = [ ...paramNames, ...matched.paramNames ]
     paramValues = [ ...paramValues, ...matched.paramValues ]
 
-    if (remainingPathname === '' && route.path) {
+    // By assumption, pattern is non-empty here, which is the prerequisite for
+    // actually terminating a match.
+    if (remainingPathname === '') {
       const match = {
         routes: [ route ],
         params: createParams(paramNames, paramValues)
@@ -120,6 +122,7 @@ function matchRouteDeep(
           callback(null, match)
         }
       })
+
       return
     }
   }
@@ -169,10 +172,23 @@ function matchRouteDeep(
  * Note: This operation may finish synchronously if no routes have an
  * asynchronous getChildRoutes method.
  */
-function matchRoutes(
+export default function matchRoutes(
   routes, location, callback,
-  remainingPathname=location.pathname, paramNames=[], paramValues=[]
+  remainingPathname, paramNames=[], paramValues=[]
 ) {
+  if (remainingPathname === undefined) {
+    // TODO: This is a little bit ugly, but it works around a quirk in history
+    // that strips the leading slash from pathnames when using basenames with
+    // trailing slashes.
+    if (location.pathname.charAt(0) !== '/') {
+      location = {
+        ...location,
+        pathname: `/${location.pathname}`
+      }
+    }
+    remainingPathname = location.pathname
+  }
+
   loopAsync(routes.length, function (index, next, done) {
     matchRouteDeep(
       routes[index], location, remainingPathname, paramNames, paramValues,
@@ -186,5 +202,3 @@ function matchRoutes(
     )
   }, callback)
 }
-
-export default matchRoutes

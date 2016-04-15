@@ -78,7 +78,7 @@ gulp.task('scripts-concat', function(){
     return gulp.src(['app/build/libs.js', 'app/build/es6.js'])
         .pipe(plugins.concat('scripts.js'))
         .pipe(uglify().on('error', gutil.log))
-        .pipe(gulp.dest('app/app'));
+        .pipe(gulp.dest('app/build'));
 });
 
 gulp.task('js', function(callback) {
@@ -111,7 +111,7 @@ gulp.task('styles', function() {
             ],
             cascade: false
         }))
-        .pipe(gulp.dest('app/app')).on('error', gutil.log);
+        .pipe(gulp.dest('app/build')).on('error', gutil.log);
 });
 
 gulp.task('deploy-styles', function() {

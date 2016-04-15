@@ -19,9 +19,9 @@ var ReservationTablesStore = Reflux.createStore({
       var url = serverUrl+'/api/v2/reservation/tables/'+this.hall+'/'+this.date;
       console.log('ReservationTablesStore url: ', url);
       $.getJSON( url, function (data) {
-        some.tablesList = data.result.reservations;
+        some.tablesList = data.params;
         some.trigger(some.tablesList);
-        console.log('ReservationTablesStore result: ', some.hallsList);
+        console.log('ReservationTablesStore result: ', data.params);
       });
     }
 });

@@ -11,6 +11,8 @@ A simple library for unidirectional dataflow architecture inspired by ReactJS [F
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/refluxjs.svg)](https://saucelabs.com/u/refluxjs)
 
+Development version: **0.4.x** ([release notes](https://github.com/reflux/refluxjs/issues?q=is%3Aclosed+label%3A%22release+notes%22))
+
 You can read an overview of Flux [here](https://facebook.github.io/flux/docs/overview.html), however the gist of it is to introduce a more functional programming style architecture by eschewing MVC like pattern and adopting a single data flow pattern.
 
 ```
@@ -24,16 +26,17 @@ You can read an overview of Flux [here](https://facebook.github.io/flux/docs/ove
 
 The pattern is composed of actions and data stores, where actions initiate new data to pass through data stores before coming back to the view components again. If a view component has an event that needs to make a change in the application's data stores, they need to do so by signaling to the stores through the actions available.
 
-For questions please use the following communication channels:
+Feel free to open an issue on our [**discussion forum**](https://github.com/reflux/discuss) for **questions and general discussion**.  Here is a complete list of communication channels:
 
-1. [StackOverflow with the `refluxjs` tag](http://stackoverflow.com/questions/tagged/refluxjs)
-2. [`#reflux` channel](https://reactiflux.slack.com/messages/reflux/) on Reactiflux Slack group. [Sign up here](http://reactiflux.com/) for an account.
-3. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/spoike/refluxjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-4. [![Thinkful][thinkful-image]][thinkful-url]
+1. The [discussion forum](https://github.com/reflux/discuss)
+2. [StackOverflow with the `refluxjs` tag](http://stackoverflow.com/questions/tagged/refluxjs)
+3. `#reflux` channel on Reactiflux Discord group. [Sign up here](http://join.reactiflux.com/) for an account.
+4. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/spoike/refluxjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+5. [![Thinkful][thinkful-image]][thinkful-url]
 
-Please only use the [issue tracker](https://github.com/spoike/refluxjs/issues) for bugs and feature requests only.
+Please use the [issue tracker](https://github.com/spoike/refluxjs/issues) only for bugs and feature requests.
 
-If you don't want to use the React specific API, or want to develop Reflux for your view engine framework of choice, have a look at [`reflux-core`](https://github.com/reflux/reflux-core).
+If you don't want to use the React-specific API, or want to develop Reflux for your view engine framework of choice, have a look at [`reflux-core`](https://github.com/reflux/reflux-core).
 
 ## Content
 
@@ -80,11 +83,12 @@ Reflux has refactored Flux to be a bit more dynamic and be more Functional React
 
 You can find some example projects at these locations:
 
-* [Todo Example Project](https://github.com/spoike/refluxjs-todo) - [http://spoike.github.io/refluxjs-todo/](http://spoike.github.io/refluxjs-todo/)
+* [Todo Example Project](https://github.com/spoike/refluxjs-todo) - [http://reflux.github.io/refluxjs-todo/](http://reflux.github.io/refluxjs-todo/)
 * [Hacker News Clone](https://github.com/echenley/react-news) by echenley
 * [Another Todo Project with a Python backend](https://github.com/limelights/todo-reflux) by limelights
 * [Sample app with authentication, permissions, sidebar and editable collection](https://github.com/VladimirPal/react-flux-backbone)
 * [TodoMVC demonstrating Reflux + Angular](https://github.com/javamonn/Angular-TodoMVC-Redux)
+* [Sample blog by @akornatskyy](https://github.com/akornatskyy/sample-blog-react)
 
 [Back to top](#content)
 
@@ -121,10 +125,6 @@ Like React, Reflux depends on an es5-shim for older browsers. The es5-shim.js fr
 [Back to top](#content)
 
 ## Usage
-
-For a full example check the [`test/index.js`](test/index.js) file.
-
-[Back to top](#content)
 
 ### Creating actions
 
@@ -165,7 +165,7 @@ For actions that represent asynchronous operations (e.g. API calls), a few separ
 
 ```javascript
 // this creates 'load', 'load.completed' and 'load.failed'
-var Actions = Reflux.createcActions({
+var Actions = Reflux.createActions({
     "load": {children: ["completed","failed"]}
 });
 
@@ -509,7 +509,7 @@ There is also `Reflux.listenToMany` which works in exactly the same way, exposin
 
 #### Using Reflux.connect
 
-If all you want to do is update the state of your component to whatever the data store transmits, you can use `Reflux.connect(listener,[stateKey])` as a mixin. If you supply a `stateKey` the state will be updated through `this.setState({<stateKey>:data})`, otherwise `this.setState(data)`. Here's the example above changed to use this syntax:
+If all you want to do is update the state of your component to whatever the data store transmits, you can use `Reflux.connect(listener,stateKey)` as a mixin. The state is updated via `this.setState({<stateKey>:data})`. Here's the example above changed to use this syntax:
 
 ```javascript
 var Status = React.createClass({

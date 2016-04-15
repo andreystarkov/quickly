@@ -2,17 +2,40 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:57:33
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-10 23:06:24
+* @Last Modified time: 2016-04-15 00:48:27
 */
+
+import {browserHistory, Link} from "react-router";
+import { RouteTransition } from 'react-router-transition';
 
 var CompanyDetails = require('../companyDetails.react.jsx');
 var MenuItems = require('../menuItems.react.jsx');
 var Reservation = require('../components/reservation.js');
+var CuisinesList = require('../cuisinesList.react.jsx');
+var MenuItemsActions = require('../actions/menuItemsActions.js');
+var CategoriesListActions = require('../actions/categoriesListActions.js');
+var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
+var ReservationActions = require('../actions/reservationActions.js');
 
-import { RouteTransition } from 'react-router-transition';
+var routesMap = require('../routes/map.js');
+
+
+function updateCompany(id){
+    ReservationActions.updateHalls(id);
+    CompanyDetailsActions.updateData(id);
+    MenuItemsActions.updateDataById(id);
+    CategoriesListActions.updateData(id);
+    currentCompany = id;
+}
 
 var ScreenShop = React.createClass({
+    componentWillMount: function(){
+        var company = this.props.params.company;
+        console.log('ScreenShop: props', this.props);
+        updateCompany(company);
+    },
     render: function(){
+
         return (
           <RouteTransition
             pathname={this.props.location.pathname}

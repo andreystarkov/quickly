@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:41:34
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 18:33:14
+* @Last Modified time: 2016-04-15 01:06:55
 */
 
 var CompanyListActions = require('../actions/companyListActions.js');
@@ -30,6 +30,11 @@ var CompanyListStore = Reflux.createStore({
     },
     showAll: function(){
         this.cuisine = 0;
+    },
+    selectById: function(id){
+        console.log('CompanyListStore: selectById, cuisine = ', id);
+        this.currentCuisine = id;
+        this.fetchList();
     },
     selectByCuisine: function(cuisine){
         console.log('CompanyListStore: selectByCuisine, cuisine = ', cuisine);
@@ -66,11 +71,11 @@ var CompanyListStore = Reflux.createStore({
 
       this.cuisine = CuisinesActions.getCuisineById(cuisineId);
 
-      console.log('CompanyListStore: fetchList: this.cuisine = '+this.cuisine, 'this.currentCity', this.currentCity);
+      console.log('CompanyListStore: fetchList: this.cuisine = '+this.currentCuisine, 'this.currentCity', this.currentCity);
 
       queryUrl += '?restaurantType=3';
       if( cuisineId ) {
-        queryUrl += '&cuisineId='+cuisineId;
+        queryUrl += '&cuisineId='+this.currentCuisine;
       }
       if( this.currentCity > 0 ){
         queryUrl += '&cityId='+this.currentCity;

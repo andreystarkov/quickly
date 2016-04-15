@@ -18,7 +18,7 @@ var CuisinesStore = Reflux.createStore({
         setStorage('cuisines', data.result.cuisines);
         some.cuisinesData = data.result.cuisines;
         some.trigger(some.cuisinesData);
-        console.log('REFLUX: CuisinesStore fetchList', some.cuisinesData);
+        console.log('CuisinesStore fetchList', some.cuisinesData);
       });
     }
 });

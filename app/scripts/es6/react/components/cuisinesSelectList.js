@@ -1,20 +1,16 @@
-var CuisinesStore = require('../stores/cuisinesStore.js');
-var CompanyListActions = require('../actions/companyListActions.js');
-var CuisinesActions = require('../actions/cuisinesActions.js');
 import { browserHistory } from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
-
 import {renderTransitionContext, withTransition} from 'react-router-transitions';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+var CompanyListActions = require('../actions/companyListActions.js');
+var CuisinesStore = require('../stores/cuisinesStore.js');
+var CuisinesActions = require('../actions/cuisinesActions.js');
 var TransitionGroup = React.addons.CSSTransitionGroup;
 
-import {showScreen} from '../../screens.jsx';
-
-var pathPrefix = '/app'
 var SingleCuisine = React.createClass({
     toggleCategory: function(cuisine){
-        CompanyListActions.selectByCuisine(this.props.cuisine);
-        browserHistory.push(pathPrefix+'/list/'+this.props.cuisine.cuisine_id);
+        browserHistory.push('/list/'+this.props.cuisine.cuisine_id);
     },
     render: function(){
         return(
@@ -42,7 +38,6 @@ var SingleCuisine = React.createClass({
         )
     }
 });
-
 
 var CuisinesSelectList = React.createClass({
     mixins: [Reflux.connect(CuisinesStore, 'cuisinesData')],
