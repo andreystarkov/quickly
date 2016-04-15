@@ -30,17 +30,16 @@
 
   tbody td {
     color: #666666;
-
+    transition: all 0.4s ease-in-out;
     &:hover {
       background: @colorYellow;
-
       color: @colorBlack;
     }
   }
 
   .current-day {
     background: @colorYellow;
-    border-color: @colorBlack;
+    border-color: mix(@colorBlack, @colorWhite, 50%);
     color: @colorBlack;
     font-weight: bold;
   }

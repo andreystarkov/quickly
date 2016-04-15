@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:23:02
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 01:01:47
+* @Last Modified time: 2016-04-15 11:26:08
 */
 
 require('velocity-animate');
@@ -20,6 +20,7 @@ var ScreenCompanyList = React.createClass({
            active: false
         };
     },
+
     componentWillMount: function(){
         CompanyListActions.selectById(this.props.params.cuisine);
     },
@@ -32,7 +33,7 @@ var ScreenCompanyList = React.createClass({
             atLeave={{ opacity: 0 }}
             atActive={{ opacity: 1 }}>
             <section className="the-screen page-wrapper food-grid" id="pageCompanyList">
-                <CompanyList />
+                <CompanyList current={this.props.params.cuisine} />
             </section>
           </RouteTransition>
         )

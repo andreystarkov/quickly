@@ -86,6 +86,7 @@
     "react-bootstrap-datetimepicker": "*0.0.22",
     "react-burger-menu": "latest",
     "react-cookie": "latest",
+    "react-dimensions": "^1.0.2",
     "react-dom": "^15.0.1",
     "react-inlinesvg": "latest",
     "react-input-slider": "^1.5.0",

@@ -102,6 +102,9 @@ var ProfileEditorForm = React.createClass({
         console.log('ProfileEditorForm willUpdate');
     },
     componentDidMount: function(){
+
+        $.material.init();
+
         OrdersHistoryActions.fetchList();
         HistoryActions.fetchList();
         ReservationHistoryActions.fetchList()

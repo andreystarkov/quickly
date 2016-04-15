@@ -2,9 +2,8 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-11 15:38:51
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 17:30:30
+* @Last Modified time: 2016-04-15 11:23:00
 */
-
 
 import {hashHistory, Router, Route, IndexRoute, RouteHandler, Link, browserHistory} from 'react-router';
 

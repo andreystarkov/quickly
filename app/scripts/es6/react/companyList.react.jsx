@@ -63,39 +63,39 @@ var CompanyList = React.createClass({
       return {
         data: [],
         companyData: [],
-        cuisines: []
+        cuisines: getStorage('cuisines')
       };
     },
-    componentDidMount: function() {;
-        this.state.cuisines = getStorage('cuisines');
-    },
+
     loadMore: function(){
         this.limit += 5;
         CompanyStore.updateData();
     },
     render: function() {
-        var cuisineId = CompanyListStore.getCurrentCuisine();
-
+        var cuisineId = this.props.current;
+        var _this = this;
         var theData = this.state.companyData;
+
         console.log('CompanyList: companyData = ', this.state.companyData);
+
         var totalList = this.state.companyData.map(function(the, i) {
             return <SingleCompany company={the} key={i} />
         });
 
         console.log('CompanyList: this.state.cuisines = ', this.state.cuisines);
 
-        var overall, single, cuisines, cuisine;
+        var overall, single, cuisines = this.state.cuisines, cuisine;
 
-        console.log('CompanyListHeader: cuisineId = ', cuisineId);
-        if (cuisineId > 0) {
-            cuisines = getStorage('cuisines');
-            single = _.where(cuisines,{cuisine_id:cuisineId});
+        console.log('CompanyList: this.props.current = ', this.props.current);
 
-            single.forEach(function (val, index) {
-                cuisine = <CompanyListHeader cuisine={val} />;
+        if (this.props.current > 0) {
+            //single = _.where(cuisines,{cuisine_id:this.props.current});
+            single = _.find(this.state.cuisines, function(item) {
+                return item.cuisine_id == cuisineId;
             });
+            console.log('CompanyListHeader: single = ',single);
+            cuisine = <CompanyListHeader cuisine={single} />;
         }
-        console.log('CompanyListHeader: cuisine = ', cuisine);
 
         return (
         <div className="company-list-wrap">

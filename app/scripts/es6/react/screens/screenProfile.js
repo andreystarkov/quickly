@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:07:44
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-14 23:39:02
+* @Last Modified time: 2016-04-15 11:28:29
 */
 
 var React = require('react')
@@ -16,6 +16,7 @@ var ScreenProfile = React.createClass({
     componentWillEnter: function(element){
         console.log('ScreenProfile: componentWillEnter ', element);
     },
+
     render: function(){
         return(
           <RouteTransition

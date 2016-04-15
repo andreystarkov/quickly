@@ -15,13 +15,11 @@ module.exports = React.createClass({
 
   render() {
     var m = this.props.moment;
-    var animation = "callout.flipBounceX";
+  //  var animation = "callout.flipBounceX";
     return (
       <div className={cx('m-time', this.props.className)}>
         <div className="showtime">
-          <VelocityComponent ref="velocity" animation={animation}>
             <span className="time">{m.format('HH')}</span>
-          </VelocityComponent>
           <span className="separater">:</span>
           <span className="time">{m.format('mm')}</span>
         </div>
@@ -51,7 +49,7 @@ module.exports = React.createClass({
   changeHours(pos) {
     var m = this.props.moment;
     m.hours(parseInt(pos.x, 10));
-    this.refs.velocity.runAnimation(opts);
+  //  this.refs.velocity.runAnimation(opts);
     this.props.onChange(m);
 
   },

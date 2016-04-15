@@ -18,8 +18,8 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-      prevMonthIcon: 'ion-ios-arrow-left',
-      nextMonthIcon: 'ion-ios-arrow-right'
+      prevMonthIcon: 'icon-arrow-left',
+      nextMonthIcon: 'icon-arrow-right'
     };
   },
 
@@ -30,10 +30,10 @@ module.exports = React.createClass({
     return (
       <div className="m-input-moment">
         <div className="options">
-          <button type="button" className={cx('btn ion-calendar im-btn', {'is-active btn-raised': tab === 0})} onClick={this.handleClickTab.bind(null, 0)}>
+          <button type="button" className={cx('ion-calendar im-btn', {'is-active': tab === 0})} onClick={this.handleClickTab.bind(null, 0)}>
             Дата
           </button>
-          <button type="button" className={cx('btn ion-clock im-btn', {'is-active btn-raised': tab === 1})} onClick={this.handleClickTab.bind(null, 1)}>
+          <button type="button" className={cx('ion-clock im-btn', {'is-active': tab === 1})} onClick={this.handleClickTab.bind(null, 1)}>
             Время
           </button>
         </div>
