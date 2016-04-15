@@ -23,7 +23,7 @@ var SingleMenuItem = React.createClass({
             backgroundImage: 'url('+itemImage+')'
         }
 
-        return(
+        return (
         <div className="col-lg-4 col-xs-6 food-item">
             <div className="inner">
                 <div className="product-image" style={styleProduct}>

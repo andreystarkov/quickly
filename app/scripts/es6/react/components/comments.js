@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 11:38:24
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 18:18:26
+* @Last Modified time: 2016-04-15 19:21:00
 */
 import {TextField, RaisedButton} from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -123,14 +123,16 @@ var CommentForm = React.createClass({
         }
     },
     componentWillMount: function(){
-        var _this = this;
-        var url = serverUrl+'/api/v2/comments/get-possibility/'+userToken+'/'+this.props.company;
-        $.getJSON(url, function(data){
-            console.log('commentForm: Can i comment there?', data.result);
-            _this.setState({
-                enabled: data.result
+        if(userToken){
+            var _this = this;
+            var url = serverUrl+'/api/v2/comments/get-possibility/'+userToken+'/'+this.props.company;
+            $.getJSON(url, function(data){
+                console.log('commentForm: Can i comment there?', data.result);
+                _this.setState({
+                    enabled: data.result
+                });
             });
-        });
+        } else console.log('commentForm: not authorized');
     },
     componentDidMount: function(){
         $('#choose').barrating({ theme: 'fontawesome-stars' });
@@ -157,13 +159,15 @@ var CommentForm = React.createClass({
         var btnStyle = { marginTop: 10, fontSize: 13, fontWeight: 400 }
         var inputGroup = { marginBottom:35, marginTop:10 }
         var starsStyles = { marginBottom:5, marginTop:15 }
-
+        var disabled = true;
         var profile = getStorage('profile');
-        var userName = profile.userName+' '+profile.userSurname;
         var texts = lang.comments.commentForm;
 
-        var disabled = true;
-        if( this.state.enabled ) disabled = false;
+        if( profile ){
+            var userName = profile.userName+' '+profile.userSurname;
+
+            if( this.state.enabled ) disabled = false;
+        }
 
         return(
         <div className="comment-form">

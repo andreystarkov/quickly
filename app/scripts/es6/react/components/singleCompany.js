@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 00:44:08
+* @Last Modified time: 2016-04-15 19:21:24
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -75,21 +75,6 @@ var PaymentTypesCards = React.createClass({
     }
 });
 
-var StarYes = React.createClass({
-    render: function(){
-        return(
-            <i className="fa yes fa-star"></i>
-        )
-    }
-});
-
-var StarNo = React.createClass({
-    render: function(){
-        return(
-            <i className="fa yes fa-star-o"></i>
-        )
-    }
-});
 
 var RatingStars = React.createClass({
     render: function(){
@@ -132,6 +117,18 @@ var SingleCompany = React.createClass({
             online = "онлайн оплата";
         }
 
+        if( that.restaurant_type == 0){
+            console.log('Company Type: Delivery Only');
+        }
+
+        if( that.restaurant_type == 1){
+            console.log('Company Type: Reservation');
+        }
+
+        if( that.restaurant_type == 0){
+            console.log('Company Type: Delivery Only');
+        }
+
         if( that.restaurant_payment_type == 0 ){
             cardsPaymentStyle = { display: 'inline-block' }
         }
@@ -145,8 +142,8 @@ var SingleCompany = React.createClass({
                         <img src={imageUrl} />
                     </div>
                     <div className="c-payment">
-                        <img style={cardsPaymentStyle} src="images/cards/mastercard.png" alt="..." />
-                        <img style={cardsPaymentStyle} src="images/cards/visa.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="/images/cards/mastercard.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="/images/cards/visa.png" alt="..." />
                         <div className="is-online">
                             {online}
                         </div>
@@ -196,41 +193,41 @@ var SingleCompany = React.createClass({
                     </div>
 
                     <div className="c-payment mobile">
-                        <img style={cardsPaymentStyle} src="images/cards/mastercard.png" alt="..." />
-                        <img style={cardsPaymentStyle} src="images/cards/visa.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="/images/cards/mastercard.png" alt="..." />
+                        <img style={cardsPaymentStyle} src="/images/cards/visa.png" alt="..." />
                         <div className="is-online">
                             {online}
                         </div>
                     </div>
                 </div>
             </div>
-                <div className="row btm-line mobile">
-                   <div className="col-lg-3 col-xs-3 kal">
-                        <div className="box-info">
-                            <b className="value">{that.restaurant_min_order} <i className="fa fa-rouble"></i></b>
-                            <span className="description">заказ от</span>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-xs-3 kal">
-                        <div className="box-info">
-                            <b className="value">{that.restaurant_delivery_cost} <i className="fa fa-rouble"></i></b>
-                            <span className="description">доставка</span>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-3 col-xs-3 kal">
-                        <div className="box-info">
-                            <b className="value">{that.restaurant_delivery_time} <i className="icon icon-clock"></i></b>
-                            <span className="description">время</span>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-xs-3 kal">
-                        <div className="box-info">
-                            <b className="value">{that.restaurant_average_check} <i className="fa fa-rouble"></i></b>
-                            <span className="description">средний чек</span>
-                        </div>
+            <div className="row btm-line mobile">
+               <div className="col-lg-3 col-xs-3 kal">
+                    <div className="box-info">
+                        <b className="value">{that.restaurant_min_order} <i className="fa fa-rouble"></i></b>
+                        <span className="description">заказ от</span>
                     </div>
                 </div>
+                <div className="col-lg-3 col-xs-3 kal">
+                    <div className="box-info">
+                        <b className="value">{that.restaurant_delivery_cost} <i className="fa fa-rouble"></i></b>
+                        <span className="description">доставка</span>
+                    </div>
+                </div>
+
+                <div className="col-lg-3 col-xs-3 kal">
+                    <div className="box-info">
+                        <b className="value">{that.restaurant_delivery_time} <i className="icon icon-clock"></i></b>
+                        <span className="description">время</span>
+                    </div>
+                </div>
+                <div className="col-lg-3 col-xs-3 kal">
+                    <div className="box-info">
+                        <b className="value">{that.restaurant_average_check} <i className="fa fa-rouble"></i></b>
+                        <span className="description">средний чек</span>
+                    </div>
+                </div>
+            </div>
             <div className="the-footer">
                 <div className="row">
                     <div className="align-left col-xs-6 col-lg-6">

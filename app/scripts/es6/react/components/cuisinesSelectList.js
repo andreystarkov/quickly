@@ -13,6 +13,14 @@ var SingleCuisine = React.createClass({
         browserHistory.push('/list/'+this.props.cuisine.cuisine_id);
     },
     render: function(){
+/*        var that = this.props.cuisine;
+        var itemImage = imageBaseUrl+that.cuisine_image;
+        if (that.cuisine_image === undefined || that.cuisine_image === null || that.cuisine_image == '')
+        { itemImage = '/images/placeholder-1.png'; }
+
+        var styleProduct = {
+            backgroundImage: 'url('+itemImage+')'
+        }*/
         return(
         <div onClick={this.toggleCategory} className="cuisine-select-item col-lg-4 col-xs-6 category-item" data-id={this.props.cuisine.cuisine_id}>
             <a href="#">

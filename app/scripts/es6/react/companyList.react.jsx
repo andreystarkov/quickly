@@ -76,24 +76,22 @@ var CompanyList = React.createClass({
         var _this = this;
         var theData = this.state.companyData;
 
-        console.log('CompanyList: companyData = ', this.state.companyData);
+    // console.log('CompanyList: companyData = ', this.state.companyData);
 
         var totalList = this.state.companyData.map(function(the, i) {
             return <SingleCompany company={the} key={i} />
         });
 
-        console.log('CompanyList: this.state.cuisines = ', this.state.cuisines);
+    //  console.log('CompanyList: this.state.cuisines = ', this.state.cuisines);
 
         var overall, single, cuisines = this.state.cuisines, cuisine;
 
-        console.log('CompanyList: this.props.current = ', this.props.current);
+    //  console.log('CompanyList: this.props.current = ', this.props.current);
 
         if (this.props.current > 0) {
-            //single = _.where(cuisines,{cuisine_id:this.props.current});
             single = _.find(this.state.cuisines, function(item) {
                 return item.cuisine_id == cuisineId;
             });
-            console.log('CompanyListHeader: single = ',single);
             cuisine = <CompanyListHeader cuisine={single} />;
         }
 

@@ -5,12 +5,8 @@ var MenuItemsActions = require('./actions/menuItemsActions.js');
 var CategoryItem = React.createClass({
 	categoryToggle: function(el){
 		var newId = this.props.item.category_id;
-		console.log('CategoryItem: categoryToggle: newId = ', newId);
         var the = el.target;
         var others = document.getElementsByClassName('category-toggle');
-        console.log(others);
-    /*    $('.category-toggle.active').removeClass('active');
-        the.addClass('active');*/
 		MenuItemsActions.updateData(newId);
 	},
 	render: function(){
@@ -33,14 +29,9 @@ var CategoriesList = React.createClass({
         categories: []
       };
     },
-    componentDidMount: function() {
-     //   OrdersHistoryActions.updateData();
-    },
     render: function() {
-     //   OrdersHistoryActions.updateData();
         var list = this.state.categories;
 
-		console.log('CategoriesList: ', list);
         var everything = list.map(function(the, i) {
             return <CategoryItem item={the} key={i} />
         });

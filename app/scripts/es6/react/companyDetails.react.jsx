@@ -36,9 +36,6 @@ var CompanyDetails = React.createClass({
             if ( (type == 1) || (type == 3) ){
                 console.log('companyDetails: Reservation Enabled ('+type+')');
                 this.isReservation = true;
-/*                getHallsList(data.restaurant_id, function(data){
-                    console.log('getHallsList: callback, data = ',data);
-                });*/
             } else {
                 console.log('CompanyDetails: Reservation Disabled ('+type+')');
                 this.isReservation = false;
@@ -106,8 +103,8 @@ var CompanyDetails = React.createClass({
                         </div>
                         <div className="box pay">
                             <div className="cards">
-                                <div className="card-icon mastercard"><img src="images/cards/mastercard.png" /></div>
-                                <div className="card-icon visa"><img src="images/cards/visa.png" /></div>
+                                <div className="card-icon mastercard"><img src="/images/cards/mastercard.png" /></div>
+                                <div className="card-icon visa"><img src="/images/cards/visa.png" /></div>
                             </div>
                         </div>
                     </div>

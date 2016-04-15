@@ -36,22 +36,6 @@
 @colorM@time: .3s;
 @easing: ease-in-out;
 
-.page-transition-enter {
-  transition: opacity @time @easing;
-  opacity: 0;
-  position: absolute;
-}
-.page-transition-enter.page-transition-enter-active {
-  opacity: 1;
-}
-.page-transition-leave {
-  transition: opacity @time @easing;
-  opacity: 1;
-  position: absolute;
-}
-.page-transition-leave.page-transition-leave-active {
-  opacity: 0;
-}
 
 @colorMainBackground:mix(@colorGrayLight, #333, 98.5%);
 @colorDefaultBackground:mix(@colorMainBackground,@colorWhite, 20%);
@@ -69,24 +53,6 @@
 
 @time: .3s;
 @easing: ease-in-out;
-
-.page-transition-enter {
-  transition: opacity @time @easing;
-  opacity: 0;
-  position: absolute;
-}
-.page-transition-enter.page-transition-enter-active {
-  opacity: 1;
-}
-
-.page-transition-leave {
-  transition: opacity @time @easing;
-  opacity: 1;
-  position: absolute;
-}
-.page-transition-leave.page-transition-leave-active {
-  opacity: 0;
-}
 
 .logo {
     svg {
@@ -174,17 +140,16 @@ body {
     display:none;
   }
   .main-header, .top-line {
-  //  background:fade(#111, 5%);
+
   }
 }
+
 .bt-round {
-1
-//  box-shadow: 0px 1px 3px fade(#000,40%);
-  //border-bottom:3px solid darken(#f1f0ea,8%);
   .icon, .icon:before {
     color:@colorBlack;
   }
 }
+
 .back-left {
     margin-left:0px;
 }
@@ -365,6 +330,7 @@ body {
   background-size:cover;
   background-position-y:400px;
   border-bottom:3px solid @colorGray;
+
   .payment-type {
      overflow:hidden;
     .payment-icons {
@@ -431,7 +397,7 @@ body {
     border-radius: 3px;
   }
   background:fade(#fff,60%);
-  border-radius:8px;
+  border-radius:3px;
   overflow:hidden;
   margin-top:30px;
   margin-bottom:30px;

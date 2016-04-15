@@ -264,12 +264,19 @@ body {
     .company-item {
         margin-top:15px;
         margin-bottom:0px;
+        cursor:pointer;
+        .the-box {
+            transition: all 0.6s @easingSlowEnd;
+        }
+        .the-footer {
+            transition: all 0.4s @easingSlowMid 0.2s;
+        }
         &:hover {
             .the-box {
-                background:#fff;
+                background:fade(#fff,55%);
             }
             .the-footer {
-                background:#fff;
+                background:fade(#fff,55%);
             }
         }
         .rating {
@@ -289,6 +296,9 @@ body {
         }
         .cuisines-list {
             margin-bottom:5px;
+            .button-cuisine {
+                border-bottom:2px solid fade(#d7d2bd,50%);
+            }
         }
         .the-footer {
             border-bottom:3px solid darken(@colorDefaultBackground,8%);
