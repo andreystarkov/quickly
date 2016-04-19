@@ -3,6 +3,10 @@ var theLibs = [
 
     // react with bros
 
+    'app/libs/react/react-with-addons.min.js',
+    'app/libs/react/react-dom.min.js',
+    'app/libs/reflux/dist/reflux.min.js',
+
     // tools
 
     'app/libs/underscore/underscore-min.js',
@@ -33,7 +37,7 @@ var theLibs = [
     'app/scripts/components/slider.js',
     // 'app/libs/input-moment/dist/input-moment.js',
     // core scripts
- 
+
     'app/scripts/components/common.js',
     'app/scripts/components/auth.js',
     'app/scripts/components/checkout.js',

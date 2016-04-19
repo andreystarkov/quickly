@@ -31,16 +31,16 @@ var FieldDefault = React.createClass({
 
 var FieldControlled = React.createClass({
     getInitialState: function() {
-      console.log('FieldControlled: default = ', this.props.defaultValue);
+    //  console.log('FieldControlled: default = ', this.props.defaultValue);
       return {
         value: this.props.defaultValue
       }
     },
     componentWillUpdate: function(){
-        console.log('FieldControlled: willUpdate');
+     //   console.log('FieldControlled: willUpdate');
     },
     componentDidUpdate: function(){
-        console.log('FieldControlled: didUpdate');
+     //   console.log('FieldControlled: didUpdate');
     },
     handleChange: function(event) {
       this.setState({
@@ -71,12 +71,12 @@ var CardsEditor = React.createClass({
     },
     bindCard: function() {
       $.getJSON(this.bindUrl, function(data){
-        console.log('CardsEditor bindCard', data.result);
+     //   console.log('CardsEditor bindCard', data.result);
         openNewTab(data.result);
       });
     },
     render: function () {
-        console.log('CardsEditor: ',this.state.cardsData);
+      //  console.log('CardsEditor: ',this.state.cardsData);
         return (
           <div className="cards-editor">
             <b className="group-title">Банковские карты</b>
@@ -96,10 +96,10 @@ var CardsEditor = React.createClass({
 
 var ProfileEditorForm = React.createClass({
     getInitalState: function(){
-        console.log('ProfileEditorForm getInitalState');
+    //    console.log('ProfileEditorForm getInitalState');
     },
     componentWillUpdate: function(){
-        console.log('ProfileEditorForm willUpdate');
+     //   console.log('ProfileEditorForm willUpdate');
     },
     componentDidMount: function(){
 
@@ -119,10 +119,10 @@ var ProfileEditorForm = React.createClass({
         $('#userBirthdate').val(birthDate);
     },
     onFieldChange: function(value){
-        console.log('ProfileEditorForm onFieldChange: value = ', value.target);
+      //  console.log('ProfileEditorForm onFieldChange: value = ', value.target);
     },
     onBirthChange: function(e){
-        console.log('onBirthChange: ', e.target.value);
+      //  console.log('onBirthChange: ', e.target.value);
     },
     onNameChange: function(e){
       this.setState({
@@ -147,7 +147,7 @@ var ProfileEditorForm = React.createClass({
       })
     },
     setGender: function(e){
-        console.log('setGender: ', e.target.value);
+     //   console.log('setGender: ', e.target.value);
         this.editUserField('gender', e.target.value);
     },
     editUserField: function(theParameter, theValue){
@@ -159,7 +159,7 @@ var ProfileEditorForm = React.createClass({
         theOptions['cityId'] = cityId;
         theOptions[theParameter] = theValue;
 
-        console.log('ProfileEditorForm: editUserField: Options: ', theOptions);
+  //      console.log('ProfileEditorForm: editUserField: Options: ', theOptions);
 
         $.ajax({
             url: serverUrl + '/api/v2/user/profile/edit',
@@ -183,7 +183,7 @@ var ProfileEditorForm = React.createClass({
         var profile = this.props.profile;
         var userAvatar, maleChecked, femaleChecked;
 
-        console.log('ProfileEditorForm: profile = ', profile);
+    //    console.log('ProfileEditorForm: profile = ', profile);
 
         if (profile.userAvatarUrl === undefined || profile.userAvatarUrl === null) {
             userAvatar = 'images/samples/user.png';

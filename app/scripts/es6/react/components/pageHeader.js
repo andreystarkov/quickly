@@ -32,7 +32,7 @@ var PageHeader = React.createClass({
                     <div className="row">
                         <div className="col-lg-2">
                             <div className="logo screen-toggle" data-screen="pageMain">
-                                <InlineSvg src="svg/logo.svg" />
+                                <img src="/images/logo.png" className="main-logo-top" />
                             </div>
                         </div>
                         <div className="col-lg-4">

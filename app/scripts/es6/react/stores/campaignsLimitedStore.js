@@ -25,7 +25,7 @@ var CampaignsLimitedStore = Reflux.createStore({
       console.log('CampaignsLimitedStore: fetchList Url = ', url);
       $.getJSON(url, function (data) {
         some.CampaignsLimitedData = data.result.campaigns;
-        console.log('CampaignsLimitedStore: result = ', data);
+      //  console.log('CampaignsLimitedStore: result = ', data);
         some.trigger(some.CampaignsLimitedData);
       });
     }

@@ -18,7 +18,7 @@ var SliderItem = React.createClass({
         CompanyDetailsActions.updateData(company);
         MenuItemsActions.updateDataById(company);
         CategoriesListActions.updateData(company);
-        browserHistory.push(pathPrefix+'/shop/'+company);
+        browserHistory.push('/shop/'+company);
     },
     componentDidMount:function(){
         initSlider();

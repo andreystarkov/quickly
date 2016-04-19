@@ -16,12 +16,12 @@ var CardsStore = Reflux.createStore({
         this.fetchList();
     },
     updateData: function(){
-        console.log('CardsStore updateData()');
+      //  console.log('CardsStore updateData()');
         this.fetchList();
     },
     bindCard: function() {
       $.getJSON(this.bindUrl, function(data){
-        console.log('CardsStore bindCard', data);
+    //    console.log('CardsStore bindCard', data);
       });
     },
     fetchList: function() {
@@ -29,10 +29,10 @@ var CardsStore = Reflux.createStore({
       $.getJSON(this.sourceUrl, function(data){
         var result = data.result;
         if( result !== undefined ){
-            console.log('CardsStore fetchList', data);
+       //     console.log('CardsStore fetchList', data);
             some.cardsData = data.result.cards;
             some.trigger(some.cardsData);
-        } else console.log('CardsStore: No Data: ',data);
+        }
       });
     }
 });

@@ -14,16 +14,10 @@ var ScreenMain = React.createClass({
     render: function(){
     		console.log('ScreenMain: pathname = ', this.props.location.pathname);
         return (
-			  <RouteTransition
-			    pathname={this.props.location.pathname}
-			    atEnter={{ opacity: 0 }}
-			    atLeave={{ opacity: 0 }}
-			    atActive={{ opacity: 1 }}>
             <section className="the-screen page-wrapper" id="pageMain">
                 <MainPageHeader />
                 <CuisinesSelectList />
             </section>
-         </RouteTransition>
         )
     }
 });

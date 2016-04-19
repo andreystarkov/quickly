@@ -16,7 +16,7 @@ var CommentsStore = Reflux.createStore({
     //    this.fetchList();
     },
     updateData: function(id){
-        console.log('CommentsStore updateData('+id+')');
+     //   console.log('CommentsStore updateData('+id+')');
         if(id){
             this.companyId = id;
             this.fetchList();
@@ -26,10 +26,10 @@ var CommentsStore = Reflux.createStore({
         var some = this;
 
         var url = this.sourceUrl+this.companyId+'/'+userToken;
-        console.log('CommentsStore: fetchList Url = ', url);
+     //   console.log('CommentsStore: fetchList Url = ', url);
         $.getJSON(url, function (data) {
             some.comments = data.result.comments;
-            console.log('CommentsStore: result = ', data.result.comments);
+       //     console.log('CommentsStore: result = ', data.result.comments);
             some.trigger(some.comments);
         });
     }

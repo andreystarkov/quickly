@@ -9,7 +9,7 @@ var HallsList = React.createClass({
 			}
 		},
 		render: function() {
-			console.log('HallsList: ', this.state.hallsData);
+	//		console.log('HallsList: ', this.state.hallsData);
 			return(
 				<div>sa</div>
 			)
@@ -26,12 +26,12 @@ var Reservation = React.createClass({
     },
     bindCard: function() {
       $.getJSON(this.bindUrl, function(data){
-        console.log('CardsEditor bindCard', data.result);
+     //   console.log('CardsEditor bindCard', data.result);
         openNewTab(data.result);
       });
     },
     render: function () {
-        console.log('CardsEditor: ',this.state.cardsData);
+      //  console.log('CardsEditor: ',this.state.cardsData);
         return (
           <div className="cards-editor">
             <b className="group-title">Банковские карты</b>

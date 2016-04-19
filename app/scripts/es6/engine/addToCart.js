@@ -15,7 +15,7 @@ export function addToCart(id, name, price, flyObj){
     theCart.contents.push(jsonObj);
     console.log('addToCart: theCart = ', theCart);
     setStorage('theCart', theCart.contents);
-    flyToCart($(flyObj));cartBottomPanel
+    flyToCart($(flyObj));
     refreshCart();
 }
 

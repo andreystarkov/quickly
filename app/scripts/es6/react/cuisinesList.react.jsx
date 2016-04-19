@@ -19,7 +19,7 @@ var CuisinesList = React.createClass({
 
         var sorted = _.sortBy(allCuisines, function(o) { return o.cuisine_id; });
 
-        console.log('CuisinesList: sorted = ', sorted);
+    //    console.log('CuisinesList: sorted = ', sorted);
         var totalList = companyCuisines.map(function(the, key) {
             if(key < limit){
                 var pick = sorted[key+1];

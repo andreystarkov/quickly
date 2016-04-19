@@ -20,38 +20,38 @@ var CompanyListStore = Reflux.createStore({
       //  this.fetchList();
     },
     setCurrentCity: function(cityId){
-      console.log('CompanyListStore: setCurrentCity('+cityId+')');
+   //   console.log('CompanyListStore: setCurrentCity('+cityId+')');
       this.currentCity = cityId;
       this.fetchList();
     },
     updateData: function(){
-        console.log('CompanyStore updateData()');
+      //  console.log('CompanyStore updateData()');
         this.fetchList();
     },
     showAll: function(){
         this.cuisine = 0;
     },
     selectById: function(id){
-        console.log('CompanyListStore: selectById, cuisine = ', id);
+    //    console.log('CompanyListStore: selectById, cuisine = ', id);
         this.currentCuisine = id;
         this.fetchList();
     },
     selectByCuisine: function(cuisine){
-        console.log('CompanyListStore: selectByCuisine, cuisine = ', cuisine);
+     //   console.log('CompanyListStore: selectByCuisine, cuisine = ', cuisine);
         this.cuisine = cuisine;
         currentCuisine = cuisine;
         this.currentCuisine = cuisine.cuisine_id;
         this.fetchList(cuisine.cuisine_id);
     },
     getCurrentCuisine: function(){
-         console.log('CompanyListStore: getCurrentCuisine, CurrentCuisine = ', this.currentCuisine);
+    //     console.log('CompanyListStore: getCurrentCuisine, CurrentCuisine = ', this.currentCuisine);
          return this.currentCuisine;
     },
     filterData: function(cuisine, type){
         var data = this.companyList;
         var filtered;
 
-        console.log('CompanyListStore: filterData: type = '+type);
+    //    console.log('CompanyListStore: filterData: type = '+type);
 
         if (type == 3) filtered = _.filter(data, function(element){
             return element.restaurant_payment_type == 1;
@@ -60,7 +60,7 @@ var CompanyListStore = Reflux.createStore({
         if (type == 0) { this.fetchList(); } else {
             this.companyList = filtered;
             this.trigger(this.companyList);
-            console.log('CompanyListStore: filterData: ', filtered);
+    //        console.log('CompanyListStore: filterData: ', filtered);
         }
         return filtered;
     },
@@ -71,7 +71,7 @@ var CompanyListStore = Reflux.createStore({
 
       this.cuisine = CuisinesActions.getCuisineById(cuisineId);
 
-      console.log('CompanyListStore: fetchList: this.cuisine = '+this.currentCuisine, 'this.currentCity', this.currentCity);
+   //   console.log('CompanyListStore: fetchList: this.cuisine = '+this.currentCuisine, 'this.currentCity', this.currentCity);
 
       queryUrl += '?restaurantType=3';
       if( cuisineId ) {
@@ -80,11 +80,11 @@ var CompanyListStore = Reflux.createStore({
       if( this.currentCity > 0 ){
         queryUrl += '&cityId='+this.currentCity;
       }
-      console.log('CompanyListStore: queryUrl = ',queryUrl);
+    //  console.log('CompanyListStore: queryUrl = ',queryUrl);
 
       $.getJSON(queryUrl, function (data) {
 
-        console.log('CompanyListStore fetchList', data);
+    //    console.log('CompanyListStore fetchList', data);
         some.companyList = data.result.restaurants;
         some.trigger(some.companyList);
 

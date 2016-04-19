@@ -10,14 +10,14 @@
         theOptions['cityId'] = cityId;
 
         if( fieldId == "userBirthdate" ){
-            console.log('Editing: userBirthdate, ', setValue+' = '+moment(setValue).utc().format('X'));
+     //       console.log('Editing: userBirthdate, ', setValue+' = '+moment(setValue).utc().format('X'));
             setValue = moment(setValue).utc().format('X');
-            console.log('setValue: ', setValue);
+       //     console.log('setValue: ', setValue);
         }
 
         theOptions[theParameter] = setValue;
 
-        console.log('editUserField: Options: ',theOptions);
+     //   console.log('editUserField: Options: ',theOptions);
         $.ajax({
             url: serverUrl + '/api/v2/user/profile/edit',
             dataType: 'json',
@@ -94,9 +94,9 @@
             var fieldId = $(this).attr('id');
             var newFieldVal = $(this).val();
             if( !(oldFieldVal == newFieldVal) ){
-                console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'), 'Old val = '+oldFieldVal);
+              //  console.log('Editing: #' + fieldId + ', data-id=' + $(this).data('id'), 'Old val = '+oldFieldVal);
                 editUserField(fieldId);
-            } else console.log('AutoField: Nothing changed');
+            };
 
         });
 

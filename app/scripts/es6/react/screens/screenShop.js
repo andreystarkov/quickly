@@ -40,8 +40,6 @@ var ScreenShop = React.createClass({
     render: function(){
 
         return (
-          <RouteTransition
-            pathname={this.props.location.pathname} atEnter={{ opacity: 0 }} atLeave={{ opacity: 0 }} atActive={{ opacity: 1 }}>
             <div className="the-screen page-wrapper" id="pageCompany">
                 <section className="company-about gray" id="companyDetails">
                     <CompanyDetails />
@@ -60,7 +58,6 @@ var ScreenShop = React.createClass({
                     </div>
                 </section>
             </div>
-        </RouteTransition>
         )
     }
 });

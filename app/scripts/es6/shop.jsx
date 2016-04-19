@@ -182,7 +182,7 @@ $(function() {
         console.log('addToCart: theCart = ', theCart);
         console.log('addToCart: Pushing = ', obj);
         setStorage('theCart', theCart.contents);
-        flyToCart( clicked.parent().parent().find("img").eq(0) );
+        flyToCart( clicked.parent().parent() );
         toastr.success(`${obj.name}, ${obj.price} р.`);
         refreshCart();
     }

@@ -47,6 +47,7 @@ function compile(watch) {
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
             .pipe(sourcemaps.write('./'))
+            .pipe(uglify())
             .pipe(gulp.dest('./app/build/'));
     }
 
@@ -120,7 +121,7 @@ gulp.task('deploy-styles', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/app/build'
+        remotePath: '/home/app/quickly-landing/build'
       }));
 });
 
@@ -130,7 +131,7 @@ gulp.task('sftp-scripts', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/app/build'
+        remotePath: '/home/app/quickly-landing/build'
       }));
 });
 
@@ -140,7 +141,7 @@ gulp.task('sftp-all', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/app/scripts'
+        remotePath: '/home/app/quickly-landing/scripts'
       }));
 });
 
@@ -150,7 +151,7 @@ gulp.task('sftp-core', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/app/build'
+        remotePath: '/home/app/quickly-landing/build'
       }));
 });
 
@@ -160,7 +161,7 @@ gulp.task('sftp-html', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/app/'
+        remotePath: '/home/app/quickly-landing/'
       }));
 });
 
@@ -170,7 +171,7 @@ gulp.task('sftp-fonts', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/app/fonts/'
+        remotePath: '/home/app/quickly-landing/fonts/'
       }));
 });
 
@@ -180,7 +181,7 @@ gulp.task('sftp-images', function() {
         host: secrets.host,
         user: secrets.username,
         pass: secrets.password,
-        remotePath: '/home/app/quickly-landing/app/images/'
+        remotePath: '/home/app/quickly-landing/images/'
       }));
 });
 

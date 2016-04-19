@@ -118,10 +118,12 @@ var Reservation = React.createClass({
     console.log('Reservaiton DidUpdate: ',first,halls);
     if(this.state.currentHall == 0){
         console.log('Reservation DidUpdate: Current Hall Not Set; Selecting: ',first);
-        if ( first ) refreshTable(first.hall_id, this.state.moment);
-        this.setState({
-            currentHall: first.hall_id
-        });
+        if ( first ) {
+          refreshTable(first.hall_id, this.state.moment);
+          this.setState({
+              currentHall: first.hall_id
+          });
+        }
     }
   },
   componentDidMount: function(){

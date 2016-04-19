@@ -14,7 +14,7 @@ var OrdersHistoryStore = Reflux.createStore({
         this.fetchList();
     },
     updateData: function(){
-        console.log('OrdersHistoryStore: updateData()');
+       // console.log('OrdersHistoryStore: updateData()');
         this.fetchList();
     },
     fetchList: function() {
@@ -24,8 +24,8 @@ var OrdersHistoryStore = Reflux.createStore({
         if( result !== undefined ){
             some.historyList = data.result.orders;
             some.trigger(some.historyList);
-            console.log('OrdersHistoryStore: fetchList', some.historyList);
-        } else console.log('OrdersHistoryStore: no data', data);
+         //   console.log('OrdersHistoryStore: fetchList', some.historyList);
+        }
       });
     }
 });
