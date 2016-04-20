@@ -35,6 +35,7 @@ var theLibs = [
     'app/libs/sweetalert2/src/sweetalert2.js',
     'app/libs/toastr/toastr.min.js',
     'app/scripts/components/slider.js',
+
     // 'app/libs/input-moment/dist/input-moment.js',
     // core scripts
 
