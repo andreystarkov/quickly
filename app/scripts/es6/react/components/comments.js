@@ -2,9 +2,9 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 11:38:24
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 19:21:00
+* @Last Modified time: 2016-04-21 15:57:40
 */
-import {TextField, RaisedButton} from 'material-ui';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 var CommentsStore = require('../stores/commentsStore.js');
@@ -193,8 +193,10 @@ var CommentForm = React.createClass({
                   <option value="5">5</option>
                 </select>
             </div>
-            <RaisedButton disabled={disabled} onClick={this.sendMessage} backgroundColor="#fff036" label={texts.buttonSend} style={btnStyle}>
-            </RaisedButton>
+            <button disabled={disabled} className="btn button main" onClick={this.sendMessage}
+            backgroundColor="#fff036" style={btnStyle}>
+                {texts.buttonSend}
+            </button>
         </div>
         )
     }

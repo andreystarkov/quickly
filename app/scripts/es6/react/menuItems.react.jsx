@@ -9,9 +9,8 @@ import LoadingOrderAnimation from 'react-loading-order-with-animation';
 var MenuItemsStore = require('./stores/menuItemsStore.js');
 var CategoriesListActions = require('./actions/categoriesListActions.js');
 var CategoriesList = require('./categoriesList.react.jsx');
-var Loader = require('halogen/PulseLoader');
 var Spinner = require('./ui/spinner.js');
-
+var ButtonMore = require('./components/buttonMore.js');
 
 var SingleMenuItem = React.createClass({
     addToCart: function(e){
@@ -117,7 +116,9 @@ var MenuItemsList = React.createClass({
         return (
             <div>
                 <div>{items}</div>
-                <button className="btn btn-more" onClick={this.loadMore}>Загрузить ещё</button>
+                <div>
+                    <ButtonMore onClick={this.loadMore} />
+                </div>
             </div>
         )
     }

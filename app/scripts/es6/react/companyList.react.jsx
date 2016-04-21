@@ -12,6 +12,7 @@ var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
 var Spinner = require('./ui/spinner.js');
 
+
 var routesMap = require('./routes/map.js');
 
 var CompanyListHeader = React.createClass({
@@ -39,14 +40,14 @@ var CompanyListHeader = React.createClass({
                         </div>
                     </div>
                     <div className="row bottom-line">
-                        <div className="col-lg-8">
+                        <div className="col-lg-6">
                             <div className="back-to-home align-left back-left">
                                 <button className="button light screen-toggle" onClick={this.toList}>
                                     <i className="icon icon-arrow-left"></i><span> К списку</span>
                                 </button>
                             </div>
                         </div>
-                        <div className="col-lg-4 align-right">
+                        <div className="col-lg-6 align-right">
 
                         </div>
                     </div>
@@ -61,12 +62,16 @@ var CompanyList = React.createClass({
     mixins: [Reflux.connect(CompanyListStore, 'companyData')],
     limit: 5,
     cuisineId: 0,
+    perPage: 8,
     getInitialState: function() {
       return {
         data: [],
         originalData: [],
         companyData: [],
-        loadCount: 8,
+        filteredData: [],
+        loadCount: this.perPage,
+        isFilters: false,
+        searchFilter: '',
         filters: {
             freeDelivery: false,
             hasCampagains: false,
@@ -86,67 +91,129 @@ var CompanyList = React.createClass({
             loadCount: was+8
         });
     },
-    filterData: function(e){
+    searchChange: function(e){
+        console.log('Search: ', e.target.value);
+        this.setState({
+            searchFilter: e.target.value
+        });
+    },
+    onChecked: function(e){
         var filter = e.target.name;
-        var checked = e.target.checked;
         var filters = this.state.filters;
+        var checked = e.target.checked;
+
+        var isFilters = false;
         var data = this.state.companyData;
         var filtered = data;
 
-        console.log('Total: ', filtered);
         filters[filter] = checked;
 
-        if( filters['freeDelivery'] ){
-            filtered = _.filter(filtered, function(single){
-                return single.restaurant_delivery_cost == 0;
-            });
-            console.log('Filter: freeDelivery: ', filtered);
-        }
-        if( filters['hasCampagains'] ){
-            filtered = _.filter(filtered, function(single){
-                return single.restaurant_has_campaigns == 1;
-            });
-            console.log('Filter: hasCampagains: ', filtered);
-        }
-        if( filters['cardCourier'] ){
-            filtered = _.filter(filtered, function(single){
-                return single.restaurant_payment_type == 1;
-            });
-            console.log('Filter: cardCourier: ', filtered);
-        }
+        console.log('Filters: ', filters);
 
-        if( filters['cardOnline'] ){
-            filtered = _.filter(filtered, function(single){
-                return single.restaurant_online_payment == 1;
-            });
-            console.log('Filter: cardOnline: ', filtered);
-        }
-
-        this.setState({
-            originalData: data,
-            companyData: filtered,
-            filters: filters
+        $.each(filters, function(the, value){
+            if(value) isFilters = true;
         });
+
+        console.log('Filters? ', isFilters);
+
+        if( isFilters ){
+
+            if( filters['freeDelivery'] ){
+                filtered = _.filter(filtered, function(single){
+                    return single.restaurant_delivery_cost == 0;
+                });
+                console.log('Filter: freeDelivery: ', filtered);
+            }
+
+            if( filters['hasCampagains'] ){
+                filtered = _.filter(filtered, function(single){
+                    return single.restaurant_has_campaigns == 1;
+                });
+                console.log('Filter: hasCampagains: ', filtered);
+            }
+
+            if( filters['cardCourier'] ){
+                filtered = _.filter(filtered, function(single){
+                    return single.restaurant_payment_type == 1;
+                });
+                console.log('Filter: cardCourier: ', filtered);
+            }
+
+            if( filters['cardOnline'] ){
+                filtered = _.filter(filtered, function(single){
+                    return single.restaurant_online_payment == 1;
+                });
+                console.log('Filter: cardOnline: ', filtered);
+            }
+
+            if( filtered.length > 0 ){
+                console.log('Summary filtered: ', filtered);
+                this.setState({
+                    isFilters: isFilters,
+                    filters: filters,
+                    filtersData: filtered
+                });
+            } else {
+                toastr.info('Нет ресторанов, удволетворяющих вашей фильтрации.');
+                filters[filter] = false;
+                this.setState({
+                    isFilters: false,
+                    filters: {
+                        freeDelivery: false,
+                        hasCampagains: false,
+                        cardCourier: false,
+                        cardOnline: false,
+                        nowOnline: false
+                    },
+                    filtersData: []
+                });
+            }
+
+        } else {
+
+            console.log('No filters enabled');
+
+            this.setState({
+                isFilters: isFilters,
+                filters: filters,
+                filtersData: []
+            });
+        }
 
     },
     render: function() {
+
         var that = this;
         var totalList;
         var cuisineId = this.props.current;
         var _this = this;
         var theData = this.state.companyData;
+        var filtered = this.state.filtersData;
 
         if(theData.length > 0){
-            totalList = this.state.companyData.map(function(the, i) {
-                if(i < that.state.loadCount){
-                    return(
-                    <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
-                       distance={30} speed={400} wait={120*i}>
-                        <SingleCompany company={the} key={i} />
-                    </LoadingOrderAnimation>
-                    )
-                }
-            });
+            if( this.state.isFilters ){
+                totalList = filtered.map(function(the, i) {
+                    if(i < that.state.loadCount){
+                        return(
+                        <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                           distance={30} speed={400} wait={120*i}>
+                            <SingleCompany company={the} key={i} />
+                        </LoadingOrderAnimation>
+                        )
+                    }
+                });
+            } else {
+                totalList = this.state.companyData.map(function(the, i) {
+                    if(i < that.state.loadCount){
+                        return(
+                        <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                           distance={30} speed={400} wait={120*i}>
+                            <SingleCompany company={the} key={i} />
+                        </LoadingOrderAnimation>
+                        )
+                    }
+                });
+            }
         } else {
             totalList = <Spinner />;
         }
@@ -173,9 +240,9 @@ var CompanyList = React.createClass({
                                 <div className="row">
                                     {totalList}
                                 </div>
-                                <div className="full-width align-center">
-                                    <ButtonMore onClick={this.loadMore} />
-                                </div>
+
+                                <ButtonMore onClick={this.loadMore} />
+
                             </div>
                         </div>
                     </div>
@@ -185,38 +252,43 @@ var CompanyList = React.createClass({
                         <div className="sidebar-wrap">
                             <div id="companyListSidebar" className="company-list-sidebar">
                                 <div className="sidebar-wrap company-list-sidebar">
+                                    <div className="form-group label-floating">
+                                      <label className="control-label" htmlFor="company-search">Поиск по названию ресторана</label>
+                                      <input value={this.state.searchFilter} onChange={this.searchChange} className="form-control" id="company-search" type="text" />
+                                      <p className="help-block">Какая-то там подсказочка классная</p>
+                                    </div>
                                     <div className="checkbox control-item">
                                       <label>
                                         <input checked={this.state.filters.freeDelivery}
-                                            onChange={this.filterData} type="checkbox" name="freeDelivery" />
+                                            onChange={this.onChecked} type="checkbox" name="freeDelivery" />
                                             <span className="filter-name">Бесплатная доставка</span>
                                       </label>
                                     </div>
                                     <div className="checkbox control-item">
                                         <label>
                                             <input type="checkbox" checked={this.state.filters.hasCampagains}
-                                            onChange={this.filterData} name="hasCampagains" />
+                                            onChange={this.onChecked} name="hasCampagains" />
                                             <span className="filter-name">Есть акции</span>
                                         </label>
                                     </div>
                                     <div className="checkbox control-item">
                                         <label>
                                             <input type="checkbox" checked={this.state.filters.cardCourier}
-                                            onChange={this.filterData} name="cardCourier" />
+                                            onChange={this.onChecked} name="cardCourier" />
                                             <span className="filter-name">Оплата картой курьеру</span>
                                         </label>
                                     </div>
                                     <div className="checkbox control-item">
                                         <label>
                                             <input type="checkbox" checked={this.state.filters.cardOnline}
-                                            onChange={this.filterData} name="cardOnline" />
+                                            onChange={this.onChecked} name="cardOnline" />
                                             <span className="filter-name">Онлайн оплата</span>
                                         </label>
                                     </div>
                                     <div className="checkbox control-item">
                                         <label>
                                             <input type="checkbox" checked={this.state.filters.nowOnline}
-                                            onChange={this.filterData} name="nowOnline" />
+                                            onChange={this.onChecked} name="nowOnline" />
                                             <span className="filter-name">Работает сейчас</span>
                                         </label>
                                     </div>

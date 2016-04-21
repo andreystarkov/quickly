@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     gutil = require('gulp-util');
     plugins = require('gulp-load-plugins')();
 
+var fs = require('fs');
+var del = require('del');
 var sourcemaps = require('gulp-sourcemaps');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -188,8 +190,8 @@ gulp.task('deploy', function(callback) {
         'styles',
         'scripts',
         'scripts-es6',
-        'sftp-html',
         'sftp-core',
+        'sftp-html',
         callback)
 });
 
@@ -208,10 +210,68 @@ gulp.task('deploy-scripts', function(callback) {
         callback)
 });
 
+// production builds
+
+gulp.task('production', function(callback) {
+    runSequence(
+        ['scripts', 'scripts-es6'],
+        'styles',
+        'production-scripts',
+        'production-styles',
+        'production-images',
+        'production-copy-fonts',
+        'production-copy-html',
+        callback)
+});
+
+gulp.task('production-clean', function() {
+    return del('./build/build/*');
+});
+
+gulp.task('production-scripts', function(){
+    return gulp.src(['app/build/libs.js', 'app/build/es6.js'])
+        .pipe(plugins.concat('scripts.js'))
+        .pipe(uglify().on('error', gutil.log))
+        .pipe(gulp.dest('build/build'));
+});
+
+gulp.task('production-styles', function(){
+    return gulp.src(['app/build/styles.css'])
+        .pipe(plugins.cssmin())
+        .pipe(gulp.dest('build/build'));
+});
+
+gulp.task('production-images', function() {
+    var imagemin = require('gulp-imagemin');
+    var pngquant = require('imagemin-pngquant');
+    var jpegtran = require('imagemin-jpegtran');
+    var gifsicle = require('imagemin-gifsicle');
+    return gulp.src(['app/images/**/*.jpg', 'app/images/**/*.png'])
+        .pipe(plugins.imagemin({
+            progressive: false,
+            svgoPlugins: [{
+                removeViewBox: false
+            }],
+            use: [pngquant(), jpegtran(), gifsicle()]
+        }))
+        .pipe(gulp.dest('build/images'));
+});
+
+gulp.task('production-copy-fonts', function() {
+    return gulp.src(['app/fonts/**/*'])
+        .pipe(gulp.dest('build/fonts'))
+});
+
+gulp.task('production-copy-html', function() {
+    return gulp.src(['app/*.html'])
+        .pipe(gulp.dest('build'))
+});
+
+
 gulp.task('watch-deploy', function(){
     gulp.watch('app/libs/**/*.js', {
         interval: 800
-    }, ['deploy-scripts']);
+    }, ['deploy-']);
     gulp.watch('app/libs/**/*.less', {
         interval: 800
     }, ['deploy-styles']);
