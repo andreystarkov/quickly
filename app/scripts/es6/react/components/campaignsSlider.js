@@ -71,7 +71,7 @@ var CampaignsSlider = React.createClass({
             return <SliderItem company={the.restaurant_id} title={the.campaign_name} image={the.campaign_image} pos={i} key={i} />
         });
         var slidesLimited = campaignsLimited.map(function(the, i) {
-            return <SliderItem company={the.restaurant_id} title={the.campaign_name} expires={the.campaign_end} image={the.campaign_image} pos={i} key={i} />
+            return <SliderItem company={the.restaurant_id} title={the.campaign_name} expires={the.campaign_end} image={the.campaign_image} key={i} />
         });
 
         console.log(slidesLimited);

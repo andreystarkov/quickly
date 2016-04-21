@@ -2,10 +2,13 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:07:44
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 11:28:29
+* @Last Modified time: 2016-04-21 13:17:21
 */
 
 var React = require('react')
+
+var ProfileEditorActions = require('../actions/profileEditorActions.js');
+var HistoryActions = require('../actions/historyActions.js');
 
 var ProfileEditor = require('../profileEditor.react.jsx');
 var ReservationHistory = require('../reservationHistory.react.jsx');
@@ -13,17 +16,17 @@ var OrdersHistory = require('../ordersHistory.react.jsx');
 import { RouteTransition } from 'react-router-transition';
 
 var ScreenProfile = React.createClass({
-    componentWillEnter: function(element){
-        console.log('ScreenProfile: componentWillEnter ', element);
+    componentWillMount: function(element){
+        ProfileEditorActions.fetchList();
+        HistoryActions.fetchList();
     },
-
     render: function(){
         return(
-          <RouteTransition
-            pathname={this.props.location.pathname}
-            atEnter={{ opacity: 0 }}
-            atLeave={{ opacity: 0 }}
-            atActive={{ opacity: 1 }}>
+            <RouteTransition
+              pathname={this.props.location.pathname}
+              atEnter={{ opacity:0 }}
+              atLeave={{ opacity:0 }}
+              atActive={{ opacity:1 }}>
                 <div className="the-screen page-wrapper" id="pageProfile">
                 <section className="user-profile gray" id="editUserProfile">
                     <div className="profile-editor" id="profileEditor">

@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:57:33
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 14:12:45
+* @Last Modified time: 2016-04-21 13:17:14
 */
 
 import {browserHistory, Link} from "react-router";
@@ -40,8 +40,11 @@ var ScreenShop = React.createClass({
     render: function(){
 
         return (
-          <RouteTransition
-            pathname={this.props.location.pathname} atEnter={{ opacity: 0 }} atLeave={{ opacity: 0 }} atActive={{ opacity: 1 }}>
+            <RouteTransition
+              pathname={this.props.location.pathname}
+              atEnter={{ opacity:0 }}
+              atLeave={{ opacity:0 }}
+              atActive={{ opacity:1 }}>
             <div className="the-screen page-wrapper" id="pageCompany">
                 <section className="company-about gray" id="companyDetails">
                     <CompanyDetails />

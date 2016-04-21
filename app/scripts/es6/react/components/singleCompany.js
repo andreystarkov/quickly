@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 19:21:24
+* @Last Modified time: 2016-04-21 11:52:29
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');

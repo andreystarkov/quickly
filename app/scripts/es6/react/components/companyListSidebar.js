@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 19:17:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 06:52:57
+* @Last Modified time: 2016-04-21 13:02:16
 */
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import RaisedButton from 'material-ui/lib/raised-button';
@@ -10,6 +10,9 @@ import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import RadioButton from 'material-ui/lib/radio-button';
 import RadioButtonGroup from 'material-ui/lib/radio-button-group';
+import Checkbox from 'material-ui/lib/checkbox';
+import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/lib/svg-icons/action/favorite-border';
 
 const styles = {
   block: {
@@ -20,9 +23,6 @@ const styles = {
   },
 };
 
-import Checkbox from 'material-ui/lib/checkbox';
-import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite';
-import ActionFavoriteBorder from 'material-ui/lib/svg-icons/action/favorite-border';
 
 const style = {
   block: {

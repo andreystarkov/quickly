@@ -4,11 +4,14 @@
 * @Last Modified by:   Andrey Starkov
 * @Last Modified time: 2016-03-24 17:41:56
 */
+import LoadingOrderAnimation from 'react-loading-order-with-animation';
 
 var MenuItemsStore = require('./stores/menuItemsStore.js');
 var CategoriesListActions = require('./actions/categoriesListActions.js');
 var CategoriesList = require('./categoriesList.react.jsx');
 var Loader = require('halogen/PulseLoader');
+var Spinner = require('./ui/spinner.js');
+
 
 var SingleMenuItem = React.createClass({
     addToCart: function(e){
@@ -80,25 +83,41 @@ var MenuItemsList = React.createClass({
     getInitialState: function() {
       return {
         data: [],
-        menuItems: []
+        menuItems: [],
+        loadCount: 20
       };
     },
     componentWillMount: function(){
         // sure it will
     },
+    loadMore: function(){
+        var was = this.state.loadCount;
+        this.setState({
+            loadCount: was+20
+        });
+    },
     render: function(){
+        var that = this;
         var theData = this.state.menuItems;
         var total = 0;
         if (theData.length == 0) {
-            items = <Loader size="25px" margin="20px"/>
+            items = <Spinner />
         } else {
             var items = theData.map(function(the, i) {
-                return <SingleMenuItem item={the} key={i} />
+                if( i < that.state.loadCount ){
+                    return (
+                        <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                           distance={30} speed={400} wait={150*i}>
+                        <SingleMenuItem item={the} key={i} />
+                        </LoadingOrderAnimation>
+                    )
+                }
             });
         }
         return (
             <div>
                 <div>{items}</div>
+                <button className="btn btn-more" onClick={this.loadMore}>Загрузить ещё</button>
             </div>
         )
     }

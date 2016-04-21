@@ -54,6 +54,56 @@
 @time: .3s;
 @easing: ease-in-out;
 
+.spinner-wrap {
+   padding:100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+// Here is where the magic happens
+
+@offset: 187;
+@duration: 1.6s;
+
+.spinner {
+    animation: rotator @duration linear infinite;
+    .path {
+      stroke-width:6px;
+      stroke-dasharray: @offset;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+      animation:
+        dash @duration @easingSlowEnd infinite,
+        colors (@duration*4) @easingSlowMid infinite;
+    }
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+@keyframes colors {
+    0% { stroke: @colorBlue; }
+    25% { stroke: @colorRed; }
+    50% { stroke: #F9CF00; }
+    75% { stroke: @colorGreen; }
+  100% { stroke: @colorBlue; }
+}
+
+@keyframes dash {
+ 0% { stroke-dashoffset: @offset; }
+ 50% {
+   stroke-dashoffset: @offset/4;
+   transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: @offset;
+   transform:rotate(450deg);
+ }
+}
+
 .logo {
     svg {
         width:65%;

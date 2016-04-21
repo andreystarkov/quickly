@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:23:02
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 13:00:02
+* @Last Modified time: 2016-04-21 13:17:44
 */
 
 require('velocity-animate');
@@ -26,15 +26,16 @@ var ScreenCompanyList = React.createClass({
     render: function(){
         console.log('Path: ', this.props.location.pathname);
         return(
-          <RouteTransition
-            pathname={this.props.location.pathname}
-            atEnter={{ opacity: 0 }}
-            atLeave={{ opacity: 0 }}
-            atActive={{ opacity: 1 }}>
             <section className="the-screen page-wrapper food-grid" id="pageCompanyList">
+            <RouteTransition
+              pathname={this.props.location.pathname}
+              atEnter={{ opacity:0 }}
+              atLeave={{ opacity:0 }}
+              atActive={{ opacity:1 }}>
                 <CompanyList current={this.props.params.cuisine} />
+                </RouteTransition>
             </section>
-          </RouteTransition>
+
         )
     }
 });

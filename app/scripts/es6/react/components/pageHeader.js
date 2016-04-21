@@ -2,23 +2,18 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-20 23:52:09
+* @Last Modified time: 2016-04-21 13:04:20
 */
 
-var InlineSvg = require('react-inlinesvg');
 var routesMap = require('../routes/map.js');
 
 import {Link, browserHistory} from 'react-router';
 
-var ProfileEditorActions = require('../actions/profileEditorActions.js');
-var HistoryActions = require('../actions/historyActions.js');
 var CityListActions = require('../actions/cityListActions.js');
 var CityList = require('../cityList.react.jsx');
 
 var PageHeader = React.createClass({
     editProfile: function(){
-        ProfileEditorActions.fetchList();
-        HistoryActions.fetchList();
         browserHistory.push(routesMap.routes.profile.path);
     },
     componentDidMount: function(){
@@ -55,7 +50,7 @@ var PageHeader = React.createClass({
                                     </div>
                                     <div className="col-lg-6">
                                         <a href="#" id="buttonRegisterPhone" className="btn btn-padding btn-raised">
-                                            Зарегистрироваться
+                                            Вход / Регистрация
                                         </a>
                                     </div>
                                 </div>

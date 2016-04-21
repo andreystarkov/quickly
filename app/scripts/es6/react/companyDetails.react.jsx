@@ -1,12 +1,13 @@
+import {getReservationPointsList, getHallsList} from '../reservation.jsx';
+import {browserHistory, Link} from 'react-router';
+import LoadingOrderAnimation from 'react-loading-order-with-animation';
+
 var CompanyDetailsStore = require('./stores/companyDetailsStore.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
 var ButtonTabToggle = require('./components/buttonTabToggle.js');
-
-import {getReservationPointsList, getHallsList} from '../reservation.jsx';
-import {browserHistory, Link} from 'react-router';
-
 var routesMap = require('./routes/map.js');
+var Spinner = require('./ui/spinner.js');
 
 // restaurant_type:
 // 1 - только бронь
@@ -69,20 +70,29 @@ var CompanyDetails = React.createClass({
         <div className="container">
             <div className="row">
                 <div className="col-lg-2 col-xs-12 text-center">
-                    <div className="logo round">
+                    <LoadingOrderAnimation animation="fade-in" move="from-top-to-bottom"
+                       distance={30} speed={400} wait={500}>
+                       <div className="logo round">
                         <img src={image} />
-                    </div>
-                    <div className="title"><h2>{company.restaurant_name}</h2>
-
-                </div>
+                        </div>
+                     </LoadingOrderAnimation>
+                    <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                       distance={30} speed={400} wait={600}>
+                    <div className="title"><h2>{company.restaurant_name}</h2></div>
+                     </LoadingOrderAnimation>
                 </div>
                 <div className="col-lg-10 the-info">
+                    <LoadingOrderAnimation animation="fade-in" move="from-top-to-bottom"
+                    distance={30} speed={400} wait={700}>
                     <div className="line types">
                         <i className="fi-dishes icon"></i> {cuisinesSelect}
                         <div className="rating">
                             <span>{rating}.0</span>
                         </div>
                     </div>
+                    </LoadingOrderAnimation>
+                    <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                       distance={30} speed={400} wait={800}>
                     <div className="line delivery">
                         <i className="icon fi-delivery"></i>
                         <div className="box cost">
@@ -108,8 +118,10 @@ var CompanyDetails = React.createClass({
                             </div>
                         </div>
                     </div>
+                    </LoadingOrderAnimation>
                 </div>
             </div>
+
             <div className="row buttons-line">
                 <div className="col-lg-2">
                 </div>
@@ -119,10 +131,6 @@ var CompanyDetails = React.createClass({
                     {buttonReservation}
                 </div>
                 <div className="col-lg-4 buttons-reserv">
-                    <a className="button light" href="#">
-                        <i className="icon icon-eye"></i>
-                        <span>3D тур</span>
-                    </a>
                     <button onClick={this.routeBack} className="button main screen-toggle" id="buttonBackToList">
                         <i className="icon icon-list"></i>
                         <span>К списку кухонь</span>

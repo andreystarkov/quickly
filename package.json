@@ -90,6 +90,7 @@
     "react-dimensions": "^1.0.2",
     "react-inlinesvg": "latest",
     "react-input-slider": "^1.5.0",
+    "react-lazyload": "^2.0.1",
     "react-loader": "latest",
     "react-loading-order-with-animation": "^1.0.0",
     "react-motion": "^0.4.3",

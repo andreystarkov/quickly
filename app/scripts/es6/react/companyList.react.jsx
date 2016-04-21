@@ -1,3 +1,6 @@
+import { browserHistory } from 'react-router';
+import LoadingOrderAnimation from 'react-loading-order-with-animation';
+
 var ButtonMore = require('./components/buttonMore.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
 var CompanyListStore = require('./stores/companyListStore.js');
@@ -7,9 +10,8 @@ var CuisinesActions = require('./actions/cuisinesActions.js');
 var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
-var Loader = require('halogen/PulseLoader');
+var Spinner = require('./ui/spinner.js');
 
-import { browserHistory } from 'react-router';
 var routesMap = require('./routes/map.js');
 
 var CompanyListHeader = React.createClass({
@@ -64,12 +66,13 @@ var CompanyList = React.createClass({
         data: [],
         originalData: [],
         companyData: [],
+        loadCount: 8,
         filters: {
             freeDelivery: false,
             hasCampagains: false,
             cardCourier: false,
             cardOnline: false,
-            nowAvaible: false
+            nowOnline: false
         },
         cuisines: getStorage('cuisines')
       };
@@ -77,48 +80,57 @@ var CompanyList = React.createClass({
     componentDidMount: function() {
         $.material.init();
     },
-    freeDelivery: function(e){
-        var what = [], that = {};
-
-        what[e.target.name] = e.target.checked;
-        console.log('what['+e.target.name+']', what);
-        that.push(what);
-        console.log('that', that);
-
+    loadMore: function(){
+        var was = this.state.loadCount;
         this.setState({
-            filters: {
-                freeDelivery: e.target.checked
-            }
+            loadCount: was+8
         });
     },
     filterData: function(e){
         var filter = e.target.name;
         var checked = e.target.checked;
+        var filters = this.state.filters;
         var data = this.state.companyData;
-        var filtered;
-        console.log('Filter: Original data: ', data);
+        var filtered = data;
 
-        if ( filter == 'free-delivery' ){
-            if(checked){
-                filtered = _.filter(data, function(single){
-                    return single.restaurant_delivery_cost == 0;
-                });
-                console.log('Filter: Free Delivery. Filtered: ', filtered);
-                this.setState({
-                    originalData: data,
-                    companyData: filtered
-                });
-            } else {
-                this.setState({
-                    companyData: this.state.originalData
-                });
-            }
+        console.log('Total: ', filtered);
+        filters[filter] = checked;
+
+        if( filters['freeDelivery'] ){
+            filtered = _.filter(filtered, function(single){
+                return single.restaurant_delivery_cost == 0;
+            });
+            console.log('Filter: freeDelivery: ', filtered);
+        }
+        if( filters['hasCampagains'] ){
+            filtered = _.filter(filtered, function(single){
+                return single.restaurant_has_campaigns == 1;
+            });
+            console.log('Filter: hasCampagains: ', filtered);
+        }
+        if( filters['cardCourier'] ){
+            filtered = _.filter(filtered, function(single){
+                return single.restaurant_payment_type == 1;
+            });
+            console.log('Filter: cardCourier: ', filtered);
         }
 
-        console.log('filterData', e.target.name);
+        if( filters['cardOnline'] ){
+            filtered = _.filter(filtered, function(single){
+                return single.restaurant_online_payment == 1;
+            });
+            console.log('Filter: cardOnline: ', filtered);
+        }
+
+        this.setState({
+            originalData: data,
+            companyData: filtered,
+            filters: filters
+        });
+
     },
     render: function() {
-
+        var that = this;
         var totalList;
         var cuisineId = this.props.current;
         var _this = this;
@@ -126,10 +138,17 @@ var CompanyList = React.createClass({
 
         if(theData.length > 0){
             totalList = this.state.companyData.map(function(the, i) {
-                return <SingleCompany company={the} key={i} />
+                if(i < that.state.loadCount){
+                    return(
+                    <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                       distance={30} speed={400} wait={120*i}>
+                        <SingleCompany company={the} key={i} />
+                    </LoadingOrderAnimation>
+                    )
+                }
             });
         } else {
-            totalList = <Loader size="25px" margin="20px"/>;
+            totalList = <Spinner />;
         }
 
         var overall, single, cuisines = this.state.cuisines, cuisine;
@@ -155,7 +174,7 @@ var CompanyList = React.createClass({
                                     {totalList}
                                 </div>
                                 <div className="full-width align-center">
-
+                                    <ButtonMore onClick={this.loadMore} />
                                 </div>
                             </div>
                         </div>
@@ -167,24 +186,39 @@ var CompanyList = React.createClass({
                             <div id="companyListSidebar" className="company-list-sidebar">
                                 <div className="sidebar-wrap company-list-sidebar">
                                     <div className="checkbox control-item">
-                                      <label><input checked={this.state.freeDelivery} onChange={this.filterData} type="checkbox" name="free-delivery" />
-                                        <span className="filter-name">Бесплатная доставка</span>
+                                      <label>
+                                        <input checked={this.state.filters.freeDelivery}
+                                            onChange={this.filterData} type="checkbox" name="freeDelivery" />
+                                            <span className="filter-name">Бесплатная доставка</span>
                                       </label>
                                     </div>
                                     <div className="checkbox control-item">
-                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Есть акции</span></label>
+                                        <label>
+                                            <input type="checkbox" checked={this.state.filters.hasCampagains}
+                                            onChange={this.filterData} name="hasCampagains" />
+                                            <span className="filter-name">Есть акции</span>
+                                        </label>
                                     </div>
                                     <div className="checkbox control-item">
-                                      <label><input type="checkbox" onChange={this.filterCardCourier} name="somename" /> <span className="filter-name">Оплата картой курьеру</span></label>
+                                        <label>
+                                            <input type="checkbox" checked={this.state.filters.cardCourier}
+                                            onChange={this.filterData} name="cardCourier" />
+                                            <span className="filter-name">Оплата картой курьеру</span>
+                                        </label>
                                     </div>
                                     <div className="checkbox control-item">
-                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Онлайн оплата</span></label>
+                                        <label>
+                                            <input type="checkbox" checked={this.state.filters.cardOnline}
+                                            onChange={this.filterData} name="cardOnline" />
+                                            <span className="filter-name">Онлайн оплата</span>
+                                        </label>
                                     </div>
                                     <div className="checkbox control-item">
-                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Работает сейчас</span></label>
-                                    </div>
-                                    <div className="checkbox control-item">
-                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Рядом со мной</span></label>
+                                        <label>
+                                            <input type="checkbox" checked={this.state.filters.nowOnline}
+                                            onChange={this.filterData} name="nowOnline" />
+                                            <span className="filter-name">Работает сейчас</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>

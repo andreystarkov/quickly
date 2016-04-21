@@ -1,11 +1,5 @@
-/*
-* @Author: Andrey Starkov
-* @Date:   2016-04-11 15:38:51
-* @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 11:23:00
-*/
-
-import {hashHistory, Router, Route, IndexRoute, RouteHandler, Link, browserHistory} from 'react-router';
+import {hashHistory, Router, Route, IndexRoute, RouteHandler, Link,IndexLink, browserHistory} from 'react-router';
+import {TransitionMotion, spring, presets} from 'react-motion';
 
 var PageHeader = require('../components/pageHeader.js');
 var ScreenShop = require('../screens/screenShop.js');
@@ -18,6 +12,27 @@ var NotFoundPage = require('../components/notFoundPage.js');
 var routesMap = require('./map.js');
 
 var Routes = React.createClass({
+  getInitialState: function(){
+    return {
+        transitionDirection:1
+    }
+  },
+  willEnter: function(){
+    const toLeft = this.state.transitionDirection < 0
+    return {
+      left: toLeft ? 100 : 0,
+      opacity: 0,
+      scale: 0.95
+    }
+  },
+  willLeave: function(){
+    const toLeft = this.state.transitionDirection < 0
+    return {
+      left: toLeft ? spring(0, presets.stiff) : spring(100, presets.stiff),
+      opacity: spring(0),
+      scale: spring(0.95)
+    }
+  },
   refreshHome: function(e){
     console.log('Refreshing Home! ', e);
   },
@@ -26,6 +41,7 @@ var Routes = React.createClass({
 
   console.log('ROUTES: ', routes);
     return (
+
       <div>
           <PageHeader />
           <Router history={browserHistory}>

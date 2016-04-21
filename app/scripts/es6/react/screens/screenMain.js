@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:24:58
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 00:49:50
+* @Last Modified time: 2016-04-21 13:17:26
 */
 
 import { RouteTransition } from 'react-router-transition';
@@ -14,11 +14,11 @@ var ScreenMain = React.createClass({
     render: function(){
     		console.log('ScreenMain: pathname = ', this.props.location.pathname);
         return (
-			  <RouteTransition
-			    pathname={this.props.location.pathname}
-			    atEnter={{ opacity: 0 }}
-			    atLeave={{ opacity: 0 }}
-			    atActive={{ opacity: 1 }}>
+            <RouteTransition
+              pathname={this.props.location.pathname}
+              atEnter={{ opacity:0 }}
+              atLeave={{ opacity:0 }}
+              atActive={{ opacity:1 }}>
             <section className="the-screen page-wrapper" id="pageMain">
                 <MainPageHeader />
                 <CuisinesSelectList />
