@@ -15,7 +15,7 @@ var ReservationHistoryStore = Reflux.createStore({
         this.fetchList();
     },
     updateData: function(){
-     //   console.log('ReservationHistoryStore updateData()');
+        console.log('ReservationHistoryStore updateData()');
         this.fetchList();
     },
     fetchList: function() {
@@ -25,8 +25,8 @@ var ReservationHistoryStore = Reflux.createStore({
         if( result !== undefined ){
             some.historyList = data.result.reservations;
             some.trigger(some.historyList);
-          //  console.log('ReservationHistoryStore fetchList', some.historyList);
-        }
+            console.log('ReservationHistoryStore fetchList', some.historyList);
+        } else console.log('ReservationHistoryStore: no data', data);
       });
     }
 });

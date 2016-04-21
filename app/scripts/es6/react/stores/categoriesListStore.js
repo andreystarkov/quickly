@@ -11,15 +11,15 @@ var CategoriesListStore = Reflux.createStore({
     },
     updateData: function(companyId){
         this.currentCompany = companyId;
-   //     console.log('CategoriesListStore: updateData: categoryId = '+companyId);
+        console.log('CategoriesListStore: updateData: categoryId = '+companyId);
         this.fetchList();
     },
     fetchList: function() {
       var some = this;
       var url = this.sourceUrl+this.currentCompany;
-   //   console.log('CategoriesListStore: fetchList: url = ', url);
+      console.log('CategoriesListStore: fetchList: url = ', url);
       $.getJSON(url, function (data) {
-     //   console.log('CategoriesListStore: fetchList: data = ', data);
+        console.log('CategoriesListStore: fetchList: data = ', data);
         some.categories = data.result.categories;
 /*        var firstCategory = some.categories[0];
         if( firstCategory ){

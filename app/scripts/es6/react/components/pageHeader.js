@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-14 22:30:31
+* @Last Modified time: 2016-04-20 23:52:09
 */
 
 var InlineSvg = require('react-inlinesvg');
@@ -32,7 +32,7 @@ var PageHeader = React.createClass({
                     <div className="row">
                         <div className="col-lg-2">
                             <div className="logo screen-toggle" data-screen="pageMain">
-                                <img src="/images/logo.png" className="main-logo-top" />
+                                <img className="quickly-top-logo" src="/images/logo.png" alt="Quickly Russia" />
                             </div>
                         </div>
                         <div className="col-lg-4">

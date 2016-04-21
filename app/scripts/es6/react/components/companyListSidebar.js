@@ -10,11 +10,6 @@ import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import RadioButton from 'material-ui/lib/radio-button';
 import RadioButtonGroup from 'material-ui/lib/radio-button-group';
-import Checkbox from 'material-ui/lib/checkbox';
-import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite';
-import ActionFavoriteBorder from 'material-ui/lib/svg-icons/action/favorite-border';
-var CompanyListActions = require('../actions/companyListActions.js');
-
 
 const styles = {
   block: {
@@ -25,6 +20,9 @@ const styles = {
   },
 };
 
+import Checkbox from 'material-ui/lib/checkbox';
+import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/lib/svg-icons/action/favorite-border';
 
 const style = {
   block: {

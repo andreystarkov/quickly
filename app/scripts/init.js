@@ -70,8 +70,17 @@ $(function() {
       "hideMethod": "fadeOut"
     };
 
+    swal.setDefaults({
+        customClass: 'the-window',
+        animation: true,
+        buttonStyling: false,
+        confirmButtonClass: 'modal-button-confirm',
+        cancelButtonClass: 'modal-button-cancel',
+        padding: 25
+    });
 
     if(isMobile) $('#sidebar').appendTo(document.body);
+
 
     $('.tip').tooltip({ animation:true, });
 

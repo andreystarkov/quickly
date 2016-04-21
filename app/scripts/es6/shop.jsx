@@ -190,60 +190,53 @@ $(function() {
     $(document).on('click', '.add-to-cart', function(event) {
         var jsonObj = {};
         var button = $(this);
-        var currentShop = Cookies.get('shop');
         var thisShop = button.data('restaurant');
-
         jsonObj['id'] = button.data('id');
         jsonObj['name'] = button.data('name');
         jsonObj['price'] = button.data('price');
         jsonObj['restaurant'] = button.data('restaurant');
+        jsonObj['type'] = 'food';
+        console.log('Trying to find id# '+thisShop);
+
+        var currentShop, first;
 
         var is = _.where(theCart.contents, {restaurant: thisShop});
-        var one;
 
-        $.each( is, function(the, index){
-            one = is;
-        });
-
-        var first;
-
-        if( theCart.contents.length > 0 ) first = theCart.contents[0];
-
-        console.log('ISSS = ', one, first);
-
-        if( currentShop ){
-
-            console.log('Current Shop: '+currentShop);
-            console.log('This Shop: '+thisShop);
-
+        if(theCart.contents[0]) {
+            currentShop = theCart.contents[0].restaurant;
+            console.log('Current Shop = '+currentShop);
+            console.log('This Shop = '+thisShop);
             if( thisShop == currentShop ){
+                console.log('Same restaurant!', thisShop, currentShop);
                 addToCart( jsonObj, button );
             } else {
                 swal({
                   title: 'Внимание!', type: 'warning',
                   text: 'В корзину нельзя положить позиции из разных ресторанов. Удалить позиции другого ресторана?',
                   confirmButtonText: 'Да, удалить!', cancelButtonText: 'Нет, продолжить',
-                  showCancelButton: true, closeOnConfirm: true, closeOnCancel: true
-                },
-                function(isConfirm) {
-                  if (isConfirm === true) {
-                    console.log('Old Shop = ', Cookies.get('shop'));
-                    console.log('New Shop = ', thisShop);
+                  showCancelButton: true, closeOnConfirm: false, closeOnCancel: true
+                }).then(function(isConfirm) {
+                  console.log('Clear Button Clicked', isConfirm);
+                  if (isConfirm) {
                     clearCart(function(){
-                        Cookies.set('shop', thisShop);
-                        console.log('Callback ClearCart: ',thisShop, jsonObj);
-                        addToCart(jsonObj, button);
+                        swal({
+                          title: 'Козрзина обновлена!',
+                          text: 'Вы начали покупки в текущем ресторане. Выбранный вами товар будет добавлен в новую корзину.',
+                          type: 'success', confirmButtonText: 'Продолжить',
+                        }).then(function(isConfirm){
+                            addToCart(jsonObj, button);
+                            console.log('Cart Cleared, Adding new item.');
+                        });
                     });
                   }
                 });
-
             }
-
         } else {
-            Cookies.set('shop', thisShop);
-            console.log('Add to cart: First blood');
-            addToCart( jsonObj, button );
+            console.log('Cart is empty! First blood!');
+            addToCart(jsonObj, button);
         }
+
+
 
     });
 

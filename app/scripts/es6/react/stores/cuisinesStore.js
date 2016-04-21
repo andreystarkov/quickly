@@ -9,7 +9,7 @@ var CuisinesStore = Reflux.createStore({
     },
     getCuisineById: function(id){
         var cuisine = _.where(this.cuisinesData,{cuisine_id:id});
-    //    console.log('CuisinesStore: getCuisineById('+id+'): ',cuisine);
+        console.log('CuisinesStore: getCuisineById('+id+'): ',cuisine);
         return cuisine;
     },
     fetchList: function() {
@@ -18,7 +18,7 @@ var CuisinesStore = Reflux.createStore({
         setStorage('cuisines', data.result.cuisines);
         some.cuisinesData = data.result.cuisines;
         some.trigger(some.cuisinesData);
-   //    console.log('CuisinesStore fetchList', some.cuisinesData);
+        console.log('CuisinesStore fetchList', some.cuisinesData);
       });
     }
 });

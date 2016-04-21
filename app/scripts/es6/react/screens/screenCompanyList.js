@@ -26,9 +26,15 @@ var ScreenCompanyList = React.createClass({
     render: function(){
         console.log('Path: ', this.props.location.pathname);
         return(
+          <RouteTransition
+            pathname={this.props.location.pathname}
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}>
             <section className="the-screen page-wrapper food-grid" id="pageCompanyList">
                 <CompanyList current={this.props.params.cuisine} />
             </section>
+          </RouteTransition>
         )
     }
 });

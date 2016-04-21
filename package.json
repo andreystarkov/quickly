@@ -30,7 +30,6 @@
     "gulp-add-src": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-babel": "latest",
-    "gulp-clean-css": "^2.0.6",
     "gulp-concat": "latest",
     "gulp-cssmin": "latest",
     "gulp-eslint": "latest",

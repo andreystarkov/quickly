@@ -171,7 +171,7 @@ var SingleCompany = React.createClass({
                                 <span className="description">заказ от</span>
                             </div>
                         </div>
-                         <div className="col-lg-3 col-xs-3 kal">
+                        <div className="col-lg-3 col-xs-3 kal">
                             <div className="box-info">
                                 <b className="value">{that.restaurant_delivery_cost} <i className="fa fa-rouble"></i></b>
                                 <span className="description">доставка</span>

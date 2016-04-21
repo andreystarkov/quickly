@@ -1,23 +1,14 @@
 var theLibs = [
     'app/libs/jquery/dist/jquery.min.js',
 
-    // react with bros
-
-    'app/libs/react/react-with-addons.min.js',
-    'app/libs/react/react-dom.min.js',
-    'app/libs/reflux/dist/reflux.min.js',
-
     // tools
 
     'app/libs/underscore/underscore-min.js',
     'app/libs/js-cookie/src/js.cookie.js',
     'app/libs/classie/classie.js',
-
     'app/libs/bootstrap/dist/js/bootstrap.min.js',
     'app/libs/bootstrap-material-design/scripts/material.js',
     'app/libs/bootstrap-material-design/scripts/ripples.js',
-
-    'app/scripts/_global.js',
 
     // animation libraries
 
@@ -27,17 +18,17 @@ var theLibs = [
 
     // ui plugins
 
-    'app/libs/slideout.js/dist/slideout.js',
+    'app/libs/sweetalert2/dist/sweetalert2.min.js',
+//  'app/libs/slideout.js/dist/slideout.js',
     'app/libs/moment/min/moment-with-locales.min.js',
-    'app/libs/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
     'app/libs/jquery-bar-rating/dist/jquery.barrating.min.js',
     'app/scripts/etc/jquery.nouislider.min.js',
-    'app/libs/sweetalert2/src/sweetalert2.js',
     'app/libs/toastr/toastr.min.js',
     'app/scripts/components/slider.js',
 
-    // 'app/libs/input-moment/dist/input-moment.js',
     // core scripts
+
+    'app/scripts/_global.js',
 
     'app/scripts/components/common.js',
     'app/scripts/components/auth.js',

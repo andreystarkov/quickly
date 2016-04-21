@@ -11,7 +11,7 @@ var CategoriesList = require('./categoriesList.react.jsx');
 
 var SingleMenuItem = React.createClass({
     addToCart: function(e){
-    //    console.log('clicked', this.props.item.restaurant_id);
+        console.log('clicked', this.props.item.restaurant_id);
     },
     render: function(){
         var item = this.props.item;

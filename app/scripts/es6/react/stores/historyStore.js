@@ -15,7 +15,7 @@ var HistoryStore = Reflux.createStore({
 
     },
     updateData: function(){
-    //    console.log('HistoryStore updateData()');
+        console.log('HistoryStore updateData()');
         this.fetchList();
     },
     fetchList: function() {
@@ -23,7 +23,7 @@ var HistoryStore = Reflux.createStore({
       $.getJSON(this.sourceUrl, function (data) {
         some.historyList = data.result.orders;
         some.trigger(some.historyList);
-     //   console.log('HistoryStore fetchList', some.historyList);
+        console.log('HistoryStore fetchList', some.historyList);
       });
     }
 });

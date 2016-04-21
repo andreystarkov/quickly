@@ -74,12 +74,12 @@ export function getHallsList(restaurantId, callback){
         var hallsList = ``;
         if( data.result ){
             var halls = data.result.halls;
-         //   console.log('getHallsList: ', halls);
+            console.log('getHallsList: ', halls);
             $.each(halls, function(index, hall){
-             //   console.log('Hall: ', hall);
+                console.log('Hall: ', hall);
                 hallsList += '<button class="hall-button light button-hall" data-id="'+hall.hall_id+'">'+hall.hall_name+'</button>';
             });
-          //  console.log('hallsList: ', hallsList);
+            console.log('hallsList: ', hallsList);
             box.html(hallsList);
             callback(data.result.halls);
         }
@@ -154,19 +154,6 @@ function getReservationUnixTime(e){
 }
 
 $(function() {
-
-    $('#reservationTimePicker').datetimepicker({
-        format: 'LT',
-        format: 'HH:mm',
-        locale: 'ru',
-        defaultDate: moment().valueOf()
-    });
-
-    $('#reservationDatePicker').datetimepicker({
-        format: 'DD-MM-YYYY',
-        locale: 'ru',
-        defaultDate: moment().valueOf()
-    });
 
     $(document).on('click', '.button-hall', function(event){
         $(this).addClass('main');

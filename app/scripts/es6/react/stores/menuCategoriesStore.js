@@ -8,7 +8,7 @@ var MenuCategoriesStore = Reflux.createStore({
        // this.fetchList();
     },
     updateData: function(restId){
-    //    console.log('MenuCategoriesStore: updateData()');
+        console.log('MenuCategoriesStore: updateData()');
         this.fetchList(restId);
     },
     fetchList: function(restId) {
@@ -18,9 +18,9 @@ var MenuCategoriesStore = Reflux.createStore({
             $.getJSON(this.sourceUrl, function (data) {
                 some.historyList = data.result.categories;
                 some.trigger(some.historyList);
-               // console.log('MenuCategoriesStore: fetchList('+restId+'): ', some.historyList);
+                console.log('MenuCategoriesStore: fetchList('+restId+'): ', some.historyList);
             });
-        }
+        } else console.log('MenuCategoriesStore: error: no restId');
     }
 });
 

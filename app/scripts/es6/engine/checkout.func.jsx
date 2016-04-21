@@ -34,8 +34,9 @@ export function clearCart(callback){
     $('#cartBottomPanel').addClass('cart-empty');
 
     $('#cartBottomPanel').velocity('transition.slideDownOut', { duration: 400 }, function(){
-        if (callback) callback();
+
     });
+    if (callback) callback();
 }
 
 export function refreshCart(){

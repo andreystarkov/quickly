@@ -16,7 +16,7 @@ var CampaignsStore = Reflux.createStore({
         this.fetchList();
     },
     updateData: function(newId){
-      //  console.log('CampaignsStore updateData() newId = ', newId);
+        console.log('CampaignsStore updateData() newId = ', newId);
         this.companyId = newId;
         this.fetchList();
     },
@@ -27,7 +27,7 @@ var CampaignsStore = Reflux.createStore({
       console.log('CampaignsStore: fetchList Url = ', url);
       $.getJSON(url, function (data) {
         some.campaignsData = data.result.campaigns;
-    //    console.log('CampaignsStore: result = ', data);
+        console.log('CampaignsStore: result = ', data);
         some.trigger(some.campaignsData);
       });
     }

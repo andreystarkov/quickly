@@ -35,8 +35,7 @@
     "tag": "v1.2.1",
     "commit": "578522c4bb72113f4d727a5679c0fefe148d112b"
   },
-  "_source": "git://github.com/jakiestfu/Ripple.js.git",
+  "_source": "https://github.com/jakiestfu/Ripple.js.git",
   "_target": "^1.2.1",
-  "_originalSource": "ripplejs",
-  "_direct": true
+  "_originalSource": "ripplejs"
 }

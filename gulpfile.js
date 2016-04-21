@@ -17,7 +17,7 @@ var sftp = require('gulp-sftp');
 var reactify = require('reactify');
 var notify = require('gulp-notify');
 var runSequence = require('run-sequence').use(gulp);
-var cleanCSS = require('gulp-clean-css');
+
 var theLibs = require('./config.libs.js');
 var theEngine = require('./config.engine.js');
 
@@ -45,7 +45,6 @@ function compile(watch) {
             })
             .pipe(source('es6.js'))
             .pipe(buffer())
-            .pipe(uglify())
             .pipe(sourcemaps.init({ loadMaps: true }))
             .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest('./app/build/'));
@@ -112,7 +111,6 @@ gulp.task('styles', function() {
             ],
             cascade: false
         }))
-        .pipe(cleanCSS())
         .pipe(gulp.dest('app/build')).on('error', gutil.log);
 });
 

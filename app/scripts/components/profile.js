@@ -16,10 +16,15 @@
                 'userToken': token
             },
             success: function(data) {
-                console.log('getUserProfile: ', data.result.profile);
-                result = data.result.profile;
-                setStorage('profile', data.result.profile);
-                callback(result);
+                // console.log('getUserProfile: ', data.result.profile);
+                if(data.result.profile){
+                    result = data.result.profile;
+                    setStorage('profile', data.result.profile);
+                    callback(result);
+                } else {
+                    localStorage.remove('profile');
+                    Cookies.remove('token');
+                }
             }
         });
       }

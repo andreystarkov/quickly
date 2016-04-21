@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 01:11:22
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-15 01:15:35
+* @Last Modified time: 2016-04-21 04:18:59
 */
 
 export function initSlider(){
@@ -15,7 +15,7 @@ export function initSlider(){
             slidesNumber = slidesWrapper.children('li').length,
             visibleSlidePosition = 0,
             autoPlayId,
-            autoPlayDelay = 6000;
+            autoPlayDelay = 1226000;
 
         uploadVideo(slidesWrapper);
 

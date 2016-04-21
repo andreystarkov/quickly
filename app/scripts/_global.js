@@ -20,9 +20,7 @@ console.log('Server: ', serverHost);
 
 var pathPrefix = '/';
 
-devMode = false;
-
-if (serverHost == "quickly.dev:81" ) devMode = true;
+if (serverHost == "quickly.dev" || serverHost == "quickly.dev:666") devMode = true;
 if (serverHost == "quickly.su") {
     devMode = false;
 }
