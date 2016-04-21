@@ -11,7 +11,6 @@ var SingleCuisine = React.createClass({
         browserHistory.push('/list/'+this.props.cuisine.cuisine_id);
     },
     render: function(){
-
         return(
         <div onClick={this.toggleCategory} className="cuisine-select-item col-lg-4 col-xs-6 category-item" data-id={this.props.cuisine.cuisine_id}>
             <a href="#">
@@ -55,7 +54,10 @@ var CuisinesSelectList = React.createClass({
         var allCuisines = this.state.cuisinesData;
         var list = allCuisines.map(function(the, key) {
             if (key < 6) return (
+                <LoadingOrderAnimation animation="fade-in" move="from-top-to-bottom"
+                distance={10} speed={300} wait={150*key}>
                 <SingleCuisine cuisine={the} key={key} />
+                </LoadingOrderAnimation>
             )
         });
         return (

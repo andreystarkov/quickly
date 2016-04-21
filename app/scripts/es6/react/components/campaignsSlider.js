@@ -9,7 +9,6 @@ var MenuItemsActions = require('../actions/menuItemsActions.js');
 var CategoriesListActions = require('../actions/categoriesListActions.js');
 var CampaignsLimitedStore = require('../stores/CampaignsLimitedStore.js');
 
-
 var SliderItem = React.createClass({
     handleClick: function(){
         var company = this.props.company;
@@ -18,7 +17,7 @@ var SliderItem = React.createClass({
         CompanyDetailsActions.updateData(company);
         MenuItemsActions.updateDataById(company);
         CategoriesListActions.updateData(company);
-        browserHistory.push(pathPrefix+'/shop/'+company);
+        browserHistory.push('/shop/'+company);
     },
     componentDidMount:function(){
         initSlider();

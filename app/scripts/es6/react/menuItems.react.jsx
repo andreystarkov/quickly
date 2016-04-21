@@ -60,10 +60,10 @@ var SingleMenuItem = React.createClass({
 var MenuItemsSidebar = React.createClass({
     render: function(){
         return (
-            <div>
+            <div id="sidebar-wrapper" className="sidebar-wrapper">
                 <div className="button-close" id="menu-close"><i className="icon-close"></i></div>
                 <div className="button-open" id="menu-open"><i className="icn-menu"></i></div>
-                <div className="sidebar-wrap">
+                <div className="side-wrap" id="side-wrap">
                     <div className="form-group label-floating is-empty">
                         <label htmlFor="i5" className="control-label">Поиск блюда</label>
                         <input type="search" className="form-control" id="i5" />
@@ -79,11 +79,12 @@ var MenuItemsSidebar = React.createClass({
 
 var MenuItemsList = React.createClass({
     mixins: [Reflux.connect(MenuItemsStore, 'menuItems')],
+    perPage: 10,
     getInitialState: function() {
       return {
         data: [],
         menuItems: [],
-        loadCount: 20
+        loadCount: this.perPage
       };
     },
     componentWillMount: function(){
@@ -92,7 +93,7 @@ var MenuItemsList = React.createClass({
     loadMore: function(){
         var was = this.state.loadCount;
         this.setState({
-            loadCount: was+20
+            loadCount: was+this.perPage
         });
     },
     render: function(){
@@ -102,11 +103,14 @@ var MenuItemsList = React.createClass({
         if (theData.length == 0) {
             items = <Spinner />
         } else {
-            var items = theData.map(function(the, i) {
+            var items = theData.map(function(the, i, wait) {
                 if( i < that.state.loadCount ){
+                    if( that.state.loadCount >= that.perPage && i >= (parseInt(that.state.loadCount)-parseInt(that.perPage)) ){
+                        wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage))); // omg wtf??
+                    } else wait = i*150;
                     return (
                         <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
-                           distance={30} speed={400} wait={150*i}>
+                           distance={30} speed={400} wait={wait}>
                         <SingleMenuItem item={the} key={i} />
                         </LoadingOrderAnimation>
                     )
@@ -114,17 +118,25 @@ var MenuItemsList = React.createClass({
             });
         }
         return (
-            <div>
+        <div>
+            <div className="menu-items-wrap">
                 <div>{items}</div>
-                <div>
-                    <ButtonMore onClick={this.loadMore} />
-                </div>
             </div>
+            <div>
+                <ButtonMore onClick={this.loadMore} />
+            </div>
+        </div>
         )
     }
 });
 
 var MenuItems = React.createClass({
+    _handleWaypointEnter: function(e){
+        console.log('enter: ',e);
+    },
+    _handleWaypointLeave: function(e){
+        console.log('leave: ',e);
+    },
     render: function() {
         return (
             <div className="row">
@@ -134,6 +146,7 @@ var MenuItems = React.createClass({
                     </div>
                 </div>
                 <div className="col-lg-3 mobile sidebar" id="sidebar">
+                    <div id="sitebar-trigger"></div>
                     <MenuItemsSidebar />
                 </div>
             </div>

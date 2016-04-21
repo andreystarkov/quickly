@@ -50,6 +50,37 @@ $(function() {
             return false; //extra, and to make sure the function has consistent return points
         }
       });
+    } else {
+        function sticky_relocate() {
+            var window_top = $(window).scrollTop();
+            var div_top = $('.sidebar-wrapper').offset().top;
+            if (window_top > div_top) {
+                $('.side-wrap').addClass('stick');
+            } else {
+                $('.side-wrap').removeClass('stick');
+            }
+        }
+
+        $(window).scroll(sticky_relocate);
+        sticky_relocate();
+
+        var dir = 1;
+        var MIN_TOP = 200;
+        var MAX_TOP = 350;
+
+        function autoscroll() {
+            var window_top = $(window).scrollTop() + dir;
+            if (window_top >= MAX_TOP) {
+                window_top = MAX_TOP;
+                dir = -1;
+            } else if (window_top <= MIN_TOP) {
+                window_top = MIN_TOP;
+                dir = 1;
+            }
+            $(window).scrollTop(window_top);
+            window.setTimeout(autoscroll, 100);
+        }
+
     }
 
     toastr.options = {

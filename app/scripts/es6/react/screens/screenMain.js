@@ -2,28 +2,25 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:24:58
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 13:17:26
+* @Last Modified time: 2016-04-21 18:27:50
 */
-
-import { RouteTransition } from 'react-router-transition';
+import LoadingOrderAnimation from 'react-loading-order-with-animation';
 
 var CuisinesSelectList = require('../components/cuisinesSelectList.js');
 var MainPageHeader = require('../mainPage.react.jsx');
 
 var ScreenMain = React.createClass({
     render: function(){
-    		console.log('ScreenMain: pathname = ', this.props.location.pathname);
         return (
-            <RouteTransition
-              pathname={this.props.location.pathname}
-              atEnter={{ opacity:0 }}
-              atLeave={{ opacity:0 }}
-              atActive={{ opacity:1 }}>
+
             <section className="the-screen page-wrapper" id="pageMain">
-                <MainPageHeader />
+                <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                distance={30} speed={600} wait={350}>
+                    <MainPageHeader />
+                </LoadingOrderAnimation>
                 <CuisinesSelectList />
             </section>
-         </RouteTransition>
+
         )
     }
 });

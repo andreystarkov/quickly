@@ -12,7 +12,6 @@ var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
 var Spinner = require('./ui/spinner.js');
 
-
 var routesMap = require('./routes/map.js');
 
 var CompanyListHeader = React.createClass({
@@ -196,11 +195,11 @@ var CompanyList = React.createClass({
                     if( i < that.state.loadCount){
                         nc = 2;
                         if( that.state.loadCount >= that.perPage && i >= (parseInt(that.state.loadCount)-parseInt(that.perPage)) ){
-                            console.log('New elements: ', the, i);
-                            wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage)));
-                            console.log('wait New = ',wait);
+
+                            wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage))); // omg wtf??
+
                         } else wait = i*150;
-                        console.log('wait = ',wait);
+
                         return (
                             <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
                                distance={30} speed={400} wait={wait}>
@@ -214,11 +213,11 @@ var CompanyList = React.createClass({
                     if(i < that.state.loadCount){
                         nc = 2;
                         if( that.state.loadCount >= that.perPage && i >= (parseInt(that.state.loadCount)-parseInt(that.perPage)) ){
-                            console.log('New elements: ', the, i);
+
                             wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage)));
-                            console.log('wait New = ',wait);
+
                         } else wait = i*150;
-                        console.log('wait = ',wait);
+
                         return (
                             <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
                                distance={30} speed={400} wait={wait}>
@@ -260,12 +259,12 @@ var CompanyList = React.createClass({
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-3 mobile sidebar" id="companyListSidebarWrap">
+                    <div className="col-lg-3 mobile sidebar sidebar-wrapper" id="companyListSidebarWrap">
                         <div className="button-close" id="menu-close"><i className="icn-cancel"></i></div>
                         <div className="button-open" id="menu-open"><i className="icn-menu"></i></div>
-                        <div className="sidebar-wrap">
+                        <div className="side-wrap">
                             <div id="companyListSidebar" className="company-list-sidebar">
-                                <div className="sidebar-wrap company-list-sidebar">
+                                <div className="sidebar-wrap">
                                     <div className="form-group label-floating">
                                       <label className="control-label" htmlFor="company-search">Поиск по названию ресторана</label>
                                       <input value={this.state.searchFilter} onChange={this.searchChange} className="form-control" id="company-search" type="text" />

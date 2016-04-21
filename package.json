@@ -24,7 +24,7 @@
     "browserify": "latest",
     "browserify-shim": "^3.8.12",
     "css-loader": "latest",
-    "del": "latest", 
+    "del": "latest",
     "eslint": "latest",
     "eslint-plugin-babel": "latest",
     "eslint-plugin-react": "latest",
@@ -66,13 +66,10 @@
   },
   "dependencies": {
     "alt": "^0.18.4",
-
     "classnames": "latest",
     "filesaver.js": "latest",
-
     "highlight.js": "latest",
     "inline-style-prefixer": "latest",
-    
     "jszip": "latest",
     "lodash": "^4.11.1",
     "lodash.throttle": "latest",
@@ -81,20 +78,16 @@
     "moment": "^2.12.0",
     "normalize.css": "latest",
     "object.assign": "latest",
-
     "react-cookie": "latest",
     "react-dimensions": "^1.0.2",
-
     "react-input-slider": "^1.5.0",
-
     "react-loading-order-with-animation": "^1.0.0",
     "react-motion": "^0.4.3",
     "react-motion-ui-pack": "^0.7.1",
-
     "react-router": "latest",
     "react-router-transition": "latest",
     "react-router-transitions": "latest",
-
+    "react-waypoint": "^2.0.1",
     "url-pattern": "^0.10.2",
     "velocity-animate": "^1.2.3",
     "velocity-react": "^1.1.5"

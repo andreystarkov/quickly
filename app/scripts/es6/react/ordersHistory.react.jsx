@@ -1,5 +1,7 @@
-var ButtonMore = require('./components/buttonMore.js');
+import LoadingOrderAnimation from 'react-loading-order-with-animation';
 import {addToCart, repeatOrder} from '../engine/addToCart.js';
+
+var ButtonMore = require('./components/buttonMore.js');
 var routesMap = require('./routes/map.js');
 var OrdersHistoryStore = require('./stores/ordersHistoryStore.js');
 var HistoryActions = require('./actions/historyActions.js');
@@ -93,7 +95,7 @@ var SingleOrder = React.createClass({
 
 var OrdersHistory = React.createClass({
     mixins: [Reflux.connect(OrdersHistoryStore, 'historyData')],
-    limit: 5,
+    limit: 15,
     getInitialState: function() {
       return {
         data: [],
@@ -103,24 +105,21 @@ var OrdersHistory = React.createClass({
     componentDidMount: function() {
         OrdersHistoryActions.updateData();
     },
-    loadMore: function(){
-        this.limit += 5;
-        HistoryActions.updateData();
-    },
     render: function() {
      //   OrdersHistoryActions.updateData();
         var theData = this.state.historyData;
         var total = 0;
         var sorted = _.first(_.sortBy(theData, 'order_id').reverse(), this.limit);
         var messages = sorted.map(function(the, i) {
-            return <SingleOrder list={the} key={i} />
+            return (
+            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+            distance={50} speed={400} wait={250*i}>
+                <SingleOrder list={the} key={i} />
+            </LoadingOrderAnimation>
+            )
         });
         return (
-            <div>{messages}
-                <div className="full-width align-center">
-                    <ButtonMore onClick={this.loadMore} />
-                </div>
-            </div>
+            <div>{messages}</div>
         )
     }
 });

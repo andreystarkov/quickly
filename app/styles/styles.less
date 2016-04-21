@@ -54,6 +54,47 @@
 @time: .3s;
 @easing: ease-in-out;
 
+.sidebar-wrap, .side-wrap {
+  text-align:left;
+  background-color:#FDFDFD;
+  border-radius:3px;
+  padding:6px 18px;
+  margin-top:13px;
+  .menu li .category-toggle {
+    font-weight:300;
+    color:#000;
+  }
+  transition: all 0.35s linear;
+  border-bottom: 3px solid darken(#fdfdfd,3%);
+  &:hover {
+    background:#fff;
+    box-shadow: 0px 2px 5px fade(#000,30%);
+    border-bottom: 3px solid darken(#fdfdfd,5%);
+  }
+  .control-item {
+    margin-top:15px;
+    margin-bottom:15px;
+  }
+}
+.stick {
+
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    min-width:273px;
+}
+
+.button-more-wrap {
+    display:block;
+
+    position:relative;
+    text-align:center;
+}
+
+.menu-items-wrap {
+    overflow:hidden;
+    padding-bottom:40px;
+}
 .item-wrap {
     width:100%;
     height:100%;
@@ -212,17 +253,9 @@ body {
 .back-left {
     margin-left:0px;
 }
-.company-list-sidebar {
-  text-align:left;
 
-  background-color:#FDFDFD;
-  border-radius:3px;
-  padding:12px;
-  margin-top:15px;
-  .control-item {
-    margin-top:15px;
-    margin-bottom:15px;
-  }
+.company-list-sidebar {
+
 }
 
 .checkout-summary tbody tr.reservation-table {

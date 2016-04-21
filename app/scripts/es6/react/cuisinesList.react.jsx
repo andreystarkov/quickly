@@ -1,5 +1,6 @@
-var CuisinesStore = require('./stores/cuisinesStore.js');
 import { browserHistory } from 'react-router';
+var CuisinesStore = require('./stores/cuisinesStore.js');
+
 
 var CuisinesList = React.createClass({
     mixins: [Reflux.connect(CuisinesStore, 'cuisinesData')],
@@ -19,7 +20,6 @@ var CuisinesList = React.createClass({
 
         var sorted = _.sortBy(allCuisines, function(o) { return o.cuisine_id; });
 
-        console.log('CuisinesList: sorted = ', sorted);
         var totalList = companyCuisines.map(function(the, key) {
             if(key < limit){
                 var pick = sorted[key+1];

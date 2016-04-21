@@ -1,3 +1,5 @@
+import LoadingOrderAnimation from 'react-loading-order-with-animation';
+
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
 var ProfileEditorActions = require('./actions/profileEditorActions.js');
@@ -102,9 +104,7 @@ var ProfileEditorForm = React.createClass({
         console.log('ProfileEditorForm willUpdate');
     },
     componentDidMount: function(){
-
         $.material.init();
-
         OrdersHistoryActions.fetchList();
         HistoryActions.fetchList();
         ReservationHistoryActions.fetchList()
@@ -200,6 +200,7 @@ var ProfileEditorForm = React.createClass({
         }
 
         return (
+
         <div className="user-editor container">
            <div className="row">
               <div className="col-lg-2 text-center">
@@ -254,7 +255,7 @@ var ProfileEditorForm = React.createClass({
                  <div className="btn-group btn-group-justified" data-tabs="tabs-profile">
                     <ButtonTabToggle name="История заказов" active="true" tab="tab-order-history" id="tabOrdersHistory" />
                     <ButtonTabToggle name="История бронирования" tab="tab-reservation-history" />
-                    <ButtonTabToggle name="Оставленные отзывы" tab="tab-comments-history" />
+
                     <button onClick={this.returnShop} className="btn button main float-right">
                         <span>Вернуться к покупкам</span>
                     </button>
@@ -266,30 +267,21 @@ var ProfileEditorForm = React.createClass({
     }
 });
 
+// <ButtonTabToggle name="Оставленные отзывы" tab="tab-comments-history" />
+
 var ProfileEditor = React.createClass({
     mixins: [Reflux.connect(ProfileEditorStore, 'profileData')],
     getInitialState: function() {
       return {
         data: [],
-        profileData: [],
-/*        profileData: {
-          userAvatarUrl: '',
-          userBirthdate: null,
-          userEmail: '',
-          userGender: 0,
-          userName: '',
-          userSurname: '',
-          userPhone: ''
-        }*/
+        profileData: []
       };
     },
     componentDidMount: function() {
         ProfileEditorActions.updateData();
     },
     render: function() {
-     //   profileEditorActions.updateData();
         var theData = this.state.profileData;
-        console.log('ProfileEditor: theData = ',theData);
         return (
             <ProfileEditorForm profile={theData} />
         )
@@ -297,6 +289,3 @@ var ProfileEditor = React.createClass({
 });
 
 module.exports = ProfileEditor;
-
-// ReactDOM.render(<ProfileEditor />, document.getElementById('profileEditor'));
-

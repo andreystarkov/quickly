@@ -69,15 +69,12 @@ var SingleReservation = React.createClass({
 
 var ReservationHistory = React.createClass({
     mixins: [Reflux.connect(ReservationHistoryStore, 'historyData')],
-    limit: 5,
+    limit: 15,
     getInitialState: function() {
       return {
         data: [],
         historyData: []
       };
-    },
-    loadMore: function(){
-        this.limit += 5;
     },
     render: function() {
      //   OrdersHistoryActions.updateData();
@@ -88,11 +85,7 @@ var ReservationHistory = React.createClass({
             return <SingleReservation list={the} key={i} />
         });
         return (
-            <div>{messages}
-                <div className="full-width align-center">
-                    <ButtonMore onClick={this.loadMore} />
-                </div>
-            </div>
+            <div>{messages}</div>
         )
     }
 });
