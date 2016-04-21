@@ -192,24 +192,38 @@ var CompanyList = React.createClass({
 
         if(theData.length > 0){
             if( this.state.isFilters ){
-                totalList = filtered.map(function(the, i) {
-                    if(i < that.state.loadCount){
-                        return(
-                        <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
-                           distance={30} speed={400} wait={120*i}>
-                            <SingleCompany company={the} key={i} />
-                        </LoadingOrderAnimation>
+                totalList = filtered.map(function(the, i, nc, wait) {
+                    if( i < that.state.loadCount){
+                        nc = 2;
+                        if( that.state.loadCount >= that.perPage && i >= (parseInt(that.state.loadCount)-parseInt(that.perPage)) ){
+                            console.log('New elements: ', the, i);
+                            wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage)));
+                            console.log('wait New = ',wait);
+                        } else wait = i*150;
+                        console.log('wait = ',wait);
+                        return (
+                            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                               distance={30} speed={400} wait={wait}>
+                                <SingleCompany company={the} key={i} />
+                            </LoadingOrderAnimation>
                         )
                     }
                 });
             } else {
-                totalList = this.state.companyData.map(function(the, i) {
+                totalList = this.state.companyData.map(function(the, i, nc, wait) {
                     if(i < that.state.loadCount){
-                        return(
-                        <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
-                           distance={30} speed={400} wait={120*i}>
-                            <SingleCompany company={the} key={i} />
-                        </LoadingOrderAnimation>
+                        nc = 2;
+                        if( that.state.loadCount >= that.perPage && i >= (parseInt(that.state.loadCount)-parseInt(that.perPage)) ){
+                            console.log('New elements: ', the, i);
+                            wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage)));
+                            console.log('wait New = ',wait);
+                        } else wait = i*150;
+                        console.log('wait = ',wait);
+                        return (
+                            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                               distance={30} speed={400} wait={wait}>
+                                <SingleCompany company={the} key={i} />
+                            </LoadingOrderAnimation>
                         )
                     }
                 });

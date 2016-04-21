@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 11:52:29
+* @Last Modified time: 2016-04-21 17:44:01
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -117,25 +117,34 @@ var SingleCompany = React.createClass({
             online = "онлайн оплата";
         }
 
+        var isReservation = {
+            display: 'none'
+        }, isDelivery;
+
         if( that.restaurant_type == 0){
             console.log('Company Type: Delivery Only');
         }
 
         if( that.restaurant_type == 1){
-            console.log('Company Type: Reservation');
+            console.log('Company Type: Reservation Only');
+            isReservation = { display: 'inline-block' }
+            isDelivery = { display: 'none' }
         }
 
-        if( that.restaurant_type == 0){
-            console.log('Company Type: Delivery Only');
+        if( that.restaurant_type == 2){
+            console.log('Company Type: Delivery & Reservation');
+            isReservation = { display: 'inline-block' }
+            isDelivery = { display: 'inline-block' }
         }
 
-        if( that.restaurant_payment_type == 0 ){
+        if( that.restaurant_payment_type > 0 ){
             cardsPaymentStyle = { display: 'inline-block' }
         }
 
         return(
         <div className="col-lg-6">
-        <section style={style} onClick={this.toggleCompany} className="company-item company-toggle" data-company={that.restaurant_id}>
+        <section onClick={this.toggleCompany} className="company-item company-toggle" data-company={that.restaurant_id}>
+
             <div className="the-box row">
                 <div className="company-logo col-lg-3 col-xs-4 col-sm-4">
                     <div className="image-thumb">
@@ -153,7 +162,7 @@ var SingleCompany = React.createClass({
                     <h2>
                         {that.restaurant_name}
                         <div className="rating">
-                            {rating}
+                            {rating}.0
                         </div>
                     </h2>
                     <div className="address">
@@ -238,16 +247,17 @@ var SingleCompany = React.createClass({
                     </div>
                     <div className="align-right col-xs-6 col-lg-6">
                         <div className="right-icons">
-                            <button className="bt-round delivery">
+                            <button style={isDelivery} className="bt-round delivery">
                                 <i className="icon fi-dish"></i>
                             </button>
-                            <button className="bt-round reservation">
+                            <button style={isReservation} className="bt-round reservation">
                                 <i className="icon fi-table"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div className="the-background" style={style} />
         </section>
         </div>
         );

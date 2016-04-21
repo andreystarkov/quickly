@@ -54,6 +54,15 @@
 @time: .3s;
 @easing: ease-in-out;
 
+.item-wrap {
+    width:100%;
+    height:100%;
+    display:block;
+    margin:0;
+    padding:0;
+    position:relative;
+}
+
 .spinner-wrap {
    padding:100px;
    display: flex;
@@ -383,6 +392,17 @@ body {
 }
 
 .company-item {
+    .the-background {
+        width:100%;
+        height:100%;
+        position:absolute;
+        display:block;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        z-index:-1;
+    }
   margin-top:15px;
   margin-bottom:0px;
   background-size:cover;
