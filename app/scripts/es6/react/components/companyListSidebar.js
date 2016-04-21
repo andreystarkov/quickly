@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 19:17:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-11 20:19:25
+* @Last Modified time: 2016-04-21 06:52:57
 */
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import RaisedButton from 'material-ui/lib/raised-button';
@@ -79,8 +79,6 @@ var CompanyListSidebar = React.createClass({
         console.log('CompanyListSidebar: init');
         return(
         <div className="sidebar-wrap company-list-sidebar">
-
-          {Checkboxes}
             <div className="checkbox control-item">
               <label><input type="checkbox" name="somename" /> <span className="filter-name">Бесплатная доставка</span></label>
             </div>

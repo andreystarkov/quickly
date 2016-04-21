@@ -7,6 +7,7 @@ var CuisinesActions = require('./actions/cuisinesActions.js');
 var SingleCompany = require('./components/singleCompany.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 var CuisinesList = require('./companyList.react.jsx');
+var Loader = require('halogen/PulseLoader');
 
 import { browserHistory } from 'react-router';
 var routesMap = require('./routes/map.js');
@@ -58,35 +59,80 @@ var CompanyList = React.createClass({
     mixins: [Reflux.connect(CompanyListStore, 'companyData')],
     limit: 5,
     cuisineId: 0,
-
     getInitialState: function() {
       return {
         data: [],
+        originalData: [],
         companyData: [],
+        filters: {
+            freeDelivery: false,
+            hasCampagains: false,
+            cardCourier: false,
+            cardOnline: false,
+            nowAvaible: false
+        },
         cuisines: getStorage('cuisines')
       };
     },
+    componentDidMount: function() {
+        $.material.init();
+    },
+    freeDelivery: function(e){
+        var what = [], that = {};
 
-    loadMore: function(){
-        this.limit += 5;
-        CompanyStore.updateData();
+        what[e.target.name] = e.target.checked;
+        console.log('what['+e.target.name+']', what);
+        that.push(what);
+        console.log('that', that);
+
+        this.setState({
+            filters: {
+                freeDelivery: e.target.checked
+            }
+        });
+    },
+    filterData: function(e){
+        var filter = e.target.name;
+        var checked = e.target.checked;
+        var data = this.state.companyData;
+        var filtered;
+        console.log('Filter: Original data: ', data);
+
+        if ( filter == 'free-delivery' ){
+            if(checked){
+                filtered = _.filter(data, function(single){
+                    return single.restaurant_delivery_cost == 0;
+                });
+                console.log('Filter: Free Delivery. Filtered: ', filtered);
+                this.setState({
+                    originalData: data,
+                    companyData: filtered
+                });
+            } else {
+                this.setState({
+                    companyData: this.state.originalData
+                });
+            }
+        }
+
+        console.log('filterData', e.target.name);
     },
     render: function() {
+
+        var totalList;
         var cuisineId = this.props.current;
         var _this = this;
         var theData = this.state.companyData;
 
-    // console.log('CompanyList: companyData = ', this.state.companyData);
-
-        var totalList = this.state.companyData.map(function(the, i) {
-            return <SingleCompany company={the} key={i} />
-        });
-
-    //  console.log('CompanyList: this.state.cuisines = ', this.state.cuisines);
+        if(theData.length > 0){
+            totalList = this.state.companyData.map(function(the, i) {
+                return <SingleCompany company={the} key={i} />
+            });
+        } else {
+            totalList = <Loader size="25px" margin="20px"/>;
+        }
 
         var overall, single, cuisines = this.state.cuisines, cuisine;
-
-    //  console.log('CompanyList: this.props.current = ', this.props.current);
 
         if (this.props.current > 0) {
             single = _.find(this.state.cuisines, function(item) {
@@ -109,7 +155,7 @@ var CompanyList = React.createClass({
                                     {totalList}
                                 </div>
                                 <div className="full-width align-center">
-                                    <ButtonMore onClick={this.loadMore} />
+
                                 </div>
                             </div>
                         </div>
@@ -119,7 +165,28 @@ var CompanyList = React.createClass({
                         <div className="button-open" id="menu-open"><i className="icn-menu"></i></div>
                         <div className="sidebar-wrap">
                             <div id="companyListSidebar" className="company-list-sidebar">
-                                <CompanyListSidebar />
+                                <div className="sidebar-wrap company-list-sidebar">
+                                    <div className="checkbox control-item">
+                                      <label><input checked={this.state.freeDelivery} onChange={this.filterData} type="checkbox" name="free-delivery" />
+                                        <span className="filter-name">Бесплатная доставка</span>
+                                      </label>
+                                    </div>
+                                    <div className="checkbox control-item">
+                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Есть акции</span></label>
+                                    </div>
+                                    <div className="checkbox control-item">
+                                      <label><input type="checkbox" onChange={this.filterCardCourier} name="somename" /> <span className="filter-name">Оплата картой курьеру</span></label>
+                                    </div>
+                                    <div className="checkbox control-item">
+                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Онлайн оплата</span></label>
+                                    </div>
+                                    <div className="checkbox control-item">
+                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Работает сейчас</span></label>
+                                    </div>
+                                    <div className="checkbox control-item">
+                                      <label><input type="checkbox" name="somename" /> <span className="filter-name">Рядом со мной</span></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

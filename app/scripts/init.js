@@ -70,14 +70,24 @@ $(function() {
       "hideMethod": "fadeOut"
     };
 
-    swal.setDefaults({
-        customClass: 'the-window',
+    var defaultSwal = {
+        type: null,
         animation: true,
-        buttonStyling: false,
+        allowOutsideClick: true,
+        allowEscapeKey: true,
+        confirmButtonText: 'OK',
         confirmButtonClass: 'modal-button-confirm',
+        cancelButtonText: 'Продолжить',
         cancelButtonClass: 'modal-button-cancel',
-        padding: 25
-    });
+        buttonsStyling: false,
+        showCloseButton: true,
+        timer: null,
+        width: 500,
+        padding: 30,
+        background: '#f8f6f3'
+    };
+
+    swal.setDefaults(defaultSwal);
 
     if(isMobile) $('#sidebar').appendTo(document.body);
 

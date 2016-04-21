@@ -8,6 +8,7 @@
 var MenuItemsStore = require('./stores/menuItemsStore.js');
 var CategoriesListActions = require('./actions/categoriesListActions.js');
 var CategoriesList = require('./categoriesList.react.jsx');
+var Loader = require('halogen/PulseLoader');
 
 var SingleMenuItem = React.createClass({
     addToCart: function(e){
@@ -88,11 +89,17 @@ var MenuItemsList = React.createClass({
     render: function(){
         var theData = this.state.menuItems;
         var total = 0;
-        var items = theData.map(function(the, i) {
-            return <SingleMenuItem item={the} key={i} />
-        });
+        if (theData.length == 0) {
+            items = <Loader size="25px" margin="20px"/>
+        } else {
+            var items = theData.map(function(the, i) {
+                return <SingleMenuItem item={the} key={i} />
+            });
+        }
         return (
-            <div>{items}</div>
+            <div>
+                <div>{items}</div>
+            </div>
         )
     }
 });

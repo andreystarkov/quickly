@@ -23,7 +23,6 @@ var theEngine = require('./config.engine.js');
 
 var secrets = require('./secrets.json');
 
-
 gulp.task('default', ['scripts', 'styles', 'js', 'watch']);
 
 function compile(watch) {
@@ -33,7 +32,7 @@ function compile(watch) {
         cache: {}, packageCache: {},
         fullPaths: true,
     }).transform(babel, {
-        presets: ["es2015", "react"]
+        presets: ["es2015", "react" ]
     }));
 
     function rebundle() {

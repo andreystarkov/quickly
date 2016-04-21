@@ -21,6 +21,7 @@ function pasteCartElement(cartElement, elementCount){
 }
 
 function pasteCheckoutFormUnregistered(){
+
     var profile = getStorage('profile');
     var bonusCount = '100';
     var userName = '', userPhone = '';
