@@ -14,7 +14,7 @@ var ButtonMore = require('./components/buttonMore.js');
 
 var SingleMenuItem = React.createClass({
     addToCart: function(e){
-        console.log('clicked', this.props.item.restaurant_id);
+     //   console.log('clicked', this.props.item.restaurant_id);
     },
     render: function(){
         var item = this.props.item;
@@ -132,10 +132,10 @@ var MenuItemsList = React.createClass({
 
 var MenuItems = React.createClass({
     _handleWaypointEnter: function(e){
-        console.log('enter: ',e);
+    //    console.log('enter: ',e);
     },
     _handleWaypointLeave: function(e){
-        console.log('leave: ',e);
+    //    console.log('leave: ',e);
     },
     render: function() {
         return (

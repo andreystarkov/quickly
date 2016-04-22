@@ -91,7 +91,7 @@ var CompanyList = React.createClass({
         });
     },
     searchChange: function(e){
-        console.log('Search: ', e.target.value);
+      //  console.log('Search: ', e.target.value);
         this.setState({
             searchFilter: e.target.value
         });
@@ -213,13 +213,11 @@ var CompanyList = React.createClass({
                     if(i < that.state.loadCount){
                         nc = 2;
                         if( that.state.loadCount >= that.perPage && i >= (parseInt(that.state.loadCount)-parseInt(that.perPage)) ){
-
-                            wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage)));
-
+                            wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage))); // wtf!!
                         } else wait = i*150;
 
                         return (
-                            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                            <LoadingOrderAnimation animation="fade-in"  key={i} move="from-bottom-to-top"
                                distance={30} speed={400} wait={wait}>
                                 <SingleCompany company={the} key={i} />
                             </LoadingOrderAnimation>

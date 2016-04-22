@@ -2,12 +2,12 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 19:17:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 15:02:20
+* @Last Modified time: 2016-04-21 22:25:57
 */
 
 var CompanyListSidebar = React.createClass({
     filterCardCourier: function(e){
-        console.log(e.target.value);
+       // console.log(e.target.value);
         if ( e.target.value == 'on' ){
             CompanyListActions.filterData(3);
         }
@@ -18,7 +18,7 @@ var CompanyListSidebar = React.createClass({
     render: function(){
         $.material.init();
 
-        console.log('CompanyListSidebar: init');
+      //  console.log('CompanyListSidebar: init');
         return(
         <div className="sidebar-wrap company-list-sidebar">
             <div className="checkbox control-item">

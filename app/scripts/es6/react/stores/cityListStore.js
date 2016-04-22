@@ -8,10 +8,10 @@ function selectCityByName(cityName){
     var single = _.where(cities,{city_name:cityName.trim()});
     var selected;
 
-    console.log('selectCityByName: cityName = '+cityName, 'Cities = ', cities, single);
+ //   console.log('selectCityByName: cityName = '+cityName, 'Cities = ', cities, single);
 
     single.forEach(function (val, index) {
-        console.log('selectCityByName: selected: ', val);
+    //    console.log('selectCityByName: selected: ', val);
         selected = val;
     });
     if(selected){
@@ -21,10 +21,10 @@ function selectCityByName(cityName){
           setStorage('city', selected);
 
           var currentCityId = selected.city_id;
-          console.log('City not Locked. ');
+       //   console.log('City not Locked. ');
           $('#cityListSelect option').each(function(el){
               if( currentCityId == $(this).val() ){
-                console.log('selectCityByName: Selecting city: ', $(this).html());
+        //        console.log('selectCityByName: Selecting city: ', $(this).html());
                 $(this).attr('selected', 'selected');
               }
           });
@@ -32,15 +32,15 @@ function selectCityByName(cityName){
           currentCity = selected;
         } else {
           var city = getStorage('city');
-          console.log('City is locked! Current: ',city);
+      //    console.log('City is locked! Current: ',city);
           currentCity = city.city_id;
         }
     } else {
-        console.log('Wrong city or whatever');
-        console.log('Setting Default City');
+    //    console.log('Wrong city or whatever');
+      //  console.log('Setting Default City');
           $('#cityListSelect option').each(function(el){
               if( $(this).val() == 3 ){
-                console.log('selectCityByName: selected');
+         //       console.log('selectCityByName: selected');
                 $(this).attr('selected', 'selected');
               }
           });
@@ -60,25 +60,24 @@ function getCity(position) {
       {'latLng': latlng},
       function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
-                console.log('getCity: results = ', results);
+          //      console.log('getCity: results = ', results);
                   if (results[0]) {
                       var add= results[0].formatted_address ;
                       var value=add.split(",");
-                      console.log('getCity: ')
+              //        console.log('getCity: ')
                       var count=value.length;
                       var country=value[count-1];
                       var state=value[count-2];
                       var city=value[count-4];
-                      console.log('getCity: City detected: ', city.trim());
+              //        console.log('getCity: City detected: ', city.trim());
                       selectCityByName(city.trim());
 
-                  }
-                  else  {
-                      alert("address not found");
+                  } else  {
+                   //   alert("address not found");
                   }
           }
            else {
-              alert("Geocoder failed due to: " + status);
+           //   alert("Geocoder failed due to: " + status);
           }
       }
   );
@@ -93,7 +92,7 @@ var CityListStore = Reflux.createStore({
     },
     getCity: function(){
       getCurrentCity();
-      console.log('getCIty: '+resultCity);
+  //    console.log('getCIty: '+resultCity);
     },
     fetchList: function() {
       var some = this;
@@ -105,7 +104,7 @@ var CityListStore = Reflux.createStore({
         cities = some.cityList;
         setStorage('cities', cities);
         navigator.geolocation.getCurrentPosition(getCity);
-        console.log('REFLUX: CityListStore fetchList', some.cityList);
+   //     console.log('REFLUX: CityListStore fetchList', some.cityList);
       });
     }
 });

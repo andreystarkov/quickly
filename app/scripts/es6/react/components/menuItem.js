@@ -2,17 +2,17 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-24 17:32:25
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 13:44:06
+* @Last Modified time: 2016-04-21 22:26:13
 */
 
 var SingleMenuItem = React.createClass({
     imageError: function(e){
-        alert('Fuck!!');
-        console.log('SingleMenuItem: Image Problem', e);
+     //   alert('Fuck!!');
+     //   console.log('SingleMenuItem: Image Problem', e);
     },
     onLoad: function(e){
 
-        console.log('SingleMenuItem: Image OK', e);
+     //   console.log('SingleMenuItem: Image OK', e);
     },
     render: function(){
         var item = this.props.item;

@@ -39,7 +39,7 @@ var SingleOrder = React.createClass({
     render: function(){
         var total = 0;
         var data = this.props.list;
-        console.log('DATA signle: ', data);
+     //   console.log('DATA signle: ', data);
 
         var items = data.order_menu_items.map(function(the, i) {
             total += (the.menu_item_price*the.count);
@@ -49,7 +49,7 @@ var SingleOrder = React.createClass({
         });
 
         return(
-        <div className="history-item row" key={this.props.key}>
+        <div className="history-item row">
             <div className="date-time">{moment.unix(data.created_at).format("DD MMMM YYYY HH:mm")}</div>
             <div className="col-lg-2">
                 <div className="box-company medium">

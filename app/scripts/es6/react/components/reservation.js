@@ -14,8 +14,8 @@ function getReservationUnixTime(e){
     var dateTime = $('#reservationDatePicker').val()+' '+$('#reservationTimePicker').val();
     var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
 
-    console.log('getReservationUnixTime: dateTime = ',dateTime);
-    console.log('getReservationUnixTime: UNIX Timestamp = ', unixTime);
+  //  console.log('getReservationUnixTime: dateTime = ',dateTime);
+  //  console.log('getReservationUnixTime: UNIX Timestamp = ', unixTime);
     return unixTime;
 }
 
@@ -76,7 +76,7 @@ var Hall = React.createClass({
     render: function(){
         var hallId, imageSrc, tables;
         if(this.props.hall.hall_id){
-        console.log('AAAAAA Hall: ',this.props.hall);
+   //     console.log('AAAAAA Hall: ',this.props.hall);
         var that = this.props.hall;
         hallId = that.hall_id;
         imageSrc = hallsUrl+that.hall_image;
@@ -115,9 +115,9 @@ var Reservation = React.createClass({
       if( i == 0 ) first = the;
       return the;
     });
-    console.log('Reservaiton DidUpdate: ',first,halls);
+  //  console.log('Reservaiton DidUpdate: ',first,halls);
     if(this.state.currentHall == 0){
-        console.log('Reservation DidUpdate: Current Hall Not Set; Selecting: ',first);
+     //   console.log('Reservation DidUpdate: Current Hall Not Set; Selecting: ',first);
         if ( first ) {
             refreshTable(first.hall_id, this.state.moment);
             this.setState({
@@ -130,7 +130,7 @@ var Reservation = React.createClass({
 
   },
   handleChange: function(e){
-    console.log('New Date ', e);
+  //  console.log('New Date ', e);
     this.setState({
         moment: e
     });

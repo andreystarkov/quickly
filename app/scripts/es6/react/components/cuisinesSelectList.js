@@ -48,7 +48,7 @@ var CuisinesSelectList = React.createClass({
     },
     componentDidMount: function() {
         CuisinesActions.fetchList();
-        console.log('CuisinesSelectList did moumt');
+     //   console.log('CuisinesSelectList did moumt');
     },
     render: function() {
         var allCuisines = this.state.cuisinesData;

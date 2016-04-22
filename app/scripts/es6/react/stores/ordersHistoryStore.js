@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:35:29
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 18:36:09
+* @Last Modified time: 2016-04-21 22:22:13
 */
 var OrdersHistoryActions = require('../actions/ordersHistoryActions.js');
 
@@ -14,7 +14,7 @@ var OrdersHistoryStore = Reflux.createStore({
         this.fetchList();
     },
     updateData: function(){
-        console.log('OrdersHistoryStore: updateData()');
+   //     console.log('OrdersHistoryStore: updateData()');
         this.fetchList();
     },
     fetchList: function() {
@@ -25,7 +25,7 @@ var OrdersHistoryStore = Reflux.createStore({
             some.historyList = data.result.orders;
             some.trigger(some.historyList);
            // console.log('OrdersHistoryStore: fetchList', some.historyList);
-        } else console.log('OrdersHistoryStore: no data', data);
+        }// else console.log('OrdersHistoryStore: no data', data);
       });
     }
 });

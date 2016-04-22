@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 17:44:01
+* @Last Modified time: 2016-04-21 22:19:09
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -21,7 +21,7 @@ import {browserHistory, Link} from "react-router";
 
 var PaymentTypes = React.createClass({
     render: function(){
-        console.log('payment: ', this.props.type);
+     //   console.log('payment: ', this.props.type);
         if (this.props.type == 0) return (
             <div className="payment-type">
                 <div className="payment-icons">
@@ -49,7 +49,7 @@ var PaymentTypes = React.createClass({
 
 var PaymentTypesCards = React.createClass({
     render: function(){
-        console.log('payment: ', this.props.type);
+      //  console.log('payment: ', this.props.type);
         if (this.props.type == 0) return (
             <div className="payment-type">
                 <div className="payment-icons">
@@ -95,7 +95,7 @@ var SingleCompany = React.createClass({
     toggleCompany: function(el){
         var company = this.props.company.restaurant_id;
         var route = routesMap.routes.shop.cleanPath+company;
-        console.log('SingleCompany: route('+company+'): '+route);
+     //   console.log('SingleCompany: route('+company+'): '+route);
         browserHistory.push(route);
     },
     render: function(){
@@ -122,17 +122,17 @@ var SingleCompany = React.createClass({
         }, isDelivery;
 
         if( that.restaurant_type == 0){
-            console.log('Company Type: Delivery Only');
+       //     console.log('Company Type: Delivery Only');
         }
 
         if( that.restaurant_type == 1){
-            console.log('Company Type: Reservation Only');
+        //    console.log('Company Type: Reservation Only');
             isReservation = { display: 'inline-block' }
             isDelivery = { display: 'none' }
         }
 
         if( that.restaurant_type == 2){
-            console.log('Company Type: Delivery & Reservation');
+        //    console.log('Company Type: Delivery & Reservation');
             isReservation = { display: 'inline-block' }
             isDelivery = { display: 'inline-block' }
         }

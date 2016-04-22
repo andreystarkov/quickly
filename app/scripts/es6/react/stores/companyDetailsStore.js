@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 09:33:15
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-03-29 22:20:25
+* @Last Modified time: 2016-04-21 22:18:09
 */
 var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
 
@@ -16,7 +16,7 @@ var CompanyDetailsStore = Reflux.createStore({
      //   this.fetchList();
     },
     updateData: function(newId){
-        console.log('CompanyDetailsStore updateData() newId = ', newId);
+   //     console.log('CompanyDetailsStore updateData() newId = ', newId);
         this.companyId = newId;
         this.fetchList();
     },
@@ -24,10 +24,10 @@ var CompanyDetailsStore = Reflux.createStore({
       var some = this;
       var url = this.sourceUrl + this.companyId;
 
-      console.log('CompanyDetailsStore: fetchList Url = ', url);
+   //   console.log('CompanyDetailsStore: fetchList Url = ', url);
       $.getJSON(url, function (data) {
         some.companyData = data.result.restaurant;
-        console.log('CompanyDetailsStore: result = ', some.companyData);
+    //    console.log('CompanyDetailsStore: result = ', some.companyData);
         some.trigger(some.companyData);
       });
     }

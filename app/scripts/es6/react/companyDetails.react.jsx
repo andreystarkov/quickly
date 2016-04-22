@@ -35,20 +35,20 @@ var CompanyDetails = React.createClass({
         if (data){
             var type = data.restaurant_type;
             if ( (type == 1) || (type == 3) ){
-                console.log('companyDetails: Reservation Enabled ('+type+')');
+              //  console.log('companyDetails: Reservation Enabled ('+type+')');
                 this.isReservation = true;
             } else {
-                console.log('CompanyDetails: Reservation Disabled ('+type+')');
+             //   console.log('CompanyDetails: Reservation Disabled ('+type+')');
                 this.isReservation = false;
             }
-        } else console.log('CompanyDetails: data is undefined');
+        }// else console.log('CompanyDetails: data is undefined');
 
         var company = this.state.companyData;
         var cuisinesSelect;
 
         if( (company.restaurant_main_image) ) {
             var image = imageBaseUrl+company.restaurant_main_image;
-            console.log('CompanyDetails: Is image exists? ', isImageExists(image));
+           // console.log('CompanyDetails: Is image exists? ', isImageExists(image));
         }
 
         if( company.restaurant_cuisines )
@@ -59,9 +59,9 @@ var CompanyDetails = React.createClass({
                 <ButtonTabToggle name="Бронирование" tab="tab-reservation" disabled="true" />
 
         if( company.restaurant_comments_count ) {
-            console.log('CompanyDetails: Has comments ('+company.comments_count+')');
+         //   console.log('CompanyDetails: Has comments ('+company.comments_count+')');
         } else {
-            console.log('CompanyDetails: No comments ('+company.comments_count+')');
+         //   console.log('CompanyDetails: No comments ('+company.comments_count+')');
         }
 
         var rating = company.restaurant_rating;

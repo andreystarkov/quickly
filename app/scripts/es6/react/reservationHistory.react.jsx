@@ -8,7 +8,7 @@ var SingleReservation = React.createClass({
         // console.log('SingleReservation: data = ', data);
 
         return(
-        <div className="history-item row" key={this.props.key}>
+        <div className="history-item row">
              <div className="date-time">{moment.unix(data.reservation_date).format("DD MMMM YYYY HH:mm")}</div>
             <div className="col-lg-2">
                 <div className="box-company medium">

@@ -22,7 +22,7 @@ var CityList = React.createClass({
       };
     },
     changeHandler: function(e) {
-        console.log('CityList: change value = '+e.target.value);
+      //  console.log('CityList: change value = '+e.target.value);
         this.setState({
             value: e.target.value
         });

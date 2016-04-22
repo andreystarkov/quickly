@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-07 14:04:04
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-07 14:55:49
+* @Last Modified time: 2016-04-21 22:24:57
 */
 
 var ButtonTabToggle = React.createClass({
@@ -14,7 +14,7 @@ var ButtonTabToggle = React.createClass({
             disabled = true;
         }
         if( this.props.active ){
-            console.log('ButtonTabToggle: "'+this.props.name+'" is active');
+         //   console.log('ButtonTabToggle: "'+this.props.name+'" is active');
             classNames += " active";
         }
         return(

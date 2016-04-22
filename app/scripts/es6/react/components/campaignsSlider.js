@@ -12,7 +12,7 @@ var CampaignsLimitedStore = require('../stores/CampaignsLimitedStore.js');
 var SliderItem = React.createClass({
     handleClick: function(){
         var company = this.props.company;
-        console.log(' SliderItem: to: ' ,company);
+    //    console.log(' SliderItem: to: ' ,company);
         currentCompany = company;
         CompanyDetailsActions.updateData(company);
         MenuItemsActions.updateDataById(company);
@@ -56,12 +56,12 @@ var CampaignsSlider = React.createClass({
       };
     },
     componentDidMount: function(){
-        console.log('CampaignsSlider: did mount');
+     //   console.log('CampaignsSlider: did mount');
         CampaignsActions.fetchList();
     },
     render: function(){
 
-        console.log('CampagainsSlider: ', this.state.campaignsData, this.state.campaignsLimitedData);
+     //   console.log('CampagainsSlider: ', this.state.campaignsData, this.state.campaignsLimitedData);
 
         var campaigns = this.state.campaignsData;
         var campaignsLimited = this.state.campaignsLimitedData;
@@ -73,7 +73,7 @@ var CampaignsSlider = React.createClass({
             return <SliderItem company={the.restaurant_id} title={the.campaign_name} expires={the.campaign_end} image={the.campaign_image} key={i} />
         });
 
-        console.log(slidesLimited);
+     //   console.log(slidesLimited);
 
         return (
             <section className="hero">

@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 11:38:24
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 15:57:40
+* @Last Modified time: 2016-04-21 22:25:44
 */
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -31,7 +31,7 @@ var lang = {
 var Comment = React.createClass({
     render: function(){
         var item = this.props.comment;
-        console.log('Comment = ',item);
+    //    console.log('Comment = ',item);
         var stars;
 /*        for(var i = 0; i < item.comment_rating; i++){
             stars = stars+'<i className="star yes fa fa-star"></i>';
@@ -72,7 +72,7 @@ function postComment(restaurantId, text, rating, callback){
         rating: parseInt(rating),
         message: text
     };
-    console.log('postComment: params = ', params);
+   // console.log('postComment: params = ', params);
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -81,11 +81,11 @@ function postComment(restaurantId, text, rating, callback){
         data: JSON.stringify(params),
         success: function(data) {
             if(!data.err){
-                console.log('postComment: success: ', data);
+             //   console.log('postComment: success: ', data);
                 CommentsActions.updateData(restaurantId);
                 if (callback) callback(data);
             } else {
-                console.log('postComment: ERROR: ', data.err);
+             //   console.log('postComment: ERROR: ', data.err);
                 toastr.error(lang.comments.errors.sendFail);
             }
         }
@@ -127,12 +127,12 @@ var CommentForm = React.createClass({
             var _this = this;
             var url = serverUrl+'/api/v2/comments/get-possibility/'+userToken+'/'+this.props.company;
             $.getJSON(url, function(data){
-                console.log('commentForm: Can i comment there?', data.result);
+               // console.log('commentForm: Can i comment there?', data.result);
                 _this.setState({
                     enabled: data.result
                 });
             });
-        } else console.log('commentForm: not authorized');
+        } // else console.log('commentForm: not authorized');
     },
     componentDidMount: function(){
         $('#choose').barrating({ theme: 'fontawesome-stars' });
@@ -140,7 +140,7 @@ var CommentForm = React.createClass({
     sendMessage: function(){
         postComment(this.props.company, this.state.message, this.state.rating,
         function(data){
-            console.log('sendMessage: callback',data);
+         //   console.log('sendMessage: callback',data);
             toastr.success('Спасибо за ваш комментарий!', 'Вы оставили отзыв!');
         });
         // postComment(restaurantId, message, rating, callback)
@@ -217,7 +217,7 @@ var Comments = React.createClass({
 
         if( this.state.comments ){
             comments = this.state.comments;
-            console.log('Comments: ',comments);
+           // console.log('Comments: ',comments);
             var commentsList = comments.map(function(the, i) {
                 return <Comment comment={the} key={i} />
             });
