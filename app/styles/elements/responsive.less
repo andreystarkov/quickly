@@ -10,9 +10,82 @@
         max-width:90vw;
     }
 }
+.mobile-controls { display: none; }
 
 @media all and (max-width:500px) {
     body {
+        .user-editor {
+            padding-bottom:80px;
+        }
+        .gender-select {
+            padding-left:22%;
+        }
+        .history-item {
+            &:nth-child(odd){
+                background: darken(@colorDefaultBackground, 2%);
+                border-bottom:3px solid  darken(@colorDefaultBackground, 5%);
+            }
+            .history-items {
+                padding-top:15px;
+                .item {
+                    min-height:45px;
+                    .thumb-tiny {
+                        height: 25px;
+                        width: 25px;
+                        line-height: 25px;
+                    }
+                }
+            }
+            .summary {
+                text-align:center;
+                margin-top:15px;
+                .total, .bonus {
+                    display:inline-block;
+                    margin-left:15px;
+                    margin-right:15px;
+                }
+            }
+            .actions {
+                .title {
+                    display:none;
+                }
+                text-align:center;
+                padding-top:15px;
+                padding-bottom:15px;
+            }
+        }
+        section.user-profile {
+            .cards-editor {
+                text-align:center;
+                margin-top: 20px;
+                .group-title {
+                    font-size: 18px;
+                    margin-bottom:7px;
+                }
+            }
+            .button-profile-back {
+                position:fixed;
+                left:15px;
+                top:15px;
+                background-color:transparent !important;
+                border-bottom: 0px solid transparent !important;
+                z-index:999;
+                i {
+                    font-size:2em;
+                }
+                span {
+                    display:none;
+                }
+            }
+            .buttons-line {
+                margin-top:30px;
+                position:relative;
+                .buttons-tabs .button {
+                padding-left:15px;
+                padding-right:15px;
+                }
+            }
+        }
         padding-top:10px;
         section.company-about .title * {
             text-align:center;
@@ -56,7 +129,7 @@
         }
         .sidebar {
             position: fixed;
-            transition:0.4s ease-in-out all;
+            transition:0.35s cubic-bezier(.24,.42,.31,1.1) all;
             z-index: 99999;
             background-color: #fff;
             height: 100%;
@@ -378,7 +451,14 @@ body {
 }
 
 @media screen and (max-width:26em) {
+    body .sidebar .sidebar-wrap {
+        padding-top:5px;
+    }
     body {
+        .mobile-controls {
+            display:block;
+        }
+        padding-top:0;
         .food-category .food-item .inner {
             height:155px;
             .product-image {
@@ -399,7 +479,7 @@ body {
             .half-width {
                 padding-top:20px;
             }
-            height:240px;
+            height:280px;
             h2 {
                 font-size:22px;
             }
@@ -436,10 +516,15 @@ body {
         }
        .header-gray .back-to-home {
             margin-left:0;
-            position: absolute;
-            left: 10px;
-            bottom: 90px;
+            position: fixed;
+            left: 15px;
+            top: 15px;
+            background-color: transparent;
+            border-bottom: 0px solid transparent;
+            z-index: 999;
             .button {
+                background-color: transparent !important;
+                border-bottom: 0px solid transparent;
                 i.icon {
                 font-size:2em;
                 }

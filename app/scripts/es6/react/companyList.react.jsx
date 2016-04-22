@@ -57,6 +57,23 @@ var CompanyListHeader = React.createClass({
     }
 });
 
+var MobileControls = React.createClass({
+    openProfile: function(){
+        browserHistory.push(routesMap.routes.profile.path);
+    },
+    render: function(){
+    return(
+        <div className="mobile-controls">
+            <div className="row">
+                <div className="col-xs-12">
+                    <button onClick={this.openProfile} className="btn btn-raised">Редактировать профиль</button>
+                </div>
+            </div>
+        </div>
+    )
+    }
+});
+
 var CompanyList = React.createClass({
     mixins: [Reflux.connect(CompanyListStore, 'companyData')],
     limit: 5,
@@ -81,7 +98,11 @@ var CompanyList = React.createClass({
         cuisines: getStorage('cuisines')
       };
     },
-
+    componentWillUnmount: function(){
+        if(isMobile){
+            $('#companyListSidebarWrap').remove();
+        }
+    },
     componentDidMount: function(){
         $.material.init();
 
@@ -286,10 +307,11 @@ var CompanyList = React.createClass({
                         <div className="side-wrap">
                             <div id="companyListSidebar" className="company-list-sidebar">
                                 <div className="sidebar-wrap">
+                                    <MobileControls />
                                     <div className="form-group label-floating">
                                       <label className="control-label" htmlFor="company-search">Поиск по названию ресторана</label>
                                       <input value={this.state.searchFilter} onChange={this.searchChange} className="form-control" id="company-search" type="text" />
-                                      <p className="help-block">Какая-то там подсказочка классная</p>
+                                      <p className="help-block"></p>
                                     </div>
                                     <div className="checkbox control-item">
                                       <label>

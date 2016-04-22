@@ -141,7 +141,6 @@ $(function() {
     }, '#filter-price-min', '#filter-price-max');
 
 
-
     // testing
 
    // pasteCategories(1);

@@ -15,12 +15,12 @@ var SingleOrderItem = React.createClass({
         return (
         <div className="item" id={idAttr} >
             <div className="row">
-                <div className="col-lg-3 no-padding-right align-right">
+                <div className="col-lg-3 col-xs-2 no-padding-right align-right">
                     <div className="thumb-tiny">
                         <img src={thumb} />
                     </div>
                 </div>
-                <div className="col-lg-9 no-padding-left">
+                <div className="col-lg-9 col-xs-10 no-padding-left">
                     <div className="text">
                         <b>{single.menu_item_name}</b>
                         <span className="price">{single.menu_item_price*single.count} <i className="rouble">o</i>,  <span className="count">{single.count} шт.</span></span>
@@ -51,7 +51,7 @@ var SingleOrder = React.createClass({
         return(
         <div className="history-item row">
             <div className="date-time">{moment.unix(data.created_at).format("DD MMMM YYYY HH:mm")}</div>
-            <div className="col-lg-2">
+            <div className="col-lg-2 col-xs-4">
                 <div className="box-company medium">
                     <div className="thumb-round">
                         <img src={imageBaseUrl+data.restaurant_main_image} alt="..." />
@@ -59,12 +59,12 @@ var SingleOrder = React.createClass({
                     <span className="title">{data.restaurant_name}</span>
                 </div>
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-5 col-xs-8">
                 <div className="history-items">
                     {items}
                 </div>
             </div>
-            <div className="col-lg-2 summary">
+            <div className="col-lg-2 col-xs-12 summary">
                 <div className="total">
                     <span className="total-title">итого:</span>
                     <b className="sum-total">{total} <i className="rouble">o</i></b>

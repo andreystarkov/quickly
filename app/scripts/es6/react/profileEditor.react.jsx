@@ -1,4 +1,6 @@
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
+import {Link, browserHistory} from 'react-router';
+import {refreshUserProfile} from '../profile.jsx';
 
 var ButtonMore = require('./components/buttonMore.js');
 var ProfileEditorStore = require('./stores/profileEditorStore.js');
@@ -9,11 +11,7 @@ var HistoryActions = require('./actions/historyActions.js');
 var CardsActions = require('./actions/cardsActions.js');
 var CardsStore = require('./stores/cardsStore.js');
 var ButtonTabToggle = require('./components/buttonTabToggle.js');
-
-import {refreshUserProfile} from '../profile.jsx';
-
 var routesMap = require('./routes/map.js');
-import {Link, browserHistory} from 'react-router';
 
 var FieldDefault = React.createClass({
     render: function() {
@@ -224,16 +222,16 @@ var ProfileEditorForm = React.createClass({
               </div>
               <div className="col-lg-5 the-info">
                  <div className="row delivery">
-                    <div className="profile-field col-lg-6">
+                    <div className="profile-field col-lg-6 col-xs-6">
                       <FieldControlled type="text" field="name" defaultValue={profile.userName} name="Имя" id="userName" />
                     </div>
-                    <div className="profile-field col-lg-6">
+                    <div className="profile-field col-lg-6 col-xs-6">
                       <FieldControlled type="text" field="surname" defaultValue={profile.userSurname} name="Фамилия" id="userSurname" />
                     </div>
-                    <div className="profile-field col-lg-6">
+                    <div className="profile-field col-lg-6 col-xs-6">
                       <FieldControlled type="date" field="birthdate" defaultValue={profile.userBirthdate} name="Дата рождения" id="userBirthdate" />
                     </div>
-                    <div className="profile-field col-lg-6">
+                    <div className="profile-field col-lg-6 col-xs-6">
                       <FieldControlled type="text" field="email" defaultValue={profile.userEmail} name="Электронная почта" id="userEmail" />
                     </div>
                  </div>
@@ -256,8 +254,8 @@ var ProfileEditorForm = React.createClass({
                     <ButtonTabToggle name="История заказов" active="true" tab="tab-order-history" id="tabOrdersHistory" />
                     <ButtonTabToggle name="История бронирования" tab="tab-reservation-history" />
 
-                    <button onClick={this.returnShop} className="btn button main float-right">
-                        <span>Вернуться к покупкам</span>
+                    <button onClick={this.returnShop} className="btn button-profile-back button main float-right">
+                        <i className="icon icon-arrow-left" /><span>Вернуться к покупкам</span>
                     </button>
                  </div>
               </div>

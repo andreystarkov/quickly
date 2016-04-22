@@ -61,11 +61,12 @@ var MenuItemsSidebar = React.createClass({
     componentDidMount: function(){
         if(isMobile){
             $('#sidebar').appendTo(document.body);
+
             $('#menu-company-open').click(function(){
-                $('#sidebar').removeClass('mobile');
+              $('#sidebar').removeClass('mobile');
             });
             $('#menu-company-close').click( function() {
-                $('#sidebar').addClass('mobile');
+              $('#sidebar').addClass('mobile');
             });
         } else {
             if( $('#sidebar-wrapper').length ){
@@ -82,7 +83,11 @@ var MenuItemsSidebar = React.createClass({
                 sticky_relocate();
             }
         }
-
+    },
+    componentWillUnmount: function(){
+        if(isMobile){
+            $('#sidebar').remove();
+        }
     },
     sidebarOpen: function(e){
         console.log('open');
@@ -94,15 +99,9 @@ var MenuItemsSidebar = React.createClass({
     render: function(){
         return (
             <div id="sidebar" className="mobile sidebar sidebar-wrapper">
-                <div className="button-close" id="menu-company-close"><i className="icon-close"></i></div>
+                <div className="button-close" id="menu-company-close"><i className="icn-cancel"></i></div>
                 <div className="button-open" id="menu-company-open"><i className="icn-menu"></i></div>
                 <div className="side-wrap" id="side-wrap">
-                    <div className="form-group label-floating is-empty">
-                        <label htmlFor="i5" className="control-label">Поиск блюда</label>
-                        <input type="search" className="form-control" id="i5" />
-                        <span className="help-block"></span>
-                        <span className="material-input"></span>
-                    </div>
                     <CategoriesList />
                 </div>
             </div>
@@ -110,6 +109,15 @@ var MenuItemsSidebar = React.createClass({
     }
 });
 
+/*
+                    <div className="form-group label-floating is-empty">
+                        <label htmlFor="i5" className="control-label">Поиск блюда</label>
+                        <input type="search" className="form-control" id="i5" />
+                        <span className="help-block"></span>
+                        <span className="material-input"></span>
+                    </div>
+
+ */
 var MenuItemsList = React.createClass({
     mixins: [Reflux.connect(MenuItemsStore, 'menuItems')],
     perPage: 10,

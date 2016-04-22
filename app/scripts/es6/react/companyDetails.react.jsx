@@ -112,10 +112,10 @@ var CompanyDetails = React.createClass({
                             <b>{company.restaurant_average_check} <i className="rouble">o</i></b>
                         </div>
                         <div className="box pay">
-                            <div className="cards">
+{/*                            <div className="cards">
                                 <div className="card-icon mastercard"><img src="/images/cards/mastercard.png" /></div>
                                 <div className="card-icon visa"><img src="/images/cards/visa.png" /></div>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                     </LoadingOrderAnimation>
@@ -132,7 +132,7 @@ var CompanyDetails = React.createClass({
                 </div>
                 <div className="col-lg-4 buttons-reserv">
                     <button onClick={this.routeBack} className="button main screen-toggle" id="buttonBackToList">
-                        <i className="icon icon-list"></i>
+                        <i className="icon icon-arrow-left"></i>
                         <span>К списку кухонь</span>
                     </button>
                 </div>
