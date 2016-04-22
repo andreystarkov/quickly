@@ -1,23 +1,13 @@
-var ReservationActions = require('../actions/reservationActions.js');
-var ReservationHallsStore = require('../stores/reservationHallsStore.js');
-var ReservationTablesStore = require('../stores/reservationTablesStore.js');
-
 import {getReservationPointsList} from '../../reservation.jsx';
-//var InputMoment = require('input-moment');
 
 moment.locale('ru');
 moment.lang('ru');
+
+var ReservationActions = require('../actions/reservationActions.js');
+var ReservationHallsStore = require('../stores/reservationHallsStore.js');
+var ReservationTablesStore = require('../stores/reservationTablesStore.js');
 var InputMoment = require('../ui/input-moment/src/input-moment.js');
 
-function getReservationUnixTime(e){
-    var theTime = $('#reservationTimePicker').val();
-    var dateTime = $('#reservationDatePicker').val()+' '+$('#reservationTimePicker').val();
-    var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
-
-  //  console.log('getReservationUnixTime: dateTime = ',dateTime);
-  //  console.log('getReservationUnixTime: UNIX Timestamp = ', unixTime);
-    return unixTime;
-}
 
 function refreshTable(id, m){
     var unix = m.format('x');
@@ -145,27 +135,19 @@ var Reservation = React.createClass({
 
     if (currentHall.hall) currentHallId = currentHall.hall.hall_id;
 
-	var halls = this.state.hallsList.map(function(the, i) {
-      var isActive = false;
-      if ( the.hall_id == currentHallId ) {
-        isActive = true;
-      //  hallNow = <Hall hall={the} />;
-      }
-      console.log(the.hall_id+' == '+currentHallId, isActive);
-      return <HallButton active={isActive} time={currentDate} hall={the} key={i} />
-	});
+    var halls = this.state.hallsList.map(function(the, i) {
+        var isActive = false;
+        if ( the.hall_id == currentHallId ) {
+          isActive = true;
+        //  hallNow = <Hall hall={the} />;
+        }
+        console.log(the.hall_id+' == '+currentHallId, isActive);
+        return <HallButton active={isActive} time={currentDate} hall={the} key={i} />
+    });
 
   	return(
      <div className="container">
          <div className="row">
-             <div className="col-lg-8">
-                 <div className="halls-box" id="hallsBox">
-                 	{halls}
-                 </div>
-                 <div className="room-box" id="roomBox">
-                    {hallNow}
-                 </div>
-             </div>
              <div className="col-lg-3">
                  <h3>Бронирование стола</h3>
 
@@ -175,6 +157,14 @@ var Reservation = React.createClass({
                   onSave={this.handleSave}
                 />
 
+             </div>
+             <div className="col-lg-8">
+                 <div className="halls-box" id="hallsBox">
+                 	{halls}
+                 </div>
+                 <div className="room-box" id="roomBox">
+                    {hallNow}
+                 </div>
              </div>
          </div>
      </div>

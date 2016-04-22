@@ -18,7 +18,7 @@ var ButtonTabToggle = React.createClass({
             classNames += " active";
         }
         return(
-            <button className={classNames} id={this.props.id} data-tab={this.props.tab} disabled={disabled}>
+            <button className={classNames+' button-'+this.props.tab} id={this.props.id} data-tab={this.props.tab} disabled={disabled}>
                 <span>{this.props.name}</span>
             </button>
         )

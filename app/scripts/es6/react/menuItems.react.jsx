@@ -58,11 +58,44 @@ var SingleMenuItem = React.createClass({
 });
 
 var MenuItemsSidebar = React.createClass({
+    componentDidMount: function(){
+        if(isMobile){
+            $('#sidebar').appendTo(document.body);
+            $('#menu-company-open').click(function(){
+                $('#sidebar').removeClass('mobile');
+            });
+            $('#menu-company-close').click( function() {
+                $('#sidebar').addClass('mobile');
+            });
+        } else {
+            if( $('#sidebar-wrapper').length ){
+                function sticky_relocate() {
+                    var window_top = $(window).scrollTop();
+                    var div_top = $('.sidebar-wrapper').offset().top;
+                    if (window_top > div_top) {
+                        $('.side-wrap').addClass('stick');
+                    } else {
+                        $('.side-wrap').removeClass('stick');
+                    }
+                }
+                $(window).scroll(sticky_relocate);
+                sticky_relocate();
+            }
+        }
+
+    },
+    sidebarOpen: function(e){
+        console.log('open');
+        $('#sidebar').removeClass('mobile');
+    },
+    sidebarClose: function(e){
+
+    },
     render: function(){
         return (
-            <div id="sidebar-wrapper" className="sidebar-wrapper">
-                <div className="button-close" id="menu-close"><i className="icon-close"></i></div>
-                <div className="button-open" id="menu-open"><i className="icn-menu"></i></div>
+            <div id="sidebar" className="mobile sidebar sidebar-wrapper">
+                <div className="button-close" id="menu-company-close"><i className="icon-close"></i></div>
+                <div className="button-open" id="menu-company-open"><i className="icn-menu"></i></div>
                 <div className="side-wrap" id="side-wrap">
                     <div className="form-group label-floating is-empty">
                         <label htmlFor="i5" className="control-label">Поиск блюда</label>
@@ -145,8 +178,7 @@ var MenuItems = React.createClass({
                         <MenuItemsList />
                     </div>
                 </div>
-                <div className="col-lg-3 mobile sidebar" id="sidebar">
-                    <div id="sitebar-trigger"></div>
+                <div className="col-lg-3">
                     <MenuItemsSidebar />
                 </div>
             </div>

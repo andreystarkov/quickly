@@ -92,14 +92,20 @@ function showReservationMap(halls){
     });
 }
 
-export function getReservationPointsList(hallId, theDate){
+export function getReservationPointsList(hallId, theDate, callback){
     $.getJSON(serverUrl+'/api/v2/reservation/tables/'+hallId+'/'+theDate, function(data){
         console.log('getReservationPointsList: Using Timestamp = ', theDate);
         console.log('getReservationPointsList: ', data);
         var tableType = 0;
+
+        var originalHeight = data.params.height;
+        var originalWidth = data.params.width;
+
+        console.log('Hall img original width: ', originalWidth);
+        console.log('Hall img original height: ', originalHeight);
         $('#roomBox').html(`
             <div class="the-room">
-            <img src="${hallsUrl}${data.params.hall.hall_image}"></div>`);
+            <img class="room-image" data-width="${originalWidth}" data-height="${originalHeight}" src="${hallsUrl}${data.params.hall.hall_image}"></div>`);
             $.each(data.params.tables, function(index,value){
 
                 if( value.table_type == 0 ) tableType = `
@@ -121,8 +127,18 @@ export function getReservationPointsList(hallId, theDate){
                     theOptions += '<option>'+i+'</option>';
                 }
 
+
                 $('#roomBox .the-room').append(`
-                    <div class="table" data-hall="${value.hall_id}" id="table-${value.table_id}" data-id="${value.table_id}" data-reserved="${data.params.reservations[value.table_id]}" data-seats="${value.table_seats_count}" data-deposit="${value.table_deposit}" data-price="${value.table_price}" data-restaurant="${value.restaurant_id}" data-hall="${value.hall_id}" style="left:${value.table_coord_x-10}px; top:${value.table_coord_y-20}px">
+                    <div class="table reservation-point"
+                    data-hall="${value.hall_id}" id="table-${value.table_id}"
+                    data-id="${value.table_id}"
+                    data-reserved="${data.params.reservations[value.table_id]}"
+                    data-seats="${value.table_seats_count}"
+                    data-deposit="${value.table_deposit}"
+                    data-price="${value.table_price}"
+                    data-restaurant="${value.restaurant_id}"
+                     data-hall="${value.hall_id}"
+                     style="left:${value.table_coord_x-10}px; top:${value.table_coord_y-20}px">
                         <div class="table-number">${value.table_number}</div>
                         <div class="table-everything">
                             <div class="table-desc">
@@ -140,6 +156,9 @@ export function getReservationPointsList(hallId, theDate){
                     </div>
                 `);
             });
+
+
+            if(callback) callback();
     });
 }
 

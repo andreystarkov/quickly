@@ -81,8 +81,31 @@ var CompanyList = React.createClass({
         cuisines: getStorage('cuisines')
       };
     },
-    componentDidMount: function() {
+
+    componentDidMount: function(){
         $.material.init();
+
+        if(isMobile){
+            $('#companyListSidebarWrap').appendTo(document.body);
+            $('#menu-list-open').click(function(){
+                $('#companyListSidebarWrap').removeClass('mobile');
+            });
+            $('#menu-list-close').click( function() {
+                $('#companyListSidebarWrap').addClass('mobile');
+            });
+        } else {
+            function sticky_relocate() {
+                var window_top = $(window).scrollTop();
+                var div_top = $('#companyListSidebarWrap').offset().top;
+                if (window_top > div_top) {
+                    $('#companyListSidebarWrap').addClass('stick');
+                } else {
+                    $('#companyListSidebarWrap').removeClass('stick');
+                }
+            }
+            $(window).scroll(sticky_relocate);
+            sticky_relocate();
+         }
     },
     loadMore: function(){
         var was = this.state.loadCount;
@@ -258,8 +281,8 @@ var CompanyList = React.createClass({
                         </div>
                     </div>
                     <div className="col-lg-3 mobile sidebar sidebar-wrapper" id="companyListSidebarWrap">
-                        <div className="button-close" id="menu-close"><i className="icn-cancel"></i></div>
-                        <div className="button-open" id="menu-open"><i className="icn-menu"></i></div>
+                        <div className="button-close" id="menu-list-close"><i className="icn-cancel"></i></div>
+                        <div className="button-open" id="menu-list-open"><i className="icn-menu"></i></div>
                         <div className="side-wrap">
                             <div id="companyListSidebar" className="company-list-sidebar">
                                 <div className="sidebar-wrap">

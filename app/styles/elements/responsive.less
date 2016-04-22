@@ -6,7 +6,8 @@
 
 @media all and (min-width:1200px){
     .checkout-order {
-        max-height:70vh;
+        max-height:80vh;
+        max-width:90vw;
     }
 }
 
@@ -128,7 +129,7 @@
         .buttons-tabs {
             width: 100%;
             position: absolute;
-            top: 60px;
+            top: 0px;
             padding-left: 5px;
             padding-right: 8px;
             backround:#f4f2ed;
@@ -378,14 +379,26 @@ body {
 
 @media screen and (max-width:26em) {
     body {
-        .main-logo .text h1 {
-            font-size:1.8em;
+        .food-category .food-item .inner {
+            height:155px;
+            .product-image {
+                background-position:center;
+            }
+            .product-controls {
+                bottom:33%;
+            }
         }
-        .cuisine-thumb {
-            width:70px;
-            height:70px;
+        .main-header {
+            margin-top:0px;
+            margin-bottom:0px;
+            .hero {
+                padding-bottom:0px;
+            }
         }
         .quickly-slider {
+            .half-width {
+                padding-top:20px;
+            }
             height:240px;
             h2 {
                 font-size:22px;
@@ -393,9 +406,33 @@ body {
             p {
                 font-size:14px;
             }
-            .half-width {
-                padding-top:60px;
+        }
+        .slider-nav {
+            height:25px;
+            bottom:15px;
+        }
+        .company-about {
+            .screen-toggle {
+                position:fixed;
+                left:15px;
+                top:15px;
+                background-color:transparent;
+                border-bottom: 0px solid transparent;
+                z-index:999;
+                i {
+                    font-size:2em;
+                }
+                span {
+                    display:none;
+                }
             }
+        }
+        .main-logo .text h1 {
+            font-size:1.8em;
+        }
+        .cuisine-thumb {
+            width:70px;
+            height:70px;
         }
        .header-gray .back-to-home {
             margin-left:0;
@@ -428,7 +465,8 @@ body {
             margin-left:8px;
             margin-right:8px;
             b {
-                font-size:18px;
+                font-size:16px;
+                font-weight:300;
             }
         }
         .checkout-buttons {
@@ -473,7 +511,7 @@ body {
         }
         .the-tab.tab-active {
             padding:0px;
-            margin-top:20px;
+            margin-top:0px;
             margin-bottom:0px;
         }
         .main-categories .category-item {
@@ -533,6 +571,7 @@ body {
             }
             .btm-line {
                 &.mobile {
+                    display:block;
                     padding-top:10px;
                     padding-bottom:10px;
                     .value {
