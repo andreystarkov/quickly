@@ -307,7 +307,7 @@ var CompanyList = React.createClass({
                         <div className="side-wrap">
                             <div id="companyListSidebar" className="company-list-sidebar">
                                 <div className="sidebar-wrap">
-                                    <MobileControls />
+                                    {/*<MobileControls />*/}
                                     <div className="form-group label-floating">
                                       <label className="control-label" htmlFor="company-search">Поиск по названию ресторана</label>
                                       <input value={this.state.searchFilter} onChange={this.searchChange} className="form-control" id="company-search" type="text" />
