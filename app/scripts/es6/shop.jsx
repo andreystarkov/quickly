@@ -100,9 +100,9 @@ function pasteCheckoutFormUnregistered(){
                               По карте курьеру
                             </label>
                         </div>
-                        <div class="radio radio-primary" class="display:none">
+                        <div class="radio radio-primary">
                             <label>
-                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2">
+                              <input disabled type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2">
                               <span class="circle"></span><span class="check"></span>
                               По карте онлайн
                             </label>

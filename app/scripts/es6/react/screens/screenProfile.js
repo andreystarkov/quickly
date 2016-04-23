@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:07:44
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 18:39:32
+* @Last Modified time: 2016-04-23 02:48:13
 */
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
 
@@ -20,12 +20,13 @@ var ScreenProfile = React.createClass({
     },
     render: function(){
         return(
-            <LoadingOrderAnimation animation="fade-in" move="from-top-to-bottom"
-            distance={150} speed={400} wait={250}>
                 <div className="the-screen page-wrapper" id="pageProfile">
                 <section className="user-profile gray" id="editUserProfile">
                     <div className="profile-editor" id="profileEditor">
-                        <ProfileEditor />
+                        <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                        distance={50} speed={700} wait={50}>
+                            <ProfileEditor />
+                        </LoadingOrderAnimation>
                     </div>
                     <section className="the-tab tab-comments the-history tabs-profile ttt" id="tab-comments-history">
                         <div className="container" id="commentsHistory">
@@ -43,7 +44,7 @@ var ScreenProfile = React.createClass({
                     </section>
                 </section>
                 </div>
-            </LoadingOrderAnimation>
+
         )
     }
 });

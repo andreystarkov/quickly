@@ -109,24 +109,27 @@ var CompanyList = React.createClass({
         if(isMobile){
             $('#companyListSidebarWrap').appendTo(document.body);
             $('#menu-list-open').click(function(){
-                $('#companyListSidebarWrap').removeClass('mobile');
+              $('#companyListSidebarWrap').removeClass('mobile');
+              $('#companyListSidebarWrap').addClass('active')
             });
-            $('#menu-list-close').click( function() {
-                $('#companyListSidebarWrap').addClass('mobile');
+            $('#menu-list-open').click( function() {
+              $('#companyListSidebarWrap').removeClass('active');
+              $('#companyListSidebarWrap').addClass('mobile');
             });
         } else {
-            function sticky_relocate() {
-                var window_top = $(window).scrollTop();
-                var div_top = $('#companyListSidebarWrap').offset().top;
-                if (window_top > div_top) {
-                    $('#companyListSidebarWrap').addClass('stick');
-                } else {
-                    $('#companyListSidebarWrap').removeClass('stick');
+
+                function sticky_relocate() {
+                    var window_top = $(window).scrollTop();
+                    var div_top = $('#companyListSidebarWrap').offset().top;
+                    if (window_top > div_top) {
+                        $('.side-wrap').addClass('stick');
+                    } else {
+                        $('.side-wrap').removeClass('stick');
+                    }
                 }
-            }
-            $(window).scroll(sticky_relocate);
-            sticky_relocate();
-         }
+                $(window).scroll(sticky_relocate);
+                sticky_relocate();
+        }
     },
     loadMore: function(){
         var was = this.state.loadCount;

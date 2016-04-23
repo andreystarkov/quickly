@@ -20,7 +20,7 @@ var SingleCuisine = React.createClass({
                 </div>
                 <div className="food-type">
                     <b>{this.props.cuisine.cuisine_name}</b>
-                    <div className="information">
+{/*                    <div className="information">
                         <span className="total total-delivery">
                             <span>Доставка:</span>
                             <span className="sum"> {this.props.cuisine.delivery_count}</span>
@@ -29,7 +29,7 @@ var SingleCuisine = React.createClass({
                             <span>Бронь:</span>
                             <span className="sum"> {this.props.cuisine.reservations_count}</span>
                         </span>
-                    </div>
+                    </div>*/}
                 </div>
             </a>
         </div>

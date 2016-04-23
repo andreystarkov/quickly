@@ -11,12 +11,12 @@ var InputMoment = require('../ui/input-moment/src/input-moment.js');
 
 function refreshTable(id, m){
     var unix = m.format('x');
-    console.log('refreshTable: Unix Time: ', unix);
+ //   console.log('refreshTable: Unix Time: ', unix);
     getReservationPointsList(id, unix, function(data){
-        console.log('refreshTable: callback ', data);
+  //      console.log('refreshTable: callback ', data);
     });
     ReservationActions.updateTables(id, unix);
-    console.log('refreshTable: Sent params: ', id, m, unix);
+ //   console.log('refreshTable: Sent params: ', id, m, unix);
 }
 
 var HallButton = React.createClass({
@@ -148,7 +148,7 @@ var Reservation = React.createClass({
   	return(
      <div className="container">
          <div className="row">
-             <div className="col-lg-3">
+             <div className="col-lg-4">
                  <h3>Бронирование стола</h3>
 
                 <InputMoment

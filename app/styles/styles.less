@@ -65,17 +65,16 @@
     margin-bottom:15px;
   }
 }
-.stick {
 
+.stick {
     position: fixed;
     top: 0;
-    z-index: 10000;
+    z-index: 4;
     min-width:273px;
 }
 
 .button-more-wrap {
     display:block;
-
     position:relative;
     text-align:center;
 }
@@ -190,6 +189,27 @@
   position: relative;
   z-index: 1;
 }
+
+.the-comments {
+    .comment {
+        width:95%;
+        margin-bottom: 0px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border-bottom: 4px solid rgba(33, 32, 31, 0.04);
+        font-family: RobotoDraft;
+    }
+    padding-top:50px;
+}
+body .input-moment {
+    .btn-save {
+        display:none;
+    }
+}
+.side-wrap {
+    transition:all 0.5s @easingSlowEnd 0.4s;
+}
+
 
 .slideout-open,
 .slideout-open body,

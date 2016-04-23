@@ -150,8 +150,10 @@ var ProfileEditorForm = React.createClass({
     },
     editUserField: function(theParameter, theValue){
         var currentCity = getStorage('city');
-        var cityId = currentCity.city_id || 3;
-
+        var cityId;
+        if(currentCity){
+           cityId = currentCity.city_id;
+        } else cityId = 3;
         var theOptions = {};
         theOptions['userToken'] = userToken;
         theOptions['cityId'] = cityId;

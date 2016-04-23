@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 11:38:24
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 22:25:44
+* @Last Modified time: 2016-04-23 05:21:36
 */
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -18,7 +18,7 @@ var lang = {
             messageLabel: 'Текст вашего сообщения',
             messageHint: 'Здесь вы можете аргументировать вашу оценку',
             ratingLabel: 'Ваша оценка',
-            buttonSend: 'Отправить комментарий',
+            buttonSend: 'Отправить',
             buttonSendIcon: 'icon icn-comment',
             chooseStars: 'Выберите оценку'
         },
@@ -171,9 +171,6 @@ var CommentForm = React.createClass({
 
         return(
         <div className="comment-form">
-          <div className="tab-header">
-            <h2>{texts.formHeader}</h2>
-          </div>
 
             <div className="form-group label-floating" style={inputGroup}>
               <label className="control-label" htmlFor="focusedInput2">{texts.messageLabel}</label>
@@ -227,14 +224,11 @@ var Comments = React.createClass({
 
                 <div className="the-comments">
                     <div className="row">
-                        <div className="col-lg-9" id="comments-list">
-                          <div className="tab-header">
-                            <h2>текущие отзывы</h2>
-                          </div>
+                        <div className="col-lg-8" id="comments-list">
                             {commentsList}
                         </div>
 
-                        <div className="col-lg-3">
+                        <div className="col-lg-4">
                             <CommentForm company={this.props.company} />
                         </div>
                     </div>

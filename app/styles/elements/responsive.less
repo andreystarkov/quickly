@@ -4,6 +4,14 @@
     }
 }
 
+@media screen and (min-width:1600px){
+    body {
+        .checkout-order {
+            max-height:80vh;
+            max-width:60vw;
+        }
+    }
+}
 @media all and (min-width:1200px){
     .checkout-order {
         max-height:80vh;
@@ -14,8 +22,24 @@
 
 @media all and (max-width:500px) {
     body {
+        .slider-nav nav, .slider-nav ul, .slider-nav li, .slider-nav a {
+            padding-left:0;
+        }
         .user-editor {
             padding-bottom:80px;
+        }
+        .slider-nav {
+            bottom:5px;
+            li {
+                width:35px;
+                height:35px;
+                margin-left:10px;
+                margin-right:10px;
+                border-bottom-color: mix(@colorBlack,#fff,50%);
+                &.selected {
+                    box-shadow: 0px 2px 5px fade(@colorBlack,35%);
+                }
+            }
         }
         .gender-select {
             padding-left:22%;
@@ -132,11 +156,14 @@
             transition:0.35s cubic-bezier(.24,.42,.31,1.1) all;
             z-index: 99999;
             background-color: #fff;
-            height: 100%;
+            height: auto;
+            box-shadow: 0px -2px 45px fade(@colorBlack,40%);
+            border-top: 5px solid mix(@colorWhite,@colorBlack,95%);
             overflow:hidden;
             width: 100%;
-            top: 0 !important;
-            bottom: auto;
+            top: auto !important; // lol
+            bottom: 0px;
+           // bottom: auto;
             right: 0;
             left: auto;
             padding: 0px;
@@ -149,19 +176,35 @@
                 width:100%;
             }
             .button-open { display: none; }
-            .button-close { display: block; }
+            .button-close { display: block;
+
+            }
             .button-close, .button-open {
                 transition: 0.8s @easingDefault all;
                 width:55px;
                 height:55px;
                 position:absolute;
                 right:15px;
-                top:15px;
+                bottom:0px;
                 cursor: pointer;
                 i {
                     font-size:30px;
                 }
                 z-index:54;
+            }
+            .side-wrap {
+                transform: scale(0,0);
+                width:0; height:0;
+                overflow:hidden;
+                transition:all 0.4s @easingSlowEnd 0.6s;
+            }
+            &.active {
+                .side-wrap {
+                    width:auto; height:auto;
+                    overflow:visible;
+                    transition:all 0.4s @easingSlowEnd 0.6s;
+                    transform: scale(1,1);
+                }
             }
             &.mobile {
                 transition:0.4s ease-in-out all;
@@ -295,6 +338,7 @@
             text-align:center;
             font-size:12px;
         }
+
         .the-comments {
             .comment {
                 .likes {
@@ -450,11 +494,63 @@ body {
     }
 }
 
+.form-register, .form-auth {
+    .btn-raised {
+        padding:8px 10px;
+        font-size:18px;
+    }
+}
+.comment-form {
+    text-align: center;
+    padding: 30px;
+    .form-group {
+        margin-bottom:5px !important;
+        margin-top:10px;
+    }
+    background: fade(#fff,@colorDefaultBackground,4 6%);
+    .btn {
+        margin-top: 10px;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .stars {
+        display:inline-block;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        width: 45%;
+        display: inline-block;
+    }
+}
+
 @media screen and (max-width:26em) {
     body .sidebar .sidebar-wrap {
         padding-top:5px;
     }
     body {
+        .mobile-hidden {
+            display:none;
+        }
+        .top-line {
+            display:block !important;
+            .auth-box .dropdown-nice .user-top {
+                padding-left: 15px;
+                padding-right: 30px;
+            }
+            .container a.btn {
+                padding: 8px;
+                font-size: 20px;
+                padding-right: 12px;
+                span {
+                    display:none;
+                }
+            }
+        }
+        .top-line .container .logo {
+            margin:0 auto;
+            float:none;
+            margin-left:auto;
+        }
+
         .mobile-controls {
             display:block;
         }
@@ -487,10 +583,7 @@ body {
                 font-size:14px;
             }
         }
-        .slider-nav {
-            height:25px;
-            bottom:15px;
-        }
+
         .company-about {
             .screen-toggle {
                 position:fixed;
@@ -600,7 +693,8 @@ body {
             margin-bottom:0px;
         }
         .main-categories .category-item {
-            padding: 2px !important;
+            border-radius:0!important;
+            padding: 0px !important; // vip
             margin:0px !important;
         }
         .company-list {

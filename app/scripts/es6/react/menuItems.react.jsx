@@ -61,18 +61,19 @@ var MenuItemsSidebar = React.createClass({
     componentDidMount: function(){
         if(isMobile){
             $('#sidebar').appendTo(document.body);
-
             $('#menu-company-open').click(function(){
               $('#sidebar').removeClass('mobile');
+              $('#sidebar').addClass('active')
             });
             $('#menu-company-close').click( function() {
+              $('#sidebar').removeClass('active');
               $('#sidebar').addClass('mobile');
             });
         } else {
-            if( $('#sidebar-wrapper').length ){
+            if( $('#sidebar').length ){
                 function sticky_relocate() {
                     var window_top = $(window).scrollTop();
-                    var div_top = $('.sidebar-wrapper').offset().top;
+                    var div_top = $('#sidebar').offset().top;
                     if (window_top > div_top) {
                         $('.side-wrap').addClass('stick');
                     } else {

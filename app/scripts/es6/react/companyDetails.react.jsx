@@ -70,20 +70,20 @@ var CompanyDetails = React.createClass({
         <div className="container">
             <div className="row">
                 <div className="col-lg-2 col-xs-12 text-center">
-                    <LoadingOrderAnimation animation="fade-in" move="from-top-to-bottom"
-                       distance={30} speed={400} wait={500}>
+                    <LoadingOrderAnimation animation="fade-in"
+                       distance={30} speed={800} wait={100}>
                        <div className="logo round">
                         <img src={image} />
                         </div>
                      </LoadingOrderAnimation>
-                    <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
-                       distance={30} speed={400} wait={600}>
+                    <LoadingOrderAnimation animation="fade-in"
+                       distance={30} speed={800} wait={300}>
                     <div className="title"><h2>{company.restaurant_name}</h2></div>
                      </LoadingOrderAnimation>
                 </div>
                 <div className="col-lg-10 the-info">
-                    <LoadingOrderAnimation animation="fade-in" move="from-top-to-bottom"
-                    distance={30} speed={400} wait={700}>
+                    <LoadingOrderAnimation animation="fade-in"
+                    distance={30} speed={400} wait={600}>
                     <div className="line types">
                         <i className="fi-dishes icon"></i> {cuisinesSelect}
                         <div className="rating">
@@ -91,8 +91,8 @@ var CompanyDetails = React.createClass({
                         </div>
                     </div>
                     </LoadingOrderAnimation>
-                    <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
-                       distance={30} speed={400} wait={800}>
+                    <LoadingOrderAnimation animation="fade-in"
+                       speed={500} wait={850}>
                     <div className="line delivery">
                         <i className="icon fi-delivery"></i>
                         <div className="box cost">

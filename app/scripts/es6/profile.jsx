@@ -3,7 +3,10 @@
         var theOptions = {};
         var theParameter = $('#'+fieldId).data('id');
         var currentCity = getStorage('city');
-        var cityId = currentCity.city_id || 3;
+        var cityId;
+        if(currentCity) {
+            cityId = currentCity.city_id;
+        } else cityId = 3;
         var setValue = $('#' + fieldId).val();
 
         theOptions['userToken'] = userToken;

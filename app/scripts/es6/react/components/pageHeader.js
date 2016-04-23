@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 13:04:20
+* @Last Modified time: 2016-04-23 06:01:08
 */
 
 var routesMap = require('../routes/map.js');
@@ -20,53 +20,57 @@ var PageHeader = React.createClass({
         CityListActions.fetchList;
     },
     render: function(){
+        var isCityList, hide = {
+            display: 'none'
+        }
+
+        if(isMobile) isCityList = hide;
         return(
             <div>
             <div className="top-line">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-2">
+                        <div className="col-lg-2 col-xs-4">
                             <div className="logo screen-toggle" data-screen="pageMain">
                                 <img className="quickly-top-logo" src="/images/logo.png" alt="Quickly Russia" />
                             </div>
                         </div>
-                        <div className="col-lg-4">
-                                <div className="paths"><a href="#">Главная</a> / <a href="#">Доставка еды</a> / <a href="#">Пицца</a></div>
-                        </div>
-                        <div className="col-lg-2">
+                        <div className="col-lg-2 col-xs-3" style={isCityList}>
                             <div id="selectCityField">
                                 <CityList />
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-5 col-xs-1">
+                        </div>
+                        <div className="col-lg-3 col-xs-8">
                             <div className="form-auth form-register pop" id="formRegisterPhone">
                                 <div className="row">
-                                    <div className="col-lg-6">
+                                    <div className="col-lg-9 col-xs-8">
                                         <div className="form-group label-floating is-empty">
                                             <label htmlFor="inputRegisterPhone" className="control-label">Ваш номер телефона</label>
                                             <input type="text" className="form-control pop" id="inputRegisterPhone" />
-                                            <span className="help-block"></span>
+                                            <span className="help-block">В формате 7XXXXXXXX</span>
                                         </div>
                                     </div>
-                                    <div className="col-lg-6">
+                                    <div className="col-lg-3 col-xs-3">
                                         <a href="#" id="buttonRegisterPhone" className="btn btn-padding btn-raised">
-                                            Вход / Регистрация
+                                            <i className="icon-arrow-right" />
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div className="form-auth form-code pop" id="formRegisterSMSCode">
                                 <div className="row">
-                                    <div className="col-lg-7">
+                                    <div className="col-lg-7 col-xs-6">
                                         <div className="form-group label-floating is-empty">
-                                            <label htmlFor="inputRegisterSMSCode" className="control-label pop">Введите код, полученный по смс</label>
+                                            <label htmlFor="inputRegisterSMSCode" className="control-label pop">Введите код из СМС</label>
                                             <input type="text" className="form-control" id="inputRegisterSMSCode" />
                                             <span className="help-block"></span>
                                         </div>
                                     </div>
-                                    <div className="col-lg-5">
+                                    <div className="col-lg-5 col-xs-4">
                                         <a href="#" id="buttonRegisterSMSCode" className="btn btn-clean btn-padding btn-raised">
-                                             Отправить
+                                             <i className="icon-arrow-right" />
                                         </a>
                                     </div>
                                 </div>

@@ -22,8 +22,8 @@ function showTab(theTab, group){
 }
 
 $(document).on('click', '.tab-toggle', function(event) {
-    var aniInClass = 'fadeOutRight animated';
-    var aniOutClass = 'slideOutLeft animated';
+    var aniInClass = 'flipInY animated';
+    var aniOutClass = 'fadeOutDown animated';
     var groupClass = '.'+$(this).parent().data('tabs');
     var theTab = $(this).data('tab');
 
@@ -36,7 +36,7 @@ $(document).on('click', '.tab-toggle', function(event) {
     $(this).addClass('active');
 
     $(groupClass).removeClass('tab-active');
-    $('#'+theTab).addClass('tab-active animated fadeInRight');
+    $('#'+theTab).addClass('tab-active animated fadeIn');
 
 });
 

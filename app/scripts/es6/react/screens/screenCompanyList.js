@@ -2,14 +2,9 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:23:02
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 13:17:44
+* @Last Modified time: 2016-04-23 05:01:58
 */
-
-require('velocity-animate');
-require('velocity-animate/velocity.ui');
-
-import { slideLeft } from '../animation/routerTransitions.js';
-import { RouteTransition } from 'react-router-transition';
+import LoadingOrderAnimation from 'react-loading-order-with-animation';
 
 var CompanyList = require('../companyList.react.jsx');
 var CompanyListActions = require('../actions/companyListActions.js');
@@ -26,15 +21,12 @@ var ScreenCompanyList = React.createClass({
     render: function(){
         console.log('Path: ', this.props.location.pathname);
         return(
+            <LoadingOrderAnimation animation="fade-in"
+            distance={30} speed={300} wait={0}>
             <section className="the-screen page-wrapper food-grid" id="pageCompanyList">
-            <RouteTransition
-              pathname={this.props.location.pathname}
-              atEnter={{ opacity:0 }}
-              atLeave={{ opacity:0 }}
-              atActive={{ opacity:1 }}>
                 <CompanyList current={this.props.params.cuisine} />
-                </RouteTransition>
             </section>
+            </LoadingOrderAnimation>
 
         )
     }
