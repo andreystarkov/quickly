@@ -116,20 +116,8 @@ var CompanyList = React.createClass({
               $('#companyListSidebarWrap').removeClass('active');
               $('#companyListSidebarWrap').addClass('mobile');
             });
-        } else {
-
-                function sticky_relocate() {
-                    var window_top = $(window).scrollTop();
-                    var div_top = $('#companyListSidebarWrap').offset().top;
-                    if (window_top > div_top) {
-                        $('.side-wrap').addClass('stick');
-                    } else {
-                        $('.side-wrap').removeClass('stick');
-                    }
-                }
-                $(window).scroll(sticky_relocate);
-                sticky_relocate();
         }
+
     },
     loadMore: function(){
         var was = this.state.loadCount;

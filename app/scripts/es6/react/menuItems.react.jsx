@@ -70,7 +70,7 @@ var MenuItemsSidebar = React.createClass({
               $('#sidebar').addClass('mobile');
             });
         } else {
-            if( $('#sidebar').length ){
+/*            if( $('#sidebar').length ){
                 function sticky_relocate() {
                     var window_top = $(window).scrollTop();
                     var div_top = $('#sidebar').offset().top;
@@ -82,7 +82,7 @@ var MenuItemsSidebar = React.createClass({
                 }
                 $(window).scroll(sticky_relocate);
                 sticky_relocate();
-            }
+            }*/
         }
     },
     componentWillUnmount: function(){
