@@ -10,10 +10,7 @@ var InputMoment = require('../ui/input-moment/src/input-moment.js');
 
 function refreshTable(id, m){
     var unix = m.format('x');
-    console.log('refreshTable: Unix Time: ', unix);
-    getReservationPointsList(id, unix, function(data){
-        console.log('refreshTable: callback ', data);
-    });
+    console.log('refreshTable: Unix Time: ', unix, m.format('DD:MM:YYYY hh:mm'));
     ReservationActions.updateTables(id, unix);
     console.log('refreshTable: Sent params: ', id, m, unix);
 }
@@ -146,20 +143,24 @@ var Reservation = React.createClass({
       currentHallId: 0
     }
   },
+  componentDidMount: function(){
+     ReservationActions.updateHalls(this.props.company);
+  },
   componentDidUpdate: function(){
-    var first;
-    var halls = this.state.hallsList.map(function(the, i) {
+    var first, halls = this.state.hallsList.map(function(the, i) {
       if( i == 0 ) first = the;
       return the;
     });
-
     if(this.state.currentHallId == 0){
         console.log('Reservation DidUpdate: Current Hall Not Set; Selecting: ',first);
         if ( first ) {
-            refreshTable(first.hall_id, this.state.moment);
             this.setState({
                 currentHallId: first.hall_id
             });
+        }
+    } else {
+        if( isEmptyObj(this.state.tablesList) ){
+            ReservationActions.updateTables(this.state.currentHallId, this.state.moment.format('x') );
         }
     }
   },
@@ -178,14 +179,13 @@ var Reservation = React.createClass({
     console.log(e);
   },
   hallChange: function(e){
-    console.log('hallChange: ',e.target.value);
-    refreshTable(e.target.value, this.state.moment);
+    ReservationActions.updateTables(e.target.value, this.state.moment.format('x'));
     this.setState({
         currentHallId: e.target.value
     });
   },
   render: function(){
-    console.log('Reservation state: ', this.state);
+    console.log('Reservation state: ', this.state, this.props);
 
     var that = this;
     var rId = 0;
@@ -194,8 +194,8 @@ var Reservation = React.createClass({
     var currentDate = this.state.moment;
     var currentHallId = this.state.currentHallId;
 
-    if( this.state.tablesList.tables ) {
-        rId = this.state.tablesList.hall.restaurant_id;
+    if( !isEmptyObj(this.state.tablesList) ) {
+        rId = that.state.tablesList.hall.restaurant_id;
         reservations = this.state.tablesList.reservations;
         currentHallTables = this.state.tablesList.tables;
         console.log('Got Tables: ',currentHallTables );
@@ -214,6 +214,7 @@ var Reservation = React.createClass({
             )
         });
     }
+
 
     currentHall = _.find(this.state.hallsList, function(the){
         if(the.hall_id == that.state.currentHallId) return the;

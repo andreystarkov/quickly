@@ -19,7 +19,7 @@ var ReservationHallsStore = Reflux.createStore({
       $.getJSON( url, function (data) {
         some.hallsList = data.result.halls;
         some.trigger(some.hallsList);
-        console.log('ReservationHallsStore fetchList', some.hallsList);
+        console.log('ReservationHallsStore fetchList', data);
       });
     }
 });

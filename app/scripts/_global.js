@@ -71,6 +71,15 @@ function first(obj) {
     for (var a in obj) return a;
 }
 
+function isEmptyObj(object) {
+  for(var key in object) {
+    if(object.hasOwnProperty(key)){
+      return false;
+    }
+  }
+  return true;
+}
+
 function isEmpty(obj) {
     if (obj) return Object.keys(obj).length === 0;
 }

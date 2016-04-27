@@ -17,11 +17,11 @@ var ReservationTablesStore = Reflux.createStore({
     fetchList: function() {
       var some = this;
       var url = serverUrl+'/api/v2/reservation/tables/'+this.hall+'/'+this.date;
-    //  console.log('ReservationTablesStore url: ', url);
+       console.log('ReservationTablesStore url: ', url);
       $.getJSON( url, function (data) {
         some.tablesList = data.params;
         some.trigger(some.tablesList);
-    //   console.log('ReservationTablesStore result: ', data.params);
+       console.log('ReservationTablesStore result: ', data);
       });
     }
 });

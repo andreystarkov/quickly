@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:57:33
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-27 07:16:08
+* @Last Modified time: 2016-04-27 17:23:07
 */
 
 import {browserHistory, Link} from "react-router";
@@ -48,7 +48,7 @@ var ScreenShop = React.createClass({
                 </section>
 
                 <section className="the-tab tabs-shop tab-reservation" id="tab-reservation">
-                    <Reservation />
+                    <Reservation company={this.props.params.company} />
                 </section>
 
                 <section className="the-tab tabs-shop food-category food-grid tab-active" id="tab-food">
