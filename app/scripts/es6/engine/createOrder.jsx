@@ -1,5 +1,6 @@
 import {clearCart} from './checkout.func.jsx';
 import {createReservation} from './createReservation.jsx';
+import {registerUser,sendSMSCode} from '../auth.jsx';
 
 function orderSuccess(data){
     swal({
@@ -23,6 +24,7 @@ function postOrder(params, callback){
         url: serverUrl + '/api/v3/orders/create',
         data: JSON.stringify(params),
         success: function(data) {
+            console.log('postOrder: result: ',data);
             if(!data.err){
                 $('.checkout-cancel').click();
                 clearCart();
@@ -91,24 +93,71 @@ export function createOrder(callback){
 
     var reservation = getStorage('theReservation');
 
-    if( reservation ){
-        swal({
-          title: 'Внимание!',
-          text: 'В корзине есть блюда и стол на резервацию. Вы можете добавить выбранные вами блюда к заказанному столу. Оформить доставку отдельно?',
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Да, оформить доставку',
-          cancelButtonText: 'Вернуться',
-          closeOnConfirm: false
-        }).then(function(isConfirm) {
-          if (isConfirm) {
+    if( userToken ) {
+        if( reservation ){
+            swal({
+            title: 'Внимание!',
+            text: 'В корзине есть стол на резервацию. Вы можете добавить выбранные вами блюда к заказанному столу. Оформить доставку отдельно?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Да, оформить доставку',
+            cancelButtonText: 'Вернуться',
+            closeOnConfirm: false
+            }).then(function(isConfirm) {
+              if (isConfirm) {
+                postOrder(params, function(data){
+                    if (callback) callback(data);
+                });
+              }
+            });
+        } else {
             postOrder(params, function(data){
                 if (callback) callback(data);
             });
+        }
+    } else {
+        var phone;
+        swal({
+        title: 'Зарегистрируйтесь!',
+        html: 'Это быстро &mdash; просто ведите свой номер телефона.'+
+              '<div class="form-group form-box"><input type="text" class="form-control" id="checkout-register-phone"></div>',
+        type: 'warning',
+        showCancelButton: false,
+        confirmButtonText: 'Зарегистрироваться',
+        closeOnConfirm: false
+        }).then(function(isConfirm) {
+          phone = $('#checkout-register-phone').val();
+            if (isConfirm) {
+                registerUser( phone, function(w){
+                    swal({
+                    title: 'Подтверждение',
+                    html: 'Введите СМС-код, высланный на ваш номер:'+
+                          '<div class="form-group form-box"><input type="text" class="form-control" id="checkout-register-sms"></div>',
+                    type: 'success', showCancelButton: false, confirmButtonText: 'Зарегистрироваться', closeOnConfirm: false
+                    }).then(function(isConfirm) {
+                        sendSMSCode(phone, $('#checkout-register-sms').val(), function(data){
+                            if(!data.err){
+                                var isName;
+                                if(!data.result.profile.userName){
+/*                                isName = `
+                                <div class="form-group form-box form-name">
+                                    <h3>Последний штрих</h3>
+                                    <label for="checkout-register-name" class="control-label">Как вас зовут?</label>
+                                        <input type="text" class="form-control" id="checkout-register-name">
+                                </div>`;*/
+                                }
+                                swal({
+                                    title: 'Добро пожаловать в Квикли! ', html: 'Теперь вы можете совершать покупки.'+isName,
+                                    type: 'success', showCancelButton: false, confirmButtonText: 'Зарегистрироваться', closeOnConfirm: false
+                                });
+                            } else {
+                                toastr.error('СМС-код неверен. Посмотрите внимательней!');
+                            }
+                        });
+                    });
+                });
+                }
+            });
           }
-        });
-    }
+        }
 
-    console.log('createOrder: params = ', params);
-
-}

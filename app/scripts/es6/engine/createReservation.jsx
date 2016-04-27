@@ -43,7 +43,7 @@ function postReservation(params, callback){
         }
     });
 }
-export function createReservation(menu, callback){
+export function createReservation(callback){
     var table = getStorage('theReservation');
 
     var params = {
@@ -56,7 +56,6 @@ export function createReservation(menu, callback){
     };
 
     console.log('createReservation: params = ',params);
-
 
         if ( table == null ){
             toastr.error('Вы не выбрали ни одного стола на резервацию', 'Стол не выбран!');

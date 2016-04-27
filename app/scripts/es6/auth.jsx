@@ -42,7 +42,7 @@ function registrationStepThree(){
     });
 }
 
-function registerUser(phone, callback) {
+export function registerUser(phone, callback) {
     console.log('registerUser: phone = ' + phone);
     $.ajax({
         type: 'POST',
@@ -51,6 +51,7 @@ function registerUser(phone, callback) {
             'phone': phone
         },
         success: function(data) {
+            registrationStepTwo();
             Cookies.set('phone', phone);
             console.log('registerUser: ', data);
             callback(data);
@@ -58,7 +59,7 @@ function registerUser(phone, callback) {
     });
 }
 
-function sendSMSCode(phone, code, callback) {
+export function sendSMSCode(phone, code, callback) {
     console.log('SendSMSCode: phone = ' + phone);
     console.log('SendSMSCode: code = ' + code);
     $.ajax({
@@ -70,8 +71,10 @@ function sendSMSCode(phone, code, callback) {
         },
         success: function(data) {
           if (data.err === undefined || data.err  === null) {
+            registrationStepThree();
             console.log('SendSMSCode: success', data);
             Cookies.set('token', data.result.userToken, { expires: 99999999 });
+            userToken = data.result.userToken;
             getUserProfile(data.result.userToken, function(data){
                 $('#userBadgeTop').html(
                   '<div class="user-text">'+
@@ -110,7 +113,7 @@ $(function() {
         event.preventDefault();
         registerUser( $('#inputRegisterPhone').val(), function(data){
           if (data.err === undefined || data.err  === null) {
-                registrationStepTwo();
+            // ...
           } else {
             console.log('registerPhone: error', data);
             createNotice('#formRegisterPhone', 'Ошибка', 'Введите корректный номер телефона в формате 79619478823');
@@ -129,7 +132,7 @@ $(function() {
             userCode = $('#inputRegisterSMSCode').val();
         sendSMSCode(userPhone, userCode, function(data){
           if (data.err === undefined || data.err  === null) {
-            registrationStepThree();
+           //  registrationStepThree();
           } else createNotice('#buttonRegisterSMSCode', 'Ошибка', 'СМС-код неверен. Посмотрите внимательней!');
        });
     });

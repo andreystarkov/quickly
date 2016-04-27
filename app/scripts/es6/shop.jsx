@@ -21,7 +21,7 @@ function pasteCartElement(cartElement, elementCount){
 }
 
 function pasteCheckoutFormUnregistered(){
-
+    var reservationToggle;
     var profile = getStorage('profile');
     var bonusCount = '100';
     var userName = '', userPhone = '';
@@ -29,6 +29,13 @@ function pasteCheckoutFormUnregistered(){
         if(profile.userName) userName = profile.userName;
         if(profile.userPhone) userPhone = profile.userPhone;
     }
+
+    var reservation = getStorage('theReservation');
+
+    if( isEmptyObj(reservation) ) {
+        reservationToggle = "disabled=true";
+    } else reservationToggle = "disabled=false";
+
     var out = `
     <div class="checkout-form">
         <div class="control-group">
@@ -144,10 +151,10 @@ function pasteCheckoutFormUnregistered(){
         <div class="checkout-buttons">
             <div class="row">
                 <div class="col-lg-6 col-xs-6">
-                    <div class="button main" id="buttonCheckoutDelivery">Оформить доставку</div>
+                    <button class="button main" id="buttonCheckoutDelivery">Оформить доставку</button>
                 </div>
-                <div class="col-lg-6 col-xs-6">
-                    <div class="button main" id="buttonCheckoutReservation">Оформить бронирование</div>
+                <div class="col-lg-6 col-xs-6" style=>
+                    <button class="button main" id="buttonCheckoutReservation" ${reservationToggle}>Оформить бронирование</button>
                 </div>
             </div>
         </div>
