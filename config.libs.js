@@ -18,6 +18,7 @@ var theLibs = [
 
     // ui plugins
 
+    'app/libs/jquery.maskedinput/src/jquery.maskedinput.js',
     'app/libs/sweetalert2/dist/sweetalert2.min.js',
 //  'app/libs/slideout.js/dist/slideout.js',
     'app/libs/moment/min/moment-with-locales.min.js',

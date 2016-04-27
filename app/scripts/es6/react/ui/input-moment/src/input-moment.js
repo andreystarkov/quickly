@@ -1,6 +1,5 @@
 var cx = require('classnames');
 
-var React = require('react');
 var Calendar = require('./calendar');
 var Time = require('./time');
 

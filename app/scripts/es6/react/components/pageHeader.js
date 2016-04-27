@@ -2,13 +2,12 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-23 06:01:08
+* @Last Modified time: 2016-04-27 06:59:05
 */
+import {Link, browserHistory} from 'react-router';
+import {notAuthorized} from '../../auth.jsx';
 
 var routesMap = require('../routes/map.js');
-
-import {Link, browserHistory} from 'react-router';
-
 var CityListActions = require('../actions/cityListActions.js');
 var CityList = require('../cityList.react.jsx');
 
@@ -19,11 +18,16 @@ var PageHeader = React.createClass({
     componentDidMount: function(){
         CityListActions.fetchList;
     },
+    logOut: function(){
+        notAuthorized();
+    },
+    returnHome: function(){
+        browserHistory.push(routesMap.routes.main.path);
+    },
     render: function(){
         var isCityList, hide = {
             display: 'none'
         }
-
         if(isMobile) isCityList = hide;
         return(
             <div>
@@ -31,7 +35,7 @@ var PageHeader = React.createClass({
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-2 col-xs-4">
-                            <div className="logo screen-toggle" data-screen="pageMain">
+                            <div className="logo screen-toggle" onClick={this.returnHome} data-screen="pageMain">
                                 <img className="quickly-top-logo" src="/images/logo.png" alt="Quickly Russia" />
                             </div>
                         </div>
@@ -47,9 +51,11 @@ var PageHeader = React.createClass({
                                 <div className="row">
                                     <div className="col-lg-9 col-xs-8">
                                         <div className="form-group label-floating is-empty">
+                                        <form>
                                             <label htmlFor="inputRegisterPhone" className="control-label">Ваш номер телефона</label>
-                                            <input type="text" className="form-control pop" id="inputRegisterPhone" />
-                                            <span className="help-block">В формате 7XXXXXXXX</span>
+                                            <input type="text" className="form-control pop bfh-phone" data-format="+7 (ddd) ddd-dddd" id="inputRegisterPhone" />
+                                            <span className="help-block">В формате +7 (xxx) xxx-xxxx</span>
+                                        </form>
                                         </div>
                                     </div>
                                     <div className="col-lg-3 col-xs-3">
@@ -80,6 +86,7 @@ var PageHeader = React.createClass({
                                    <div className="user-top" id="userBadgeTop"></div>
                                    <div className="menu-box">
                                         <button className="btn button light" onClick={this.editProfile}>Редактировать профиль</button>
+                                        <button className="btn button light" onClick={this.logOut}>Выйти</button>
                                    </div>
                                 </div>
                             </div>

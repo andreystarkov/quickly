@@ -2,7 +2,7 @@ var cuisinesList;
 var isAuth;
 var currentCompany = 1;
 var currentCuisine;
-
+var currentReservationTime;
 var cities
 var currentCity;
 

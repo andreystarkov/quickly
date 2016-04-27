@@ -2,11 +2,10 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:57:33
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 13:17:14
+* @Last Modified time: 2016-04-27 07:16:08
 */
 
 import {browserHistory, Link} from "react-router";
-import { RouteTransition } from 'react-router-transition';
 
 var CompanyDetails = require('../companyDetails.react.jsx');
 var MenuItems = require('../menuItems.react.jsx');
@@ -31,7 +30,7 @@ function updateCompany(id){
 var ScreenShop = React.createClass({
     componentWillMount: function(){
         var company = this.props.params.company;
-        console.log('ScreenShop: props', this.props);
+
         updateCompany(company);
     },
     componentDidMount: function(){
@@ -40,11 +39,6 @@ var ScreenShop = React.createClass({
     render: function(){
 
         return (
-            <RouteTransition
-              pathname={this.props.location.pathname}
-              atEnter={{ opacity:0 }}
-              atLeave={{ opacity:0 }}
-              atActive={{ opacity:1 }}>
             <div className="the-screen page-wrapper" id="pageCompany">
                 <section className="company-about gray" id="companyDetails">
                     <CompanyDetails />
@@ -63,7 +57,6 @@ var ScreenShop = React.createClass({
                     </div>
                 </section>
             </div>
-        </RouteTransition>
         )
     }
 });

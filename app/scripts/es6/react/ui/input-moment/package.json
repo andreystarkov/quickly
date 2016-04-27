@@ -73,8 +73,6 @@
   },
   "homepage": "https://github.com/wangzuo/input-moment#readme",
   "keywords": [
-    "react",
-    "react-component",
     "input",
     "datetime",
     "picker",
@@ -84,11 +82,6 @@
   "main": "index.js",
   "name": "input-moment",
   "optionalDependencies": {},
-  "peerDependencies": {
-    "moment": "^2.10.6",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
-  },
   "readme": "# input-moment\nReact datetime picker powered by [momentjs](http://momentjs.com)\n\nThe design is from https://dribbble.com/shots/1439965-Due-Date-and-Time-Picker.\n\nThe icon is from [ionicons](http://ionicons.com/).\n\n### Installation\n``` sh\nnpm i input-moment --save\n```\n\n### Importing\n\n``` javascript\nimport * as InputMoment from 'input-moment';\n```\n\n**Notice:** This module requires [moment](https://www.npmjs.com/package/moment) as a [peerDependency](https://docs.npmjs.com/files/package.json#peerdependencies).\n\n### Demo\nhttp://wangzuo.github.io/input-moment\n\n### Usage\n``` javascript\n<InputMoment\n  moment={this.state.moment}\n  onChange={this.handleChange}\n  onSave={this.handleSave}\n  prevMonthIcon='ion-ios-arrow-left'\n  nextMonthIcon='ion-ios-arrow-right'\n  className=\"my-class\"\n/>\n```\nCheck [app.js](https://github.com/wangzuo/input-moment/blob/master/example/app.js) for a working example.\n\n### Development\n- npm install\n- npm start\n- http://localhost:8888\n\n### License\nISC\n",
   "readmeFilename": "README.md",
   "repository": {

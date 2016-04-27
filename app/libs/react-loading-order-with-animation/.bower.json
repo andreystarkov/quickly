@@ -1,0 +1,14 @@
+{
+  "name": "react-loading-order-with-animation",
+  "homepage": "https://github.com/andreystarkov/react-loading-order-with-animation",
+  "_release": "f904fcf629",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f904fcf629135e857327988f0c9ed3f3da647e63"
+  },
+  "_source": "https://github.com/andreystarkov/react-loading-order-with-animation.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/andreystarkov/react-loading-order-with-animation.git",
+  "_direct": true
+}

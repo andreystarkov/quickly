@@ -8,15 +8,14 @@ var ReservationHallsStore = require('../stores/reservationHallsStore.js');
 var ReservationTablesStore = require('../stores/reservationTablesStore.js');
 var InputMoment = require('../ui/input-moment/src/input-moment.js');
 
-
 function refreshTable(id, m){
     var unix = m.format('x');
- //   console.log('refreshTable: Unix Time: ', unix);
+    console.log('refreshTable: Unix Time: ', unix);
     getReservationPointsList(id, unix, function(data){
-  //      console.log('refreshTable: callback ', data);
+        console.log('refreshTable: callback ', data);
     });
     ReservationActions.updateTables(id, unix);
- //   console.log('refreshTable: Sent params: ', id, m, unix);
+    console.log('refreshTable: Sent params: ', id, m, unix);
 }
 
 var HallButton = React.createClass({
@@ -66,7 +65,6 @@ var Hall = React.createClass({
     render: function(){
         var hallId, imageSrc, tables;
         if(this.props.hall.hall_id){
-   //     console.log('AAAAAA Hall: ',this.props.hall);
         var that = this.props.hall;
         hallId = that.hall_id;
         imageSrc = hallsUrl+that.hall_image;
@@ -105,7 +103,8 @@ var Reservation = React.createClass({
       if( i == 0 ) first = the;
       return the;
     });
-  //  console.log('Reservaiton DidUpdate: ',first,halls);
+    console.log('Reservaiton DidUpdate: ',first,halls);
+
     if(this.state.currentHall == 0){
      //   console.log('Reservation DidUpdate: Current Hall Not Set; Selecting: ',first);
         if ( first ) {
@@ -117,10 +116,12 @@ var Reservation = React.createClass({
     }
   },
   componentDidMount: function(){
-
+    currentReservationTime = this.state.moment;
   },
   handleChange: function(e){
-  //  console.log('New Date ', e);
+    console.log('New Date ', e);
+    currentReservationTime = e;
+    refreshTable(this.state.currentHall, e);
     this.setState({
         moment: e
     });

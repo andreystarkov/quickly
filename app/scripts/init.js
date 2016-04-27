@@ -119,8 +119,7 @@ $(function() {
         showCloseButton: true,
         timer: null,
         width: 500,
-        padding: 30,
-        background: '#f8f6f3'
+        padding: 30
     };
 
     swal.setDefaults(defaultSwal);
@@ -139,24 +138,5 @@ $(function() {
         'min': 300,
         'max': 2000
     }, '#filter-price-min', '#filter-price-max');
-
-
-    // testing
-
-   // pasteCategories(1);
-
-    pasteComments(1);
-
-    $('#buttonEditProfile').click(function(){
-        showProfile();
-    });
-
-    if (userToken === undefined || userToken  === null) {
-        if(userPhone){
-            waitingForCode();
-        } else notAuthorized();
-    } else {
-        userAuthorized();
-    }
 
 });

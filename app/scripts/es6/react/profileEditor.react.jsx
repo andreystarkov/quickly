@@ -158,16 +158,12 @@ var ProfileEditorForm = React.createClass({
         theOptions['userToken'] = userToken;
         theOptions['cityId'] = cityId;
         theOptions[theParameter] = theValue;
-
-      //  console.log('ProfileEditorForm: editUserField: Options: ', theOptions);
-
         $.ajax({
             url: serverUrl + '/api/v2/user/profile/edit',
             dataType: 'json',
             type: 'POST',
             data: theOptions,
             success: function(data) {
-          //      console.log('ProfileEditorForm: editUserField: ', data);
                 if (data.err === undefined || data.err === null) {
                     toastr.success('Данные профиля сохранены');
                 }

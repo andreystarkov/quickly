@@ -1,4 +1,5 @@
 var theEngine = [
+		'app/scripts/es6/auth.jsx',
     'app/scripts/es6/shop.jsx',
     'app/scripts/es6/profile.jsx',
     'app/scripts/es6/reservation.jsx',

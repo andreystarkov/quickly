@@ -112,7 +112,7 @@ var OrdersHistory = React.createClass({
         var sorted = _.first(_.sortBy(theData, 'order_id').reverse(), this.limit);
         var messages = sorted.map(function(the, i) {
             return (
-            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+            <LoadingOrderAnimation key={i} animation="fade-in" move="from-bottom-to-top"
             distance={50} speed={400} wait={250*i}>
                 <SingleOrder list={the} key={i} />
             </LoadingOrderAnimation>

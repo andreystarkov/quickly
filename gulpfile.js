@@ -71,7 +71,7 @@ gulp.task('scripts-es6', function() {
 
 gulp.task('scripts', function() {
     return gulp.src(theLibs)
-        .pipe(plugins.concat('libs.js'))
+        .pipe(plugins.concat('libs.js')) 
         .pipe(gulp.dest('app/build/'));
 });
 

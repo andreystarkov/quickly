@@ -110,15 +110,6 @@ var MenuItemsSidebar = React.createClass({
     }
 });
 
-/*
-                    <div className="form-group label-floating is-empty">
-                        <label htmlFor="i5" className="control-label">Поиск блюда</label>
-                        <input type="search" className="form-control" id="i5" />
-                        <span className="help-block"></span>
-                        <span className="material-input"></span>
-                    </div>
-
- */
 var MenuItemsList = React.createClass({
     mixins: [Reflux.connect(MenuItemsStore, 'menuItems')],
     perPage: 10,
@@ -151,7 +142,7 @@ var MenuItemsList = React.createClass({
                         wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage))); // omg wtf??
                     } else wait = i*150;
                     return (
-                        <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                        <LoadingOrderAnimation key={i} animation="fade-in" move="from-bottom-to-top"
                            distance={30} speed={400} wait={wait}>
                         <SingleMenuItem item={the} key={i} />
                         </LoadingOrderAnimation>

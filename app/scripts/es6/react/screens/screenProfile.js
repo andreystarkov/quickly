@@ -2,19 +2,18 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:07:44
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-23 02:48:13
+* @Last Modified time: 2016-04-27 05:54:41
 */
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
 
 var ProfileEditorActions = require('../actions/profileEditorActions.js');
 var HistoryActions = require('../actions/historyActions.js');
-
 var ProfileEditor = require('../profileEditor.react.jsx');
 var ReservationHistory = require('../reservationHistory.react.jsx');
 var OrdersHistory = require('../ordersHistory.react.jsx');
 
 var ScreenProfile = React.createClass({
-    componentWillMount: function(element){
+    componentDidMount: function(element){
         ProfileEditorActions.fetchList();
         HistoryActions.fetchList();
     },

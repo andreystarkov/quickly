@@ -1,5 +1,5 @@
 var cx = require('classnames');
-var React = require('react');
+
 var range = require('lodash/utility/range');
 var chunk = require('lodash/array/chunk');
 

@@ -1,10 +1,4 @@
-require('velocity-animate');
-require('velocity-animate/velocity.ui');
-
-var {VelocityComponent} = require('velocity-react');
-
 var cx = require('classnames');
-var React = require('react');
 var InputSlider = require('react-input-slider');
 
 moment.locale('ru');

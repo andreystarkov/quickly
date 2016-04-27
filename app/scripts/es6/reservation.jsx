@@ -105,7 +105,11 @@ export function getReservationPointsList(hallId, theDate, callback){
         console.log('Hall img original height: ', originalHeight);
         $('#roomBox').html(`
             <div class="the-room">
-            <img class="room-image" data-width="${originalWidth}" data-height="${originalHeight}" src="${hallsUrl}${data.params.hall.hall_image}"></div>`);
+                <img class="room-image"
+                data-width="${originalWidth}"
+                data-height="${originalHeight}"
+                src="${hallsUrl}${data.params.hall.hall_image}" />
+            </div>`);
             $.each(data.params.tables, function(index,value){
 
                 if( value.table_type == 0 ) tableType = `
@@ -163,13 +167,9 @@ export function getReservationPointsList(hallId, theDate, callback){
 }
 
 function getReservationUnixTime(e){
-    var theTime = $('#reservationTimePicker').val();
-    var dateTime = $('#reservationDatePicker').val()+' '+$('#reservationTimePicker').val();
-    var unixTime = moment(dateTime, 'DD-MM-YYYY HH:mm').zone(350).unix();
+    console.log('getReservationUnixTime: ', currentReservationTime.unix(), currentReservationTime.format('x'));
+    return currentReservationTime.unix();
 
-    console.log('getReservationUnixTime: dateTime = ',dateTime);
-    console.log('getReservationUnixTime: UNIX Timestamp = ', unixTime);
-    return unixTime;
 }
 
 $(function() {
@@ -233,9 +233,8 @@ $(function() {
                   showCancelButton: true,
                   confirmButtonText: 'Да, заменить!',
                   cancelButtonText: 'Нет, оставить тот',
-                  closeOnConfirm: true
-                },
-                function(isConfirm) {
+                  closeOnConfirm: false
+                }).then(function(isConfirm) {
                   if (isConfirm) {
                     setStorage('theReservation', jsonObj);
                     toastr.warning('Предидущий заказ стола отменён', 'Внимание!');
@@ -249,7 +248,6 @@ $(function() {
             } else {
                 setStorage('theReservation', jsonObj);
                 reservationAdded();
-
                 refreshCart();
             }
 
