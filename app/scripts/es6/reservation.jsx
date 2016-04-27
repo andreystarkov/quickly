@@ -4,6 +4,14 @@ var {reservationAdded, createReservation} = require("./engine/createReservation.
 
 // menuItems - массив при заказе с едой
 
+export function addReservationToCart(jsonObj){
+    console.log('addReservationToCart: ', jsonObj);
+    setStorage('theReservation', jsonObj);
+    reservationAdded();
+    refreshCart();
+    if (callback) callback(jsonObj);
+}
+
 function pasteMenu(categoryId){
     $.getJSON(serverUrl+'/api/v2/menu-items/get/'+categoryId, function(data){
         $('#foodItems').html('');
@@ -68,7 +76,7 @@ function pasteCartElement(cartElement, elementCount){
 }
 
 export function getHallsList(restaurantId, callback){
-    var box = $('#hallsBox');
+/*    var box = $('#hallsBox');
     $.getJSON(serverUrl+'/api/v2/reservation/halls/'+restaurantId, function(data){
         console.log('getHallsList: ', data);
         var hallsList = ``;
@@ -83,7 +91,7 @@ export function getHallsList(restaurantId, callback){
             box.html(hallsList);
             callback(data.result.halls);
         }
-    });
+    });*/
 }
 
 function showReservationMap(halls){
@@ -105,11 +113,15 @@ export function getReservationPointsList(hallId, theDate, callback){
         console.log('Hall img original height: ', originalHeight);
         $('#roomBox').html(`
             <div class="the-room">
+                <div class="current-date">
+                    <span>Состояние на ${currentReservationTime.format('DD/MM/YYYY HH:mm')}</span>
+                </div>
                 <img class="room-image"
                 data-width="${originalWidth}"
                 data-height="${originalHeight}"
                 src="${hallsUrl}${data.params.hall.hall_image}" />
             </div>`);
+
             $.each(data.params.tables, function(index,value){
 
                 if( value.table_type == 0 ) tableType = `
@@ -127,15 +139,13 @@ export function getReservationPointsList(hallId, theDate, callback){
                     `;
 
                 var theOptions;
+
                 for(var i = 1; i <= value.table_seats_count; i++){
                     theOptions += '<option>'+i+'</option>';
                 }
 
-
                 $('#roomBox .the-room').append(`
-                    <div class="table reservation-point"
-                    data-hall="${value.hall_id}" id="table-${value.table_id}"
-                    data-id="${value.table_id}"
+                    <div class="table reservation-point" data-hall="${value.hall_id}" id="table-${value.table_id}" data-id="${value.table_id}"
                     data-reserved="${data.params.reservations[value.table_id]}"
                     data-seats="${value.table_seats_count}"
                     data-deposit="${value.table_deposit}"
@@ -219,38 +229,71 @@ $(function() {
             jsonObj['count'] = $('select', $(this).parent()).val();
             jsonObj['price'] = $(this).data('price');
             jsonObj['hall'] = $(this).data('hall');
-
+            jsonObj['restaurant'] = $(this).data('restaurant');
             jsonObj['date'] = getReservationUnixTime();
             jsonObj['type'] = 'table';
 
-            console.log('RES = ', isEmpty(reservation));
+            console.log('Reservation Add: ', jsonObj);
 
-            if(isEmpty(reservation) === false){
+            var menuItems = getStorage('theCart');
+            var menuCompany = $(this).data('restaurant'), tableCompany = $(this).data('restaurant');
+
+            if( menuItems ) {
+                menuCompany = menuItems[0].restaurant;
+            }
+            console.log('menuCompany: '+menuCompany, 'tableCompany:'+tableCompany );
+            if( menuCompany == tableCompany ){
+                if(isEmpty(reservation) === false){
+                    swal({
+                      title: 'В корзине уже есть один стол.',
+                      text: "Одновременно в корзине может быть только один стол на резервацию! Удалить предыдущий стол и добавить этот?",
+                      type: 'warning',
+                      showCancelButton: true,
+                      confirmButtonText: 'Да, заменить!',
+                      cancelButtonText: 'Нет, оставить тот',
+                      closeOnConfirm: false
+                    }).then(function(isConfirm) {
+                      if (isConfirm) {
+                        addReservationToCart(jsonObj);
+                      } else {
+                        toastr.warning('Завершите предыдущий заказ');
+                      }
+                    });
+
+                } else {
+                    addReservationToCart(jsonObj);
+                }
+            } else {
                 swal({
-                  title: 'В корзине уже есть один стол.',
-                  text: "Одновременно в корзине может быть только один стол на резервацию! Отменить прошлый заказ и добавить этот?",
-                  type: 'warning',
+                  title: 'Опаньки!',
+                  text: 'В корзину нельзя положить стол и блюда из разных ресторанов. Добавить выбранный стол, очистив корзину?',
+                  type: 'error',
                   showCancelButton: true,
-                  confirmButtonText: 'Да, заменить!',
-                  cancelButtonText: 'Нет, оставить тот',
+                  confirmButtonText: 'Да, добавить',
+                  cancelButtonText: 'Продолжить',
                   closeOnConfirm: false
                 }).then(function(isConfirm) {
                   if (isConfirm) {
+                    clearCart(function(){
+                        swal({
+                          title: 'Козрзина обновлена!',
+                          text: 'Вы начали покупки в текущем ресторане. Выбранный вами товар будет добавлен в новую корзину.',
+                          type: 'success', confirmButtonText: 'Продолжить',
+                        }).then(function(isConfirm){
+                            addToCart(jsonObj, button);
+                            console.log('Cart Cleared, Adding new item.');
+                        });
+                    });
                     setStorage('theReservation', jsonObj);
-                    toastr.warning('Предидущий заказ стола отменён', 'Внимание!');
                     reservationAdded();
                     refreshCart();
                   } else {
-                    toastr.warning('Завершите предидущий заказ', 'Стол не добавлен!');
+                    postOrder(params, function(data){
+                        if (callback) callback(data);
+                    });
                   }
                 });
-
-            } else {
-                setStorage('theReservation', jsonObj);
-                reservationAdded();
-                refreshCart();
             }
-
         });
 
         $('.reserved').removeClass('reserved').addClass('yours');

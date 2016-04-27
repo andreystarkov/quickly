@@ -27,6 +27,7 @@ function hideCart(){
 
 export function clearCart(callback){
     localStorage.removeItem('theCart');
+    localStorage.removeItem('theReservation');
     theCart.contents = [];
     console.log('clearCart: cleared');
     Cookies.remove('shop');

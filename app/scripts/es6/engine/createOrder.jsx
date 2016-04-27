@@ -1,4 +1,5 @@
 import {clearCart} from './checkout.func.jsx';
+import {createReservation} from './createReservation.jsx';
 
 function orderSuccess(data){
     swal({
@@ -13,22 +14,44 @@ function orderSuccess(data){
     });
 }
 
+function postOrder(params, callback){
+    console.log('postOrder: ', params);
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json",
+        url: serverUrl + '/api/v3/orders/create',
+        data: JSON.stringify(params),
+        success: function(data) {
+            if(!data.err){
+                $('.checkout-cancel').click();
+                clearCart();
+                console.log('createOrder: success: ', data);
+                orderSuccess(data);
+                if (callback) callback(data);
+            } else {
+                console.log('createOrder: ERROR: ', data.err);
+                toastr.error('Заполните пожалуйста все обязательные поля', 'Недостаточно информации');
+            }
+        }
+    });
+}
 export function createOrder(callback){
     var cartContents = getStorage('theCart');
     var uniqueList = _.uniq(cartContents, "id");
     var uniqueCount = _.countBy(cartContents, "id");
     var userProfile = getStorage('profile');
 
-    var paymentType = $('.checkout-payment-type').val(),
+    var paymentType = $("input:radio[name=checkout-payment-type]:checked").val(),
         personsCount = $('#checkout-persons').val(),
-        street = $('#checkout-street').val(),
-        building = $('#checkout-building').val(),
+        street = $('#checkout-street').val() || "Не заполнено",
+        building = $('#checkout-building').val() || "111",
         usedBonus = $('#checkout-bonus').val(),
         cash = $('#checkout-cash').val(),
         comment = $('#checkout-comment').val(),
         phone = $('#checkout-phone').val(),
-        porch = $('#checkout-porch').val(),
-        floor = $('#checkout-floor').val(),
+        porch = $('#checkout-porch').val() || "111",
+        floor = $('#checkout-floor').val() || "111",
         apartment = $('#checkout-apartment').val(),
         restaurantId;
 
@@ -50,8 +73,6 @@ export function createOrder(callback){
 
     console.log('createOrder: summary = ', summary);
 
-    var reservation = getStorage('theReservation');
-
     var params = {
         token: userToken,
         restaurantId: restaurantId,
@@ -68,25 +89,26 @@ export function createOrder(callback){
         comment: comment
     };
 
+    var reservation = getStorage('theReservation');
+
+    if( reservation ){
+        swal({
+          title: 'Внимание!',
+          text: 'В корзине есть блюда и стол на резервацию. Вы можете добавить выбранные вами блюда к заказанному столу. Оформить доставку отдельно?',
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Да, оформить доставку',
+          cancelButtonText: 'Вернуться',
+          closeOnConfirm: false
+        }).then(function(isConfirm) {
+          if (isConfirm) {
+            postOrder(params, function(data){
+                if (callback) callback(data);
+            });
+          }
+        });
+    }
+
     console.log('createOrder: params = ', params);
 
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        contentType: "application/json",
-        url: serverUrl + '/api/v3/orders/create',
-        data: JSON.stringify(params),
-        success: function(data) {
-            if(!data.err){
-                $('.checkout-cancel').click();
-                clearCart();
-                console.log('createOrder: success: ', data);
-                orderSuccess(data);
-                if (callback) callback(data);
-            } else {
-                console.log('createOrder: ERROR: ', data.err);
-                toastr.error('Заполните пожалуйста все обязательные поля', 'Недостаточно информации');
-            }
-        }
-    });
 }

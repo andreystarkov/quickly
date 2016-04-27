@@ -7,10 +7,11 @@ export function reservationAdded(){
       confirmButtonText: 'Перейти в меню',
       cancelButtonText: 'Продолжить',
       showCancelButton: true
-    },
-    function(isConfirm) {
+    }).then(function(isConfirm) {
       if (isConfirm) {
-        $('a[href="#tab-food"').click();
+        $('.button-tab-food').click();
+      } else {
+        toastr.warning('Завершите предидущий заказ', 'Стол не добавлен!');
       }
     });
 }
@@ -30,45 +31,53 @@ function reservationSuccess(){
 
 }
 
-
-export function createReservation(){
+function postReservation(params, callback){
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json",
+        url: serverUrl + '/api/v3/reservation/create',
+        data: JSON.stringify(params),
+        success: function(data) {
+            if (callback) callback(data);
+        }
+    });
+}
+export function createReservation(menu, callback){
     var table = getStorage('theReservation');
 
-    if ( table == null ){
-        toastr.error('Вы не выбрали ни одного стола на резервацию', 'Стол не выбран!');
-    } else {
-        var params = {
-            token: userToken,
-            restaurantId: currentCompany,
-            hallId: table.hall,
-            phone: $('#checkout-phone').val(),
-            tableId: table.id,
-            date: table.date
-        };
+    var params = {
+        token: userToken,
+        restaurantId: table.restaurant,
+        hallId: table.hall,
+        phone: $('#checkout-phone').val(),
+        tableId: table.id,
+        date: table.date
+    };
 
-        console.log('createReservation: params = ',params);
+    console.log('createReservation: params = ',params);
 
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            contentType: "application/json",
-            url: serverUrl + '/api/v3/reservation/create',
-            data: JSON.stringify(params),
-            success: function(data) {
+
+        if ( table == null ){
+            toastr.error('Вы не выбрали ни одного стола на резервацию', 'Стол не выбран!');
+        } else {
+            postReservation(params, function(data){
                 if(!data.err){
                     $('.checkout-cancel').click();
                     console.log('createReservation: Success',   data);
                     reservationSuccess(data);
                 } else {
                     console.log('createReservation: ERROR: ', data.err);
+                    if (callback) callback(data.err);
                     if(data.err == 'Table already reserved'){
                         toastr.error('Стол уже зарезервирован на это время', 'Ошибка');
                         localStorage.removeItem('theReservation');
                     }
                 }
-            }
-        });
-    }
+            });
+        }
+
+
     console.log('createReservation: Table = ', table);
 
 }

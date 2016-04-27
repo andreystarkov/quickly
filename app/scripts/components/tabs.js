@@ -22,12 +22,12 @@ function showTab(theTab, group){
 }
 
 $(document).on('click', '.tab-toggle', function(event) {
-    var aniInClass = 'flipInY animated';
-    var aniOutClass = 'fadeOutDown animated';
+    event.preventDefault();
+
     var groupClass = '.'+$(this).parent().data('tabs');
     var theTab = $(this).data('tab');
 
-    event.preventDefault();
+    var aniInClass = 'animated fadeIn';
 
     console.log('Tabs: Group = '+groupClass);
     console.log('Tabs: Tab = #'+theTab);
@@ -35,8 +35,8 @@ $(document).on('click', '.tab-toggle', function(event) {
     $('.button', $(this).parent()).removeClass('active');
     $(this).addClass('active');
 
-    $(groupClass).removeClass('tab-active');
-    $('#'+theTab).addClass('tab-active animated fadeIn');
+    $(groupClass).removeClass('tab-active '+aniInClass);
+    $('#'+theTab).addClass('tab-active '+aniInClass);
 
 });
 
