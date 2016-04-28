@@ -1,3 +1,6 @@
+import {clearCart} from './checkout.func.jsx';
+var registerUserModal = require('./registerUserModal.js');
+
 export function reservationAdded(){
     toastr.success('Заявка на резервацвацию в вашей корзине', 'Стол добавлен');
     swal({
@@ -10,8 +13,6 @@ export function reservationAdded(){
     }).then(function(isConfirm) {
       if (isConfirm) {
         $('.button-tab-food').click();
-      } else {
-        toastr.warning('Завершите предидущий заказ', 'Стол не добавлен!');
       }
     });
 }
@@ -47,7 +48,7 @@ export function createReservation(callback){
     var table = getStorage('theReservation');
 
     var params = {
-        token: userToken,
+        token: userToken || Cookies.get('token'),
         restaurantId: table.restaurant,
         hallId: table.hall,
         phone: $('#checkout-phone').val(),
@@ -55,25 +56,51 @@ export function createReservation(callback){
         date: table.date
     };
 
+    var name_ = $('#checkout-name').val();
+
     console.log('createReservation: params = ',params);
 
         if ( table == null ){
             toastr.error('Вы не выбрали ни одного стола на резервацию', 'Стол не выбран!');
         } else {
-            postReservation(params, function(data){
-                if(!data.err){
-                    $('.checkout-cancel').click();
-                    console.log('createReservation: Success',   data);
-                    reservationSuccess(data);
-                } else {
-                    console.log('createReservation: ERROR: ', data.err);
-                    if (callback) callback(data.err);
-                    if(data.err == 'Table already reserved'){
-                        toastr.error('Стол уже зарезервирован на это время', 'Ошибка');
-                        localStorage.removeItem('theReservation');
-                    }
-                }
-            });
+            if( params.token ){
+              postReservation(params, function(data){
+                  if(!data.err){
+                      $('.checkout-cancel').click();
+                      console.log('createReservation: Success',   data);
+                      reservationSuccess(data);
+                  } else {
+                      console.log('createReservation: ERROR: ', data.err);
+                      if (callback) callback(data.err);
+                      if(data.err == 'Table already reserved'){
+                          toastr.error('Стол уже зарезервирован на это время', 'Ошибка');
+                          localStorage.removeItem('theReservation');
+                      }
+                  }
+              });
+            } else {
+              if( params.phone && name_){
+                registerUserModal(params.phone, name_, params, function(data_){
+                    console.log('createReservation: weha', data_);
+                    postReservation(params, function(data){
+                        clearCart();
+                        if(!data.err){
+                            $('.checkout-cancel').click();
+                            console.log('createReservation: Success',   data);
+                            reservationSuccess(data);
+                        } else {
+                            console.log('createReservation: ERROR: ', data.err);
+                            if (callback) callback(data.err);
+                            if(data.err == 'Table already reserved'){
+                                toastr.error('Стол уже зарезервирован на это время', 'Ошибка');
+                                localStorage.removeItem('theReservation');
+                            }
+                        }
+                    });
+                });
+              } else toastr.error('Введите имя и номер телефона!');
+            }
+
         }
 
 

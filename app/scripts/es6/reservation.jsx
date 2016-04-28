@@ -4,7 +4,7 @@ var {reservationAdded, createReservation} = require("./engine/createReservation.
 
 // menuItems - массив при заказе с едой
 
-export function addReservationToCart(jsonObj){
+export function addReservationToCart(jsonObj, callback){
     console.log('addReservationToCart: ', jsonObj);
     setStorage('theReservation', jsonObj);
     reservationAdded();
@@ -210,7 +210,9 @@ $(function() {
     });
 
     $(document).on('click', '#buttonCheckoutReservation', function(event){
-        createReservation();
+        createReservation(function(w){
+            console.log('createReservation: callback ',w);
+        });
     });
 
     var currentReservationTime;
