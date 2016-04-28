@@ -122,6 +122,10 @@ $(function() {
         padding: 30
     };
 
+    $(document).on('click', '.map-link', function(){
+      mapLink($(this).data('lat'), $(this).data('long'));
+    });
+
     swal.setDefaults(defaultSwal);
 
     if(isMobile) $('#sidebar').appendTo(document.body);

@@ -1,17 +1,21 @@
 import {refreshUserProfile} from '../profile.jsx';
 
 function editProfileField(theParameter, theValue, callback){
+
     var currentCity = getStorage('city');
     var cityId;
     if(currentCity){
        cityId = currentCity.city_id;
     } else cityId = 3;
+
     var theOptions = {};
+
     theOptions['userToken'] = Cookies.get('token');
     theOptions['cityId'] = cityId;
     theOptions[theParameter] = theValue;
 
     console.log('editProfileField: ', theOptions);
+
     $.ajax({
         url: serverUrl + '/api/v2/user/profile/edit',
         dataType: 'json',
@@ -26,6 +30,7 @@ function editProfileField(theParameter, theValue, callback){
             refreshUserProfile();
         }
     });
+
 }
 
 module.exports = editProfileField;

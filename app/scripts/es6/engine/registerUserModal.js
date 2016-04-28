@@ -12,6 +12,7 @@ function registerUserModal(phone, name, params, callback){
         type: 'success', showCancelButton: false, confirmButtonText: 'Подтвердить', closeOnConfirm: false,
         confirmButtonClass: 'button-sms-confirm'
         }).then(function(isConfirm) {
+            $('.button-sms-confirm').html('Проверка...');
             console.log('click', isConfirm);
             sendSMSCode(phone, $('#checkout-register-sms').val(), function(dataProfile){
                 if(!dataProfile.err){

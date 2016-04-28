@@ -198,7 +198,7 @@ var ProfileEditorForm = React.createClass({
         return (
 
         <div className="user-editor container">
-           <div className="row">
+           <div className="row editor-section">
               <div className="col-lg-2 text-center">
                  <div className="avatar round">
                     <img src={userAvatar} alt="..." />

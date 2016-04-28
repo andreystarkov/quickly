@@ -96,6 +96,30 @@ section.company-list {
     }
 }
 
+
+.online-payment {
+  //  float:right;
+    display:inline-block;
+    padding:8px;
+    background:fade(#fff,40%);
+    border-radius:4px;
+    span {
+        font-size:12px;
+    }
+    .pimp {
+        width:8px;
+        background-color:@colorGreen;
+        height:8px;
+        border-radius:30px;
+        display:inline-block;
+        margin-left:7px;
+    }
+}
+
+.location {
+    float:right; padding:8px;
+}
+
 section.company-about {
     min-height:160px;
     background: fade(#f4f2ed,80%);
@@ -159,7 +183,6 @@ section.company-about {
             font-size:12px;
             font-weight:200;
             font-family:@fontDefault;
-
         }
         margin-bottom:10px;
     }
@@ -172,7 +195,7 @@ section.company-about {
         padding-bottom:10px;
         .rating {
             position: absolute;
-            top: 0px;
+            top: 10px;
             right: 5px;
             color: #fff;
             padding: 6px 6px;
@@ -243,15 +266,24 @@ section.company-about {
                 }
             }
             .cards {
-                margin-top:8px;
+                margin-top:3px;
                 float: left;
-                margin-right:5px;
+                margin-left:5px;
+            }
+            .payment-text {
+                font-size:10px;
             }
             .card-icon {
+                max-width:38px;
+                margin-right:4px;
+                img {
+                    width:100%;
+                }
                 background:transparent;
                 display:inline-block;
-                float:left;
+
             }
+
 
         }
 

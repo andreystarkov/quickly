@@ -67,6 +67,10 @@ if (userToken !== undefined) {
     isAuth = 1;
 }
 
+function mapLink(lat, long){
+    window.open('http://www.google.com/maps/place/'+lat+','+long, '_blank');
+}
+
 function first(obj) {
     for (var a in obj) return a;
 }

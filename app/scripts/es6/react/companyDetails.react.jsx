@@ -14,6 +14,30 @@ var Spinner = require('./ui/spinner.js');
 // 2 - только доставка
 // 3 - и то и другое
 
+var PaymentTypes = React.createClass({
+    render: function(){
+        var type = this.props.type;
+        var text;
+        var visible = { display: 'block' }
+        if (type == 0) {
+            text = 'только наличными';
+            visible = { display: 'none' }
+        }
+        if (type == 1) text = 'картой курьеру';
+        return(
+            <div>
+                <div className="cards" style={visible}>
+                    <div className="card-icon mastercard"><img src="/images/cards/mastercard.png" /></div>
+                    <div className="card-icon visa"><img src="/images/cards/visa.png" /></div>
+                </div>
+                <div className="payment-text">
+                    <span>{text}</span>
+                </div>
+            </div>
+        )
+    }
+});
+
 var CompanyDetails = React.createClass({
     mixins: [Reflux.connect(CompanyDetailsStore, 'companyData')],
     limit: 12,
@@ -31,24 +55,34 @@ var CompanyDetails = React.createClass({
         browserHistory.push(routesMap.routes.main.path);
     },
     render: function() {
+        var paymentTypes;
         var data = this.state.companyData;
+
         if (data){
+            console.log('companyDetails: ',data);
             var type = data.restaurant_type;
             if ( (type == 1) || (type == 3) ){
-              //  console.log('companyDetails: Reservation Enabled ('+type+')');
+               console.log('companyDetails: Reservation Enabled ('+type+')');
                 this.isReservation = true;
             } else {
-             //   console.log('CompanyDetails: Reservation Disabled ('+type+')');
+                console.log('CompanyDetails: Reservation Disabled ('+type+')');
                 this.isReservation = false;
             }
-        }// else console.log('CompanyDetails: data is undefined');
+        } else console.log('CompanyDetails: data is undefined');
 
         var company = this.state.companyData;
         var cuisinesSelect;
+        var cities = getStorage('cityList');
+
+      //  console.log('cities', cities);
+
+        var companyCity = cities.map(function(the,i){
+            if( company.restaurant_city_id == the.city_id ) return the.city_name;
+        });
 
         if( (company.restaurant_main_image) ) {
             var image = imageBaseUrl+company.restaurant_main_image;
-           // console.log('CompanyDetails: Is image exists? ', isImageExists(image));
+            console.log('CompanyDetails: Is image exists? ', isImageExists(image));
         }
 
         if( company.restaurant_cuisines )
@@ -59,9 +93,9 @@ var CompanyDetails = React.createClass({
                 <ButtonTabToggle name="Бронирование" tab="tab-reservation" disabled="true" />
 
         if( company.restaurant_comments_count ) {
-         //   console.log('CompanyDetails: Has comments ('+company.comments_count+')');
+            console.log('CompanyDetails: Has comments ('+company.comments_count+')');
         } else {
-         //   console.log('CompanyDetails: No comments ('+company.comments_count+')');
+            console.log('CompanyDetails: No comments ('+company.comments_count+')');
         }
 
         var rating = company.restaurant_rating;
@@ -112,10 +146,14 @@ var CompanyDetails = React.createClass({
                             <b>{company.restaurant_average_check} <i className="rouble">o</i></b>
                         </div>
                         <div className="box pay">
-{/*                            <div className="cards">
-                                <div className="card-icon mastercard"><img src="/images/cards/mastercard.png" /></div>
-                                <div className="card-icon visa"><img src="/images/cards/visa.png" /></div>
-                            </div>*/}
+                           <PaymentTypes type={company.restaurant_payment_type} />
+                        </div>
+                        <div className="online-payment">
+                            <span>онлайн оплата</span>
+                            <span className="pimp"></span>
+                        </div>
+                        <div className="location map-link button light button-cuisine"  data-lat={company.restaurant_lat} data-long={company.restaurant_long}>
+                            <span className="address">{companyCity}, {company.restaurant_address}</span><i className="icn-location" />
                         </div>
                     </div>
                     </LoadingOrderAnimation>
