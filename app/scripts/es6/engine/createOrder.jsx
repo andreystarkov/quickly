@@ -2,6 +2,44 @@ import {clearCart} from './checkout.func.jsx';
 import {createReservation} from './createReservation.jsx';
 import {registerUser,sendSMSCode} from '../auth.jsx';
 
+var editProfileField = require('./editProfileField.js');
+
+function registerUserModal(phone, name, params){
+    var phone_ = Cookies.get('phone');
+
+    registerUser( phone, function(w){
+        swal({
+        title: 'Подтверждение',
+        html: 'Введите СМС-код, высланный на ваш номер:'+
+              '<div class="form-group form-box"><input type="text" class="form-control" id="checkout-register-sms"></div>',
+        type: 'success', showCancelButton: false, confirmButtonText: 'Подтвердить', closeOnConfirm: false,
+        confirmButtonClass: 'button-sms-confirm'
+        }).then(function(isConfirm) {
+            console.log('click', isConfirm);
+            sendSMSCode(phone, $('#checkout-register-sms').val(), function(dataProfile){
+                if(!dataProfile.err){
+                    editProfileField('userName', name, function(data){
+                        params.token = Cookies.get('token') || userToken;
+                        console.log('Try: ', params, userToken, Cookies.get('token'), dataProfile);
+                        swal({
+                            title: 'Добро пожаловать, '+name+'!', html: 'Теперь вы можете совершать покупки.',
+                            type: 'success', showCancelButton: false, confirmButtonText: 'Продолжить', closeOnConfirm: true
+                        }).then(function(isConfirm){
+                            console.log('Order params', params);
+                            postOrder(params, function(data){
+                                console.log('Order result', data);
+                            });
+                        });
+                    });
+                } else {
+                    registerUserModal(phone, name, params);
+                    toastr.error('СМС-код неверен. Посмотрите внимательней!');
+                }
+            });
+        });
+    });
+}
+
 function orderSuccess(data){
     swal({
       title:'Ваш заказ обработан! ',
@@ -38,6 +76,7 @@ function postOrder(params, callback){
         }
     });
 }
+
 export function createOrder(callback){
     var cartContents = getStorage('theCart');
     var uniqueList = _.uniq(cartContents, "id");
@@ -51,6 +90,7 @@ export function createOrder(callback){
         usedBonus = $('#checkout-bonus').val(),
         cash = $('#checkout-cash').val(),
         comment = $('#checkout-comment').val(),
+        name = $('#checkout-name').val(),
         phone = $('#checkout-phone').val(),
         porch = $('#checkout-porch').val() || "111",
         floor = $('#checkout-floor').val() || "111",
@@ -116,48 +156,11 @@ export function createOrder(callback){
             });
         }
     } else {
-        var phone;
-        swal({
-        title: 'Зарегистрируйтесь!',
-        html: 'Это быстро &mdash; просто ведите свой номер телефона.'+
-              '<div class="form-group form-box"><input type="text" class="form-control" id="checkout-register-phone"></div>',
-        type: 'warning',
-        showCancelButton: false,
-        confirmButtonText: 'Зарегистрироваться',
-        closeOnConfirm: false
-        }).then(function(isConfirm) {
-          phone = $('#checkout-register-phone').val();
-            if (isConfirm) {
-                registerUser( phone, function(w){
-                    swal({
-                    title: 'Подтверждение',
-                    html: 'Введите СМС-код, высланный на ваш номер:'+
-                          '<div class="form-group form-box"><input type="text" class="form-control" id="checkout-register-sms"></div>',
-                    type: 'success', showCancelButton: false, confirmButtonText: 'Зарегистрироваться', closeOnConfirm: false
-                    }).then(function(isConfirm) {
-                        sendSMSCode(phone, $('#checkout-register-sms').val(), function(data){
-                            if(!data.err){
-                                var isName;
-                                if(!data.result.profile.userName){
-/*                                isName = `
-                                <div class="form-group form-box form-name">
-                                    <h3>Последний штрих</h3>
-                                    <label for="checkout-register-name" class="control-label">Как вас зовут?</label>
-                                        <input type="text" class="form-control" id="checkout-register-name">
-                                </div>`;*/
-                                }
-                                swal({
-                                    title: 'Добро пожаловать в Квикли! ', html: 'Теперь вы можете совершать покупки.'+isName,
-                                    type: 'success', showCancelButton: false, confirmButtonText: 'Зарегистрироваться', closeOnConfirm: false
-                                });
-                            } else {
-                                toastr.error('СМС-код неверен. Посмотрите внимательней!');
-                            }
-                        });
-                    });
-                });
-                }
-            });
-          }
+        if(phone && name){
+            registerUserModal(phone, name, params);
+        } else {
+            toastr.error('Вы должны ввести имя и телефон.');
         }
+    }
 
+}

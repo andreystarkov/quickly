@@ -151,10 +151,10 @@ function pasteCheckoutFormUnregistered(){
         <div class="checkout-buttons">
             <div class="row">
                 <div class="col-lg-6 col-xs-6">
-                    <button class="button main" id="buttonCheckoutDelivery">Оформить доставку</button>
+                    <button class="button main" id="buttonCheckoutDelivery">Доставка</button>
                 </div>
                 <div class="col-lg-6 col-xs-6" style=>
-                    <button class="button main" id="buttonCheckoutReservation" ${reservationToggle}>Оформить бронирование</button>
+                    <button class="button main" id="buttonCheckoutReservation" ${reservationToggle}>Бронирование</button>
                 </div>
             </div>
         </div>

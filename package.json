@@ -55,6 +55,8 @@
     "imagemin-jpegtran": "latest",
     "imagemin-pngquant": "latest",
     "jshint-stylish": "latest",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "reactify": "latest",
     "run-sequence": "latest",
     "style-loader": "latest",
