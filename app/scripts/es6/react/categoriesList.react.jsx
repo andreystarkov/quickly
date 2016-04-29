@@ -8,6 +8,10 @@ var CategoryItem = React.createClass({
         var the = el.target;
         var others = document.getElementsByClassName('category-toggle');
 		MenuItemsActions.updateData(newId);
+        if(isMobile){
+              $('#sidebar').removeClass('active');
+              $('#sidebar').addClass('mobile');
+        }
 	},
 	render: function(){
 		var item = this.props.item;

@@ -8,7 +8,7 @@
 var ButtonMore = React.createClass({
     render: function (){
         return (
-        <div className="button-more-wrap full-width align-center">
+        <div id={this.props.id} className="button-more-wrap full-width align-center">
             <button onClick={this.props.onClick} className="btn button-more"><i className="icon-reload"></i> Загрузить ещё</button>
         </div>
         )

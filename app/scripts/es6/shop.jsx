@@ -55,7 +55,7 @@ function pasteCheckoutFormUnregistered(){
                 <div class="col-lg-3">
                     <div class="form-group label-floating required">
                         <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>
-                        <input value="2" type="search" class="form-control" id="checkout-persons">
+                        <input value="1" type="search" class="form-control" id="checkout-persons">
                     </div>
                 </div>
             </div>

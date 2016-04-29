@@ -9,6 +9,7 @@ var theLibs = [
     'app/libs/bootstrap/dist/js/bootstrap.min.js',
     'app/libs/bootstrap-material-design/scripts/material.js',
     'app/libs/bootstrap-material-design/scripts/ripples.js',
+    'app/libs/waypoints/lib/jquery.waypoints.min.js',
 
     // animation libraries
 

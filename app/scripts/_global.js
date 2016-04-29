@@ -69,7 +69,8 @@ if (userToken !== undefined) {
     isAuth = 1;
 }
 
-function showTip(element, title, message, position = 'bottom'){
+function showTip(element, title, message, position){
+    if(!position) position = "bottom";
     $(element).popover({
       placement: position, trigger: 'manual',
       content: message, title: title

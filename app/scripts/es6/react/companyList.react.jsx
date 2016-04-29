@@ -105,14 +105,22 @@ var CompanyList = React.createClass({
     },
     componentDidMount: function(){
         $.material.init();
-
+        var this_ = this;
+/*        $('#company-load').waypoint({
+          handler: function(direction) {
+            console.log(this.element.id + ' hit', direction);
+            this_.loadMore();
+          }
+        });*/
         if(isMobile){
             $('#companyListSidebarWrap').appendTo(document.body);
+
             $('#menu-list-open').click(function(){
+                console.log('menu open');
               $('#companyListSidebarWrap').removeClass('mobile');
-              $('#companyListSidebarWrap').addClass('active')
+              $('#companyListSidebarWrap').addClass('active');
             });
-            $('#menu-list-open').click( function() {
+            $('#menu-list-close').click( function() {
               $('#companyListSidebarWrap').removeClass('active');
               $('#companyListSidebarWrap').addClass('mobile');
             });
@@ -121,6 +129,7 @@ var CompanyList = React.createClass({
     },
     loadMore: function(){
         var was = this.state.loadCount;
+        console.log('loadMore: ',was+8);
         this.setState({
             loadCount: was+8
         });
@@ -213,7 +222,10 @@ var CompanyList = React.createClass({
                 filtersData: []
             });
         }
-
+        if(isMobile){
+          $('#companyListSidebarWrap').removeClass('active');
+          $('#companyListSidebarWrap').addClass('mobile');
+        }
     },
     render: function() {
 
@@ -273,7 +285,7 @@ var CompanyList = React.createClass({
             });
             cuisine = <CompanyListHeader cuisine={single} />;
         }
-
+        // <div className="load-trigger" id="company-load"></div>
         return (
         <div className="company-list-wrap">
             <div className="gray header-gray">

@@ -14,7 +14,7 @@ var Option = React.createClass({
 
 var CityList = React.createClass({
     mixins: [Reflux.connect(CityListStore, 'cityList')],
-    limit: 12,
+    limit: 16,
     getInitialState: function() {
       return {
         data: [],

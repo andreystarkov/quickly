@@ -38,6 +38,23 @@
 
 @time: .3s;
 @easing: ease-in-out;
+body {
+  .main-categories .category-item {
+    max-height:300px;
+  }
+  .food-category {
+    .food-item .inner {
+      background-image:url('../images/placeholder-1.png');
+      background-size:cover;
+      .product-image {
+        background-image:none;
+      }
+    }
+  }
+  .checkout-hidden {
+    overflow:hidden;
+  }
+}
 .the-room {
     .current-date {
         position: absolute;
@@ -73,6 +90,7 @@ body .m-input-moment {
 .map-link {
   cursor: pointer;
 }
+
 .location {
   span.address {
     font-size:12px;
