@@ -1,7 +1,8 @@
+import cookie from 'react-cookie';
+
 var CityListActions = require('./actions/cityListActions.js');
 var CityListStore = require('./stores/cityListStore.js');
 var CompanyListActions = require('./actions/companyListActions.js');
-
 
 var Option = React.createClass({
   render: function(){
@@ -19,14 +20,21 @@ var CityList = React.createClass({
         data: [],
         cityList: [],
         selected: 0,
-        value: Cookies.get('city') || 3
+        value: cookie.load('city') || 0
       };
+    },
+    componentWillMount(){
+/*     city_.callback = (data) => {
+        console.log('wtf!! ', data);
+        this.setState({
+          value: data
+        });
+      };*/
     },
     changeHandler: function(e) {
         console.log('CityList: change value = '+e.target.value);
         CompanyListActions.setCurrentCity(e.target.value);
-        Cookies.set('city', e.target.value);
-        console.log('CityList: set = ',Cookies.get('city'));
+        cookie.save('city', e.target.value);
         this.setState({
             value: e.target.value
         });
@@ -36,6 +44,7 @@ var CityList = React.createClass({
       console.log('CityList: mount value = ', this.state.value);
     },
     render: function() {
+
       var selected = this.state.value;
       var this_ = this;
       var totalList = this.state.cityList.map(function(the, i) {

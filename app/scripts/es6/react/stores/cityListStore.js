@@ -1,3 +1,4 @@
+import cookie from 'react-cookie';
 var CityListActions = require('../actions/cityListActions.js');
 var CityList = require('../cityList.react.jsx');
 var resultCity;
@@ -16,18 +17,21 @@ function citySelectList(cities){
 
 function initGeolocation(cities){
     console.log('initGeolocation: ', cities);
-    if('geolocation' in window){
+    navigator.geolocation.getCurrentPosition(getCity);
+/*    if('geolocation' in window){
       console.log('Geolocation enabled')
       navigator.geolocation.getCurrentPosition(getCity);
     } else {
       console.log('Geolocation disabled');
       toastr.error('Не удалось определить ваш город, выберите из списка');
-    }
+    }*/
 }
+
 function selectCityByName(cityName){
-    var cities = getStorage('cities');
+    var cities = _cities || getStorage('cities');
     var single = _.where(cities,{city_name:cityName.trim()});
     var selected;
+    var _thisCity = cookie.load('city');
 
     console.log('selectCityByName: cityName = '+cityName, 'Cities = ', cities, single);
 
@@ -38,24 +42,50 @@ function selectCityByName(cityName){
 
     if(selected){
         var isLocked = getStorage('cityLocked', 1);
+        console.log('selectCityByName: '+_thisCity+' != '+selected.city_id);
 
-        if( isLocked !== 1 ){
-          setStorage('city', selected);
+        if( _thisCity !== selected.city_id ){
 
-          var currentCityId = selected.city_id;
-          console.log('City not Locked. ');
-          $('#cityListSelect option').each(function(el){
-              if( currentCityId == $(this).val() ){
-                console.log('selectCityByName: Selecting city: ', $(this).html());
-                $(this).attr('selected', 'selected');
+   // var _this = this;
+            swal({
+            title: 'Ваш город '+cityName+'?',
+            text: '',
+            type: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Да',
+            cancelButtonText: 'Нет',
+            closeOnConfirm: true
+            }).then(function(isConfirm) {
+              if (isConfirm) {
+                setStorage('city', selected);
+                cookie.save('city', selected.city_id);
+                var currentCityId = selected.city_id;
+                console.log('City not Locked. ');
+
+                $('#cityListSelect').val(selected.city_id);
+
+/*                $('#cityListSelect option').each(function(el){
+                    if( currentCityId == $(this).val() ){
+                      console.log('selectCityByName: Selecting city: ', $(this).html());
+                      $(this).attr('selected', 'selected');
+                    }
+                });*/
+
+                currentCity = selected;
+
+                $('#cityListSelect').popover({
+                  placement: 'bottom', trigger: 'manual',
+                  content: 'Ваш город определен как '+cityName+'. Если город определен не верно, выберите его из списка'
+                });
+
+                $('#cityListSelect').popover('show');
+                setTimeout(function(){
+                  $('#cityListSelect').popover('hide');
+                }, 4000);
               }
-          });
-
-          currentCity = selected;
+            });
         } else {
-          var city = getStorage('city');
-          console.log('City is locked! Current: ',city);
-          currentCity = city.city_id;
+          console.log('selectCityByName: equal');
         }
     } else {
          console.log('Wrong city or whatever');
@@ -70,7 +100,7 @@ function selectCityByName(cityName){
     }
 }
 
-function getCity(position) {
+export function getCity(position) {
   var lat = position.coords.latitude;
   var long = position.coords.longitude;
   console.log('getCity: '+lat+' / '+long);
@@ -92,16 +122,9 @@ function getCity(position) {
                       var state=value[count-2];
                       var city=value[count-4];
                       console.log('getCity: City detected: ', city.trim());
-                      if(city){
-                        swal({
-                          type: 'success', showCancelButton: true, closeOnConfirm: false, closeOnCancel: true,
-                          title: 'Ваш город: '+city,
-                          text: 'Город определен верно, или выбрать другой?',
-                          confirmButtonText: 'Всё верно', cancelButtonText: 'Выбрать город'
-                        }).then(function(isConfirm){
-                        });
-                      }
-                      selectCityByName(city.trim());
+
+                          selectCityByName(city.trim());
+
                   } else  {
                       alert("address not found");
                   }
@@ -130,8 +153,9 @@ var CityListStore = Reflux.createStore({
         setStorage('cityList', data.result.cities);
         setStorage('cities', cities);
 
-        initGeolocation(data.result.cities);
-
+     //   initGeolocation(data.result.cities);
+        _cities = data.result.cities;
+        navigator.geolocation.getCurrentPosition(getCity);
         some.cityList = data.result.cities;
         some.trigger(some.cityList);
         // some.getCity();

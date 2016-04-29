@@ -3,8 +3,10 @@ var isAuth;
 var currentCompany = 1;
 var currentCuisine;
 var currentReservationTime;
-var cities
+var cities, _cities;
 var currentCity;
+
+var city_;
 
 var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
