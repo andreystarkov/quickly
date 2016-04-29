@@ -69,6 +69,18 @@ if (userToken !== undefined) {
     isAuth = 1;
 }
 
+function showTip(element, title, message, position = 'bottom'){
+    $(element).popover({
+      placement: position, trigger: 'manual',
+      content: message, title: title
+    });
+
+    $(element).popover('show');
+    setTimeout(function(){
+      $('#cityListSelect').popover('hide');
+    }, 4000);
+}
+
 function mapLink(lat, long){
     window.open('http://www.google.com/maps/place/'+lat+','+long, '_blank');
 }

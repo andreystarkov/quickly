@@ -64,13 +64,6 @@ function selectCityByName(cityName){
 
                 $('#cityListSelect').val(selected.city_id);
 
-/*                $('#cityListSelect option').each(function(el){
-                    if( currentCityId == $(this).val() ){
-                      console.log('selectCityByName: Selecting city: ', $(this).html());
-                      $(this).attr('selected', 'selected');
-                    }
-                });*/
-
                 currentCity = selected;
 
                 $('#cityListSelect').popover({
@@ -82,6 +75,8 @@ function selectCityByName(cityName){
                 setTimeout(function(){
                   $('#cityListSelect').popover('hide');
                 }, 4000);
+              } else {
+                showTip($('#cityListSelect'), 'Внимание!', 'Выберите ваш город из списка/');
               }
             });
         } else {
