@@ -17,13 +17,13 @@ var CompanyListStore = Reflux.createStore({
     companyList: [],
     sourceUrl: serverUrl+'/api/v4/restaurants/get',
     init: function() {
-      //  this.fetchList();
+        CuisinesActions.fetchList();
     },
-/*    setCurrentCity: function(cityId){
+    setCurrentCity: function(cityId){
       console.log('CompanyListStore: setCurrentCity('+cityId+')');
       this.currentCity = cityId;
       this.fetchList();
-    },*/
+    },
     updateData: function(){
     //    console.log('CompanyStore updateData()');
         this.fetchList();
@@ -32,7 +32,7 @@ var CompanyListStore = Reflux.createStore({
         this.cuisine = 0;
     },*/
     selectById: function(id){
-    //    console.log('CompanyListStore: selectById, cuisine = ', id);
+        console.log('CompanyListStore: selectById, cuisine = ', id);
         this.currentCuisine = id;
         this.fetchList();
     },
@@ -80,11 +80,11 @@ var CompanyListStore = Reflux.createStore({
       if( this.currentCity > 0 ){
         queryUrl += '&cityId='+this.currentCity;
       }
-    //  console.log('CompanyListStore: queryUrl = ',queryUrl);
+      console.log('CompanyListStore: queryUrl = ',queryUrl);
 
       $.getJSON(queryUrl, function (data) {
 
-     //   console.log('CompanyListStore fetchList', data);
+     //    console.log('CompanyListStore fetchList', data);
         some.companyList = data.result.restaurants;
         some.trigger(some.companyList);
 

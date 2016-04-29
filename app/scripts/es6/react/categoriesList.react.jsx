@@ -29,6 +29,10 @@ var CategoriesList = React.createClass({
         categories: []
       };
     },
+    loadAll: function(){
+        console.log('CategoriesList: loadAll: ', this.props.company);
+        if(this.props.company) MenuItemsActions.updateDataById(this.props.company);
+    },
     render: function() {
         var list = this.state.categories;
 
@@ -38,7 +42,13 @@ var CategoriesList = React.createClass({
         return (
             <div className="categories-list">
             	<ul className="menu">
-            	{everything}
+                    <li className="category-line">
+                        <button onClick={this.loadAll} className="category-toggle active">
+                            <i className="icon"></i>
+                            <span>Все категории</span>
+                        </button>
+                    </li>
+            	   {everything}
             	</ul>
             </div>
         )

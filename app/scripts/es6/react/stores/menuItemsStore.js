@@ -17,7 +17,7 @@ var MenuItemsStore = Reflux.createStore({
     },
     updateDataById: function(newId){
         this.sourceUrl = serverUrl+'/api/v3/menu-items/get/by-restaurant?restaurantId='+newId;
-    //    console.log('MenuItemsStore: updateDataById() companyId = '+newId);
+        console.log('MenuItemsStore: updateDataById() companyId = '+newId);
         this.fetchList();
     },
     updateData: function(newId){
@@ -29,9 +29,9 @@ var MenuItemsStore = Reflux.createStore({
     fetchList: function() {
       var some = this;
     //  var url = this.sourceUrl+this.currentCategory;
-   //   console.log('MenuItemsStore: fetchList() url = ', this.sourceUrl);
+      console.log('MenuItemsStore: fetchList() url = ', this.sourceUrl);
       $.getJSON(this.sourceUrl, function (data) {
-    //    console.log('MenuItemsStore fetchList', data);
+        console.log('MenuItemsStore fetchList', data);
         some.menuItems = data.result.menuItems;
         some.trigger(some.menuItems);
       });

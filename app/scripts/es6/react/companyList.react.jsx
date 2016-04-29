@@ -225,6 +225,7 @@ var CompanyList = React.createClass({
         var filtered = this.state.filtersData;
 
         if(theData.length > 0){
+            console.log('CompanyList: ', theData);
             if( this.state.isFilters ){
                 totalList = filtered.map(function(the, i, nc, wait) {
                     if( i < that.state.loadCount){

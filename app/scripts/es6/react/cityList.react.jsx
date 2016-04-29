@@ -2,6 +2,7 @@ var CityListActions = require('./actions/cityListActions.js');
 var CityListStore = require('./stores/cityListStore.js');
 var CompanyListActions = require('./actions/companyListActions.js');
 
+
 var Option = React.createClass({
   render: function(){
     return (
@@ -18,29 +19,34 @@ var CityList = React.createClass({
         data: [],
         cityList: [],
         selected: 0,
-        value: 3
+        value: Cookies.get('city') || 3
       };
     },
     changeHandler: function(e) {
-      //  console.log('CityList: change value = '+e.target.value);
+        console.log('CityList: change value = '+e.target.value);
+        CompanyListActions.setCurrentCity(e.target.value);
+        Cookies.set('city', e.target.value);
+        console.log('CityList: set = ',Cookies.get('city'));
         this.setState({
             value: e.target.value
         });
-        CompanyListActions.setCurrentCity(e.target.value);
     },
     componentDidMount: function() {
-
+      CompanyListActions.setCurrentCity(this.state.value);
+      console.log('CityList: mount value = ', this.state.value);
     },
     render: function() {
+      var selected = this.state.value;
+      var this_ = this;
       var totalList = this.state.cityList.map(function(the, i) {
-          return <Option name={the.city_name} value={the.city_id} key={i} />
+          return <Option name={the.city_name} value={the.city_id} key={i}/>
       });
-      CompanyListActions.setCurrentCity(this.state.value);
+
       return (
       <div className="city-select">
         <div className="form-group">
           <b>Ваш город</b>
-          <select id="cityListSelect" onChange={this.changeHandler} className="form-control">
+          <select id="cityListSelect" value={this.state.value} onChange={this.changeHandler} className="form-control">
             {totalList}
           </select>
         </div>

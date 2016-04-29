@@ -53,7 +53,7 @@ var ScreenShop = React.createClass({
 
                 <section className="the-tab tabs-shop food-category food-grid tab-active" id="tab-food">
                     <div className="container" id="menuItems">
-                        <MenuItems />
+                        <MenuItems company={this.props.params.company} />
                     </div>
                 </section>
             </div>

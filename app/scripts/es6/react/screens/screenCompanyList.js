@@ -23,9 +23,9 @@ var ScreenCompanyList = React.createClass({
         return(
             <LoadingOrderAnimation animation="fade-in"
             distance={30} speed={300} wait={0}>
-            <section className="the-screen page-wrapper food-grid" id="pageCompanyList">
-                <CompanyList current={this.props.params.cuisine} />
-            </section>
+                <section className="the-screen page-wrapper food-grid" id="pageCompanyList">
+                    <CompanyList current={this.props.params.cuisine} />
+                </section>
             </LoadingOrderAnimation>
 
         )

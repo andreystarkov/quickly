@@ -5,6 +5,7 @@
 * @Last Modified time: 2016-04-27 07:14:33
 */
 
+
 const App = document.getElementById('App');
 
 var Routes = require('./routes/routes.js');

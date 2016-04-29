@@ -103,7 +103,7 @@ var MenuItemsSidebar = React.createClass({
                 <div className="button-close" id="menu-company-close"><i className="icn-cancel"></i></div>
                 <div className="button-open" id="menu-company-open"><i className="icn-menu"></i></div>
                 <div className="side-wrap" id="side-wrap">
-                    <CategoriesList />
+                    <CategoriesList company={this.props.company} />
                 </div>
             </div>
         )
@@ -144,7 +144,7 @@ var MenuItemsList = React.createClass({
                     return (
                         <LoadingOrderAnimation key={i} animation="fade-in" move="from-bottom-to-top"
                            distance={30} speed={400} wait={wait}>
-                        <SingleMenuItem item={the} key={i} />
+                            <SingleMenuItem item={the} key={i} />
                         </LoadingOrderAnimation>
                     )
                 }
@@ -175,11 +175,11 @@ var MenuItems = React.createClass({
             <div className="row">
                 <div className="col-lg-9">
                     <div className="row">
-                        <MenuItemsList />
+                        <MenuItemsList company={this.props.company} />
                     </div>
                 </div>
                 <div className="col-lg-3">
-                    <MenuItemsSidebar />
+                    <MenuItemsSidebar company={this.props.company} />
                 </div>
             </div>
         )
