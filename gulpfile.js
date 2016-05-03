@@ -28,18 +28,13 @@ var runSequence = require('run-sequence').use(gulp);
 var theLibs = require('./config.libs.js');
 var theEngine = require('./config.engine.js');
 
+var secrets = require('./secrets.json');
+
 var config = {
     dist: './build',
     src: './app',
     build: './app/build'
 }
-
-var secrets = {
-    host: 'quickly.su',
-    user: 'landing',
-    pass: 'enot46Krot',
-    remotePath: '/home/app/quickly-landing'
-};
 
 gulp.task('default', ['gulp-box']);
 
@@ -55,7 +50,7 @@ gulp.task('deploy', function() {
         host: secrets.host,
         user: secrets.user,
         pass: secrets.pass,
-        remotePath: secrets.remotePath+'/build/'
+        remotePath: secrets.path+'/build/'
       }));
 });
 
@@ -66,7 +61,7 @@ gulp.task('deploy-everything', function() {
         host: secrets.host,
         user: secrets.user,
         pass: secrets.pass,
-        remotePath: secrets.remotePath
+        remotePath: secrets.path+'/build/'
       }));
 });
 
