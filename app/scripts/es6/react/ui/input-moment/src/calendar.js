@@ -1,7 +1,10 @@
 var cx = require('classnames');
 
-var range = require('lodash/utility/range');
-var chunk = require('lodash/array/chunk');
+var lodash = require('lodash');
+var range = lodash.range;
+var chunk = lodash.chunk;
+/*var range = require('lodash/utility/range');
+var chunk = require('lodash/array/chunk');*/
 
 moment.locale('ru');
 moment.lang('ru');
