@@ -8,6 +8,8 @@ var currentCity;
 
 var city_;
 
+var curLatLng;
+
 var userSMSCode = Cookies.get('code');
 var userToken = Cookies.get('token');
 var userPhone = Cookies.get('phone');

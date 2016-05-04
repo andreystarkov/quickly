@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var ButtonMore = require('./components/buttonMore.js');
 var ReservationHistoryStore = require('./stores/reservationHistoryStore.js');
 

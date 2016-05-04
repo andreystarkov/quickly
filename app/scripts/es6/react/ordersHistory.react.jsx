@@ -1,6 +1,7 @@
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
 import {addToCart, repeatOrder} from '../engine/addToCart.js';
 
+var _ = require('underscore');
 var ButtonMore = require('./components/buttonMore.js');
 var routesMap = require('./routes/map.js');
 var OrdersHistoryStore = require('./stores/ordersHistoryStore.js');
@@ -39,7 +40,6 @@ var SingleOrder = React.createClass({
     render: function(){
         var total = 0;
         var data = this.props.list;
-     //   console.log('DATA signle: ', data);
 
         var items = data.order_menu_items.map(function(the, i) {
             total += (the.menu_item_price*the.count);

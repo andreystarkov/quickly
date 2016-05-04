@@ -111,14 +111,14 @@ export function getCity(position) {
                   if (results[0]) {
                       var add= results[0].formatted_address ;
                       var value=add.split(",");
-                      console.log('getCity: ')
+                      console.log('getCity: Current position: ', latlng);
                       var count=value.length;
                       var country=value[count-1];
                       var state=value[count-2];
                       var city=value[count-4];
                       console.log('getCity: City detected: ', city.trim());
-
-                          selectCityByName(city.trim());
+                      curLatLng = latlng;
+                      selectCityByName(city.trim());
 
                   } else  {
                       alert("address not found");

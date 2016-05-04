@@ -278,6 +278,7 @@ var CompanyList = React.createClass({
             totalList = <Spinner />;
         }
 
+
         var overall, single, cuisines = this.state.cuisines, cuisine;
 
         if (this.props.current > 0) {

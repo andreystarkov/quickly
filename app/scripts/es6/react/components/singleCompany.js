@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-21 22:19:09
+* @Last Modified time: 2016-05-04 18:24:52
 */
 
 var CuisinesList = require('../cuisinesList.react.jsx');
@@ -92,11 +92,24 @@ var RatingStars = React.createClass({
 });
 
 var SingleCompany = React.createClass({
+    distance: 0,
     toggleCompany: function(el){
         var company = this.props.company.restaurant_id;
         var route = routesMap.routes.shop.cleanPath+company;
      //   console.log('SingleCompany: route('+company+'): '+route);
         browserHistory.push(route);
+    },
+    _calcDistance: function(){
+        var thisLatLng = new google.maps.LatLng(this.props.company.restaurant_lat, this.props.company.restaurant_long);
+        if(curLat && curLng){
+            console.log('_calcDistance: ', curLatLng, thisLatLng);
+            var distance = google.maps.geometry.spherical.computeDistanceBetween(curLatLng, latLngB);
+            if(distance) {
+                console.log('_calcDistance: ', distance);
+                this.distance = distance;
+                return distance;
+            } else console.log('_calcDistance: somethings wrong here')
+        }
     },
     render: function(){
         var total = 0;
@@ -161,6 +174,9 @@ var SingleCompany = React.createClass({
                 <div className="company-description col-lg-9 col-xs-8 col-sm-8">
                     <h2>
                         {that.restaurant_name}
+                        <div className="rating" style={backgroundColor: 'transparent', color: '#000'}>
+                            {this._calcDistance()}
+                        </div>
                         <div className="rating">
                             {rating}.0
                         </div>
