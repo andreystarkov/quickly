@@ -1,7 +1,6 @@
 import { browserHistory } from 'react-router';
 var CuisinesStore = require('./stores/cuisinesStore.js');
 
-
 var CuisinesList = React.createClass({
     mixins: [Reflux.connect(CuisinesStore, 'cuisinesData')],
     limit: 3,

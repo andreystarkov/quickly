@@ -1,5 +1,7 @@
 node_modules
 app/app/*
-build/*
+todo.todo
+*.todo
+producion/*
 psd-templates/*
 secrets.json

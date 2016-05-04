@@ -1,5 +1,5 @@
 var cx = require('classnames');
-var InputSlider = require('react-input-slider');
+var InputSlider = require('./react-input-slider/dist/input-slider.js');
 
 moment.locale('ru');
 moment.lang('ru');
