@@ -1,6 +1,7 @@
 import { browserHistory } from 'react-router';
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
 
+var _ = require('underscore');
 var ButtonMore = require('./components/buttonMore.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
 var CompanyListStore = require('./stores/companyListStore.js');
@@ -76,7 +77,7 @@ var MobileControls = React.createClass({
 
 var CompanyList = React.createClass({
     mixins: [Reflux.connect(CompanyListStore, 'companyData')],
-    limit: 5,
+    limit: 20,
     cuisineId: 0,
     perPage: 8,
     getInitialState: function() {
@@ -106,12 +107,14 @@ var CompanyList = React.createClass({
     componentDidMount: function(){
         $.material.init();
         var this_ = this;
-/*        $('#company-load').waypoint({
+
+        $('#company-load').waypoint({
           handler: function(direction) {
             console.log(this.element.id + ' hit', direction);
             this_.loadMore();
           }
-        });*/
+        });
+
         if(isMobile){
             $('#companyListSidebarWrap').appendTo(document.body);
 
@@ -247,12 +250,10 @@ var CompanyList = React.createClass({
                             wait = 150*(i-(parseInt(that.state.loadCount)-parseInt(that.perPage))); // omg wtf??
 
                         } else wait = i*150;
-
+/*                            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
+                               distance={30} speed={400} wait={wait}>*/
                         return (
-                            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
-                               distance={30} speed={400} wait={wait}>
                                 <SingleCompany company={the} key={i} />
-                            </LoadingOrderAnimation>
                         )
                     }
                 });
@@ -301,7 +302,7 @@ var CompanyList = React.createClass({
                                 </div>
 
                                 <ButtonMore onClick={this.loadMore} />
-
+                                <div id="company-load" className="load-more-trigger" />
                             </div>
                         </div>
                     </div>

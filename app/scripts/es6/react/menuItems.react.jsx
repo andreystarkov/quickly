@@ -130,6 +130,9 @@ var MenuItemsList = React.createClass({
         // sure it will
     },
     componentDidMount: function(){
+
+        var this_ = this;
+
         $('#menu-more').waypoint({
           handler: function(direction) {
             console.log(this.element.id + ' hit', direction);

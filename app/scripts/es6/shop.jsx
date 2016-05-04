@@ -1,4 +1,5 @@
 import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
+var _ = require('underscore');
 
 function pasteCartElement(cartElement, elementCount){
     var el = `

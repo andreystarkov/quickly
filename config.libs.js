@@ -3,7 +3,7 @@ var theLibs = [
 
     // tools
 
-    'app/libs/underscore/underscore-min.js',
+  //  'app/libs/underscore/underscore-min.js',
     'app/libs/js-cookie/src/js.cookie.js',
     'app/libs/classie/classie.js',
     'app/libs/bootstrap/dist/js/bootstrap.min.js',

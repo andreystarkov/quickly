@@ -1,3 +1,6 @@
+
+var _ = require('underscore');
+
 function templateCartFooter(){
     var totalPrice = 0;
     var totalCount = 0;

@@ -2,6 +2,7 @@ var CategoriesListStore = require('./stores/categoriesListStore.js');
 var CategoresListActions = require('./actions/categoriesListActions.js');
 var MenuItemsActions = require('./actions/menuItemsActions.js');
 
+
 var CategoryItem = React.createClass({
 	categoryToggle: function(el){
 		var newId = this.props.item.category_id;

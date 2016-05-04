@@ -1,10 +1,7 @@
-var cx = require('classnames');
+import {range} from 'lodash';
+import {chunk} from 'lodash';
 
-var lodash = require('lodash');
-var range = lodash.range;
-var chunk = lodash.chunk;
-/*var range = require('lodash/utility/range');
-var chunk = require('lodash/array/chunk');*/
+var cx = require('classnames');
 
 moment.locale('ru');
 moment.lang('ru');

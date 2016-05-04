@@ -9,7 +9,7 @@ module.exports = React.createClass({
 
   render() {
     var m = this.props.moment;
-  //  var animation = "callout.flipBounceX";
+
     return (
       <div className={cx('m-time', this.props.className)}>
         <div className="showtime">

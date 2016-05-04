@@ -1,4 +1,5 @@
 import {getReservationPointsList} from '../../reservation.jsx';
+var _ = require('underscore');
 
 moment.locale('ru');
 moment.lang('ru');
@@ -14,6 +15,7 @@ function refreshTable(id, m){
     ReservationActions.updateTables(id, unix);
     console.log('refreshTable: Sent params: ', id, m, unix);
 }
+
 
 var HallButton = React.createClass({
 	hallHandle: function(e){

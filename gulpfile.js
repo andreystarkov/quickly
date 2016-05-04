@@ -29,7 +29,11 @@ var notify = require('gulp-notify');
 
 var runSequence = require('run-sequence').use(gulp);
 
+var secrets = require('./secrets.json');
+
 var config = {
+  src: './app',
+  dist: './production',
   js: {
     src: [
       './app/scripts/es6/auth.jsx',
@@ -50,8 +54,16 @@ var config = {
     outputDir: './production/build'
   },
   html: {
-    src: './app/index.html',
+    src: './app/*.html',
     outputDir: './production/'
+  },
+  fonts: {
+    src: './app/fonts/**/*',
+    outputDir: './production/fonts'
+  },
+  images: {
+    src: './app/images/**/*',
+    outputDir: './production/images'
   }
 };
 
@@ -74,6 +86,8 @@ function mapError(err) {
 function bundle(bundler) {
   var bundleTimer = duration('Javascript bundle time');
 
+  runSequence('libs');
+
   bundler
     .bundle()
     .on('error', mapError)
@@ -87,18 +101,49 @@ function bundle(bundler) {
       message: 'Generated file: <%= file.relative %>',
     }))
     .pipe(bundleTimer)
+    .pipe(notify('Scripts done'))
   //  .pipe(livereload());
 }
 
-gulp.task('deploy', function() {
-  return gulp.src(config.js.outputDir+'/**/*')
-    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+gulp.task('deploy-core', function() {
+  return gulp.src([config.js.outputDir+'/**/*'])
     .pipe(sftp({
         host: secrets.host,
         user: secrets.user,
         pass: secrets.pass,
-        remotePath: secrets.path+'/build/'
+        remotePath: secrets.path+'/build'
       }));
+});
+
+gulp.task('deploy-html', function() {
+  return gulp.src(config.html.outputDir+'/**/*')
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.user,
+        pass: secrets.pass,
+        remotePath: secrets.path
+      }));
+});
+
+gulp.task('deploy', function() {
+  return gulp.src([config.dist+'/**/*'])
+  // .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.user,
+        pass: secrets.pass,
+        remotePath: secrets.path
+      }));
+});
+
+gulp.task('js-merge', function(){
+    return gulp.src([config.dist+'/build/libs.js', config.dist+'/build/es6.js'])
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest(config.dist+'/build'))
+        .pipe(uglify().on('error', gutil.log))
+        .pipe(rename('scripts.min.js'))
+        .pipe(gulp.dest(config.dist+'/build'))
+        .pipe(notify('Scripts merged'));
 });
 
 gulp.task('libs', function() {

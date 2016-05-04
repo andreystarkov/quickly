@@ -1,4 +1,6 @@
 import { browserHistory } from 'react-router';
+var _ = require('underscore');
+
 var CuisinesStore = require('./stores/cuisinesStore.js');
 
 var CuisinesList = React.createClass({
