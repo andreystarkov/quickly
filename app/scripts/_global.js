@@ -4,7 +4,7 @@ var currentCompany = 1;
 var currentCuisine;
 var currentReservationTime;
 var cities, _cities;
-var currentCity;
+var currentCity = Cookies.get('city');
 
 var city_;
 

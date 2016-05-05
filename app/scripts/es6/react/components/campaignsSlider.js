@@ -1,6 +1,6 @@
 import {browserHistory, Link} from "react-router";
 import {initSlider} from "./slider.js";
-
+var FullscreenPreload = require('./preloader.js');
 var CampaignsStore = require('../stores/campaignsStore.js');
 
 var CampaignsActions = require('../actions/campaignsActions.js');
@@ -55,6 +55,9 @@ var CampaignsSlider = React.createClass({
         campaignsLimitedData: []
       };
     },
+    componentDidUpdate: function(){
+
+    },
     componentDidMount: function(){
      //   console.log('CampaignsSlider: did mount');
         CampaignsActions.fetchList();
@@ -77,6 +80,7 @@ var CampaignsSlider = React.createClass({
 
         return (
             <section className="hero">
+
             <ul className="quickly-slider autoplay">
                 {slides} {slidesLimited}
             </ul>

@@ -1,7 +1,5 @@
 node_modules
 app/app/*
-todo.todo
-*.todo
 producion/*
 psd-templates/*
 secrets.json

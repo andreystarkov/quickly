@@ -1,6 +1,6 @@
 import { browserHistory } from 'react-router';
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
-
+var FullscreenPreload = require('./components/preloader.js');
 var _ = require('underscore');
 var ButtonMore = require('./components/buttonMore.js');
 var CuisinesList = require('./cuisinesList.react.jsx');
@@ -77,9 +77,13 @@ var MobileControls = React.createClass({
 
 var CompanyList = React.createClass({
     mixins: [Reflux.connect(CompanyListStore, 'companyData')],
-    limit: 20,
     cuisineId: 0,
     perPage: 8,
+    componentDidUpdate: function(){
+        setTimeout(function(){
+         $('.fullscreen-preload').fadeOut(500);
+        }, 1000);
+    },
     getInitialState: function() {
       return {
         data: [],
@@ -240,7 +244,17 @@ var CompanyList = React.createClass({
         var filtered = this.state.filtersData;
 
         if(theData.length > 0){
-            console.log('CompanyList: ', theData);
+            if( theData.length < that.state.loadCount) {
+                console.log('No btn for you, cause thats all 4 now');
+                var btnMore = {
+                    display: 'none'
+                }
+            } else {
+                var btnMore = {
+                    display: 'block'
+                }
+            }
+            console.log('CompanyList: length: ', theData.length, theData);
             if( this.state.isFilters ){
                 totalList = filtered.map(function(the, i, nc, wait) {
                     if( i < that.state.loadCount){
@@ -290,6 +304,7 @@ var CompanyList = React.createClass({
         // <div className="load-trigger" id="company-load"></div>
         return (
         <div className="company-list-wrap">
+            <FullscreenPreload />
             <div className="gray header-gray">
                 {cuisine}
             </div>
@@ -302,7 +317,7 @@ var CompanyList = React.createClass({
                                     {totalList}
                                 </div>
 
-                                <ButtonMore onClick={this.loadMore} />
+                                <div style={btnMore}><ButtonMore onClick={this.loadMore} /></div>
                                 <div id="company-load" className="load-more-trigger" />
                             </div>
                         </div>

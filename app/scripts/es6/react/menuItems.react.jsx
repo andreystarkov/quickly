@@ -6,6 +6,7 @@
 */
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
 var Loader = require('react-loader');
+var FullscreenPreload = require('./components/preloader.js');
 
 var MenuItemsStore = require('./stores/menuItemsStore.js');
 var CategoriesListActions = require('./actions/categoriesListActions.js');
@@ -129,6 +130,11 @@ var MenuItemsList = React.createClass({
     componentWillMount: function(){
         // sure it will
     },
+    componentDidUpdate: function(){
+        setTimeout(function(){
+         $('.fullscreen-preload').fadeOut(500);
+        }, 1000);
+    },
     componentDidMount: function(){
 
         var this_ = this;
@@ -195,6 +201,7 @@ var MenuItemsList = React.createClass({
 
         return (
         <div>
+            <FullscreenPreload />
             <div className="menu-items-wrap">
                 <div>{this._renderItems()}</div>
             </div>

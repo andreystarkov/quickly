@@ -4,7 +4,7 @@
 * @Last Modified by:   Andrey Starkov
 * @Last Modified time: 2016-04-21 22:18:29
 */
-
+import cookie from 'react-cookie';
 var CompanyListActions = require('../actions/companyListActions.js');
 var CuisinesActions = require('../actions/cuisinesActions.js');
 var CuisinesStore = require('./cuisinesStore.js');
@@ -13,7 +13,7 @@ var CompanyListStore = Reflux.createStore({
     listenables: [CompanyListActions],
     cuisine: [],
     currentCuisine:0,
-    currentCity:0,
+    currentCity: currentCity,
     companyList: [],
     sourceUrl: serverUrl+'/api/v4/restaurants/get',
     init: function() {
@@ -71,7 +71,7 @@ var CompanyListStore = Reflux.createStore({
 
     //  this.cuisine = CuisinesActions.getCuisineById(cuisineId);
 
-   //   console.log('CompanyListStore: fetchList: this.cuisine = '+this.currentCuisine, 'this.currentCity', this.currentCity);
+      console.log('CompanyListStore: fetchList: this.cuisine = '+this.currentCuisine, 'this.currentCity', this.currentCity);
 
       queryUrl += '?restaurantType=3';
       if( this.currentCuisine ) {
@@ -79,16 +79,16 @@ var CompanyListStore = Reflux.createStore({
       }
       if( this.currentCity > 0 ){
         queryUrl += '&cityId='+this.currentCity;
-      }
       console.log('CompanyListStore: queryUrl = ',queryUrl);
 
       $.getJSON(queryUrl, function (data) {
 
-     //    console.log('CompanyListStore fetchList', data);
+        console.log('CompanyListStore fetchList', data);
         some.companyList = data.result.restaurants;
         some.trigger(some.companyList);
 
       });
+        } else console.log('Current city nto set');
     }
 });
 

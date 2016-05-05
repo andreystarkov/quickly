@@ -40,8 +40,21 @@ var CityList = React.createClass({
         });
     },
     componentDidMount: function() {
-      CompanyListActions.setCurrentCity(this.state.value);
-      console.log('CityList: mount value = ', this.state.value);
+      if(this.state.value == 0){
+        console.log('CityList: city not detected! setting default');
+
+        // this is lol, would write city select modal or something
+
+        CompanyListActions.setCurrentCity(3);
+        cookie.save('city', 3);
+        showTip($('#cityListSelect'), 'Откуда вы?', 'Выберите ваш город из этого списка');
+        this.setState({
+            value: 3
+        });
+      } else {
+        CompanyListActions.setCurrentCity(this.state.value);
+        console.log('CityList: mount value = ', this.state.value);
+      }
     },
     render: function() {
 

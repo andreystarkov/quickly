@@ -4,6 +4,8 @@
 * @Last Modified by:   Andrey Starkov
 * @Last Modified time: 2016-05-04 18:24:52
 */
+import {showScreen} from "../../screens.jsx";
+import {browserHistory, Link} from "react-router";
 
 var CuisinesList = require('../cuisinesList.react.jsx');
 var MenuItemsActions = require('../actions/menuItemsActions.js');
@@ -12,12 +14,6 @@ var CompanyDetailsActions = require('../actions/companyDetailsActions.js');
 var ReservationActions = require('../actions/reservationActions.js');
 
 var routesMap = require('../routes/map.js');
-
-import {showScreen} from "../../screens.jsx";
-import {browserHistory, Link} from "react-router";
-
-//<span className="desc"><i>наличными</i><i>картой курьеру</i></span>
-//<span className="desc">только наличные</span>
 
 var PaymentTypes = React.createClass({
     render: function(){
@@ -100,7 +96,7 @@ var SingleCompany = React.createClass({
         browserHistory.push(route);
     },
     _calcDistance: function(){
-        var thisLatLng = new google.maps.LatLng(this.props.company.restaurant_lat, this.props.company.restaurant_long);
+/*        var thisLatLng = new google.maps.LatLng(this.props.company.restaurant_lat, this.props.company.restaurant_long);
         if(curLat && curLng){
             console.log('_calcDistance: ', curLatLng, thisLatLng);
             var distance = google.maps.geometry.spherical.computeDistanceBetween(curLatLng, latLngB);
@@ -109,7 +105,7 @@ var SingleCompany = React.createClass({
                 this.distance = distance;
                 return distance;
             } else console.log('_calcDistance: somethings wrong here')
-        }
+        }*/
     },
     render: function(){
         var total = 0;
@@ -174,9 +170,6 @@ var SingleCompany = React.createClass({
                 <div className="company-description col-lg-9 col-xs-8 col-sm-8">
                     <h2>
                         {that.restaurant_name}
-                        <div className="rating" style={backgroundColor: 'transparent', color: '#000'}>
-                            {this._calcDistance()}
-                        </div>
                         <div className="rating">
                             {rating}.0
                         </div>

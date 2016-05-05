@@ -11,7 +11,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,cyrillic);
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300,300italic,400italic,500,500italic,700,700italic&subset=latin,cyrillic);
 @import url("https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/1.3.1/sweetalert2.min.css");
-@color M@time: .3s;
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -8860,12 +8859,9 @@ body .company-item .the-background {
 body .company-item:hover {
   background: transparent;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-body .company-item:hover .the-background {
-  -webkit-transform: scale(1.3) translateY(80px);
-  -moz-transform: scale(1.3) translateY(80px);
-  -ms-transform: scale(1.3) translateY(80px);
-  transform: scale(1.3) translateY(80px);
+  /*            .the-background {
+                transform: scale(1.3) translateY(80px);
+            }*/
 }
 body .company-item:hover .the-box {
   background: #fff;
@@ -20544,6 +20540,767 @@ Slider
     transform: scale(1) translate(0%, 0%);
   }
 }
+.fullscreen-preload {
+  position: fixed;
+  z-index: 99999999999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+.fullscreen-preload .container {
+  max-width: 1000px;
+  margin: 5% auto;
+}
+.fullscreen-preload .preloader-logo {
+  position: relative;
+  width: 300px;
+  margin: 50px auto;
+}
+.fullscreen-preload .preloader-logo-svg .svg-blue,
+.fullscreen-preload .preloader-logo-svg .fil3 {
+  opacity: 0;
+  -webkit-animation: opacity 4s infinite;
+  -moz-animation: opacity 4s infinite;
+  animation: opacity 4s infinite;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.fullscreen-preload .preloader-logo-svg .svg-green,
+.fullscreen-preload .preloader-logo-svg .fil4 {
+  opacity: 0;
+  -webkit-animation: opacity 3s infinite;
+  -moz-animation: opacity 3s infinite;
+  animation: opacity 3s infinite;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.fullscreen-preload .preloader-logo-svg .svg-yellow,
+.fullscreen-preload .preloader-logo-svg .fil5 {
+  opacity: 0;
+  -webkit-animation: opacity 3s infinite;
+  -moz-animation: opacity 3s infinite;
+  animation: opacity 3s infinite;
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.fullscreen-preload .preloader-logo-svg .svg-red,
+.fullscreen-preload .preloader-logo-svg .fil6 {
+  opacity: 0;
+  -webkit-animation: opacity 3s infinite;
+  -moz-animation: opacity 3s infinite;
+  animation: opacity 3s infinite;
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+.fullscreen-preload .preloader-logo-svg .svg-red-angle,
+.fullscreen-preload .preloader-logo-svg .fil2 {
+  opacity: 0;
+  -webkit-animation: opacity 2.7s infinite;
+  -moz-animation: opacity 2.7s infinite;
+  animation: opacity 2.7s infinite;
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+.fullscreen-preload .disappear {
+  opacity: 0;
+}
+.fullscreen-preload .infinite {
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.fullscreen-preload .svg-text {
+  opacity: 1;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.fullscreen-preload .the-path {
+  opacity: 0.5;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation-timing-function: cubic-bezier(1, 0.24, 0.63, 1);
+  -moz-animation-timing-function: cubic-bezier(1, 0.24, 0.63, 1);
+  animation-timing-function: cubic-bezier(1, 0.24, 0.63, 1);
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.fullscreen-preload .svg-line {
+  display: none;
+  -webkit-animation: opacity1 7s linear;
+  -moz-animation: opacity1 7s linear;
+  animation: opacity1 7s linear;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  stroke: #000;
+}
+.fullscreen-preload .path {
+  stroke-dasharray: 100;
+  stroke-color: #000;
+  stroke-width: 3px;
+}
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  96%,
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes opacity1 {
+  0% {
+    opacity: 0;
+  }
+  98%,
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes opacity1 {
+  0% {
+    opacity: 0;
+  }
+  98%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity1 {
+  0% {
+    opacity: 0;
+  }
+  98%,
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes opacity {
+  0% {
+    opacity: 0;
+    -moz-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  20% {
+    opacity: 1;
+    -moz-animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+  }
+  40% {
+    opacitity: 0.4;
+    -moz-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  60% {
+    opacity: 0.7;
+  }
+  100% {
+    -moz-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    opacity: 0;
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    -moz-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  20% {
+    opacity: 1;
+    -webkit-animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    -moz-animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+  }
+  40% {
+    opacitity: 0.4;
+    -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  60% {
+    opacity: 0.7;
+  }
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    -moz-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes funky {
+  0% {
+    stroke-dasharray: 100 100;
+    opacity: 1;
+    stroke-width: 10px;
+    stroke-width: 5px;
+    stroke-dashoffset: 41;
+    -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  49.999% {
+    stroke-dasharray: 100 -50;
+    stroke-dashoffset: 0;
+  }
+  50.001% {
+    stroke-dasharray: -50 106;
+    stroke-dashoffset: -26;
+    -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  100% {
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 41;
+  }
+}
+@-moz-keyframes funky {
+  0% {
+    stroke-dasharray: 100 100;
+    opacity: 1;
+    stroke-width: 10px;
+    stroke-width: 5px;
+    stroke-dashoffset: 41;
+    -moz-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  49.999% {
+    stroke-dasharray: 100 -50;
+    stroke-dashoffset: 0;
+  }
+  50.001% {
+    stroke-dasharray: -50 106;
+    stroke-dashoffset: -26;
+    -moz-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  100% {
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 41;
+  }
+}
+@keyframes funky {
+  0% {
+    stroke-dasharray: 100 100;
+    opacity: 1;
+    stroke-width: 10px;
+    stroke-width: 5px;
+    stroke-dashoffset: 41;
+    -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    -moz-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  49.999% {
+    stroke-dasharray: 100 -50;
+    stroke-dashoffset: 0;
+  }
+  50.001% {
+    stroke-dasharray: -50 106;
+    stroke-dashoffset: -26;
+    -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  100% {
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 41;
+  }
+}
+@-webkit-keyframes rot {
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+@-moz-keyframes rot {
+  to {
+    -moz-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+@keyframes rot {
+  to {
+    -webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+.fullscreen-preload .circle {
+  -webkit-animation: rot 5s linear infinite;
+  -moz-animation: rot 5s linear infinite;
+  animation: rot 5s linear infinite;
+}
+.fullscreen-preload circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 42px;
+  -webkit-animation: ani 16s linear infinite reverse, rot 56s infinite;
+  -moz-animation: ani 16s linear infinite reverse, rot 56s infinite;
+  animation: ani 16s linear infinite reverse, rot 56s infinite;
+}
+.fullscreen-preload .preloader-logo:hover .circle {
+  -webkit-animation: rot 8s cubic-bezier(0, 1.65, 0.82, 0.19) infinite reverse;
+  -moz-animation: rot 8s cubic-bezier(0, 1.65, 0.82, 0.19) infinite reverse;
+  animation: rot 8s cubic-bezier(0, 1.65, 0.82, 0.19) infinite reverse;
+}
+.fullscreen-preload .preloader-logo:hover .the-pat {
+  -webkit-animation: rot 8s cubic-bezier(0, 1.65, 0.82, 0.19) infinite, ani 26s ease-in infinite, rot 6s infinite, omg2 7s reverse infinite;
+  -moz-animation: rot 8s cubic-bezier(0, 1.65, 0.82, 0.19) infinite, ani 26s ease-in infinite, rot 6s infinite, omg2 7s reverse infinite;
+  animation: rot 8s cubic-bezier(0, 1.65, 0.82, 0.19) infinite, ani 26s ease-in infinite, rot 6s infinite, omg2 7s reverse infinite;
+}
+.fullscreen-preload .preloader-logo:hover circle {
+  -webkit-animation: ani 26s ease-in infinite reverse, rot 6s infinite, omg 10s reverse infinite;
+  -moz-animation: ani 26s ease-in infinite reverse, rot 6s infinite, omg 10s reverse infinite;
+  animation: ani 26s ease-in infinite reverse, rot 6s infinite, omg 10s reverse infinite;
+}
+.fullscreen-preload .svg-text {
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19);
+  transition: -webkit-transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19);
+  -moz-transition: transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19), -moz-transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19);
+  transition: transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19);
+  transition: transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19), -webkit-transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19), -moz-transform 0.5s cubic-bezier(0, 1.65, 0.82, 0.19);
+}
+.fullscreen-preload .preloader-logo:hover .svg-text {
+  opacity: 1;
+  -webkit-animation: omg 5s;
+  -moz-animation: omg 5s;
+  animation: omg 5s;
+}
+.fullscreen-preload .the-path {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.fullscreen-preload .the-path:hover {
+  opacity: 0.3;
+  -webkit-animation-timing-function: cubic-bezier(0.5, 0.24, 0.13, 0.7);
+  -moz-animation-timing-function: cubic-bezier(0.5, 0.24, 0.13, 0.7);
+  animation-timing-function: cubic-bezier(0.5, 0.24, 0.13, 0.7);
+  -webkit-animation: omg 4s reverse infinite, rot 200s reverse;
+  -moz-animation: omg 4s reverse infinite, rot 200s reverse;
+  animation: omg 4s reverse infinite, rot 200s reverse;
+}
+@-webkit-keyframes omg {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0.44, 0.13, 0.7);
+    animation-timing-function: cubic-bezier(0.5, 0.44, 0.13, 0.7);
+  }
+  10% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+    -webkit-animation-timing-function: cubic-bezier(0, 1.65, 0.82, 0.19);
+    animation-timing-function: cubic-bezier(0, 1.65, 0.82, 0.19);
+  }
+  50% {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  85% {
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+    -webkit-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+@-moz-keyframes omg {
+  0% {
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+    -moz-animation-timing-function: cubic-bezier(0.5, 0.44, 0.13, 0.7);
+    animation-timing-function: cubic-bezier(0.5, 0.44, 0.13, 0.7);
+  }
+  10% {
+    -moz-transform: translateX(-50px);
+    transform: translateX(-50px);
+    -moz-animation-timing-function: cubic-bezier(0, 1.65, 0.82, 0.19);
+    animation-timing-function: cubic-bezier(0, 1.65, 0.82, 0.19);
+  }
+  50% {
+    -moz-transform: translateX(30px);
+    transform: translateX(30px);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  85% {
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+    -moz-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  100% {
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+@keyframes omg {
+  0% {
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0.44, 0.13, 0.7);
+    -moz-animation-timing-function: cubic-bezier(0.5, 0.44, 0.13, 0.7);
+    animation-timing-function: cubic-bezier(0.5, 0.44, 0.13, 0.7);
+  }
+  10% {
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    transform: translateX(-50px);
+    -webkit-animation-timing-function: cubic-bezier(0, 1.65, 0.82, 0.19);
+    -moz-animation-timing-function: cubic-bezier(0, 1.65, 0.82, 0.19);
+    animation-timing-function: cubic-bezier(0, 1.65, 0.82, 0.19);
+  }
+  50% {
+    -webkit-transform: translateX(30px);
+    -moz-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  85% {
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+    -webkit-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    -moz-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+@-webkit-keyframes omg2 {
+  0% {
+    -webkit-transform: translateX(0px) translateY(-40px);
+    transform: translateX(0px) translateY(-40px);
+    -webkit-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+  }
+  10% {
+    -webkit-transform: translateX(-70px) translateY(40px);
+    transform: translateX(-70px) translateY(40px);
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  50% {
+    -webkit-transform: translateX(50px) translateY(-20px);
+    transform: translateX(50px) translateY(-20px);
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  85% {
+    -webkit-transform: translateX(-110px) translateY(60px);
+    transform: translateX(-110px) translateY(60px);
+    -webkit-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    -webkit-transform: translateX(0px) translateY(-40px);
+    transform: translateX(0px) translateY(-40px);
+  }
+}
+@-moz-keyframes omg2 {
+  0% {
+    -moz-transform: translateX(0px) translateY(-40px);
+    transform: translateX(0px) translateY(-40px);
+    -moz-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+  }
+  10% {
+    -moz-transform: translateX(-70px) translateY(40px);
+    transform: translateX(-70px) translateY(40px);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  50% {
+    -moz-transform: translateX(50px) translateY(-20px);
+    transform: translateX(50px) translateY(-20px);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  85% {
+    -moz-transform: translateX(-110px) translateY(60px);
+    transform: translateX(-110px) translateY(60px);
+    -moz-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  100% {
+    -moz-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    -moz-transform: translateX(0px) translateY(-40px);
+    transform: translateX(0px) translateY(-40px);
+  }
+}
+@keyframes omg2 {
+  0% {
+    -webkit-transform: translateX(0px) translateY(-40px);
+    -moz-transform: translateX(0px) translateY(-40px);
+    transform: translateX(0px) translateY(-40px);
+    -webkit-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    -moz-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+  }
+  10% {
+    -webkit-transform: translateX(-70px) translateY(40px);
+    -moz-transform: translateX(-70px) translateY(40px);
+    transform: translateX(-70px) translateY(40px);
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  50% {
+    -webkit-transform: translateX(50px) translateY(-20px);
+    -moz-transform: translateX(50px) translateY(-20px);
+    transform: translateX(50px) translateY(-20px);
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  85% {
+    -webkit-transform: translateX(-110px) translateY(60px);
+    -moz-transform: translateX(-110px) translateY(60px);
+    transform: translateX(-110px) translateY(60px);
+    -webkit-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    -moz-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    -moz-animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    animation-timing-function: cubic-bezier(0.2, 0.14, 0.73, 0.2);
+    -webkit-transform: translateX(0px) translateY(-40px);
+    -moz-transform: translateX(0px) translateY(-40px);
+    transform: translateX(0px) translateY(-40px);
+  }
+}
+@-webkit-keyframes ani {
+  0% {
+    stroke: #1620e0;
+    stroke-dashoffset: -100;
+    stroke-dasharray: 155 506;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  15% {
+    stroke-dasharray: 145 300;
+    stroke-dashoffset: 106;
+    stroke: #109634;
+    -webkit-animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    opacity: 1;
+  }
+  42% {
+    opacity: 1;
+    stroke-dasharray: 155 206;
+    stroke-dashoffset: 206;
+    stroke: #f0c800;
+    -webkit-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  49.999% {
+    opacity: 1;
+    stroke-dasharray: 255 306;
+    stroke-dashoffset: 100;
+    -webkit-animation-timing-function: cubic-bezier(0.8, 0.41, 0.6, 0.75);
+    animation-timing-function: cubic-bezier(0.8, 0.41, 0.6, 0.75);
+    stroke: #fff;
+  }
+  75% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0.31, 0.5, 0.55);
+    animation-timing-function: cubic-bezier(0.5, 0.31, 0.5, 0.55);
+    opacity: 1;
+    stroke-dasharray: 55 206;
+    stroke-dashoffset: 56;
+    stroke: #e00909;
+    opacity: 0.6;
+  }
+  100% {
+    stroke-dasharray: 155 506;
+    stroke-dashoffset: -100;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    stroke: #1620e0;
+  }
+}
+@-moz-keyframes ani {
+  0% {
+    stroke: #1620e0;
+    stroke-dashoffset: -100;
+    stroke-dasharray: 155 506;
+    opacity: 0;
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  15% {
+    stroke-dasharray: 145 300;
+    stroke-dashoffset: 106;
+    stroke: #109634;
+    -moz-animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    opacity: 1;
+  }
+  42% {
+    opacity: 1;
+    stroke-dasharray: 155 206;
+    stroke-dashoffset: 206;
+    stroke: #f0c800;
+    -moz-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  49.999% {
+    opacity: 1;
+    stroke-dasharray: 255 306;
+    stroke-dashoffset: 100;
+    -moz-animation-timing-function: cubic-bezier(0.8, 0.41, 0.6, 0.75);
+    animation-timing-function: cubic-bezier(0.8, 0.41, 0.6, 0.75);
+    stroke: #fff;
+  }
+  75% {
+    -moz-animation-timing-function: cubic-bezier(0.5, 0.31, 0.5, 0.55);
+    animation-timing-function: cubic-bezier(0.5, 0.31, 0.5, 0.55);
+    opacity: 1;
+    stroke-dasharray: 55 206;
+    stroke-dashoffset: 56;
+    stroke: #e00909;
+    opacity: 0.6;
+  }
+  100% {
+    stroke-dasharray: 155 506;
+    stroke-dashoffset: -100;
+    opacity: 0;
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    stroke: #1620e0;
+  }
+}
+@keyframes ani {
+  0% {
+    stroke: #1620e0;
+    stroke-dashoffset: -100;
+    stroke-dasharray: 155 506;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+  }
+  15% {
+    stroke-dasharray: 145 300;
+    stroke-dashoffset: 106;
+    stroke: #109634;
+    -webkit-animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    -moz-animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    animation-timing-function: cubic-bezier(1, 0.26, 0, 0.75);
+    opacity: 1;
+  }
+  42% {
+    opacity: 1;
+    stroke-dasharray: 155 206;
+    stroke-dashoffset: 206;
+    stroke: #f0c800;
+    -webkit-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    -moz-animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+    animation-timing-function: cubic-bezier(1, 0.61, 0.7, 0.85);
+  }
+  49.999% {
+    opacity: 1;
+    stroke-dasharray: 255 306;
+    stroke-dashoffset: 100;
+    -webkit-animation-timing-function: cubic-bezier(0.8, 0.41, 0.6, 0.75);
+    -moz-animation-timing-function: cubic-bezier(0.8, 0.41, 0.6, 0.75);
+    animation-timing-function: cubic-bezier(0.8, 0.41, 0.6, 0.75);
+    stroke: #fff;
+  }
+  75% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0.31, 0.5, 0.55);
+    -moz-animation-timing-function: cubic-bezier(0.5, 0.31, 0.5, 0.55);
+    animation-timing-function: cubic-bezier(0.5, 0.31, 0.5, 0.55);
+    opacity: 1;
+    stroke-dasharray: 55 206;
+    stroke-dashoffset: 56;
+    stroke: #e00909;
+    opacity: 0.6;
+  }
+  100% {
+    stroke-dasharray: 155 506;
+    stroke-dashoffset: -100;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    -moz-animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    animation-timing-function: cubic-bezier(0.3, 0.21, 0.2, 0.45);
+    stroke: #1620e0;
+  }
+}
+@keyframes rot {
+  to {
+    -webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+.fullscreen-preload .preloader-logo {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  margin: 50px auto;
+  position: relative;
+}
+.fullscreen-preload .preloader-quickly-logo {
+  z-index: 666;
+  width: 92%;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+}
+.fullscreen-preload .back {
+  z-index: 2;
+  top: -6px;
+  position: absolute;
+  left: 2px;
+  width: 298px;
+  height: 298px;
+  top: -4px;
+}
 section.apps-download {
   padding-top: 100px;
   background: #e9e8e5;
@@ -20611,6 +21368,9 @@ section.apps-download .apps .button-app .iapp-icon.android {
 section.apps-download .apps .button-app .iapp-icon.ios {
   top: 8px;
   height: 23px;
+}
+body .checkout-hidden {
+  overflow: hidden;
 }
 body .main-categories .category-item {
   max-height: 300px;

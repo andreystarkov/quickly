@@ -116,7 +116,7 @@ gulp.task('deploy-core', function() {
 });
 
 gulp.task('deploy-html', function() {
-  return gulp.src(config.html.outputDir+'/**/*')
+  return gulp.src(config.html.outputDir+'/index.html')
     .pipe(sftp({
         host: secrets.host,
         user: secrets.user,
@@ -144,6 +144,17 @@ gulp.task('js-merge', function(){
         .pipe(rename('scripts.min.js'))
         .pipe(gulp.dest(config.dist+'/build'))
         .pipe(notify('Scripts merged'));
+});
+
+gulp.task('hold', function() {
+  return gulp.src(config.html.outputDir+'/placeholder.html')
+    .pipe(rename('index.html'))
+    .pipe(sftp({
+        host: secrets.host,
+        user: secrets.user,
+        pass: secrets.pass,
+        remotePath: secrets.path
+      }));
 });
 
 gulp.task('libs', function() {
