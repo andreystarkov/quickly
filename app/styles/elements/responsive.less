@@ -18,6 +18,9 @@
     }
 }
 @media all and (min-width:1200px){
+    body .checkout-hidden {
+        overflow:visible !important;
+    }
     .checkout-order {
         max-height:80vh;
         max-width:90vw;
@@ -544,6 +547,12 @@ body {
         padding-top:5px;
     }
     body {
+        .checkout-hidden {
+            .checkout-total {
+                right: -65px;
+                top: 7px;
+            }
+        }
         section.apps-download {
           padding-top:50px;
           padding-bottom:50px;
