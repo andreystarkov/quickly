@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:24:58
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-05-04 15:24:29
+* @Last Modified time: 2016-05-07 20:34:01
 */
 
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
@@ -53,8 +53,10 @@ var DownloadApps = React.createClass({
 var ScreenMain = React.createClass({
     render: function(){
         return (
+
             <section className="the-screen page-wrapper" id="pageMain">
                 <MainPageHeader />
+
                 <CuisinesSelectList />
 
                 <DownloadApps />

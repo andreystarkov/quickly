@@ -8443,6 +8443,9 @@ body .form-group {
     width: 100%;
   }
 }
+.quickly-slider {
+  height: 350px!important;
+}
 @media screen and (min-width: 1600px) {
   body .checkout-order {
     max-height: 80vh;
@@ -8457,6 +8460,13 @@ body .form-group {
     max-height: 80vh;
     max-width: 90vw;
   }
+}
+.video-holder {
+  width: 100%;
+  height: 100%;
+}
+.video-holder iframe {
+  width: 400px;
 }
 .mobile-controls {
   display: none;
