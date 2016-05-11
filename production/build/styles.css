@@ -20557,6 +20557,9 @@ Slider
     transform: scale(1) translate(0%, 0%);
   }
 }
+.video-container {
+  margin-top: 30px;
+}
 .fullscreen-preload {
   position: fixed;
   z-index: 99999999999;

@@ -8,6 +8,7 @@ var ScreenCompanyList = require('../screens/screenCompanyList.js');
 var ScreenMain = require('../screens/screenMain.js');
 var BottomPanel = require('../components/bottomPanel.js');
 var NotFoundPage = require('../components/notFoundPage.js');
+var ScreenPage = require('../screens/screenPage.js');
 
 var routesMap = require('./map.js');
 
@@ -51,6 +52,7 @@ var Routes = React.createClass({
             <Route name={routes.list.name} path={routes.list.path} handle={this.refreshHome} component={ScreenCompanyList} />
             <Route name={routes.profile.name} path={routes.profile.path} handle={this.refreshHome} component={ScreenProfile} />
             <Route name={routes.shop.name} path={routes.shop.path} handle={this.refreshHome} component={ScreenShop} />
+            <Route name="page" path="/friday" handle={this.refreshHome} component={ScreenPage} />
           </Router>
       </div>
       );
