@@ -19,6 +19,10 @@ var routesMap = {
             name: 'home',
             path: '/home'
         },
+        index: {
+            name: 'index',
+            path: '/index.html'
+        },
         profile: {
             name: 'profile',
             path: '/profile'

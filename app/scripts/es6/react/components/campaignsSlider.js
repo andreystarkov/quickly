@@ -24,7 +24,7 @@ var SliderItem = React.createClass({
     },
     render: function(){
         var className, expires = "Акция действительна до ";
-        if( this.props.pos == '0' ) className = "selected";
+        /*if( this.props.pos == '0' ) className = "selected";*/
         if( this.props.expires ) {
             expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
         } else expires = "Постоянная акция";

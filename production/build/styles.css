@@ -8990,6 +8990,10 @@ body .company-item .background-image img {
   body {
     padding-top: 0;
   }
+  body .main-categories .category-item a {
+    border-radius: 0px;
+    height: 150px;
+  }
   body .checkout-hidden .checkout-total {
     right: -65px;
     top: 7px;
@@ -21396,6 +21400,7 @@ body .main-categories .category-item {
   max-height: 300px;
 }
 body .food-category .food-item .inner {
+  height: 200px;
   background-image: url('../images/placeholder-1.png');
   background-size: cover;
 }

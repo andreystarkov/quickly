@@ -2179,7 +2179,7 @@ var SliderItem = React.createClass({
     render: function render() {
         var className,
             expires = "Акция действительна до ";
-        if (this.props.pos == '0') className = "selected";
+        /*if( this.props.pos == '0' ) className = "selected";*/
         if (this.props.expires) {
             expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
         } else expires = "Постоянная акция";
@@ -2857,12 +2857,7 @@ var CuisinesSelectList = React.createClass({
     render: function render() {
         var allCuisines = this.state.cuisinesData;
         var list = allCuisines.map(function (the, key) {
-            return React.createElement(
-                _reactLoadingOrderWithAnimation2.default,
-                { key: key, animation: 'fade-in', move: 'from-top-to-bottom',
-                    distance: 10, speed: 300, wait: 150 * key },
-                React.createElement(SingleCuisine, { cuisine: the, key: key })
-            );
+            return React.createElement(SingleCuisine, { cuisine: the, key: key });
         });
         return React.createElement(
             'section',
@@ -5477,6 +5472,10 @@ var routesMap = {
             name: 'home',
             path: '/home'
         },
+        index: {
+            name: 'index',
+            path: '/index.html'
+        },
         profile: {
             name: 'profile',
             path: '/profile'
@@ -5511,7 +5510,6 @@ var ScreenMain = require('../screens/screenMain.js');
 var BottomPanel = require('../components/bottomPanel.js');
 var NotFoundPage = require('../components/notFoundPage.js');
 var ScreenPage = require('../screens/screenPage.js');
-
 var routesMap = require('./map.js');
 
 var Routes = React.createClass({

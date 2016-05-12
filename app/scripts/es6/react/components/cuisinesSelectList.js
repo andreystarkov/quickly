@@ -54,10 +54,7 @@ var CuisinesSelectList = React.createClass({
         var allCuisines = this.state.cuisinesData;
         var list = allCuisines.map(function(the, key) {
             return (
-                <LoadingOrderAnimation key={key} animation="fade-in" move="from-top-to-bottom"
-                distance={10} speed={300} wait={150*key}>
                 <SingleCuisine cuisine={the} key={key} />
-                </LoadingOrderAnimation>
             )
         });
         return (

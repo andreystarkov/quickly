@@ -9,7 +9,6 @@ var ScreenMain = require('../screens/screenMain.js');
 var BottomPanel = require('../components/bottomPanel.js');
 var NotFoundPage = require('../components/notFoundPage.js');
 var ScreenPage = require('../screens/screenPage.js');
-
 var routesMap = require('./map.js');
 
 var Routes = React.createClass({
@@ -40,9 +39,8 @@ var Routes = React.createClass({
   render: function() {
     var routes = routesMap.routes;
 
-  console.log('ROUTES: ', routes);
+    console.log('ROUTES: ', routes);
     return (
-
       <div>
           <PageHeader />
           <Router history={browserHistory}>
