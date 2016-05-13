@@ -319,6 +319,7 @@ var _createReservation = require('./createReservation.jsx');
 
 var _auth = require('../auth.jsx');
 
+var _ = require('underscore');
 var registerUserModal = require('./registerUserModal.js');
 var editProfileField = require('./editProfileField.js');
 
@@ -413,6 +414,7 @@ function createOrder(callback) {
     var reservation = getStorage('theReservation');
 
     if (userToken) {
+
         if (reservation) {
             swal({
                 title: 'Внимание!',
@@ -448,7 +450,7 @@ function createOrder(callback) {
     }
 }
 
-},{"../auth.jsx":1,"./checkout.func.jsx":4,"./createReservation.jsx":6,"./editProfileField.js":7,"./registerUserModal.js":8}],6:[function(require,module,exports){
+},{"../auth.jsx":1,"./checkout.func.jsx":4,"./createReservation.jsx":6,"./editProfileField.js":7,"./registerUserModal.js":8,"underscore":333}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19738,8 +19740,23 @@ $(function () {
         getReservationPointsList(id, time);
     });
 
-    $(document).on('click', '#buttonCheckoutDelivery', function (event) {
+    $(document).on('click', '#buttonCreateOrder', function (event) {
         createOrder();
+    });
+
+    $(document).on('click', '#buttonCheckoutDelivery', function (event) {
+        //  alert('lol');
+        //  createOrder();
+        if ($('#checkout-name').val() && $('#checkout-phone').val() && $('#checkout-persons').val()) {
+            if ($('.checkout-step-two').hasClass('active')) {
+                // lol
+            } else {
+                    $('.checkout-step').removeClass('active');
+                    $('.checkout-step-two').addClass('active');
+                }
+        } else {
+            toastr.error('Заполните имя и телефон!');
+        }
     });
 
     $(document).on({
@@ -19962,8 +19979,131 @@ function pasteCheckoutFormUnregistered() {
         reservationToggle = "disabled=true";
     } else reservationToggle = "disabled=false";
 
-    var out = '\n    <div class="checkout-form">\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-5 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-name" class="control-label">Ваше имя <b class="required-mark">*</b></label>\n                        <input type="text" class="form-control" id="checkout-name" value=' + userName + '>\n                    </div>\n                </div>\n                <div class="col-lg-4 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-phone" class="control-label">Телефон <b class="required-mark">*</b></label>\n                        <input type="text" class="form-control" id="checkout-phone" value="' + userPhone + '">\n                    </div>\n                </div>\n                <div class="col-lg-3">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>\n                        <input value="1" type="search" class="form-control" id="checkout-persons">\n                    </div>\n                </div>\n            </div>\n            <div class="row">\n                <div class="col-lg-4 col-xs-4">\n                    <div class="form-group label-floating">\n                        <label for="checkout-street" class="control-label">Улица</label>\n                        <input type="text" class="form-control" id="checkout-street">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-building" class="control-label">Дом</label>\n                        <input type="text" class="form-control" id="checkout-building">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-apartment" class="control-label">Квартира</label>\n                        <input type="text" class="form-control" id="checkout-apartment">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-porch" class="control-label">Подьезд</label>\n                        <input type="text" class="form-control" id="checkout-porch">\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating">\n                        <label for="checkout-floor" class="control-label">Этаж</label>\n                        <input type="text" class="form-control" id="checkout-floor">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="control-group">\n            <div class="row radio-box">\n                <div class="col-lg-6">\n                    <div class="the-label">\n                        <span>Способ оплаты</span>\n                    </div>\n                    <div class="form-group radio-group">\n                        <div class="radio radio-primary">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked>\n                              <span class="circle"></span><span class="check"></span>\n                              Наличными\n                            </label>\n                        </div>\n                        <div class="radio radio-primary">\n                            <label>\n                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1">\n                              <span class="circle"></span><span class="check"></span>\n                              По карте курьеру\n                            </label>\n                        </div>\n                        <div class="radio radio-primary">\n                            <label>\n                              <input disabled type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2">\n                              <span class="circle"></span><span class="check"></span>\n                              По карте онлайн\n                            </label>\n                        </div>\n                    </div>\n                </div>\n                <div class="col-lg-6">\n                    <div class="row">\n                        <div class="col-lg-6">\n                            <div class="form-group label-floating">\n                                <label for="checkout-phone" class="control-label">Сдача с</label>\n                                <input type="text" class="form-control" id="checkout-cash">\n                            </div>\n                        </div>\n                        <div class="col-lg-6">\n                            <div class="form-group label-floating">\n                                <label for="checkout-phone" class="control-label"><span class="rub"><strike>P</strike></span>-бонусов?</label>\n                                <input type="text" class="form-control" id="checkout-bonus" value="0">\n                            </div>\n                        </div>\n                    </div>\n                    <div class="row">\n                        <div class="col-lg-12">\n                            <div class="form-group label-floating" style="margin-top:30px">\n                                <label for="checkout-comment" class="control-label">Комментарий</label>\n                                <input type="search" class="form-control" id="checkout-comment">\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="checkout-buttons">\n            <div class="row">\n                <div class="col-lg-6 col-xs-6">\n                    <button class="button main" id="buttonCheckoutDelivery">Доставка</button>\n                </div>\n                <div class="col-lg-6 col-xs-6" style=>\n                    <button class="button main" id="buttonCheckoutReservation">Бронирование</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    ';
-    return out;
+    return '\n   <div class="checkout-form">\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-5 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-name" class="control-label">Ваше имя <b class="required-mark">*</b></label>\n                        <input type="text" class="form-control" id="checkout-name" value=' + userName + ' >\n                    </div>\n                </div>\n                <div class="col-lg-4 col-xs-6">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-phone" class="control-label">Телефон <b class="required-mark">*</b></label>\n                        <input type="text" class="form-control" id="checkout-phone" value=' + userPhone + ' >\n                    </div>\n                </div>\n                <div class="col-lg-3">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>\n                        <input value="1" type="search" class="form-control" id="checkout-persons" >\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    ';
+    /*    return(
+        <div class="checkout-form">
+            <div class="control-group">
+                <div class="row">
+                    <div class="col-lg-5 col-xs-6">
+                        <div class="form-group label-floating required">
+                            <label for="checkout-name" class="control-label">Ваше имя <b class="required-mark">*</b></label>
+                            <input type="text" class="form-control" id="checkout-name" value={userName} />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-6">
+                        <div class="form-group label-floating required">
+                            <label for="checkout-phone" class="control-label">Телефон <b class="required-mark">*</b></label>
+                            <input type="text" class="form-control" id="checkout-phone" value={userPhone} />
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group label-floating required">
+                            <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>
+                            <input value="1" type="search" class="form-control" id="checkout-persons" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-xs-4">
+                        <div class="form-group label-floating">
+                            <label for="checkout-street" class="control-label">Улица</label>
+                            <input type="text" class="form-control" id="checkout-street" />
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-2">
+                        <div class="form-group label-floating">
+                            <label for="checkout-building" class="control-label">Дом</label>
+                            <input type="text" class="form-control" id="checkout-building" />
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-2">
+                        <div class="form-group label-floating">
+                            <label for="checkout-apartment" class="control-label">Квартира</label>
+                            <input type="text" class="form-control" id="checkout-apartment" />
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-2">
+                        <div class="form-group label-floating">
+                            <label for="checkout-porch" class="control-label">Подьезд</label>
+                            <input type="text" class="form-control" id="checkout-porch" />
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-xs-2">
+                        <div class="form-group label-floating">
+                            <label for="checkout-floor" class="control-label">Этаж</label>
+                            <input type="text" class="form-control" id="checkout-floor" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="row radio-box">
+                    <div class="col-lg-6">
+                        <div class="the-label">
+                            <span>Способ оплаты</span>
+                        </div>
+                        <div class="form-group radio-group">
+                            <div class="radio radio-primary">
+                                <label>
+                                  <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked />
+                                  <span class="circle"></span><span class="check"></span>
+                                  Наличными
+                                </label>
+                            </div>
+                            <div class="radio radio-primary">
+                                <label>
+                                  <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1" />
+                                  <span class="circle"></span><span class="check"></span>
+                                  По карте курьеру
+                                </label>
+                            </div>
+                            <div class="radio radio-primary">
+                                <label>
+                                  <input disabled type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2" />
+                                  <span class="circle"></span><span class="check"></span>
+                                  По карте онлайн
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group label-floating">
+                                    <label for="checkout-phone" class="control-label">Сдача с</label>
+                                    <input type="text" class="form-control" id="checkout-cash" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group label-floating">
+                                    <label for="checkout-phone" class="control-label"><span class="rub"><strike>P</strike></span>-бонусов?</label>
+                                    <input type="text" class="form-control" id="checkout-bonus" value="0" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group label-floating" style="margin-top:30px">
+                                    <label for="checkout-comment" class="control-label">Комментарий</label>
+                                    <input type="text" class="form-control" id="checkout-comment" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-buttons">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-6">
+                        <button class="button main" id="buttonCheckoutDelivery">Доставка</button>
+                    </div>
+                    <div class="col-lg-6 col-xs-6">
+                        <button class="button main" id="buttonCheckoutReservation">Бронирование</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        )*/
 }
 
 function removeItemById(itemId) {

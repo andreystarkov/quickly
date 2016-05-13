@@ -68,8 +68,9 @@
                     <div class="checkout-order-inner">
                      <button class="checkout-close checkout-cancel"><i class="icon icn-cancel"></i></button>
                          <div class="checkout-inner-container">
+                            <div class="checkout-step checkout-step-one active">
                             <div class="row">
-                                <div class="col-lg-7">
+                                <div class="col-lg-12 col-xs-12">
                                     <div class="box-summary">
                                         <table class="checkout-summary">
                                             <thead>
@@ -83,11 +84,124 @@
                                             <tbody class="checkout-contents" id="cartContentTable"></tbody>
                                         </table>
                                     </div>
+                                    <div class="checkout-box" id="checkoutForm"></div>
                                     <div class="checkout-footer" id="cartFooter">
                                     </div>
                                 </div>
-                                <div class="col-lg-5 checkout-box" id="checkoutForm"></div>
+                                <!-- <div class="col-lg-5 checkout-box" id="checkoutForm"></div> -->
                             </div>
+                            <div class="checkout-buttons">
+                                <div class="row">
+                                    <div class="col-lg-6 col-xs-6">
+                                        <button class="button main" id="buttonCheckoutDelivery">Доставка</button>
+                                    </div>
+                                    <div class="col-lg-6 col-xs-6">
+                                        <button class="button main" id="buttonCheckoutReservation">Бронирование</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout-step checkout-step-two">
+                        <h3>Дополнительная информация</h3>
+    <div class="checkout-form">
+        <div class="control-group">
+            <div class="row">
+                <div class="col-lg-4 col-xs-4">
+                    <div class="form-group label-floating">
+                        <label for="checkout-street" class="control-label">Улица</label>
+                        <input type="text" class="form-control" id="checkout-street" />
+                    </div>
+                </div>
+                <div class="col-lg-2 col-xs-2">
+                    <div class="form-group label-floating">
+                        <label for="checkout-building" class="control-label">Дом</label>
+                        <input type="text" class="form-control" id="checkout-building" />
+                    </div>
+                </div>
+                <div class="col-lg-2 col-xs-2">
+                    <div class="form-group label-floating">
+                        <label for="checkout-apartment" class="control-label">Квартира</label>
+                        <input type="text" class="form-control" id="checkout-apartment" />
+                    </div>
+                </div>
+                <div class="col-lg-2 col-xs-2">
+                    <div class="form-group label-floating">
+                        <label for="checkout-porch" class="control-label">Подьезд</label>
+                        <input type="text" class="form-control" id="checkout-porch" />
+                    </div>
+                </div>
+                <div class="col-lg-2 col-xs-2">
+                    <div class="form-group label-floating">
+                        <label for="checkout-floor" class="control-label">Этаж</label>
+                        <input type="text" class="form-control" id="checkout-floor" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="row radio-box">
+                <div class="col-lg-6">
+                    <div class="the-label">
+                        <span>Способ оплаты</span>
+                    </div>
+                    <div class="form-group radio-group">
+                        <div class="radio radio-primary">
+                            <label>
+                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked />
+                              <span class="circle"></span><span class="check"></span>
+                              Наличными
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1" />
+                              <span class="circle"></span><span class="check"></span>
+                              По карте курьеру
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                              <input disabled type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2" />
+                              <span class="circle"></span><span class="check"></span>
+                              По карте онлайн
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group label-floating">
+                                <label for="checkout-phone" class="control-label">Сдача с</label>
+                                <input type="text" class="form-control" id="checkout-cash" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group label-floating">
+                                <label for="checkout-phone" class="control-label"><span class="rub"><strike>P</strike></span>-бонусов?</label>
+                                <input type="text" class="form-control" id="checkout-bonus" value="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group label-floating" style="margin-top:30px">
+                                <label for="checkout-comment" class="control-label">Комментарий</label>
+                                <input type="text" class="form-control" id="checkout-comment" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+                <button class="button main button-checkout-delivery" id="buttonCreateOrder">Оформить заказ</button>
+
+        </div>
+
+            </div>
+        </div>
+    </div>
                         </div>
                     </div>
                 </div>

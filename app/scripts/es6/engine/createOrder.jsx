@@ -2,6 +2,7 @@ import {clearCart} from './checkout.func.jsx';
 import {createReservation} from './createReservation.jsx';
 import {registerUser,sendSMSCode} from '../auth.jsx';
 
+var _ = require('underscore');
 var registerUserModal = require('./registerUserModal.js');
 var editProfileField = require('./editProfileField.js');
 
@@ -98,6 +99,7 @@ export function createOrder(callback){
     var reservation = getStorage('theReservation');
 
     if( userToken ) {
+
         if( reservation ){
             swal({
             title: 'Внимание!',

@@ -194,8 +194,25 @@ $(function() {
         getReservationPointsList(id, time);
     });
 
-    $(document).on('click', '#buttonCheckoutDelivery', function(event){
+    $(document).on('click', '#buttonCreateOrder', function(event){
         createOrder();
+    });
+
+    $(document).on('click', '#buttonCheckoutDelivery', function(event){
+      //  alert('lol');
+      //  createOrder();
+      if( $('#checkout-name').val() && $('#checkout-phone').val() && $('#checkout-persons').val() ){
+          if( $('.checkout-step-two').hasClass('active') ){
+            // lol
+               } else {
+              $('.checkout-step').removeClass('active');
+              $('.checkout-step-two').addClass('active');
+          }
+      } else {
+        toastr.error('Заполните имя и телефон!');
+      }
+
+
     });
 
     $(document).on({

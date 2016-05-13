@@ -37,26 +37,52 @@ function pasteCheckoutFormUnregistered(){
         reservationToggle = "disabled=true";
     } else reservationToggle = "disabled=false";
 
-    var out = `
+    return `
+   <div class="checkout-form">
+        <div class="control-group">
+            <div class="row">
+                <div class="col-lg-5 col-xs-6">
+                    <div class="form-group label-floating required">
+                        <label for="checkout-name" class="control-label">Ваше имя <b class="required-mark">*</b></label>
+                        <input type="text" class="form-control" id="checkout-name" value=${userName} >
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-6">
+                    <div class="form-group label-floating required">
+                        <label for="checkout-phone" class="control-label">Телефон <b class="required-mark">*</b></label>
+                        <input type="text" class="form-control" id="checkout-phone" value=${userPhone} >
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group label-floating required">
+                        <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>
+                        <input value="1" type="search" class="form-control" id="checkout-persons" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+/*    return(
     <div class="checkout-form">
         <div class="control-group">
             <div class="row">
                 <div class="col-lg-5 col-xs-6">
                     <div class="form-group label-floating required">
                         <label for="checkout-name" class="control-label">Ваше имя <b class="required-mark">*</b></label>
-                        <input type="text" class="form-control" id="checkout-name" value=${userName}>
+                        <input type="text" class="form-control" id="checkout-name" value={userName} />
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-6">
                     <div class="form-group label-floating required">
                         <label for="checkout-phone" class="control-label">Телефон <b class="required-mark">*</b></label>
-                        <input type="text" class="form-control" id="checkout-phone" value="${userPhone}">
+                        <input type="text" class="form-control" id="checkout-phone" value={userPhone} />
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="form-group label-floating required">
                         <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>
-                        <input value="1" type="search" class="form-control" id="checkout-persons">
+                        <input value="1" type="search" class="form-control" id="checkout-persons" />
                     </div>
                 </div>
             </div>
@@ -64,31 +90,31 @@ function pasteCheckoutFormUnregistered(){
                 <div class="col-lg-4 col-xs-4">
                     <div class="form-group label-floating">
                         <label for="checkout-street" class="control-label">Улица</label>
-                        <input type="text" class="form-control" id="checkout-street">
+                        <input type="text" class="form-control" id="checkout-street" />
                     </div>
                 </div>
                 <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating">
                         <label for="checkout-building" class="control-label">Дом</label>
-                        <input type="text" class="form-control" id="checkout-building">
+                        <input type="text" class="form-control" id="checkout-building" />
                     </div>
                 </div>
                 <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating">
                         <label for="checkout-apartment" class="control-label">Квартира</label>
-                        <input type="text" class="form-control" id="checkout-apartment">
+                        <input type="text" class="form-control" id="checkout-apartment" />
                     </div>
                 </div>
                 <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating">
                         <label for="checkout-porch" class="control-label">Подьезд</label>
-                        <input type="text" class="form-control" id="checkout-porch">
+                        <input type="text" class="form-control" id="checkout-porch" />
                     </div>
                 </div>
                 <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating">
                         <label for="checkout-floor" class="control-label">Этаж</label>
-                        <input type="text" class="form-control" id="checkout-floor">
+                        <input type="text" class="form-control" id="checkout-floor" />
                     </div>
                 </div>
             </div>
@@ -102,21 +128,21 @@ function pasteCheckoutFormUnregistered(){
                     <div class="form-group radio-group">
                         <div class="radio radio-primary">
                             <label>
-                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked>
+                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked />
                               <span class="circle"></span><span class="check"></span>
                               Наличными
                             </label>
                         </div>
                         <div class="radio radio-primary">
                             <label>
-                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1">
+                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1" />
                               <span class="circle"></span><span class="check"></span>
                               По карте курьеру
                             </label>
                         </div>
                         <div class="radio radio-primary">
                             <label>
-                              <input disabled type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2">
+                              <input disabled type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2" />
                               <span class="circle"></span><span class="check"></span>
                               По карте онлайн
                             </label>
@@ -128,13 +154,13 @@ function pasteCheckoutFormUnregistered(){
                         <div class="col-lg-6">
                             <div class="form-group label-floating">
                                 <label for="checkout-phone" class="control-label">Сдача с</label>
-                                <input type="text" class="form-control" id="checkout-cash">
+                                <input type="text" class="form-control" id="checkout-cash" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group label-floating">
                                 <label for="checkout-phone" class="control-label"><span class="rub"><strike>P</strike></span>-бонусов?</label>
-                                <input type="text" class="form-control" id="checkout-bonus" value="0">
+                                <input type="text" class="form-control" id="checkout-bonus" value="0" />
                             </div>
                         </div>
                     </div>
@@ -142,7 +168,7 @@ function pasteCheckoutFormUnregistered(){
                         <div class="col-lg-12">
                             <div class="form-group label-floating" style="margin-top:30px">
                                 <label for="checkout-comment" class="control-label">Комментарий</label>
-                                <input type="search" class="form-control" id="checkout-comment">
+                                <input type="text" class="form-control" id="checkout-comment" />
                             </div>
                         </div>
                     </div>
@@ -154,14 +180,13 @@ function pasteCheckoutFormUnregistered(){
                 <div class="col-lg-6 col-xs-6">
                     <button class="button main" id="buttonCheckoutDelivery">Доставка</button>
                 </div>
-                <div class="col-lg-6 col-xs-6" style=>
+                <div class="col-lg-6 col-xs-6">
                     <button class="button main" id="buttonCheckoutReservation">Бронирование</button>
                 </div>
             </div>
         </div>
     </div>
-    `;
-    return out;
+    )*/
 }
 
 function removeItemById(itemId){

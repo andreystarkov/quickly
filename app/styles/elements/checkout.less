@@ -5,7 +5,23 @@
 @colorCartBackground: desaturate(lighten(@colorGray,11%),2%);
 @colorCartHighlight: darken(#e48895,2%);
 
+.checkout-step {
+    display:none;
+    &.active {
+        display:block;
+    }
+    .button, #buttonCreateOrder {
+        color:#000;
+        margin-top:20px;
+        display:block;
+    }
+}
 
+.checkout-step {
+    h3 {
+        text-align:left;
+    }
+}
 .overlay {
     position:fixed;
     top:0;
@@ -381,8 +397,12 @@ a.checkout-button:focus {
         font-weight:500;
     }
 }
+
+.checkout-box {
+    margin-top:20px;
+}
 .box-summary {
-    height: 300px;
+    height: 240px;
     background: darken(@colorCartBackground,2%);
     border-bottom:3px solid darken(@colorCartBackground,5%);
     overflow-y: auto;
