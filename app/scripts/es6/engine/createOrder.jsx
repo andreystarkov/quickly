@@ -124,8 +124,9 @@ export function createOrder(callback){
     } else {
         if(phone && name){
             registerUserModal(phone, name, params, function(params_){
-                console.log('registerUserModal callback', _params);
+                console.log('registerUserModal callback', params_);
                 postOrder(params_, function(data){
+                    clearCart();
                     if (callback) callback(data);
                 })
             });

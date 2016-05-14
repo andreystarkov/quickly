@@ -72,7 +72,8 @@
     "utils-merge": "^1.0.0",
     "vinyl-buffer": "latest",
     "vinyl-source-stream": "latest",
-    "watchify": "latest"
+    "watchify": "latest",
+    "webpack": "^1.13.0"
   },
   "dependencies": {
     "alt": "^0.18.4",

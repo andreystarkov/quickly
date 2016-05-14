@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
-import LoadingOrderAnimation from 'react-loading-order-with-animation';
 
+var FullscreenPreload = require('../components/preloader.js');
 var CompanyListActions = require('../actions/companyListActions.js');
 var CuisinesStore = require('../stores/cuisinesStore.js');
 var CuisinesActions = require('../actions/cuisinesActions.js');
@@ -50,6 +50,11 @@ var CuisinesSelectList = React.createClass({
         CuisinesActions.fetchList();
      //   console.log('CuisinesSelectList did moumt');
     },
+    componentDidUpdate: function() {
+        setTimeout(function(){
+         $('.fullscreen-preload').fadeOut(500);
+        }, 300);
+    },
     render: function() {
         var allCuisines = this.state.cuisinesData;
         var list = allCuisines.map(function(the, key) {
@@ -59,6 +64,7 @@ var CuisinesSelectList = React.createClass({
         });
         return (
         <section className="the-tab tab-active main-categories types-grid">
+        <FullscreenPreload />
             <div className="container">
                 <div className="row" id="cuisinesList">
                     {list}

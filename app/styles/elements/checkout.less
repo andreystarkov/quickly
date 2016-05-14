@@ -7,19 +7,16 @@
 
 .checkout-step {
     display:none;
+
     &.active {
-        display:block;
-    }
-    .button, #buttonCreateOrder {
-        color:#000;
-        margin-top:20px;
         display:block;
     }
 }
 
 .checkout-step {
     h3 {
-        text-align:left;
+    text-align: center;
+    font-size: 22px;
     }
 }
 .overlay {
@@ -47,6 +44,9 @@
     text-align: left;
     margin-bottom: 30px;
     font-weight: 400;
+    }
+    .button {
+
     }
 }
 .checkout-active {
@@ -175,7 +175,55 @@
     line-height: 0.9;
 }
 
+.button-wrap {
+
+    .button-checkout {
+        i.icon {
+            font-size:1.4em;
+        }
+        width:100%;
+        display: block;
+        /* width: 100%; */
+        padding: 10px 15px;
+        font-size: 15px;
+        margin:0;
+        &.btn-success {
+            background: @colorGreen;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+        &.button-delivery {
+            &:disabled {
+                background: transparent;
+            }
+            &:hover {
+                background: lighten(@colorYellow,10%);
+            }
+            background: @colorYellow;
+        }
+        &.button-reservation {
+            &:disabled {
+                background: transparent;
+            }
+            background: @colorYellow;
+        }
+    }
+
+}
+
 .checkout {
+    .rub {
+        font-weight:700;
+    }
+    .checkout-address-form {
+        padding:20px 15px;
+
+        border-radius:3px;
+        border: 3px solid fade(@colorBlack,10%);
+        .form-group {
+            margin-top:0;
+        }
+    }
     .radio {
         padding-left:5px;
     }
@@ -183,6 +231,12 @@
         padding-left:25px;
 
     }
+    .button-wrap {
+
+        margin-top:20px;
+    }
+
+
     position: absolute;
     left: 50%;
     margin: 0 auto;
@@ -214,8 +268,12 @@
 }
 
 .box-summary {
-    width:95%;
+    overflow-x: hidden;
     margin: 0 auto;
+    .total-wrap {
+       padding-left:15px;
+       padding-right:15px;
+    }
 }
 
 .checkout-active {
@@ -323,7 +381,7 @@ a.checkout-button:focus {
 .checkout-order-inner {
     position: relative;
     padding-top:4em;
-    padding: 3.4em 2em;
+    padding: 2.4em 2em;
 }
 
 .checkout-close {
@@ -371,7 +429,7 @@ a.checkout-button:focus {
 }
 
 .checkout-buttons {
-    margin-top:20px;
+    margin-top:5px;
 }
 .checkout-form {
     width: 100%;
@@ -385,9 +443,12 @@ a.checkout-button:focus {
 }
 
 .price-total {
-    margin-top:30px;
-    text-align:left;
-    font-size:20px;
+    margin-top: 15px;
+    margin-bottom:15px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 300;
+
     b {
         font-weight:400;
     }
@@ -402,15 +463,16 @@ a.checkout-button:focus {
     margin-top:20px;
 }
 .box-summary {
-    height: 240px;
-    background: darken(@colorCartBackground,2%);
-    border-bottom:3px solid darken(@colorCartBackground,5%);
+    max-height: 240px;
+    background: lighten(@colorDefaultHeader,1%);
+    padding-bottom:0px;
+    border-bottom:3px solid darken( @colorDefaultHeader,5%);
     overflow-y: auto;
 
 }
 
 .checkout-summary {
-    margin: 0.5em 0 0.75em;
+    margin: 0.2em 0 0.25em;
     width:100%;
     margin-right:3%;
     border-left:1px solid darken(@colorCartBackground,6%);
@@ -558,8 +620,8 @@ a.checkout-button:focus {
     padding-top: 0.5em;
 }
 
-.checkout-summary tbody tr:nth-child(even) {
-    background:fade(#fff,35%);
+.checkout-summary tbody tr:nth-child(odd) {
+    background: lighten(@colorDefaultHeader, 3%);
 }
 
 .checkout-summary tbody tr.reservation-table:nth-child(odd) {
@@ -569,7 +631,7 @@ a.checkout-button:focus {
 .checkout-summary thead {
 }
 .checkout-summary thead th {
-    color: mix(@colorRed, @colorWhite,50%);
+    color: mix(mix(@colorRed, @colorWhite,50%), @colorBlack, 80%);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
@@ -592,6 +654,15 @@ a.checkout-button:focus {
     text-align: right;
 }
 
+.checkout-first-fields {
+    .control-group {
+        margin-bottom: 0px;
+    }
+    padding: 10px 20px;
+    background: #fff;
+    border: 3px solid darken(@colorDefaultHeader, 2%);
+    border-radius:3px;
+}
 .checkout-action {
     padding: 0;
     border: none;

@@ -1,4 +1,10 @@
 @charset "UTF-8";
+/*
+* @Author: Andrey Starkov
+* @Date:   2016-05-14 10:27:56
+* @Last Modified by:   Andrey Starkov
+* @Last Modified time: 2016-05-14 10:28:36
+*/
 /*@colorGrayLight: #eeece3;
 @colorGray: #E2E0D3; // #eae5dd
 @colorWhite: #f8f6f3;
@@ -6957,14 +6963,9 @@ html {
 .checkout-step.active {
   display: block;
 }
-.checkout-step .button,
-.checkout-step #buttonCreateOrder {
-  color: #000;
-  margin-top: 20px;
-  display: block;
-}
 .checkout-step h3 {
-  text-align: left;
+  text-align: center;
+  font-size: 22px;
 }
 .overlay {
   position: fixed;
@@ -7104,6 +7105,37 @@ html {
   font-weight: bold;
   line-height: 0.9;
 }
+.button-wrap .button-checkout {
+  width: 100%;
+  display: block;
+  /* width: 100%; */
+  padding: 10px 15px;
+  font-size: 15px;
+  margin: 0;
+}
+.button-wrap .button-checkout i.icon {
+  font-size: 1.4em;
+}
+.button-wrap .button-checkout.btn-success {
+  background: #109634;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.button-wrap .button-checkout.button-delivery {
+  background: #fff036;
+}
+.button-wrap .button-checkout.button-delivery:disabled {
+  background: transparent;
+}
+.button-wrap .button-checkout.button-delivery:hover {
+  background: #fff469;
+}
+.button-wrap .button-checkout.button-reservation {
+  background: #fff036;
+}
+.button-wrap .button-checkout.button-reservation:disabled {
+  background: transparent;
+}
 .checkout {
   position: absolute;
   left: 50%;
@@ -7124,11 +7156,25 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.checkout .rub {
+  font-weight: 700;
+}
+.checkout .checkout-address-form {
+  padding: 20px 15px;
+  border-radius: 3px;
+  border: 3px solid rgba(33, 32, 31, 0.1);
+}
+.checkout .checkout-address-form .form-group {
+  margin-top: 0;
+}
 .checkout .radio {
   padding-left: 5px;
 }
 .checkout .radio label {
   padding-left: 25px;
+}
+.checkout .button-wrap {
+  margin-top: 20px;
 }
 .checkout .button {
   text-align: center;
@@ -7141,8 +7187,12 @@ html {
   margin-bottom: 8px;
 }
 .box-summary {
-  width: 95%;
+  overflow-x: hidden;
   margin: 0 auto;
+}
+.box-summary .total-wrap {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .checkout-active {
   /* center on screen (padding of parent, half of summary height, half of viewport height) */
@@ -7243,7 +7293,7 @@ a.checkout-button:focus {
 .checkout-order-inner {
   position: relative;
   padding-top: 4em;
-  padding: 3.4em 2em;
+  padding: 2.4em 2em;
 }
 .checkout-close {
   position: absolute;
@@ -7287,7 +7337,7 @@ a.checkout-button:focus {
   margin-bottom: 10px;
 }
 .checkout-buttons {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .checkout-form {
   width: 100%;
@@ -7301,9 +7351,10 @@ a.checkout-button:focus {
   margin-top: 20px;
 }
 .price-total {
-  margin-top: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
 }
 .price-total b {
@@ -7317,13 +7368,14 @@ a.checkout-button:focus {
   margin-top: 20px;
 }
 .box-summary {
-  height: 240px;
-  background: #f4f3ef;
-  border-bottom: 3px solid #eeede6;
+  max-height: 240px;
+  background: #edece4;
+  padding-bottom: 0px;
+  border-bottom: 3px solid #e1dfd2;
   overflow-y: auto;
 }
 .checkout-summary {
-  margin: 0.5em 0 0.75em;
+  margin: 0.2em 0 0.25em;
   width: 100%;
   margin-right: 3%;
   border-left: 1px solid #eceae3;
@@ -7476,14 +7528,14 @@ a.checkout-button:focus {
 .checkout-summary tbody tr:first-child td {
   padding-top: 0.5em;
 }
-.checkout-summary tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.35);
+.checkout-summary tbody tr:nth-child(odd) {
+  background: #f1f0ea;
 }
 .checkout-summary tbody tr.reservation-table:nth-child(odd) {
   background: rgba(255, 255, 255, 0.85);
 }
 .checkout-summary thead th {
-  color: #ec807e;
+  color: #c36c6b;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
@@ -7501,6 +7553,15 @@ a.checkout-button:focus {
 .checkout-summary th:last-child,
 .checkout-summary td:last-child {
   text-align: right;
+}
+.checkout-first-fields {
+  padding: 10px 20px;
+  background: #fff;
+  border: 3px solid #e7e5db;
+  border-radius: 3px;
+}
+.checkout-first-fields .control-group {
+  margin-bottom: 0px;
 }
 .checkout-action {
   padding: 0;
@@ -7786,9 +7847,6 @@ body .required label {
 }
 body .required input {
   color: #21201f;
-}
-body .required .form-control {
-  border-bottom: 2px solid rgba(33, 32, 31, 0.2);
 }
 body .noUi-handle {
   z-index: 1;
@@ -8467,7 +8525,7 @@ body .form-group {
 @media screen and (min-width: 1600px) {
   body .checkout-order {
     max-height: 80vh;
-    max-width: 40vw;
+    max-width: 32vw;
   }
 }
 @media all and (min-width: 1200px) {
@@ -10011,7 +10069,7 @@ section.company-list section.company-about:hover .thumb-round {
 }
 section.company-about {
   min-height: 160px;
-  background: rgba(244, 242, 237, 0.8);
+  background: #ebe9e1;
   padding-top: 20px;
 }
 section.company-about .box {
@@ -20605,52 +20663,49 @@ Slider
 .fullscreen-preload .preloader-logo-svg .svg-blue,
 .fullscreen-preload .preloader-logo-svg .fil3 {
   opacity: 0;
-  -webkit-animation: opacity 4s infinite;
-  -moz-animation: opacity 4s infinite;
-  animation: opacity 4s infinite;
-  -webkit-animation-delay: 0.2s;
-  -moz-animation-delay: 0.2s;
-  animation-delay: 0.2s;
+  -webkit-animation: opacity 1s infinite;
+  -moz-animation: opacity 1s infinite;
+  animation: opacity 1s infinite;
 }
 .fullscreen-preload .preloader-logo-svg .svg-green,
 .fullscreen-preload .preloader-logo-svg .fil4 {
   opacity: 0;
-  -webkit-animation: opacity 3s infinite;
-  -moz-animation: opacity 3s infinite;
-  animation: opacity 3s infinite;
-  -webkit-animation-delay: 0.4s;
-  -moz-animation-delay: 0.4s;
-  animation-delay: 0.4s;
+  -webkit-animation: opacity 1.2s infinite;
+  -moz-animation: opacity 1.2s infinite;
+  animation: opacity 1.2s infinite;
+  -webkit-animation-delay: 0.1s;
+  -moz-animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
 .fullscreen-preload .preloader-logo-svg .svg-yellow,
 .fullscreen-preload .preloader-logo-svg .fil5 {
   opacity: 0;
-  -webkit-animation: opacity 3s infinite;
-  -moz-animation: opacity 3s infinite;
-  animation: opacity 3s infinite;
-  -webkit-animation-delay: 0.6s;
-  -moz-animation-delay: 0.6s;
-  animation-delay: 0.6s;
+  -webkit-animation: opacity 1.4s infinite;
+  -moz-animation: opacity 1.4s infinite;
+  animation: opacity 1.4s infinite;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 .fullscreen-preload .preloader-logo-svg .svg-red,
 .fullscreen-preload .preloader-logo-svg .fil6 {
   opacity: 0;
-  -webkit-animation: opacity 3s infinite;
-  -moz-animation: opacity 3s infinite;
-  animation: opacity 3s infinite;
-  -webkit-animation-delay: 0.8s;
-  -moz-animation-delay: 0.8s;
-  animation-delay: 0.8s;
+  -webkit-animation: opacity 1.5s infinite;
+  -moz-animation: opacity 1.5s infinite;
+  animation: opacity 1.5s infinite;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
 .fullscreen-preload .preloader-logo-svg .svg-red-angle,
 .fullscreen-preload .preloader-logo-svg .fil2 {
   opacity: 0;
-  -webkit-animation: opacity 2.7s infinite;
-  -moz-animation: opacity 2.7s infinite;
-  animation: opacity 2.7s infinite;
-  -webkit-animation-delay: 0.7s;
-  -moz-animation-delay: 0.7s;
-  animation-delay: 0.7s;
+  -webkit-animation: opacity 1.6s infinite;
+  -moz-animation: opacity 1.6s infinite;
+  animation: opacity 1.6s infinite;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 .fullscreen-preload .disappear {
   opacity: 0;
@@ -20895,17 +20950,17 @@ Slider
   }
 }
 .fullscreen-preload .circle {
-  -webkit-animation: rot 5s linear infinite;
-  -moz-animation: rot 5s linear infinite;
-  animation: rot 5s linear infinite;
+  -webkit-animation: rot 4s linear infinite;
+  -moz-animation: rot 4s linear infinite;
+  animation: rot 4s linear infinite;
 }
 .fullscreen-preload circle {
   fill: none;
   stroke: rgba(255, 255, 255, 0.5);
   stroke-width: 42px;
-  -webkit-animation: ani 16s linear infinite reverse, rot 56s infinite;
-  -moz-animation: ani 16s linear infinite reverse, rot 56s infinite;
-  animation: ani 16s linear infinite reverse, rot 56s infinite;
+  -webkit-animation: ani 6s linear infinite reverse, rot 16s infinite;
+  -moz-animation: ani 6s linear infinite reverse, rot 16s infinite;
+  animation: ani 6s linear infinite reverse, rot 16s infinite;
 }
 .fullscreen-preload .preloader-logo:hover .circle {
   -webkit-animation: rot 8s cubic-bezier(0, 1.65, 0.82, 0.19) infinite reverse;
@@ -21779,7 +21834,7 @@ body .company-item .mobile {
   width: 100%;
 }
 .header-gray {
-  background: #f1f0ea;
+  background: #ebe9e1;
 }
 .header-gray .cuisine-select-row {
   padding-top: 50px;
@@ -21788,8 +21843,6 @@ body .company-item .mobile {
   margin-right: 8px;
   font-weight: normal;
   text-transform: uppercase;
-  background: #f7f6f1;
-  border-bottom: 3px solid #e8e6d9;
 }
 .header-gray .container {
   padding-left: 25px;

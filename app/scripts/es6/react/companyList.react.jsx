@@ -1,5 +1,6 @@
 import { browserHistory } from 'react-router';
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
+
 var FullscreenPreload = require('./components/preloader.js');
 var _ = require('underscore');
 var ButtonMore = require('./components/buttonMore.js');
@@ -82,7 +83,7 @@ var CompanyList = React.createClass({
     componentDidUpdate: function(){
         setTimeout(function(){
          $('.fullscreen-preload').fadeOut(500);
-        }, 1000);
+        }, 100);
     },
     getInitialState: function() {
       return {

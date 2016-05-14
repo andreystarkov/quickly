@@ -132,8 +132,8 @@ var MenuItemsList = React.createClass({
     },
     componentDidUpdate: function(){
         setTimeout(function(){
-         $('.fullscreen-preload').fadeOut(500);
-        }, 1000);
+         $('.fullscreen-preload').fadeOut(300);
+        }, 100);
     },
     componentDidMount: function(){
 

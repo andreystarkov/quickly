@@ -1,5 +1,9 @@
-import {clearCart,refreshCart} from "./engine/checkout.func.jsx";
+import {clearCart,refreshCart} from './engine/checkout.func.jsx';
+import {createOrder} from './engine/createOrder.jsx';
+
 var _ = require('underscore');
+var registerUserModal = require('./engine/registerUserModal.js');
+
 
 function pasteCartElement(cartElement, elementCount){
     var el = `
@@ -38,24 +42,24 @@ function pasteCheckoutFormUnregistered(){
     } else reservationToggle = "disabled=false";
 
     return `
-   <div class="checkout-form">
+   <div class="checkout-form checkout-first-fields">
         <div class="control-group">
             <div class="row">
-                <div class="col-lg-5 col-xs-6">
-                    <div class="form-group label-floating required">
-                        <label for="checkout-name" class="control-label">Ваше имя <b class="required-mark">*</b></label>
+                <div class="col-lg-5 col-xs-5">
+                    <div class="form-group label-floating">
+                        <label for="checkout-name" class="control-label">Ваше имя *</label>
                         <input type="text" class="form-control" id="checkout-name" value=${userName} >
                     </div>
                 </div>
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-5 col-xs-5">
                     <div class="form-group label-floating required">
-                        <label for="checkout-phone" class="control-label">Телефон <b class="required-mark">*</b></label>
+                        <label for="checkout-phone" class="control-label">Телефон *</label>
                         <input type="text" class="form-control" id="checkout-phone" value=${userPhone} >
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2 col-xs-2">
                     <div class="form-group label-floating required">
-                        <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>
+                        <label for="checkout-persons" class="control-label" value="1">Персон *</label>
                         <input value="1" type="search" class="form-control" id="checkout-persons" >
                     </div>
                 </div>
@@ -63,130 +67,6 @@ function pasteCheckoutFormUnregistered(){
         </div>
     </div>
     `;
-/*    return(
-    <div class="checkout-form">
-        <div class="control-group">
-            <div class="row">
-                <div class="col-lg-5 col-xs-6">
-                    <div class="form-group label-floating required">
-                        <label for="checkout-name" class="control-label">Ваше имя <b class="required-mark">*</b></label>
-                        <input type="text" class="form-control" id="checkout-name" value={userName} />
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-6">
-                    <div class="form-group label-floating required">
-                        <label for="checkout-phone" class="control-label">Телефон <b class="required-mark">*</b></label>
-                        <input type="text" class="form-control" id="checkout-phone" value={userPhone} />
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="form-group label-floating required">
-                        <label for="checkout-persons" class="control-label" value="1">Персон <b class="required-mark">*</b></label>
-                        <input value="1" type="search" class="form-control" id="checkout-persons" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-xs-4">
-                    <div class="form-group label-floating">
-                        <label for="checkout-street" class="control-label">Улица</label>
-                        <input type="text" class="form-control" id="checkout-street" />
-                    </div>
-                </div>
-                <div class="col-lg-2 col-xs-2">
-                    <div class="form-group label-floating">
-                        <label for="checkout-building" class="control-label">Дом</label>
-                        <input type="text" class="form-control" id="checkout-building" />
-                    </div>
-                </div>
-                <div class="col-lg-2 col-xs-2">
-                    <div class="form-group label-floating">
-                        <label for="checkout-apartment" class="control-label">Квартира</label>
-                        <input type="text" class="form-control" id="checkout-apartment" />
-                    </div>
-                </div>
-                <div class="col-lg-2 col-xs-2">
-                    <div class="form-group label-floating">
-                        <label for="checkout-porch" class="control-label">Подьезд</label>
-                        <input type="text" class="form-control" id="checkout-porch" />
-                    </div>
-                </div>
-                <div class="col-lg-2 col-xs-2">
-                    <div class="form-group label-floating">
-                        <label for="checkout-floor" class="control-label">Этаж</label>
-                        <input type="text" class="form-control" id="checkout-floor" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="row radio-box">
-                <div class="col-lg-6">
-                    <div class="the-label">
-                        <span>Способ оплаты</span>
-                    </div>
-                    <div class="form-group radio-group">
-                        <div class="radio radio-primary">
-                            <label>
-                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-cash" value="0" checked />
-                              <span class="circle"></span><span class="check"></span>
-                              Наличными
-                            </label>
-                        </div>
-                        <div class="radio radio-primary">
-                            <label>
-                              <input type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card-courier" value="1" />
-                              <span class="circle"></span><span class="check"></span>
-                              По карте курьеру
-                            </label>
-                        </div>
-                        <div class="radio radio-primary">
-                            <label>
-                              <input disabled type="radio" class="checkout-payment-type" name="checkout-payment-type" id="checkout-payment-type-card" value="2" />
-                              <span class="circle"></span><span class="check"></span>
-                              По карте онлайн
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group label-floating">
-                                <label for="checkout-phone" class="control-label">Сдача с</label>
-                                <input type="text" class="form-control" id="checkout-cash" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group label-floating">
-                                <label for="checkout-phone" class="control-label"><span class="rub"><strike>P</strike></span>-бонусов?</label>
-                                <input type="text" class="form-control" id="checkout-bonus" value="0" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group label-floating" style="margin-top:30px">
-                                <label for="checkout-comment" class="control-label">Комментарий</label>
-                                <input type="text" class="form-control" id="checkout-comment" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="checkout-buttons">
-            <div class="row">
-                <div class="col-lg-6 col-xs-6">
-                    <button class="button main" id="buttonCheckoutDelivery">Доставка</button>
-                </div>
-                <div class="col-lg-6 col-xs-6">
-                    <button class="button main" id="buttonCheckoutReservation">Бронирование</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    )*/
 }
 
 function removeItemById(itemId){
@@ -207,6 +87,35 @@ $(function() {
         console.log('Getting Cart Contents..');
         theCart.contents = getStorage('theCart');
     }
+
+    $(document).on('click', '#buttonCheckoutCancel', function(event){
+        clearCart();
+    });
+
+    $(document).on('click', '#buttonCreateOrder', function(event){
+        createOrder();
+    });
+
+    $(document).on('click', '#buttonCheckoutDelivery', function(event){
+      var phone = $('#checkout-phone').val(), persons = $('#checkout-persons').val(), name = $('#checkout-name').val();
+      if( phone && persons && name ){
+          if( $('.checkout-step-two').hasClass('active') ){
+            // lol
+            } else {
+                $('.checkout-step').removeClass('active');
+                $('.checkout-step-two').addClass('active');
+                $('.checkout-step-two').velocity('transition.flipXIn', function(){
+                    $('.checkout-step').attr('style', '');
+                });
+            }
+      } else {
+        if( !phone ) $('#checkout-phone').parent().velocity('callout.shake');
+        if( !persons ) $('#checkout-persons').parent().velocity('callout.shake');
+        if( !name ) $('#checkout-name').parent().velocity('callout.shake');
+        toastr.error('Введите номер телефона, ваше имя и количество персон!');
+      }
+
+    });
 
     $('#checkoutForm').html(pasteCheckoutFormUnregistered());
 
@@ -269,9 +178,6 @@ $(function() {
             console.log('Cart is empty! First blood!');
             addToCart(jsonObj, button);
         }
-
-
-
     });
 
     $(document).on('click', '.reservation-food .checkout-action', function(e){

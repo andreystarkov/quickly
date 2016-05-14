@@ -1,7 +1,7 @@
 var {clearCart,refreshCart} = require("./engine/checkout.func.jsx");
 var {createOrder} = require("./engine/createOrder.jsx");
 var {reservationAdded, createReservation} = require("./engine/createReservation.jsx");
-
+var registerUserModal = require('./engine/registerUserModal.js');
 // menuItems - массив при заказе с едой
 
 export function addReservationToCart(jsonObj, callback){
@@ -194,26 +194,6 @@ $(function() {
         getReservationPointsList(id, time);
     });
 
-    $(document).on('click', '#buttonCreateOrder', function(event){
-        createOrder();
-    });
-
-    $(document).on('click', '#buttonCheckoutDelivery', function(event){
-      //  alert('lol');
-      //  createOrder();
-      if( $('#checkout-name').val() && $('#checkout-phone').val() && $('#checkout-persons').val() ){
-          if( $('.checkout-step-two').hasClass('active') ){
-            // lol
-               } else {
-              $('.checkout-step').removeClass('active');
-              $('.checkout-step-two').addClass('active');
-          }
-      } else {
-        toastr.error('Заполните имя и телефон!');
-      }
-
-
-    });
 
     $(document).on({
         mouseenter: function () {
@@ -260,7 +240,9 @@ $(function() {
             if( menuItems ) {
                 menuCompany = menuItems[0].restaurant;
             }
+
             console.log('menuCompany: '+menuCompany, 'tableCompany:'+tableCompany );
+
             if( menuCompany == tableCompany ){
                 if(isEmpty(reservation) === false){
                     swal({

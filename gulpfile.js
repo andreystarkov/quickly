@@ -101,7 +101,7 @@ function bundle(bundler) {
       message: 'Generated file: <%= file.relative %>',
     }))
     .pipe(bundleTimer)
-    .pipe(notify('Scripts done'))
+  //  .pipe(notify('Scripts done'))
   //  .pipe(livereload());
 }
 
@@ -161,7 +161,10 @@ gulp.task('libs', function() {
     return gulp.src(config.js.libs)
         .pipe(concat('libs.js'))
         .pipe(gulp.dest(config.js.outputDir))
-        .pipe(notify('Libs done'));
+        .pipe(uglify())
+        .pipe(rename('libs.min.js'))
+        .pipe(gulp.dest(config.js.outputDir))
+        .pipe(notify('Libs merged & minifed'));
 });
 
 gulp.task('styles', function() {

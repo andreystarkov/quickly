@@ -40,6 +40,11 @@ export function clearCart(callback){
     $('#cartBottomPanel').velocity('transition.slideDownOut', { duration: 400 }, function(){
 
     });
+
+    $('.checkout-step').removeClass('active');
+    $('.checkout-step-one').addClass('active');
+
+
     if (callback) callback();
 }
 
@@ -51,7 +56,12 @@ export function refreshCart(){
     var foodCount = 0, tablesCount = 0, totalCount;
 
     if( cartContents ) foodCount = cartContents.length;
-    if( tables ) tablesCount = 1;
+    if( tables ) {
+        tablesCount = 1;
+        $('#buttonCheckoutReservation').removeAttr('disabled');
+    } else {
+        $('#buttonCheckoutReservation').attr('disabled','disabled');
+    }
 
     totalCount = tablesCount+foodCount;
 
@@ -83,7 +93,7 @@ export function refreshCart(){
         });
 
         $('.checkout-contents').html(tablesList+foodList);
-        $('.checkout-footer').html(templateCartFooter());
+        $('#checkout-total-text').html(templateCartFooter());
     }
 
 }
