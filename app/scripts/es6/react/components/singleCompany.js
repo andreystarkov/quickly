@@ -2,8 +2,9 @@
 * @Author: Andrey Starkov
 * @Date:   2016-03-29 20:59:52
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-05-04 18:24:52
+* @Last Modified time: 2016-05-14 20:18:29
 */
+
 import {showScreen} from "../../screens.jsx";
 import {browserHistory, Link} from "react-router";
 

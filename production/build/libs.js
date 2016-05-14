@@ -2245,7 +2245,6 @@ $(function() {
 
       $('.checkout-hidden').css({'display': 'none'});
 
-
       $('.button-tab-reservation').on('click', function(){
         setTimeout(
           function(){

@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 23:17:40
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-10 23:19:37
+* @Last Modified time: 2016-05-14 20:18:38
 */
 
 var BottomPanel = React.createClass({

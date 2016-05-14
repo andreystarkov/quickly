@@ -83,7 +83,7 @@ function mapError(err) {
   }
 }
 
-function bundle(bundler) {
+function bundle(bundler, callback) {
   var bundleTimer = duration('Javascript bundle time');
 
   runSequence('libs');
@@ -101,6 +101,7 @@ function bundle(bundler) {
       message: 'Generated file: <%= file.relative %>',
     }))
     .pipe(bundleTimer)
+
   //  .pipe(notify('Scripts done'))
   //  .pipe(livereload());
 }
@@ -136,14 +137,14 @@ gulp.task('deploy', function() {
       }));
 });
 
-gulp.task('js-merge', function(){
+gulp.task('everything', function(){
     return gulp.src([config.dist+'/build/libs.js', config.dist+'/build/es6.js'])
-        .pipe(concat('scripts.js'))
+        .pipe(concat('everything.js'))
         .pipe(gulp.dest(config.dist+'/build'))
         .pipe(uglify().on('error', gutil.log))
-        .pipe(rename('scripts.min.js'))
+        .pipe(rename('everything.min.js'))
         .pipe(gulp.dest(config.dist+'/build'))
-        .pipe(notify('Scripts merged'));
+        .pipe(notify('EVERYTHING merged'));
 });
 
 gulp.task('hold', function() {
@@ -161,10 +162,7 @@ gulp.task('libs', function() {
     return gulp.src(config.js.libs)
         .pipe(concat('libs.js'))
         .pipe(gulp.dest(config.js.outputDir))
-        .pipe(uglify())
-        .pipe(rename('libs.min.js'))
-        .pipe(gulp.dest(config.js.outputDir))
-        .pipe(notify('Libs merged & minifed'));
+        .pipe(notify('Libs merged'));
 });
 
 gulp.task('styles', function() {
@@ -211,7 +209,9 @@ gulp.task('default', ['styles', 'libs', 'html', 'watch'], function() {
     .plugin(watchify, {ignoreWatch: ['**/node_modules/**', '**/bower_components/**']})
     .transform(babelify, {presets: ['es2015', 'react']});
 
-  bundle(bundler);
+  bundle(bundler, function(){
+    console.log('govno');
+  });
 
   bundler.on('update', function() {
     bundle(bundler);

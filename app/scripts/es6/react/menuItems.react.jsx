@@ -5,7 +5,7 @@
 * @Last Modified time: 2016-03-24 17:41:56
 */
 import LoadingOrderAnimation from 'react-loading-order-with-animation';
-var Loader = require('react-loader');
+
 var FullscreenPreload = require('./components/preloader.js');
 
 var MenuItemsStore = require('./stores/menuItemsStore.js');
@@ -13,7 +13,6 @@ var CategoriesListActions = require('./actions/categoriesListActions.js');
 var CategoriesList = require('./categoriesList.react.jsx');
 var Spinner = require('./ui/spinner.js');
 var ButtonMore = require('./components/buttonMore.js');
-var Waypoint = require('react-waypoint');
 
 var SingleMenuItem = React.createClass({
     addToCart: function(e){

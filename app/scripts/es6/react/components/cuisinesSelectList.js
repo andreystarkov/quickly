@@ -64,7 +64,7 @@ var CuisinesSelectList = React.createClass({
         });
         return (
         <section className="the-tab tab-active main-categories types-grid">
-        <FullscreenPreload />
+        {/*<FullscreenPreload />*/}
             <div className="container">
                 <div className="row" id="cuisinesList">
                     {list}

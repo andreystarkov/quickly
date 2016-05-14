@@ -169,9 +169,9 @@ var CompanyDetails = React.createClass({
                     {buttonReservation}
                 </div>
                 <div className="col-lg-4 buttons-reserv">
-                    <button onClick={this.routeBack} className="button main screen-toggle" id="buttonBackToList">
+                    <button onClick={this.routeBack} className="button light screen-toggle" id="buttonBackToList">
                         <i className="icon icon-arrow-left"></i>
-                        <span>К списку кухонь</span>
+                        <span>К категориям</span>
                     </button>
                 </div>
             </div>

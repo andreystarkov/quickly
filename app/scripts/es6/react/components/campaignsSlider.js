@@ -1,5 +1,6 @@
 import {browserHistory, Link} from "react-router";
 import {initSlider} from "./slider.js";
+
 var FullscreenPreload = require('./preloader.js');
 var CampaignsStore = require('../stores/campaignsStore.js');
 

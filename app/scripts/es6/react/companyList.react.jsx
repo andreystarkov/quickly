@@ -143,7 +143,7 @@ var CompanyList = React.createClass({
         });
     },
     searchChange: function(e){
-      //  console.log('Search: ', e.target.value);
+        console.log('Search: ', e.target.value);
         this.setState({
             searchFilter: e.target.value
         });

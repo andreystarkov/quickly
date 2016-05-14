@@ -2,10 +2,8 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 11:38:24
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-23 05:21:36
+* @Last Modified time: 2016-05-14 20:17:53
 */
-
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
 var CommentsStore = require('../stores/commentsStore.js');
 var CommentsActions = require('../actions/commentsActions.js');

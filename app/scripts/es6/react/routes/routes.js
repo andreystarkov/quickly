@@ -1,5 +1,4 @@
-import {hashHistory, Router, Route, IndexRoute, RouteHandler, Link,IndexLink, browserHistory} from 'react-router';
-import {TransitionMotion, spring, presets} from 'react-motion';
+import {hashHistory, Router, Route, IndexRoute, RouteHandler, Link, IndexLink, browserHistory} from 'react-router';
 
 var PageHeader = require('../components/pageHeader.js');
 var ScreenShop = require('../screens/screenShop.js');
@@ -9,6 +8,7 @@ var ScreenMain = require('../screens/screenMain.js');
 var BottomPanel = require('../components/bottomPanel.js');
 var NotFoundPage = require('../components/notFoundPage.js');
 var ScreenPage = require('../screens/screenPage.js');
+
 var routesMap = require('./map.js');
 
 var Routes = React.createClass({
@@ -17,29 +17,13 @@ var Routes = React.createClass({
         transitionDirection:1
     }
   },
-  willEnter: function(){
-    const toLeft = this.state.transitionDirection < 0
-    return {
-      left: toLeft ? 100 : 0,
-      opacity: 0,
-      scale: 0.95
-    }
-  },
-  willLeave: function(){
-    const toLeft = this.state.transitionDirection < 0
-    return {
-      left: toLeft ? spring(0, presets.stiff) : spring(100, presets.stiff),
-      opacity: spring(0),
-      scale: spring(0.95)
-    }
-  },
   refreshHome: function(e){
     console.log('Refreshing Home! ', e);
   },
   render: function() {
     var routes = routesMap.routes;
 
-    console.log('ROUTES: ', routes);
+    console.log('Routes: ', routes);
     return (
       <div>
           <PageHeader />

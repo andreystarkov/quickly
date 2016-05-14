@@ -109,6 +109,20 @@ $(function() {
         userAuthorized();
     }
 
+    $("input.bfh-phone").keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("#buttonRegisterPhone").click();
+        }
+    });
+
+    $("#inputRegisterSMSCode").keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("#buttonRegisterSMSCode").click();
+        }
+    });
+
     $(document).on('click', '#buttonRegisterPhone', function(event) {
         event.preventDefault();
         registerUser( $('#inputRegisterPhone').val(), function(data){
