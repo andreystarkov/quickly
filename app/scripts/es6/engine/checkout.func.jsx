@@ -101,8 +101,8 @@ export function refreshCart(){
 function pasteCartTable(cartElement, elementCount, key){
     var el = `
     <tr class="reservation-${cartElement.type}" data-id="${cartElement.id}">
-        <td>${cartElement.name} </td>
-        <td>${cartElement.price} р.</td>
+        <td><span class="cart-item-name">${cartElement.name}</span></td>
+        <td>${cartElement.price} <span class="rub"></span></td>
         <td>
             <div class="form-group label-placeholder is-empty" data-id="${cartElement.id}" data-name="${cartElement.name}" data-price="${cartElement.price}">
                 <input type="text" value="${cartElement.count}" class="form-control" id="cartItem-${cartElement.id}">

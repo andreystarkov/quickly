@@ -303,7 +303,7 @@ function refreshCart() {
 }
 
 function pasteCartTable(cartElement, elementCount, key) {
-    var el = '\n    <tr class="reservation-' + cartElement.type + '" data-id="' + cartElement.id + '">\n        <td>' + cartElement.name + ' </td>\n        <td>' + cartElement.price + ' р.</td>\n        <td>\n            <div class="form-group label-placeholder is-empty" data-id="' + cartElement.id + '" data-name="' + cartElement.name + '" data-price="' + cartElement.price + '">\n                <input type="text" value="' + cartElement.count + '" class="form-control" id="cartItem-' + cartElement.id + '">\n            </div>\n        </td>\n        <td>\n            <button class="checkout-action"><i class="icon icn-trash"></i></button>\n        </td>\n    </tr>\n    ';
+    var el = '\n    <tr class="reservation-' + cartElement.type + '" data-id="' + cartElement.id + '">\n        <td><span class="cart-item-name">' + cartElement.name + '</span></td>\n        <td>' + cartElement.price + ' <span class="rub"></span></td>\n        <td>\n            <div class="form-group label-placeholder is-empty" data-id="' + cartElement.id + '" data-name="' + cartElement.name + '" data-price="' + cartElement.price + '">\n                <input type="text" value="' + cartElement.count + '" class="form-control" id="cartItem-' + cartElement.id + '">\n            </div>\n        </td>\n        <td>\n            <button class="checkout-action"><i class="icon icn-trash"></i></button>\n        </td>\n    </tr>\n    ';
 
     return el;
 }
@@ -944,7 +944,11 @@ var CategoryItem = React.createClass({
                 'button',
                 { onClick: this.categoryToggle, className: 'category-toggle' },
                 React.createElement('i', { className: 'icon' }),
-                item.category_name
+                React.createElement(
+                    'span',
+                    null,
+                    item.category_name
+                )
             )
         );
     }
@@ -7601,7 +7605,7 @@ function pasteCheckoutFormUnregistered() {
         reservationToggle = "disabled=true";
     } else reservationToggle = "disabled=false";
 
-    return '\n   <div class="checkout-form checkout-first-fields">\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-5 col-xs-5">\n                    <div class="form-group label-floating">\n                        <label for="checkout-name" class="control-label">Ваше имя *</label>\n                        <input type="text" class="form-control" id="checkout-name" value=' + userName + ' >\n                    </div>\n                </div>\n                <div class="col-lg-5 col-xs-5">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-phone" class="control-label">Телефон *</label>\n                        <input type="text" class="form-control" id="checkout-phone" value=' + userPhone + ' >\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-2">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-persons" class="control-label" value="1">Персон *</label>\n                        <input value="1" type="search" class="form-control" id="checkout-persons" >\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    ';
+    return '\n   <div class="checkout-form checkout-first-fields">\n        <div class="control-group">\n            <div class="row">\n                <div class="col-lg-5 col-xs-4">\n                    <div class="form-group label-floating">\n                        <label for="checkout-name" class="control-label">Ваше имя *</label>\n                        <input type="text" class="form-control" id="checkout-name" value=' + userName + ' >\n                    </div>\n                </div>\n                <div class="col-lg-5 col-xs-5">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-phone" class="control-label">Телефон *</label>\n                        <input type="text" class="form-control" id="checkout-phone" value=' + userPhone + ' >\n                    </div>\n                </div>\n                <div class="col-lg-2 col-xs-3">\n                    <div class="form-group label-floating required">\n                        <label for="checkout-persons" class="control-label" value="1">Персон *</label>\n                        <input value="1" type="search" class="form-control" id="checkout-persons" >\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    ';
 }
 
 function removeItemById(itemId) {

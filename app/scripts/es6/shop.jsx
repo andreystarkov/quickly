@@ -45,7 +45,7 @@ function pasteCheckoutFormUnregistered(){
    <div class="checkout-form checkout-first-fields">
         <div class="control-group">
             <div class="row">
-                <div class="col-lg-5 col-xs-5">
+                <div class="col-lg-5 col-xs-4">
                     <div class="form-group label-floating">
                         <label for="checkout-name" class="control-label">Ваше имя *</label>
                         <input type="text" class="form-control" id="checkout-name" value=${userName} >
@@ -57,7 +57,7 @@ function pasteCheckoutFormUnregistered(){
                         <input type="text" class="form-control" id="checkout-phone" value=${userPhone} >
                     </div>
                 </div>
-                <div class="col-lg-2 col-xs-2">
+                <div class="col-lg-2 col-xs-3">
                     <div class="form-group label-floating required">
                         <label for="checkout-persons" class="control-label" value="1">Персон *</label>
                         <input value="1" type="search" class="form-control" id="checkout-persons" >

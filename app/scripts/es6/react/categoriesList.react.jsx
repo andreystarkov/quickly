@@ -19,7 +19,8 @@ var CategoryItem = React.createClass({
 		return (
 		<li className="category-line">
     		<button onClick={this.categoryToggle} className="category-toggle">
-            <i className="icon"></i>{item.category_name}
+            <i className="icon"></i>
+            <span>{item.category_name}</span>
             </button>
         </li>
 		)

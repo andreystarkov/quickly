@@ -7271,7 +7271,7 @@ a.checkout-button:focus {
   color: #21201f;
   -webkit-overflow-scrolling: touch;
   text-decoration: none;
-  padding: 10px 12px;
+  padding: 15px 12px;
   -webkit-transition: 0.6s ease-in-out all;
   -moz-transition: 0.6s ease-in-out all;
   transition: 0.6s ease-in-out all;
@@ -7368,7 +7368,7 @@ a.checkout-button:focus {
   margin-top: 20px;
 }
 .box-summary {
-  max-height: 240px;
+  max-height: 440px;
   background: #edece4;
   padding-bottom: 0px;
   border-bottom: 3px solid #e1dfd2;
@@ -9066,6 +9066,69 @@ body .company-item .background-image img {
   body {
     padding-top: 0;
   }
+  body .page-wrapper .food-category .food-item .inner {
+    height: 150px;
+  }
+  body section.company-about .delivery .box.pay {
+    position: absolute;
+    top: -118px;
+    left: 0px;
+  }
+  body .cuisinesList .button {
+    padding: 3px 5px;
+    font-size: 0.8em;
+  }
+  body .page-wrapper .food-category .food-item .inner .product-controls {
+    bottom: 10%;
+  }
+  body .cuisine-select-item .image {
+    height: 100%;
+  }
+  body .cuisine-select-item .image img {
+    height: 100%;
+    min-width: 100%;
+  }
+  body .page-wrapper .main-categories .category-item b {
+    font-size: 16px;
+  }
+  body section.company-about .location {
+    float: none;
+    display: inline-block;
+  }
+  body section.company-about .cards {
+    height: 30px;
+  }
+  body .checkout .price-total {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  body .checkout .checkout-step-two .the-label {
+    margin-bottom: 0;
+  }
+  body .checkout .checkout-step-two .radio-group {
+    margin-top: 0;
+  }
+  body .checkout .checkout-step-two .control-group {
+    padding: 5px;
+  }
+  body .checkout .checkout-first-fields {
+    border: 0;
+    padding: 0;
+  }
+  body .checkout .checkout-address-form {
+    border: 0;
+    padding: 5px;
+  }
+  body .checkout .radio {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body .button-checkout i {
+    display: none;
+  }
+  body .checout-step-two h3 {
+    margin-top: 40px;
+  }
   body .main-categories .category-item a {
     border-radius: 0px;
     height: 150px;
@@ -9539,7 +9602,6 @@ body .company-item .background-image img {
   }
   .checkout-order {
     width: 100vw;
-    height: 100vh;
   }
   .checkout-summary th:last-child,
   .checkout-summary td:last-child {
