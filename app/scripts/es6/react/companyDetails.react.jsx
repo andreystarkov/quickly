@@ -171,7 +171,7 @@ var CompanyDetails = React.createClass({
                 <div className="col-lg-4 buttons-reserv">
                     <button onClick={this.routeBack} className="button light screen-toggle" id="buttonBackToList">
                         <i className="icon icon-arrow-left"></i>
-                        <span>К категориям</span>
+                        <span class="hint--bottom" data-hint="На главную страницу">К категориям</span>
                     </button>
                 </div>
             </div>

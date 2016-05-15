@@ -55,7 +55,6 @@ var CompanyListHeader = React.createClass({
                 </div>
             </section>
             )
-
     }
 });
 

@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-10 22:12:41
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-04-27 06:59:05
+* @Last Modified time: 2016-05-15 15:47:40
 */
 import {Link, browserHistory} from 'react-router';
 import {notAuthorized} from '../../auth.jsx';
@@ -10,6 +10,7 @@ import {notAuthorized} from '../../auth.jsx';
 var routesMap = require('../routes/map.js');
 var CityListActions = require('../actions/cityListActions.js');
 var CityList = require('../cityList.react.jsx');
+var Search = require('./search.js');
 
 var PageHeader = React.createClass({
     editProfile: function(){
@@ -45,6 +46,7 @@ var PageHeader = React.createClass({
                             </div>
                         </div>
                         <div className="col-lg-5 col-xs-1">
+                            <Search />
                         </div>
                         <div className="col-lg-3 col-xs-8">
                             <div className="form-auth form-register pop" id="formRegisterPhone">
@@ -54,7 +56,7 @@ var PageHeader = React.createClass({
                                         <form>
                                             <label htmlFor="inputRegisterPhone" className="control-label">Ваш номер телефона</label>
                                             <input type="text" className="form-control pop bfh-phone" data-format="+7 (ddd) ddd-dddd" id="inputRegisterPhone" />
-                                            <span className="help-block">В формате +7 (xxx) xxx-xxxx</span>
+
                                         </form>
                                         </div>
                                     </div>
@@ -69,7 +71,7 @@ var PageHeader = React.createClass({
                                 <div className="row">
                                     <div className="col-lg-7 col-xs-6">
                                         <div className="form-group label-floating is-empty">
-                                            <label htmlFor="inputRegisterSMSCode" className="control-label pop">Введите код из СМС</label>
+                                            <label htmlFor="inputRegisterSMSCode" className="control-label pop">Код из СМС</label>
                                             <input type="text" className="form-control" id="inputRegisterSMSCode" />
                                             <span className="help-block"></span>
                                         </div>

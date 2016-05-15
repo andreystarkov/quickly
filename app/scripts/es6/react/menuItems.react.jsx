@@ -24,10 +24,8 @@ var SingleMenuItem = React.createClass({
     render: function(){
         var item = this.props.item;
         var itemImage = imageBaseUrl+item.menu_item_image;
-    /*    if (item.menu_item_image === undefined || item.menu_item_image === null || item.menu_item_image == '')
-        { itemImage = '/images/placeholder-1.png'; }
 
-     */   var styleProduct = {
+        var styleProduct = {
             backgroundImage: 'url('+itemImage+')'
         }
 

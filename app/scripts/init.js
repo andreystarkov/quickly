@@ -13,6 +13,7 @@
 
 */
 
+
 $(function() {
 
     var userInfo = {};
@@ -139,5 +140,10 @@ $(function() {
         'min': 300,
         'max': 2000
     }, '#filter-price-min', '#filter-price-max');
+});
 
+$(window).load(function () {
+    setTimeout(function(){
+     $('.fullscreen-preload').remove();
+    }, 100);
 });
