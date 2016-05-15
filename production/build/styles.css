@@ -7587,6 +7587,16 @@ a.checkout-button:focus {
   zoom: 1.0;
   width: device-width;
 }
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  opacity: 0.1;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
 body {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -11905,18 +11915,36 @@ Slider
 .no-js .slider-nav {
   display: none;
 }
+.scroll-wrap {
+  max-height: 65vh;
+  overflow-y: scroll;
+}
 .search-results-fixed {
   text-align: center;
   position: fixed;
   top: 108px;
   left: 0;
   right: 0;
-  max-height: 50vh;
+  max-height: 75vh;
   z-index: 666;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.35);
   background: #ebe9e1;
   border-bottom: 5px solid #d2cfbc;
   display: none;
+}
+.search-results-fixed .restaurant-logo {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+.search-results-fixed .restaurant-logo .img {
+  width: 58px;
+  height: 58px;
+  overflow: hidden;
+  border-radius: 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .search-results-fixed .search-results h3 {
   margin-bottom: 25px;
@@ -16904,6 +16932,23 @@ Slider
   -webkit-animation-name: slideOutUp;
   -moz-animation-name: slideOutUp;
   animation-name: slideOutUp;
+}
+/* wtf */
+@media screen and (max-width: 26em) {
+  .search-global {
+    display: none !important;
+  }
+}
+body .city-select {
+  max-width: 160px;
+  margin: 0 !important;
+}
+body .video-holder {
+  height: 100%;
+}
+body .video-holder iframe {
+  height: 280px;
+  width: 80%;
 }
 .video-container {
   margin-top: 30px;

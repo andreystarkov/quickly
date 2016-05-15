@@ -2241,7 +2241,6 @@ $(function() {
     if(isMobile){
 
 
-
       // need iOS detection
 
       $('.checkout-hidden').css({'display': 'none'});
@@ -2338,6 +2337,17 @@ $(function() {
         'min': 300,
         'max': 2000
     }, '#filter-price-min', '#filter-price-max');
+
+    $("input.bfh-phone").keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("#buttonRegisterPhone").click();
+        }
+    });
+    $("#input-search-phone").keypress(function(event) {
+          event.preventDefault();
+          $("#button-search-top").click();
+    });
 });
 
 $(window).load(function () {

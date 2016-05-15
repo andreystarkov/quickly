@@ -6,12 +6,15 @@ var SearchResults = require('./searchResults.js')
 function hideSearch(){
 	$('#search-results-fixed').velocity('transition.slideUpOut',200);
 	$('.overlay').removeClass('visible overlay-search');
+	$("body").css({ overflow: 'inherit' })
 }
 
 function showSearch(){
 	$('#search-results-fixed').velocity('transition.slideDownIn',350);
 	$('.overlay').addClass('visible overlay-search');
+	$("body").css({ overflow: 'hidden' })
 }
+
 var Search = React.createClass({
     mixins: [Reflux.connect(SearchStore, 'searchData')],
     getInitialState: function() {
@@ -21,6 +24,11 @@ var Search = React.createClass({
       	restaurantType: 3,
       	visible: false
       };
+    },
+    componentDidMount: function(e){
+    	$(document).on('click', '.overlay-search', function(event){
+    		hideSearch();
+    	});
     },
 	doQuery: function(e){
 		var this_ = this;
@@ -58,15 +66,12 @@ var Search = React.createClass({
 	render: function(){
 		return (
 			<div className="search-global">
-
 		        <div className="form-search" id="form-search-top">
 		            <div className="row">
 		                <div className="col-lg-7 col-xs-6">
 							<div class="form-group form-auth label-floating is-empty">
-								<form>
-									<label htmlFor="input-search-top" className="control-label">Поиск</label>
-									<input onChange={this.queryChange} value={this.state.text}  type="text" className="form-control pop bfh-phone" id="input-search-top" />
-								</form>
+								<label htmlFor="input-search-top" className="control-label">Поиск</label>
+								<input onChange={this.queryChange} value={this.state.text}  type="text" className="form-control input-search-top pop" id="input-search-top" />
 							</div>
 		                </div>
 		                <div className="col-lg-2 col-xs-4">
@@ -88,17 +93,18 @@ var Search = React.createClass({
 		                </div>
 		            </div>
 		        </div>
-
 		        <div className="search-results-fixed" id="search-results-fixed">
-		        	<SearchResults data={this.state.searchData} />
-
-		        	<div className="btn-close-wrap">
-		        		<button onClick={this.collapse} id="btn-search-close" className="btn-search-close btn btn-default btn-fab">
-		        		<i className="material-icons icon-arrow-up"></i>
-		        		</button>
-		        	</div>
+		        	<div className="scroll-box">
+		        		<div className="scroll-wrap">
+				        	<SearchResults data={this.state.searchData} />
+				        	</div>
+				        	<div className="btn-close-wrap">
+				        		<button onClick={this.collapse} id="btn-search-close" className="btn-search-close btn btn-default btn-fab">
+				        		<i className="material-icons icon-arrow-up"></i>
+				        		</button>
+				        	</div>
+				        </div>
 		        </div>
-
 	        </div>
 		)
 	}

@@ -123,6 +123,13 @@ $(function() {
         }
     });
 
+    $("#input-search-top").keypress(function(event) {
+        if (event.which == 13) {
+          event.preventDefault();
+          $("#button-search-top").click();
+        }
+    });
+
     $(document).on('click', '#buttonRegisterPhone', function(event) {
         event.preventDefault();
         registerUser( $('#inputRegisterPhone').val(), function(data){

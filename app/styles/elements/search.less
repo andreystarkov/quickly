@@ -1,12 +1,36 @@
 @resultsTop: 108px;
 
+.scroll-box {
+
+}
+
+.scroll-wrap {
+    max-height: 65vh;
+    overflow-y: scroll;
+}
+
+
 .search-results-fixed {
+    .restaurant-logo {
+        position:absolute;
+        right:12px;
+        bottom:12px;
+        .img {
+            width:58px;
+            height:58px;
+            overflow:hidden;
+            border-radius:120px;
+            background-size:cover;
+            background-repeat:no-repeat;
+            background-position: center center;
+        }
+    }
     text-align:center;
     position:fixed;
     top:@resultsTop;
     left:0;
     right:0;
-    max-height:50vh;
+    max-height: 75vh;
     z-index:666;
     box-shadow: 0 3px 9px fade(#000,35%);
     background:@colorDefaultHeader;
