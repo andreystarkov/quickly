@@ -12703,6 +12703,9 @@ Slider
 .no-js .slider-nav {
   display: none;
 }
+#form-search-top {
+  float: left;
+}
 .scroll-wrap {
   max-height: 280px;
   overflow-y: scroll;
