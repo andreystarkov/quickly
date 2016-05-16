@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-05-15 13:18:51
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-05-15 21:12:03
+* @Last Modified time: 2016-05-16 08:55:14
 */
 
 var SearchMenuItem = React.createClass({
@@ -49,6 +49,7 @@ var SearchResults = React.createClass({
 	render: function(){
 		if( this.props.data.menuItems ){
 			var menuItems = this.props.data.menuItems.map(function(the,key){
+
 				return (
 					<div className="col-lg-3 col-xs-6">
 						<SearchMenuItem item={the} key={key} />
@@ -62,7 +63,6 @@ var SearchResults = React.createClass({
 					<h3>Найденные блюда:</h3>
 					<div className="row">
 						{menuItems}
-						{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}{menuItems}
 					</div>
 
 				</div>

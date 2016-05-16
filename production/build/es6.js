@@ -3758,7 +3758,7 @@ module.exports = Search;
 * @Author: Andrey Starkov
 * @Date:   2016-05-15 13:18:51
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-05-15 21:12:03
+* @Last Modified time: 2016-05-16 08:55:14
 */
 
 var SearchMenuItem = React.createClass({
@@ -3847,6 +3847,7 @@ var SearchResults = React.createClass({
 	render: function render() {
 		if (this.props.data.menuItems) {
 			var menuItems = this.props.data.menuItems.map(function (the, key) {
+
 				return React.createElement(
 					'div',
 					{ className: 'col-lg-3 col-xs-6' },
@@ -3868,24 +3869,6 @@ var SearchResults = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'row' },
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
-					menuItems,
 					menuItems
 				)
 			)

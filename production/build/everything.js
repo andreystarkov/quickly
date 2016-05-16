@@ -2241,7 +2241,6 @@ $(function() {
     if(isMobile){
 
 
-
       // need iOS detection
 
       $('.checkout-hidden').css({'display': 'none'});
@@ -2338,6 +2337,17 @@ $(function() {
         'min': 300,
         'max': 2000
     }, '#filter-price-min', '#filter-price-max');
+
+    $("input.bfh-phone").keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("#buttonRegisterPhone").click();
+        }
+    });
+    $("#input-search-phone").keypress(function(event) {
+          event.preventDefault();
+          $("#button-search-top").click();
+    });
 });
 
 $(window).load(function () {
@@ -2470,6 +2480,13 @@ $(function () {
         if (event.which == 13) {
             event.preventDefault();
             $("#buttonRegisterSMSCode").click();
+        }
+    });
+
+    $("#input-search-top").keypress(function (event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("#button-search-top").click();
         }
     });
 
@@ -5934,12 +5951,15 @@ var SearchResults = require('./searchResults.js');
 function hideSearch() {
 	$('#search-results-fixed').velocity('transition.slideUpOut', 200);
 	$('.overlay').removeClass('visible overlay-search');
+	$("body").css({ overflow: 'inherit' });
 }
 
 function showSearch() {
 	$('#search-results-fixed').velocity('transition.slideDownIn', 350);
 	$('.overlay').addClass('visible overlay-search');
+	$("body").css({ overflow: 'hidden' });
 }
+
 var Search = React.createClass({
 	displayName: 'Search',
 
@@ -5951,6 +5971,11 @@ var Search = React.createClass({
 			restaurantType: 3,
 			visible: false
 		};
+	},
+	componentDidMount: function componentDidMount(e) {
+		$(document).on('click', '.overlay-search', function (event) {
+			hideSearch();
+		});
 	},
 	doQuery: function doQuery(e) {
 		var this_ = this;
@@ -6001,15 +6026,11 @@ var Search = React.createClass({
 							'div',
 							{ 'class': 'form-group form-auth label-floating is-empty' },
 							React.createElement(
-								'form',
-								null,
-								React.createElement(
-									'label',
-									{ htmlFor: 'input-search-top', className: 'control-label' },
-									'Поиск'
-								),
-								React.createElement('input', { onChange: this.queryChange, value: this.state.text, type: 'text', className: 'form-control pop bfh-phone', id: 'input-search-top' })
-							)
+								'label',
+								{ htmlFor: 'input-search-top', className: 'control-label' },
+								'Поиск'
+							),
+							React.createElement('input', { onChange: this.queryChange, value: this.state.text, type: 'text', className: 'form-control input-search-top pop', id: 'input-search-top' })
 						)
 					),
 					React.createElement(
@@ -6062,14 +6083,22 @@ var Search = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'search-results-fixed', id: 'search-results-fixed' },
-				React.createElement(SearchResults, { data: this.state.searchData }),
 				React.createElement(
 					'div',
-					{ className: 'btn-close-wrap' },
+					{ className: 'scroll-box' },
 					React.createElement(
-						'button',
-						{ onClick: this.collapse, id: 'btn-search-close', className: 'btn-search-close btn btn-default btn-fab' },
-						React.createElement('i', { className: 'material-icons icon-arrow-up' })
+						'div',
+						{ className: 'scroll-wrap' },
+						React.createElement(SearchResults, { data: this.state.searchData })
+					),
+					React.createElement(
+						'div',
+						{ className: 'btn-close-wrap' },
+						React.createElement(
+							'button',
+							{ onClick: this.collapse, id: 'btn-search-close', className: 'btn-search-close btn btn-default btn-fab' },
+							React.createElement('i', { className: 'material-icons icon-arrow-up' })
+						)
 					)
 				)
 			)
@@ -6086,7 +6115,7 @@ module.exports = Search;
 * @Author: Andrey Starkov
 * @Date:   2016-05-15 13:18:51
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-05-15 15:50:42
+* @Last Modified time: 2016-05-16 08:55:14
 */
 
 var SearchMenuItem = React.createClass({
@@ -6094,9 +6123,8 @@ var SearchMenuItem = React.createClass({
 
 	render: function render() {
 		var item = this.props.item;
-		var styleProduct = {
-			backgroundImage: 'url(' + imageBaseUrl + item.menu_item_image + ')'
-		};
+		var styleProduct = { backgroundImage: 'url(' + imageBaseUrl + item.menu_item_image + ')' };
+		var companyLogo = { backgroundImage: 'url(' + imageBaseUrl + item.restaurant_main_image + ')' };
 		return React.createElement(
 			'div',
 			{ className: 'search-menu-item' },
@@ -6117,6 +6145,11 @@ var SearchMenuItem = React.createClass({
 								'data-id': item.menu_item_id, 'data-restaurant': item.restaurant_id },
 							'В корзину'
 						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'restaurant-logo hint--bottom', 'data-hint': item.restaurant_name },
+						React.createElement('div', { className: 'img', style: companyLogo })
 					)
 				),
 				React.createElement(
@@ -6171,6 +6204,7 @@ var SearchResults = React.createClass({
 	render: function render() {
 		if (this.props.data.menuItems) {
 			var menuItems = this.props.data.menuItems.map(function (the, key) {
+
 				return React.createElement(
 					'div',
 					{ className: 'col-lg-3 col-xs-6' },
