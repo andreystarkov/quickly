@@ -12704,7 +12704,7 @@ Slider
   display: none;
 }
 #form-search-top {
-  float: left;
+  text-align: center;
 }
 .scroll-wrap {
   max-height: 280px;
