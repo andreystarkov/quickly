@@ -30,6 +30,7 @@
     "toastr": "^2.1.2",
     "sweetalert2": "~1.3.1",
     "jquery.maskedinput": "~1.4.1",
-    "react-loading-order-with-animation": "https://github.com/andreystarkov/react-loading-order-with-animation.git"
+    "react-loading-order-with-animation": "https://github.com/andreystarkov/react-loading-order-with-animation.git",
+    "vex": "https://github.com/andreystarkov/vex.git#^2.3.4"
   }
 }

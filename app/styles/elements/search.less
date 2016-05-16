@@ -1,16 +1,27 @@
-@resultsTop: 108px;
+@resultsTop: 100px;
+@searchHeight: 370px;
 
 .scroll-box {
 
 }
 
 .scroll-wrap {
-    max-height: 65vh;
+    max-height: 280px;
+ //   transition: all 0.3s ease-in-out;
     overflow-y: scroll;
 }
 
+.form-search {
+   // margin-bottom:15px;
+   // padding-bottom:15px;
+}
 
 .search-results-fixed {
+    transition: all 0.3s ease-out;
+    .form-search {
+        max-width:550px;
+        margin: 10px auto;
+    }
     .restaurant-logo {
         position:absolute;
         right:12px;
@@ -25,12 +36,12 @@
             background-position: center center;
         }
     }
-    text-align:center;
+  //  text-align:center;
     position:fixed;
     top:@resultsTop;
     left:0;
     right:0;
-    max-height: 75vh;
+    max-height: 420px;
     z-index:666;
     box-shadow: 0 3px 9px fade(#000,35%);
     background:@colorDefaultHeader;
@@ -75,6 +86,7 @@
     margin-bottom:20px;
 
     .inner {
+        background: mix(@colorDefaultHeader, #666, 10%);
         height:220px;
         width:100%;
         display:inline-block;
@@ -92,6 +104,7 @@
             height:100%;
             z-index:1;
             overflow:hidden;
+            text-align:center;
         }
         .overlay {
             z-index:2;

@@ -27,13 +27,15 @@ var theLibs = [
     'app/scripts/etc/jquery.nouislider.min.js',
     'app/libs/toastr/toastr.min.js',
     'app/scripts/components/slider.js',
+    'app/libs/vex/js/vex.js',
+    'app/libs/vex/js/vex.dialog.js',
 
     // core scripts
 
     'app/scripts/_global.js',
 
     'app/scripts/components/common.js',
-    'app/scripts/components/auth.js',
+//    'app/scripts/components/auth.js',
     'app/scripts/components/checkout.js',
     'app/scripts/components/company.js',
     'app/scripts/components/controls.js',

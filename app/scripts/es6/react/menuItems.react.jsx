@@ -31,27 +31,29 @@ var SingleMenuItem = React.createClass({
 
         return (
         <div className="col-lg-4 col-xs-6 food-item">
-            <div className="inner">
-                <div className="product-image" style={styleProduct}>
-                    <div className="product-controls">
-                        <button onClick={this.addToCart} className="button main add-to-cart"
-                        data-name={item.menu_item_name}
-                        data-price={item.menu_item_price}
-                        data-id={item.menu_item_id} data-restaurant={item.restaurant_id}>В корзину</button>
+            <div className="menu-item-wrap">
+                <div className="inner">
+                    <div className="product-image" style={styleProduct}>
+                        <div className="product-controls">
+                            <button onClick={this.addToCart} className="button main add-to-cart"
+                            data-name={item.menu_item_name}
+                            data-price={item.menu_item_price}
+                            data-id={item.menu_item_id} data-restaurant={item.restaurant_id}>В корзину</button>
+                        </div>
                     </div>
-                </div>
 
-                <div className="product-info">
-                    <div className="major">
-                        <div className="product-name">
-                            <b>{item.menu_item_name}</b>
+                    <div className="product-info">
+                        <div className="major">
+                            <div className="product-name">
+                                <b>{item.menu_item_name}</b>
+                            </div>
+                            <div className="product-price">
+                                <span>{item.menu_item_price} <i className="rouble">i</i></span>
+                            </div>
                         </div>
-                        <div className="product-price">
-                            <span>{item.menu_item_price} <i className="rouble">i</i></span>
+                        <div className="product-description">
+                            <span>{item.menu_item_full_description}</span>
                         </div>
-                    </div>
-                    <div className="product-description">
-                        <span>{item.menu_item_full_description}</span>
                     </div>
                 </div>
             </div>

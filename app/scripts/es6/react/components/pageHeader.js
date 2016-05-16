@@ -45,7 +45,7 @@ var PageHeader = React.createClass({
                                 <CityList />
                             </div>
                         </div>
-                        <div className="col-lg-5 col-xs-1">
+                        <div className="col-lg-5 col-xs-1" style={{textAlign: 'center'}}>
                             <Search />
                         </div>
                         <div className="col-lg-3 col-xs-8">

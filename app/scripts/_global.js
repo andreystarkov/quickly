@@ -187,3 +187,4 @@ function flyToCart(what) {
     }
 }
 
+vex.defaultOptions.className = 'vex-theme-top';
