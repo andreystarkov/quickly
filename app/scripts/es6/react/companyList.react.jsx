@@ -245,14 +245,10 @@ var CompanyList = React.createClass({
 
         if(theData.length > 0){
             if( theData.length < that.state.loadCount) {
-                console.log('No btn for you, cause thats all 4 now');
-                var btnMore = {
-                    display: 'none'
-                }
+               // console.log('No btn for you, cause thats all 4 now');
+                var btnMore = { display: 'none' }
             } else {
-                var btnMore = {
-                    display: 'block'
-                }
+                var btnMore = { display: 'block' }
             }
             console.log('CompanyList: length: ', theData.length, theData);
             if( this.state.isFilters ){
@@ -280,10 +276,7 @@ var CompanyList = React.createClass({
                         } else wait = i*150;
 
                         return (
-                            <LoadingOrderAnimation animation="fade-in"  key={i} move="from-bottom-to-top"
-                               distance={30} speed={400} wait={wait}>
                                 <SingleCompany company={the} key={i} />
-                            </LoadingOrderAnimation>
                         )
                     }
                 });

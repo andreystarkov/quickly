@@ -13,9 +13,6 @@ var CuisinesList = React.createClass({
         cuisinesData: []
       };
     },
-    componentDidMount: function() {
-    },
-
     render: function() {
         var companyCuisines = JSON.parse(this.props.cuisines);
         var limit = this.limit;
@@ -40,4 +37,3 @@ var CuisinesList = React.createClass({
 });
 
 module.exports = CuisinesList;
-

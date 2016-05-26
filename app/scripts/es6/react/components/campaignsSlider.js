@@ -25,7 +25,7 @@ var SliderItem = React.createClass({
     },
     render: function(){
         var className, expires = "Акция действительна до ";
-        /*if( this.props.pos == '0' ) className = "selected";*/
+        if( this.props.pos == '0' ) className = "selected";
         if( this.props.expires ) {
             expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
         } else expires = "Постоянная акция";
@@ -83,20 +83,6 @@ var CampaignsSlider = React.createClass({
             <section className="hero">
 
             <ul className="quickly-slider autoplay">
-                <li className="selected active">
-                    <div className="half-width">
-                        <h2>Участвуй в "Сытой Пятнице!"</h2>
-                        <p>Единый сервис ресторанов и доставки Quickly при поддержке радиостанции Европа Плюс Урал и компании АСТ - моторс (Официальный дилер Ниссан в Оренбурге) 20 мая проводит уникальную акцию "Сытая Пятница"!</p>
-
-                        <p>Есть вопросы? Звоните 8 (3532) 28-50-12</p>
-                        <a href="/friday" className="button main">Подробнее об акции</a>
-                    </div>
-                    <div className="half-width img-container">
-                        <div className="video-holder">
-                            <iframe src="//vk.com/video_ext.php?oid=-90447492&id=456239031&hash=23013d88bb8c0897&hd=2" width="100%" frameborder="0"></iframe>
-                        </div>
-                    </div>
-                </li>
                 {slides} {slidesLimited}
             </ul>
             <div className="slider-nav">
@@ -107,9 +93,7 @@ var CampaignsSlider = React.createClass({
                             <a href="#0"></a>
                         </li>
                         <li><a href="#0"></a></li>
-                        <li><a href="#0"></a></li>
-                        <li><a href="#0"></a></li>
-                        <li><a href="#0"></a></li>
+
                     </ul>
                 </nav>
             </div>

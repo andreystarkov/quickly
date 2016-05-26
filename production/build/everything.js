@@ -3359,26 +3359,30 @@ function registerUserModal(phone, name, params, callback) {
             type: 'success', showCancelButton: false, confirmButtonText: 'Подтвердить', closeOnConfirm: false,
             confirmButtonClass: 'button-sms-confirm'
         }).then(function (isConfirm) {
-            $('.button-sms-confirm').html('Проверка...');
-            console.log('click', isConfirm);
-            (0, _auth.sendSMSCode)(phone, $('#checkout-register-sms').val(), function (dataProfile) {
-                if (!dataProfile.err) {
-                    editProfileField('userName', name, function (data) {
-                        params.token = Cookies.get('token') || userToken;
-                        console.log('Try: ', params, userToken, Cookies.get('token'), dataProfile);
-                        swal({
-                            title: 'Добро пожаловать, ' + name + '!', html: 'Теперь вы можете совершать покупки.',
-                            type: 'success', showCancelButton: false, confirmButtonText: 'Продолжить', closeOnConfirm: true
-                        }).then(function (isConfirm) {
-                            console.log('Order params', params);
-                            if (callback) callback(params);
+            if (isConfirm) {
+                $('.button-sms-confirm').html('Проверка...');
+                // console.log('click', isConfirm);
+                (0, _auth.sendSMSCode)(phone, $('#checkout-register-sms').val(), function (dataProfile) {
+                    if (!dataProfile.err) {
+                        editProfileField('userName', name, function (data) {
+                            params.token = Cookies.get('token') || userToken;
+                            console.log('Try: ', params, userToken, Cookies.get('token'), dataProfile);
+                            swal({
+                                title: 'Добро пожаловать, ' + name + '!', html: 'Теперь вы можете совершать покупки.',
+                                type: 'success', showCancelButton: false, confirmButtonText: 'Продолжить', closeOnConfirm: true
+                            }).then(function (isConfirm) {
+                                console.log('Order params', params);
+                                if (callback) callback(params);
+                            });
                         });
-                    });
-                } else {
-                    registerUserModal(phone, name, params);
-                    toastr.error('СМС-код неверен. Посмотрите внимательней!');
-                }
-            });
+                    } else {
+                        registerUserModal(phone, name, params);
+                        toastr.error('СМС-код неверен. Посмотрите внимательней!');
+                    }
+                });
+            } else {
+                // close perhaps
+            }
         });
     });
 }
@@ -4477,14 +4481,10 @@ var CompanyList = React.createClass({
 
         if (theData.length > 0) {
             if (theData.length < that.state.loadCount) {
-                console.log('No btn for you, cause thats all 4 now');
-                var btnMore = {
-                    display: 'none'
-                };
+                // console.log('No btn for you, cause thats all 4 now');
+                var btnMore = { display: 'none' };
             } else {
-                var btnMore = {
-                    display: 'block'
-                };
+                var btnMore = { display: 'block' };
             }
             console.log('CompanyList: length: ', theData.length, theData);
             if (this.state.isFilters) {
@@ -4508,12 +4508,7 @@ var CompanyList = React.createClass({
                             wait = 150 * (i - (parseInt(that.state.loadCount) - parseInt(that.perPage))); // wtf!!
                         } else wait = i * 150;
 
-                        return React.createElement(
-                            _reactLoadingOrderWithAnimation2.default,
-                            { animation: 'fade-in', key: i, move: 'from-bottom-to-top',
-                                distance: 30, speed: 400, wait: wait },
-                            React.createElement(SingleCompany, { company: the, key: i })
-                        );
+                        return React.createElement(SingleCompany, { company: the, key: i });
                     }
                 });
             }
@@ -4936,7 +4931,7 @@ var SliderItem = React.createClass({
     render: function render() {
         var className,
             expires = "Акция действительна до ";
-        /*if( this.props.pos == '0' ) className = "selected";*/
+        if (this.props.pos == '0') className = "selected";
         if (this.props.expires) {
             expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
         } else expires = "Постоянная акция";
@@ -5009,43 +5004,6 @@ var CampaignsSlider = React.createClass({
             React.createElement(
                 "ul",
                 { className: "quickly-slider autoplay" },
-                React.createElement(
-                    "li",
-                    { className: "selected active" },
-                    React.createElement(
-                        "div",
-                        { className: "half-width" },
-                        React.createElement(
-                            "h2",
-                            null,
-                            "Участвуй в \"Сытой Пятнице!\""
-                        ),
-                        React.createElement(
-                            "p",
-                            null,
-                            "Единый сервис ресторанов и доставки Quickly при поддержке радиостанции Европа Плюс Урал и компании АСТ - моторс (Официальный дилер Ниссан в Оренбурге) 20 мая проводит уникальную акцию \"Сытая Пятница\"!"
-                        ),
-                        React.createElement(
-                            "p",
-                            null,
-                            "Есть вопросы? Звоните 8 (3532) 28-50-12"
-                        ),
-                        React.createElement(
-                            "a",
-                            { href: "/friday", className: "button main" },
-                            "Подробнее об акции"
-                        )
-                    ),
-                    React.createElement(
-                        "div",
-                        { className: "half-width img-container" },
-                        React.createElement(
-                            "div",
-                            { className: "video-holder" },
-                            React.createElement("iframe", { src: "//vk.com/video_ext.php?oid=-90447492&id=456239031&hash=23013d88bb8c0897&hd=2", width: "100%", frameborder: "0" })
-                        )
-                    )
-                ),
                 slides,
                 " ",
                 slidesLimited
@@ -5063,21 +5021,6 @@ var CampaignsSlider = React.createClass({
                         React.createElement(
                             "li",
                             { className: "selected" },
-                            React.createElement("a", { href: "#0" })
-                        ),
-                        React.createElement(
-                            "li",
-                            null,
-                            React.createElement("a", { href: "#0" })
-                        ),
-                        React.createElement(
-                            "li",
-                            null,
-                            React.createElement("a", { href: "#0" })
-                        ),
-                        React.createElement(
-                            "li",
-                            null,
                             React.createElement("a", { href: "#0" })
                         ),
                         React.createElement(
@@ -7298,8 +7241,6 @@ var CuisinesList = React.createClass({
             cuisinesData: []
         };
     },
-    componentDidMount: function componentDidMount() {},
-
     render: function render() {
         var companyCuisines = JSON.parse(this.props.cuisines);
         var limit = this.limit;
@@ -7421,61 +7362,65 @@ var SingleMenuItem = React.createClass({
             { className: 'col-lg-4 col-xs-6 food-item' },
             React.createElement(
                 'div',
-                { className: 'inner' },
+                { className: 'menu-item-wrap' },
                 React.createElement(
                     'div',
-                    { className: 'product-image', style: styleProduct },
+                    { className: 'inner' },
                     React.createElement(
                         'div',
-                        { className: 'product-controls' },
-                        React.createElement(
-                            'button',
-                            { onClick: this.addToCart, className: 'button main add-to-cart',
-                                'data-name': item.menu_item_name,
-                                'data-price': item.menu_item_price,
-                                'data-id': item.menu_item_id, 'data-restaurant': item.restaurant_id },
-                            'В корзину'
-                        )
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'product-info' },
-                    React.createElement(
-                        'div',
-                        { className: 'major' },
+                        { className: 'product-image', style: styleProduct },
                         React.createElement(
                             'div',
-                            { className: 'product-name' },
+                            { className: 'product-controls' },
                             React.createElement(
-                                'b',
-                                null,
-                                item.menu_item_name
-                            )
-                        ),
-                        React.createElement(
-                            'div',
-                            { className: 'product-price' },
-                            React.createElement(
-                                'span',
-                                null,
-                                item.menu_item_price,
-                                ' ',
-                                React.createElement(
-                                    'i',
-                                    { className: 'rouble' },
-                                    'i'
-                                )
+                                'button',
+                                { onClick: this.addToCart, className: 'button main add-to-cart',
+                                    'data-name': item.menu_item_name,
+                                    'data-price': item.menu_item_price,
+                                    'data-id': item.menu_item_id, 'data-restaurant': item.restaurant_id },
+                                'В корзину'
                             )
                         )
                     ),
                     React.createElement(
                         'div',
-                        { className: 'product-description' },
+                        { className: 'product-info' },
                         React.createElement(
-                            'span',
-                            null,
-                            item.menu_item_full_description
+                            'div',
+                            { className: 'major' },
+                            React.createElement(
+                                'div',
+                                { className: 'product-name' },
+                                React.createElement(
+                                    'b',
+                                    null,
+                                    item.menu_item_name
+                                )
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'product-price' },
+                                React.createElement(
+                                    'span',
+                                    null,
+                                    item.menu_item_price,
+                                    ' ',
+                                    React.createElement(
+                                        'i',
+                                        { className: 'rouble' },
+                                        'i'
+                                    )
+                                )
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'product-description' },
+                            React.createElement(
+                                'span',
+                                null,
+                                item.menu_item_full_description
+                            )
                         )
                     )
                 )

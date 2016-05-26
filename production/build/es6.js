@@ -1775,14 +1775,10 @@ var CompanyList = React.createClass({
 
         if (theData.length > 0) {
             if (theData.length < that.state.loadCount) {
-                console.log('No btn for you, cause thats all 4 now');
-                var btnMore = {
-                    display: 'none'
-                };
+                // console.log('No btn for you, cause thats all 4 now');
+                var btnMore = { display: 'none' };
             } else {
-                var btnMore = {
-                    display: 'block'
-                };
+                var btnMore = { display: 'block' };
             }
             console.log('CompanyList: length: ', theData.length, theData);
             if (this.state.isFilters) {
@@ -1806,12 +1802,7 @@ var CompanyList = React.createClass({
                             wait = 150 * (i - (parseInt(that.state.loadCount) - parseInt(that.perPage))); // wtf!!
                         } else wait = i * 150;
 
-                        return React.createElement(
-                            _reactLoadingOrderWithAnimation2.default,
-                            { animation: 'fade-in', key: i, move: 'from-bottom-to-top',
-                                distance: 30, speed: 400, wait: wait },
-                            React.createElement(SingleCompany, { company: the, key: i })
-                        );
+                        return React.createElement(SingleCompany, { company: the, key: i });
                     }
                 });
             }
@@ -2234,7 +2225,7 @@ var SliderItem = React.createClass({
     render: function render() {
         var className,
             expires = "Акция действительна до ";
-        /*if( this.props.pos == '0' ) className = "selected";*/
+        if (this.props.pos == '0') className = "selected";
         if (this.props.expires) {
             expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
         } else expires = "Постоянная акция";
@@ -2307,43 +2298,6 @@ var CampaignsSlider = React.createClass({
             React.createElement(
                 "ul",
                 { className: "quickly-slider autoplay" },
-                React.createElement(
-                    "li",
-                    { className: "selected active" },
-                    React.createElement(
-                        "div",
-                        { className: "half-width" },
-                        React.createElement(
-                            "h2",
-                            null,
-                            "Участвуй в \"Сытой Пятнице!\""
-                        ),
-                        React.createElement(
-                            "p",
-                            null,
-                            "Единый сервис ресторанов и доставки Quickly при поддержке радиостанции Европа Плюс Урал и компании АСТ - моторс (Официальный дилер Ниссан в Оренбурге) 20 мая проводит уникальную акцию \"Сытая Пятница\"!"
-                        ),
-                        React.createElement(
-                            "p",
-                            null,
-                            "Есть вопросы? Звоните 8 (3532) 28-50-12"
-                        ),
-                        React.createElement(
-                            "a",
-                            { href: "/friday", className: "button main" },
-                            "Подробнее об акции"
-                        )
-                    ),
-                    React.createElement(
-                        "div",
-                        { className: "half-width img-container" },
-                        React.createElement(
-                            "div",
-                            { className: "video-holder" },
-                            React.createElement("iframe", { src: "//vk.com/video_ext.php?oid=-90447492&id=456239031&hash=23013d88bb8c0897&hd=2", width: "100%", frameborder: "0" })
-                        )
-                    )
-                ),
                 slides,
                 " ",
                 slidesLimited
@@ -2361,21 +2315,6 @@ var CampaignsSlider = React.createClass({
                         React.createElement(
                             "li",
                             { className: "selected" },
-                            React.createElement("a", { href: "#0" })
-                        ),
-                        React.createElement(
-                            "li",
-                            null,
-                            React.createElement("a", { href: "#0" })
-                        ),
-                        React.createElement(
-                            "li",
-                            null,
-                            React.createElement("a", { href: "#0" })
-                        ),
-                        React.createElement(
-                            "li",
-                            null,
                             React.createElement("a", { href: "#0" })
                         ),
                         React.createElement(
@@ -4596,8 +4535,6 @@ var CuisinesList = React.createClass({
             cuisinesData: []
         };
     },
-    componentDidMount: function componentDidMount() {},
-
     render: function render() {
         var companyCuisines = JSON.parse(this.props.cuisines);
         var limit = this.limit;
