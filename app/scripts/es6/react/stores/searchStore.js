@@ -2,18 +2,18 @@
 * @Author: Andrey Starkov
 * @Date:   2016-05-15 11:28:57
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-05-15 14:51:38
+* @Last Modified time: 2016-05-26 07:42:23
 */
 
 var SearchActions = require('../actions/searchActions.js');
 
 function searchQuery(params, callback){
 	var queryUrl = serverUrl + '/api/v2/search';
-	    $.ajax({ type: 'POST', url: queryUrl, data: params,
-	        success: function(data) {
-	            console.log('searchQuery: ', data);
-	            if(callback) callback(data);
-	        }
+	  $.ajax({ type: 'POST', url: queryUrl, data: params,
+	     success: function(data) {
+          console.log('searchQuery: ', data);
+          if(callback) callback(data);
+	     }
 		});
 }
 

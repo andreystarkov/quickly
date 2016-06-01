@@ -162,7 +162,7 @@ gulp.task('libs', function() {
     return gulp.src(config.js.libs)
         .pipe(concat('libs.js'))
         .pipe(gulp.dest(config.js.outputDir))
-        .pipe(notify('Libs merged'));
+    //    .pipe(notify('Libs merged'));
 });
 
 gulp.task('styles', function() {

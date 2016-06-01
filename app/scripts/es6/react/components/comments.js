@@ -2,7 +2,7 @@
 * @Author: Andrey Starkov
 * @Date:   2016-04-15 11:38:24
 * @Last Modified by:   Andrey Starkov
-* @Last Modified time: 2016-05-14 20:17:53
+* @Last Modified time: 2016-05-26 08:29:20
 */
 
 var CommentsStore = require('../stores/commentsStore.js');
@@ -14,29 +14,90 @@ var lang = {
             formHeader: 'Оставьте отзыв!',
             messageName: 'Ваше имя',
             messageLabel: 'Текст вашего сообщения',
-            messageHint: 'Здесь вы можете аргументировать вашу оценку',
+            messageHint: '',
             ratingLabel: 'Ваша оценка',
             buttonSend: 'Отправить',
             buttonSendIcon: 'icon icn-comment',
             chooseStars: 'Выберите оценку'
         },
         errors: {
-            sendFail: 'Видимо что-то случилось'
+            sendFail: 'Совершите покупку, что бы оставить комментарий'
         }
     }
 }
 
+function setLike(is, id, callback){
+
+    if (is){
+        var query = serverUrl+'/api/v2/comments/like';
+        console.log('setLike: Like! ', query);
+    } else {
+        var query = serverUrl+'/api/v2/comments/unlike';
+        console.log('setLike: Unlike! ', query);
+    }
+
+    var params = {
+        token: userToken,
+        commentId: id
+    };
+
+    if( params.token ){
+        console.log('setLike: ',params);
+        $.ajax({ type: 'POST', url: query, data: params,
+             success: function(data) {
+                console.log('setLike: ', data);
+                if(callback) callback(data);
+             }
+        });
+    } else {
+        toastr.error('Авторизуйтесь, что бы ставить лайки');
+    }
+}
+
 var Comment = React.createClass({
+    getInitialState: function() {
+      return {
+        liked: false
+      };
+    },
+    componentDidMount: function(){
+/*        $(document).on("mouseenter", ".likes ", function() {
+            $('i', this).velocity('transition.flipXOut', 200, function(){
+                $(this).removeClass('fa-heart-o').addClass('fa-heart');
+                $(this).velocity('transition.flipXIn', 100);
+            });
+        });
+
+        $(document).on("mouseleave", ".likes", function() {
+            // hover ends code here
+        });*/
+    },
+    toggleLike: function(){
+        var this_ = this;
+        var liked = !this.state.liked;
+        var id = this.props.comment.comment_id;
+
+        setLike(liked, id, function(data){
+            CommentsActions.fetchList();
+            this_.setState({ liked: liked });
+        });
+
+    },
+    handleClick: function(e){
+        e.preventDefault();
+        this.toggleLike();
+    },
     render: function(){
         var item = this.props.comment;
     //    console.log('Comment = ',item);
         var stars;
-/*        for(var i = 0; i < item.comment_rating; i++){
-            stars = stars+'<i className="star yes fa fa-star"></i>';
-        }
-        for (var i = 0; i < (5-item.comment_rating); i++){
-            stars = stars+'<i className="star yes fa fa-star-o"></i>';
-        }*/
+
+        var classHeart = "fa-heart-o fa";
+
+        if( this.state.liked ) {
+            classHeart = "fa-heart fa";
+        } else classHeart = "fa-heart-o fa";
+
         return(
             <div className="comment row">
                 <div className="col-lg-2 col-xs-2 align-center">
@@ -44,8 +105,8 @@ var Comment = React.createClass({
                         <img src={imageBaseUrl+item.user_avatar} alt={item.user_name} />
                     </div>
                     <div className="likes">
-                        <a href="#" className="like">
-                            <i className="fa-thumbs-o-up fa"></i>
+                        <a href="#" className="like" onClick={this.handleClick}>
+                            <i className={classHeart}></i>
                             <span className="count">{item.comment_likes}</span>
                         </a>
                     </div>
@@ -71,23 +132,25 @@ function postComment(restaurantId, text, rating, callback){
         message: text
     };
    // console.log('postComment: params = ', params);
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-        url: serverUrl + '/api/v2/comments/create',
-        data: JSON.stringify(params),
-        success: function(data) {
-            if(!data.err){
-             //   console.log('postComment: success: ', data);
-                CommentsActions.updateData(restaurantId);
-                if (callback) callback(data);
-            } else {
-             //   console.log('postComment: ERROR: ', data.err);
-                toastr.error(lang.comments.errors.sendFail);
+    if( params.token ){
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: serverUrl + '/api/v2/comments/create',
+            data: JSON.stringify(params),
+            success: function(data) {
+                if(!data.err){
+                 //   console.log('postComment: success: ', data);
+                    CommentsActions.updateData(restaurantId);
+                    if (callback) callback(data);
+                } else {
+                    console.log('postComment: ERROR: ', data.err);
+                    toastr.error(lang.comments.errors.sendFail);
+                }
             }
-        }
-    });
+        });
+    } else toastr.error('Авторизуйтесь, что бы оставлять комментарии');
 }
 
 
@@ -138,6 +201,7 @@ var CommentForm = React.createClass({
     sendMessage: function(){
         postComment(this.props.company, this.state.message, this.state.rating,
         function(data){
+            $('.button-tab-food').click();
          //   console.log('sendMessage: callback',data);
             toastr.success('Спасибо за ваш комментарий!', 'Вы оставили отзыв!');
         });
@@ -149,9 +213,8 @@ var CommentForm = React.createClass({
         });
     },
     setRating: function(e){
-        this.setState({
-            rating: e.target.value
-        });
+        e.preventDefault();
+        alert(e.target.value);
     },
     render: function(){
         var btnStyle = { marginTop: 10, fontSize: 13, fontWeight: 400 }
@@ -172,7 +235,7 @@ var CommentForm = React.createClass({
 
             <div className="form-group label-floating" style={inputGroup}>
               <label className="control-label" htmlFor="focusedInput2">{texts.messageLabel}</label>
-              <input disabled={disabled} onChange={this.msgChange} className="form-control" id="focusedInput2" type="text" />
+              <input onChange={this.msgChange} className="form-control" id="focusedInput2" type="text" />
               <p className="help-block">{texts.messageHint}</p>
             </div>
 
@@ -180,7 +243,7 @@ var CommentForm = React.createClass({
                 <label htmlFor="choose" className="control-label">
                     {texts.chooseStars}
                 </label>
-                <select disabled={disabled} id="choose" onChange={this.setRating} className="choose-stars">
+                <select id="choose" onChange={this.setRating} className="choose-stars">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -188,7 +251,7 @@ var CommentForm = React.createClass({
                   <option value="5">5</option>
                 </select>
             </div>
-            <button disabled={disabled} className="btn button main" onClick={this.sendMessage}
+            <button className="btn button main" onClick={this.sendMessage}
             backgroundColor="#fff036" style={btnStyle}>
                 {texts.buttonSend}
             </button>
@@ -217,6 +280,7 @@ var Comments = React.createClass({
                 return <Comment comment={the} key={i} />
             });
         }
+
         return (
             <div className="container">
 

@@ -1,5 +1,6 @@
 import {clearCart,refreshCart} from './engine/checkout.func.jsx';
 import {createOrder} from './engine/createOrder.jsx';
+import {Reservation} from './react/components/reservation.js';
 
 var _ = require('underscore');
 var registerUserModal = require('./engine/registerUserModal.js');
@@ -217,5 +218,49 @@ $(function() {
         $(this).addClass('active');
     });
 
+    // this is bullshit
+
+
+    $(document).on('click', '.button-tab-reservation', function(){
+        console.log('something happens');
+        setTimeout(function(){
+            $('.btn-select-hall:first-child').click();
+        },100);
+    });
+
     refreshCart();
+
 });
+
+/*        setTimeout(function(){
+            $('.btn-select-hall:first-child').click();
+
+            $('.table').each(function(){
+                var originalWidth = $('.the-room').data('width');
+                var originalHeight = $('.the-room').data('height');
+
+                var scaledWidth = $('.room-image').width();
+                var scaledHeight = $('.room-image').height();
+
+                if( !(originalWidth == scaledWidth) ){
+                    console.log('SDAS: ', originalWidth, originalHeight, scaledWidth, scaledHeight);
+                    var originalLeft = $(this).data('x');
+                    var originalTop = $(this).data('y');
+
+                    console.log('leftop: ', originalLeft, originalTop);
+
+                    var scaledCoords = {
+                      left: $(this).css('left') * scaledWidth / originalWidth - 10,
+                      top: $(this).css('top') * scaledHeight / originalHeight - 10
+                    };
+                    console.log('.table: ', scaledCoords);
+
+                    $(this).css({
+                        left: scaledCoords.left,
+                        top: scaledCoords.top
+                    });
+                }
+            });
+            },1200);*/
+
+     //   console.log('ow', width, height, scaledWidth, scaledHeight);

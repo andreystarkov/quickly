@@ -20,14 +20,18 @@
             margin-top:20px;
             .like {
                 i {
-                    color:darken(@colorGreen,5%);
-                    font-size: 18px;
+                    transition:all 0.25s ease-in-out;
+                    color:darken(@colorRed,5%);
+                    font-size: 16px;
                     display:inline-block;
                 }
                 .count {
                     display:inline-block;
-                    margin-left:3px;
+                    margin-left:6px;
                     font-size:16px;
+                }
+                &:hover {
+                    i { color:lighten(@colorRed,10%); }
                 }
             }
         }

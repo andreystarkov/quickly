@@ -82,7 +82,7 @@ var CompanyList = React.createClass({
     componentDidUpdate: function(){
         setTimeout(function(){
          $('.fullscreen-preload').fadeOut(500);
-        }, 100);
+        }, 700);
     },
     getInitialState: function() {
       return {
@@ -267,7 +267,7 @@ var CompanyList = React.createClass({
 /*                            <LoadingOrderAnimation animation="fade-in" move="from-bottom-to-top"
                                distance={30} speed={400} wait={wait}>*/
                         return (
-                                <SingleCompany company={the} key={i} />
+                            <SingleCompany company={the} key={i} />
                         )
                     }
                 });
@@ -280,10 +280,7 @@ var CompanyList = React.createClass({
                         } else wait = i*150;
 
                         return (
-                            <LoadingOrderAnimation animation="fade-in"  key={i} move="from-bottom-to-top"
-                               distance={30} speed={400} wait={wait}>
-                                <SingleCompany company={the} key={i} />
-                            </LoadingOrderAnimation>
+                            <SingleCompany company={the} key={i} />
                         )
                     }
                 });

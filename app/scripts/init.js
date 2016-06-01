@@ -42,44 +42,35 @@ $(function() {
 
     if(isMobile){
 
+      $('.sidebar').addClass('hidden-global');
+      $('#buttonBackToList').addClass('hidden-global');
+      $('#buttonBackToList').css({'display':'none'});
+      $('.sidebar').css({'display':'none'});
+
+      $(window).scroll(function(){
+          if( $(window).scrollTop() > 100){
+              $('.sidebar').removeClass('hidden-global');
+              $('#buttonBackToList').removeClass('hidden-global');
+              $('#buttonBackToList').css({'display':'block'});
+              $('.sidebar').css({'display':'block'});
+          } else {
+              if( $('.sidebar').hasClass('hidden-global') ) {
+                  // nothing
+              } else {
+                  $('.sidebar').addClass('hidden-global');
+                  $('#buttonBackToList').addClass('hidden-global');
+                  $('#buttonBackToList').css({'display':'none'});
+                  $('.sidebar').css({'display':'none'});
+                //$('.sidebar').velocity('transition.slideUpOut',200);
+                //$('.back-to-home').velocity('transition.slideUpOut',200);
+              }
+          }
+      });
 
       // need iOS detection
 
       $('.checkout-hidden').css({'display': 'none'});
 
-      $('.button-tab-reservation').on('click', function(){
-        setTimeout(
-          function(){
-/*            var img = $('.room-image');
-            var realHeight = img.height();
-            var realWidth = img.width();
-            var origHeight = img.data('height');
-            var origWidth = img.data('width');
-
-            var diffHeight = origHeight-realHeight;
-            var diffWidth = origWidth-realWidth;
-
-            console.log(realHeight, realWidth, ' || orig = ', origHeight, origWidth, ' || diff =', diffHeight, diffWidth);
-
-            $('.reservation-point').each(function(){
-                var origLeft = parseInt($(this).css('left'));
-                var origTop = parseInt($(this).css('top'));
-                var percentLeft = origTop/origHeight * 100;
-                var percentTop = origLeft/origWidth * 100;
-                var diffTop = origTop;
-                var diffLeft = diffWidth - origLeft;
-                var left = parseInt($(this).css('left')) * parseInt($(this).parent().width()) / origWidth - 10;
-                var top = origTop * realHeight / origHeight - 10;
-                console.log('orig: ', origLeft, origTop, ' diff = ', left, top);
-                $(this).css({
-                  left: percentLeft+'px',
-                  top: percentTop+'px'
-                })
-            });
-*/
-          }, 1000);
-
-      });
     } else {
 
 

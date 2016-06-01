@@ -16,6 +16,18 @@ function refreshTable(id, m){
     console.log('refreshTable: Sent params: ', id, m, unix);
 }
 
+function getImgSize(imgSrc) {
+    var newImg = new Image();
+
+    newImg.onload = function() {
+      var height = newImg.height;
+      var width = newImg.width;
+      alert ('The image size is '+width+'*'+height);
+    }
+
+    newImg.src = imgSrc;
+}
+
 var HallButton = React.createClass({
 	hallHandle: function(e){
        refreshTable(this.props.hall.hall_id, this.props.time);
@@ -72,11 +84,30 @@ var TablePoint = React.createClass({
     render: function(){
         var value, position, type, options = '';
         value = this.props.table;
+
+        var originalSize = this.props.original;
+
+        var scaledSize = {
+          width: $('.the-room').width(),
+          height: $('.the-room').height()
+        };
+
+        if(value.table_coord_x)
+        var scaledCoords = {
+          left: value.table_coord_x * scaledSize.width / originalSize.width - 10,
+          top: value.table_coord_y * scaledSize.height / originalSize.height - 10
+        };
+
         position = {
+            left: scaledCoords.left,
+            top: scaledCoords.top
+        };
+
+/*        position = {
             left: value.table_coord_x-20,
             top: value.table_coord_y-20
         };
-
+*/
         if( value.table_type == 0 ) {
             var tableType = <div className="type">Беплатный</div>
         }
@@ -99,12 +130,17 @@ var TablePoint = React.createClass({
             )
         }
 
+        console.log('Original Dimensions: ', originalSize);
+        console.log('Scaled Dimensions: ', scaledSize);
+
         var classNames = "table";
 
         if(this.props.isReserved){
             classNames += " table-reserved";
         }
+
         console.log('Company: ', this.props.company);
+
 
         return (
             <div className={classNames}
@@ -116,6 +152,7 @@ var TablePoint = React.createClass({
                  data-deposit={value.table_deposit}
                  data-price={value.table_price}
                  data-restaurant={this.props.company}
+                 data-x={value.table_coord_x} data-y={value.table_coord_y}
                 >
                 <div className="table-number">{value.table_number}</div>
                 <div className="table-everything">
@@ -136,16 +173,31 @@ var Reservation = React.createClass({
   	Reflux.connect(ReservationTablesStore, 'tablesList')
   ],
   halls: {},
+  statics: {
+    fixPoints: function() {
+      console.log('lol its works');
+    }
+  },
   getInitialState: function() {
     return {
       hallsList: [],
       tablesList: [],
       moment: moment().add(30, 'minutes'),
-      currentHallId: 0
+      currentHallId: 0,
+      scaledDimensions: {
+        width:null,
+        height:null
+      }
     }
   },
   componentDidMount: function(){
+
+    var this_ = this;
      ReservationActions.updateHalls(this.props.company);
+
+  },
+  _clicked: function(){
+
   },
   componentDidUpdate: function(){
     var first, halls = this.state.hallsList.map(function(the, i) {
@@ -185,6 +237,9 @@ var Reservation = React.createClass({
         currentHallId: e.target.value
     });
   },
+  _onLoad: function(e){
+    // nothing
+  },
   render: function(){
     console.log('Reservation state: ', this.state, this.props);
 
@@ -194,8 +249,10 @@ var Reservation = React.createClass({
     var currentHallImage, currentHallTables;
     var currentDate = this.state.moment;
     var currentHallId = this.state.currentHallId;
-
+    var roomWidth, roomHeight;
     if( !isEmptyObj(this.state.tablesList) ) {
+        var roomWidth = this.state.tablesList.width;
+        var roomHeight = this.state.tablesList.height;
         rId = that.state.tablesList.hall.restaurant_id;
         reservations = this.state.tablesList.reservations;
         currentHallTables = this.state.tablesList.tables;
@@ -211,11 +268,13 @@ var Reservation = React.createClass({
                 });
             }
             return (
-                <TablePoint company={rId} isReserved={isReserved} table={the} key={i} />
+                <TablePoint original={{
+                  height: that.state.tablesList.height,
+                  width: that.state.tablesList.width
+                }} company={rId} isReserved={isReserved} table={the} key={i} />
             )
         });
     }
-
 
     currentHall = _.find(this.state.hallsList, function(the){
         if(the.hall_id == that.state.currentHallId) return the;
@@ -231,6 +290,7 @@ var Reservation = React.createClass({
         if ( the.hall_id == currentHallId ) isActive = true;
         return <HallButton onClick={that.hallChange} value={the.hall_id} active={isActive} time={currentDate} hall={the} key={i} />
     });
+
 
   	return(
      <div className="container">
@@ -248,11 +308,11 @@ var Reservation = React.createClass({
                  	{halls}
                  </div>
                  <div className="room-box">
-                    <div className="the-room">
+                    <div className="the-room" data-width={roomWidth} data-height={roomHeight} >
                         <div className="current-date">
                             <span>Состояние на {currentDate.format('DD/MM/YYYY HH:mm')}</span>
                         </div>
-                        <img className="room-image" src={hallsUrl+currentHallImage} />
+                        <img id="room-image" onLoad={this._onLoad} className="room-image" src={hallsUrl+currentHallImage} />
                         {tables}
                     </div>
                  </div>
@@ -262,5 +322,6 @@ var Reservation = React.createClass({
   	)
   }
 });
+
 
 module.exports = Reservation;

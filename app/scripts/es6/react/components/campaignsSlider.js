@@ -25,7 +25,7 @@ var SliderItem = React.createClass({
     },
     render: function(){
         var className, expires = "Акция действительна до ";
-        /*if( this.props.pos == '0' ) className = "selected";*/
+        if( this.props.pos == '0' ) className = "selected";
         if( this.props.expires ) {
             expires += moment.unix(this.props.expires).format("MM/DD/YYYY HH:mm");
         } else expires = "Постоянная акция";
@@ -65,51 +65,44 @@ var CampaignsSlider = React.createClass({
     },
     render: function(){
 
-     //   console.log('CampagainsSlider: ', this.state.campaignsData, this.state.campaignsLimitedData);
+        // console.log('CampagainsSlider: ', this.state.campaignsData, this.state.campaignsLimitedData);
+        var controlsCount = 0, controls = [];
 
         var campaigns = this.state.campaignsData;
         var campaignsLimited = this.state.campaignsLimitedData;
         var count = 0;
+
         var slides = campaigns.map(function(the, i) {
+            controlsCount++;
             return <SliderItem company={the.restaurant_id} title={the.campaign_name} image={the.campaign_image} pos={i} key={i} />
         });
+
         var slidesLimited = campaignsLimited.map(function(the, i) {
+            controlsCount++;
             return <SliderItem company={the.restaurant_id} title={the.campaign_name} expires={the.campaign_end} image={the.campaign_image} key={i} />
         });
 
-     //   console.log(slidesLimited);
+        console.log('controlsCount: ', controlsCount);
+
+        for (var i = 0; i < controlsCount; i++) {
+          var isControlActive;
+         // if( !(i > 0) ) isControlActive = 'selected';
+          controls.push(
+             <li className={isControlActive}><a href="#0"></a></li>
+          );
+        }
 
         return (
             <section className="hero">
 
             <ul className="quickly-slider autoplay">
-                <li className="selected active">
-                    <div className="half-width">
-                        <h2>Участвуй в "Сытой Пятнице!"</h2>
-                        <p>Единый сервис ресторанов и доставки Quickly при поддержке радиостанции Европа Плюс Урал и компании АСТ - моторс (Официальный дилер Ниссан в Оренбурге) 20 мая проводит уникальную акцию "Сытая Пятница"!</p>
-
-                        <p>Есть вопросы? Звоните 8 (3532) 28-50-12</p>
-                        <a href="/friday" className="button main">Подробнее об акции</a>
-                    </div>
-                    <div className="half-width img-container">
-                        <div className="video-holder">
-                            <iframe src="//vk.com/video_ext.php?oid=-90447492&id=456239031&hash=23013d88bb8c0897&hd=2" width="100%" frameborder="0"></iframe>
-                        </div>
-                    </div>
-                </li>
                 {slides} {slidesLimited}
             </ul>
             <div className="slider-nav">
                 <nav>
                     <span className="marker item-1"></span>
                     <ul>
-                        <li className="selected">
-                            <a href="#0"></a>
-                        </li>
-                        <li><a href="#0"></a></li>
-                        <li><a href="#0"></a></li>
-                        <li><a href="#0"></a></li>
-                        <li><a href="#0"></a></li>
+                        {controls}
                     </ul>
                 </nav>
             </div>

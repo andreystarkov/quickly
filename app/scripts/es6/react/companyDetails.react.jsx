@@ -89,8 +89,8 @@ var CompanyDetails = React.createClass({
             cuisinesSelect = <CuisinesList cuisines={company.restaurant_cuisines} />
 
         var buttonReservation = (this.isReservation) ?
-            <ButtonTabToggle name="Бронирование" tab="tab-reservation" /> :
-                <ButtonTabToggle name="Бронирование" tab="tab-reservation" disabled="true" />
+            <ButtonTabToggle id="btn-reservation" name="Бронирование" tab="tab-reservation" /> :
+                <ButtonTabToggle id="btn-reservation" name="Бронирование" tab="tab-reservation" disabled="true" />
 
         if( company.restaurant_comments_count ) {
             console.log('CompanyDetails: Has comments ('+company.comments_count+')');
