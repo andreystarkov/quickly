@@ -75,14 +75,15 @@ var MobileControls = React.createClass({
     }
 });
 
+
 var CompanyList = React.createClass({
     mixins: [Reflux.connect(CompanyListStore, 'companyData')],
     cuisineId: 0,
     perPage: 8,
     componentDidUpdate: function(){
         setTimeout(function(){
-         $('.fullscreen-preload').fadeOut(500);
-        }, 700);
+         $('.fullscreen-preload').fadeOut(300);
+        }, 150);
     },
     getInitialState: function() {
       return {
