@@ -1,0 +1,87 @@
+@import 'variables';
+
+.m-calendar {
+  display: inline-block;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+
+  td {
+    padding: 8px 0;
+    text-align: center;
+    cursor: pointer;
+    color: @color-gray;
+    border: 1px solid @color-gray;
+  }
+
+  thead {
+    td {
+      color: @colorBlack;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+  }
+
+  tbody td {
+    color: #666666;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      background: @colorYellow;
+      color: @colorBlack;
+    }
+  }
+
+  .current-day {
+    background: @colorYellow;
+    border-color: mix(@colorBlack, @colorWhite, 50%);
+    color: @colorBlack;
+    font-weight: bold;
+  }
+
+  .prev-month,
+  .next-month {
+    color: #999999;
+  }
+
+  .toolbar {
+    line-height: 30px;
+    color: @colorBlack;
+    text-align: center;
+    margin-bottom: 13px;
+
+    button {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      color: #000;
+      border: 0px solid mix(@colorBlack, @colorGrayLight, 30%);
+      border-radius: 50%;
+      background: transparent;
+      font-size: 20px;
+      padding: 0;
+      text-align: center;
+      outline: 0;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .prev-month {
+      float: left;
+    }
+
+    .next-month {
+      float: right;
+    }
+
+    .current-date {
+      color: @colorBlack;
+    }
+  }
+}

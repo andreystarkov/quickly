@@ -1,0 +1,11 @@
+{
+  "name": "jquery-cookie",
+  "_cacheHeaders": {
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "main": "index",
+  "_source": "https://github.com/carhartl/jquery-cookie",
+  "_target": "*",
+  "_originalSource": "https://github.com/carhartl/jquery-cookie",
+  "_direct": true
+}

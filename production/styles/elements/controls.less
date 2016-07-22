@@ -1,0 +1,589 @@
+.radio-label-text {
+    padding-left:22px;
+}
+
+.float-right {
+    float:right;
+}
+.group-title {
+    margin-bottom:8px;
+    display:block;
+    font-weight:400;
+}
+
+.user-editor {
+    .button {
+        font-size:11px;
+        font-weight:400;
+    }
+}
+
+.profile-cards {
+    margin-top:0px;
+    margin-bottom:10px;
+    .card-item {
+        line-height:30px;
+        background:#fff;
+    }
+}
+.profile-field {
+    margin-top:2px;
+    margin-bottom:10px;
+}
+
+.gender-select {
+    padding-left:40px;
+    padding-top:10px;
+}
+
+.profile-editor {
+    .radio-primary {
+        display:inline-block;
+        min-width:110px;
+    }
+}
+body {
+
+    .checkout .radio label span {
+        left:2px;
+    }
+    h2 {
+        font-family:RobotoDraft;
+        font-weight:200;
+    }
+
+    @colorV2Green: mix(#83AF4D,#109634,60%);
+    .the-room .table {
+        transition:none !important;
+    }
+    .sweet-alert {
+        button, .button, .button.styled {
+            background-color:@colorYellow;
+            border-raidus:3px;
+            padding: 8px 30px;
+            color:#000;
+            border-bottom:3px solid mix(rgb(255, 240, 54), #333,90%);
+            display: inline-block;
+            box-shadow: fade(@colorBlack,10%) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset;
+            background-color: rgb(255, 240, 54);
+            font-family: RobotoDraft;
+            font-weight: 300;
+            font-size: 16px;
+            border-radius: 3px;
+            &:hover {
+                background-color: lighten(rgb(255, 240, 54),10%);
+            }
+             &.sweet-cancel {
+
+            }
+            &.modal-button-confirm {
+                background-color:@colorV2Green;
+                color:#fff;
+                font-weight:400;
+                text-shadow: 1px 1px 1px fade(@colorBlack,70%);
+                border-bottom:3px solid darken(@colorV2Green,10%);
+                &:hover {
+                  background-color: lighten(@colorV2Green,10%);
+                  border-bottom: 3px solid darken(@colorV2Green,4%);
+                }
+            }
+            &.modal-button-cancel,.sweet-cancel {
+              color:fade(@colorBlack,90%);
+              background-color:mix(@colorDefaultBackground,@colorWhite,60%);
+              border-bottom: 3px solid darken(mix(@colorDefaultBackground,@colorWhite,60%),10%);
+              &:hover {
+                  background-color: mix(@colorWhite,#fff,30%);
+                  border-bottom: 3px solid darken(mix(@colorDefaultBackground,@colorWhite,60%),5%);
+              }
+            }
+        }
+        h2 {
+            font-weight:200;
+        }
+        p {
+            color: fade(@colorBlack,80%);
+            font-size: 16px;
+            /* line-height: 40px; */
+            text-align: center;
+            font-weight: 200;
+            font-family: RobotoDraft;
+            position: relative;
+            text-align: inherit;
+            padding-left: 30px;
+            float: none;
+            margin: 0;
+            padding: 0;
+            line-height: 22px;
+        }
+    }
+
+    .required {
+        .table-everything {
+            border-radius:2px;
+        }
+        label {
+            font-weight:400 !important;
+            font-size:13px;
+        }
+        input {
+
+            color: @colorBlack;
+        }
+        .form-control {
+          //  border-bottom: 2px solid fade(@colorBlack,20%);
+        }
+
+    }
+    .noUi-handle {
+        z-index:1;
+    }
+    .slider .noUi-handle, .slider.slider-default .noUi-handle {
+        background-color:@colorYellow;
+        border-color:darken(@colorGray,55%);
+        border-width:3px;
+        width:15px;
+        height:15px;
+        top:-7px;
+        cursor:pointer;
+        &:hover {
+            transform:scale(1.5);
+        }
+    }
+    .noUi-horizontal, .noUi-origin {
+        height:3px;
+        border-radius:3px;
+    }
+    .form-control, output {
+        font-weight:300;
+    }
+    .slider.noUi-connect, .slider.slider-default.noUi-connect {
+        background-color:darken(@colorGray,35%);
+    }
+    .noUI-origin {
+        background-color:darken(@colorGray,1%);
+    }
+    .checkbox label, .radio label, label {
+        font-size:13px;
+        font-weight:400;
+    }
+
+    .checkbox .checkbox-material .check {
+        border:2px solid fade(@colorBlack,30%);
+        transition: all 0.3s @easingSlowMid;
+    }
+
+    .checkbox {
+        &:hover {
+            .checkbox-material .check {
+                border:2px solid fade(@colorBlack,90%);
+            }
+        }
+    }
+
+    .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+      background: mix(@colorBlack, @colorGray, 70%);
+    }
+    .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
+    color: @colorYellow;
+    }
+    .checkbox label, .radio label, label {
+     color: mix(@colorBlack, @colorGray, 80%);
+    }
+    .filter-name {
+        display:inline-block;
+        margin-left:12px;
+    }
+
+    .popover {
+        font-size:12px;
+        border:1px solid fade(@colorBlack,10%);
+        border-bottom:3px solid mix(#fff, #555, 90%);
+        box-shadow:0 5px 10px rgba(0, 0, 0, 0.2);
+        .popover-content {
+            padding: 6px 10px;
+        }
+    }
+    .form-group .checkbox label, .form-group .radio label, .form-group label {
+        font-size:14px;
+    }
+    .radio input[type=radio]:checked ~ .check {
+        background-color:@colorYellow;
+    }
+    body .form-group .checkbox label, body .form-group .radio label, body .form-group label {
+        padding-left:35px;
+    }
+    .checkout-order {
+        padding-bottom:0;
+    }
+
+    .required .form-control, .required .form-control {
+        background-color:fade(#fff, 20%);
+        label.control-label {
+            color:@colorBlack !important;
+            font-weight:500;
+        }
+    }
+    .required label, .form-group .control-label {
+        color:#000 !import;
+        font-weight:500;
+    }
+    .radio-group {
+        background: fade(#fff,60%);
+        padding: 0;
+        padding-bottom: 0px;
+        max-width: 95%;
+        border-bottom: 3px solid rgba(0,0,0,0.2);
+        background: rgba(255, 255, 255, 0.6);
+        padding: 0;
+        font-size:13px;
+        padding-bottom: 0px;
+        max-width: 95%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+        border-top: 1px solid rgba(0, 0, 0, 0.03);
+        box-shadow: 0px 1px 2px rgba(33, 32, 31, 0.1);
+
+    }
+
+    .checkout .radio {
+        padding-top: 6px;
+        padding-left: 7px; padding-right:15px;
+        margin-bottom: 0px;
+        padding-bottom: 6px;
+
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        &:nth-of-child(even){
+            background-color: mix(#fff, @colorGray, 50%);
+        }
+        .radio {
+            transition:0.3s linear all;
+            background:#fff;
+        }
+    }
+    .checkout-active .checkout-summary tr {
+        transition:0.35s ease-in-out all;
+    }
+    .checkout-active .checkout-summary tr:hover {
+        background-color: #fff;
+    }
+    .reservation-food {
+            transition:0.3s ease-in-out all;
+        &:hover {
+            background-color: #fff;
+        }
+    }
+}
+
+    .toast {
+      background-color: #030303;
+    }
+    .toast-success {
+      background-color: @colorGreen;
+    }
+    .toast-error {
+      background-color: @colorRed;
+    }
+    .toast-info {
+      background-color: @colorBlue;
+    }
+    .toast-warning {
+      background-color: #433F3E;
+    }
+
+.sidebar-list {
+    padding-top:30px;
+    .controls {
+        padding:0;
+    }
+}
+
+.control-group {
+    margin-bottom:15px;
+  .button {
+     color:#fff;
+     font-size:14px;
+     text-shadow: 1px 1px 0px fade(#000,55%);
+     &.green {
+        background: @colorGreen;
+     }
+     &.light-green {
+        background: mix(@colorGreen, @colorWhite, 70%);
+     }
+  }
+}
+
+
+.the-stars {
+  i {
+    color:@colorRed;
+  }
+}
+
+.control-item {
+  margin-bottom:15px;
+  label .toggle, label input[type=checkbox][disabled] + .toggle {
+    background-color: fade(@colorBlack,20%);
+  }
+}
+
+.checkout-total {
+    position:absolute;
+    background:@colorGreen;
+    color:#fff;
+    text-shadow:1px 1px 2px fade(@colorBlack,30%);
+    padding: 4px;
+    min-width: 28px;
+    border-radius: 40px;
+    font-size: 14px;
+    right: -25px;
+    top: -15px;
+    font-weight: 600;
+    z-index: 1;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+}
+.controls {
+    padding:15px;
+    text-align:left;
+    h3 {
+        font-family:@fontDefault;
+        font-weight:300;
+        text-align:left;
+        font-size:1.2em;
+        margin-bottom:2.2em;
+        margin-top:2.2em;
+    }
+}
+
+.main-tabs {
+    text-align:center;
+    a {
+        display:inline-block;
+    }
+}
+
+.control-group {
+    text-align:right;
+}
+
+// buttons
+
+.button, button {
+    cursor:pointer;
+    text-transform:uppercase;
+    color:@colorBlack;
+    text-decoration:none;
+    padding:8px 12px;
+    transition:0.6s ease-in-out all;
+    font-weight:500;
+    font-family:@fontButton;
+    font-size:0.9em;
+    position:relative;
+    text-decoration:none;
+    &:hover, &:active, &:visited {
+        * { text-decoration:none; }
+        text-decoration:none;
+    }
+    border-right:0;
+    border-left:0;
+    border-top:0;
+
+    &:active, &:visited {
+        text-decoration:none;
+    }
+    i.icon {
+        font-size: 1em;
+        margin-right: 5px;
+        vertical-align: middle
+    }
+
+    &.button-more {
+        margin:25px auto;
+        background:fade(#fff,50%);
+        border-bottom-color:transparent;
+        font-weight: 300;
+        i {
+            display:inline-block;
+            margin-right:12px;
+            transform-origin: center center;
+            transition: 0.4s ease-in-out all;
+        }
+        &:hover {
+            i {
+                 animation: rotating 1s linear infinite;
+            }
+        }
+    }
+
+    &.small {
+        padding:6px 8px;
+        span {
+            font-size:0.8em;
+        }
+    }
+    .count {
+        width:20px;
+        height:20px;
+        z-index:9;
+        position:absolute;
+        top:-8px;
+        right:-8px;
+        transition:all 0.5s ease-in-out 0.4s;
+        background:@colorGreen;
+        border-radius:30px;
+        padding:3px 4px;
+        font-size:10px;
+        color:#fff;
+        box-shadow: 0 2px 3px fade(@colorBlack, 20%);
+        text-shadow:1px 1px 0px fade(#000,50%);
+    }
+    &.app {
+        text-decoration: none;
+        text-transform:none;
+        padding:12px 25px;
+        border-radius:4px;
+        transition:0.5s ease-in-out all;
+        box-shadow:0 1px 3px fade(#000,5%);
+        span {
+            font-family:RobotoDraft;
+            font-size:1.1em;
+            color: mix(@colorBlack, @colorGrayLight, 80%);
+            font-weight:500;
+            vertical-align:middle;
+        }
+
+        i.icon {
+            margin-right:15px;
+            transition:0.3s ease-in-out all;
+            color: fade(mix(@colorBlack, @colorGrayLight, 70%),70%);
+            font-size:1.1em;
+        }
+        &:hover {
+            span {
+                color: @colorBlack;
+            }
+            box-shadow:0 3px 6px fade(#000,25%);
+            i.icon {
+                color: @colorBlack;
+            }
+
+        }
+    }
+    &.clean {
+        background:transparent;
+        border-bottom: 3px solid transparent;
+    }
+    &.gray {
+        background-color:darken(@colorDefaultBackground,5%);
+        border-bottom: 3px solid darken(@colorGrayLight,3%);
+    }
+    &.small {
+        .icon {
+                font-size: 1.4em;
+                margin-right: 5px;
+                vertical-align: middle
+        }
+        font-size:12px;
+        padding:6px 12px;
+        border-radius:3px;
+        border-bottom: 2px solid rgba(255,255,255,0);
+        line-height:11px;
+    }
+    &.main, &.btn.main {
+        background:@colorYellow;
+        border-bottom: 3px solid darken(@colorYellow,14%);
+        &:hover {
+            background:lighten(@colorYellow,12%);
+            border-bottom: 3px solid darken(@colorYellow,12%);
+        }
+    }
+    &.orange {
+        background:@colorOrange;
+        border-bottom: 3px solid darken(@colorOrange,6%);
+        &:hover {
+            background:lighten(@colorOrange,12%);
+            border-bottom: 3px solid darken(@colorOrange,3%);
+        }
+    }
+    &.green {
+        background-color:@colorGreen;
+        color:#fff;
+    }
+    &.center {
+        text-align:center;
+    }
+    &.round {
+        border-radius:3px;
+    }
+    &.light {
+        background: lighten(@colorGrayLight,3%);
+        border-bottom: 3px solid darken(@colorGrayLight,3%);
+        &:hover {
+            background: lighten(@colorGrayLight,8%);
+            border-bottom: 3px solid darken(@colorGrayLight,12%);
+        }
+    }
+    &.white {
+        background: lighten(@colorGrayLight,7%);
+        border-bottom: 3px solid darken(@colorGrayLight,2%);
+        &:hover {
+            background: lighten(@colorGrayLight,12%);
+            border-bottom: 3px solid darken(@colorGrayLight,12%);
+        }
+    }
+}
+
+.bootstrap-datetimepicker-widget .picker-switch td span {
+    transition:0.4s @easingDefault all;
+    height:2.7em;
+    &:hover {
+        background-color:lighten(@colorGrayLight,1%);
+        border-bottom: 3px solid darken(@colorGrayLight,2%);
+    }
+}
+
+.the-time-select {
+    transition:0.4s @easingDefault all;
+    height:2.7em;
+    background-color:lighten(@colorGrayLight,2%);
+    border-bottom: 3px solid darken(@colorGrayLight,3%);
+    i {
+        font-weight:500;
+        text-align:left;
+        font-size:16px;
+        text-transform:uppercase;
+        font-family: @fontDefault;
+        font-style:normal;
+        font-size:14px;
+        margin-left:10px;
+        display:inline-block;
+    }
+    &:hover {
+        background-color:lighten(@colorYellow,15%);
+    }
+}
+
+body .form-control {
+    width:100%;
+    padding:0;
+}
+
+body .form-group {
+    text-align:left;
+
+}
+
+.btn-toggle {
+    display:none;
+}
+
+.the-form {
+    .button {
+        border-radius:3px;
+        display:inline-block;
+        margin-top:15px;
+    }
+}
+
+.br-theme-fontawesome-stars .br-widget a.br-active:after, .br-theme-fontawesome-stars .br-widget a.br-selected:after {
+    color: @colorRed !important;
+}

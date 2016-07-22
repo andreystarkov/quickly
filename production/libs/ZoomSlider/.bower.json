@@ -1,0 +1,14 @@
+{
+  "name": "ZoomSlider",
+  "homepage": "https://github.com/andreystarkov/ZoomSlider",
+  "_release": "e83bb683ce",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e83bb683ce6673e64294c74a093b849994297418"
+  },
+  "_source": "https://github.com/andreystarkov/ZoomSlider.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/andreystarkov/ZoomSlider.git",
+  "_direct": true
+}

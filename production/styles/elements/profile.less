@@ -1,0 +1,338 @@
+.menu-box {
+    .btn {
+        font-size: 11px;
+        width: 100%;
+        margin-top:0;
+        margin-bottom:0;
+    }
+}
+.user-top {
+    vertical-align: middle;
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        display:inline-block;
+        background-position:center center;
+        background-size:40px 40px;
+        margin-left:10px;
+        border-radius:150px;
+        float:right;
+        overflow:hidden;
+    }
+    .user-name {
+        display:block;
+        height:20px;
+        font-weight:500;
+    }
+    .user-text {
+        height:40px;
+        display:inline-block;
+    }
+    .r-bonus {
+        font-size:12px;
+        b {
+            font-size:14px;
+            font-weight:500;
+            color:darken(@colorGreen,6%);
+        }
+        .fa {
+            font-size:13px;
+        }
+    }
+}
+
+@colorMenuBg: mix(#fff,@colorWhite,50%);
+@menuEasing: @easingSlowEnd;
+@menuHoverColor: @colorYellow;
+
+.auth-box {
+    z-index:9;
+    // padding:10px;
+    text-align:right;
+    height:40px;
+    position:absolute;
+    right:0;
+    top:-10px;
+    line-height:25px;
+    transition: all 0.3s @menuEasing;
+    .dropdown-nice {
+        transition: all 0.3s @menuEasing 0.3s;
+        max-width:300px;
+        .user-top {
+            transition: all 0.4s @menuEasing;
+            padding:15px;
+            transform-origin:top;
+        }
+        display:inline-block;
+        border-radius:5px;
+        .menu-box {
+            border-bottom: 3px solid fade(darken(@colorMenuBg,0%),0%);
+            transition:all 0.4s @menuEasing;
+            transform: scale(1,0);
+            visibility: hidden;
+            transform-origin: top center;
+
+           // background: @colorMenuBg;
+            a {
+                transition:all 0.25s @easingSlowMid;
+                display:block;
+                padding:5px 9px;
+                font-size:13px;
+                border-top:2px solid fade(@colorBlack,2%);
+                text-align:center;
+                &:nth-child(even){
+                    background:fade(@colorBlack,1%);
+                }
+                &:hover {
+                    background-color: mix(@colorOrange,@colorWhite,20%);
+                }
+            }
+        }
+    }
+    &:hover {
+        .dropdown-nice {
+            .user-top {
+                background-color: @colorMenuBg;
+                box-shadow: 0 -2px 10px fade(@colorBlack,6%);
+            }
+
+            .menu-box {
+                border-bottom: 3px solid darken(@colorMenuBg,10%);
+                background-color: @colorMenuBg;
+                transform: scale(1,1);
+                visibility: visible;
+                box-shadow: 0px 4px 6px fade(@colorBlack,12%);
+            }
+        }
+    }
+}
+
+section.user-profile {
+    .cards-editor {
+        margin-top:5px;
+        .group-title {
+            line-height: 1.07142857;
+            color: #5f5f5f;
+            font-weight: 400;
+            /* margin: 16px 0 0 0; */
+            font-size: 12px;
+        }
+    }
+    .control-label {
+        font-weight:400;
+    }
+    .radio-primary {
+        margin-top:3px;
+        margin-bottom:3px;
+        font-size:12px;
+    }
+    background: fade(#f4f2ed,80%);
+    padding-top:20px;
+    .btn-group {
+        margin-bottom:0px;
+    }
+    .avatar {
+        background-size:70%;
+        display:inline-block;
+        margin-top:0px;
+        background-color:#fff;
+        border-radius:100px;
+        background-position:center center;
+        background-repeat:no-repeat;t
+        border:4px solid darken(@colorGrayLight,5%);t
+        height:80px;
+        min-height:80px;
+        width:80px;
+        overflow:hidden;
+        img {
+            width:100%;
+        }
+    }
+
+    section.company-about .title * {
+        text-align:center;
+    }
+    .likes {
+        margin-top:15px;
+        a {
+            font-weight:400;
+            &.like-down {
+                i { color:red; text-shadow:0 0 2px fade(mix(red,#111,50%),70%); }
+                margin-right:8px;
+            }
+            &.like-up {
+                i { color:green; text-shadow:0 0 2px fade(mix(green,#111,50%),70%);  }
+                margin-left:8px;
+
+            }
+        }
+    }
+
+    .the-info {
+        padding-top:5px;
+    }
+    .title {
+        display:block;
+        text-align:center;
+        h2 {
+            font-weight:300;
+            font-family:@fontDefault;
+            font-size:16px;
+            margin-top:5px;
+            margin-bottom:0px;
+        }
+        span {
+            font-size:12px;
+            font-weight:200;
+            font-family:@fontDefault;
+
+        }
+        margin-bottom:7px;
+    }
+
+    // food categories
+
+    .line {
+        padding-top:10px;
+        padding-bottom:10px;
+        overflow:hidden;
+    }
+
+
+    .form-group {
+        max-height:50px;
+        margin-bottom:0;
+        input {
+            font-size:15px;
+            text-align:left;
+            padding-left:5px;
+            font-size:15px;
+            color:#000;
+            font-weight:300;
+        }
+    }
+
+    .types {
+        .icon {
+            margin-right:20px;
+        }
+        .food {
+            font-weight:300;
+            padding:6px 25px;
+            font-size:0.9em;
+            transition:0.4s linear all;
+            background:fade(#fff,35%);
+            border-radius:3px;
+            border-bottom: 2px solid darken(@colorGrayLight,2%);
+            &:hover {
+                background: lighten(@colorGrayLight,8%);
+                border-bottom: 2px solid darken(@colorGrayLight,12%);
+            }
+        }
+    }
+
+    .button.button-plus {
+        background:fade(#fff,50%);
+        border-bottom:2px solid darken(#f4f2ed,1%);
+        span {
+            line-height:40px;
+            font-weight:200;
+        }
+        .icon {
+            float:none;
+            margin-right:8px;
+        }
+    }
+
+    .delivery {
+        padding-bottom:0;
+        .icon {
+            float:left;
+            line-height:40px;
+            margin-right:5px;
+            color:fade(@colorBlack,70%);
+        }
+        .types {
+
+        }
+        .box {
+            border-radius:3px;
+            float:left;
+            margin-left:0px;
+            margin-right:20px;
+            span {
+                display:inline-block;
+                font-size:11px;
+            }
+            p {
+                font-size:14px;
+                line-height:14px;
+            }
+            &.min {
+
+            }
+            &.pay {
+                span {
+                    padding-top:8px;
+                    line-height:12px;
+                }
+            }
+            .cards {
+                margin-top:8px;
+                float: left;
+                margin-right:5px;
+            }
+            .card-icon {
+                background:transparent;
+                display:inline-block;
+                float:left;
+            }
+
+        }
+
+    }
+
+    // bottom buttons line
+
+    .buttons-line {
+        padding-bottom:0px;
+        padding-top:0px;
+
+        .buttons-tabs {
+            .button {
+                &.active {
+                    .count {
+                        transform:scale(1);
+                        opacity:1;
+                        visibility: visible;
+                    }
+                }
+                .count {
+                    visibility: hidden;
+                    opacity:0;
+                    transform:scale(0);
+                }
+                padding-left:30px;
+                padding-right:30px;
+
+                span {
+                    font-size:1em;
+                    font-weight:400;
+                }
+                &:active {
+                    border-left:0px;
+                    border-right:0px;
+                }
+                &.active {
+                    border-right:0px;
+                    border-left:0px;
+                    background: lighten(@colorGrayLight,15%);
+                    border-bottom-color: darken(@colorGrayLight,12%);
+                }
+            }
+        }
+        .buttons-reserv {
+            text-align:center;
+        }
+    }
+}

@@ -1,0 +1,314 @@
+@keyframes rotating {
+  from {;
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotating 1s linear infinite;
+}
+
+.history-item {
+    transition: all 0.4s cubic-bezier(.55,.33,.27,.74);
+    padding-top:25px;
+    padding-bottom:15px;
+    border-bottom:5px solid fade(@colorBlack,3%);
+    transform-origin:top center;
+    transform-style:preserve-3d;
+    .thumb-tiny {
+
+        display:block;
+    }
+    &:nth-child(even){
+        background: fade(@colorBlack,3%);
+    }
+    &:nth-child(odd){
+        background: fade(@colorBlack,1%);
+    }
+
+    .thumb-round {
+        margin-top:10px;
+    }
+
+    .button-history-repeat {
+        i {
+            font-weight:500;
+            transform-origin: center center;
+            display:inline-block;
+            margin-right:10px;
+            margin-left:0px;
+            transition: 0.4s ease-in-out all;
+        }
+        &:hover {
+            i {
+                 animation: rotating 1s linear infinite;
+            }
+        }
+    }
+    .sum-total *, .total .sum-total span, .sum-bonus span {
+        font-size:18px;
+        font-weight:500;
+    }
+    .table-num {
+        font-weight:400;
+        b {
+            font-weight:600;
+        }
+    }
+    .hall {
+        font-size:12px;
+        font-weight:300;
+    }
+
+    .reservation-date {
+        font-weight:200;
+        font-size:12px;
+    }
+    .actions {
+        .title {
+        text-align:left;
+        font-weight:200;
+        }
+        .button {
+            font-weight:400;
+        }
+    }
+    .bonus .total-title {
+        font-size:14px;
+        font-weight:300;
+    }
+    .date-time {
+        position: absolute;
+        left: 45px;
+        top: 0px;
+        padding-top: 5px;
+        font-size: 9px;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+        padding: 5px;
+        background: fade(#fff,60%);
+    }
+        .thumb-tiny {
+            margin-top:5px;
+        }
+    &:hover {
+        background: mix(@colorMainBackground, #fff, 25%);
+        border-bottom:5px solid fade(@colorBlack,13%);
+        transform:rotateX(7deg) perspective(250px);
+        .button {
+            background:@colorYellow;
+            border-bottom: 2px solid darken(@colorYellow,12%);
+        }
+
+        .thumb-round {
+            transform:scale(1.04);
+            border: 4px solid fade(@colorBlack,36%);
+        }
+    }
+}
+
+.icon-reservation {
+    text-align: center;
+    /* padding: 13px 3px; */
+    height: 35px;
+    border-radius: 40px;
+    background: rgba(255,255,255,0.8);
+    width: 35px;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 18px;
+}
+
+
+.hover-rotate {
+    transition: all 0.4s cubic-bezier(.55,.33,.27,.74);
+    transform-origin:top center;
+    transform-style:preserve-3d;
+    &:hover {
+        background: mix(@colorMainBackground, #fff, 25%);
+        // border-bottom:5px solid fade(@colorBlack,13%);
+       // transform:rotateX(5deg) perspective(250px);
+/*        .button {
+            background:@colorYellow;
+            border-bottom: 2px solid darken(@colorYellow,12%);
+        }*/
+        .thumb-tiny {
+            opacity:1;
+        }
+        .thumb-round {
+            transform:scale(1.04);
+            border: 4px solid fade(@colorBlack,36%);
+        }
+    }
+}
+
+.thumb-round {
+    display:inline-block;
+    vertical-align: middle;
+    text-align:center;
+    backface-visibility: visible;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 100px;
+    transition: all 0.6s @easingSlowMid;
+    height: 65px;
+    transform-origin:bottom;
+    width: 65px;
+    border: 4px solid fade(@colorBlack,10%);
+    overflow: hidden;
+    img {
+        width:100%;
+        min-height:100%;
+    }
+}
+
+.float-left {
+    display:inline-block;
+    float:left;
+}
+
+.margin-right {
+    margin-right:10px;
+}
+
+.actions {
+    span.title {
+        display:block;
+        font-size:13px;
+        font-weight:300;
+        margin-bottom:3px;
+    }
+}
+
+.button-history-repeat {
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.social-share {
+    a {
+        display:inline-block;
+        &+a {
+            margin-left:3px;
+            margin-right:3px;
+        }
+        &:hover {
+            i {
+                color:@colorBlack;
+            }
+        }
+        i {
+            transition:0.4s @easingDefault all;
+            font-size:22px;
+            color:fade(@colorBlack,50%);
+        }
+    }
+}
+
+.thumb-tiny {
+    display: inline-block;
+    background-color: #fff;
+    position:relative;
+    border-radius: 100px;
+    height: 35px;
+    width: 35px;
+    line-height:35px;
+    overflow: hidden;
+    text-align:center;
+    &.table-number {
+        background-color:@colorWhite;
+        border-bottom:3px solid darken(@colorWhite,6%);
+        font-weight:400;
+    }
+    img {
+        height:100%;
+    }
+}
+
+.history-items {
+    overflow:hidden;
+    .item {
+        &.comment-item {
+            padding-bottom:10px;
+            width:100%;
+            display:block;
+            float:none;
+            .text {
+                b {
+                    font-size:14px;
+                    line-height:20px;
+                    font-weight:400;
+                    display:block;
+                    margin-bottom:6px;
+                }
+                p, span {
+                    font-size: 12px;
+                    font-weight:300;
+                }
+            }
+        }
+        clear:left;
+        overflow:hidden;
+        width:220px;
+        margin-right:5px;
+        min-height:65px;
+        vertical-align: middle;
+        display:inline-block;
+        .text {
+            padding-left:0px;
+            b {
+                font-family:@fontDefault;
+                display:inline-block;
+                font-weight:300;
+                line-height:16px;
+                font-size:13px;
+            }
+            .price {
+                display:block;
+                .count {
+                    font-size:11px;
+                }
+            }
+        }
+    }
+}
+
+.order-history, .the-history {
+    .total {
+        span {
+            font-size:13px;
+            font-weight:300;
+        }
+        b {
+            display:block;
+            font-size:20px;
+            font-weight:400;
+        }
+    }
+    .sum-bonus, .sum-total {
+        font-size:20px;
+    }
+    .bonus {
+        margin-top:10px;
+
+        b {
+            display:block;
+            font-size:20px;
+            color:darken(@colorGreen,8%);
+            font-weight:400;
+        }
+    }
+}
+
+.box-company {
+    text-align:center;
+    .title {
+        margin-top:10px;
+        display:inline-block;
+        font-weight:300;
+        font-family:@fontDefault;
+    }
+}
